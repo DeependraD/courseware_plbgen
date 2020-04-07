@@ -15,13 +15,14 @@ link-citations: yes
 description: "This manual is meant to be distributed as a practical guide to assist course of Introductory plant breeding."
 ---
 
-# Introduction
-
-Introductory plant breeding practical manual is intended for B.Sc.Ag, 4th semester's course in Introductory plant breeding, although a wider readership (field researchers, lecturers, lab researcher and commercial practitioners) may benefit from it. Meanwhile the manually is continually evolving.
-
 ```{r include=FALSE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
 ), 'packages.bib')
+require(tidyverse)
 ```
+
+# Introduction
+
+Introductory plant breeding practical manual is intended for B.Sc.Ag, 4th semester's course in Introductory plant breeding, although a wider readership (field researchers, lecturers, lab researcher and commercial practitioners) may benefit from it. Meanwhile the manually is continually evolving.
