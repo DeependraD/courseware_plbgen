@@ -1,0 +1,69 @@
+---
+title: "Fermentation technology"
+author: "Deependra Dhakal"
+date: "`r Sys.Date()`"
+output: 
+  tint::tintPdf:
+    keep_tex: true
+tables: yes
+bibliography: [skeleton.bib, bibliographies.bib]
+link-citations: yes
+header-includes:
+  - \usepackage{booktabs}
+  - \usepackage{longtable}
+  - \usepackage{array}
+  - \usepackage{multirow}
+  - \usepackage{wrapfig}
+  - \usepackage{float}
+  - \usepackage{colortbl}
+  - \usepackage{pdflscape}
+  - \usepackage{tabu}
+  - \usepackage{threeparttable}
+  - \usepackage{threeparttablex}
+  - \usepackage[normalem]{ulem}
+  - \usepackage{makecell}
+  - \usepackage{xcolor}
+---
+
+```{r setup, include=FALSE}
+library(tint)
+library(knitr)
+require(tidyverse)
+# require(plantbreeding)
+set.seed(453)
+# invalidate cache when the package version changes
+knitr::opts_chunk$set(tidy = FALSE, echo = FALSE, 
+                      cache.extra = packageVersion('tint'), 
+                      message = FALSE, warning = FALSE)
+options(htmltools.dir.version = FALSE) 
+options(knitr.table.format = "latex")
+options(knitr.kable.NA = "", digits = 2)
+options(kableExtra.latex.load_packages = FALSE)
+```
+
+\clearpage
+
+# Fermentation
+
+Decomposition of foodstuffs generally accompanied by the evolution of gas. The best-known example is alcoholic fermentation, in which sugar is converted into alcohol and carbon dioxide. This conversion, described by the equation below, was established by J. L. Gay-Lussac in 1815.
+
+$$
+\begin{aligned}
+&C_6 H_{12} O_6 &\rightarrow &2CO_2 + &2C_2H_5OH \\
+&\textrm{Sugar} &&\textrm{Carbon dioxide} &\textrm{Alcohol}
+\end{aligned}
+$$
+
+Before 1800 the association of yeast or leaven with fermentation had been noted, but the nature of these agents was not understood. Experiments of C. Cagniard-Latour, of F. T. Kutzing, and of T Schwann in 1837 indicated that yeast is a living organism and is the cause of fermentation. This view was opposed by such leading chemists as J. von Liebig and F. Wohler, who sought a chemical rather than a biological explanation of the process. The biological concept became generally accepted following the work of Louis Pasteur, who concluded that fermentation is a physiological counterpart of oxidation, and permits organisms to live and grow in the absence of air (anaerobically). This linked fermentation and putrefaction as comparable processes; both represent decompositions of organic matter brought about by microorganisms in the absence of air. The difference is determined by the nature of the decomposable material; sugary substances generally yield products with pleasant odor and taste (fermentation), whereas proteins give rise to evil-smelling products (putrefaction). 
+
+Pasteur also discovered the lactic acid and butyric acid fermentations, and from his experiments concluded that each kind of fermentation was caused by a specific microbe. Later work supported this idea to a large extent, and considerably increased the number of specific fermentations.
+
+During fermentation organic matter is decomposed in the absence of air (oxygen); hence, there is always an accumulation of reduction products, or incomplete oxidation products. Some of these products (for example, alcohol and lactic acid) are of importance to society, and fermentation has therefore been used for their manufacture on an industrial scale. With regard to historic roots of the process, Converting dry grains and other seeds into something more appetizing than a gruel must have made agriculture more attractive and valuable. Alcohol, despite its dangers, provided (and still provides), in reasonable moderation, a basis for social interaction. There are also many microbiological processes that go on in the presence of air while yielding incomplete oxidation products. Good examples are the formation of acetic acid (vinegar) from alcohol by vinegar bacteria, and of citric acid from ugar by certain molds (for example, _Aspergillus niger_). These microbial processes, too, have gained industrial importance, and are often referred to as fermentations, even though they do not conform to Pasteur’s concept of fermentation as a decomposition in the absence of air.
+
+
+```{r milk-fermentation-steps, echo=FALSE, fig.margin = TRUE, fig.cap="Basic steps in manufacture of fermented milks. From International Dairy Federation (1988) Fermented Milks-Science and Technology. International Dairy Federation Bulletin No. 227.", fig.width=6, out.width="80%"}
+pdftools::pdf_convert("/media/deependra/e4da4ac5-3b38-4b89-9402-397eb940e4d3/Addition/Food Technology/Food Encyclopedia/Food Science, Food Technology and Nutrition.pdf", pages = 2375, format = "png", dpi = 250, filenames = "./images/milk_fermentation.png")
+knitr::include_graphics("./images/milk_fermentation.png")
+```
+
+

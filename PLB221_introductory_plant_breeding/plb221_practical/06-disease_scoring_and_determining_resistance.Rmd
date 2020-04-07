@@ -1,0 +1,7 @@
+# Disease scoring and determining resistance and susceptibility to pests {#practical-6}
+
+Diseases are bad!
+
+## Resistance and susceptibility
+
+## Disease scoring

@@ -1,0 +1,164 @@
+---
+title: "Resistance breeding"
+subtitle: "Theory and solved numerical problems"
+author: "Deependra Dhakal"
+date: "`r Sys.Date()`"
+output: tint::tintBook
+bibliography: skeleton.bib
+link-citations: yes
+header-includes:
+  - \usepackage{booktabs}
+  - \usepackage{longtable}
+  - \usepackage{array}
+  - \usepackage{multirow}
+  - \usepackage{wrapfig}
+  - \usepackage{float}
+  - \usepackage{colortbl}
+  - \usepackage{pdflscape}
+  - \usepackage{tabu}
+  - \usepackage{threeparttable}
+  - \usepackage{threeparttablex}
+  - \usepackage[normalem]{ulem}
+  - \usepackage{makecell}
+  - \usepackage{xcolor}
+---
+
+```{r setup, include=FALSE}
+library(tint)
+library(knitr)
+require(tidyverse)
+# invalidate cache when the package version changes
+knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('tint'))
+options(htmltools.dir.version = FALSE, 
+        knitr.table.format = "latex",
+        kableExtra.latex.load_packages = FALSE)
+```
+
+\clearpage
+
+## Gene for gene resistance
+
+- Host resistance is conditioned by dominant allele, R
+- In the pathogen, virulence is conditioned by recessive allele, a
+- Resistance reaction occurs when complementary genes in both host and pathogen are dominant
+- A host genotype that carries no dominant alleles at any locus is susceptible for all the races of pathogen (even if pathogen is avirulent)
+- Avirulent ("A") allele is dominant over virulent ("a") allele and resistant allele "R" is dominant over susceptible allele "r".
+- Compatibility depends on the genotype of the host and the genotype of the pathogen ("-" indicates incompatible and "+" indicates compatible reaction types)
+
+
+$$
+\begin{aligned}
+&Host~genotype & Pathogen~genotype \\
+& & A & a \\
+& R & - & + \\
+& r & + & + 
+\end{aligned}
+$$
+
+## Multigenic resistance
+
+The host and pathogen genotypes are given below. Similarly, incompatible (-) and compatible reaction types are also given. With the help of this information, which host is the most resistant and which one is the least? Give your logical explanation.
+
+
+```{r host-pathogen-reaction, echo=FALSE, warning=FALSE}
+host_c <- crossing(first = c("R1", "r1"), second = c("R2", "r2"), third = c("R3", "r3")) %>% 
+  unite(col = "Host genotype", sep = "")
+
+host_path <- host_c %>% 
+  mutate(A1A2a3 = case_when(
+    str_detect("A1A2a3", pattern = "[A][12]") & 
+      str_detect(`Host genotype`, pattern = "[R][12]") ~ "-",
+    TRUE ~ "+"
+  ), a1A2a3 = case_when(
+    str_detect("a1A2a3", pattern = "[A][2]") & 
+      str_detect(`Host genotype`, pattern = "[R][2]") ~ "-",
+    TRUE ~ "+"
+  ), A1a2A3 = case_when(
+    str_detect("A1a2A3", pattern = "[A][13]") & 
+      str_detect(`Host genotype`, pattern = "[R][13]") ~ "-",
+    TRUE ~ "+"
+  ), a1a2A3 = case_when(
+    str_detect("a1a2A3", pattern = "[A][3]") & 
+      str_detect(`Host genotype`, pattern = "[R][3]") ~ "-",
+    TRUE ~ "+"
+  ), A1A2A3 = case_when(
+    str_detect("A1A2A3", pattern = "[A][123]") & 
+      str_detect(`Host genotype`, pattern = "[R][123]") ~ "-",
+    TRUE ~ "+"
+  ), a1A2A3 = case_when(
+    str_detect("a1A2A3", pattern = "[A][23]") & 
+      str_detect(`Host genotype`, pattern = "[R][23]") ~ "-",
+    TRUE ~ "+"
+  ), A1a2a3 = case_when(
+    str_detect("A1a2a3", pattern = "[A][1]") & 
+      str_detect(`Host genotype`, pattern = "[R][1]") ~ "-",
+    TRUE ~ "+"
+  ), a1a2a3 = case_when(
+    str_detect("a1a2a3", pattern = "[A]") & 
+      str_detect(`Host genotype`, pattern = "[R]") ~ "-",
+    TRUE ~ "+"
+  )
+  )
+
+host_path %>% 
+  knitr::kable(booktabs = TRUE) %>% 
+  kableExtra::add_header_above(c(" " = 1, "Pathogen genotype" = 8))
+```
+
+### Notes
+
+- In multigenic systems, presence of only single resistance gene is sufficient to confer incompatibility reaction (previously annotated as "-"), and hence the resistance. But the durability might be compromised due to monogenic resistance.
+
+## Terminologies
+
+1. Resistance: Capacity of a plant to reduce the growth, development and reproduction of the natural enemy
+
+1. Susceptibility: Incapacity of a plant to reduce the growth, development and reproduction of the natural enemy
+
+1. Tolerance: It neither restricts parasitic contact nor the growth and development of the parasite after establishment. As a consequence, it does not affect the amount of damage/symptoms per unit quantity of parasite present.
+
+1. Sensitivity: Character of the host plant to develop relatively severe symptoms or severe damage per unit quantity of the natural enemy.
+
+$$
+Sensitivity = \frac{\frac{Yield~without~pathogen - Yield~with~pathogen}{Yield~without~pathogen}}{Concentration~of~the~pathogen}
+$$
+
+On the basis of following table, answer the following questions:
+
+
+```{r resistance-tolerance, echo=FALSE, warning=FALSE}
+res_breed <- tribble(~"Cultivar", ~"Virus concentration", ~"Yellowing", ~"Yield with virus", ~"Yield without virus",
+        "A", 100, 8, 80, 90,
+        "B", 60, 0, 97, 100,
+        "C", 50, 0, 90, 70)
+res_breed %>% 
+  knitr::kable(booktabs = TRUE)
+```
+
+a. Which cultivar is the most susceptible and why?
+b. Which cultivar is the most resistant and why?
+c. Which cultivar is the most tolerant and why?
+d. Which cultivar is the most sensitive and why?
+
+### Answers
+
+a. Cultivar C is most resistant because it has likely permitted least development of pathogen (as seen from the lowest concentration of virus).
+
+b. Cultivar A is most susceptible as it has allowed maximum multiplication of pathogen. i.e with highest virus concentration.
+
+c. Based on the relationship we have for sensitiviy index,
+
+$$
+\begin{aligned}
+Sensitivity &= \frac{\frac{Yield~without~pathogen - Yield~with~pathogen}{Yield~without~pathogen}}{Concentration~of~the~pathogen} \\
+Sensitivity(Cultivar~ A) &= \frac{\frac{90 - 80}{90}}{100} = 0.0011 \\
+Sensitivity(Cultivar~ B) &= \frac{\frac{100 - 97}{100}}{60} = 0.000 \\
+Sensitivity(Cultivar~ C) &= \frac{\frac{70 - 90}{70}}{50} = -0.006
+\end{aligned}
+$$
+
+Cultivar B has the least sensitivity index (or highest tolerance). Despite a significant load of pathogen concentration, it shows relatively feeble reduction in yield.
+
+d. Based on the index calculated above, Cultivar A is the most sensitive. Despite a lesser concentration of virus, it shows greater reduction in yield.
+
+Note that cultivar C has negative sensitivity value. This is probably because other factors other than the recorded data have affected the yield performance.

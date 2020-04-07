@@ -1,0 +1,127 @@
+---
+title: "Gene cloning and Recombinant DNA technology"
+author: "Deependra Dhakal"
+date: "`r Sys.Date()`"
+output: 
+  tint::tintPdf:
+    keep_tex: true
+tables: yes
+bibliography: [skeleton.bib, bibliographies.bib]
+link-citations: yes
+header-includes:
+  - \usepackage{booktabs}
+  - \usepackage{longtable}
+  - \usepackage{array}
+  - \usepackage{multirow}
+  - \usepackage{wrapfig}
+  - \usepackage{float}
+  - \usepackage{colortbl}
+  - \usepackage{pdflscape}
+  - \usepackage{tabu}
+  - \usepackage{threeparttable}
+  - \usepackage{threeparttablex}
+  - \usepackage[normalem]{ulem}
+  - \usepackage{makecell}
+  - \usepackage{xcolor}
+---
+
+```{r setup, include=FALSE}
+library(tint)
+library(knitr)
+require(tidyverse)
+# require(plantbreeding)
+set.seed(453)
+# invalidate cache when the package version changes
+knitr::opts_chunk$set(tidy = FALSE, echo = FALSE, 
+                      cache.extra = packageVersion('tint'), 
+                      message = FALSE, warning = FALSE, fig.width = 6)
+options(htmltools.dir.version = FALSE) 
+options(knitr.table.format = "latex")
+options(knitr.kable.NA = "", digits = 2)
+options(kableExtra.latex.load_packages = FALSE)
+```
+
+\clearpage
+
+# Recombinant DNA technology
+
+In 1972, two researchers met at a conference in Hawaii to discuss plasmids, the small rings of extrachromosomal DNA found in bacteria. Herbert W. Boyer, PhD, was a faculty member at the University of California, San Diego, and he was studying restriction and modification enzymes. He had just presented his research on EcoRI. Stanley N. Cohen, MD, was a faculty member at Stanford, and he was interested in how plasmids could confer resistance to different antibiotics. His lab perfected laboratory transformation of Escherichia coli using calcium chloride to permeabilize the cells. After the talks ended, the two met over corned beef sandwiches and combined their two ideas. 
+
+```{r nucleic-acid, fig.cap=c("DNA has two strands antiparallel to each other. The structure of the subcomponents is shown to the sides.", "RNA is usually single-stranded and has two chemical differences from DNA. First, an extra hydroxyl group (-OH) is found at the 2 prime position of ribose, and second, thymine is replaced by uracil."), fig.fullwidth = TRUE, out.width="70%"}
+# pdftools::pdf_convert("./../literatures/biotechnology/Biotechnology 2nd ed - David P. Clark, Nanette J. Pazdernik (AP, 2016).pdf", pages = 14, dpi = 250, format = "png", filenames = "./images/dna_structure.png")
+
+knitr::include_graphics("./images/dna_structure_a.png")
+knitr::include_graphics("./images/dna_structure_b.png")
+```
+
+They isolated different fragments of DNA from animals, other bacteria, and viruses and, using restriction enzymes, ligated the fragments into a small plasmid from E. coli. This was the first recombinant DNA made. Finally, they transformed the engineered plasmid back into E. coli. The cells expressed the normal plasmid genes as well as those inserted into the plasmid artificially. This sparked the revolution in genetic engineering, and since then every biotechnology lab has used some variation of their technique. Boyer and Cohen applied for a patent on recombinant DNA technology. In fact, Boyer cofounded Genentech with Robert Swanson, a venture capitalist. Genentech is one of the first biotechnology companies in the United States, and under Boyer and Swanson, the company produced human somatostatin in E. coli.
+
+## DNA Isolation and Purification
+
+Isolating DNA from different organism is the basic to all biotechnology research. Bacteria, having little structure beyond the cell wall and cell membrane, are the easiest to manipulate.
+
+Considering two distinct forms of DNA: The nuclear/genomic DNA and the plasmid DNA, distinction between these two is made based on their sizes. Following steps are necessary to release the DNA from a cell:
+
+1. Destruction of cell membrane. (Lysozyme digestion of peptidoglycan in bacteria)
+2. Bursting of cell membrane by destruction of lipid bilayer (by detergent such as sodium dodecyl sulfate (SDS)). In plants and animals, tissue samples are generally ground up to release the intracellular components.
+3. Separation of intracellular components from the insoluble remains (cellular membranes, bones, cartilage, etc.) by either centrifugation or chemical extraction.
+4. Extraction of unwanted proteins from DNA with phenol (Dissolves 60%-70% of all living matter). 
+
+Two phases are formed, one that of proteins dissolved in phenol and the other of nucleic acids in the aqueous layer. The two phases are separated by centrifugation, and the aqueous DNA layer is removed form the phenol.
+
+The sample still contains RNA along with the DNA. The enzyme rbonuclease (RNase) digests RNA into small ribonucleotide fragments. Treating this solution with alcohol leaves extremely large DNA fall out of the aqueous phase, while ribonucleotides stay soluble, thus favoring centrifugation extraction of DNA.
+
+## Electrophoresis separates DNA fragments by size
+
+Gel electrophoresis is used to separate DNA fragments by size. The gel consists of agarose, a polysaccharide extracted from seaweed that behaves like gelatin. Agarose is available in powdered form commercially.
+
+For visualizing DNA agarose gel is solidified, after subsequent cooling once the powder-water mixture is heated, into a rectangular slab about 1/4 inch thick by casting the molten liquid into a special tray. To make small wells or holes  at one end of the gel, comb is inserted before the gel hardens.
+
+Gel electrophoresis uses electric current to separate DNA molecules by size. The agarose slab is immersed in a buffer-filled tank that has a positive electrode at one end and a negative electrode at the other. DNA samples are loaded into the wells, and when an electrical field is applied, the DNA migrates through the gel. The phosphate backbone of DNA is negatively charged, so it moves away from the negative electrode and toward the positive electrode. Polymerized agarose acts as a sieve with small holes between the tangled chains of agarose. The DNA must migrate through these gaps. Agarose separates the DNA by size because larger pieces of DNA are slowed down more by the agarose.
+
+To visualize the DNA, the agarose gel is removed from the tank and immersed into a solution of ethidium bromide. This dye intercalates between the bases of DNA or RNA, although less dye binds to RNA because it is single-stranded. When the gel is exposed to ultraviolet light, it fluoresces bright orange. Since ethidium bromide is a mutagen and carcinogen, less dangerous DNA dyes such as SYBR Safe (R) are used in most laboratories now. In Figure \ref{fig:gel-electrophoresis}, the DNA fragments are visualized by a positively charged dye from the thiazin family. The dye interacts with the negatively charged backbone of the DNA and is a nontoxic alternative that does not require ultraviolet light sources.
+
+Important point to note is that, size of DNA being examined affects what type of gel is used. Size of DNA molecules can be determined by comparing to a set of molecular weight standards run in a different well. Because the standards are of known size, the experimental DNA fragment can be compared directly.
+
+In agarose gel, DNA fragments from 200 to 10000 bp can be separated. For DNA fragments of 50-1000 bp differences, polyacrylamide gels are used instead. These gels are able to resolve DNA fragments by only one base pair and are essential to sequencing of DNA with Sanger method. For very large fragments (10 kbp to 10 mbp), agarose gel is used, but the current is alternated at two different angles.
+
+```{r gel-electrophoresis, fig.cap=c("(A) Photo of electrophoresis supplies. Electrophoresis chamber holds an agarose gel in the center portion, and the rest of the tank is filled with buffer solution. The red and black leads are then attached to an electrical source. FisherBiotech Horizontal Electrophoresis Systems, Midigel System; Standard; 13 $\\times$ 16-cm gel size; 800 mL buffer volume; Model No. FB-SB-1316. (B) Agarose gel separation of DNA. The size of the fragments can be calculated by comparing them to the standard DNA marker in lane 1. The brighter bands in the marker are 1000 base pairs and 500 base pairs, with the 1000 base-pair marker closer to the wells (marked with numbers 1–8)."), fig.fullwidth = FALSE, out.width="95%"}
+# pdftools::pdf_convert("./../literatures/biotechnology/Biotechnology 2nd ed - David P. Clark, Nanette J. Pazdernik (AP, 2016).pdf", pages = 72, dpi = 250, format = "png", filenames = "./images/electrophoresis.png")
+
+knitr::include_graphics("./images/electrophoresis.png")
+```
+
+`r margin_note("Fragments of DNA are separated by size using gel electrophoresis. A current causes the DNA fragments to move away from the negative electrode and toward the positive. As the DNA travels through agarose, the larger fragments get stuck in the gel pores more than the smaller DNA fragments.\n Pulsed field gel electrophoresis separates large pieces of DNA by alternating the electric current at right angles.")`
+
+## Restriction enzymes cut DNA; Ligase joins DNA
+
+In practice entire set of nuclear DNA is not of particular interest in visualization, after isolation and separation. DNA should be cut to fragments of different sizes. Naturally occuring *restriction enzymes* or *restriction endonucleases* come into rescue in this operation. These bacterial enzymes bind to specific recognition sites on DNA and cut the backbone of both strands. They evolved to protect bacteria from foreign DNA, such as viruses. The enzymes do not cut their own cell's DNA because they are *methylation* sensitive. Bacteria produce *modification enzymes* that recognize the same sequence as the corresponding restriction enzyme. These methylate each recognition site in the bacterial genome.
+
+```{r restriction-enzymes, fig.cap=c("\\textbf{Type II Restriction Enzymes -- Blunt versus Sticky ends} \\newline \\textit{Hpal} is a bunt-end restriction enzyme; that is, it cuts both strands of DNA in exactly the same position. \textit{EcoR}I is a sticky-end restriction enzyme. The enzyme cuts between the G and A on both strands, which generates four base-pair overhangs on the ends of the DNA. Since these ends may base pair with complementary sequences, they are considered 'sticky'."), fig.margin = TRUE, out.width="95%"}
+# pdftools::pdf_convert("./../literatures/biotechnology/Biotechnology 2nd ed - David P. Clark, Nanette J. Pazdernik (AP, 2016).pdf", pages = 73, dpi = 250, format = "png", filenames = "./images/restriction_enzymes.png")
+
+knitr::include_graphics("./images/restriction_enzymes.png")
+```
+
+Restriction enzymes have been exploited to cut DNA at specific sites, since each restriction enzyme has a particular recognition sequence. Difference in cleavage site determine the type of restriction enzyme.
+
+- Type I restriction enzymes cut the DNA strand 1000 or more base pairs from the recognition sequence. 
+- Type II restriction enzymes cut in the middle of the recognition sequence and are the most useful in genetic engineering. The Type II restriction enzymes can form *both* sticky or *blunt* ends.
+
+The recognition sequences of Type II restriction enzymes are usually inverted repeats so that the enzymes cut between the same bases on the both strands.
+
+```{r restriction-enzymes-ex, fig.cap=c("Common restriction enzymes"), fig.fullwidth = FALSE, out.width="90%"}
+# pdftools::pdf_convert("./../literatures/biotechnology/Biotechnology 2nd ed - David P. Clark, Nanette J. Pazdernik (AP, 2016).pdf", pages = 74, dpi = 250, format = "png", filenames = "./images/restriction_enzymes_ex.png")
+
+knitr::include_graphics("./images/restriction_enzymes_ex.png")
+```
+
+The number of base pairs in the recognition sequence determines the likelihood of cutting. So to generate fewer, longer fragments, restriction enzymes with siz or more base-pair recognition sequences are used. Conversely, four base-pair enzymes give more, shorter fragments from the same original segment of DNA.
+
+```{r restriction-ligation, fig.cap=c("\\textbf{Compatible overhangs are linked using DNA Ligase}\\newline BamHI and Bgl Il generate the same overhanging or sticky ends: a $3^\\prime$-CTAG-$5^\\prime$ overhang plus a $5^\\prime$-GATC-$3^\\prime$ overhang. These are complementary and base pair by hydrogen bonding. The breaks in the DNA backbones are sealed by T4 DNA ligase, which hydrolyzes ATP to energize the reaction."), fig.margin = TRUE, out.width="95%"}
+# pdftools::pdf_convert("./../literatures/biotechnology/Biotechnology 2nd ed - David P. Clark, Nanette J. Pazdernik (AP, 2016).pdf", pages = 76, dpi = 250, format = "png", filenames = "./images/restriction_ligation.png")
+
+knitr::include_graphics("./images/restriction_ligation.png")
+```
+
+When two different DNA samples are cut with the same sticky-end restriction enzyme, all the fragments will have identical overhangs. This allows DNA fragments from two sources (e.g., two different organisms) to be linked together (Figure \ref{fig:restriction-ligation}). Fragments are linked or ligated using DNA ligase, the same enzyme that ligates the Okazaki fragments during replication.

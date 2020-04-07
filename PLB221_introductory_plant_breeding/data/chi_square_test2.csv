@@ -1,0 +1,7 @@
+  ,Tall,Short,Subtotals
+Observed,30,20,50
+Expected,$\frac{1}{2}\times 50 = 25$,$\frac{1}{2}\times 50 = 25$,50
+Observed - Expected,5,-5,
+$|Observed-Expected|-\frac{1}{2}$,4.5,-4.5,
+$\left (|Observed-Expected|-\frac{1}{2}\right)^2$,20.5,20.5,
+$\left (|Observed-Expected|-\frac{1}{2}\right)^2/expected$,$\frac{20.5}{25} = 0.81$,$\frac{20.5}{25} = 0.81$,$\chi^2 = 0.81 + 0.81 = 1.62$

@@ -1,0 +1,905 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[ignorenonframetext,aspectratio=169]{beamer}
+\usepackage{pgfpages}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+% Prevent slide breaks in the middle of a paragraph:
+\widowpenalties 1 10000
+\raggedbottom
+\setbeamertemplate{part page}{
+\centering
+\begin{beamercolorbox}[sep=16pt,center]{part title}
+  \usebeamerfont{part title}\insertpart\par
+\end{beamercolorbox}
+}
+\setbeamertemplate{section page}{
+\centering
+\begin{beamercolorbox}[sep=12pt,center]{part title}
+  \usebeamerfont{section title}\insertsection\par
+\end{beamercolorbox}
+}
+\setbeamertemplate{subsection page}{
+\centering
+\begin{beamercolorbox}[sep=8pt,center]{part title}
+  \usebeamerfont{subsection title}\insertsubsection\par
+\end{beamercolorbox}
+}
+\AtBeginPart{
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \frame{\subsectionpage}
+}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+\usetheme[]{Frankfurt}
+\usecolortheme{beaver}
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{hyperref}
+\hypersetup{
+            pdftitle={Tissue culture techniques},
+            pdfauthor={Deependra Dhakal},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\newif\ifbibliography
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+% % set background image if you will
+% \usebackgroundtemplate%
+% {%
+%     \includegraphics[width=\paperwidth,height=\paperheight]{02-dna_modification_background_dna_helix.jpg}%
+% }
+
+% % set caption font size
+% % note that beamer presentation native captions have their own configs
+% \usepackage{caption}
+% \captionsetup{font=footnotesize}
+
+% this font option is amenable for beamer
+\setbeamerfont{caption}{size=\tiny}
+
+% some beamer themes naturally might not support navigation symbols
+% \setbeamertemplate{navigation symbols}{} % remove navigation symbols
+
+\setbeamertemplate{footline}[page number] % insert page number in footline
+
+% \setbeamertemplate{navigation symbols}{slide} % insert slide indication in navigation
+% \setbeamertemplate{navigation symbols}{frame} % insert frame indication in navigation
+% \setbeamertemplate{navigation symbols}{section} % insert section indication in navigation
+% \setbeamertemplate{navigation symbols}{subsection} % insert subsection indication in navigation
+
+% \AtBeginSubsection{} % supress subsection display
+
+\title{Tissue culture techniques}
+\author{Deependra Dhakal}
+\providecommand{\institute}[1]{}
+\institute{GAASC, Baitadi \and Tribhuwan University}
+\date{Academic year 2019-2020}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}
+\tableofcontents[hideallsubsections]
+\end{frame}
+\hypertarget{overview}{%
+\section{Overview}\label{overview}}
+
+\begin{frame}{Background}
+\protect\hypertarget{background}{}
+
+\begin{itemize}
+\tightlist
+\item
+  In vitro = axenic = sterile culture
+\item
+  Plant tissue culture is generally used for the aseptic culture of
+  cells, tissues, organs, and their components under defined physical
+  and chemical conditions in vitro.
+\item
+  First approach made by Henri-Louis Duhumel du Monceau in 1756
+  (observed callus formation in plants)
+\item
+  Development of cell theory by Schleiden and Schwann during 1830s
+\item
+  Theoretical basis for plant tissue culture was proposed by Gottlieb
+  Haberlandt in his address to the German Academy of Science in 1902 on
+  his experiments on the culture of single cells.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{History}
+\protect\hypertarget{history}{}
+
+\begin{itemize}
+\tightlist
+\item
+  The first true plant tissue cultures were obtained by Gautheret (1934,
+  1935) from cambial tissue of \emph{Acer pseudoplatanus}.
+\item
+  The first plant growth hormone indoleacetic acid (IAA) was discovered
+  in the mid-1930s by F. Kogl and his coworkers.
+\item
+  In 1934 Professor Philip White successfully cultured tomato roots.
+\item
+  In 1939 Gautheret successfully cultured carrot tissue.
+\item
+  Later in 1955 Carlos Miller and Folke Skoog published their discovery
+  of the hormone kinetin, a cytokinin.
+\item
+  In 1962, Toshio Murashige and Skoog published the composition a plant
+  tissue culture medium known as MS (named for the first letters of
+  their last names) medium.
+\item
+  Murashige was a doctoral student in Professor Skoog's lab, and they
+  developed the now-famous MS medium working with tobacco tissue
+  cultures.
+\end{itemize}
+
+\end{frame}
+
+\hypertarget{tissue-culture-laboratory-setup}{%
+\section{Tissue culture laboratory
+setup}\label{tissue-culture-laboratory-setup}}
+
+\begin{frame}{Media preparations/culture evaluation}
+\protect\hypertarget{media-preparationsculture-evaluation}{}
+
+\begin{columns}[T,onlytextwidth]
+  \column{0.5\textwidth}
+  \begin{itemize}
+
+  \item Bench
+  \item Gas outlet
+  \item Hot plate and magnetic stirrer
+  \item Analytical and top-loading balances
+  \item pH meter
+  \item Refrigerator, freezer
+  \item Water purification and storage system
+  \item Dish-washing area
+  \end{itemize}
+
+  \column{0.5\textwidth}
+  
+  \begin{itemize}
+
+  \item Storage facilities-glassware, chemicals
+  \item Autoclave (pressure-cooker will work for small media volume)
+  \item Low bench with inverted light and dissecting microscopes (avoid locating next autoclaves or other high-humidity areas)
+  \item Fume hood
+  \item Desk and file cabinets
+  \item Desktop centrifuge, spectrophotometer, microwave (transformation studies and protoplast isolation)
+
+  \end{itemize}
+
+\end{columns}
+
+\end{frame}
+
+\begin{frame}{Aseptic transfer area}
+\protect\hypertarget{aseptic-transfer-area}{}
+
+\begin{enumerate}
+\tightlist
+\item
+  Laminar air flow transfer hood and comfortable chair
+\item
+  Dissecting microscope
+\item
+  Gas outlet
+\item
+  Vacuum lines
+\item
+  Forceps, spatulas, scalpel, and disposable blades
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Aseptic transfer area}
+\protect\hypertarget{aseptic-transfer-area-1}{}
+
+\begin{figure}
+\includegraphics[width=0.4\linewidth]{../images/laminar_flow_hood} \caption{Working in the laminar flow hood}\label{fig:aseptic-transfer}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Environmentally Controlled Culture Area}
+\protect\hypertarget{environmentally-controlled-culture-area}{}
+
+\begin{enumerate}
+\tightlist
+\item
+  Shelves with lighting on a timer and controlled temperature
+\item
+  Incubators---with controlled temperature and light
+\item
+  Orbital shakers
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Conditions}
+\protect\hypertarget{conditions}{}
+
+\begin{itemize}
+\tightlist
+\item
+  High humidity in culture room should be avoided.
+\item
+  Most cultures can be incubated at \(25-27~^\circ C\) under a 16:8-h
+  light:dark photoperiod controlled by clock timers.
+\item
+  Light conditions can be manipulated by mounted fluorescent lamps with
+  light readings (by quantum radiometer-photometer) of 40-200 foot
+  candles (full sun is approximately 10000 foot candles).
+\end{itemize}
+
+\end{frame}
+
+\hypertarget{basal-media-components-and-preparation}{%
+\section{Basal media components and
+preparation}\label{basal-media-components-and-preparation}}
+
+\begin{itemize}
+\tightlist
+\item
+  No single medium will support the growth of all cells.
+\item
+  Literature serves best to the purpose, else suitable medium is based
+  on trial and error.
+\item
+  Medium contains in general, inorganic salts, and organic compounds
+  like plant growth regulators, vitaims, a carbohydrate, hexitols, and a
+  gelling agent.
+\item
+  Iron stably provided in chelated form with EDTA.
+\item
+  Medium can also include amino acids, antibiotics, or natural
+  complexes.
+\item
+  Sometimes cultures are grown in the dark and do not photosynthesize at
+  all.
+\item
+  Most media are adjusted to a pH of 5.2-5.8.
+\item
+  Solidification is done using agar derived from seaweed or agar
+  substitutes such as \(Gelrite^{TM}\) or \(Phytagel^{TM}\).
+\item
+  WPM medium is suitable for culturing trees.
+\end{itemize}
+
+\begin{frame}{Inorganic salts}
+\protect\hypertarget{inorganic-salts}{}
+
+\begin{itemize}
+\tightlist
+\item
+  The Murashige and Skoog (MS) (1962) formulation is the most widely
+  used formulation.
+\item
+  The MS formulation was developed to insure that no increases in cell
+  growth in vitro were due to the introduction of additional salts from
+  plant tissue extracts which were being tested at that time.
+\item
+  The MS formulation insured that the inorganic nutrients were not
+  limiting to tobacco cell growth and organic supplements such as yeast
+  extract, coconut milk, casein hydrolysate, and plant extracts were no
+  longer essential sources of the inorganic salts.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Inorganic salts}
+\protect\hypertarget{inorganic-salts-1}{}
+
+\begin{itemize}
+\tightlist
+\item
+  The distinguishing feature of the MS inorganic salts is their high
+  content of nitrate, potassium, and ammonium in comparison to other
+  salt formulations.
+\item
+  These salt stocks are prepared at 100 times the final medium
+  concentration, and each stock is added at the rate of 10 ml per 1000
+  ml of medium prepared. The NaFeEDTA stock should be protected from
+  light by storing it in a bottle that is amber colored or wrapped in
+  aluminum foil. Concentrated salt stocks enhance the accuracy and speed
+  of media preparation.
+\item
+  Salt stocks are best stored in refrigerator and are stable for several
+  months.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Inorganic salts}
+\protect\hypertarget{inorganic-salts-2}{}
+
+\begin{figure}
+\includegraphics[width=0.38\linewidth]{../images/inorganic_salt_ms} \caption{Composition of the five inorganic salt stocks of the Murashige and Skoog Inorganic formulation}\label{fig:inorganic-salts}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Inorganic salts}
+\protect\hypertarget{inorganic-salts-3}{}
+
+\begin{figure}
+\includegraphics[width=0.35\linewidth]{../images/is_formulation_mediums} \caption{Inorganic Salt Formulation of Several Commonly Used Basal Salts for Plant Tissue Culture in Milligrams per Liter of Medium}\label{fig:is-formulation}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Growth regulators}
+\protect\hypertarget{growth-regulators}{}
+
+\begin{figure}
+\includegraphics[width=0.4\linewidth]{../images/pgr_tissue_culture} \caption{Common plant growth regulators used in plant tissue culture}\label{fig:pgr}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{PGRs}
+\protect\hypertarget{pgrs}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Type and concentration will vary according to the cell culture
+  purpose. List is provided in Figure \ref{fig:pgr}.
+\item
+  Auxin (IAA, NAA, 2,4-D or IBA) is required by most plant cells for
+  division and root initiation.
+\item
+  2,4-D is widely used for callus induction.
+\item
+  IAA, IBA and NAA are used for root induction.
+\item
+  Auxins can be dissolved either in alkali or in ethanol (latter is
+  toxic to plants).
+\item
+  IAA stocks have a working duration of 1 weeks when kept away from
+  light, they are thermostable, however.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{PGRs}
+\protect\hypertarget{pgrs-1}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Cytokinins (kinetin, BA, zeatin and 2iP) promote cell division, shoot
+  proliferation, and shoot morphogenesis.
+\item
+  Cytokinins are prepared in a fashion alike Auxins, except that 1 N HCL
+  and a few drops of water are used to dissolve the crystals.
+\item
+  They can be stored for longer terms in the refrigerator and are
+  thermostable.
+\item
+  Normally, gibberellin is infrequently used in plant cell culture due
+  to callus growth and auxin induced adventitious root inhibition.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{PGRs}
+\protect\hypertarget{pgrs-2}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Since stocks are highly susceptible to isomeric conversions, it should
+  be made up fresh before addition to the medium by filter
+  sterilization.
+\item
+  Abscisic acid (ABA), a plant hormone involved in leaf and fruit
+  abscission and dormancy, is useful in embryo culture. Its stock
+  solutions can be prepared in water. It is heat stable but light
+  sensitive (conversion of cis to trans form in presence of light
+  results in lesser biological activity).
+\item
+  Addition of ethylene biosynthetic inhibitors such as silver nitrate is
+  beneficial.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{PGRs}
+\protect\hypertarget{pgrs-3}{}
+
+\begin{figure}
+\includegraphics[width=0.45\linewidth]{../images/stages_of_tc} \caption{\textit{Brassica juncea} plants produced from hypocotyl explants. Shoots are produced when a combination of auxin and cytokinin is used.\newline (a) Callus from hypocotyl explants (note the green fluorescent protein fluorescent sectors on some of the calli); (b) shoots from callus; (c) shoots elongating; (d) whole plantlets transferred to soil.}\label{fig:stages-of-tc}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Vitamins}
+\protect\hypertarget{vitamins}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Catalytic functions in enzyme reactions.
+\item
+  Thiamine (B1), Nicotinic acid (B3) and Pyridoxine (B6) are added to
+  cell culture media.
+\item
+  Stocks best stored in freezer.
+\item
+  10-ml aliquots used per liter of medium prepared.
+\item
+  Vitamin stocks used in these exercises contain 5 mg of nicotinic acid
+  and 5 mg pyridoxine-hydrochloride per 100 ml of water.
+\item
+  The thiamine stock has 40 mg thiamine-hydrochloride in 1000 ml.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Vitamins}
+\protect\hypertarget{vitamins-1}{}
+
+\begin{itemize}
+\item
+  \textbf{Common formulations}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    White (White 1963); in milligram-per-liter: 0.5 nicotinic acid, 0.1
+    pyridoxine-hydrochloride, and 0.1 thiamine-hydrochloride;
+  \item
+    B5 Gamborg (Gamborg et al., 1976) with in milligram-per-liter
+    medium: 100 inositol, 1.0 nicotinic acid, 1.0
+    pyridoxine-hydrochloride, and 10.0 thiamine-hydrochloride;
+  \item
+    Murashige and Skoog (1962) with in milligram-per-liter medium: 100
+    inositol, 0.5 nicotinic acid, 0.5 pyridoxine-hydrochloride, and 0.1
+    thiamine-hydrochloride.
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Carbohydrates}
+\protect\hypertarget{carbohydrates}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Green cells require carbohydrate source (as sucrose, glucose, fructose
+  or even starch at 2-5\% (w/v)) until they are photosynthetically
+  active.
+\item
+  Embryo and anther culture require higher levels of carbohydrates than
+  that by protoplast culture.
+\item
+  Sugars undergo caramelization if autoclaved too long.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Gelling agent}
+\protect\hypertarget{gelling-agent}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Provide stationary support
+\item
+  Can include filter paper, cotton, cheesecloth, vermiculite, special
+  membrane rafts with a liquid medium.
+\item
+  Must include \alert{purified} agar.
+\item
+  Gelrite is transparent in appearance and is a polysaccharide produced
+  from fermentation from \emph{Pseudomonas} sps.
+\item
+  Gelling should be done slowly in motion, while heating (in flask).
+\item
+  Medium is then dispensed in measured amounts in the culture container.
+\item
+  The agar can also be melted in the autoclave in a foil-capped
+  Erlenmeyer flask for 15 min at \(121^\circ C\), 15 psi.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Amino acids}
+\protect\hypertarget{amino-acids}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Important in morphogenesis.
+\item
+  L-forms are natural forms, which is also the only detectable form.
+\item
+  L-tyrosine can contribute to shoot initiation, L-arginine can
+  facilitate rooting, L-serine can be used in microspore cultures to
+  obtain haploid embryos.
+\item
+  Casein hydrolysate, an enzymatic digest of milk protein (caution: do
+  not use the acid digest of milk proteins), was a common ingredient in
+  many early media formulations as it provided a mixture of amino acids
+  to enhance tissue response.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Antibiotics}
+\protect\hypertarget{antibiotics}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Incorporation of bactericides and fungicides is to overcome
+  contamination.
+\item
+  Generally not desired because they can be toxic to explants.
+\item
+  Transformaiton experiments using agrobacterium make it necessary to
+  incorporate antibiotics (e.g.~Timentin, carbenicillin (500 mg/liter),
+  cefotaxime (300 \(\mu\)g/ml)).
+\item
+  Should be added to medium after autoclaving.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Natural complexes}
+\protect\hypertarget{natural-complexes}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Antioxidants, absorbents (charcoal), coconut endosperm, yeast extract,
+  malt extract, tomato juice, etc.
+\item
+  Activated charcoal may be growth promoting (promotes morphogenesis and
+  absorbs inhibitory compounds)
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Media pH}
+\protect\hypertarget{media-ph}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Agar will not gel properly above 6.0 (too firm gel).
+\item
+  pH naturally drops by 0.6-1.3 units after autoclaving and after cetain
+  period of culturing.
+\item
+  Medium pH is adjusted with 1.0 or 0.1 N HCL or NaOH by using a
+  medicine dropper
+\end{itemize}
+
+\end{frame}
+
+\hypertarget{explant-preparation}{%
+\section{Explant preparation}\label{explant-preparation}}
+
+\begin{frame}{Explant age}
+\protect\hypertarget{explant-age}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Younger tissue is more responsive \emph{in vitro}.
+\item
+  Older tissues might not form callus.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Season}
+\protect\hypertarget{season}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Spring season is appropriate time for good response in culture.
+\item
+  Tissues that have met dormancy requirements are useful.
+\item
+  Artificial chilling might also help enable break dormancy.
+\item
+  Contamination is associated with summer season.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Explant size}
+\protect\hypertarget{explant-size}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Smaller the explant, the harder it is to culture.
+\item
+  Internal differences in hormone balance in the tissue can result in
+  varying in vitro responses.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Plant Quality}
+\protect\hypertarget{plant-quality}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Healthy, unstressed, virus free.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Goal}
+\protect\hypertarget{goal}{}
+
+\begin{itemize}
+\tightlist
+\item
+  If clonal propagation is the goal, then the explant will usually be a
+  lateral or terminal bud or shoot.
+\item
+  For callus induction, pieces of the cotyledon, hypocotyl, stem, leaf,
+  or embryo are usually used.
+\item
+  Excellent explants for callus induction are seedling tissues from
+  aseptically germinated seeds or imma ture inflorescences.
+\item
+  Leaf tissue from the aseptically germinated seed is a good source of
+  tissue for protoplast isolation.
+\item
+  To produce haploid plants or callus, the anther or pollen is cultured.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Explant source}
+\protect\hypertarget{explant-source}{}
+
+\begin{figure}
+\includegraphics[width=0.2\linewidth]{../images/explant_sources} \caption{Schematic drawings (from top to bottom) of a plant, a flower, and monocotyledenous and dicotyldenous seeds indicate potential explant tissues.}\label{fig:explant-source}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Other factors}
+\protect\hypertarget{other-factors}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Genotype: The ability to form regenerable callus in sorghum is
+  heritable, and acted as a dominant trait (Ma et al., 1987). Also, rice
+  regeneration is under control of both nuclear and cytoplasmic genes.
+\item
+  Aseptic technique
+\item
+  Asceptic germination of seeds
+\item
+  Contamination
+\end{itemize}
+
+\end{frame}
+
+\hypertarget{processes-and-mechanism}{%
+\section{Processes and mechanism}\label{processes-and-mechanism}}
+
+\begin{frame}{Growth progression}
+\protect\hypertarget{growth-progression}{}
+
+\begin{figure}
+\includegraphics[width=0.4\linewidth]{../images/growth_curve} \caption{The rate of growth of callus tissue usually has five stages: (1) a lag phase in which cells prepare to divide; (2) a period of exponential growth in which cell division is maximal; (3) a period of linear growth in which division slows down and cells enlarge; (4) a period of decelerating growth; and (5) a stationary or no-growth period in which the number of cells is constant.}\label{fig:growth-curves}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Callus induction}
+\protect\hypertarget{callus-induction}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Explants may be an aseptically germinated seedling or
+  surface-sterilized roots, stems, leaves, or reproductive structures.
+\item
+  \emph{Callus} is a wound tissue produced in response to injury. It is
+  a proliferation of cells from the wounded or cut region of an explant.
+  Callus is generally made up of friable, large, vacuolated cells that
+  are highly differentiated, but are unorganized.
+\item
+  Callus can be hard and compact, and can contain regions of small
+  meristematic cell clusters.
+\item
+  Generally meristematic, undifferentiated cells are competent to
+  regenerate via somatic embryo or organ initiation.
+\item
+  Culture media (level of growth regulators) and conditions
+  (temperature, light, solid vs.~agar media) are important for callus
+  formation and development.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Regeneration and morphogenesis}
+\protect\hypertarget{regeneration-and-morphogenesis}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Organogenesis
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Direct organogenesis: Without callus phase
+  \item
+    Indirect organogenesis: Via a callus phase
+  \end{itemize}
+\item
+  Somatic embryogenesis
+\end{itemize}
+
+\end{frame}
+
+\hypertarget{technology}{%
+\section{Technology}\label{technology}}
+
+\begin{frame}{Haploid plants from anther culture}
+\protect\hypertarget{haploid-plants-from-anther-culture}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Culture of anthers or isolated micropsores to produce haploid plants
+  is known as anther culture or microspore culture.
+\item
+  Embryos can be produced via a callus phase or be a direct
+  recapitulation of the developmental stages characteristic of zygotic
+  embryos.
+\item
+  late uninucleate to early binucleate microspores are the best explants
+  for embryogenesis.
+\item
+  Somatic embryos develop into haploid plants.
+\item
+  Chromosome doubling can be further used to produce doubled haploids
+  (homozygous).
+\item
+  In addition, haploid embryos are used in mutant isolation, gene
+  transfer, studies of storage product biochemistry, and physiological
+  aspects of embryo maturation.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Embryo culture/rescue}
+\protect\hypertarget{embryo-culturerescue}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Embryos are isolated from immature ovules or seeds are cultured in
+  vitro.
+\item
+  Useful tool for direct regeneration in species where seeds are
+  dormant, recalcitrant, or abort at early stages of development.
+\item
+  Embryo \textbf{rescue} also finds use in the production of
+  interspecific hybrids between inviable crosses, whose seeds are
+  traditionally condemned and discarded because of their inability to
+  germinate.
+\item
+  Generally, embryo culture goes hand in hand with in vitro control of
+  pollination and fertilization to ensure hybrid production.
+\item
+  Immature embryos can be used to produce embryogenic callus and somatic
+  embryos or direct somatic embryos.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Meristem culture for virus free plants}
+\protect\hypertarget{meristem-culture-for-virus-free-plants}{}
+
+\begin{itemize}
+\tightlist
+\item
+  For the production of pathogen-free plants
+\item
+  Apical meristem tips is used
+\item
+  aka. meristem culture, meristem tip culture, or shoot tip culture
+\item
+  Apical meristems in plants are suitable
+\item
+  Meristem culture in combination with thermotherapy has resulted in
+  successful production of virus-free plants.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Protoplast isolation and fusion/Somatic hybridization}
+\protect\hypertarget{protoplast-isolation-and-fusionsomatic-hybridization}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Using protoplast, it is possible to regenerate whole plants from
+  single cells
+\item
+  Following enzymatic digestion of cell wall (by pectinase, cellulase)
+  and then of cell membrane.
+\item
+  Isolated from cellular debris using filtering mesh and then floatation
+  (in sucrose) technique.
+\item
+  Cultured in high osmotic medium (solid or liquid); if solid also
+  embedded in an alginate matrix.
+\item
+  Fusion is accomplished by use of PEG (polyethylene glycol)
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Agrobacterium mediated transformation}
+\protect\hypertarget{agrobacterium-mediated-transformation}{}
+
+\end{frame}
+
+\hypertarget{bibliography}{%
+\section{Bibliography}\label{bibliography}}
+
+\end{document}

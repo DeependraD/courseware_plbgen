@@ -1,0 +1,782 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[ignorenonframetext,aspectratio=169]{beamer}
+\usepackage{pgfpages}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+% Prevent slide breaks in the middle of a paragraph:
+\widowpenalties 1 10000
+\raggedbottom
+\setbeamertemplate{part page}{
+\centering
+\begin{beamercolorbox}[sep=16pt,center]{part title}
+  \usebeamerfont{part title}\insertpart\par
+\end{beamercolorbox}
+}
+\setbeamertemplate{section page}{
+\centering
+\begin{beamercolorbox}[sep=12pt,center]{part title}
+  \usebeamerfont{section title}\insertsection\par
+\end{beamercolorbox}
+}
+\setbeamertemplate{subsection page}{
+\centering
+\begin{beamercolorbox}[sep=8pt,center]{part title}
+  \usebeamerfont{subsection title}\insertsubsection\par
+\end{beamercolorbox}
+}
+\AtBeginPart{
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \frame{\subsectionpage}
+}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+\usetheme[]{Frankfurt}
+\usecolortheme{beaver}
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{hyperref}
+\hypersetup{
+            pdftitle={Biodiversity: Concept, aim and scope},
+            pdfauthor={Deependra Dhakal},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\newif\ifbibliography
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\usepackage{tikz} % required for image opacity change
+\usepackage[absolute,overlay]{textpos} % for text formatting
+
+% title background image
+\titlegraphic{\centering \tikz\node[opacity=0.9] {\includegraphics[width=0.4\paperwidth]{./08-biodiversity_concept_aim_scope_maize_cover.jpg}};}
+
+% this font option is amenable for beamer
+\setbeamerfont{caption}{size=\tiny}
+
+\setbeamertemplate{footline}[page number] % insert page number in footline
+
+\title{Biodiversity: Concept, aim and scope}
+\author{Deependra Dhakal}
+\providecommand{\institute}[1]{}
+\institute{GAASC, Baitadi \and Tribhuwan University}
+\date{Academic year 2019-2020}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}
+\tableofcontents[hideallsubsections]
+\end{frame}
+\hypertarget{concept}{%
+\section{Concept}\label{concept}}
+
+\hypertarget{biodiversity}{%
+\subsection{Biodiversity}\label{biodiversity}}
+
+\begin{frame}{}
+\protect\hypertarget{section}{}
+
+\begin{quote}
+The extinction of species, each one a pilgrim of four billion years of evolution, is an irreversible loss. The ending of the lines of so many creatures with whom we have traveled this far is an occasion of profound sorrow and grief. Death can be accepted and to some degree transformed. But the loss of lineages and all their future young is not something to accept. It must be rigorously and intelligently resisted.
+\end{quote}
+\begin{flushright} --Gary Snyder (1990) \end{flushright}
+
+\end{frame}
+
+\begin{frame}{Meaning}
+\protect\hypertarget{meaning}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Refers to all the living things on Earth and the ecological processes
+  associated with them.
+\item
+  Mixture of \alert{Biology} and \alert{Diversity}
+\item
+  Walter G. Rosen coined the term `Biodiversity'.
+\item
+  Described in hierarchical terms including ecosystem diversity, species
+  diversity, and genetic diversity.
+\item
+  Can be increased by natural evolutionary processes and genetic change
+  or reduced by threats which lead to population decline and species
+  extinction.
+\item
+  The capacity of an ecosystem to respond to changes and threats
+  determines the rate of biodiversity loss.
+\item
+  Biodiversity tends to cluster in hotspots.
+\item
+  Current species inhabitation of earth is estimated at 10-14 million.
+\item
+  Mass composition of biosphere is estimated at 4 Trillion mt of Carbon.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-1}{}
+
+\begin{columns}[T,onlytextwidth]
+  \column{0.5\textwidth}
+
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{./../images/twttr/dragonfly_D7is9PFUEAAoQyS} \caption{Arthropod diversity; Dragonfly}\label{fig:dragonfly}
+\end{figure}
+
+
+  \column{0.5\textwidth}
+  
+\begin{figure}
+\includegraphics[width=0.5\linewidth]{./../images/twttr/plant_lice_D4Ti2L6XsAI4xsQ} \caption{Plants have lice too}\label{fig:plantlice}
+\end{figure}
+
+\end{columns}
+
+\end{frame}
+
+\begin{frame}{Definition}
+\protect\hypertarget{definition}{}
+
+\begin{block}{Diversity}
+The existence of a wide variety of species (species diversity), other taxa of plants or other organisms in a natural environment or habitat, or communities within a particular environment (ecological diversity), or of genetic variation within a species (genetic diversity).
+\end{block}
+
+\begin{block}{Agrobiodiversity}
+The variety and variability of animals, plants, and microorganisms used directly or indirectly for food and agriculture (crops, livestock, forestry, and fisheries). it comprises the diversity of genetic resources (varieties, breeds, etc.) and species used for food, fuel, fodder, fiber, and pharmaceuticals.
+\end{block}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-2}{}
+
+\begin{figure}
+\includegraphics[width=0.5\linewidth]{./../images/oryza_distribution_chromosome} \caption{Chromosome number, genome and distribution of species in Oryza}\label{fig:chromosome-distribution-oryza}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Distribution}
+\protect\hypertarget{distribution}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Mainly conditioned by
+
+  \begin{itemize}
+  \tightlist
+  \item
+    temperature,
+  \item
+    precipitation,
+  \item
+    altitude,
+  \item
+    soils,
+  \item
+    geography and
+  \item
+    presence of other species
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\hypertarget{importance}{%
+\subsection{Importance}\label{importance}}
+
+\begin{frame}{General values}
+\protect\hypertarget{general-values}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Species have utilitarian (subsistence and commercial) value to human,
+\item
+  Biodiversity represents the natural balance within an ecosystem that
+  provides a number of ecological services, including nutrient cycling
+  and pollination of plants, and
+\item
+  Species have intrinsic value; value of life
+\item
+  Linked to daily livelihood and economic wellbeing of Nepalese
+\item
+  Specifically,
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Genetic diversity provides resources for genetic resistance to pests
+    and diseases;
+  \item
+    In agriculture, biodiversity is a production system characterized by
+    the presence of multiple plant and/or animal species
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-3}{}
+
+\begin{figure}
+\includegraphics[width=0.7\linewidth]{./../images/twttr/potato_diversity_D7N0aiUXYAIXcLq} \caption{Potato diversity}\label{fig:potato-diversity}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Ecosystem services: beneficial consequences of
+biodiversity}
+\protect\hypertarget{ecosystem-services-beneficial-consequences-of-biodiversity}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Provisioning services which involve the production of renewable
+  resources (e.g.: food, wood, fresh water). Greater species diversity
+
+  \begin{itemize}
+  \tightlist
+  \item
+    increases fodder yield
+  \item
+    increases overall crop yield
+  \item
+    increases overall wood production, in trees
+  \end{itemize}
+\item
+  Regulating services which are those that lessen environmental change
+  (e.g.: climate regulation, pest/disease control). Greater species
+  diversity
+
+  \begin{itemize}
+  \tightlist
+  \item
+    of fish increases the stability of fisheries yield
+  \item
+    of natural pest enemies decreases herbivorous pest populations
+  \item
+    of plants decreases disease prevalence on plants
+  \item
+    of plants increases resistance to plant invasion
+  \item
+    of plants increases carbon sequestration, but note that this finding
+    only relates to actual uptake of carbon dioxide and not long term
+    storage
+  \item
+    plants increases soil nutrient remineralization
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Ecosystem services: mixed and negative consequences of
+biodiversity}
+\protect\hypertarget{ecosystem-services-mixed-and-negative-consequences-of-biodiversity}{}
+
+\begin{figure}
+\includegraphics[width=0.55\linewidth]{./../images/biodiversity_thorns} \caption{Thorns of biodiversity}\label{fig:biodiversity-thorns}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Nonmaterial services}
+\protect\hypertarget{nonmaterial-services}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Cultural services represent human value and enjoyment (e.g.: landscape
+  aesthetics, cultural heritage, outdoor recreation and spiritual
+  significance
+\item
+  Betterment of knowledge systems
+\item
+  Educational value
+\end{itemize}
+
+\begin{figure}
+\includegraphics[width=0.45\linewidth]{./../images/twttr/bee_D8bkT-lUEAMzS8c} \caption{Bees are excellent ecosystem service providers}\label{fig:pollinator-bees}
+\end{figure}
+
+\end{frame}
+
+\hypertarget{status}{%
+\subsection{Status}\label{status}}
+
+\begin{frame}{National}
+\protect\hypertarget{national}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Geographic diversity that ranges from alluvial plains in the tropical
+  lowlands to very rugged and permanently snow and ice covered Himalayan
+  Mountains.
+\item
+  Five major \textbf{physiographic} landscapes extending from east to
+  west, namely
+
+  \begin{itemize}
+  \tightlist
+  \item
+    High Himal,
+  \item
+    High Mountains,
+  \item
+    Middle Mountains,
+  \item
+    Siwaliks and
+  \item
+    Tarai
+  \end{itemize}
+\item
+  The \textbf{climate} varies from alpine cold semi-desert type in the
+  trans-Himalayan zone to tropical humid type in the Tarai lowlands.
+\item
+  Forests (with shrubland): 39.6\%
+\item
+  Grasslands and pastures: 12\%
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{National}
+\protect\hypertarget{national-1}{}
+
+\begin{itemize}
+\tightlist
+\item
+  A total of 118 ecosystems
+\item
+  Forest ecosystems can be categorized into ten major groups, namely
+
+  \begin{itemize}
+  \tightlist
+  \item
+    tropical,
+  \item
+    subtropical broadleaved,
+  \item
+    subtropical conifer,
+  \item
+    lower temperate broadleaved,
+  \item
+    lower temperate mixed broadleaved,
+  \item
+    upper temperate broadleaved,
+  \item
+    upper temperate mixed broadleaved,
+  \item
+    temperate coniferous,
+  \item
+    subalpine, and
+  \item
+    alpine scrub.
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{National}
+\protect\hypertarget{national-2}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Wetlands characterized by high diversity. Nine of the country's
+  wetlands have been listed as Ramsar sites.
+\item
+  12 of the 867 global terrestrial ecoregions.
+\item
+  Occupies about 0.1\% of the global area, but harbors 3.2\% and 1.1\%
+  of the world's known flora and fauna, respectively.
+\item
+  This includes 5.2\% of the world's known mammals, 9.5\% birds, 5.1\%
+  gymnosperms, and 8.2\% bryophytes.
+\item
+  The country is also rich in diversity of agricultural crops, their
+  wild relatives, and domestic animal species and varieties.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{National}
+\protect\hypertarget{national-3}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Over 550 crop species identified as having food value, and around half
+  of those species are believed to be currently under cultivation.
+\item
+  Horticultural diversity includes:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textasciitilde{} 400 species and subspecies of crops
+  \item
+    45 species of seasonal fruits, 200 species of vegetables, including
+    11 local varieties of potatoes
+  \end{itemize}
+\item
+  Diversity of domestic animals.
+\item
+  Endemic organisms:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    284 flowering plants,
+  \item
+    160 species of animals (including one species of mammal),
+  \item
+    1 species of bird,
+  \item
+    14 species of herpeto-fauna
+  \end{itemize}
+\item
+  The high altitude rangelands are especially important from the
+  perspective of endemism.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-4}{}
+
+\begin{figure}
+\includegraphics[width=0.65\linewidth]{./../images/genetic_variation_chromosome_mutation} \caption{Each of the four types of chromosomal rearrangements can be produced by either of two basic mechanisms: chromosome breakage and rejoining or crossing over between repetitive DNA. Chromosome regions are numbered 1 through 10. Homologous chromosomes are the same color.}\label{fig:genetic-variation}
+\end{figure}
+
+\end{frame}
+
+\hypertarget{types}{%
+\subsection{Types}\label{types}}
+
+\begin{frame}{On the basis of organisation}
+\protect\hypertarget{on-the-basis-of-organisation}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Within species diversity (Genetic diversity)
+\item
+  Between species diversity (\(\alpha\) diversity)
+\item
+  Habitat diversity (\(\beta\) diversity)
+\item
+  Landscape diversity (\(\gamma\) diversity)
+\item
+  Temporal diversity
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{On the basis of ecological function}
+\protect\hypertarget{on-the-basis-of-ecological-function}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Terrestrial biodiversity
+\item
+  Marine biodiversity
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-5}{}
+
+\begin{figure}
+\includegraphics[width=0.7\linewidth]{./../images/twttr/wildflower_cliff_D_OOw-NXoAEuyIO} \caption{Wildflowers in cliffs}\label{fig:landscape-diversity}
+\end{figure}
+
+\end{frame}
+
+\hypertarget{agrobiodiversity}{%
+\subsection{Agrobiodiversity}\label{agrobiodiversity}}
+
+\begin{frame}{Classification: feature of life form}
+\protect\hypertarget{classification-feature-of-life-form}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Interspecific diversity
+\item
+  Intraspecific diversity
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Classification: functional}
+\protect\hypertarget{classification-functional}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Planned
+\item
+  Associated
+\end{itemize}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  \alert{To what extent should we control associated diversity?}
+\end{itemize}
+
+\begin{figure}
+\includegraphics[width=0.48\linewidth]{./../images/tomato_wild_domestic} \caption{Diversity of cocona (Solanum sessiliflorum) fruit size and shape has been created by selection for novel fruit types by Yanesha and other indigenous peoples of the upper Amazon; An example of Genetic diversity}\label{fig:tomato-diversity}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-6}{}
+
+\begin{figure}
+\includegraphics[width=0.7\linewidth]{./../images/yanesha_habitat_landscape_diversity} \caption{Yanesha agricultural diversity over time: habitat (left) and landscape (right) diversities. Three lowland agricultural fields (left) are at three different agricultural successional stages (center): (1) corn, beans, and minor crops, (2) cassava and minor crops, and (3) bananas, plantains, and minor crops. Different habitats (beaches, lowlands, and uplands) each have different agricultural successional stages (center), resulting in a very diverse, patchy landscape (right), constantly changing over time.}\label{fig:habitat-landscape}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Forms}
+\protect\hypertarget{forms}{}
+
+\begin{columns}[T,onlytextwidth]
+  
+  \column{0.5\textwidth}
+  \alert{Phenotypic variation in natural populations}
+  \begin{itemize}
+  \item Color pattern
+  \item Morphology
+  \item Behavior
+  \item Phenology
+  \item Differences among populations
+  \item Nongenetic inheritance
+  \end{itemize}
+
+  \column{0.5\textwidth}
+  \alert{Genetic variation}
+  \begin{itemize}
+  \item DNA
+  \item Protein
+  \item Chromosomes
+  \item Genetic variation within natural populations
+  \item Genetic divergence among populations
+  \end{itemize}
+
+\end{columns}
+
+\end{frame}
+
+\begin{frame}{Mechanisms}
+\protect\hypertarget{mechanisms}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Mutation
+\item
+  Selection
+\item
+  Genetic drift
+\item
+  Migration
+\item
+  Inbreeding
+\end{itemize}
+
+\end{frame}
+
+\hypertarget{domestication}{%
+\subsection{Domestication}\label{domestication}}
+
+\begin{frame}{Unanswered questions}
+\protect\hypertarget{unanswered-questions}{}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Why did agricultrue originate where it did ?
+\item
+  What are some of the local ecological or palaeo-ecological conditions,
+  including climate change and human population growth, that would have
+  favored or impeded the transition from hunting--gathering to
+  agriculture?
+\item
+  Are there specific characteristics in plants and animals that
+  predispose them to domestication?
+\item
+  What is the pattern of domestication for crops and animals?
+\item
+  What is the timeline of the origins of agriculture? How quickly did
+  agriculture become a major alternative to hunting--gathering?
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Unanswered questions}
+\protect\hypertarget{unanswered-questions-1}{}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  How did agricultural ecosystems develop ?
+\item
+  How did agricultural ecosystems spread from the centers of origin?
+\item
+  How can biodiversity be maintained or enhanced in agroecosystems?
+\item
+  How does California benefit from agricultural biodiversity?
+\item
+  What can crop evolution studies tell us about the potential for future
+  domestications?
+\end{itemize}
+
+\end{frame}
+
+\hypertarget{aim}{%
+\section{Aim}\label{aim}}
+
+\begin{frame}{Identification and characterization}
+\protect\hypertarget{identification-and-characterization}{}
+
+\end{frame}
+
+\begin{frame}{Conservation}
+\protect\hypertarget{conservation}{}
+
+\end{frame}
+
+\begin{frame}{Sustainable resource allocation}
+\protect\hypertarget{sustainable-resource-allocation}{}
+
+\end{frame}
+
+\begin{frame}{Awareness and appreciation}
+\protect\hypertarget{awareness-and-appreciation}{}
+
+\end{frame}
+
+\hypertarget{scope}{%
+\section{Scope}\label{scope}}
+
+\begin{frame}{Opportunity}
+\protect\hypertarget{opportunity}{}
+
+\begin{itemize}
+\tightlist
+\item
+  To enhance food and nutrition security
+\item
+  To mitigate anthropogenic climate change
+\item
+  To understand fundamental ecological processes
+\item
+  To gain technological efficiency
+\item
+  Enhance food systems production and productivity
+\item
+  Enable lesser use of non-renewable sources of energy
+\item
+  Generation of robust and reusable technologies
+\item
+  To discover new ecological functions and ecosystems in its entirety
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Uses}
+\protect\hypertarget{uses}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Economic welfare and policy formulation
+\item
+  Human health and medicine
+\item
+  Lifestyle/livelihood betterment
+\item
+  Dealing with natural calamities and epidemics
+\item
+  Meeting the needs of growing population: Fresh water, healthy and
+  nutritious food, reliable shelter and accessories of daily life.
+\item
+  Fostering social harmony
+\item
+  Providing for extant ecosystem
+\item
+  Remedying environmental troubles
+\item
+  Commerce and industry sustenance
+\item
+  Leisure, cultural and aesthetic value
+\end{itemize}
+
+\end{frame}
+
+\end{document}

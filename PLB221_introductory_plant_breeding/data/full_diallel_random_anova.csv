@@ -1,0 +1,5 @@
+Source,df,SS,Msq,EMS
+GCA,p-1,$S_g$,$M_g$,$\sigma^2 + 2p(1/(1-p))\sigma^2_s + 2p\sigma^2_g$
+SCA,$\frac{p(p-1)}{2}$,$S_s$,$M_s$,$\sigma^2 + \frac{2(p^2-p+1)}{p^2 \sigma^2_s}\sum_{ij}s_{ij}^2$
+Reciprocal,$\frac{p(p-1)}{2}$,$S_r$,$M_r$,$\sigma^2 + 2\sigma^2_r$
+Error,$(r-1)p^2$,$S_e$,$M_e$,$\sigma^2$

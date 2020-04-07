@@ -1,0 +1,100 @@
+---
+title: | 
+  | \vspace{0.25cm} \Large{\textbf{TRIBHUVAN UNIVERSITY}}
+  | \vspace{0.20cm} \large{GOKULESHWOR AGRICULTURE AND ANIMAL SCIENCE COLLEGE}
+  | \vspace{0.20cm} \large{B. Sc. Ag., Internal Assessment, 2076}
+# author: "Deependra Dhakal"
+output: 
+  bookdown::pdf_document2:
+    keep_tex: yes
+    toc: false
+    include:
+      in_header: ['gen211_internal_assessment_2075-76_header.tex']
+spacing: singlespacing
+fontsize: 10pt
+geometry: margin=0.8cm
+---
+
+```{r setup, include=FALSE}
+set.seed(1080)
+knitr::opts_chunk$set(echo=FALSE, warning=FALSE, 
+                      error=FALSE, message=FALSE)
+require(tidyverse)
+```
+
+\begingroup
+  <!-- \centering -->
+  \makebox[4.2cm][l]{\textbf{Subject: Introductory genetics}}
+  \hspace{0.5\textwidth}
+  \makebox[1.8cm][r]{\textbf{FM: 10}}
+  \par
+\endgroup
+
+\begingroup
+  <!-- \centering -->
+  \makebox[4.2cm][l]{\textbf{Time: 60 Minutes}}
+  \hspace{0.5\textwidth}
+  \makebox[1.8cm][r]{\textbf{PM: 4}}
+  \par
+\endgroup
+
+**Level:** $3^{th}$ semester
+
+\textbf{Answer all questions.}
+
+```{r questions, results='asis'}
+all_quest <- read_csv("./../../question_collections/questions_till_date.csv", skip = 1)
+
+# cat("\\begin{enumerate} ")
+# cat("\\item ")
+# all_quest %>%
+#   select(SN:Question) %>%
+#   filter(Subject == "Introductory genetics") %>%
+#   filter(Question_type == "Essay") %>% 
+#   pull(Question) %>%
+#   sample(1) %>% 
+#   # Hmisc::latex(file = "", rowname = 1:12, where = 'h')
+#   cat(sep = "\\item ")
+# 
+# all_quest %>%
+#   select(SN:Question) %>%
+#   filter(Subject == "Introductory genetics") %>%
+#   filter(Question_type == "Short") %>% 
+#   pull(Question) %>%
+#   sample(4) %>% 
+#   # Hmisc::latex(file = "", rowname = 1:12, where = 'h')
+#   cat(sep = "\\item ")
+# 
+# cat("\\end{enumerate}")
+
+# # fix this
+# cat("\\begin{enumerate}")
+# cat(
+#   "\\nonumber Essay type (2.5 x 2)", 
+#   "\\item Define genetic engineering. Write about its applications in agriculture.", 
+#   "\\item What is gene cloning ? Describe about gene cloning vectors. \\\\", 
+#   "\\nonumber Short answer type", 
+#   "\\item What are restriction enzymes ? Explain their types with suitable examples. (2)", 
+#   "\\item What is embryo culture and how is it useful in agricultural crops ? (2)", 
+#   "\\item What is species richness ? Calculate Shannon-Wiener index for given insect count data for two different rice fields sampled within a 100 square meter area. (1)"
+# )
+# cat("\\end{enumerate}")
+```
+
+Essay type (4)
+
+1. In maize, F1 heterozygous plants were test crossed with colourless, shrunken, waxy plants and the following types of progeny were obtained. CfS: 50, cFs: 46, Cfs: 383, cfS: 380, Dfs: 72, cFS: 68, CFS: 6, cfs: 5. Symbols: Colored = C, Colorless = c, Full = F, Shrunken = f, Starchy = S, waxy = s. \newline a. Are these genes linked ? Give reason. \newline b. Write the genes in correct order on the chromosome. \newline c. What are double crossover, non-crossover and single crossover types ? \newline d. Write the genotypes involved in the parental and test crosses. \newline e. Draw a linkage map showing map distances. \newline f. Calculate coefficient of coincidence (CC) and inference.
+
+Short answer type (1.5 x 4 = 6)
+
+1. A heterozygous plant for two genes is self-fertilized and in F2, the following seeds are observed. 
+  - Round yellow: 315, 
+  - Round green: 108, 
+  - Wrinkled yellow: 101, 
+  - Wrinkled green: 32
+    
+    Perform chi-square test for goodness of fit and interpret the result. (Tabulated chi-square value at 3d.f. = 7.81) 
+  
+2. What do you mean by extra nuclear inheritance? Explain with the help of example. Write down the characteristics of cytoplasmic inheritance.
+3. What is sporogenesis and oogenesis? Diagrammatically show, how gamete formation takes place in life cycle of maize.
+4. Explain in brief about Lac operon system in E. coli.

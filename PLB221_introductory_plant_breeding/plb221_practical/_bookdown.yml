@@ -1,0 +1,19 @@
+book_filename: "introductory_plant_breeding_practical"
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Chapter "
+#dput(stringr::str_split_fixed(list.files(pattern = ".Rmd"), c("-"), 2)[,2])
+rmd_files:
+  html: ["01-study_and_draw_floral_parts.Rmd", "02-hybridization_of_crops_available.Rmd", 
+"03-plant_breeding_data_recording.Rmd", "04-determining_genetic_purity.Rmd", 
+"05-maintaining_genetic_purity_in_the_field.Rmd", "06-disease_scoring_and_determining_resistance.Rmd", 
+"07-describing_the_traits_for_release.Rmd", "08-study_of_activities_at_national_maize_research_program.Rmd", 
+"09-study_of_activities_at_national_grain_legume_research_program.Rmd", 
+"20-references.Rmd"]
+  latex: ["01-study_and_draw_floral_parts.Rmd", "02-hybridization_of_crops_available.Rmd", 
+"03-plant_breeding_data_recording.Rmd", "04-determining_genetic_purity.Rmd", 
+"05-maintaining_genetic_purity_in_the_field.Rmd", "06-disease_scoring_and_determining_resistance.Rmd", 
+"07-describing_the_traits_for_release.Rmd", "08-study_of_activities_at_national_maize_research_program.Rmd", 
+"09-study_of_activities_at_national_grain_legume_research_program.Rmd", 
+"20-references.Rmd"]

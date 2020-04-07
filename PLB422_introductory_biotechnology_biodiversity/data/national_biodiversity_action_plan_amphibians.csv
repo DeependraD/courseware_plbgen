@@ -1,0 +1,80 @@
+Species,Family,Common Name,Range (m),Status,Remarks
+"1 Tylototriton verrucosus (Anderson, 1971)",Salamandridae,Crocodile salamander,1200-2150,Fairly common,
+"2 Bufo himalayanus (Gunther, 1894)",Bufonidae,Himalayan toad,1300-2744,Fairly common,
+"3 Bufo melanostictus (Schneider, 1799)",Bufonidae,Black spine toad,Below 2500,Fairly common,
+"4 Bufo microtympanum (Boulenger, 1982)",Bufonidae,Small ear toad,1300-2500,Common,
+"5 Bufo stomatiecus (Lutken,1862)",Bufonidae,Marbled toad,130-1880,Fairly common,Smallest species
+"6 Microhyla ornata (Dumeril and Biborn, 1841)",Microhylide,Ornate rice frog,Below 1980,Common,Smallest frog of Nepal
+"7 Kaloula pulchra (Gray, 1831)",Microhylide,Painted bullfrog,Below 300,Unknown,
+"8 Kaloula taprobanica (Parker, 1934)",Microhylide,Sri lanka bull frog,Below 300,Rare,
+"9 Upeodon globulosus (Gunther, 1864)",Microhylide,Gray ballon frog,Below 300,,
+"10 Uperodon systomus (Schneider, 1799)",Microhylide,Marbled ballon frog,Below 200,Unknown,
+"11 Megophrys parva (Boulenger, 1893)",Megophryidae,Myanmar pelobatid toad,970-2440,Fairly common,
+"12 Megophrys robusta (Boulenger, 1908)",Megophryidae,Robust spadefoot toad,1600-240,Rare,
+"13 Scutiger boulengeri (Bedriaga, 1898)",Megophryidae,Boulenger's high altitude toad,Above 3000,Common,Recorded from upper Mustang
+"14 Scutiger napalenisis (Dubois, 1974)",Megophryidae,Khaptad pelobatid toad,2920-3100,,Endemic to Nepal
+"15 Scutiger nyingchiensis (Fei, 1977)",Megophryidae,Nyingchi high altitue toad,2730-4560,Unknown,
+"16 Scutiger sikimmemsis (Blyth, 1854)",Megophryidae,Sikkimise pelobatid toad,1260-4116,Common,Tibeto Himalayan
+"17 Amolops formosus (Gunther, 1875)",Ranidae,Beautiful stream frog,1190-2896,Rare,Medicine
+"18 Amolops marmoratus (Blyth, 1855)",Ranidae,Meghalaya stream frog,842-2896,Common,
+"19 Amolops monticola (Andrson, 1871)",Ranidae,Montane stream frog,1067-2350,Common,
+"20 Amolops nepalicus (Yang, 1991)",Ranidae,Nepalese  stream frog,,Unknown,Possibly endemic to Nepal
+"21 Chaparana sikimensis (Jerdon, 1870)",Ranidae,Sikkimise frog,1210-2500,Fairly common,
+"22 Euphlyctis cyanophlyctis (Schneider, 1799)",Ranidae,Tic-Tike pha,Below 2000,,
+"23 E. hexadactylus (Lesson, 1834)",Ranidae,Indian green frog,,,
+"24 Hoplobatrachus crassus (Jerdon, 1853)",Ranidae,Jerdon's bull frog,Below 300,Common,Traditional medicine
+"H. tigrinus (Daudin, 1802)",Ranidae,Indian bull frog,Below 1600,CITES II,Medicinal value
+"Limnonectes nepalinsis (Dubois,
+1975)",Ranidae,"Nepalese cricket
+frog",1350-1580,Common,
+"Limnonectes pierrei (Dubois, 1975)",Ranidae,Jhapa frog,170-500,Common,Endemic to Nepal
+"Limnonectes syhadrensis (Annandale,
+1919)",Ranidae,Syhadra frog,Below 1980,Fairly common,
+"Limnonectes teraiensis (Dubois, 1984)",Ranidae,"Nepalese terai
+frog",Below 400,Fairly common,Endemic to Nepal
+"Nanorana parkeri (Stejneger, 1927)",Ranidae,"Parker's high
+altitue frog",Above 2000,Common,"Reported from
+Mustang"
+"Paa annandalii (Boulenger, 1920)",Ranidae,Annandale's frog,1650-2650,Common,
+"Paa blanfordii (Boulenger, 1882)",Ranidae,"Blanford's paa
+frog",1800-2920,Rare,
+"Paa ercepeae (Dubois, 1974)",Ranidae,Bhajang frog,2200-2650,Unknown,Endemic to Nepal
+"Paa liebigii (Gunther, 1860)",Ranidae,Liebig's frog,1525-3360,Common,"Health benefits
+and food value"
+"Paa minica (Dubois, 19750",Ranidae,Tiny frog,1000-2000,Common,
+"Paa polunini (Smith, 1951)",Ranidae,Langtang frog,2100-3990,Common,"Food and
+medicinal value"
+"Paa rarica (Dubosis and Matsui,
+1983)",Ranidae,Rara frog,2900-3020,Rare,
+"Paa rostandi (Dubosis, 1974)",Ranidae,Mustang frog,2230-3500,Common,"Food and
+medicinal value"
+"Rana chitwanensis (Das, 1998)",Ranidae,Chitwan frog,200,Unknown,
+"Rana humeralis (Boulenger, 1897)",Ranidae,Burmese frog,100-250,Unknown,
+"Rana nigrovittata (Blyth, 1855)",Ranidae,"Black-spotted
+frog",100-250,Rare,
+"Rana tytleri (Theobald, 1868)",Ranidae,Taipeh frog,100-250,Common,
+"Sphaerotheca breviceps (Schneider,
+1799)",Ranidae,"Indian burrowing
+frog",150-2100,Rare,
+"S. maskeyi (Schleich and Anders,
+1998)",Ranidae,"Maskey's
+burrowing frog",200-800,Rare,
+"S. rolandae (Dubosis, 1983)",Ranidae,"Rolanda's
+burrowing frog",126,Unknown,
+"Sphaerotheca swani (Myers and
+Leviton, 1956)",Ranidae,"Sawn's burrowing
+frog",250-1560,Rare,
+"Philautus annandalii (Boulenger,
+1906)",Rhacophoridae,"Annandale's bush
+frog",1250-2250,Common,
+"Polypedates leucomystax
+(Gravenhorst, 1829)",Rhacophoridae,"Java whipping
+frog",<210,Rare,
+"Polypedates maculatus (Gray, 1834)",Rhacophoridae,"Common Indian
+tree frog",150-2500,Common,
+"Polypedates taeniatus (Boulenger,
+1906)",Rhacophoridae,Six-lined tree frog,150-250,Rare,
+"Polypedates zed (Dubois, 1987)",Rhacophoridae,Nepalese tree frog,310,Rare,
+"Rhacophorus maximus (Gunther,
+1858)",Rhacophoridae,Large tree frog,1150-1585,Rare,
+"Ichthyophis sikkimensis (Taylor, 1960)",Ichthyophidae,Sikkimese,1550,Rare,

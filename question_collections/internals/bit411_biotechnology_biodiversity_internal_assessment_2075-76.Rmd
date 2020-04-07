@@ -1,0 +1,88 @@
+---
+title: | 
+  | \vspace{0.25cm} \Large{\textbf{TRIBHUVAN UNIVERSITY}}
+  | \vspace{0.20cm} \large{GOKULESHWOR AGRICULTURE AND ANIMAL SCIENCE COLLEGE}
+  | \vspace{0.20cm} \large{B. Sc. Ag., Internal Assessment, 2076}
+# author: "Deependra Dhakal"
+output: 
+  bookdown::pdf_document2:
+    keep_tex: yes
+    toc: false
+    include:
+      in_header: plb422_biotechnology_biodiversity_internal_assessment_2075-76_header.tex
+spacing: singlespacing
+fontsize: 11pt
+geometry: margin=0.8cm
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, warning=FALSE, 
+                      error=FALSE, message=FALSE)
+require(tidyverse)
+```
+
+\begingroup
+  <!-- \centering -->
+  \makebox[4.2cm][l]{\textbf{Subject: Introductory Biotechnology and Biodiversity}}
+  \hspace{0.5\textwidth}
+  \makebox[1.8cm][r]{\textbf{FM: 10}}
+  \par
+\endgroup
+
+\begingroup
+  <!-- \centering -->
+  \makebox[4.2cm][l]{\textbf{Time: 60 Minutes}}
+  \hspace{0.5\textwidth}
+  \makebox[1.8cm][r]{\textbf{PM: 4}}
+  \par
+\endgroup
+
+**Level:** $7^{th}$ semester
+
+\textbf{Answer all questions.}
+
+```{r questions, results='asis'}
+all_quest <- read_csv("./../../../question_collections/questions_till_date.csv", skip = 1)
+
+# all_quest %>% 
+#   select(SN:Question) %>% 
+#   filter(Subject == "Introductory biotechnology and biodiversity") %>% 
+#   pull(Question) %>% 
+#   # Hmisc::latex(file = "", rowname = 1:12, where = 'h')
+#   cat(sep = "\\item ")
+
+# # fix this
+# cat("\\begin{enumerate}")
+# cat(
+#   "\\nonumber Essay type (2.5 x 2)", 
+#   "\\item Define genetic engineering. Write about its applications in agriculture.", 
+#   "\\item What is gene cloning ? Describe about gene cloning vectors. \\\\", 
+#   "\\nonumber Short answer type", 
+#   "\\item What are restriction enzymes ? Explain their types with suitable examples. (2)", 
+#   "\\item What is embryo culture and how is it useful in agricultural crops ? (2)", 
+#   "\\item What is species richness ? Calculate Shannon-Wiener index for given insect count data for two different rice fields sampled within a 100 square meter area. (1)"
+# )
+# cat("\\end{enumerate}")
+```
+
+Essay type (2.5 x 2)
+
+1. Define genetic engineering. Write about its applications in agriculture.
+1. What is gene cloning ? Describe about gene cloning vectors.
+
+Short answer type
+
+1. What are restriction enzymes ? Explain their types with suitable examples. (2)
+1. What is embryo culture and how is it useful in agricultural crops ? (2)
+1. What is species richness ? Calculate Shannon-Wiener index for given insect count data for two different rice fields sampled within a 100 square meter area. (1)
+
+```{r questions-data, results='asis'}
+tribble(~"Insect", ~"Rice field A", ~"Rice field B", 
+        "Gundhi bug", 120, 10, 
+        "Hispa", 50, 80,
+        "Brown hopper", 80, 85,
+        "Grass hopper", 150, 185) %>% 
+  knitr::kable(format = "latex", 
+               booktabs = TRUE, align = "c") %>% 
+  kableExtra::kable_styling(position = "center")
+```

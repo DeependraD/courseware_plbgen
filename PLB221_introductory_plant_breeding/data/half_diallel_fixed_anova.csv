@@ -1,0 +1,4 @@
+Source,df,SS,Msq,EMS
+GCA,p-1,$S_g$,$M_g$,$\sigma^2 + (p+2)(\frac{1}{1-p})\sum g_i^2$
+SCA,$\frac{p(p-1)}{2}$,$S_s$,$M_s$,$\sigma^2 + \frac{2p}{p-1}\sum_j s_{ij}^2$
+Error,$(r-1)p\frac{p+1}{2}$,$S_e$,$M_e$,$\sigma^2$

@@ -1,0 +1,183 @@
+---
+title: |
+  | \Huge{$\chi^2$ test}
+  | \vspace{0.5cm} \large{Theory and solved numerical problems}
+author: "Deependra Dhakal"
+date: "`r Sys.Date()`"
+output: tint::tintBook
+bibliography: [skeleton.bib, bibliographies.bib]
+link-citations: yes
+header-includes:
+  - \usepackage{booktabs}
+  - \usepackage{longtable}
+  - \usepackage{array}
+  - \usepackage{multirow}
+  - \usepackage{wrapfig}
+  - \usepackage{float}
+  - \usepackage{colortbl}
+  - \usepackage{pdflscape}
+  - \usepackage{tabu}
+  - \usepackage{threeparttable}
+  - \usepackage{threeparttablex}
+  - \usepackage[normalem]{ulem}
+  - \usepackage{makecell}
+  - \usepackage{xcolor}
+---
+
+```{r setup, include=FALSE}
+library(tint)
+library(knitr)
+require(tidyverse)
+# invalidate cache when the package version changes
+knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('tint'))
+options(knitr.kable.NA = "")
+options(knitr.table.format = "latex")
+options(htmltools.dir.version = FALSE,
+        kableExtra.latex.load_packages = FALSE)
+```
+
+## $\Huge{\chi^2}$ test [@strickberger1990genetics]
+
+Actually observed ratios may depart to a greater or lesser extent from those expected. Once the degrees of freedom and a significance level for testing a hypothesis has been decided upon, the actual measurement of the size of the discrepancy between observed and expected results remains to be done. One measure commonly used for this purpose is _chi-square_ $\chi^2$. For 1 degrees of freedom (referred to as _df_ herein after), the test statistic is calculated with the following relation;
+
+$$
+\chi^2 = \frac{\left[\sum|observed-expected|-\frac{1}{2}\right]^2}{expected}
+$$
+
+
+The term $\frac{1}{2}$ above from the absolute value of the deviation ($observed-expected$) is known as Yates correction term. This adds to the accuracy of $\chi^2$ determinations when the number of either of the expected classes is small.
+
+## Example case
+
+Let us suppose that a garden pea plant, heterozygous for the gene pair $Tt$, produced 30 tall and 20 short offspring. Since the effect of the tall allele ($T$) is dominant over that for short ($t$), a 3:1 ratio would have been expected if the plant had been self-fertilized ($Tt \times Tt$), or an exact numerical ratio of 37.5 tall to 12.5 short. Is the observed deviation from the expected ratio sufficient reason to discard the self-fertilization hypothesis and look for another explaination? For instance, must we substitute the hypothesis that the $Tt$ plant was fertilized by a short plant $tt$ which, ideally, would have yielded 25 tall and 25 short offspring?
+
+(Solution)$\Large{\rightarrow}$ $\Huge\chi^2$ for the hypothesis that the tall plant in the above example was self-fertilized would be calculated as shown in Table \ref{tab:chi-self-fert}.
+
+```{r chi-self-fert, message=FALSE, warning=FALSE, echo=FALSE}
+chi_self <- read_csv("./../data/chi_square_test1.csv") %>% 
+  rename(" " = "X1")
+
+kable(chi_self, format = "latex", booktabs = TRUE, escape = FALSE, 
+      caption = "Chi-square calculations for the hypothesis that the observations of 30 tall and 20 short plants arises from a cross between heterozygotes, Tt x Tt, which would ideally produce a ratio of 3/4 tall:1/4 short plants") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down")
+```
+
+$$
+\left(|Observed-Expected|-\frac{1}{2}\right)^2
+$$
+
+Note that in calculating $\chi^2$, always the actual numbers observed and expected should be used. Using proportions or percentages will lead to unintended results.
+
+According to statisticians, if the "expected" hypothesis is true, $\chi^2$ values have certain probabilities of occurance, depending on the number of degrees of freedom in the experiment. On the basis of such, calculation tables have been constructed that relate the number of degrees of freedom with the probability of particular groups of $\chi^2$ values will be found. For any given number of degrees of freedom, the probability that chi-square values or discrepancies will be found is, of course, much less than for small discrepancies. This relationship can be observed in Table \ref{tab:chi-sqrt-values}, where, for example, $\chi^2$ value larger than 3.84 will occur 5 percent or less of the time in experiments with 1 degree of freedom. Thus $\chi^2$ values of 6.64 or greater are sufficiently rare that they occur only 1 percent of the time, and values of 10.83 or greater occur only 1 out of 1000 times. On the other hand, $\chi^2$ values less than 3.84 are relatively frequent; i.e., a value of 1.07 or greater would be found in 30 out to 100 experiments if the proposed hypothesis were true expaination for the results.
+
+Since we have agreed on a 5 percent level of significance, the $\chi^2$ value of 5.23 calculated in our example is therefore rare enough to be "significant", so that we have cause to reject our hypothesis. For convenience, a line has been placed at the 0.5 value in the Table \ref{tab:chi-sqrt-values}, and $\chi^2$ values to the *right* of this line can be considered sufficient cause for rejection of the hypothesis at the 5 percent level of significance.
+
+Alternatively hypothesis, that the Tt heterozygous plant had been fertilized by a tt plant, also deserves consideration. According to this hypothesis, the offspring of such mating would be expeted to follow phenotypic ratio of 1 tall: 1 short. $\chi^2$ calculation can therefore be made as in Table \ref{tab:chi-recessive-fert}
+
+```{r chi-sqrt-values, echo=FALSE, message=FALSE}
+# Set p-values
+p <- c(0.995, 0.99, 0.975, 0.95, 0.90, 0.10, 0.05, 0.025, 0.01, 0.005)
+# Set degrees of freedom
+df <- c(seq(1,20),25,30,35,40,45,50,75,100)
+
+# Calculate a matrix of chisq statistics
+m <- outer(p, df, function(x,y) qchisq(x,y))
+
+# Transpose for a better view
+m <- t(m)
+
+# Set column and row names
+colnames(m) <- p
+rownames(m) <- df
+
+kable(m, format = "latex", booktabs = TRUE, escape = TRUE, 
+      caption = "The probabilities of exceeding different chi-square values for degrees of freedom from 1 to 50 when the expected hypothesis is true") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down") %>% 
+  kableExtra::column_spec(8, border_left = TRUE)
+```
+
+
+```{r chi-recessive-fert, message=FALSE, warning=FALSE, echo=FALSE}
+chi_self <- read_csv("./../data/chi_square_test2.csv") %>% 
+  rename(" " = "X1")
+
+kable(chi_self, format = "latex", booktabs = TRUE, escape = FALSE, 
+      caption = "Chi-square calculations for the hypothesis that the observations of 30 tall and 20 short plants arises from a cross between tall heterozygote (Tt) and a short homozygote (tt), which would ideally produce a ratio of 1/2 tall:1/2 short plants") %>% 
+  kableExtra::kable_styling(latex_options = "scale_down")
+```
+
+According to Table \ref{tab:chi-sqrt-values}, in the experiment with 1 degrees of freedom, the probability of exceeding a chi-square value of 1.62 is between 0.20 and 0.30. This $\chi^2$  value is therefore small enough, and the probability for the occurance of such a small value is therefore sufficiently great that we do not reject our hypothesis.
+
+In $\chi^2$ tests with more than one degrees of freedom, however, for example with 4 classes (3 df), the calculation for $\chi^2$ statistic follows the same but without Yate's correction factor ($\frac{1}{2}$) being subtracted from the absolute deviation.
+
+## $\chi^2$ test for independence
+
+It is ocassionally desirable to compare one set of observations taken under particular conditions to those of a similar nature taken under different conditions. In this case there are not definite expected values; the question is wheteher the results are dependent (contingent upon) or independent of the conditions under which they are observed. This test is therefore called a test for independence, or _contingency test_.
+
+In genetics, problems of this kind may be concerned with the effect of different environment or different genetic constitution on a set of experimental observations. For example, crosses between individuals heterozygous for the same gene difference were performed in two different experiments, A and B, and gave following results as shown in Table \ref{tab:contingency-chi-test}
+
+
+```{r contingency-chi-test, echo=FALSE}
+contingency_chi <- tribble(~"Dominant", ~"recessive",
+                           80, 30,
+                           90, 25)
+
+contingency_chi %>% 
+  add_column(.before = 1, " Condition " = c("A", "B")) %>% 
+  add_column(.before = 1, "  " = "Environment") %>% 
+  kable(format = "latex", booktabs = TRUE, caption = "2x2 contingency table of experimental outcomes different experimental conditions") %>% 
+  kableExtra::kable_styling() %>% 
+  kableExtra::add_header_above(c("  " = 2, "Phenotype of offspring" = 2)) %>% 
+  kableExtra::collapse_rows(columns = 1)
+  
+```
+
+For experiment A the dominant:recessive ratio is 2.67:1, whereas for B it is 3.60:1. Because of this difference, we may reasonably ask whether the observed results are independent of the particular experimental conditions. One statistical answer to this question depends upon the calculation of a $\chi^2$ that has only 1 df. If the calculated $\chi^2$ is less than the $\chi^2$ at the particular level of significance desired (i.e., less than 3.84 at the 5 percent level), the hypothesis can be accepted that the observed results are statistically independent of the experimental conditions. If the calculated $\chi^2$ exceeds this value, this would indicate that the results depend upon the conditions, i.e., that there is an _interaction_ between the results of a cross and its experimental condition sufficient to cause differences between the two sets of results.
+
+To calculate a contingency $\chi^2$, both the observed numbers and the marginal totals must be used. If we call the total number of observations N, and the individual numerical contributions to this value, a, b, c and d, respectively, then the $\chi^2$ calculations are as follows (Shown in Table \ref{tab:contingency-chi-test2}):
+
+\vspace{0.5cm}
+
+```{r contingency-chi-test2, echo=FALSE}
+contingency_chi2 <- tribble(~"1", ~"2",
+                           "a", "b",
+                           "c", "d")
+
+contingency_chi2 %>% 
+  add_column(.before = 1, " Condition " = c("A", "B")) %>% 
+  add_row(.after = 2, "1" = "a+c", "2" = "b+d") %>% 
+  add_column(.after = 3, "Totals" = c("a+b", "c+d", "a+b+c+d = N")) %>% 
+  kable(format = "latex", booktabs = TRUE, caption = "Calculation of chi-square statistic for test of independence") %>% 
+  kableExtra::kable_styling(font_size = 8) %>% 
+  kableExtra::add_header_above(c("  " = 1, "Categories of observations" = 2))
+  
+```
+
+$$\Large{\chi^2} = \frac{\left[|ad-bc|-\frac{1}{2}N\right]^2N}{(a+b)(a+c)(c+d)(b+d)}$$
+
+The vertical lines on the either sides of $|ab-bc|$ mean the absolute, or positive, value of this difference. If this difference is zero or less than the Yates correction factor of $\frac{1}{2}N$ in this equation, the numerator becomes zero and thus $\chi^2$ is consequently zero.
+
+```{r contingency-chi-test3, echo = FALSE, message=FALSE}
+contingency_chi3 <- tribble(~"Dominant", ~"Recessive",
+                           80, 30,
+                           90, 25)
+
+contingency_chi3 %>% 
+  add_column(.before = 1, " Condition " = c("A", "B")) %>% 
+  add_row(.after = 2, "Dominant" = 170, "Recessive" = 55) %>% 
+  add_column(.after = 3, "Totals" = c(110, 115, 225)) %>% 
+  kable(format = "latex", booktabs = TRUE, caption = "Contingency table of phenotypes by test condition") %>% 
+  kableExtra::kable_styling(font_size = 8) %>% 
+  kableExtra::add_header_above(c("  " = 1, "Phenotypes" = 2))
+```
+
+From the data given above (in the Table \ref{tab:contingency-chi-test3}), the $\chi^2$ computations are:
+
+$$
+\begin{aligned}
+\chi^2 &= \frac{(|2000-2700|-112.5)^2\times 225}{(100)(170)(115)(55)} \\
+&= 0.66
+\end{aligned}
+$$
+
+Thus, in spite of the difference in rations between the two experiments, the $\chi^2$ is still small enough (probability between .3 and 0.5) to allow statistical independence of the particular experimental conditions.

@@ -1,0 +1,109 @@
+---
+title: "Biodiversity indexing"
+author:   
+  - Deependra Dhakal 
+institute:   
+  - GAASC, Baitadi
+  - Tribhuwan University 
+date: Academic year 2019-2020 
+output:   
+  beamer_presentation:  
+    incremental: false  
+    theme: "Frankfurt"  
+    colortheme: "beaver"
+    toc: true   
+    slide_level: 3
+    keep_tex: true
+    includes:
+      in_header: 08-biodiversity_indexing_beamer_header.tex
+classoption: "aspectratio=169"
+header-includes: 
+- \AtBeginSubsection{}
+bibliography: [./../bibliographies.bib]
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+require(tidyverse)
+set.seed(453)
+# invalidate cache when the package version changes
+knitr::opts_chunk$set(tidy = FALSE, echo = FALSE, 
+                  message = FALSE, warning = FALSE,
+                  out.width = "45%")
+options(knitr.table.format = "latex")
+options(knitr.kable.NA = "", digits = 2)
+options(kableExtra.latex.load_packages = FALSE)
+```
+
+# Indices
+
+## 
+
+$$
+{}^{q}\!D=\left({\sum _{i=1}^{R}p_{i}^{q}}\right)^{1/(1-q)}
+$$
+
+and the term inside the parentheses is called the basic sum. Some popular diversity indices correspond to the basic sum as calculated with different values of q.
+
+## Richness
+
+# Numerical problems
+
+## Problem
+
+1. Calculate Shannon Weaner Index, Simpson Index and Evenness from following two areas and interpret your result. Also discuss species richness and evenness from following information.
+
+```{r}
+tribble(~"Insect", ~"Area 1", ~"Area 2", 
+        "Wasp", 112, 424,
+        "Butterfly", 88, 76, 
+        "Grasshopper", 143, 54, 
+        "Bettle", 112, 60, 
+        "Bee", 100, 40, 
+        "Hoverfly", 145, 46) %>% 
+  t() %>% 
+  magrittr::set_colnames(.[1,]) %>% 
+  as_tibble() %>% 
+  slice(-1)
+```
+
+## Solution
+
+Here, 
+
+We have Shannon-Weiner Index,
+
+$$ 
+H = \sum_{i = 1}^S{p_i.\ln p_i}
+$$
+
+Where, $S$ is the species richness (number of distinct species types), $p_i$ is the proportional abundance, and $\ln p_i$ the natural log of the proportional abundance.
+
+```{r}
+tribble(~"Insect", ~"Area 1", ~"Area 2", 
+        "Wasp", 112, 424,
+        "Butterfly", 88, 76, 
+        "Grasshopper", 143, 54, 
+        "Bettle", 112, 60, 
+        "Bee", 100, 40, 
+        "Hoverfly", 145, 46) %>% 
+  mutate_at(c("Area 1", "Area 2"), list(pi = ~./(sum(.)), lnpi = ~log(./(sum(.))))) %>% 
+  summarise(A1_d_shannon_weiner = -sum(`Area 1_lnpi` * `Area 1_pi`), 
+            A1_d_simpson = -sum(`Area 1_pi`^2), 
+            A1_d_difference_simpson = 1-A1_d_simpson,
+            A1_d_richness = n(),
+            A1_d_evenness = A1_d_shannon_weiner/log(A1_d_richness),
+            A2_d_shannon_weiner = -sum(`Area 2_lnpi` * `Area 2_pi`), 
+            A2_d_simpson = -sum(`Area 2_pi`^2), 
+            A2_d_difference_simpson = 1-A2_d_simpson, 
+            A2_d_richness = n(),
+            A2_d_evenness = A2_d_shannon_weiner/log(A2_d_richness)
+            ) %>% 
+  pivot_longer(cols = A1_d_shannon_weiner:A2_d_evenness, 
+               names_to = c("Area", "Index"), 
+               names_pattern = "A(\\d)_d_(.*)"
+               ) %>% 
+  pivot_wider(names_from = Area, names_prefix = "Area ")
+```
+
+

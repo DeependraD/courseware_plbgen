@@ -1,0 +1,7 @@
+  ,Tall,Short,Subtotals
+Observed,30,20,50
+Expected,$\frac{3}{4}\times 50 = 37.5$,$\frac{1}{4}\times 50 = 12.5$,50
+Observed - Expected,-7.5,7.5,
+$|Observed-Expected|-\frac{1}{2}$,-7,7,
+$\left (|Observed-Expected|-\frac{1}{2}\right)^2$,49,49,
+$\left (|Observed-Expected|-\frac{1}{2}\right)^2/expected$,$\frac{49.0}{37.5} = 1.31$,$\frac{49.0}{12.5}=3.92$,$\chi^2 = 1.31 + 3.92 = 5.23$

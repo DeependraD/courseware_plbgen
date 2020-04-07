@@ -1,0 +1,18 @@
+Term,Meaning
+Code letter,"A nucleotide e.g., A, U, G, C (in mRNA) or A, T, G, C (in DNA)"
+Code word,"A sequence of nucleotides specifying an amino acid. e.g., the RNA codon for leucine = CUG (of GAC for DNA)"
+Anticodon,"A sequence of nucleotides on tRNA that complements the codon, e.g., GAC = anticodon for leucine"
+Word size of codon,"The number of letters in a code word, e.g., three letters in a triplet code. These are the same as coding ratio in a nonoverlapping code."
+Non overlapping code,"A code in which only as many amino acids are coded as there are code words in end-to-end sequence, e.g., for a triplet code UUUCCC = phenylalanine (UUU) + proline (CCC)"
+Overlapping code,"When more amino acids are coded for in a single reading frame than there are code words present in end-to-end sequence, e.g., UUUCCC = phenylalanine (UUU) + phenylalanine (UUU) + serine (UCC) + proline (CCC)"
+Nondegenerate code,"When there is only one codon for each amono acid, e.g., 20 different amino acids have a total of 20 codons."
+Degenerate code,"When there is more than one codon for a particular amino acid, e.g., UUU, UUC = phenylalanine, or 20 different amino acids have a total of more than 20 codons."
+Synonymous codons,"Different codons that specify the same amino acid in a degenerate code, e.g., UUU = UUC = phenylalanine"
+Ambigious code,"When one codon can code for more than one amino acid, e.g., GGA = glycine, glutamic acid"
+Commaless code,"When there are no intermediary nucleotides (spacers) between words, e.g., UUUCCC = two amino acids in triplet nonoverlapping code"
+Reading frame,"The particular nucleotide sequence, coding for a polypeptide, that starts at a specific point and is then partitioned into codon until the final code word of that sequence is reached."
+Frameshift mutation,"A change in the reading frame because of the insertion or deletion of nucleotides in numbers other than multiples of the codon length. This modifies the previous partitioning of codons in the reading frame, and causes a new sequence of codons to be read."
+Sense word,A codon that specifies an amino acid normally present at that position in a protein
+Missense mutation,"A change in nucleotide sequence, either by deletion, insertion, or subsitution, resulting in the appearance of a codon that produces a different amino acid in a particular protein, e.g., UUU (phenylalanine) mutates to UGU (Cysteine)"
+Nonsense mutation,"A mutation that results in a codon that does not produce an amino acid, e.g., UAG (also called a “stop” mutation or “chain termination” codon)"
+Universality,"Utilization of the same genetic code in all organisms, e.g. UUU = phenylalanine in bacteria, mouse, man and tobacco (with some exceptions in mitochondria)"

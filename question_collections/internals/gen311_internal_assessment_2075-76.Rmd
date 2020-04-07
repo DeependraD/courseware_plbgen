@@ -1,0 +1,116 @@
+---
+title: | 
+  | \vspace{0.25cm} \Large{\textbf{TRIBHUVAN UNIVERSITY}}
+  | \vspace{0.20cm} \large{GOKULESHWOR AGRICULTURE AND ANIMAL SCIENCE COLLEGE}
+  | \vspace{0.20cm} \large{B. Sc. Ag., Internal Assessment, 2076}
+# author: "Deependra Dhakal"
+output: 
+  bookdown::pdf_document2:
+    keep_tex: yes
+    toc: false
+    include:
+      in_header: ['gen311_internal_assessment_2075-76_header.tex']
+spacing: singlespacing
+fontsize: 10pt
+geometry: margin=0.8cm
+---
+
+```{r setup, include=FALSE}
+set.seed(1080)
+knitr::opts_chunk$set(echo=FALSE, warning=FALSE, 
+                      error=FALSE, message=FALSE)
+require(tidyverse)
+```
+
+\begingroup
+  <!-- \centering -->
+  \makebox[4.2cm][l]{\textbf{Subject: Genetics of Populations}}
+  \hspace{0.5\textwidth}
+  \makebox[1.8cm][r]{\textbf{FM: 10}}
+  \par
+\endgroup
+
+\begingroup
+  <!-- \centering -->
+  \makebox[4.2cm][l]{\textbf{Time: 60 Minutes}}
+  \hspace{0.5\textwidth}
+  \makebox[1.8cm][r]{\textbf{PM: 4}}
+  \par
+\endgroup
+
+**Level:** $5^{th}$ semester
+
+\textbf{Answer all questions.}
+
+```{r questions, results='asis'}
+all_quest <- read_csv("./../../question_collections/questions_till_date.csv", skip = 1)
+
+# cat("\\begin{enumerate} ")
+# cat("\\item ")
+# all_quest %>%
+#   select(SN:Question) %>%
+#   filter(Subject == "Introductory genetics") %>%
+#   filter(Question_type == "Essay") %>% 
+#   pull(Question) %>%
+#   sample(1) %>% 
+#   # Hmisc::latex(file = "", rowname = 1:12, where = 'h')
+#   cat(sep = "\\item ")
+# 
+# all_quest %>%
+#   select(SN:Question) %>%
+#   filter(Subject == "Introductory genetics") %>%
+#   filter(Question_type == "Short") %>% 
+#   pull(Question) %>%
+#   sample(4) %>% 
+#   # Hmisc::latex(file = "", rowname = 1:12, where = 'h')
+#   cat(sep = "\\item ")
+# 
+# cat("\\end{enumerate}")
+
+```
+
+Essay type (2 x 2 = 4)
+
+1. Write the significance of GxE interaction? Explain types of GxE interaction with diagrams.
+2. Explain the model that best explains the structure of chromosome.
+
+Short answer type (1.5 x 4 = 6)
+
+1. What are restriction enzymes? Enlist any 5 restriction enzymes with their cleavage sites. Why is Type-II restriction enzyme family is more useful than others?
+2. Explain "one gene one polypeptide hypothesis" with suitable examples if necessary.
+3. Explain Johannsens pureline theory. What is meant by 'variegation' in biological tissues?
+4. What is recombinant DNA technology? Provide some examples.
+
+\vspace{2cm}
+
+\begingroup
+  <!-- \centering -->
+  \makebox[4.2cm][l]{\textbf{Subject: Genetics of Populations}}
+  \hspace{0.5\textwidth}
+  \makebox[1.8cm][r]{\textbf{FM: 10}}
+  \par
+\endgroup
+
+\begingroup
+  <!-- \centering -->
+  \makebox[4.2cm][l]{\textbf{Time: 60 Minutes}}
+  \hspace{0.5\textwidth}
+  \makebox[1.8cm][r]{\textbf{PM: 4}}
+  \par
+\endgroup
+
+**Level:** $5^{th}$ semester
+
+\textbf{Answer all questions.}
+
+Essay type (2 x 2 = 4)
+
+1. Write the significance of GxE interaction? Explain types of GxE interaction with diagrams.
+2. Explain the model that best explains the structure of chromosome.
+
+Short answer type (1.5 x 4 = 6)
+
+1. What are restriction enzymes? Enlist any 5 restriction enzymes with their cleavage sites. Why is Type-II restriction enzyme family is more useful than others?
+2. Explain "one gene one polypeptide hypothesis" with suitable examples if necessary.
+3. Explain Johannsens pureline theory. What is meant by 'variegation' in biological tissues?
+4. What is recombinant DNA technology? Provide some examples.

@@ -1,0 +1,10 @@
+Source,df,MS,EMS
+Reps (R),ly(r-1),,
+Years (Y),y-1,,
+Location (L),l-1,,
+Y x L,(y-1)(l-1),,
+Genotypes (G),g-1,$M_1$,$\sigma^2_e + r\sigma^2_{gly} + rl\sigma^2_{gy} + ry\sigma^2_{gl} + rly\sigma^2_g$
+G x Y,(g-1)(y-1),$M_2$,$\sigma^2_e + r\sigma^2_{gly} + ry\sigma^2_{gl} + rly\sigma^2_g$
+G x L,(g-1)(l-1),$M_3$,$\sigma^2_e + r\sigma^2_{gly} + ry\sigma^2_gl$
+G x Y x L,(g-1)(y-1)(l-1),$M_4$,$\sigma^2_e + r\sigma^2_{gly}$
+Error (G x R),(g-1)(r-1)ly,$M_5$,$\sigma^2_e$

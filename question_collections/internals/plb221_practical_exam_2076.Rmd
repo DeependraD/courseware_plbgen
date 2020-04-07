@@ -1,0 +1,150 @@
+---
+title: | 
+  | \vspace{0.5cm} \Large{TRIBHUVAN UNIVERSITY}
+  | \vspace{0.5cm} \Large{GOKULESHWOR AGRICULTURE AND ANIMAL SCIENCE COLLEGE}
+  | \vspace{0.5cm} \Large{B. Sc. Ag., Practical Examination}
+# author: "Deependra Dhakal"
+date: "2076"
+output: 
+  bookdown::pdf_document2:
+    keep_tex: yes
+    toc: false
+    include:
+      in_header: plb_practical_exam_2076_header.tex
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+\begingroup
+  \centering
+  \makebox[4.5cm][l]{\large{\textbf{Subject: Introductory Plant Breeding}}}
+  \hspace{0.5\textwidth}
+  \makebox[2.0cm][r]{\large{\textbf{FM: 15}}}
+  \par
+\endgroup
+
+\begingroup
+  \centering
+  \makebox[4.5cm][l]{\large{\textbf{Time: 45 Minutes}}}
+  \hspace{0.5\textwidth}
+  \makebox[2.0cm][r]{\large{\textbf{PM: 6}}}
+  \par
+\endgroup
+
+\textbf{Select the correct choice from the options given, for the following statements.}
+
+1. Wheat is a \makebox[3.5cm][r]{\xrfill[-0.5ex]{1pt}} crop.
+\begin{multicols}{3}
+\begin{enumerate}[label=(\alph*)]
+  \item Cross pollinated crop
+  \item Self pollinated crop
+  \item Often self pollinated crop
+  \item Often cross pollinated crop
+  \item Clonally propagated crop
+\end{enumerate}
+\end{multicols}
+
+2. Tomato is \makebox[3.5cm][r]{\xrfill[-0.5ex]{1pt}} crop.
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+  \item Monoploid
+  \item Diploid
+  \item Tetraploid
+  \item Hexaploid
+\end{enumerate}
+\end{multicols}
+
+<!-- 3. Crossing of crop plants is best done at \makebox[3.5cm][r]{\hrulefill }. -->
+3. Crossing of crop plants is best done at \makebox[3.5cm][r]{\xrfill[-0.5ex]{1pt}}.
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+  \item Morning
+  \item Noon
+  \item Evening
+  \item Night
+\end{enumerate}
+\end{multicols}
+
+4. Which method of breeding allows natural selection to take place?
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+  \item Mass selection
+  \item Pedigree selection
+  \item Bulk selection
+  \item Backcross selection
+\end{enumerate}
+\end{multicols}
+
+5. In tagging of crossed flowers which information is missed ?
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+  \item Date of emasculation
+  \item Name of female and male parent
+  \item Name of breeder and institution
+  \item Mode of pollination
+\end{enumerate}
+\end{multicols}
+
+6. Seed purity does not include
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+  \item Inert matter
+  \item Other crop seeds
+  \item Weed seeds
+  \item Identifiable seeds of other varieties
+  \item Half broken seeds
+\end{enumerate}
+\end{multicols}
+
+7. Breeding method for self pollinated crops relies on:
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+\item Increasing yield
+\item Increasing homozygosity
+\item Increasing heterozygosity
+\item Increasing hybrid vigour
+\end{enumerate}
+\end{multicols}
+
+8. What is the trait of consideration for determining disease tolerance ?
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+\item Disease symptoms
+\item Length of panicle
+\item Yield
+\item Leaf greenness
+\end{enumerate}
+\end{multicols}
+
+9. Which is a national hybrid of maize ?
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+\item Manakamana-1
+\item Rampur composite
+\item Posilo makai
+\item Gaurav
+\end{enumerate}
+\end{multicols}
+
+10. Which is not a research organization related to plant breeding ? 
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+\item ICARDA, Lebanon
+\item CIMMYT, Mexico
+\item IEEE, US
+\item CIP, Peru
+\end{enumerate}
+\end{multicols}
+
+11. How do you determine the germination percentage of a seed sample in lab ? Determine for the given quality of seed the actual amount of seed required to plant \SI{2}{hectare} of rice. (1+2)
+\begin{multicols}{2}
+\begin{itemize}
+  \item Seed rate of rice: \SI[per=frac,fraction=nice]{45}{\kilo \gram \per \hectare}
+  \item Germination percentage: \SI{80}{\percent}
+  \item Purity percentage: \SI{98}{\percent}
+\end{itemize}
+\end{multicols}
+
+12. What are the different classes of seeds? What is CVT and PYT in varietal release program ? (1+1)

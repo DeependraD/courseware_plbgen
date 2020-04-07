@@ -1,0 +1,271 @@
+---
+title: "Heritability and response to selection"
+subtitle: "Theory and solved numerical problems"
+author: "Deependra Dhakal"
+date: "`r Sys.Date()`"
+output: tint::tintBook
+bibliography: [skeleton.bib, bibliographies.bib]
+link-citations: yes
+header-includes:
+  - \usepackage{booktabs}
+  - \usepackage{longtable}
+  - \usepackage{array}
+  - \usepackage{multirow}
+  - \usepackage{wrapfig}
+  - \usepackage{float}
+  - \usepackage{colortbl}
+  - \usepackage{pdflscape}
+  - \usepackage{tabu}
+  - \usepackage{threeparttable}
+  - \usepackage{threeparttablex}
+  - \usepackage[normalem]{ulem}
+  - \usepackage{makecell}
+  - \usepackage{xcolor}
+---
+
+```{r setup, include=FALSE}
+library(tint)
+library(knitr)
+require(tidyverse)
+# invalidate cache when the package version changes
+knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('tint'))
+options(htmltools.dir.version = FALSE,  knitr.table.format = "latex",
+        kableExtra.latex.load_packages = FALSE)
+```
+
+<!-- \clearpage -->
+
+# Heritability [@brown2014plantbreeding]
+
+To make economically meaningful progress in an organized programme of selective breeding, two conditions must be met;
+
+- There must be some observable phenotypic variation within the crop. This would normally be expected, even if it were due entirely to the effects of a variable environment.
+- At least some of this phenotypic variation must have a genetic basis.
+
+This leads to the concept of heritability ($h^2$), which is the proportion of phenotypic variance that is genetic in origin.
+
+The values of $h^2$ can range from 0 to 1. If $h^2$ is close to zero, there will be little scope for advancement and there would be little point in trying to improve this character in a plant breeding program. There are three main ways of estimating heritability:
+
+1. Carrying out particular genetic crosses and observing the performance of their progeny so that the resulting data can be partitioned into genetic and environmental components.
+
+1. Based on the direct measurement of the degree of resemblance between offspring and one, or both, of their parents. This is achieved by regression of the former onto the latter in the absence of selection.
+
+1. Measuring the response of a population to given levels of selection.
+
+Dominance model of quantitative inheritance dictates that total genetic variance will contain dominance genetic variance (denoted by $V_D$) and additive genetic variance (denoted by $V_A$). Dominance genetic variance is variation caused by heterozygotes loci in the individuals in the population, whereas additive genetic variance is the variation existing between homozygous loci in the segregating population.
+
+## Broad sense heritability
+
+The total genetic varinace divided by the total phenotypic variance is Broad-sense heritability ($h_b^2$). This estimation uses the total genetic variance in a additive-dominance model, while the total phenotypic variance is obtained by adding environmental variance to this genetic variance.
+
+$$
+h_b^2 = \frac{V_A + V_D}{V_A + V_D + V_E}
+\tag{i}
+$$
+Dominant genetic variance will be dependent upon the degree of heterozygosity in the population and will differ between fillial generations. This is due to the fact that the degree of heterozygosity withing segregating populations will be related to the number of selfing generations to which it has been subjected.
+
+A more useful form of heritability for plant breeders, therefore, is *narrow-sense heritability* ($h_n^2$), which is:
+
+$$
+h_n^2 = \frac{V_A}{V_A+V_D+V_E}
+\tag{ii}
+$$
+
+_Reason for why lack of resemblance between parents and their offspring should be attributable to dominance but not additive components_
+
+Dominance effects are a feature of particular genotypes; but genotypes are ‘made’ and ‘unmade’ between generations as a result of genetic segregation during the production of gametes. Thus, the mean dominance effect in the offspring of a particular cross can be different from that of the parents, even when there is no selection. Furthermore, when selection is applied the change may not be apparent or in "wrong" direction. On the other hand, the additive genetic component will remain more or less constant from one generation to the next in the absence of selection. If differential selection is applied, the change between generations must be in the direction corresponding to the favoured alleles. In addition, additive genetic variance is constant between filial generations, and so narrow-sense heritability of recombinant inbred lines can be estimated from early-generation segregating families.
+
+## Variance partitioning of filial generation
+
+In the first filial generation ($F_1$), after hybridization between two homozygous parents, there is not genetic variance between individuals of a progeny (they will be genetically alike) and all the variation observed between $F_1$ plants will be entirely environmental. In the generation following ($F_2$ and forth) there are both genetic and environmental components of phenotypic variance.
+
+The genetic variance of the $F_2$ generation is:
+
+$$
+\sigma_{\bar{F_2}}^2 = \frac{1}{2}V_A + \frac{1}{4}V_D + \sigma_E^2
+$$
+Thus in broad sense heritability of the $F_2$ generation is:
+
+$$
+h_b^2 = \frac{\frac{1}{2}V_A + \frac{1}{4}V_D}{\frac{1}{2}V_A + \frac{1}{4}V_D + \sigma_E^2}
+\tag{iii}
+$$
+
+In simple terms, to estimate the $h_b^2$ of $F_2$ family (or any other segregating family), an only following estimates are required:
+
+1. Total phenotypic variance (Obtained from measurement on plants within $F_2$ families)
+2. Environmental variance (Obtained from measurement on $F_1$ families)
+
+_Example case_
+
+Consider a field experiment with an inbreeding species such as wheat or barley. Parent 1 included 20 plants, Parent 2 included 20 plants and $F_2$ family derived from selfing of $F_1$ generation, which was obtained by intercrossing the two parents (i.e. Parent 1 x Parent 2), consisted of 100 individuals. These 140 plants were completely randomized within the experiment, and at harvest the weight of seeds from each plant was recorded. The variances in seed weight of the two parents were $\sigma_{\bar{P_1}}^2 = 16.8~kg^2$ and $\sigma_{\bar{P_2}}^2 = 18.4~kg^2$. The phenotypic variance (which included both genetic and environmental variation) of the $F_2$ was $\sigma_{\bar{F_2}}^2 = 56.9~kg^2$. The total phenotypic varinace of the $F_2$ generation is represented by denominator term of $h_b^2$ is estimated to be 56.9 kg^2 (the variance of $F_2$). It now follows that the $h_b^2$, from given inform is:
+
+$$
+h_b^2 = \frac{56.9-\sigma_E^2}{56.9}
+$$
+
+But the problem is what is the value of environmental component of the phenotypic variance $\sigma_E^2$?
+
+Since, both parents are homozygous inbreds, any variance displayed by either must be attributable exclusively to the environment. The best esimate of the $\sigma_E^2$ is therefore:
+
+$$
+\begin{aligned}
+\sigma_E^2 &= \frac{\sigma_{\bar{P_1}}^2 + \sigma_{\bar{P_2}}^2}{2} \\
+&= \frac{16.8 + 18.4}{2} = 17.6~kg^2
+\end{aligned}
+$$
+
+And,
+
+$$
+h_b^2=\frac{56.9-17.6}{56.9} = 0.691
+$$
+Thus 69.1% of the phenotypic variance of the $F_2$ generation is estimated to be genetic in origin.
+
+The other generation in which the phenotypic variance is also entirely attributable to environmental effects is the $F_1$. On the other hand, if the phenotypic variances of all these three generations were available, the environmental component of the phenotypic variance of the $F_2$ generation could be estimated as follows (in a simplified way):
+
+$$
+\sigma_E = \frac{\sigma_{\bar{P_1}}^2 + 2\sigma_{\bar{F_1}}^2 + \sigma_{\bar{P_2}}^2}{4}
+\tag{iv}
+$$
+
+## Narrow sense heritability
+
+The ratio of additive genetic variance to total phenotypic variance is called the narrow-sense heritability.
+
+$$
+h_n^2 = \frac{\frac{1}{2}V_A}{\frac{1}{2}V_A + \frac{1}{4}V_D + \sigma_E^2}
+\tag{v}
+$$
+
+In order to estimate $h_n^2$, it is therefore necessary to partition the genetic variance into its two components ($V_A$ and $V_D$). This is done by considering the phenotypic variance of the two backcross families ($\sigma_{\bar{B_1}}^2$ and $\sigma_{\bar{B_2}}^2$).
+
+The expected variances of $\sigma_{\bar{B_1}}^2$ and $\sigma_{\bar{B_2}}^2$ are:
+
+$$
+\begin{aligned}
+\sigma_{\bar{B_1}}^2 = \frac{1}{4}V_A + \frac{1}{4}V_D - \frac{1}{2}\left[\sum(a)\times\sum(d)\right] + \sigma_E^2 \\
+\sigma_{\bar{B_2}}^2 = \frac{1}{4}V_A + \frac{1}{4}V_D + \frac{1}{2}\left[\sum(a)\times\sum(d)\right] + \sigma_E^2
+\end{aligned}
+$$
+Note the sign before expression $\frac{1}{2}\left[\sum(a)\times\sum(d)\right]$. Adding together the equations,
+
+$$
+\sigma_{\bar{B_1}}^2 + \sigma_{\bar{B_2}}^2 = \frac{1}{2}V_A + \frac{1}{2}V_D + 2\sigma_E^2
+\tag{vi}
+$$
+
+From the relationship we addressed earlier of $\sigma_{\bar{F_2}}^2$ in terms of variance components, provided that numerical values for $\sigma_{\bar{B_1}}^2$ and $\sigma_{\bar{B_2}}^2$ can be estimated, we have sufficient information to calculate both $V_A$ and $V_D$, and hence the $h_n^2$.
+
+$$
+\begin{aligned}
+\sigma_{\bar{B_1}}^2 + \sigma_{\bar{B_2}}^2 - \sigma_{\bar{F_2}}^2 &= \frac{1}{2}V_A + \frac{1}{2}V_D + 2\sigma_E^2 - \left(\frac{1}{2}V_A + \frac{1}{4}V_D + \sigma_E^2\right) \\
+&= \frac{1}{4}V_D + \sigma_E^2
+\end{aligned}
+$$
+
+Therefore,
+
+$$
+V_D = 4\left(\sigma_{\bar{B_1}}^2 + \sigma_{\bar{B_2}}^2 - \sigma_{\bar{F_2}}^2 - \sigma_E^2 \right)
+\tag{vii}
+$$
+
+_Example case_
+
+A properly designed glasshouse experiment was carried out using the garden pea. Progeny from the $F_1$, $F_2$ and both backcross families ($B_1$ and $B_2$) were arranged as single plants in a completely randomized block design, and plant height recorded after flowering. The following variances were calculated from the recorded data:
+
+$$
+\begin{aligned}
+\sigma_{\bar{B_1}}^2 &= 285~cm^2; & \sigma_{\bar{B_2}}^2 &= 251~cm^2; \\
+\sigma_{\bar{F_2}}^2 &= 358 cm^2; & \sigma_E^2 &= 155 cm^2
+\end{aligned}
+$$
+
+Calculate $h_b^2$ and $h_n^2$.
+
+## Heritability from offspring-parent regression
+
+Response to selection can be predicted using heritabilities. However, the phenomenon does suggest another approach to measuring the heritability of a character, namely comparison of the phenotypes of offspring with those of one or both of their parents. Foundations for this approach were laid by Charles Darwin's cousin Francis Galton in nineteenth century in his study of resemblances between fathers and sons. Therefore, the narrow sense heritability of a metrical character can be estimated from the regression coefficient (slope) of the graph of offspring phenotypes on those of their parents. In regression analysis, one variable is regarded as independent, while other regarded as being potentially dependent upon it.
+
+In offspring-parent regression, the phenotype of the parent(s) corresponds to the independent variable and that of the offspring the dependent variable.
+
+The regression coefficient (slope) from simple linear regression is:
+
+$$
+\textbf{b} = \frac{\textbf{SP}(x,y)}{\textbf{SS}(x)}
+$$
+
+Where, the term $\textbf{SP}(x,y)$ is represents covariance of offspring and parent and $\textbf{SS}(x)$ represents variance of parents.
+
+The regression relationship when the offspring expression is regressed onto the expression of *one* of the parents is:
+
+$$
+\textbf{b} = \frac{\frac{1}{4}V_A}{\frac{1}{2}V_A + \frac{1}{4}V_D + \sigma_E^2}
+$$
+
+and since:
+
+$$
+h_n^2 = \frac{\frac{1}{2}V_A}{\frac{1}{2}V_A + \frac{1}{4}V_D + \sigma_E^2}
+$$
+
+it follows that, for the regression of offspring phenotypes on the phenotypes of one of their parents:
+
+$$
+h_n^2 = 2 \times \textbf{b}
+$$
+
+When the mean expressions of progenies are regressed onto the average performance of *both* parents (the mid-parental value) then the regression coefficient (or slope) is equal to the narrow sense heritability.
+
+$$
+h_n^2 = \textbf{b}
+$$
+
+_Example case_
+
+
+The data below are the phenotypes of parents and their offspring from a number of crosses in a frost-tolerant winter canola breeding programme. The character is yield (kg/ha).
+
+```{r offspring-parent, echo=FALSE, warning=FALSE, message=FALSE}
+off_par <- read_csv("../data/offspring_parent_regression.csv")
+off_par %>%
+  knitr::kable(booktabs = TRUE)
+```
+
+Then,
+
+
+```{r offspring-parent-regression, echo = FALSE}
+female_p_mod <- lm(`Offspring value`~`Female parent`, data = off_par)
+male_p_mod <- lm(`Offspring value`~`Male parent`, data = off_par)
+mid_p_mod <- lm(`Offspring value`~`Mid-parent value`, data = off_par)
+
+map_dfr(list(female_p_mod, male_p_mod, mid_p_mod), ~broom::tidy(summary(.x))) %>% 
+  filter(term != "(Intercept)") %>% 
+  select(-p.value) %>% 
+  gather(key = var_name, value = value, 2:ncol(.)) %>% 
+  spread_(key = names(.)[1],value = 'value') %>%
+  rename(" "= var_name) %>% 
+  rename_all(function(x)str_remove_all(x, "`")) %>% 
+  knitr::kable(booktabs = TRUE)
+```
+
+
+From the regression of offspring onto one parent;
+
+$$
+\begin{aligned}
+male~ h_n^2 &= 2 \times \textbf{b} = 2 \times 0.468 = 0.936 \\
+female ~ h_n^2 &= 2 \times \textbf{b} = 2 \times 0.470 = 0.940
+\end{aligned}
+$$
+From the regression of offspring onto the average phenotype of both parents (mid-parent) we have:
+
+$$
+h_n^2 = 0.82
+$$
+
+Note that estimated heritability using either one of the parents in larger than that from both parents. However, it should also be noted that estimation based on both parents will be more accurate. Despite the difference it is obvious, however, that there is high $h_n^2$.
+
+An important consideration in obtaining heritability estimate is that it is only valid for that population, at that time, in that environment. Change the environment, carry out (or allow) selection to occur, add more genotypes, sample another population, and the heritability might be different.

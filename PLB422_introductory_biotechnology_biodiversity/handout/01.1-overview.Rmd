@@ -1,0 +1,189 @@
+---
+title: "Overview of biotechnology"
+subtitle: "History process and product"
+author: "Deependra Dhakal"
+date: "`r Sys.Date()`"
+output: 
+  tint::tintPdf:
+    keep_tex: true
+tables: yes
+bibliography: [skeleton.bib, bibliographies.bib]
+link-citations: yes
+header-includes:
+  - \usepackage{booktabs}
+  - \usepackage{longtable}
+  - \usepackage{array}
+  - \usepackage{multirow}
+  - \usepackage{wrapfig}
+  - \usepackage{float}
+  - \usepackage{colortbl}
+  - \usepackage{pdflscape}
+  - \usepackage{tabu}
+  - \usepackage{threeparttable}
+  - \usepackage{threeparttablex}
+  - \usepackage[normalem]{ulem}
+  - \usepackage{makecell}
+  - \usepackage{xcolor}
+---
+
+```{r setup, include=FALSE}
+library(tint)
+library(knitr)
+require(tidyverse)
+# require(plantbreeding)
+set.seed(453)
+# invalidate cache when the package version changes
+knitr::opts_chunk$set(tidy = FALSE, echo = FALSE, 
+                      cache.extra = packageVersion('tint'), 
+                      message = FALSE, warning = FALSE)
+options(htmltools.dir.version = FALSE) 
+options(knitr.table.format = "latex")
+options(knitr.kable.NA = "", digits = 2)
+options(kableExtra.latex.load_packages = FALSE)
+```
+
+\clearpage
+
+# History
+
+```{r transgenic-banana, echo=FALSE, fig.margin = TRUE, fig.cap="Explants grown from shoots treated with chemical mutagen in Banana", fig.width=6, out.width="80%"}
+# pdftools::pdf_convert("./../literatures/biotechnology/Biotechnology 2nd ed - David P. Clark, Nanette J. Pazdernik (AP, 2016).pdf", pages = 462, format = "png", dpi = 250, filenames = "./images/mutated_banana.png")
+knitr::include_graphics("./images/mutated_banana.png")
+```
+
+
+The U.S. Department of Agriculture (USDA) maintains a web page about biotechnology which offers the following classical interpretation: 
+
+> "Agricultural biotechnology is a collection of scientific techniques, including genetic engineering, that are used to create, improve, or modify plants, animals, and microorganisms..."
+
+Agricultural Research Service (ARS), the in-house research agency of USDA, classifies biotechnology research into six components: basic engineering of recombinant DNA; DNA sequencing; genomic mapping with molecular markers; monoclonal antibodies; cell fusion and chromosome transfer; and biologically-based processing.
+
+Humans have continually improved crop plants and animals by selective breeding, mostly by trial and error. However, the field of genetics is quickly transitting into a highly advanced scientic practice, wherein there is now not much place for trial and error studies. After the discovery of biological basis (basis of inheritance) for expression of characters in crops by Mendel, scientists around the world have explored various depths of the crop genetics.
+
+Practicing classical plant breeding means many thousands of plants must be cross-pollinated to find the one offspring with higher yield. The crosses must be done by hand; that is, pollen must be taken from one plant and manually placed on another. In addition, the possibility of finding improved traits is limited by the amount of genetic diversity already present in the plants. Consequently, if the two plants that are crossed share many of the same genes, the amount of possible improvement is limited. If a plant has no genes for disease resistance, there is no way traditional cross-pollination will develop that trait. Therefore, scientists have searched for better ways to improve plants.
+
+In the 1920s, scientists realized that *mutations* could be induced in seeds by using chemical mutagens or by exposure to X-rays or gamma rays. Although useful, the outcome of such treatments is even less predictable than traditional breeding methods. Nonetheless, mutation breeding has been successful, especially in the flower world. For example, new colors and more petals have been expressed in flowers such as tulips, snapdragons, roses, chrysanthemums, and many others. Mutation breeding has also been tried on vegetables, fruits, and crops. For instance, peppermint plants that are resistant to fungus were generated this way.
+
+Recently, the emergence of molecular biology has opened the door to a much more predictable way to enhance crops. Scientists have discovered ways to move genes from foreign sources into a specific plant, resulting in a *transgenic* plant. The foreign gene, or transgene, may confer specific resistance to an insect, protect the plant against a specific herbicide, or enhance the vitamin content of the crop. 
+
+The science of genetics was transformed by the discovery of DNA (deoxyribonucleic acid), which carries the hereditary information in the cells. The chemical DNA had already been discovered in 1869 by Friederich Miescher but was not taken seriously as the chemical basis of genes until the early 1950s. Two scientists, _Francis Crick and James Watson along with Rosalind Franklin, in 1953, discovered that the DNA structure_ was a double helix: two strands twisted around each other like a spiral staircase with bars across like rings. The structure, function, and composition of DNA are virtually identical in all living organisms—from a blade of grass to an elephant. What differs—and makes each creature unique—is the precise ordering of the chemical base in the DNA molecule. This gave scientists the idea that they might change this ordering and so modify lifeforms. _Marshall Nirenberg and H. Gobind Khorana carried out the deciphering of the genetic code in 1961_.
+
+Soon scientists and industrialists were seeking to alter the genetic make-up of living things by transferring specific genes from one organism to another. They could now modify lifeforms by altering the hereditary material at the molecular level. _Walter Gilbert carried out the first recombinant DNA experiments in 1973_, and the first hybridomas created in 1975. The production of monoclonal antibodies for diagnostics was carried out in 1982, and the first recombinant human therapeutic protein, insulin (humulin), was produced in 1982. In 1976, the U.S. company Genentech became the first biotech company to develop technologies to rearrange DNA. Commercial uses of recombinant-DNA-assisted biotechnology include the development of interferon, insulin, and a number of genetically-modified crop plants such as the high-solids-processing tomato that has 20% less water. Transgenic animals have been created such as the unfortunate onco-mouse designed to develop cancer ten months after birth to study cancer.
+
+Companies have been assisted and encouraged in their research by the 1980 ruling of the U.S. Supreme Court allowing genetically-engineered microorganisms to be patented. This means that virtually any lifeform on this planet can theoretically become the private property of the company or person who "creates" it. 1000s of pharmaceutical companies worldwide are conducting research and development into genetically-engineered products. And with something so powerful as genetic engineering, one mistake could have profound and wide-ranging effects. We must impose tough controls on the genetics supply industry and work to make sure that the new techniques are in the service of the global community
+
+As to history of microbial biotechnology, clues to understanding fermentation emerged in the seventeenth century when Dutch experimentalist Anton Van Leeuwenhoek discovered microorganisms using his microscope. He unraveled the chemical basis of the process of fermentation using analytical techniques for the estimation of carbon dioxide. Two centuries later, in 1857, a French scientist Louis Pasteur published his first report on lactic acid formation from sugar by fermentation.
+
+He proved that fermentation is the consequence of anaerobic life and identified three of its types:
+
+- Fermentation, which generates gas;
+- Fermentation that results in alcohol; and
+- Fermentation, which results in acids. 
+
+At the end of the nineteenth century, Eduard Buchner observed the formation of ethanol and carbon dioxide when cell-free extract of yeast was added to an aqueous solution of sugars. Thus, he proved that cells are not essential for the fermentation process and the components responsible for the process are dissolved in the extract. He named that substance "Zymase". The fermentation process was modified in Germany during World War I to produce glycerine for making the explosive nitroglycerine. Similarly, military armament programs discovered new technologies in food and chemical industries, which helped them win battles in the First World War. For example, they used the bacteria that converts corn or molasses into acetone for making the explosive cordite. While biotechnology helped kill soldiers, it also cured them. Sir Alexander Fleming’s discovery of penicillin, the first antibiotic, proved highly successful in treating wounded soldiers.
+
+> What is the difference between transgenic technology and traditional breeding ?
+
+$\Large \rightarrow$ A plant can be transformed with a gene from any source, including animals, bacteria, or viruses as well as other plants, whereas traditional cross-breeding methods move genes only between members of a particular genus of plants.
+
+Furthermore, transgenes can be placed in precise locations within the genome and have known functions that have been evaluated extensively before being inserted into the plant. In traditional breeding, on the other hand, the identity of genes responsible for improving the crop is rarely known.
+
+```{r biotechnology-history, echo=FALSE}
+history_biotech <- read_csv("./../data/history_of_biotechnology.csv")
+history_biotech %>%
+  knitr::kable(caption = "History of biotechnology", 
+               booktabs = TRUE, digits = 2, longtable = TRUE) %>% 
+  kableExtra::kable_styling(latex_options = "striped", font_size = 8) %>% 
+  kableExtra::column_spec(1, bold = TRUE) %>% 
+  kableExtra::column_spec(column = 2, width = "26em")
+```
+
+
+## Major cellular techniques in biology
+
+- Microscopy
+- Cell sorting
+- Cell fractionation
+- Cell-growth determination
+
+## Major genetic techniques
+
+- Chromosomal techniques
+- Mutagenic technique
+- Recombination in bacteria (Recombination DNA technology)
+    - Tools
+    - Making Recombinant DNA
+    - DNA library
+    - Transgenics (Introduction of Recombinant DNA into host cells)
+    - Identification of recombinants
+    - Polymerase chain reaction
+    - DNA probes
+    - Hybridization techniques
+    - DNA sequencing
+    - Site-directed mutagenesis
+- Pedigree analysis in humans
+- DNA isolation and purification techniques
+- Molecular markers, TILLING and ZFN technology in plants
+
+## Major applications of biotechnology
+
+- Biological fuel generation
+- Single-cell protein
+- Sewage treatment
+- Environmental biotechnology
+- Medical biotechnology
+- Agriculture and forest biotechnology
+- Food and beverage biotechnology
+- Safety in biotechnology
+
+# Biotechnology process
+
+In the past, biotechnology concentrated on the production of food and medicine. It also tried to solve environmental problems. In the nineteenth century, industries linked to the fermentation technology had grown tremendously because of the high demand for various chemicals such as ethanol, butanol, glycerine, acetone, etc. The advancement in fermentation process by its interaction with chemical engineering has given rise to a new area—the bioprocess technology. Large-scale production of proteins and enzymes can be carried out by applying bioprocess technology in fermentation. Applying the principles of biology, chemistry, and engineering sciences, processes are developed to create large quantities of chemicals, antibiotics, proteins, and enzymes in an economical manner. Bioprocess technology includes media and buffer preparation, upstream processing and downstream processing. Upstream processing provides the microorganism the media, substrate, and the correct chemical environment to carry out the required biochemical reactions to produce the product. Downstream processing is the separation method to harvest the pure product from the fermentation medium. Thus, fermentation technology changed into biotechnology.
+
+```{r biotechnology-process, echo=FALSE, fig.cap="A typical biotechnology flow process", fig.width=6, out.width="70%"}
+# pdftools::pdf_convert("./../literatures/biotechnology/Introduction to Biotechnology and Genetic Engineering, 2008, p.812.pdf", pages = 25, format = "png", dpi = 250, filenames = "./images/bioprocess_flow_chart.png")
+# pdfconvert page 25 of Introduction to biotechnology and genetic eng., 2008
+knitr::include_graphics("./images/bioprocess_flow_chart.png")
+```
+
+*Upstream processing*: This part of biochemical engineering involves the development of processes for aseptic treatment of substrates or raw materials with the microorganism or the biocatalyst. Unit operations involved in upstream processing are: Milling, Mixing, Media preparation, Sterilization, Cooling, Heating.
+
+*Bioreactor*: The designing of the appropriate type of bioreactor or fermentor is one of the important steps in the development of bioprocess technology. Bioreactors are vessels in which raw materials are biologically converted into specific products, using microorganisms, plants, animals, or human cells or individual enzymes. A bioreactor supports the natural process of cells by trying to maintain their environment to provide optimum growth conditions by providing appropriate temperature, pH, substrates, salts, vitamins, and oxygen. In most of the bioreaction processes the substrate of the biotransformation and the carbon source of the organisms will be the same. Unit operations involved in bioreactions are: Mixing, Handling of microorganisms, plant or animal cells, Inoculation of the cells, Heating and cooling.
+
+Bioreactors can be classified according to the type of biocatalysts and the type of bioreaction. The first classification is based on the type of biological agent used:
+
+- microbial fermentors or
+- enzyme (cell-free) reactors. 
+
+Further classification is possible based on biochemical reactions and process requirements.
+
+*Downstream processing*: The recovery and purification of the required product from the growth medium through a set of separation and purification techniques is called downstream processing. Each stage in the overall separation procedure is strongly dependent on the history and quality of the biological production process. Maximization of production can lead to great difficulties in downstreaming and recently more attention is being paid to overall process optimization. It includes techniques such as filtration, centrifugation, sedimentation, various types of chromatographic techniques, electrophoresis, etc.
+
+## Industrial biotechnology
+
+Recombinant microorganisms, plant cells, and animal cells can be cultivated and used for large-scale production of industrially-important enzymes and chemicals. A list of such enzymes is given in Table \ref{tab:industrial-chemicals}
+
+```{r industrial-chemicals, echo=FALSE}
+industrial_chemicals <- read_csv("./../data/industrial_enzymes_biotechnology.csv")
+industrial_chemicals %>%
+  knitr::kable(caption = "Some major industrial enzymes and their sources and uses.", 
+               booktabs = TRUE, digits = 2, longtable = TRUE, escape = FALSE) %>% 
+  kableExtra::kable_styling(latex_options = "striped", font_size = 8) %>% 
+  kableExtra::column_spec(1, bold = TRUE) %>% 
+  kableExtra::column_spec(column = 1:3, width = c("8em","12em","12em"))
+```
+
+# Biotechnology product
+
+Traditional biotechnology products also include biologically-processed items like bread, cheese, and wine.
+
+The modern biotechnology of interest centers upon the newfound ability to remove DNA from cells of an organism, modify it, and reinsert it into cells where it will be functional. This process is sometimes called "genetic engineering," and products therefrom have often been ingenuously termed "genetically modified organisms" (GMOs), even though all crop plants are genetically modified in one way or another.
+
+Other modern biotechnologies, such as monoclonal antibodies or molecular markers as aids for traditional breeding and selection, are not relevant to genetic engineering
+
+The traditional breeder's available gene pool is predominantly limited to those genes in sexually-compatible organisms, whereas modern biotechnology enables some new, wider-ranging, choices.
+
+# References
+
+- Biotechnology second edition, David P Clark, Manette J. Pazdernik, 2016
+- Introduction to biotechnology and genetic engineering, 2008

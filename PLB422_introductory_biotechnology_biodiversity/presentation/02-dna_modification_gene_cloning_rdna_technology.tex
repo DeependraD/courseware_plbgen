@@ -1,0 +1,607 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames*,x11names*}{xcolor}
+%
+\documentclass[ignorenonframetext,aspectratio=169]{beamer}
+\usepackage{pgfpages}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+% Prevent slide breaks in the middle of a paragraph:
+\widowpenalties 1 10000
+\raggedbottom
+\setbeamertemplate{part page}{
+\centering
+\begin{beamercolorbox}[sep=16pt,center]{part title}
+  \usebeamerfont{part title}\insertpart\par
+\end{beamercolorbox}
+}
+\setbeamertemplate{section page}{
+\centering
+\begin{beamercolorbox}[sep=12pt,center]{part title}
+  \usebeamerfont{section title}\insertsection\par
+\end{beamercolorbox}
+}
+\setbeamertemplate{subsection page}{
+\centering
+\begin{beamercolorbox}[sep=8pt,center]{part title}
+  \usebeamerfont{subsection title}\insertsubsection\par
+\end{beamercolorbox}
+}
+\AtBeginPart{
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \frame{\subsectionpage}
+}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+\usetheme[]{Frankfurt}
+\usecolortheme{beaver}
+\usefonttheme{structuresmallcapsserif}
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{
+            pdftitle={DNA modification, gene cloning and rDNA technology},
+            pdfauthor={Deependra Dhakal},
+            colorlinks=true,
+            linkcolor=red,
+            filecolor=Maroon,
+            citecolor=blue,
+            urlcolor=red,
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\newif\ifbibliography
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+% define new footline defination
+\setbeamertemplate{footline}
+{
+    \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd = .5\paperwidth, ht = 1ex, dp = 1ex, center]{author in head/foot}%
+            Text in footer
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd = .5\paperwidth, ht = 1ex, dp = 1ex, center]{date in head/foot}%
+            \insertframenumber{}
+        \end{beamercolorbox}
+    }%
+    \vskip3pt%
+}
+% add footline defination to the beamer template
+\addtobeamertemplate{footline}{\begin{center}\rule{0.6\paperwidth}{0.4pt}\end{center}\vspace*{-1ex}}{}
+
+% % set background image if you will
+% \usebackgroundtemplate%
+% {%
+%     \includegraphics[width=\paperwidth,height=\paperheight]{02-dna_modification_background_dna_helix.jpg}%
+% }
+
+% % set background in a TikZ node for modifications
+\usepackage{tikz}
+\usebackgroundtemplate{%
+\tikz\node[opacity=0.3] {\includegraphics[height=\paperheight,width=\paperwidth]{02-dna_modification_gene_cloning_rdna_technology_bg_dna_helix.jpg}};}
+
+% % set caption font size
+% % note that beamer presentation native captions have their own configs
+% \usepackage{caption}
+% \captionsetup{font=footnotesize}
+
+% this font option is amenable for beamer
+\setbeamerfont{caption}{size=\tiny}
+
+% some beamer themes naturally might not support navigation symbols
+% \setbeamertemplate{navigation symbols}{} % remove navigation symbols
+
+\setbeamertemplate{footline}[page number] % insert page number in footline
+
+% \setbeamertemplate{navigation symbols}{slide} % insert slide indication in navigation
+% \setbeamertemplate{navigation symbols}{frame} % insert frame indication in navigation
+% \setbeamertemplate{navigation symbols}{section} % insert section indication in navigation
+% \setbeamertemplate{navigation symbols}{subsection} % insert subsection indication in navigation
+
+% \AtBeginSubsection{} % supress subsection display
+
+\title{DNA modification, gene cloning and rDNA technology}
+\author{Deependra Dhakal}
+\providecommand{\institute}[1]{}
+\institute{GAASC, Baitadi \and Tribhuwan University}
+\date{Academic year 2019-2020}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}
+\tableofcontents[hideallsubsections]
+\end{frame}
+\hypertarget{genetic-structure}{%
+\section{Genetic Structure}\label{genetic-structure}}
+
+\begin{frame}{History}
+\protect\hypertarget{history}{}
+
+\begin{itemize}
+\tightlist
+\item
+  1972, two researchers (Herbert W. Boyer, UCSD and Stanley N. Cohen,
+  Stanford) met at a conference in Hawaii to discuss \emph{plasmids}.
+\item
+  One studied Plasmids
+\item
+  Other studied restriction and modification enzymes (EcoRI)
+\item
+  After talks, ideas combined.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Structure of DNA}
+\protect\hypertarget{structure-of-dna}{}
+
+\begin{figure}
+\includegraphics[width=0.45\linewidth]{./../images/dna_structure_a} \caption{DNA has two strands antiparallel to each other. The structure of the subcomponents is shown to the sides.}\label{fig:nucleic-acid-dna}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Structure of RNA}
+\protect\hypertarget{structure-of-rna}{}
+
+\begin{figure}
+\includegraphics[width=0.45\linewidth]{./../images/dna_structure_b} \caption{RNA is usually single-stranded and has two chemical differences from DNA. First, an extra hydroxyl group (-OH) is found at the 2 prime position of ribose, and second, thymine is replaced by uracil.}\label{fig:nucleic-acid-rna}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{DNA modification: simplified}
+\protect\hypertarget{dna-modification-simplified}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Isolate different fragments of DNA from animals, other bacterias, and
+  viruses.
+\item
+  Ligate the disparate fragments into a small plasmid from E. coli.
+\item
+  Transform the engineered plasmid back into E. coli.
+\end{itemize}
+
+\end{frame}
+
+\hypertarget{dna-isolation-and-purification}{%
+\section{DNA isolation and
+purification}\label{dna-isolation-and-purification}}
+
+\begin{frame}{Overview}
+\protect\hypertarget{overview}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Cell structure and organelles present a natural barrier
+\item
+  Bacteria are easiest to manipulate. How?
+\item
+  Distinction between two DNAs is made based on their sizes.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Isolation steps}
+\protect\hypertarget{isolation-steps}{}
+
+\begin{enumerate}
+\tightlist
+\item
+  Destruction of cell membrane. (Lysozyme digestion of peptidoglycan in
+  bacteria)
+\item
+  Bursting of cell membrane by destruction of lipid bilayer (by
+  detergent such as sodium dodecyl sulfate (SDS)). In plants and
+  animals, tissue samples are generally ground up to release the
+  intracellular components.
+\item
+  Separation of intracellular components from the insoluble remains
+  (cellular membranes, bones, cartilage, etc.) by either centrifugation
+  or chemical extraction.
+\item
+  Extraction of unwanted proteins from DNA with phenol (Dissolves
+  60\%-70\% of all living matter).
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Purification procedure}
+\protect\hypertarget{purification-procedure}{}
+
+\begin{itemize}
+\tightlist
+\item
+  The two phases (one that of proteins dissolved in phenol and the other
+  of nucleic acids in the aqueous layer) are separated by
+  centrifugation, and the aqueous DNA layer is removed form the phenol
+\item
+  Use enzyme ribonuclease (RNase) to digests RNA into small
+  ribonucleotide fragments
+\item
+  Treat this solution with alcohol to precipitate large DNA out of the
+  aqueous phase, while ribonucleotides stay soluble, thus favoring
+  centrifugation extraction of DNA
+\end{itemize}
+
+\end{frame}
+
+\hypertarget{dna-fragment-separation-using-electrophoresis}{%
+\section{DNA fragment separation using
+Electrophoresis}\label{dna-fragment-separation-using-electrophoresis}}
+
+\begin{frame}{Initial preparation}
+\protect\hypertarget{initial-preparation}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Gel electrophoresis is used to separate DNA fragments by size
+\item
+  Gel consists of agarose, a polysaccharide extracted from seaweed that
+  behaves like gelatin (commercial powder).
+\item
+  For visualizing DNA agarose gel is solidified, after subsequent
+  cooling once the powder-water mixture is heated, into a rectangular
+  slab about 1/4 inch thick by casting the molten liquid into a special
+  tray.
+\item
+  To make small wells or holes at one end of the gel, comb is inserted
+  before the gel hardens.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Process}
+\protect\hypertarget{process}{}
+
+Gel electrophoresis uses electric current to separate DNA molecules by
+size. The agarose slab is immersed in a buffer-filled tank that has a
+positive electrode at one end and a negative electrode at the other. DNA
+samples are loaded into the wells, and when an electrical field is
+applied, the DNA migrates through the gel. The phosphate backbone of DNA
+is negatively charged, so it moves away from the negative electrode and
+toward the positive electrode. Polymerized agarose acts as a sieve with
+small holes between the tangled chains of agarose. The DNA must migrate
+through these gaps. Agarose separates the DNA by size because larger
+pieces of DNA are slowed down more by the agarose.
+
+\end{frame}
+
+\begin{frame}{Visualization}
+\protect\hypertarget{visualization}{}
+
+\begin{itemize}
+\tightlist
+\item
+  The agarose gel is removed from the tank and immersed into a solution
+  of ethidium bromide (mutagenic).
+\item
+  This dye intercalates between the bases of DNA or RNA, although less
+  dye binds to RNA because it is single-stranded. When the gel is
+  exposed to ultraviolet light, it fluoresces bright orange.
+\item
+  In Figure \ref{fig:gel-electrophoresis}, the DNA fragments are
+  visualized by a positively charged dye from the thiazin family. The
+  dye interacts with the negatively charged backbone of the DNA and is a
+  nontoxic alternative that does not require ultraviolet light sources.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Notes}
+\protect\hypertarget{notes}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Size of DNA being examined affects what type of gel is used.
+\item
+  Size of DNA molecules can be determined by comparing to a set of
+  molecular weight standards run in a different well.
+\item
+  Because the standards are of known size, the experimental DNA fragment
+  can be compared directly.
+\item
+  Resolvability of some gel matrix is different than other.
+\end{itemize}
+
+\begin{block}{}
+\textrm{Fragments of DNA are separated by size using gel electrophoresis. A current causes the DNA fragments to move away from the negative electrode and toward the positive. As the DNA travels through agarose, the larger fragments get stuck in the gel pores more than the smaller DNA fragments. Pulsed field gel electrophoresis separates large pieces of DNA by alternating the electric current at right angles.}
+\end{block}
+
+\end{frame}
+
+\begin{frame}{Electrophoresis apparatus and visualization}
+\protect\hypertarget{electrophoresis-apparatus-and-visualization}{}
+
+\begin{figure}
+\includegraphics[width=0.45\linewidth]{./../images/electrophoresis} \caption{(A) Photo of electrophoresis supplies. Electrophoresis chamber holds an agarose gel in the center portion, and the rest of the tank is filled with buffer solution. The red and black leads are then attached to an electrical source. FisherBiotech Horizontal Electrophoresis Systems, Midigel System; Standard; 13 $\times$ 16-cm gel size; 800 mL buffer volume; Model No. FB-SB-1316. (B) Agarose gel separation of DNA. The size of the fragments can be calculated by comparing them to the standard DNA marker in lane 1. The brighter bands in the marker are 1000 base pairs and 500 base pairs, with the 1000 base-pair marker closer to the wells (marked with numbers 1–8).}\label{fig:gel-electrophoresis}
+\end{figure}
+
+\end{frame}
+
+\hypertarget{dna-modification}{%
+\section{DNA modification}\label{dna-modification}}
+
+\begin{frame}{DNA cutters: Restriction enzymes}
+\protect\hypertarget{dna-cutters-restriction-enzymes}{}
+
+\begin{itemize}
+\tightlist
+\item
+  DNA should be cut to fragments of different sizes because entire set
+  of nuclear DNA is not of particular interest in visualization
+\item
+  Naturally occuring \emph{restriction enzymes} or \emph{restriction
+  endonucleases} come into rescue in this operation.
+\item
+  These bacterial enzymes bind to specific recognition sites on DNA and
+  cut the backbone of both strands.
+\item
+  These enzymes are methylation sensitive.
+\item
+  Bacteria produce \emph{modification enzymes} that recognize the same
+  sequence as the corresponding restriction enzyme. These methylate each
+  recognition site in the bacterial genome.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{DNA cutters: Restriction enzymes}
+\protect\hypertarget{dna-cutters-restriction-enzymes-1}{}
+
+\begin{figure}
+\includegraphics[width=0.5\linewidth]{./../images/restriction_enzymes} \caption{\textbf{Type II Restriction Enzymes -- Blunt versus Sticky ends} \newline \textit{Hpal} is a bunt-end restriction enzyme; that is, it cuts both strands of DNA in exactly the same position.    extit{EcoR}I is a sticky-end restriction enzyme. The enzyme cuts between the G and A on both strands, which generates four base-pair overhangs on the ends of the DNA. Since these ends may base pair with complementary sequences, they are considered 'sticky'.}\label{fig:restriction-enzymes}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{DNA cutters: Restriction enzymes}
+\protect\hypertarget{dna-cutters-restriction-enzymes-2}{}
+
+\begin{itemize}
+\item
+  Restriction enzymes have been exploited to cut DNA at specific sites,
+  since each restriction enzyme has a particular recognition sequence.
+  Difference in cleavage site determine the type of restriction enzyme.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Type I restriction enzymes cut the DNA strand 1000 or more base
+    pairs from the recognition sequence.
+  \item
+    Type II restriction enzymes cut in the middle of the recognition
+    sequence and are the most useful in genetic engineering. The Type II
+    restriction enzymes can form \emph{both} sticky or \emph{blunt}
+    ends.
+  \end{itemize}
+\item
+  The recognition sequences of Type II restriction enzymes are usually
+  inverted repeats so that the enzymes cut between the same bases on the
+  both strands.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{DNA cutters: Restriction enzymes}
+\protect\hypertarget{dna-cutters-restriction-enzymes-3}{}
+
+\begin{figure}
+\includegraphics[width=0.5\linewidth]{./../images/restriction_enzymes_ex} \caption{Common restriction enzymes}\label{fig:restriction-enzymes-ex}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{DNA cutters: Restriction enzymes}
+\protect\hypertarget{dna-cutters-restriction-enzymes-4}{}
+
+\begin{itemize}
+\tightlist
+\item
+  The number of base pairs in the recognition sequence determines the
+  likelihood of cutting.
+\item
+  So to generate fewer, longer fragments, restriction enzymes with six
+  or more base-pair recognition sequences are used.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{DNA joiners: Ligase -- Overview}
+\protect\hypertarget{dna-joiners-ligase-overview}{}
+
+\begin{itemize}
+\tightlist
+\item
+  When two different DNA samples are cut with the same sticky-end
+  restriction enzyme, all fragments will have identical overhangs.
+\item
+  This allows DNA fragments from two sources (e.g., two different
+  organisms) to be linked together (Figure
+  \ref{fig:restriction-ligation}).
+\item
+  Fragments are linked or ligated using DNA ligase
+\item
+  The efficiency of ligases depends on the total concentration of the
+  substrates and also on the closeness of the ends to be ligated.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{DNA joiners: Ligase -- Types}
+\protect\hypertarget{dna-joiners-ligase-types}{}
+
+\begin{itemize}
+\tightlist
+\item
+  There are 3 kinds of mammalian DNA ligases.
+\item
+  Joining of Okazaki fragments and sealing of excision repair nicks,
+  repair of double-strand breaks and nonhomologous end joining, joining
+  of recombining plasmid vectors.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{DNA joiners: Ligase}
+\protect\hypertarget{dna-joiners-ligase}{}
+
+\begin{figure}
+\includegraphics[width=0.14\linewidth]{./../images/restriction_ligation} \caption{\textbf{Compatible overhangs are linked using DNA Ligase}\newline BamHI and Bgl Il generate the same overhanging or sticky ends: a $3^\prime$-CTAG-$5^\prime$ overhang plus a $5^\prime$-GATC-$3^\prime$ overhang. These are complementary and base pair by hydrogen bonding. The breaks in the DNA backbones are sealed by T4 DNA ligase, which hydrolyzes ATP to energize the reaction.}\label{fig:restriction-ligation}
+\end{figure}
+
+\end{frame}
+
+\hypertarget{dna-detection}{%
+\section{DNA detection}\label{dna-detection}}
+
+\begin{frame}{Background}
+\protect\hypertarget{background}{}
+
+\begin{itemize}
+\tightlist
+\item
+  In 1969, Mary Lou Pardue and Joseph Gall developed a procedure by
+  which they could hybridize radioactive single strands of DNA with
+  complementary strands of DNA in chromosomes on glass slides.
+\item
+  This procedure, called in situ hybridization, Pardue and Gall were
+  able to determine the chromosomal locations of repetitive DNA
+  sequences.
+\item
+  Classical in situ hybridization involved spreading mitotic chromosomes
+  on a glass slide, denaturing the DNA in the chromosomes by exposure to
+  alkali (0.07 N NaOH) for a few minutes, rinsing with buffer to remove
+  the alkaline solution, incubating the slide in hybridization solution
+  containing radioactive copies of the nucleotide sequence of interest,
+  washing off the radioactive strands that have not hybridized with
+  complementary sequences in the chromosomes, exposing the slide to a
+  photographic emulsion that is sensitive to low-energy radioactivity,
+  developing the autoradiograph, and superimposing the autoradiograph on
+  a photograph of the chromosomes.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{In situ hybridization: Classical}
+\protect\hypertarget{in-situ-hybridization-classical}{}
+
+\begin{figure}
+\includegraphics[width=0.65\linewidth]{./../images/insitu_hybrid_steps} \caption{Steps in in-situ hybridization}\label{fig:insitu-hybridization}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{FISH}
+\protect\hypertarget{fish}{}
+
+\begin{itemize}
+\tightlist
+\item
+  A repetitive DNA sequence can be identified as satellite DNA
+  (generally non-transcribing) only if the sequence has a base
+  composition sufficiently different from that of main-band DNA to
+  produce a distinct band during density-gradient centrifugation.
+  Therefore, centrifugation cannot be used to identify all repetitive
+  DNA sequences.
+\item
+  Today, in situ hybridization experiments are often done by using
+  hybridization probes that are linked to fluorescent dyes or antibodies
+  tagged with fluorescent compounds \ref{fig:fish-hybridization1}.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{FISH}
+\protect\hypertarget{fish-1}{}
+
+\begin{itemize}
+\tightlist
+\item
+  In one protocol, DNA or RNA hybridization probes are linked to the
+  vitamin biotin, which is bound with high affinity by the egg protein
+  avidin \ref{fig:fish-hybridization1}.
+\item
+  By using avidin covalently linked to a fluorescent dye, the
+  chromosomal location of the hybridized probe can be detected by the
+  fluorescence of the dye.
+\item
+  This procedure, called FISH (Fluorescent In Situ Hybridization), has
+  been used to demonstrate the presence of the repetitive sequence
+  TTAGGG in the telomeres of human chromosomes
+  \ref{fig:fish-hybridization2}.
+\item
+  The FISH procedure is very sensitive and can be used to detect the
+  locations of single-copy sequences in human mitotic and interphase
+  chromosomes.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{FISH: Procedure}
+\protect\hypertarget{fish-procedure}{}
+
+\begin{columns}[T,onlytextwidth]
+  \column{0.5\textwidth}
+
+\begin{figure}
+\includegraphics[width=0.65\linewidth]{./../images/fish_hybridization1} \caption{Localization of repeated DNA sequences in chromosomes by in situ hybridization performed with fluorescent probes}\label{fig:fish-hybridization1}
+\end{figure}
+
+  \column{0.5\textwidth}
+
+\begin{figure}
+\includegraphics[width=0.4\linewidth]{./../images/fish_hybridization2} \caption{The use of fluorescent dyes to localize the TTAGGG repeat sequence to the telomeres of human chromosomes and a photomicrograph demonstrating its telomeric location is shown in.}\label{fig:fish-hybridization2}
+\end{figure}
+
+\end{columns}
+
+\end{frame}
+
+\end{document}

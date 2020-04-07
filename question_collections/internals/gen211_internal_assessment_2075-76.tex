@@ -1,0 +1,193 @@
+\documentclass[10pt,]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=0.8cm]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{longtable,booktabs}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\providecommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{\vspace{0.25cm} \Large{\textbf{TRIBHUVAN UNIVERSITY}}\\
+\vspace{0.20cm} \large{GOKULESHWOR AGRICULTURE AND ANIMAL SCIENCE COLLEGE}\\
+\vspace{0.20cm} \large{B. Sc. Ag., Internal Assessment, 2076}}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{}
+    \preauthor{}\postauthor{}
+    \date{}
+    \predate{}\postdate{}
+  
+\usepackage{booktabs,siunitx}
+\usepackage{listings}
+\usepackage{xhfill}
+\usepackage{framed}
+\usepackage{xcolor}
+\usepackage{etoolbox,refcount}
+\usepackage{multicol}
+\usepackage{enumitem}
+
+\newcounter{countitems}
+\newcounter{nextitemizecount}
+\newcommand{\setupcountitems}{%
+  \stepcounter{nextitemizecount}%
+  \setcounter{countitems}{0}%
+  \preto\item{\stepcounter{countitems}}%
+}
+\makeatletter
+\newcommand{\computecountitems}{%
+  \edef\@currentlabel{\number\c@countitems}%
+  \label{countitems@\number\numexpr\value{nextitemizecount}-1\relax}%
+}
+\newcommand{\nextitemizecount}{%
+  \getrefnumber{countitems@\number\c@nextitemizecount}%
+}
+\newcommand{\previtemizecount}{%
+  \getrefnumber{countitems@\number\numexpr\value{nextitemizecount}-1\relax}%
+}
+\makeatother    
+\newenvironment{AutoMultiColItemize}{%
+\ifnumcomp{\nextitemizecount}{>}{3}{\begin{multicols}{2}}{}%
+\setupcountitems\begin{itemize}}%
+{\end{itemize}%
+\unskip\computecountitems\ifnumcomp{\previtemizecount}{>}{3}{\end{multicols}}{}}
+
+\newcommand*\wildcard[2][3cm]{\vspace*{1cm}\parbox{#1}{\centering\hrulefill\par#2\par}} %
+
+\sisetup{per-mode=symbol}
+
+\begin{document}
+\maketitle
+
+\begingroup
+
+\makebox[4.2cm][l]{\textbf{Subject: Introductory genetics}}
+\hspace{0.5\textwidth}
+\makebox[1.8cm][r]{\textbf{FM: 10}}
+
+\par
+\endgroup
+
+\begingroup
+
+\makebox[4.2cm][l]{\textbf{Time: 60 Minutes}}
+\hspace{0.5\textwidth}
+\makebox[1.8cm][r]{\textbf{PM: 4}}
+
+\par
+\endgroup
+
+\textbf{Level:} \(3^{th}\) semester
+
+\textbf{Answer all questions.}
+
+Essay type (4)
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  In maize, F1 heterozygous plants were test crossed with colourless, shrunken, waxy plants and the following types of progeny were obtained. CfS: 50, cFs: 46, Cfs: 383, cfS: 380, Dfs: 72, cFS: 68, CFS: 6, cfs: 5. Symbols: Colored = C, Colorless = c, Full = F, Shrunken = f, Starchy = S, waxy = s. \newline a. Are these genes linked ? Give reason. \newline b. Write the genes in correct order on the chromosome. \newline c. What are double crossover, non-crossover and single crossover types ? \newline d. Write the genotypes involved in the parental and test crosses. \newline e. Draw a linkage map showing map distances. \newline f. Calculate coefficient of coincidence (CC) and inference.
+\end{enumerate}
+
+Short answer type (1.5 x 4 = 6)
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  A heterozygous plant for two genes is self-fertilized and in F2, the following seeds are observed.
+\end{enumerate}
+
+\begin{itemize}
+\item
+  Round yellow: 315,
+\item
+  Round green: 108,
+\item
+  Wrinkled yellow: 101,
+\item
+  Wrinkled green: 32
+
+  Perform chi-square test for goodness of fit and interpret the result. (Tabulated chi-square value at 3d.f. = 7.81)
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  What do you mean by extra nuclear inheritance? Explain with the help of example. Write down the characteristics of cytoplasmic inheritance.
+\item
+  What is sporogenesis and oogenesis? Diagrammatically show, how gamete formation takes place in life cycle of maize.
+\item
+  Explain in brief about Lac operon system in E. coli.
+\end{enumerate}
+
+
+\end{document}

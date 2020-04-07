@@ -1,0 +1,591 @@
+---
+title: "Crossing plans"
+subtitle: "Detailed overview with numerical problems"
+author: "Deependra Dhakal"
+date: "`r Sys.Date()`"
+output: 
+  tint::tintPdf:
+    keep_tex: true
+tables: yes
+bibliography: [skeleton.bib, bibliographies.bib]
+link-citations: yes
+header-includes:
+  - \usepackage{booktabs}
+  - \usepackage{longtable}
+  - \usepackage{array}
+  - \usepackage{multirow}
+  - \usepackage{wrapfig}
+  - \usepackage{float}
+  - \usepackage{colortbl}
+  - \usepackage{pdflscape}
+  - \usepackage{tabu}
+  - \usepackage{threeparttable}
+  - \usepackage{threeparttablex}
+  - \usepackage[normalem]{ulem}
+  - \usepackage{makecell}
+  - \usepackage{xcolor}
+---
+
+```{r setup, include=FALSE}
+library(tint)
+library(knitr)
+require(tidyverse)
+require(plantbreeding)
+set.seed(453)
+# invalidate cache when the package version changes
+knitr::opts_chunk$set(tidy = FALSE, echo = FALSE, 
+                      cache.extra = packageVersion('tint'), 
+                      message = FALSE, warning = FALSE)
+options(htmltools.dir.version = FALSE) 
+options(knitr.table.format = "latex")
+options(knitr.kable.NA = "", digits = 2)
+options(kableExtra.latex.load_packages = FALSE)
+```
+
+\clearpage
+
+# Mating designs [@brown2014plantbreeding]
+
+The concept of mating designs is based on early work of Louis de Vilmorin from the proposition he made that the only means to determine the value of an individual plant (or genotype) was to grow and evaluate its progeny -- A procedure known as Progeny testing.
+
+Mating designs allow for partitioning of phenotypic effects -- as due to genotype, environment or interacting effects among genes and alleles. Using one or more of these mating schemes, identification of heterotic groups, estimation of general and specific combining abilities and testing of environmental interactions could be done. Progenies resulting from a well designed mating are used for the dissection of trait genetics.
+
+In order to understand genetics of traits and to make effective choice of parents, two contrasting methods of selection should be understood first. Bluntly, selection methods can be stated as either being forward or backward. Forward selection is synonymous to **within-family selection** whereas the concept of backward selection embodies **selection among families**. Ideally, forward selection works best for highly heritable traits -- for those traits regulated by few small genes, as opposed to those involving large number of genes with small cumulative effects. 
+
+Selection gets more complicated as data on several different individuals belonging to some families is available. [What we study versus what reality is; Insert soil layer image here]. Broadly, three distinct modes of selection could be practiced:
+
+1. Strict within family selection
+2. Selection on within family deviation
+3. Combined family and within family selection; family selection index
+
+When the interest is to exploit the state of heterosis arising from certain combination of parental individuals, the genetic factors contributing well to superior phenotype should be underpinned. The whole process of determining favorable combination among parental individuals should be met with phenotypic data from many progeny, which is retrospective in purpose -- thus the name backward selection. Family selection has different variants and serve variying purposes as well. 
+
+- Half-sib selection is used to select superier individuals for their GCA.
+- Full-sib selection is used to make distinct parental matings in order to induce hybrid vigor by capturing specific combinining abilities
+
+The concept of combining abilities was first laid out by Sprague and Tatum in 1942 [@sprague1942general] in order to generate variance estimates without too much of underlying genetic assumptions. The combining ability test procedure involves making crossess of several different combinations from a set of parents and ascribing the resultant variances statistically to either the genetic additiveness of parental charactersistics or the interacting parental genetic combinations. Thus, the phenotype ($y_i$) of a cross progeny can be modeled as linear combination of additive ($A_i$), dominance ($D_i$) and environmental ($e_i$) effects, is:
+
+$$y_i = \mu + A_i + D_i + e_i$$
+
+## Combining ability
+
+Crossing each line with several other lines produces an additional measure in the mean performance of each line in all crosses. This mean performance of a line, when expressed as a deviation from the mean of all crosses, gives what is called the general combining ability (**GCA**) of the lines. The GCA is calculated as the average of all $F_1$s having this particular line as one parent, the value being expressed as a deviation from the overall mean of crosses. Each cross has an expected value (the sum of GCAs of its two parental lines).
+
+The mean genotypic value of offspring from a particular cross may deviate from value expected considering the population mean and the sum of the parental GCA effects. This deviation is the specific combining ability (**SCA**) for that cross.
+
+The differences of GCA are due to the additive and additive x additive interactions in the base population. The differences in SCA are attributable to nonadditive genetic variance. SCA effects are derived from inter-allelic/intra-loci interactions. Furthermore, the SCA is expected to increase in variance more rapidly as inbreeding in the population reaches high levels. GCA is the average performance of a plant in a cross with different tester lines, while SCA measures the performance of a plant in a specific combination in comparison with other cross combinations.
+
+We can define the mean genotypic value ($G_{AB}$) for the full-sib family produced by crossing parents A and B as the sum of the overall mean $\mu$, the GCAs of the two parents and the SCA value:
+
+$$G_{AB} = \mu + GCA_A + GCA_B + SCA_{AB}$$
+
+The types of interactions that can be obtained (SCA effects) depend upon the mating scheme used to produce the crosses, the most common being the diallel mating design, developed by B. Griffing (1956). Methods such as top cross and poly-cross are also not uncommon. A classical method to estimate dominance genetic variance (D) is to estimate the variance associated with SCA effects of many crosses. The expected value of the observed SCA variance component is 1/4 of the dominance genetic variance in the reference population.
+
+The GCA of each line is calculated as follows:
+
+$$
+\mathrm{G_x} = \left[\frac{T_x}{n-2}\right]-\left[\frac{\sum T}{n(n-2)}\right]
+$$
+
+Where $x$ represents a specific line. Using fabricated dataset given in Table \ref{tab:fabricated-diallel} following procedures outlines how GCA for Parent 2 (P2) ($GCA_{P2}$) can be calculated.
+
+\begin{equation}
+\begin{split}
+\mathrm{G_b} & = \left[\frac{T_x}{n-2}\right]-\left[\frac{\sum T}{n(n-2)}\right] \\
+ & = \left[\frac{39.7}{8}\right]-\left[\frac{324.7}{10\times 8}\right] \\
+ & = 4.96-4.06 \\
+ & = 0.9
+\end{split}
+\end{equation}
+
+## Diallel scheme
+
+The diallel scheme is simply a more sophisticated application of Vilmorin's progeny test. The term *diallel cross* was first used by Danish geneticist J. Schmidt in animal breeding work. The diallel cross and its variations are as follows:
+
+```{r fabricated-diallel}
+# Fabricated half diallel mating data
+
+ten_ind <- gl(10, k = 1, ordered = T, labels = paste("P", 1:10, sep = ""))
+mating_mat <- cross_df(.l = list(M = ten_ind, F = ten_ind)) %>% 
+  unite(col = "cross", sep = " x ", remove = F) %>% 
+  spread(key = F, value = cross) %>% 
+  dplyr::rename(Parents = M)
+
+mating_mat[,-1][upper.tri(mating_mat[,-1], diag = TRUE)] = NA
+
+# generate a vector of population means of length = n, representing each parental line
+mu_list = rnorm(10, mean = 3.5, sd = 1.0)
+  
+# generate a vector of sds of length = n, representing each parental line
+sd_list = rnorm(10, mean = 1.2, sd = 0.3)
+
+# generate a dataframe of random numbers for each column
+mating_mat_num <- map2_dfc(.x = mu_list, 
+     .y = sd_list, 
+     .f = ~cbind(rnorm(10, .x, .y))) %>% 
+  magrittr::set_colnames(paste("P", 1:10, sep = ""))
+mating_mat_num <- replace(mating_mat_num, !map_df(mating_mat[,-1], ~!is.na(.x)), NA)
+
+mating_mat_num %>%
+  add_column(.before = 1, Parents = mating_mat$Parents) %>% 
+  knitr::kable(caption = "Fabricated data from a diallel cross scheme using 10 parents", booktabs = TRUE, digits = 2, longtable = TRUE) %>% 
+  kableExtra::kable_styling(latex_options = "striped", font_size = 10) %>% 
+  kableExtra::column_spec(1, bold = TRUE) %>% 
+  kableExtra::column_spec(column = 1:11, width = "3em")
+```
+
+Taking the above table of diallel cross data, total of each individual parental line could be computed by summing over all the crossess involving the common parent. Similarly, the grand totals could be 
+obtained by adding together all the individual parents' total. The individual parents' sum and grand total is shown in the Table \ref{tab:sum-over-ind} below.
+
+```{r sum-over-ind}
+as.matrix(mating_mat_num) %>% 
+  Matrix::forceSymmetric("L") %>% 
+  as.matrix() %>% 
+  colSums(na.rm = TRUE) %>% 
+  as_data_frame() %>% 
+  add_column(.before = 1, Parents = mating_mat$Parents) %>% 
+  dplyr::rename("Line total" = "value") %>% 
+  add_case(`Parents` = "Total", `Line total` = sum(.$`Line total`)) %>% 
+  knitr::kable(caption = "Totals of individual lines and grand total of diallel cross\n scheme using 10 parents", 
+               booktabs = TRUE, digits = 2) %>% 
+  kableExtra::kable_styling(latex_options = "striped", font_size = 10) %>% 
+  kableExtra::column_spec(1, bold = TRUE)
+```
+
+## Types of diallel mating design
+
+There are four types of popular diallel crossing designs:
+
+1. Full/Complete diallels: All the possible combinations of crosses among parents, including reciprocals and self-fertilization of the parents are made. For a sample of $n$ parents, the full-diallel requires $n \times n$ ($n^2$) progenies, a number that quickly becomes unmanageable as more parents are sampled (Table \ref{tab:full-diallel}).
+
+```{r full-diallel}
+# Full diallel mating scheme
+
+ten_ind <- gl(10, k = 1, ordered = T, labels = paste("P", 1:10, sep = ""))
+mating_mat <- cross_df(.l = list(M = ten_ind, F = ten_ind)) %>% 
+  unite(col = "cross", sep = " x ", remove = F) %>% 
+  spread(key = F, value = cross) %>% 
+  dplyr::rename(Parents = M)
+
+mating_mat %>%
+  knitr::kable(caption = "Full diallel mating scheme using 10 parents", 
+               booktabs = TRUE, digits = 2, longtable = TRUE) %>% 
+  kableExtra::kable_styling(latex_options = "striped", font_size = 8) %>% 
+  kableExtra::column_spec(1, bold = TRUE) %>% 
+  kableExtra::column_spec(column = 1:11, width = "3.5em")
+```
+
+2. Half diallels: Each parent is mated with every other parent, excluding selfs and reciprocals. This requires making $\frac{n(n-1)}{2}$ crosses for n parents (Table \ref{tab:half-diallel}).
+
+```{r half-diallel}
+# Half diallel mating scheme
+
+ten_ind <- gl(10, k = 1, ordered = T, labels = paste("P", 1:10, sep = ""))
+mating_mat <- cross_df(.l = list(M = ten_ind, F = ten_ind)) %>% 
+  unite(col = "cross", sep = " x ", remove = F) %>% 
+  spread(key = F, value = cross) %>% 
+  dplyr::rename(Parents = M)
+
+mating_mat[,-1][upper.tri(mating_mat[,-1], diag = TRUE)] = NA
+  
+mating_mat %>%
+  knitr::kable(caption = "Half diallel mating scheme using 10 parents", 
+               booktabs = TRUE, digits = 2,
+               longtable = TRUE
+               ) %>% 
+  kableExtra::kable_styling(latex_options = c("striped", "repeat_header", "HOLD_position") , font_size = 8) %>% 
+  kableExtra::column_spec(0, bold = TRUE) %>% 
+  kableExtra::column_spec(column = 1:11, width = "3.5em")
+```
+
+\clearpage
+
+3. Partial diallel: Not all the crosses are made. There are no reciprocals or selfs. The goal is to reduce the breeding workload for a given sample of parents by making less than $\frac{n(n-1)}{2}$ crosses for n parents (Table \ref{tab:partial-diallel}).
+
+```{r partial-diallel}
+# Partial diallel mating scheme
+
+ten_ind <- gl(10, k = 1, ordered = T, labels = paste("P", 1:10, sep = ""))
+mating_mat <- cross_df(.l = list(M = ten_ind, F = ten_ind)) %>% 
+  unite(col = "cross", sep = " x ", remove = F) %>% 
+  spread(key = F, value = cross) %>% 
+  dplyr::rename(Parents = M)
+
+mating_mat[,-1][upper.tri(mating_mat[,-1], diag = TRUE)] = NA
+mating_mat[,-1] <- mating_mat[,-1] %>% 
+  mutate_all(.funs = list(~replace(., sample(1:10, 
+                                            size = sample(1:5, size = 1, replace = TRUE), 
+                                            replace = FALSE), NA)))
+
+# mating_mat[sample(1:10, 2, replace = TRUE), sample(1:10, 3, replace = TRUE)]
+  
+mating_mat %>%
+  knitr::kable(caption = "Partial diallel mating scheme using 10 parents", 
+               booktabs = TRUE, digits = 2, longtable = TRUE) %>% 
+  kableExtra::kable_styling(latex_options = "striped", font_size = 8) %>% 
+  kableExtra::column_spec(1, bold = TRUE) %>% 
+  kableExtra::column_spec(column = 1:11, width = "3.5em")
+```
+
+
+4. Connected diallels: Two groups (for example, $1-6$ and $7-12$) of individuals are used to form two diallels (generally partial or other diallel scheme in each group) but they are connected by crossing $4 \times 9$, $7 \times 1$, $9 \times 3$ and $10 \times 2$. In the example below, the second diallel also includes some selfs $(S)$ and reciprocals $(R)$ (Table \ref{tab:connected-diallel}).
+
+```{r connected-diallel}
+# Connected diallel mating scheme
+
+twelve_ind <- gl(12, k = 1, ordered = T, labels = paste("P", 1:12, sep = ""))
+
+# generate independent diallel from first six parents
+mating_mat1 <- cross_df(.l = list(M = twelve_ind[1:6], F = twelve_ind[1:6])) %>% 
+  unite(col = "cross", sep = " x ", remove = F) %>% 
+  spread(key = F, value = cross) %>% 
+  dplyr::rename(Parents = M)
+
+# create partial diallel from first matrix
+mating_mat1[,-1][upper.tri(mating_mat1[,-1], diag = TRUE)] <- NA
+mating_mat1[,-1] <- mating_mat1[,-1] %>% 
+  mutate_all(.funs = list(~replace(., sample(1:length(which(!is.na(.))), 
+                                            size = sample(1:4, size = 1, replace = TRUE), 
+                                            replace = TRUE), NA)))
+
+# generate independent diallel from next six parents
+mating_mat2 <- cross_df(.l = list(M = twelve_ind[7:12], F = twelve_ind[7:12])) %>% 
+  unite(col = "cross", sep = " x ", remove = F) %>% 
+  spread(key = F, value = cross) %>% 
+  dplyr::rename(Parents = M)
+
+# create random diallel crosses from second matrix
+mating_mat2[,-1] <- mating_mat2[,-1] %>% 
+  mutate_all(.funs = list(~replace(., sample(1:6, 
+                                            size = sample(3:5, size = 1, replace = TRUE), # because at least 3 diallel crosses will be have to be avoided; likewise minimum of (6-5=1) crosses must be performed for some diallel parent.
+                                            replace = FALSE), NA)))
+
+# combine two matrices diagonally using Matrix package
+mating_mat <- full_join(mating_mat1, mating_mat2)
+
+# add connecting crossess between two diallel sets
+mating_mat[,-1][,c(9, 1, 3, 2)] <- pmap_df(list(mating_mat[,-1][,c(9, 1, 3, 2)], 
+             c(4, 7, 9, 10), 
+             c("P4 x P9", "P7 x P1", "P9 x P3", "P10 x P2")),
+        .f = function(x, y, z)replace(x, y, z))
+
+# see the table  
+mating_mat %>%
+  knitr::kable(caption = "Connected diallel mating scheme using 12 parents", 
+               booktabs = TRUE, digits = 2, longtable = TRUE) %>% 
+  kableExtra::kable_styling(latex_options = "striped", font_size = 8) %>% 
+  kableExtra::column_spec(1, bold = TRUE) %>% 
+  kableExtra::column_spec(column = 1:11, width = "3.5em")
+```
+
+
+With the convenience of using individuals as both male and female parents, diallel mating designs are popular for plant breeding studies. Certain diallel designs allow for estimation of reciprocal cross effects. Diallels cannot be used in dioecious species (female and male flowers occur in different plants). However, factorial designs can be used in dioecious species to estimate dominance genetic variance.
+
+If there are no connections between groups of parents, the design is a diallel in sets. Diallel mating designs provide good evaluation of parents and full-sib families. They also provide estimates of both additive and dominance genetic effects, and genetic gains due to additive and dominance genetic effects if we assume the sample of parents used is sufficient to represent the reference population [@baker1978issues; @holland2003estimating]. One disadvantage of diallels is that the breeding and progeny evaluations can be costly due to large number of crosses required. As evident, For a full diallel with 6 parents, 36 crosses are required; with 12 parents the number of crosses required is `r 12^2`. On the other hand there is the looming question, if the sample of 6 or 12 individuals from a population provides useful estimate of the reference population genetic variances [@baker1978issues]. @white2007forest and @hallauer1988quantitative have described several other forms of diallel mating designs in detail.
+
+<!-- ## Use of sparse matrices in mating designs -->
+
+```{r sparse-matrices, echo=FALSE, include=FALSE}
+# One may first learn the concept and use of sparse matrix
+flev <- c(1,3:8)
+Matrix::sparseMatrix(seq_along(flev), flev, x = 1)
+
+```
+
+<!-- ## Analysis of diallel cross -->
+
+```{r diallel-analysis, echo=FALSE, eval=FALSE, include=FALSE}
+## use plantbreeding package
+resd <- diallele1(data(fulldial, package = "plantbreeding"), yvar = "YIELD",
+                  progeny = "TRT", male = "MALE", female = "FEMALE",
+                  replication = "REP")
+
+resd$gca.effmat
+resd$sca.effmat
+
+## manually summarize the results of diallel mating scheme
+map_dbl(fulldial[,-7], ~length(unique(.x)))
+fulldial %>%
+  group_by(MALE, FEMALE) %>%
+  summarise_at("YIELD", list(~mean, .args = list(na.rm = TRUE))) %>%
+  spread(key = FEMALE, value = YIELD)
+```
+
+## Analysis of diallel cross
+
+There are mainly two approaches for analysis and interpretation of data derived from diallel cross. They are:
+
+1. Analysis of general and specific combining ability. These methods are often referred to as Griffing's analyses, after B. Griffing who published his now famous paper _Concept of general and specific combining ability in relation to diallel crossing systems_.
+
+2. Analysis of array variances and covariances, often referred to as Hayman and Jinks' paper of 1953, _The analysis of diallel crosses_
+
+## Griffing analysis
+
+Griffing's approach provides easy interpretation of results compared to other analyses available. Parents used in diallel crosses can be homozygous or heterozygous; for simplicity, diallel types are described here in terms of homozygous (inbred) parents. Griffing's diallel comprise of full diallel, half diallel (all possible combinations without reciprocals but contains parental selfs), modified diallel (all possible without parental selfs). 
+
+<!-- Griffing's analysis allows the option to test for fixed (model 1) or random (model 2) effects. Fixed effect models are where inference is made only about the parents that are included in the diallel cross, while the random effects models are where inference is to be made regarding all possible parents from a crop species. Therefore, in fixed effect models the parents used in the diallel cross are specifically chosen (i.e. because a breeder wishes to have additional information regarding general or specific combining ability of chosen lines). In random effects models the parental lines should be chosen completely at random. If this is done then the analyses can be interpreted to cover the eventuality that any parents are used. -->
+
+<!-- Obviously, in most cases where plant breeders are involved, it is often very difficult to decide whether the parental lines were chosen or identified at random. In many cases the parents in diallel crossing designs are a sample of already commercial cultivars. In this case, some would argue that being commercial cultivars they cannot be a random sample of possible parents, as by definition all commercial cultivars are a very narrow subset of all potential genotypes within a species. On the other hand, others have argued that plant breeders are only interested in genotypes of commercial or near-commercial standard, and they can therefore quite rightly term their choice as random sample of commercially suitable cultivars. -->
+
+<!-- It should be remembered that often the choice of either fixed or random parents is not so much how they were physically selected, but rather the overall goal that is to be achieved from the diallel analyses. Consider these two simple examples. In the first (say from a hybrid maize breeding program) the breeder wishes to intercross a selected subset of possible hybrid parents that may appear in hybrid cultivar combination. In this case, the parents are obviously chosen to be fixed. The breeder's aim is to determine the general and specific combining ability of parents and specific parent cross combinations, with little interest in extrapolating beyond the parents actually used. In the second (say an inbreeding cultivar like wheat), now a wheat breeder may be interested in estimating the general combining ability (an estimate of addtive genetic variance) to determine genetic gain in a selection programme. That wheat breeder will not wish to take a true random sample, as the chances are that those picked will have little or no adaptability or commercial worth in the target breeding region. So parents are chosen to be representative of the type of parents that would be used in a breeding programme, and from these the breeder does want to extrapolate to cover other parents not actually included in the design. In addition, genetic gain can only be achieved if there is suitable phenotypic variation within the progeny being selected. So it is common in breeding programmes to choose "complementary" parents which have contrastingly different characteristics (i.e. high yield, poor disease resistance x low yield, good disease resistance). In which case, why would breeders not choose parents with known differences for diallel analyses? The arguments are likely to continue. -->
+
+Griffing's analysis requires no assumptions and has been shown by many researchers to provide reliable information on the combining potential of parents. Once identifid, the "best" parental lines (those with the highest general combining ability) can be crossed to identify optimum hybrid combinations or to produce segregating progeny from which superior cultivars would occur at a high frequency.
+
+In simplest terms, the cross between two parents (i.e. parent $i$ and parent $j$) in Griffing's analysis would be expressed as:
+
+$$
+X_{ij} = \mu + g_i + g_j + s_{ij}
+$$
+
+Where $\mu$ is the overall mean of all entries in the diallel design, $g_i$ is the general combining ability of the $i^{th}$ parent, $g_j$ is the general combining ability of the $j^{th}$ parent, and $s_{ij}$ is the specific combining ability between the $i_{th}$ parent and the $j_{th}$ parent.
+
+General combining ability (GCA) measures the average performance of parental lines in cross combination. GCA is therefore related to (but not directly equal to) the proportion of variation that is genetically additive in nature.
+
+Specific combining ability (SCA) is the remaining part of the observed phenotype that is not explained by the general combining ability of both parents that constituted the progeny. By definition, SCA is the portion of genetic variability which is not additive.
+
+Griffing's analysis of a diallel is by analysis of variance, where the total variance of all entries is partitioned into; and error variances. In case where reciprocals are included, then reciprocals (or maternal effects) are also partitioned. Error variances are estimated by replication of families. To avoid excessive repetition, only Method 1 (complete diallel) and Method 2 (half diallel), both including parents, will be considered further.
+
+Degrees of freedom (df), sum of squares (SS) and mean squares (MSq) from the analysis of variance for Method 1 for the assumption of model 1 (fixed effects) are shown in Table \ref{tab:complete-diallel-fixed}
+
+```{r complete-diallel-fixed,echo=FALSE}
+complete_diallel1 <- read_csv("./../data/full_diallel_fixed_anova.csv")
+
+complete_diallel1 %>% 
+  kable(format = "latex", booktabs = TRUE, escape = FALSE, caption = "Degrees of freedom, sum of squares and mean squares from the analysis of variance of a full diallel including parent selfs (Method 1) assuming fixed effects. Also shown are the expectations for the mean squares") %>% 
+  kableExtra::kable_styling()
+```
+
+```{r complete-diallel-random,echo=FALSE}
+complete_diallel2 <- read_csv("./../data/full_diallel_random_anova.csv")
+
+complete_diallel2 %>% 
+  kable(format = "latex", booktabs = TRUE, escape = FALSE, caption = "Degrees of freedom, sum of squares and mean squares from the analysis of variance of a full diallel including parent selfs (Method 1) assuming random effects. Also shown are the expectations for the mean squares.") %>% 
+  kableExtra::kable_styling()
+```
+
+
+```{r half-diallel-fixed,echo=FALSE}
+half_diallel1 <- read_csv("./../data/half_diallel_fixed_anova.csv")
+
+half_diallel1 %>% 
+  kable(format = "latex", booktabs = TRUE, escape = FALSE, caption = "Degrees of freedom, sum of squares and mean squares from the analysis of variance of a half diallel including parent selfs (Method 2), assuming fixed effects. Also shown are the expectations for the mean squares.") %>% 
+  kableExtra::kable_styling()
+```
+
+
+```{r half-diallel-random,echo=FALSE}
+half_diallel2 <- read_csv("./../data/half_diallel_random_anova.csv")
+
+half_diallel2 %>% 
+  kable(format = "latex", booktabs = TRUE, escape = FALSE, caption = "Degrees of freedom, sum of squares and mean squares from the analysis of variance of a half diallel including parent selfs (Method 2) assuming random effects. Also shown are the expectations for the mean squares.") %>% 
+  kableExtra::kable_styling()
+```
+
+that is, sum over rows; $X_j$ is $\sum_ix_{ij} = x_{1j} + x_{2j} + x_{3j} + ...,$ that is, sum over columns; and $X_{...}$ is $\sum_{ij}x_{ij}$, the sum of all observations. Where r is the number of replicates; p is the numeber of parents; $S_g$ is $\frac{1}{p+2}(\sum_i(X_i + x_ii)^2-\frac{4}{pX_{...}^2})$; $S_s$ is $\sum_{i<j}x_{ij}^2-\frac{1}{p+2}\sum_i(X_i + x_{ii})^2 + \frac{2}{(p+1)(P+2)X_{...}^2}$ and $X_{i...}$ is $\sum_j x_{ij} = x_{i1} + x_{i2} + x_{i3} + ...,$ that is, the sum over rows; $X_{...}$ is $\sum_{ij}x_{ij}$, the sum of all observations.
+
+When SCA is relatively small in comparision with GCA, it should be possible to predict the performance of particular cross combinations based only on the values obtained for GCA of parents.
+
+A realtively large SCA/GCA ratio implies the presence of dominance and/or epistatic gene effects. It should be noted that if dominance x additive effects are present, the GCA component will also contain some of these effects in addition to pure additive effects.
+
+For inbred lines, the closer that the following equations are equal to one (i.e. as SCA becomes small or very small compared with GCA), then greater predictability based on GCA will be possible. The ratio equations for each model are:
+
+$$
+\begin{aligned}
+Model~1 &: \frac{2g_i^2}{[2g_i^2 + s_{ij}^2]} \\
+Model~2 &: \frac{2\sigma_g^2}{[2\sigma_g^2 + \sigma_s^2}
+\end{aligned}
+$$
+
+Where $g_i^2$, $\sigma_g^2$ are the general combining ability mean square and variance, respectively and $s_{ij}$ and $\sigma_s^2$ are specific combining ability mean square and variance, respectively.
+
+The choice of Griffing method will depend on the plant breeder or researcher's preference and on the characters of the crop and trial under investigation. If, for example, there is suspicion that the particular inheritance has a maternal or cytoplasmic effect then Method 1 or Method 3 may be the desired choice. If, however, there is no evidence of reciprocal differences, then Method 2 or Method 4 would be chosen. When the variance components are of major importance, then it has been suggested that Method 1 will result in more accurate and consistent variance estimation compared to other methods, available. Conversely, it has been reported that the inclusion of the parental genotypes in the diallel design can cause an upward bias in the estimation of GCA and SCA variances.
+
+Normally the $F_1$ generation is considered in Griffing's analysis. However, as no genetic assumptions are involved then there are no reasons why $F_2$ or indeed other segregating generations cannot be analysed. This is a tremendous advantage in crop species where seeds per hybridization event are few. For example in garbanzo bean (chick pea) a single emasculation and pollination will result in 1 or 2 seeds, so multiple hybridizations are needed to obtain quantities of seed suitable for a proper $F_1$ diallel analyses. In this case it is easier to increase limited quantities of $F_1$ seed to obtain larger quantities of $F_2$ seed (which can simply be obtained by bagging flowers to prevent cross-pollination) for diallel analysis.
+
+Despite the attraction and simplicity of Griffing's analysis, several researchers have criticized the diallel technique. In open-pollinated species such as corn, where GCA is the only parameter of interest, then it has been suggested that other designs such as topcross or polycross would yield equally reliable results with less effort, and that these alternative methods provide the opportunity to test many more parental lines. Similarly it has been argued that in many instances North Carolina I designs (where a set of p parents to be tested are each intercrossed with a set number of other parents, and where each parent under test is not necessarily crossed to the same tester) or North Carolina II designs (where a set of p parents are crossed to a common set of n different parents and where each parent under test is crossed to the same set of non-test parental (or tester) lines) would offer a better alternative to diallel designs and Griffing’s analysis.
+
+Many studies have shown that the GCA values of parents from diallel analyses are similar to actual phenotypic performance of the parents. It has, therefore, been argued that it is not necessary to progeny test potential parents in a plant breeding programme, but simply to "cross the best with the best". Many practical plant breeders often add to this statement, however, "cross the best with the best, and hope for the best", but perhaps that is what we would be doing anyhow.
+
+## Example of Griffing's analysis of half diallel
+
+Let us consider now an example of a half diallel. A half diallel crossing design between ten varieties of spring wheat ( _Triticum aestivum_) was carried out at the Agriculture and Forestry University, Rampur, Chitwan, in the spring of 2018. The parental lines were: Bijay, Swargadwari, WK-1204, Aditya, Gautam, Tilottama, HD-2967, Mayil, Borlaug-100 and BL-4341. Bijay and Gautam are both popular and highly scaled varieties, while the others are still in their initial stages of being commercially tested. Crossing resulted in $\frac{n(n-1)}{2} = 45$ different $F_1$ families. Over the following winter, each of the 45 $F_1$ families was grown in a two-replicate randomized complete block design which also included the 10 parent selfs, making a design with 55 entries $\frac{n(n+1)}{2}$ and two replicated (i.e. 110 plots).
+
+Throughout the growth of this experiment a number of different traits were recorded on each of the 110 plots. For the simplicity of use case demonstration, only plant height character at the end of flowering will be considered.
+
+The average plant height of each of the 45$F_1$s and the 10 parents are shown in Table \ref{tab:half-diallel-pht}. The data used were the average of two plant heights (cms) as two representative plants were measured in each of the replicate plots.
+
+```{r half-diallel-pht, echo=FALSE}
+half_diallel_pht <- read_csv("./../data/half_diallel_fixed_example_height.csv") %>% 
+  rename(" " = "X1")
+
+half_diallel_pht %>% 
+  kable(format = "latex", booktabs = TRUE, 
+        escape = TRUE, 
+        caption = "Average plant height (cm) of each of the 45 F1s and the 10 parents in a half diallel with selfs (replication 1)",
+        longtable = TRUE) %>% 
+  kableExtra::kable_styling(latex_options = "scale_down")
+
+half_diallel_GCA <- half_diallel_pht %>% slice(11)
+
+half_diallel_pht <- half_diallel_pht %>% slice(-11) %>% select(-1)
+
+# fill up lower matrix to make complete matrix
+half_diallel_pht[upper.tri(half_diallel_pht, diag = FALSE)] <- t(half_diallel_pht)[upper.tri(half_diallel_pht, diag = FALSE)]
+
+half_diallel_pht <- half_diallel_pht %>% 
+  mutate_all(list(~as.numeric(.)))
+```
+
+From the data, the total variance (sum of squares) is partitioned into differences between the two replicate blocks (Reps), general combining ability, specific combining ability and an error term (based on interactions between replicates and other factors). Sum of squares (SS) and mean squares (MS) obtained are shown in Table \ref{tab:half-diallel-pht-anova}.
+
+```{r half-diallel-pht-gca, echo=FALSE}
+half_diallel_pht_clean <- half_diallel_pht %>% 
+  add_column(.before = 1, "Genotype_female" = colnames(half_diallel_pht)) %>% 
+  gather(key = "Genotype_male", "Values", -`Genotype_female`) 
+
+half_diallel_pht_clean %>%
+  group_by(Genotype_female) %>% 
+  summarise_at("Values", .funs = list(GCA = ~ mean(., na.rm = TRUE)-mean(colMeans(half_diallel_pht)))) %>% 
+  rename("Genotype" = "Genotype_female") %>% 
+  kable(format = "latex", booktabs = TRUE, escape = TRUE, 
+        caption = "GCA of 10 parents in a half diallel with selfs") %>% 
+  kableExtra::kable_styling(latex_options = "striped", font_size = 8)
+
+```
+
+
+```{r half-diallel-pht2}
+half_diallel_pht2 <- half_diallel_pht %>% 
+  mutate_all(.funs = list(~.-rnorm(n = 10, mean = 5, sd = 5)))
+
+half_diallel_pht2_clean <- half_diallel_pht2 %>% 
+  add_column(.before = 1, "Genotype_female" = colnames(half_diallel_pht)) %>% 
+  gather(key = "Genotype_male", "Values", -`Genotype_female`)
+```
+
+Table \ref{tab:half-diallel-pht2-gca} shows the GCA values for second replication of the experiment for plant height data (actually simulated).
+
+```{r half-diallel-pht2-gca}
+half_diallel_pht2_clean %>%
+  group_by(Genotype_female) %>% 
+  summarise_at("Values", .funs = list(GCA = ~ mean(., na.rm = TRUE)-mean(colMeans(half_diallel_pht)))) %>% 
+  rename("Genotype" = "Genotype_female") %>%
+  kable(format = "latex", booktabs = TRUE, escape = TRUE, 
+        caption = "GCA of 10 parents in a half diallel with selfs") %>% 
+  kableExtra::kable_styling(latex_options = "striped", font_size = 8)
+```
+
+
+```{r half-diallel-pht-anova, echo=FALSE}
+half_diallel_pht[upper.tri(half_diallel_pht)] <- NA
+half_diallel_pht2[upper.tri(half_diallel_pht2)] <- NA
+
+half_diallel_pht_clean <- half_diallel_pht %>% 
+  add_column(.before = 1, "Genotype_female" = colnames(half_diallel_pht)) %>% 
+  gather(key = "Genotype_male", "Values", -`Genotype_female`, na.rm = TRUE)
+
+half_diallel_pht2_clean <- half_diallel_pht2 %>% 
+  add_column(.before = 1, "Genotype_female" = colnames(half_diallel_pht2)) %>% 
+  gather(key = "Genotype_male", "Values", -`Genotype_female`, na.rm = TRUE)
+
+half_diallel_pht_data <- half_diallel_pht_clean %>% 
+  add_column(.before = 1, replication = "r1") %>% 
+  full_join(half_diallel_pht2_clean %>% 
+              add_column(.before = 1, replication = "r2"))
+
+anova(lm(Values ~ Genotype_male/Genotype_female + 
+           replication, 
+         data = half_diallel_pht_data)) %>% 
+  broom::tidy() %>%
+  mutate_at("term", list(~str_replace_all(., "_", " "))) %>% 
+  kable(format = "latex", booktabs = TRUE, escape = TRUE, 
+        caption = "Degrees of freedom, sum of squares and mean squares from the analysis of variance of plant height of a half diallel including parent selfs. In the analysis, the total variance is partitioned into differences between the two replicate blocks (replication), general combining ability (Genotype male), specific combining ability (Genotype male:Genotype female) and an error term (based based on the replicate differences)") %>% 
+  kableExtra::kable_styling(latex_options = c("striped", "scale_down"), font_size = 10)
+```
+
+
+The basis assumption of this experiment was that the ten parental lines were specifically chosen, although they were taken to be representative of a wide range of spring wheat cultivar types. We are therefore analysing a fixed effect model and all the mean squares in the analysis are tested for significance (using the "F" test) against the error mean square (i.e. 13).
+
+From the analysis, the overall replicate block effect (i.e. difference between replicate one and replicate two) was not significant. An F-value is obtained for specific combining ability as $\frac{312}{13} = 24$. This "F" value is compared to F-values found in statistical tables at differing probability levels with 45 and 54 degrees of freedom. When this is done, it is found that our observed F-value is greater than the value from the statistical tables at the 5% level. Therefore in this example, specific combining ability is significant at the 5% level, and hence there should be presence of both variances contributing to the overall phenotypes of progeny, this on the other hand implies a lowered opportunity to predict progeny performance based on parent GCA values.
+
+Consider now the variance ratio for general combining ability. The appropriate F-value is $\frac{689}{13} = 53$. When this value is compared with the appropriate F-values in statistical tables with 9 and 54 degrees of freedom, we find that it exceeds the appropriate expectation based on 99.9% confidence (i.e. approximately 3.54), and so we say that general combining ability is highly significant. This, in combination with the significant specific combining ability, suggests a genetic model with both additive and interactive terms. This is opposed to the model which would be composed of highly additive effects had variation for the specific combining ability between genotypes been lower.
+
+Now the expected mean square for specific combining ability of a half diallel with fixed effects is:
+
+$$
+\sigma^2 + \frac{2p}{p-1}\sum_is_i^2
+$$
+
+Therefore,
+
+$$
+\begin{aligned}
+312-13 &= \frac{2\times 10}{10-1}\sum_is_i^2 \\
+299 &= 2.2\sum_is_i^2
+\end{aligned}
+$$
+
+So,
+
+$$
+\begin{aligned}
+\sum_is_i^2 &= \frac{299}{2.2} \\
+& = 136
+\end{aligned}
+$$
+Similarly for general combining ability, the expected mean square is:
+
+$$
+\begin{aligned}
+689-13 &= (1 + 2)\left(\frac{1}{1-10}\right)\sum g_i^2 \\
+676 &= 1.33 \sum g_i^2 
+\end{aligned}
+$$
+
+So 
+
+$$
+\begin{aligned}
+\sum g_i^2 &= \frac{676}{1.33} \\
+&= 508
+\end{aligned}
+$$
+
+Now, from the equation above we can compare GCA and SCA effects, so as noted earlier we have:
+
+$$
+\begin{aligned}
+\frac{2g_i^2}{[2g_i^2 + s_{ij}]} &= \frac{2\times 508}{[(2\times 508) + 136]} \\
+&= 0.88
+\end{aligned}
+$$
+
+As this value is very close to one, it indicates that, as expected, $s_{ij}^2$ is relatively small compared to $g_i^2$. Therefore additive genetic effects predominate. This means there is a good chance that plant height at the $F_1$ stage in this _B. napus_ breeding program can be predicted with good accuracy, depending upon the general combining ability of the chosen parental lines.
+
+<!-- In many instances there is good agreement between the general combining ability of genotype and the phenotype performance of the line. If this is the case, then all that is necessary is to determine the expression of the parents and from these the expected expression of the offspring can be estimated (compare with $h_n^2$). Therefore in this example, consider the regression of offspring-against the average parental performance (Figure \ref{fig:offspring-parent-reg}). It can be clearly seen that there is relatively good agreement between offspring and parents. The regression equation gives the $offspring~mean = 0.7264 \times parent + 80$. Therefore the narrow sense heritability of these data is approximately 0.73, which is very high in that 73% of the total genetic variation can be considered as additive genetic variance. -->
+
+<!-- ```{r half-diallel-pht-scatter, echo = FALSE, fig.margin = TRUE} -->
+<!-- half_diallel_pht <- read_csv("./../data/half_diallel_fixed_example_height.csv") %>%  -->
+<!--   rename(" " = "X1") -->
+
+<!-- half_diallel_GCA <- half_diallel_pht %>% slice(11) -->
+
+<!-- half_diallel_pht <- half_diallel_pht %>% slice(-11) %>% select(-1) -->
+
+<!-- ## predicted performance of the biparental crosses -->
+
+<!-- # initialize a matrix of grand mean values -->
+<!-- init_mat <- as_tibble(matrix(mean(colMeans(half_diallel_pht)), nrow = 10, ncol = 10)) -->
+
+<!-- # vector with elements to add to each column -->
+<!-- sweep_vec <- half_diallel_GCA %>% select(-1) %>% as.numeric() -->
+
+<!-- # use sweep function -->
+<!-- sweep(init_mat,  -->
+<!--       2,  -->
+<!--       sweep_vec, -->
+<!--       "+") -->
+
+<!-- # or -->
+<!-- init_mat + sweep_vec[col(init_mat)] -->
+<!-- ``` -->
