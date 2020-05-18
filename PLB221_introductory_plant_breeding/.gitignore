@@ -30,12 +30,12 @@ assignments/**
 *_cache/
 *_files/
 
-# media directory where mostly media files are stored for assisting the teching
+# media directory where mostly media files are stored for assisting the teaching
 media/
 
-# html files directly inside root and inside presentation/
-*.html
-presentation/**/*.html
+# # html files directly inside root and inside presentation/
+# *.html
+# presentation/**/*.html
 
 # libs and static directory inside presentation/; probably html
 presentation/**/libs
