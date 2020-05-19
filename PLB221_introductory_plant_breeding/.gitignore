@@ -35,8 +35,8 @@ media/
 
 # # html files directly inside root and inside presentation/
 # *.html
-# presentation/**/*.html
+# plb221_presentation/**/*.html
 
 # libs and static directory inside presentation/; probably html
-presentation/**/libs
-presentation/**/static
+plb221_presentation/**/libs
+plb221_presentation/**/static
