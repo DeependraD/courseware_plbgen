@@ -19,6 +19,8 @@
 \usepackage[absolute,overlay]{textpos} % for text formatting
 \usepackage[skip=0.333\baselineskip]{caption}
 % \usepackage{newtxtext,newtxmath}% better than txfonts   
+\usepackage[english]{babel}
+\usepackage{pgfpages}
 
 \sisetup{per-mode=symbol}
 
@@ -27,8 +29,8 @@
 % \captionsetup{font=small,width=0.9\linewidth,labelfont=small,textfont={small}}
 % % End of CII addition
 
-\usepackage{subcaption}
-\newcommand{\subfloat}[2][need a sub-caption]{\subcaptionbox{#1}{#2}}
+% \usepackage{subcaption}
+% \newcommand{\subfloat}[2][need a sub-caption]{\subcaptionbox{#1}{#2}}
 
 \captionsetup[sub]{font=footnotesize,labelfont=footnotesize,textfont=footnotesize}
 % \captionsetup[subfigure]{font=small,labelfont=small,textfont=small}
@@ -41,3 +43,12 @@
  
  % use single line spacing ?
 \singlespacing
+
+% use cslreferences environment
+
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newenvironment{cslreferences}%
+  {\setlength{\parindent}{0pt}%
+  \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
+  {\par}

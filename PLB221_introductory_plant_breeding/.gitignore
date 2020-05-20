@@ -40,3 +40,6 @@ media/
 # libs and static directory inside presentation/; probably html
 plb221_presentation/**/libs
 plb221_presentation/**/static
+
+# pdf files because they are too big and can be compiled instantly
+*.pdf
