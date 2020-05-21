@@ -46,8 +46,8 @@ knitr::include_graphics("./images/x_men_mutants.jpg")
 ```
 
 
-```{r, load_refs, echo=FALSE, cache=FALSE}
-library(RefManageR)
+```{r, load-refs, echo=FALSE, cache=FALSE, warning=FALSE}
+suppressPackageStartupMessages(library(RefManageR))
 suppressPackageStartupMessages(require(magrittr))
 BibOptions(check.entries = FALSE, 
            bib.style = "authoryear", 
@@ -581,7 +581,8 @@ knitr::include_graphics("./images/world_production_of_major_crops.png")
 ```
 ]
 
-.small[Source: `r Citet(myBib,"brown2014plant")`]
+<!-- .small[Source: `r Citet(myBib,"brown2014plant")`] -->
+
 ---
 
 <!-- ```{r} -->
@@ -591,19 +592,11 @@ knitr::include_graphics("./images/world_production_of_major_crops.png")
 <!-- ``` -->
 
 - `r Citet(myBib,"brown2014plant")`, Page 26; Graph of total world crop production and total world crop production per capita (Since 1955 to 2011)
-
 - It is plant breeders and their stories who explain the dramatic gap between the thin white roots of wild carrot and the plump orange ones on the supermarket shelf.
-
 - Many people in the world still find feeding on a diverse diet of crops and meat or fish a rare luxury, and suffer malnutrition as a result. Plant breeding could potentially rescue from the situation is a powerful illustration of its importance.
-
----
-
 - Then again, well encapsulated in chinese philosophy is an idea that once people have enough to live on and their survival is assured, they turn almost at once to the improvement of their surroundings and the creation of objects of beauty.
-
 - Modern advances in genetic engineering bring the "designer plant" much closer, a prospect that fills some people with alarm. Or creation of entirely new horticultural species.
-
 - With continued unraveling of the genetic code of life, the possibilities for plant breeding is becoming even greater.
-
 - Industrial and other end-use requirements.
 
 ---
@@ -611,9 +604,7 @@ class: sydney-yellow
 
 ## Current state of science
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Potential Applications of Plant Biotechnology against SARS-CoV-2 <a href="https://t.co/6qvFYYoBtI">https://t.co/6qvFYYoBtI</a></p>&mdash; Mol. Plant Breeding (@MolecPlantBreed) <a href="https://twitter.com/MolecPlantBreed/status/1259696213961695232?ref_src=twsrc%5Etfw">May 11, 2020</a></blockquote> 
-
-<!-- <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>  -->
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Potential Applications of Plant Biotechnology against SARS-CoV-2 <a href="https://t.co/6qvFYYoBtI">https://t.co/6qvFYYoBtI</a></p>&mdash; Mol. Plant Breeding (@MolecPlantBreed) <a href="https://twitter.com/MolecPlantBreed/status/1259696213961695232?ref_src=twsrc%5Etfw">May 11, 2020</a></blockquote>
 
 ---
 
@@ -625,9 +616,9 @@ PrintBibliography(myBib)
 
 ---
 class: sydney-blue
-<!-- background-image: url(path/to/image) -->
 background-size: 260px
 background-position: 5% 95%
+<!-- background-image: url(path/to/image) -->
 
 # Thank you!
 
