@@ -9,12 +9,16 @@ institute: |
   | \textit{ddhakal.rookie@gmail.com}
   | \url{https://rookie.rbind.io}
 output: 
-  binb::metropolis:
+  beamer_presentation:
+    template: metropolis_binb_template_custom.tex
+    latex_engine: xelatex
+    keep_tex: yes
+    toc: yes
     includes:
       in_header: beamer_header_template.tex
 classoption: "aspectratio=169" # "compressed"
 fontsize: 11pt
-bibliography: [./../bibliographies.bib]
+bibliography: [./../bibliography/bibliographies.bib]
 ---
 
 ```{r,setup, include=FALSE}

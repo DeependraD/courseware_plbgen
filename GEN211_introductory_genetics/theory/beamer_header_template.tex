@@ -27,8 +27,8 @@
 % \captionsetup{font=small,width=0.9\linewidth,labelfont=small,textfont={small}}
 % % End of CII addition
 
-\usepackage{subcaption}
-\newcommand{\subfloat}[2][need a sub-caption]{\subcaptionbox{#1}{#2}}
+% \usepackage{subcaption}
+% \newcommand{\subfloat}[2][need a sub-caption]{\subcaptionbox{#1}{#2}}
 
 \captionsetup[sub]{font=footnotesize,labelfont=footnotesize,textfont=footnotesize}
 % \captionsetup[subfigure]{font=small,labelfont=small,textfont=small}
@@ -39,5 +39,66 @@
 % \setbeamerfont{subcaption}{size=\tiny} % this does not chage subfloat fonts
 % \setbeamerfont{subfloat}{size=\tiny} % this does not change subfloat fonts
  
- % use single line spacing ?
+% use single line spacing ?
 \singlespacing
+
+% use customize theme and colortheme
+% \usetheme[subsectionpage=progressbar,background=light]{metropolis}
+% \usetheme[]{Warsaw} % other options are: rose, Berlin
+% \usetheme[subsectionpage=progressbar,background=light]{metropolis} % it should be integrated to template itself by replacing preset theme
+\setbeamercolor{title}{fg=red!80!black,bg=red!20!white}
+\setbeamertemplate{section in toc shaded}[default][50]
+\usecolortheme{crane}
+% \usecolortheme{seahorse}
+
+% beamer progress bar customization
+\usetikzlibrary{calc}
+
+\definecolor{pbblue}{HTML}{0A75A8}% filling color for the progress bar
+\definecolor{pbgray}{HTML}{575757}% background color for the progress bar
+
+\makeatletter
+\def\progressbar@progressbar{} % the progress bar
+\newcount\progressbar@tmpcounta% auxiliary counter
+\newcount\progressbar@tmpcountb% auxiliary counter
+\newdimen\progressbar@pbht %progressbar height
+\newdimen\progressbar@pbwd %progressbar width
+\newdimen\progressbar@tmpdim % auxiliary dimension
+
+\progressbar@pbwd=\linewidth
+\progressbar@pbht=1.0ex
+
+% the progress bar
+\def\progressbar@progressbar{%
+
+    \progressbar@tmpcounta=\insertframenumber
+    \progressbar@tmpcountb=\inserttotalframenumber
+    \progressbar@tmpdim=\progressbar@pbwd
+    \multiply\progressbar@tmpdim by \progressbar@tmpcounta
+    \divide\progressbar@tmpdim by \progressbar@tmpcountb
+
+  \begin{tikzpicture}[rounded corners=2pt,very thin]
+
+    \shade[top color=pbgray!20,bottom color=pbgray!20,middle color=pbgray!50]
+      (0pt, 0pt) rectangle ++ (\progressbar@pbwd, \progressbar@pbht);
+
+      \shade[draw=pbblue,top color=pbblue!50,bottom color=pbblue!50,middle color=pbblue] %
+        (0pt, 0pt) rectangle ++ (\progressbar@tmpdim, \progressbar@pbht);
+
+    \draw[color=normal text.fg!50]  
+      (0pt, 0pt) rectangle (\progressbar@pbwd, \progressbar@pbht) 
+        node[pos=0.5,color=normal text.fg] {\textnormal{%
+             \pgfmathparse{\insertframenumber*100/\inserttotalframenumber}%
+             \pgfmathprintnumber[fixed,precision=2]{\pgfmathresult}\,\%%
+        }%
+    };
+  \end{tikzpicture}%
+}
+
+\addtobeamertemplate{footline}{} % modified from 'headline' by dd_rookie
+{%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=4ex,center,dp=1ex]{white}%
+    \progressbar@progressbar%
+  \end{beamercolorbox}%
+}
+\makeatother
