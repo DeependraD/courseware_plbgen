@@ -363,3 +363,6 @@ $RECYCLE.BIN/
 # exclude libs and static folder
 static/
 libs/
+
+# exclude pdf output files
+*.pdf

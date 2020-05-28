@@ -15,7 +15,7 @@ output:
     keep_tex: yes
     toc: yes
     includes:
-      in_header: beamer_header_template.tex
+      in_header: ['beamer_header_template.tex', 'beamer_progress_bar_template.tex']
 classoption: "aspectratio=169" # "compressed"
 fontsize: 11pt
 bibliography: [./../bibliography/bibliographies.bib]

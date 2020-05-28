@@ -9,11 +9,12 @@ institute: |
   | \url{https://rookie.rbind.io}
 output: 
   binb::metropolis:
+    keep_tex: yes
     includes:
       in_header: beamer_header_template.tex
 classoption: "aspectratio=169" # "compressed"
 fontsize: 11pt
-bibliography: [./../bibliographies.bib]
+bibliography: [../bibliography/bibliographies.bib]
 ---
 
 ```{r,setup, include=FALSE}
@@ -35,7 +36,7 @@ options(kableExtra.latex.load_packages = FALSE)
 
 - Living beings produce more of their kind (procreate).
 - Rudolf Virchow, a German physician, put it this way in 1855, translating which in his latin axiom "Omnis cellula e cellula," meaning "Every cell from a cell."
-- Cell division enables unicellular organisms to reproduce and entire organimsm.
+- Cell division enables unicellular organisms to reproduce and produce entire organism.
 - What goes on in eukaryotes cell cycle
 - Cell division involves distribution of identical genetic material, not merely the splitting of components.
 - Cell division copies DNA with high fidelity.
@@ -104,20 +105,48 @@ knitr::include_graphics("../images/cell_structure_plant.png")
 - In some species e.g., maize, amphibia etc, chromosomes during first prophase of meiosis (pachytene), show small bead-like structures called chroommeres.
 - Homologous chromosomes always show identical pattern of chromomere distribution.
 
-## Chromosome numbers
+<!-- ## Chromosome numbers -->
 
-```{r genetics-history2, eval = FALSE}
-chr_no <- read_csv("./../data/chromosome_numbers.csv")
-chr_no %>% 
-  mutate(Species = paste0("$\textit{", Species, "}$")) %>% 
-  group_split(Organism) %>% 
-  bind_cols()
-  knitr::kable(caption = "Chromosome numbers found different species of organisms", 
-               booktabs = TRUE, escape = FALSE) %>%
-  kableExtra::kable_styling(font_size = 6, position = "center", latex_options = "striped") %>% 
-  kableExtra::column_spec(1:2, width = c("5em", "50em")) %>% 
-  kableExtra::collapse_rows(columns = 1, valign = "top")
-```
+<!-- ```{r genetics-history2, eval = TRUE} -->
+<!-- chr_no <- read_csv("./../data/chromosome_numbers.csv") -->
+<!-- chr_no <- chr_no %>%  -->
+<!--   mutate(Species = paste0("$\textit{", Species, "}$")) %>%  -->
+<!--   group_split(Organism) -->
+<!-- ``` -->
+
+<!-- ## -->
+
+<!-- ```{r chromosome-number1} -->
+<!-- chr_no[[1]] %>%  -->
+<!--   knitr::kable(caption = "Chromosome numbers found different species of organisms",  -->
+<!--                booktabs = TRUE, escape = FALSE) %>% -->
+<!--   kableExtra::kable_styling(font_size = 5, position = "center", latex_options = "striped") %>%  -->
+<!--   # kableExtra::column_spec(1:2, width = c("5em", "50em")) %>%  -->
+<!--   kableExtra::collapse_rows(columns = 1, valign = "top") -->
+<!-- ``` -->
+
+<!-- ## -->
+
+<!-- ```{r chromosome-number2} -->
+<!-- chr_no[[2]] %>%  -->
+<!--   knitr::kable(caption = "Chromosome numbers found different species of organisms ... continued",  -->
+<!--                booktabs = TRUE, escape = FALSE) %>% -->
+<!--   kableExtra::kable_styling(font_size = 5, position = "center", latex_options = "striped") %>%  -->
+<!--   # kableExtra::column_spec(1:2, width = c("5em", "50em")) %>%  -->
+<!--   kableExtra::collapse_rows(columns = 1, valign = "top") -->
+<!-- ``` -->
+
+<!-- ## -->
+
+<!-- ```{r chromosome-number3} -->
+<!-- chr_no[[3]] %>%  -->
+<!--   knitr::kable(caption = "Chromosome numbers found different species of organisms ...continued",  -->
+<!--                booktabs = TRUE, escape = FALSE) %>% -->
+<!--   kableExtra::kable_styling(font_size = 4, position = "center",  -->
+<!--                             latex_options = "striped") %>%  -->
+<!--   # kableExtra::column_spec(1:2, width = c("5em", "50em")) %>%  -->
+<!--   kableExtra::collapse_rows(columns = 1, valign = "top") -->
+<!-- ``` -->
 
 ## Structure of chromatin
 
@@ -227,32 +256,32 @@ knitr::include_graphics("../images/cell_division_eukaryotes_overview.png")
 <!-- knitr::include_graphics("../images/cell_division_plants.png") -->
 <!-- ``` -->
 
-## Key events in mitosis and meiosis
+<!-- ## Key events in mitosis and meiosis -->
 
-\begin{columns}[T,onlytextwidth]
-  
-  \column{0.5\textwidth}
+<!-- \begin{columns}[T,onlytextwidth] -->
 
-```{r key-events1, out.width="68%", fig.align='center'}
-# pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Anthony_J.F._Griffiths,_Susan_R._Wessler,_Sean_B.pdf",
-#                       pages = 62,
-#                       dpi = 300, format = "png",
-#                       filenames = "../images/key_events_mitosis_meiosis.png")
+<!--   \column{0.5\textwidth} -->
 
-knitr::include_graphics("../images/key_events_mitosis_meiosis.png")
-```
-  \column{0.5\textwidth}
+<!-- ```{r key-events1, out.width="68%", fig.align='center'} -->
+<!-- # pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Anthony_J.F._Griffiths,_Susan_R._Wessler,_Sean_B.pdf", -->
+<!-- #                       pages = 62, -->
+<!-- #                       dpi = 300, format = "png", -->
+<!-- #                       filenames = "../images/key_events_mitosis_meiosis.png") -->
 
-```{r key-events2, out.width="100%", fig.align='center'}
-# pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Anthony_J.F._Griffiths,_Susan_R._Wessler,_Sean_B.pdf",
-#                       pages = 63,
-#                       dpi = 300, format = "png",
-#                       filenames = "../images/key_events_mitosis_meiosis2.png")
+<!-- knitr::include_graphics("../images/key_events_mitosis_meiosis.png") -->
+<!-- ``` -->
+<!--   \column{0.5\textwidth} -->
 
-knitr::include_graphics("../images/key_events_mitosis_meiosis2.png")
-```
+<!-- ```{r key-events2, out.width="100%", fig.align='center'} -->
+<!-- # pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Anthony_J.F._Griffiths,_Susan_R._Wessler,_Sean_B.pdf", -->
+<!-- #                       pages = 63, -->
+<!-- #                       dpi = 300, format = "png", -->
+<!-- #                       filenames = "../images/key_events_mitosis_meiosis2.png") -->
 
-\end{columns}
+<!-- knitr::include_graphics("../images/key_events_mitosis_meiosis2.png") -->
+<!-- ``` -->
+
+<!-- \end{columns} -->
 
 # Mitosis
 
@@ -318,17 +347,6 @@ knitr::include_graphics("../images/key_events_mitosis_meiosis2.png")
 #                       filenames = "../images/chromosome_structure.png")
 
 knitr::include_graphics("../images/chromosome_structure.png")
-```
-
-##
-
-```{r chromosome-structure2, fig.cap="\\textbf{Chiasma genesis.} (a, b) Homolog pairing. (c) Genesis of corresponding chromatid bridges and (d) cruciform healing of two homologous chromatid sections. (e) Before reduction for the neighboring ('proximal') chromosome to the centromere sections; the 'distal' sections (beyond the chiasma) after reduction. (f, g) Double crossing-over with triple-strand exchange, where the second exchange takes place between a chromatid already involved in the first exchange and a hitherto uninvolved one. Only two (always one maternal and one paternal) of four chromatids are ever involved in a crossing-over event", out.width="65%"}
-# pdftools::pdf_convert("../../literatures/Plant Science Straussberger.pdf",
-#                       pages = 90,
-#                       dpi = 300, format = "png",
-#                       filenames = "../images/chiasma_genesis.png")
-
-knitr::include_graphics("../images/chiasma_genesis.png")
 ```
 
 # Stages of mitosis
@@ -422,17 +440,6 @@ knitr::include_graphics("../images/mitosis_animal_cell33.png")
 
 \end{columns}
 
-##
-
-```{r nuclear-division-dna, out.width="45%", fig.cap="DNA and gene transmission in mitosis and meiosis in eukaryotes. The S phase and the main stages of mitosis and meiosis are shown. Mitotic divisions (left and middle) conserve the genotype of the original cell. At the right, the two successive meiotic divisions that take place during the sexual stage of the life cycle have the net effect of halving the number of chromosomes. The alleles A and a of one gene are used to show how genotypes are transmitted in cell division.", fig.align='center'}
-# pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Anthony_J.F._Griffiths,_Susan_R._Wessler,_Sean_B.pdf",
-#                       pages = 68,
-#                       dpi = 300, format = "png",
-#                       filenames = "../images/nuclear_division_dna.png")
-
-knitr::include_graphics("../images/nuclear_division_dna.png")
-```
-
 # Meiosis
 
 ## Background
@@ -480,10 +487,6 @@ knitr::include_graphics("../images/meiosis_stages1.png")
 knitr::include_graphics("../images/meiosis_stages2.png")
 ```
 
-# Associated events in eukaryotic cell division
-
-<!-- ##  -->
-
 <!-- ```{r eukaryotic-ori, out.width="22%", fig.cap="Example showing the initiation of DNA synthesis at an \\textbf{origin of replication} in a eukaryote (yeast). As with prokaryotic initiation, proteins of the origin recognition complex (ORC) bind to the origin, where they separate the two strands of the double helix and recruit replisome components at the two replication forks. Replication is linked to the cell cycle through the availability of two proteins: Cdc6 and Cdt1."} -->
 <!-- # pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Anthony_J.F._Griffiths,_Susan_R._Wessler,_Sean_B.pdf", -->
 <!-- #                       pages = 300, -->
@@ -492,6 +495,30 @@ knitr::include_graphics("../images/meiosis_stages2.png")
 
 <!-- knitr::include_graphics("../images/eukaryotic_origin_of_replication.png") -->
 <!-- ``` -->
+
+# Associated events in eukaryotic cell division
+
+##
+
+```{r nuclear-division-dna, out.width="45%", fig.cap="DNA and gene transmission in mitosis and meiosis in eukaryotes. The S phase and the main stages of mitosis and meiosis are shown. Mitotic divisions (left and middle) conserve the genotype of the original cell. At the right, the two successive meiotic divisions that take place during the sexual stage of the life cycle have the net effect of halving the number of chromosomes. The alleles A and a of one gene are used to show how genotypes are transmitted in cell division.", fig.align='center'}
+# pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Anthony_J.F._Griffiths,_Susan_R._Wessler,_Sean_B.pdf",
+#                       pages = 68,
+#                       dpi = 300, format = "png",
+#                       filenames = "../images/nuclear_division_dna.png")
+
+knitr::include_graphics("../images/nuclear_division_dna.png")
+```
+
+##
+
+```{r chiasmata-structure, fig.cap="\\textbf{Chiasma genesis.} (a, b) Homolog pairing. (c) Genesis of corresponding chromatid bridges and (d) cruciform healing of two homologous chromatid sections. (e) Before reduction for the neighboring ('proximal') chromosome to the centromere sections; the 'distal' sections (beyond the chiasma) after reduction. (f, g) Double crossing-over with triple-strand exchange, where the second exchange takes place between a chromatid already involved in the first exchange and a hitherto uninvolved one. Only two (always one maternal and one paternal) of four chromatids are ever involved in a crossing-over event", out.width="65%"}
+# pdftools::pdf_convert("../../literatures/Plant Science Straussberger.pdf",
+#                       pages = 90,
+#                       dpi = 300, format = "png",
+#                       filenames = "../images/chiasma_genesis.png")
+
+knitr::include_graphics("../images/chiasma_genesis.png")
+```
 
 ## Chromosome pairing in an autotetraploid
 

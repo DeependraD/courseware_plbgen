@@ -1,0 +1,51 @@
+% beamer progress bar customization
+\usetikzlibrary{calc}
+
+\definecolor{pbblue}{HTML}{0A75A8}% filling color for the progress bar
+\definecolor{pbgray}{HTML}{575757}% background color for the progress bar
+
+\makeatletter
+\def\progressbar@progressbar{} % the progress bar
+\newcount\progressbar@tmpcounta% auxiliary counter
+\newcount\progressbar@tmpcountb% auxiliary counter
+\newdimen\progressbar@pbht %progressbar height
+\newdimen\progressbar@pbwd %progressbar width
+\newdimen\progressbar@tmpdim % auxiliary dimension
+
+\progressbar@pbwd=\linewidth
+\progressbar@pbht=1.0ex
+
+% the progress bar
+\def\progressbar@progressbar{%
+
+    \progressbar@tmpcounta=\insertframenumber
+    \progressbar@tmpcountb=\inserttotalframenumber
+    \progressbar@tmpdim=\progressbar@pbwd
+    \multiply\progressbar@tmpdim by \progressbar@tmpcounta
+    \divide\progressbar@tmpdim by \progressbar@tmpcountb
+
+  \begin{tikzpicture}[rounded corners=2pt,very thin]
+
+    \shade[top color=pbgray!20,bottom color=pbgray!20,middle color=pbgray!50]
+      (0pt, 0pt) rectangle ++ (\progressbar@pbwd, \progressbar@pbht);
+
+      \shade[draw=pbblue,top color=pbblue!50,bottom color=pbblue!50,middle color=pbblue] %
+        (0pt, 0pt) rectangle ++ (\progressbar@tmpdim, \progressbar@pbht);
+
+    \draw[color=normal text.fg!50]  
+      (0pt, 0pt) rectangle (\progressbar@pbwd, \progressbar@pbht) 
+        node[pos=0.5,color=normal text.fg] {\textnormal{%
+             \pgfmathparse{\insertframenumber*100/\inserttotalframenumber}%
+             \pgfmathprintnumber[fixed,precision=2]{\pgfmathresult}\,\%%
+        }%
+    };
+  \end{tikzpicture}%
+}
+
+\addtobeamertemplate{footline}{} % modified from 'headline' by dd_rookie
+{%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=4ex,center,dp=1ex]{white}%
+    \progressbar@progressbar%
+  \end{beamercolorbox}%
+}
+\makeatother

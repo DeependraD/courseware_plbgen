@@ -9,11 +9,12 @@ institute: |
   | \url{https://rookie.rbind.io}
 output: 
   binb::metropolis:
+    keep_tex: yes
     includes:
       in_header: beamer_header_template.tex
 classoption: "aspectratio=169" # "compressed"
 fontsize: 11pt
-bibliography: [./../../bibliographies.bib]
+bibliography: [../bibliographies.bib]
 ---
 
 ```{r,setup, include=FALSE}
@@ -34,7 +35,7 @@ options(kableExtra.latex.load_packages = FALSE)
 ##
 
 ```{r maize, fig.cap="Inbred line of maize", fig.align='center', out.width="70%"}
-knitr::include_graphics("./../../images/Maize_inbred.jpg")
+knitr::include_graphics("./images/Maize_inbred.jpg")
 ```
 
 # Modes of reproduction
@@ -55,15 +56,15 @@ knitr::include_graphics("./../../images/Maize_inbred.jpg")
 ##
 
 ```{r plant-fertilization, fig.cap="Fertilization in plants", fig.align='center', out.width="38%"}
-# pdftools::pdf_convert("./../../references_plb/Rolf H. J. Schlegel - Encyclopedic Dictionary of Plant Breeding and Related Subjects-The Food Products Press (2003).pdf", pages = 563, format = "png", filenames = "./../../images/fertilization_in_self_pollinated_species.png", dpi = 300)
-knitr::include_graphics("./../../images/fertilization_in_self_pollinated_species.png")
+# pdftools::pdf_convert("./references_plb/Rolf H. J. Schlegel - Encyclopedic Dictionary of Plant Breeding and Related Subjects-The Food Products Press (2003).pdf", pages = 563, format = "png", filenames = "./images/fertilization_in_self_pollinated_species.png", dpi = 300)
+knitr::include_graphics("./images/fertilization_in_self_pollinated_species.png")
 ```
 
 ##
 
 ```{r sporogenesis, fig.cap="Embryo sac and pollen formation", out.width="38%", fig.align='center'}
-# pdftools::pdf_convert("./../../references_plb/Rolf H. J. Schlegel - Encyclopedic Dictionary of Plant Breeding and Related Subjects-The Food Products Press (2003).pdf", pages = 554, format = "png", filenames = "./../../images/sporogenesis.png", dpi = 300)
-knitr::include_graphics("./../../images/sporogenesis.png")
+# pdftools::pdf_convert("./references_plb/Rolf H. J. Schlegel - Encyclopedic Dictionary of Plant Breeding and Related Subjects-The Food Products Press (2003).pdf", pages = 554, format = "png", filenames = "./images/sporogenesis.png", dpi = 300)
+knitr::include_graphics("./images/sporogenesis.png")
 ```
 
 ## Autogamy/Self-pollination
@@ -106,13 +107,6 @@ knitr::include_graphics("./../../images/sporogenesis.png")
 - Incompatible pollen is inhibited in the style.
 - The pistil is diploid hence contains two incompatibility alleles (e.g., _S1_ _S3_, _S3_ _S4_). Reactions occur if identical alleles in both pollen and style are encountered. Only heterozygotes for _S_ alleles are produced in this system.
 
-##
-
-```{r incompatibility-systems, fig.cap="Sporophytic and gametophytic SI systems; Types of self-incompatibility: (a) sporophytic and (b) gametophytic. Sporophytic incompatibility occurs in families such as Compositae and Cruciferae. It is associated with pollen grains with two generative nuclei, whereas gametophytic incompatibility is associated with pollen with one generative nucleus in the pollen tube as occurs in various kinds of clover.", out.width="45%", fig.align='center'}
-# pdftools::pdf_convert("./../../references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 115, format = "png", filenames = "./../../images/incompatibility_systems.png", dpi = 300)
-knitr::include_graphics("./../../images/incompatibility_systems.png")
-```
-
 ## 
 
 ### Sporophytic incompatibility
@@ -123,7 +117,50 @@ knitr::include_graphics("./../../images/incompatibility_systems.png")
 - Also, it may have individual action in both pollen and style, making this incompatibility system complex. 
 - The dominance is determined by the pollen parent. 
 - Incompatible pollen may be inhibited on the stigma surface. 
-- For example, a plant with genotype _S1_ _S2_ where _S1_ is dominant to _S2_, will produce pollen that will function like _S1_. Furthermore, _S1_ pollen will be rejected by an _S1_ style but received by an _S2_ style. Hence, homozygotes of _S_ alleles are possible
+- For example, a plant with genotype _S1_ _S2_ where _S1_ is dominant to _S2_, will produce pollen that will function like _S1_. Furthermore, _S1_ pollen will be rejected by an _S1_ style but received by an _S2_ style. Hence, homozygotes of _S_ alleles are possible.
+
+##
+
+<!-- ```{r incompatibility-systems, fig.cap="Sporophytic and gametophytic SI systems; Types of self-incompatibility: (a) sporophytic and (b) gametophytic. Sporophytic incompatibility occurs in families such as Compositae and Cruciferae. It is associated with pollen grains with two generative nuclei, whereas gametophytic incompatibility is associated with pollen with one generative nucleus in the pollen tube as occurs in various kinds of clover.", out.width="45%", fig.align='center'} -->
+<!-- # pdftools::pdf_convert("./references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 115, format = "png", filenames = "./images/incompatibility_systems.png", dpi = 300) -->
+<!-- knitr::include_graphics("./images/incompatibility_systems.png") -->
+<!-- ``` -->
+
+```{r si-comparison-reaction1}
+incompatibility_systems <- read_csv("./data/incompatibility_systems.csv", comment = "#", 
+                                    skip = 5)
+incompatibility_systems[1:14,] %>% 
+  rename_all(list(~str_replace_all(., "_", " "))) %>% 
+  knitr::kable(booktabs = TRUE, caption = "Incompatibility reactions of different mating combinations in a mono- and digenic cross.") %>% 
+  kableExtra::kable_styling(latex_options = "striped", font_size = 6) %>% 
+  kableExtra::column_spec(column = 2:9, width = c("4em", "4em", "4em", "6em", 
+                                                  "8em", "8em", "6em", "8em")) %>% 
+  kableExtra::footnote(general = c("Suppose there are incompatibility conditioning genes S and Z", 
+                                   "Two genes could have alleles S1, S2, S3, S4… and Z1, Z2, Z3, Z4,…", 
+                                   "Under SSI system, dominance relation holds: S1>S2>S3 and Z1>Z2>Z3."), general_title = "Assumptions:")
+```
+
+##
+
+```{r si-comparison-reaction2}
+incompatibility_systems[15:28,] %>% 
+  rename_all(list(~str_replace_all(., "_", " "))) %>% 
+  knitr::kable(booktabs = TRUE, 
+               caption = "Incompatibility reactions (...continued)") %>% 
+  kableExtra::kable_styling(latex_options = "striped", font_size = 6) %>% 
+  kableExtra::column_spec(column = 2:9, width = c("4em", "4em", "4em", "6em", 
+                                                  "8em", "8em", "6em", "8em"))
+```
+
+##
+
+### Important remarks
+
+- In **GSI** system:
+  - When only one gene is involved, if the pollen genotype is same as either of the alleles of pistill genotype (diploid), incompatibility occurs, irrespective of pollent parent genotype.
+  - When two genes are involved, both genes of the pollen genotype (haploid) should have corresponding copies of same alleles of both genes in pistil genotype for incompatibility to occur.
+  - In rice, multilocus GSI system takes effect. Both loci are unlinked and multi-allelic.
+- In **SSI** system, reaction is complete. Either all combinations of gamete are compatible or they are all incompatible. Hence, this system leads to all or nothing.
 
 ## Expression of SI
   
@@ -147,22 +184,22 @@ knitr::include_graphics("./../../images/incompatibility_systems.png")
 ##
 
 ```{r si-use-sc, fig.cap="Application of self-incompatibility in practical plant breeding (A)", out.width="50%", fig.align='center'}
-# pdftools::pdf_convert("./../../references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 118, format = "png", filenames = "./../../images/incompatibility_use.png", dpi = 300)
-knitr::include_graphics("./../../images/incompatibility_use_SC.png")
+# pdftools::pdf_convert("./references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 118, format = "png", filenames = "./images/incompatibility_use.png", dpi = 300)
+knitr::include_graphics("./images/incompatibility_use_SC.png")
 ```
 
 ##
 
 ```{r si-use-dc, fig.cap="Application of self-incompatibility in practical plant breeding (B)", out.width="50%", fig.align='center'}
-# pdftools::pdf_convert("./../../references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 118, format = "png", filenames = "./../../images/incompatibility_use.png", dpi = 300)
-knitr::include_graphics("./../../images/incompatibility_use_DC.png")
+# pdftools::pdf_convert("./references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 118, format = "png", filenames = "./images/incompatibility_use.png", dpi = 300)
+knitr::include_graphics("./images/incompatibility_use_DC.png")
 ```
 
 ##
 
 ```{r si-use-tc, fig.cap="Application of self-incompatibility in practical plant breeding (C)", out.width="50%", fig.align='center'}
-# pdftools::pdf_convert("./../../references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 118, format = "png", filenames = "./../../images/incompatibility_use.png", dpi = 300)
-knitr::include_graphics("./../../images/incompatibility_use_TC.png")
+# pdftools::pdf_convert("./references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 118, format = "png", filenames = "./images/incompatibility_use.png", dpi = 300)
+knitr::include_graphics("./images/incompatibility_use_TC.png")
 ```
 
 # Male sterility
@@ -201,8 +238,8 @@ knitr::include_graphics("./../../images/incompatibility_use_TC.png")
 ##
 
 ```{r gms-use, fig.cap="Genetic male sterility as used in practical breeding", out.width="50%", fig.align='center'}
-# pdftools::pdf_convert("./../../references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 118, format = "png", filenames = "./../../images/gms_use.png", dpi = 300)
-knitr::include_graphics("./../../images/gms_use.png")
+# pdftools::pdf_convert("./references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 118, format = "png", filenames = "./images/gms_use.png", dpi = 300)
+knitr::include_graphics("./images/gms_use.png")
 ```
 
 ## Cytoplasmic male sterility
@@ -217,8 +254,8 @@ knitr::include_graphics("./../../images/gms_use.png")
 ##
 
 ```{r cms-use, fig.cap="Cytoplasmic male sterility as applied in plant breeding (N, normal cytoplasm; s, sterile cytoplasm).", out.width="50%", fig.align='center'}
-# pdftools::pdf_convert("./../../references_plb/Plant Breeding, 2nd Edition (2014).pdf", pages = 76, format = "png", filenames = "./../../images/cms_use.png", dpi = 300)
-knitr::include_graphics("./../../images/cms_use.png")
+# pdftools::pdf_convert("./references_plb/Plant Breeding, 2nd Edition (2014).pdf", pages = 76, format = "png", filenames = "./images/cms_use.png", dpi = 300)
+knitr::include_graphics("./images/cms_use.png")
 ```
 
 ##
@@ -239,8 +276,8 @@ lines; maintained by selfing) with normal cytoplasm and no restorer genes.
 ##
 
 ```{r cgms-systems, fig.cap="The three systems of cytoplasmic genetic male sterility. The three factors involved in CMS are the normal cytoplasm (N), the male sterile cytoplasm (S), and the fertility restorer (Rf, rf).", out.width="30%", fig.align='center'}
-# pdftools::pdf_convert("./../../references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 119, format = "png", filenames = "./../../images/cgms_systems.png", dpi = 300)
-knitr::include_graphics("./../../images/cgms_systems.png")
+# pdftools::pdf_convert("./references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 119, format = "png", filenames = "./images/cgms_systems.png", dpi = 300)
+knitr::include_graphics("./images/cgms_systems.png")
 ```
 
 ## Dichogamy (mechanism enforcing cross pollination)
@@ -301,8 +338,8 @@ knitr::include_graphics("./../../images/cgms_systems.png")
 ##
 
 ```{r alternation-generation, fig.cap="Alternation of generations", fig.align='center', out.width="60%"}
-# pdftools::pdf_convert("./../../references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 110, format = "png", filenames = "./../../images/alternation_of_generations.png", dpi = 300)
-knitr::include_graphics("./../../images/alternation_of_generations.png")
+# pdftools::pdf_convert("./references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 110, format = "png", filenames = "./images/alternation_of_generations.png", dpi = 300)
+knitr::include_graphics("./images/alternation_of_generations.png")
 ```
 
 ##
@@ -313,14 +350,14 @@ knitr::include_graphics("./../../images/alternation_of_generations.png")
   \footnotesize
 
 ```{r hybrid, fig.cap="Hybrid", fig.show='hold', out.width="60%"}
-knitr::include_graphics("./../../images/Teosinte_maize_hybrid_cross.jpg")
+knitr::include_graphics("./images/Teosinte_maize_hybrid_cross.jpg")
 ```
 
   \column{0.5\linewidth}
   \footnotesize
   
 ```{r openpollinated, fig.cap="Open pollinated", fig.show='hold', out.width="80%"}
-knitr::include_graphics("./../../images/cross_pollinated_mustard.jpg")
+knitr::include_graphics("./images/cross_pollinated_mustard.jpg")
 ```
 
 \end{columns}
@@ -344,7 +381,7 @@ knitr::include_graphics("./../../images/cross_pollinated_mustard.jpg")
 ##
 
 ```{r predominantly-self-pollinated, tidy=FALSE}
-self_pollinated <- readxl::read_xlsx("./../../data/03-modes_of_reproduction_and_pollination_control.xlsx", sheet = "predominantly_self")
+self_pollinated <- readxl::read_xlsx("./data/03-modes_of_reproduction_and_pollination_control.xlsx", sheet = "predominantly_self")
 
 self_pollinated %>% 
   mutate_at("Scientific name", function(x){
@@ -364,7 +401,7 @@ self_pollinated %>%
 
 ```{r, fig.align='center', fig.cap="Open pollinated crops", out.width="35%"}
 
-knitr::include_graphics("./../../images/open_pollinated_onion.jpg")
+knitr::include_graphics("./images/open_pollinated_onion.jpg")
 ```
 
 ## Hybrid

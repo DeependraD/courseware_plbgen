@@ -1,0 +1,32 @@
+\documentclass{beamer}
+\usepackage{tikz}
+\usepackage{pgfpages}
+\usepackage{graphicx}
+
+
+\begin{document}
+
+\begin{frame}
+Background transparent image, not here
+\end{frame}
+
+{\usebackgroundtemplate{%             declare it
+\tikz[overlay,remember picture] \node[opacity=0.3, at=(current page.center)] {
+   \includegraphics[height=\paperheight,width=\paperwidth]{./images/awnless_wheat}};
+}
+
+\begin{frame}
+Background transparent image, centered on slide
+\end{frame}}
+
+\usebackgroundtemplate{ }    %% undeclare it
+
+\begin{frame}
+Background transparent image, not here
+\end{frame}
+
+\begin{frame}
+This is nothing with custom background color
+\end{frame}
+
+\end{document}

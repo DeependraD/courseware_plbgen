@@ -1,0 +1,754 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[11pt,ignorenonframetext,aspectratio=169]{beamer}
+\IfFileExists{pgfpages.sty}{\usepackage{pgfpages}}{}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+\fi
+\defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+
+
+
+
+
+
+
+\fi
+
+  \usetheme[]{metropolis}
+
+
+
+
+
+
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+  \usepackage{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+
+
+\newif\ifbibliography
+
+
+\hypersetup{
+      pdftitle={Cell division and cell cycle},
+        pdfauthor={Deependra Dhakal},
+          pdfborder={0 0 0},
+    breaklinks=true}
+%\urlstyle{same}  % Use monospace font for urls
+
+
+
+
+
+
+
+% Prevent slide breaks in the middle of a paragraph:
+\widowpenalties 1 10000
+\raggedbottom
+
+  \AtBeginPart{
+    \let\insertpartnumber\relax
+    \let\partname\relax
+    \frame{\partpage}
+  }
+  \AtBeginSection{
+    \ifbibliography
+    \else
+      \let\insertsectionnumber\relax
+      \let\sectionname\relax
+      \frame{\sectionpage}
+    \fi
+  }
+  \AtBeginSubsection{
+    \let\insertsubsectionnumber\relax
+    \let\subsectionname\relax
+    \frame{\subsectionpage}
+  }
+
+
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+  \setcounter{secnumdepth}{0}
+
+
+  \usepackage{setspace}
+  \usepackage{wasysym}
+  % \usepackage{fontenc}
+  \usepackage{booktabs,siunitx}
+  \usepackage{longtable}
+  \usepackage{array}
+  \usepackage{multirow}
+  \usepackage{wrapfig}
+  \usepackage{float}
+  \usepackage{colortbl}
+  \usepackage{pdflscape}
+  \usepackage{tabu}
+  \usepackage{threeparttable}
+  \usepackage{threeparttablex}
+  \usepackage[normalem]{ulem}
+  \usepackage{makecell}
+  \usepackage{xcolor}
+  \usepackage{tikz} % required for image opacity change
+  \usepackage[absolute,overlay]{textpos} % for text formatting
+  \usepackage[skip=0.333\baselineskip]{caption}
+  % \usepackage{newtxtext,newtxmath}% better than txfonts   
+
+  \sisetup{per-mode=symbol}
+
+  % % Added by CII
+  % \usepackage[format=hang,labelfont=bf,margin=0.5cm,justification=centering]{caption}
+  % \captionsetup{font=small,width=0.9\linewidth,labelfont=small,textfont={small}}
+  % % End of CII addition
+
+  % \usepackage{subcaption}
+  % \newcommand{\subfloat}[2][need a sub-caption]{\subcaptionbox{#1}{#2}}
+
+  \captionsetup[sub]{font=footnotesize,labelfont=footnotesize,textfont=footnotesize}
+  % \captionsetup[subfigure]{font=small,labelfont=small,textfont=small}
+  % \captionsetup[subfloat]{font=scriptsize,labelfont=scriptsize,textfont=scriptsize}
+
+  % this font option is amenable for beamer, although these are global settings
+  \setbeamerfont{caption}{size=\tiny}
+  % \setbeamerfont{subcaption}{size=\tiny} % this does not chage subfloat fonts
+  % \setbeamerfont{subfloat}{size=\tiny} % this does not change subfloat fonts
+   
+  % use single line spacing ?
+  \singlespacing
+
+  % use customize theme and colortheme
+  % \usetheme[subsectionpage=progressbar,background=light]{metropolis}
+  % \usetheme[]{Warsaw} % other options are: rose, Berlin
+  % \usetheme[subsectionpage=progressbar,background=light]{metropolis} % it should be integrated to template itself by replacing preset theme
+  \setbeamercolor{title}{fg=red!80!black,bg=red!20!white}
+  \setbeamertemplate{section in toc shaded}[default][50]
+  \usecolortheme{crane}
+  % \usecolortheme{seahorse}
+
+  \title[]{Cell division and cell cycle}
+
+
+  \author[
+        Deependra Dhakal
+    ]{Deependra Dhakal}
+
+  \institute[
+    ]{
+    Gokuleshwor Agriculture and Animal Science College\\
+Tribhuwan University\\
+\textit{ddhakal.rookie@gmail.com}\\
+\url{https://rookie.rbind.io}
+    }
+
+\date[
+      Academic year 2019-2020
+  ]{
+      Academic year 2019-2020
+        }
+
+\begin{document}
+
+% Hide progress bar and footline on titlepage
+  \begin{frame}[plain]
+  \titlepage
+  \end{frame}
+
+
+
+\hypertarget{cell-cycle}{%
+\section{Cell cycle}\label{cell-cycle}}
+
+\begin{frame}{Background}
+\protect\hypertarget{background}{}
+\begin{itemize}
+\tightlist
+\item
+  Living beings produce more of their kind (procreate).
+\item
+  Rudolf Virchow, a German physician, put it this way in 1855,
+  translating which in his latin axiom ``Omnis cellula e cellula,''
+  meaning ``Every cell from a cell.''
+\item
+  Cell division enables unicellular organisms to reproduce and produce
+  entire organism.
+\item
+  What goes on in eukaryotes cell cycle
+\item
+  Cell division involves distribution of identical genetic material, not
+  merely the splitting of components.
+\item
+  Cell division copies DNA with high fidelity.
+\item
+  Functions:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Passing identical genetic material to cellular offspring.
+  \item
+    Breakdown of cell cycle plays a role in cancer development
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section}{}
+\begin{figure}
+\includegraphics[width=0.45\linewidth]{../images/cell_structure_plant} \caption{The plant cell under the light microscope (LM). (a) A photosynthetic parenchyma cell of a deciduous leaf. (b) Chloroplasts in the cells of a leaf (Katharina ondulata, x300). (c) Cells in a suspension culture (tobacco; BY2) (x350): the large cells are almost filled with the central vacuole; the cell nuclei and nucleoli are in the parietal cytoplasm tube that thickens at the cell corners; numerous other cytoplasm tubes running through the cell can also be seen. (d) Nuclear region of an Allium cell, phase contrast (x3,100); chromatin and a nucleolus are in the nucleus, leucoplasts (two with pale starch-like inclusions), sausage-shaped mitochondria, and spherical oleosomes are in the cytoplasm}\label{fig:cell-structure-plant}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Organization of genetic material}
+\protect\hypertarget{organization-of-genetic-material}{}
+\begin{itemize}
+\tightlist
+\item
+  A cell's complete bulk of genetic information, DNA, is called its
+  genome.
+\item
+  Although a prokaryotic genome is often a single DNA molecule,
+  eukaryotic genomes usually consist of a number of DNA molecules.
+\item
+  Length of DNA = \textasciitilde{} 250, 000 times diameter of the cell
+  that bears it.
+\item
+  When cell can divide to form genetically identical daughter cells, all
+  of this DNA must be copied, or replicated, and then two copies must be
+  separated so that each daughter cells ends up with a complete genome.
+\item
+  DNA is packaged into \textbf{chromosomes} ( \emph{chroma} and
+  \emph{soma}).
+\item
+  The entire complex of DNA and proteins that is the building material
+  of chromosomes is referred to as \textbf{chromatin}.
+\item
+  Most eukaryotic species have a characteristic number of chromosomes in
+  each cell nucleus.
+\end{itemize}
+\end{frame}
+
+\hypertarget{structure-of-chromosome}{%
+\section{Structure of Chromosome}\label{structure-of-chromosome}}
+
+\begin{frame}{}
+\protect\hypertarget{section-1}{}
+\begin{itemize}
+\tightlist
+\item
+  The chromosome complement in a cell nucleus in the members of a
+  species is called their karyotype (records all the cytologically
+  identifiable chromosome features (size, form, number)).
+\item
+  The karyotype is an important genetic, systematic, and phylogenetic
+  characteristic.
+\item
+  The number of identical chromosome sets in a cell nucleus determines
+  the level of ploidy, \emph{n}.
+\item
+  Cell nuclei with only one set of chromosomes are haploid ( \emph{1n};
+  Greek \emph{haplos}, simple) somatic (tissue) cells are predominantly
+  diploid ( \emph{2n}) in ferns and seed plants.
+\item
+  Gametic chromosome number = 1/2 x Somatic chromosome number
+\item
+  Nuclei of extraordinary size are mostly polyploid; they contain
+  several to many copies of the gene and chromosome complement of the
+  species in question.
+\item
+  Two compies of a chromosome are ordinarily identical in morphology,
+  gene content and gene order; they are called \textbf{homologous
+  chromosomes}.
+\item
+  Even artificially generated polyploid cell nuclei result in enlarged
+  cells.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-2}{}
+\begin{itemize}
+\tightlist
+\item
+  The \textbf{C value} refers to the total amount of DNA in the haploid
+  genome, given in picograms. The C value of the bacterium Escherichia
+  coli is 0.004, that of tobacco is 1.6, that of maize is 7.5, and that
+  of some lily species can be over 30.
+\item
+  The following chromosome features are particularly important: (Figure
+  \ref{fig:chromosome-structure}) length, position of the centromere,
+  presence or absence of a nucleolar organizing region (NOR), and
+  heterochromatic sections.
+\item
+  Each metaphase chromosome appears to be longitudinally divided into
+  two identical parts each of which is known as \textbf{chromatid}, a
+  single is reffered to as sister chromatid.
+\item
+  The centromere (primary constriction; Greek kentron, middle point and
+  meros, part) is the narrowest point on the chromosome, where the
+  chromosome bends during chromosome movements in cell division and
+  where the microtubules of the nuclear spindle attach.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-3}{}
+\begin{itemize}
+\tightlist
+\item
+  These microtubules end in a platelike or hemispherical multilayered
+  structure that is located on the side of the centromere and is called
+  kinetochore.
+\item
+  The part of a chromatid on either side of the centromere is referred
+  to as an arm of the chromatid. (An uncondensed, unduplicated
+  chromosome has a single centromere and two arms.)
+\item
+  Two arms of chromosome can range for values of lengths. The
+  \textbf{centromere index} quantifies the length ratio of the arms
+  (short arm length divided by the total chromosome length).
+\item
+  Based on the relative position of centromere on chromosomes, they can
+  be:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Metacentric
+  \item
+    Submetacentric
+  \item
+    Acrocentric
+  \item
+    Telocentric
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-4}{}
+\begin{itemize}
+\tightlist
+\item
+  Centromeric region of chromosome contains satellite DNA.
+\item
+  Telomeric region of chromosome is highly stable and has DNA loops.
+\item
+  The chromosome region lying between secondary constriction and the
+  nearest telomere is known as satellite. Therefore chromosomes having
+  secondary constrictions are called satellite chromosomes.
+\item
+  Nucleolus is always associated with the secondary constrictions of
+  sat-chromosomes, thus these constrictions are sometimes also called
+  NOR.
+\item
+  In some species e.g., maize, amphibia etc, chromosomes during first
+  prophase of meiosis (pachytene), show small bead-like structures
+  called chroommeres.
+\item
+  Homologous chromosomes always show identical pattern of chromomere
+  distribution.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Structure of chromatin}
+\protect\hypertarget{structure-of-chromatin}{}
+\begin{figure}
+
+{\centering \includegraphics[width=0.45\linewidth]{../images/structure_of_chromatin} 
+
+}
+
+\caption{(a) The nucleosome in decondensed and condensed chromatin. (b) End view of the coiled chain of nucleosomes. (c) Chromatin structure varies along the length of a chromosome. The least-condensed chromatin (euchromatin) is shown in yellow, regions of intermediate condensation are in orange and blue, and heterochromatin coated with special proteins (purple) is in red.}\label{fig:structure-of-chromatin}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Histones and nucleosomes}
+\protect\hypertarget{histones-and-nucleosomes}{}
+\begin{columns}[T,onlytextwidth]
+  
+  \column{0.5\textwidth}
+  
+\begin{figure}
+\includegraphics[width=0.65\linewidth]{../images/histone_types} \caption{Overview of five basic types of histone}\label{fig:histone-types}
+\end{figure}
+
+  \column{0.5\textwidth}
+
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{../images/nucleosome_structure} \caption{\textbf{Nucleosomes}. (a) Beaded pattern: three histone octamers (dotted) surrounded by left-handed DNA double helices bonded by DNA linkers; horizontal stripes attack sites of Micrococcus nuclease. (b) Supranucleosomal structures, mediated by H1 (black); on the right nucleofilaments, on the left chromatin fibrils (H1 not is illustrated here)}\label{fig:nucleosome-structure}
+\end{figure}
+
+\end{columns}
+\end{frame}
+
+\begin{frame}{Distribution of chromosomes during eukaryotic cell
+division}
+\protect\hypertarget{distribution-of-chromosomes-during-eukaryotic-cell-division}{}
+\begin{itemize}
+\tightlist
+\item
+  When a cell is not dividing, and even as it replicates its DNA in
+  preparation for cell division, each chromosome is in the form of a
+  long, thin chromatin fiber.
+\item
+  After DNA replication, however, the chromosomes condense as a part of
+  cell division: Each chromatin fiber becomes densely coiled and folded,
+  making the chromosomes much shorter and so thick that we can see them
+  with a light microscope.
+\item
+  Each duplicated chromosome has two sister chromatids, which are joined
+  copies of the original chromosome (Figure
+  \ref{fig:duplicated-chromosome}).
+\item
+  The two chromatids, each containing an identical DNA molecule, are
+  initially attached all along their lengths by protein complexes called
+  cohesins.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-5}{}
+\begin{itemize}
+\tightlist
+\item
+  Each sister chromatid has a centromere, a region containing specific
+  DNA sequences where the chromatid is attached most closely to its
+  sister chromatid. This attachment is mediated by protein bound to the
+  centromeric DNA sequences and gives the condensed, duplicated
+  chromosome a narrow ``waist''.
+\item
+  Later in the cell division process, the two sister chromatids of each
+  duplicated chromosomes separate and move into two new nuclei, one
+  forming at each end of the cell. Once they separate they are
+  considered individual chromosomes.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-6}{}
+\begin{columns}[T,onlytextwidth]
+  
+  \column{0.5\textwidth}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{../images/duplicated_chromosomes_hd} 
+
+}
+
+\caption{Duplicated chromosome during cell division showing two sister chromatids}\label{fig:duplicated-chromosome}
+\end{figure}
+
+  \column{0.5\textwidth}
+
+\begin{figure}
+\includegraphics[width=0.95\linewidth]{../images/cell_division_eukaryotes_overview} \caption{Overview of cell division in eukaryotic cell}\label{fig:overview-cell-division}
+\end{figure}
+
+\end{columns}
+\end{frame}
+
+\begin{frame}{Heterochromatin and euchromatin}
+\protect\hypertarget{heterochromatin-and-euchromatin}{}
+\begin{itemize}
+\tightlist
+\item
+  Based on stainability of chromatin chromosomes can be Heterochromatin
+  and Euchromatin.
+\item
+  Euchromatin takes up little stain during interphase, stains only
+  lightly during prophase, but is deeply stained during metaphase.
+\item
+  Heterochromatin takes up deep stain during interphase and prophase,
+  while during metaphase it is stained lightly.
+\item
+  In general heterochromatin is found in the centromeric and telomeric
+  regions.
+\item
+  Almost all of the genes in a chromosomes are found in euchromatin
+  region.
+\end{itemize}
+\end{frame}
+
+\hypertarget{cell-division}{%
+\section{Cell division}\label{cell-division}}
+
+\begin{frame}{Cell division processes}
+\protect\hypertarget{cell-division-processes}{}
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Mitosis} is the division of the genetic material in the
+  nucleus, usually followed immediately by \textbf{cytokinesis}.
+\item
+  Walther Flemming coined the terms \emph{mitosis} and \emph{chromatin}.
+\item
+  Mitosis and cytokinesis produce cells that make up most of our bodies
+  and same process continues to generate new cells to replace dead and
+  damaged ones.
+\item
+  \textbf{Meiosis} occurs in humans only in gonads (ovaries or testes)
+  to produce eggs or sperm.
+\item
+  In each division meiosis reduces the chromosome number from 46 (two
+  sets of chromosomes) to 23 (one set), hence called the reductional
+  division.
+\item
+  Fertilization fuses gametes together and returns chromosome number to
+  46.
+\end{itemize}
+\end{frame}
+
+\hypertarget{mitosis}{%
+\section{Mitosis}\label{mitosis}}
+
+\begin{frame}{Phases of the cell cycle}
+\protect\hypertarget{phases-of-the-cell-cycle}{}
+\begin{itemize}
+\tightlist
+\item
+  Mitotic (M) phase, including both mitosis and cytokinesis is the
+  shortest part of the cell cycle.
+\item
+  M phase alternates with \textbf{interphase} (accounts for 90\% of the
+  cycle).
+\item
+  Interphase can be divided into subphases (with time lapse for a normal
+  human cell, about \textbf{24 hours}):
+
+  \begin{itemize}
+  \tightlist
+  \item
+    the \(\mathbf{G_1}\) phase (``first gap'') \(\longrightarrow\) 5-6
+    hours,
+  \item
+    the S phase (``synthesis'') \(\longrightarrow\) 10-12 hours, and
+  \item
+    the \(\mathbf{G_2}\) phase (``second gap'') \(\longrightarrow\) 4-6
+    hours.
+  \end{itemize}
+\item
+  During all three subphases, a cell that will eventually divide grows
+  by producing proteins and cytoplasmic organelles such as mitochondria
+  and endoplasmic reticulum.
+\item
+  Chromosomes are duplicated only during the S phase.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Events in mitosis}
+\protect\hypertarget{events-in-mitosis}{}
+\begin{itemize}
+\tightlist
+\item
+  Mitotic spindle (consists of microtubules fibers and associated
+  proteins) forms in the cytoplasm during prophase.
+\item
+  Spindle formation starts at centrosomes, division of which has occured
+  during interphase.
+\item
+  An \textbf{aster}, a radial array of short microtubules extends from
+  each centrosome.
+\item
+  Each of the two sister chromatids of a duplicated chromosome has a
+  kinetochore, a structure of proteins associated with specific sections
+  of chromosomal DNA at each centromere.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-7}{}
+\begin{figure}
+\includegraphics[width=0.25\linewidth]{../images/chromosome_structure} \caption{Chromosomes occur as compact entities during nuclear division (e.g., in metaphase and anaphase of mitosis). This entity is what was originally named 'chromosome.' (a) A satellite chromosome with the two telomeres, the centromere with the two kinetochores (insertion points of the microtubules on the spindle apparatus), heterochromatic bands (additional regions on the telomeres and in the region of the centromere), and the characteristic (for satellite chromosomes) nucleolar organizing region (NOR) and a heterochromatic satellite. The chromosome is split longitudinally into two chromatids that later become daughter chromosomes. (b) Anaphase chromosomes of barley (Hordeum vulgare) with a diploid chromosome number 2n = 28, two satellite chromosomes per complement. The four NORs and four satellites of the two complements of daughter chromosomes can be seen clearly (x1,880). (c) Chromosome complement of \textit{Anemone blanda} (2n = 16); heterochromatic bands (except at the centromere) picked out with color (x600)}\label{fig:chromosome-structure}
+\end{figure}
+\end{frame}
+
+\hypertarget{stages-of-mitosis}{%
+\section{Stages of mitosis}\label{stages-of-mitosis}}
+
+\begin{frame}{}
+\protect\hypertarget{section-8}{}
+\begin{center}\includegraphics[width=0.64\linewidth]{../images/mitosis_stages} \end{center}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-9}{}
+\begin{columns}[T,onlytextwidth]
+  
+  \column{0.33\textwidth}
+
+
+\begin{center}\includegraphics[width=0.6\linewidth]{../images/mitosis_animal_cell21} \end{center}
+
+  \column{0.33\textwidth}
+  
+
+\begin{center}\includegraphics[width=0.6\linewidth]{../images/mitosis_animal_cell22} \end{center}
+  
+  \column{0.33\textwidth}
+
+
+\begin{center}\includegraphics[width=0.6\linewidth]{../images/mitosis_animal_cell23} \end{center}
+  
+\end{columns}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-10}{}
+\begin{columns}[T,onlytextwidth]
+  
+  \column{0.33\textwidth}
+
+
+\begin{center}\includegraphics[width=0.64\linewidth]{../images/mitosis_animal_cell31} \end{center}
+
+  \column{0.33\textwidth}
+
+
+\begin{center}\includegraphics[width=0.64\linewidth]{../images/mitosis_animal_cell32} \end{center}
+
+  \column{0.33\textwidth}
+
+
+\begin{center}\includegraphics[width=0.64\linewidth]{../images/mitosis_animal_cell33} \end{center}
+
+\end{columns}
+\end{frame}
+
+\hypertarget{meiosis}{%
+\section{Meiosis}\label{meiosis}}
+
+\begin{frame}{Background}
+\protect\hypertarget{background-1}{}
+\begin{itemize}
+\tightlist
+\item
+  Before meiosis, chromosome replication takes place to form sister
+  chromatids, which become visible at meiosis.
+\item
+  Contrasting mitosis and meiosis:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Centromere appears not to divide at this stage, whereas it does in
+    mitosis.
+  \item
+    The homologous pairs of sister chromatids now unite to form a bundle
+    of four homologous chromatids, they do not in mitosis.
+  \end{itemize}
+\item
+  Joining of the homologous pairs is called \textbf{synapsis}, and it
+  relies on the properties of a macromolecular assemblage called the
+  synaptonemal complex (SC), which runs down the center of the pair.
+\item
+  Replicate sister chromosomes are together called a \textbf{dyad} (from
+  the Greek word for two). The unit comprising the pair of synapsed
+  dyads is called a \textbf{bivalent}.
+\item
+  The four chromatids that make up a bivalent are called a
+  \textbf{tetrad} (Greek for four), to indicate that there are four
+  homologous units in the bundle.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-11}{}
+\begin{center}\includegraphics[width=0.45\linewidth]{../images/bivalent_tetrad} \end{center}
+
+\begin{itemize}
+\tightlist
+\item
+  The bivalents of all chromosomes move to the cell's equator, and, when
+  the cell divides, one dyad moves into each new cell, pulled by spindle
+  fibers attached to the centromeres.
+\item
+  In the second cell division of meiosis, the centromeres divide and
+  each member of a dyad (each member of a pair of chromatids) moves into
+  a daughter cell. Hence, although the process starts with the same
+  genomic content as that for mitosis, the two successive segregations
+  result in four haploid cells.
+\item
+  Each of the four haploid cells that constitute the four products of
+  meiosis contains one member of a tetrad; hence, the group of four
+  cells is sometimes called a tetrad, too.
+\end{itemize}
+\end{frame}
+
+\hypertarget{stages-of-meiosis}{%
+\section{Stages of meiosis}\label{stages-of-meiosis}}
+
+\begin{frame}{}
+\protect\hypertarget{section-12}{}
+\begin{center}\includegraphics[width=0.5\linewidth]{../images/meiosis_stages1} \end{center}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-13}{}
+\begin{center}\includegraphics[width=0.58\linewidth]{../images/meiosis_stages2} \end{center}
+\end{frame}
+
+\hypertarget{associated-events-in-eukaryotic-cell-division}{%
+\section{Associated events in eukaryotic cell
+division}\label{associated-events-in-eukaryotic-cell-division}}
+
+\begin{frame}{}
+\protect\hypertarget{section-14}{}
+\begin{figure}
+
+{\centering \includegraphics[width=0.45\linewidth]{../images/nuclear_division_dna} 
+
+}
+
+\caption{DNA and gene transmission in mitosis and meiosis in eukaryotes. The S phase and the main stages of mitosis and meiosis are shown. Mitotic divisions (left and middle) conserve the genotype of the original cell. At the right, the two successive meiotic divisions that take place during the sexual stage of the life cycle have the net effect of halving the number of chromosomes. The alleles A and a of one gene are used to show how genotypes are transmitted in cell division.}\label{fig:nuclear-division-dna}
+\end{figure}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-15}{}
+\begin{figure}
+\includegraphics[width=0.65\linewidth]{../images/chiasma_genesis} \caption{\textbf{Chiasma genesis.} (a, b) Homolog pairing. (c) Genesis of corresponding chromatid bridges and (d) cruciform healing of two homologous chromatid sections. (e) Before reduction for the neighboring ('proximal') chromosome to the centromere sections; the 'distal' sections (beyond the chiasma) after reduction. (f, g) Double crossing-over with triple-strand exchange, where the second exchange takes place between a chromatid already involved in the first exchange and a hitherto uninvolved one. Only two (always one maternal and one paternal) of four chromatids are ever involved in a crossing-over event}\label{fig:chiasmata-structure}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Chromosome pairing in an autotetraploid}
+\protect\hypertarget{chromosome-pairing-in-an-autotetraploid}{}
+\begin{figure}
+\includegraphics[width=0.65\linewidth]{../images/autotetraploid_chromosome_pairing} \caption{There are three different pairing possibilities at meiosis in tetraploids. The four homologous chromosomes may pair as two bivalents or as a quadrivalent, and each can yield functional gametes. A third possibility, a trivalent plus a univalent, yields nonfunctional gametes.}\label{fig:autotetraploid-chromosome-pairing}
+\end{figure}
+\end{frame}
+
+\hypertarget{bibliography}{%
+\section{Bibliography}\label{bibliography}}
+
+\begin{frame}{}
+\protect\hypertarget{section-16}{}
+\end{frame}
+
+
+
+
+\end{document}
