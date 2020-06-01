@@ -585,12 +585,6 @@ knitr::include_graphics("./images/world_production_of_major_crops.png")
 
 ---
 
-<!-- ```{r} -->
-<!-- pdftools::pdf_convert(pdf = "./Desktop/ddhakal/BScAg_lectures/references_plb/Jack Brown, Peter D.S. Caligari, Hugo Campos(auth.) - Plant Breeding-Wiley-Blackwell (2008).pdf", -->
-<!--                       format = "png", pages = 21, -->
-<!--                       filenames = "./Desktop/ddhakal/BScAg_lectures/PLB-221_introductory_plant_breeding/theory/world_production_of_major_crops.png", dpi = 200) -->
-<!-- ``` -->
-
 - `r Citet(myBib,"brown2014plant")`, Page 26; Graph of total world crop production and total world crop production per capita (Since 1955 to 2011)
 - It is plant breeders and their stories who explain the dramatic gap between the thin white roots of wild carrot and the plump orange ones on the supermarket shelf.
 - Many people in the world still find feeding on a diverse diet of crops and meat or fish a rare luxury, and suffer malnutrition as a result. Plant breeding could potentially rescue from the situation is a powerful illustration of its importance.
