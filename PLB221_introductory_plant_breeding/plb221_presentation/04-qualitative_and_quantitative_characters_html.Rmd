@@ -14,16 +14,11 @@ output:
 ---
 
 ```{r setup, include=FALSE}
+require(tidyverse)
 options(htmltools.dir.version = FALSE)
 options(knitr.kable.NA = "", digits = 3)
 knitr::opts_chunk$set(tidy = FALSE, echo = FALSE)
 ```
-
-```{r maize, fig.cap="Quantitative characters", fig.align='center', out.height="400px", out.width="auto"}
-knitr::include_graphics("./images/Pea_lathyrus_odoratus_flower.jpg")
-```
-
----
 
 class: inverse, center, middle
 
@@ -68,13 +63,16 @@ class: inverse, center, middle
 
 ---
 
+background-image: url(./images/Pea_lathyrus_odoratus_flower.jpg)
+background-position: 50% 50%
+background-size: 70%
 class: inverse, middle, center
 
 # Quantitative inheritance
 
 ---
 
-# Quantitative inheritance
+## Quantitative inheritance
 
 - Most of the important variation displayed by nearly all plant traits affecting growth, development and reproduction, is quantitative.
 - Also called: *Continuous*, *Polygenic variation*, *Multiple gene controlled traits*
@@ -91,7 +89,7 @@ class: inverse, middle, center
 
 ---
 
-# Qualitative inheritance
+## Qualitative inheritance
 
 - Mendel purposed the law of inheritance based on his studies with qualitative characters. 
 - In the studies of qualitative inheritance, we study phenomena such as:
@@ -117,8 +115,8 @@ class: inverse, middle, center
 
 ---
 
-```{r eval=require('DT'), tidy=FALSE}
-difference_qualquant <- readxl::read_xlsx("./04-qualitative_and_quantitative_characters.xlsx", sheet = "qual_quant")
+```{r tidy=FALSE}
+difference_qualquant <- readxl::read_xlsx("./data/04-qualitative_and_quantitative_characters.xlsx", sheet = "qual_quant")
 
 knitr::kable(
   difference_qualquant, 
@@ -202,12 +200,12 @@ knitr::include_graphics("./images/penetrance_expressivity.png")
 
 # Multiple factor hypothesis (Example)
 
-- According to Nilsson-ehle, there were three individual gene pairs involved in determination of grain color in wheat, i.e., Aa, Bb, Cc, with genes for red (ABC) dominant over genes for white (abc). Each of these three gene pairs segregated in predictable mendelian fashion, so that the products of heterozygotes for any one pair, i.e. Aa x Ax, produced offspring in the ratio 3 red (A_):1 white (aa). When two gene-pair differences were segregating at the same time in Nilsson-Ehle's experiments, i.e., AaBb x AaBb, the results also followed mendelian principles, producing a ratio 15 red (A_B_, A_bb, aaB_): 1 white (aabb). Similarly a cross between heterozygotes for three gene paris produced a close fit to the predicted ratio 63 red: 1 white.
+- According to Nilsson-ehle, there were three individual gene pairs involved in determination of grain color in wheat, i.e., Aa, Bb, Cc, with genes for red (ABC) dominant over genes for white (abc). Each of these three gene pairs segregated in predictable mendelian fashion, so that the products of heterozygotes for any one pair, i.e. Aa x Ax, produced offspring in the ratio 3 red (A\_):1 white (aa). When two gene-pair differences were segregating at the same time in Nilsson-Ehle's experiments, i.e., AaBb x AaBb, the results also followed mendelian principles, producing a ratio 15 red (A\_B\_, A\_bb, aaB\_): 1 white (aabb). Similarly a cross between heterozygotes for three gene paris produced a close fit to the predicted ratio 63 red: 1 white.
 
 ---
 
 ```{r wheat-experiment}
-readxl::read_xlsx("./04-qualitative_and_quantitative_characters.xlsx", sheet = "wheat_experiment") %>% 
+readxl::read_xlsx("./data/04-qualitative_and_quantitative_characters.xlsx", sheet = "wheat_experiment") %>% 
   knitr::kable(format = "html", caption = "Wheat seed color variation; An example case of multiple factor trait expression") %>% 
   kableExtra::kable_styling(bootstrap_options = "striped", font_size = 12)
 ```
@@ -254,18 +252,18 @@ The leaves of pineapples can be classified into three types: spiny (S), spiny ti
 knitr::include_graphics("./images/pineapple_genetics.png")
 ```
 
----
-
-## Problem
-
 a. Assign gene symbols. Explain these results in regard to the genotypes produced and their ratios.
-b. Using the model from part a, give the phenotypic ratios that you would expect if you crossed (1) the F1 progeny from piping × spiny with the spiny parental stock and (2) the F1 progeny of piping × spiny with the F1 progeny of spiny × spiny tip.
+
+b. Using the model from part a, give the phenotypic ratios that you would expect if you crossed 
+  
+  1. the F1 progeny from piping x spiny with the spiny parental stock, and 
+  2. the F1 progeny of piping x spiny with the F1 progeny of spiny x spiny tip.
 
 ---
 
 ## Solution
 
-a. First, let's look at the F2 ratios. We have clear 3 : 1 ratios in crosses 1 and 2, indicating single-gene segregations. Cross 3, however, shows a ratio that is almost certainly a 12 : 3 : 1 ratio. How do we know this ratio? Well, there are simply not that many complex ratios in genetics, and trial and error brings us to the 12 : 3 : 1 quite quickly. In the 128 progeny total, the numbers of 96 : 24 : 8 are expected, but the actual numbers fit these expectations remarkably well.
+**a**. First, let's look at the F2 ratios. We have clear 3 : 1 ratios in crosses 1 and 2, indicating single-gene segregations. Cross 3, however, shows a ratio that is almost certainly a 12 : 3 : 1 ratio. How do we know this ratio? Well, there are simply not that many complex ratios in genetics, and trial and error brings us to the 12 : 3 : 1 quite quickly. In the 128 progeny total, the numbers of 96 : 24 : 8 are expected, but the actual numbers fit these expectations remarkably well.
 
 One of the principles of this chapter is that modified Mendelian ratios reveal gene interactions. Cross 3 gives F2 numbers appropriate for a modified dihybrid Mendelian ratio, and so it looks as if we are dealing with a two-gene interaction. It seems the most promising place to start; we can return to crosses 1 and 2 and try to fit them in later.
 
@@ -291,13 +289,15 @@ spiny &=& a/a; b/b
 \end{aligned}
 $$
 
-What about the parents of cross 3? The spiny parent must be a/a ; b/b, and, because the B gene is needed to produce F2 spiny-tip leaves, the piping parent must be A/A ; B/B. (Note that we are told that all parents are pure, or homozygous.) The F1 must therefore be A/a ; B/b. Without further thought, we can write out cross 1 as follows:
+What about the parents of cross 3? 
+
+The spiny parent must be a/a ; b/b, and, because the B gene is needed to produce F2 spiny-tip leaves, the piping parent must be A/A ; B/B. (Note that we are told that all parents are pure, or homozygous.) The F1 must therefore be A/a ; B/b. Without further thought, we can write out cross 1 as follows:
 
 ---
 
 ```{r cross1-ab, fig.align='center', out.height="200px", out.width="auto"}
 # pdftools::pdf_convert("./../../references_plb/An Introduction to Genetic Analysis-W. H. Freeman (2015).pdf", pages = 270, format = "png", filenames = "./images/cross_ab.png", dpi = 300)
-knitr::include_graphics("./images/cross2_ab.png")
+knitr::include_graphics("./images/cross1_ab.png")
 ```
 
 ```{r cross2-ab, fig.align='center', out.height="200px", out.width="auto"}
@@ -314,12 +314,12 @@ We know that the F2 of cross 2 shows single-gene segregation, and it seems certa
 knitr::include_graphics("./images/cross_multiple.png")
 ```
 
-Notice that the two single-gene segregations in crosses 1 and 2 do not show that the genes are not interacting. What is shown is that the two-gene interaction is not revealed by these crosses-only by cross 3, in which the F1 is heterozygous for both genes.
-
-b. Now it is simply a matter of using Mendel's laws to predict
-cross outcomes:
+Notice that the two single-gene segregations in crosses 1 and 2 do not show that the genes are not interacting. What is shown is that the two-gene interaction is not revealed by these crosses - but only by cross 3, in which the F1 is heterozygous for both genes.
 
 ---
+
+**b**. Now it is simply a matter of using Mendel's laws to predict
+cross outcomes:
 
 ```{r trait-genetics, fig.align='center', out.height="400px", out.width="auto"}
 # pdftools::pdf_convert("./../../references_plb/An Introduction to Genetic Analysis-W. H. Freeman (2015).pdf", pages = 271, format = "png", filenames = "./images/trait_genetics.png", dpi = 300)
@@ -366,33 +366,152 @@ Where, $\bar{P_1}$ and $\bar{P_2}$ are trait means of inbred parents $P_1$ and $
 
 # Components of variation of a quantitative character
 
-Quantitative characters are more affected by environments. Thus phenotypic mean  may be described according to a mathematical model to facilitate statistical analysis and interpretation  
+- Quantitative characters are more affected by environments. Thus phenotypic mean may be described according to a mathematical model to facilitate statistical analysis and interpretation:
+
+$$V_{P} = V_{G} + V_{E} + V_{GE}$$
+
+Where,
+
+$V_P$ = Observed phenotypic variance
+$V_G$ =  Genotypic variance
+$V_E$ = Environmental variance
+$V_{GE}$ = Variance due to interaction of Genotype and Environment
+
+---
+
+## Heritability
+
+- To make economically meaningful progress in an organized programme of selective breeding, two conditions must be met;
+  - There must be some observable phenotypic variation within the crop. This would normally be expected, even if it were due entirely to the effects of a variable environment.
+  - At least some of this phenotypic variation must have a genetic basis.
+- This leads to the concept of heritability ( $h^2$), which is the proportion of phenotypic variance that is genetic in origin.
+- The values of $h^2$ can range from 0 to 1. If $h^2$ is close to zero, there will be little scope for advancement and there would be little point in trying to improve this character in a plant breeding program. 
+
+---
+
+- There are three main ways of estimating heritability:
+  1. Carrying out particular genetic crosses and observing the performance of their progeny so that the resulting data can be partitioned into genetic and environmental components.
+  2. Based on the direct measurement of the degree of resemblance between offspring and one, or both, of their parents. This is achieved by regression of the former onto the latter in the absence of selection.
+  3. Measuring the response of a population to given levels of selection.
+
+- Dominance model of quantitative inheritance dictates that total genetic variance will contain dominance genetic variance (denoted by $V_D$) and additive genetic variance (denoted by $V_A$). 
+- Dominance genetic variance is variation caused by heterozygotes loci in the individuals in the population, whereas additive genetic variance is the variation existing between homozygous loci in the segregating population.
+
+---
+
+## Broad sense heritability
+
+- The total genetic varinace divided by the total phenotypic variance is Broad-sense heritability ( $h_b^2$). 
+- This estimation uses the total genetic variance in a additive-dominance model, while the total phenotypic variance is obtained by adding environmental variance to this genetic variance.
 
 $$
-X = \mu + g + e + ge
+h_b^2 = \frac{V_A + V_D}{V_A + V_D + V_E}
+\tag{i}
 $$
 
-$\mu$ = General population mean (mean of all the possible genotypes grown under all possible environments) 
-$g$ =  is the effect of genotype 
-$e$ = effect of the environment 
-$ge$ = interaction between genotype and the environment 
-
----
-class: center, inverse, middle, animated
-
-# Paritioning of variance components
+- Dominant genetic variance will be dependent upon the degree of heterozygosity in the population and will differ between fillial generations.
 
 ---
 
-# Heritability
+## Narrow sense heritability
 
-## Meaning
+- A more useful form of heritability for plant breeders, therefore, is *narrow-sense heritability* ( $h_n^2$), which is:
 
-## Types
+$$
+h_n^2 = \frac{V_A}{V_A+V_D+V_E}
+\tag{ii}
+$$
 
 ---
 
-## Calculation
+## Variance partitioning of filial generation
+
+- In the first filial generation ( $F_1$), after hybridization between two homozygous parents, there is not genetic variance between individuals of a progeny (they will be genetically alike) and all the variation observed between $F_1$ plants will be entirely environmental. 
+- In the generation following ( $F_2$ and forth) there are both genetic and environmental components of phenotypic variance.
+- The genetic variance of the $F_2$ generation is:
+
+$$
+\sigma_{\bar{F_2}}^2 = \frac{1}{2}V_A + \frac{1}{4}V_D + \sigma_E^2
+$$
+
+- Thus broad sense heritability of the $F_2$ generation is:
+
+$$
+h_b^2 = \frac{\frac{1}{2}V_A + \frac{1}{4}V_D}{\frac{1}{2}V_A + \frac{1}{4}V_D + \sigma_E^2}
+\tag{iii}
+$$
+
+---
+
+In simple terms, to estimate the $h_b^2$ of $F_2$ family (or any other segregating family), only following estimates are required:
+
+1. Total phenotypic variance (Obtained from measurement on plants within $F_2$ families)
+2. Environmental variance (Obtained from measurement on $F_1$ families)
+
+---
+
+## Problem
+
+Consider a field experiment with an inbreeding species such as wheat or barley. Parent 1 included 20 plants, Parent 2 included 20 plants and $F_2$ family derived from selfing of $F_1$ generation, which was obtained by intercrossing the two parents (i.e. Parent 1 x Parent 2), consisted of 100 individuals. These 140 plants were completely randomized within the experiment, and at harvest the weight of seeds from each plant was recorded. The variances in seed weight of the two parents were $\sigma_{\bar{P_1}}^2 = 16.8~kg^2$ and $\sigma_{\bar{P_2}}^2 = 18.4~kg^2$. The phenotypic variance (which included both genetic and environmental variation) of the $F_2$ was $\sigma_{\bar{F_2}}^2 = 56.9~kg^2$. The total phenotypic varinace of the $F_2$ generation is represented by denominator term of $h_b^2$ is estimated to be $56.9 kg^2$.
+
+But the problem is what is the value of environmental component of the phenotypic variance $\sigma_E^2$?
+
+---
+
+## Solution
+
+It now follows that the $h_b^2$, from given inform is:
+
+$$
+h_b^2 = \frac{56.9-\sigma_E^2}{56.9}
+$$
+
+Since, both parents are homozygous inbreds, any variance displayed by either must be attributable exclusively to the environment. The best esimate of the $\sigma_E^2$ is therefore:
+
+$$
+\begin{aligned}
+\sigma_E^2 &= \frac{\sigma_{\bar{P_1}}^2 + \sigma_{\bar{P_2}}^2}{2} \\
+&= \frac{16.8 + 18.4}{2} = 17.6~kg^2
+\end{aligned}
+$$
+
+---
+
+And, therefore,
+
+$$
+h_b^2=\frac{56.9-17.6}{56.9} = 0.691
+$$
+Thus 69.1% of the phenotypic variance of the $F_2$ generation is estimated to be genetic in origin.
+
+---
+
+## Partitioning environmental variance
+
+The other generation in which the phenotypic variance is also entirely attributable to environmental effects is the $F_1$. On the other hand, if the phenotypic variances of all these three generations were available, the environmental component of the phenotypic variance of the $F_2$ generation could be estimated as follows (in a simplified way):
+
+$$\sigma_E = \frac{\sigma_{\bar{P_1}}^2 + 2\sigma_{\bar{F_1}}^2 + \sigma_{\bar{P_2}}^2}{4}$$
+
+---
+
+## Partitioning genetic variance
+
+The ratio of additive genetic variance to total phenotypic variance is called the narrow-sense heritability.
+
+$$
+h_n^2 = \frac{\frac{1}{2}V_A}{\frac{1}{2}V_A + \frac{1}{4}V_D + \sigma_E^2}
+\tag{v}
+$$
+
+In order to estimate $h_n^2$, it is therefore necessary to partition the genetic variance into its two components ( $V_A$ and $V_D$). This is done by considering the phenotypic variance of the two backcross families ( $\sigma_{\bar{B_1}}^2$ and $\sigma_{\bar{B_2}}^2$ ).
+
+Following known relation can be used:
+
+$$V_D = 4\left(\sigma_{\bar{B_1}}^2 + \sigma_{\bar{B_2}}^2 - \sigma_{\bar{F_2}}^2 - \sigma_E^2 \right)$$
+
+---
+
+## Estimates of heritability
 
 - Variance based approaches - ratio of variance estimates
 
@@ -400,9 +519,11 @@ $$h_{bs}^2 = \frac{V_G}{V_P} \\ h_{ns}^2 = \frac{V_A}{V_P}$$
 
 - Mean based approaches: 
   
-  - realized heritability
-  
-$$h^2 = \frac{R}{S}$$
+  - realized heritability: If divergence (R) has been estimated and the accumulated effects of selection (S) are known, an estimate for the trait heritability can be calculated. This is known as the realized heritability
+
+$$
+h^2 = \frac{R}{S}
+$$
   
   - Six generation mean analysis method
 		
@@ -416,20 +537,22 @@ $$h^2 = \frac{R}{S}$$
 
 - Therefore, narrow sense heritability ( $h_{ns}$ )
 
-$$b= h_{ns}^2 = \frac{VA}{VP}$$
+$$b= h_{ns}^2 = \frac{V_A}{V_P}$$
 
 - If only one parent is known (animal experiments or polycrosses)
 
-$$\begin{eqnarray} b &=& \frac{1}{2}.\frac{Va}{VP} \\ h_{ns}^2 &=& 2b \end{eqnarray}$$
+$$\begin{eqnarray} b &=& \frac{1}{2}.\frac{V_A}{V_P} \\
+h_{ns}^2 &=& 2b 
+\end{eqnarray}$$
 
 $b$ = slope of parent offspring regression line
 
 ---
 
 ```{r heritability-estimates}
-readxl::read_xlsx("./04-qualitative_and_quantitative_characters.xlsx", "h2_estimates") %>% 
+readxl::read_xlsx("./data/04-qualitative_and_quantitative_characters.xlsx", "h2_estimates") %>% 
   knitr::kable(format = "html", caption = "Heritability estimates of some common plant architectural traits; Source: Acquaah, 2014") %>% 
-  kableExtra::kable_styling(bootstrap_options = "striped")
+    kableExtra::kable_styling(bootstrap_options = "striped")
 ```
 
 ---
@@ -442,18 +565,209 @@ readxl::read_xlsx("./04-qualitative_and_quantitative_characters.xlsx", "h2_estim
 
 ---
 
-# Questions (...continued)
+3. Estimate heritability (Broad sense and narrow sense) from given information.
+
+```{r heritability-estimation-filial-population}
+he_filial_pop <- tidyr::tribble(~"Population", ~"Variance",
+        "P1",	11,
+        "P2",	10.32,
+        "F1",	5.23,
+        "F2",	90.35,
+        "BC1",	47.35,
+        "BC2",	54.29)
+
+he_filial_pop %>% 
+  knitr::kable(booktabs = T, format = "html") %>% 
+  kableExtra::kable_styling()
+```
+
+```{r heritability-estimates-filial-population2}
+Vp <- he_filial_pop[he_filial_pop$Population == "F2", 2, drop=T]
+Ve <- (he_filial_pop[he_filial_pop$Population == "P1", 2, drop=T] +
+         he_filial_pop[he_filial_pop$Population == "P2", 2, drop=T] +
+         2*(he_filial_pop[he_filial_pop$Population == "F1", 2, drop=T]))/4
+Vg <- Vp-Ve
+
+Vd <- 4*(he_filial_pop[he_filial_pop$Population == "BC1", 2, drop=T] + 
+           he_filial_pop[he_filial_pop$Population == "BC2", 2, drop=T] -
+           he_filial_pop[he_filial_pop$Population == "F2", 2, drop=T] - 
+           Ve)
+
+Va <- Vg-Vd
+heritability_ns <- Va/Vp
+heritability_bs <- Vd/Vp
+```
+
+$h^2_{bs}$ = `r heritability_bs`
+
+$h^2_{bs}$ = `r heritability_ns`
+
+
+---
 
 3. Estimate heritability through parent offspring regression method from the following available data.
 
 ```{r question3}
-readxl::read_xlsx("./04-qualitative_and_quantitative_characters.xlsx", "question3") %>% 
+po_regression <- readxl::read_xlsx("./data/04-qualitative_and_quantitative_characters.xlsx", "question3")
+
+po_regression %>% 
   knitr::kable(format = "html") %>% 
   kableExtra::kable_styling(bootstrap_options = "striped")
 ```
 
 ---
 
-# Questions (...continued)
+## Solution
+
+```{css, echo=F}
+    /* Table width = 100% max-width */
+
+    .remark-slide table{
+        width: 100%;
+    }
+
+    /* Change the background color to white for shaded rows (even rows) */
+
+    .remark-slide thead, .remark-slide tr:nth-child(2n) {
+        background-color: white;
+    }
+```
+
+First calculate Mean of X and Mean of Y;
+
+```{r po-regression-colmeans}
+po_regression %>% 
+  magrittr::set_colnames(c("x", "y")) %>% 
+  add_column(.before = 1, ` ` = NA) %>% 
+  janitor::adorn_totals("row", name = "Total") %>% 
+  bind_rows(tibble(" " = "Average", 
+                   "x" = mean(po_regression$`Mid parent value (X)`), 
+                   "y" = mean(po_regression$`Individual offspring (Y)`))) %>% 
+  knitr::kable(booktabs = TRUE, format = "html", escape = FALSE) %>% 
+  kableExtra::kable_styling()
+# sqrt(sum(po_regression_devsq$deviance_x_squared)/(nrow(po_regression_devsq)-1))
+sd_x <- sd(po_regression$`Mid parent value (X)`)
+sd_y <- sd(po_regression$`Individual offspring (Y)`)
+```
+
+---
+
+Add SD and Variance;
+
+
+```{r po-regression-sdvar}
+po_regression %>% 
+  magrittr::set_colnames(c("x", "y")) %>% 
+  add_column(.before = 1, ` ` = NA) %>% 
+  janitor::adorn_totals("row") %>%
+  bind_rows(tibble(" " = "Average", 
+                   "x" = mean(po_regression$`Mid parent value (X)`), 
+                   "y" = mean(po_regression$`Individual offspring (Y)`))) %>% 
+  bind_rows(tibble(" " = "SD", 
+                   "x" = sd(po_regression$`Mid parent value (X)`), 
+                   "y" = sd(po_regression$`Individual offspring (Y)`))) %>% 
+  bind_rows(tibble(" " = "Variance", 
+                   "x" = sd(po_regression$`Mid parent value (X)`)^2, 
+                   "y" = sd(po_regression$`Individual offspring (Y)`)^2)) %>% 
+  knitr::kable(booktabs = TRUE, escape = FALSE) %>% 
+  kableExtra::kable_styling(bootstrap_options = "striped")
+
+```
+
+SD (also denoted as $\sigma$) is given by:
+
+$$
+\sigma = {\sqrt \frac{\sum _{i=1}^{n}(x-\bar{x})^2}{n-1}}\text{ and, variance} = \sigma^2
+$$
+
+Where, $n$ = `r nrow(po_regression)`
+
+---
+
+Now add deviance and squared deviance as well as product of deviances of x and y;
+
+```{r po-regression-solution-tab}
+po_regression_devsq <- po_regression %>% 
+  magrittr::set_colnames(c("x", "y")) %>%
+  mutate(`deviance_x` = `x`-mean(x), 
+         `deviance_y` = `y`-mean(y)) %>% 
+  mutate(deviance_x_squared = deviance_x^2, 
+         deviance_y_squared = deviance_y^2) %>% 
+  mutate(devxy = (deviance_x * deviance_y))
+
+po_regression_devsq %>%
+      knitr::kable(format = "html", col.names = c("x", "y", "$x-\\bar{x}$", "$y-\\bar{y}$", "$(x-\\bar{x})^2$", "$(y-\\bar{y})^2$", "$x-\\bar{x}\\times y-\\bar{y}$"), booktabs = TRUE, escape = FALSE) %>% 
+  kableExtra::kable_styling(bootstrap_options = "striped")
+
+```
+
+---
+
+Then find sum of squared deviances of x and y and sum of product of deviances of x and y;
+
+```{r po-regression-solution-summary}
+po_regression_devsq_summary <- po_regression %>% 
+  magrittr::set_colnames(c("x", "y")) %>%
+  mutate(`deviance_x` = `x`-mean(x), 
+         `deviance_y` = `y`-mean(y)) %>% 
+  mutate(deviance_x_squared = deviance_x^2, 
+         deviance_y_squared = deviance_y^2) %>% 
+  mutate(devxy = (deviance_x * deviance_y)) %>% 
+  add_column(.before = 1, NA) %>% 
+  bind_rows(summarise_all(., list(~if(is.numeric(.)) sum(.) else "Total"))) %>% 
+  bind_rows(summarise_all(., list(~if(is.numeric(.)) mean(.) else "Average")))
+
+# po_regression_devsq_summary
+
+po_regression_devsq_summary %>%
+      knitr::kable(format = "html", col.names = c(" ", "x", "y", "$x-\\bar{x}$", "$y-\\bar{y}$", "$(x-\\bar{x})^2$", "$(y-\\bar{y})^2$", "$x-\\bar{x}\\times y-\\bar{y}$"), booktabs = TRUE, escape = FALSE) %>% 
+  kableExtra::kable_styling(bootstrap_options = "striped")
+
+```
+
+---
+
+Then calculate correlation coefficient;
+
+$$r_{xy}={\frac {\sum _{i=1}^{n}(x_{i}-{\bar {x}})(y_{i}-{\bar {y}})}{{\sqrt {\sum _{i=1}^{n}(x_{i}-{\bar {x}})^{2}}}{\sqrt {\sum _{i=1}^{n}(y_{i}-{\bar {y}})^{2}}}}}$$
+
+Mathematically, the correlation coefficient is unit free and always between -1 and 1. The sign of the correlation indicates the sign of the relationship and matches the sign of the slope of the regression line: positive (increasing) or negative (decreasing).
+
+Since we have,
+
+${\sum _{i=1}^{n}(x_{i}-{\bar {x}})(y_{i}-{\bar {y}})}$ = `r sum(po_regression_devsq$devxy)`
+
+${\sum _{i=1}^{n}(x_{i}-{\bar {x}})^{2}}$ = `r sum(po_regression_devsq$deviance_x_squared)`
+
+${\sum _{i=1}^{n}(y_{i}-{\bar {y}})^{2}}$ = `r sum(po_regression_devsq$deviance_y_squared)`
+
+$r_{xy}={\frac {...}{...}}$ = `r cor.test(po_regression[,1,drop=T], po_regression[,2,drop=T])[[4]]`
+
+---
+
+Now, the coefficient of regression of $y$ on $x$ ( $b$) can be calculated from Pearson's correlation coefficient ( $r$) as:
+
+$b_{yx} = r_{xy}\frac{\sigma_y}{\sigma_x}$ = `r (cor.test(po_regression[,1,drop=T], po_regression[,2,drop=T])[[4]])*sd(po_regression[,2,drop=T])/sd(po_regression[,1,drop=T])`
+
+```{r}
+# verify from,
+# (lm(po_regression[,2,drop=T]~po_regression[,1,drop=T]) %>% coefficients())[[2]]
+```
+
+???
+
+The sample correlation coefficient between $Y$ and $X$ is
+
+$$r_{yx} = \frac { \operatorname{\hat Cov}(Y,X)}{\hat \sigma_y\hat \sigma_x}$$
+
+while in a simple regression $Y = \beta_0 + \beta_1X+ u$, the OLS estimator for the slope coefficient is
+
+$$\hat \beta_1 = \frac { \operatorname{\hat Cov}(Y,X)}{\hat \sigma_x^2}$$
+
+Combining, we have the relation
+
+$$\hat \beta_1 = \frac {\hat \sigma_y}{\hat \sigma_x}r$$
+
+---
 
 4. Suppose 2 inbred lines A and B are crossed to produce hybrid. The genotype of A is AAbbccDDEEFF and the genotype of B is aaBBCCddeeFF. A, B, C, D, E and F are the dominant genes. If dominant homozygote contributes 2 $ton~ha^{-1}$, recessive homozygote contributes 1 $ton~ha^{-1}$ and heterozygote contributes 2.5 $ton~ha^{-1}$, Find the grain yields of Parent A, Parent B and $F_1$ hybrid on the basis of dominance and over-dominance hypothesis.

@@ -267,6 +267,8 @@ combination_genotypes %>%
 
 # Heritability [@brown2014plantbreeding]
 
+## Meaning
+
 - To make economically meaningful progress in an organized programme of selective breeding, two conditions must be met;
   - There must be some observable phenotypic variation within the crop. This would normally be expected, even if it were due entirely to the effects of a variable environment.
   - At least some of this phenotypic variation must have a genetic basis.
