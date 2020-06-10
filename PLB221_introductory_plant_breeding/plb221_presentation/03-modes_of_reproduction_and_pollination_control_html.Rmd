@@ -10,13 +10,15 @@ output:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
-bibliography: ['./bibliography/03-modes_of_reproduction_and_pollination_control.bib']
+bibliography: ['../bibliographies.bib']
 ---
 
 ```{r setup, include=FALSE}
+require(knitr)
+require(tidyverse)
 options(htmltools.dir.version = FALSE)
-options(knitr.kable.NA = "", digits = 3)
-knitr::opts_chunk$set(tidy = FALSE, echo = FALSE)
+options(knitr.kable.NA = "", digits = 3, knitr.table.format = "html")
+knitr::opts_chunk$set(tidy = FALSE, echo = FALSE, cache = TRUE)
 ```
 
 ```{r maize, fig.cap="Inbred line of maize", fig.align='center', out.height="400px", out.width="auto"}
@@ -85,7 +87,8 @@ class: inverse, center, middle
 
 ---
 
-# Heteromorphic
+## Heteromorphic
+
 - Caused by heterostyly
 - Pin (long styles and short anthers) and thrum (long anthers and short styles; e.g., primula)
 - Pin conditioned by genotype ss, and thrum by Ss.
@@ -95,9 +98,9 @@ class: inverse, center, middle
   
 ---
 
-# Homomorphic
+## Homomorphic
 
-## Gametophytic incompatibility (originally called the oppositional factor system)
+### Gametophytic incompatibility (originally called the oppositional factor system)
 
 - The ability of the pollen to function is determined by its own genotype and not the plant that produces it.
 - This form of SI is more widespread (e.g. red clover, white clover and yellow sweet clover)
@@ -106,13 +109,6 @@ class: inverse, center, middle
 - Alleles exhibit no dominance
 - Incompatible pollen is inhibited in the style.
 - The pistil is diploid hence contains two incompatibility alleles (e.g., _S1_ _S3_, _S3_ _S4_). Reactions occur if identical alleles in both pollen and style are encountered. Only heterozygotes for _S_ alleles are produced in this system.
-
----
-
-```{r incompatibility-systems, fig.cap="Sporophytic and gametophytic SI systems; Types of self-incompatibility: (a) sporophytic and (b) gametophytic. Sporophytic incompatibility occurs in families such as Compositae and Cruciferae. It is associated with pollen grains with two generative nuclei, whereas gametophytic incompatibility is associated with pollen with one generative nucleus in the pollen tube as occurs in various kinds of clover.", out.height="400px", out.width="auto", fig.align='center'}
-# pdftools::pdf_convert("./../../references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 115, format = "png", filenames = "./images/incompatibility_systems.png", dpi = 300)
-knitr::include_graphics("./images/incompatibility_systems.png")
-```
 
 ---
 
@@ -128,7 +124,40 @@ knitr::include_graphics("./images/incompatibility_systems.png")
 
 ---
 
-# Expression of SI
+<!-- ```{r incompatibility-systems, fig.cap="Sporophytic and gametophytic SI systems; Types of self-incompatibility: (a) sporophytic and (b) gametophytic. Sporophytic incompatibility occurs in families such as Compositae and Cruciferae. It is associated with pollen grains with two generative nuclei, whereas gametophytic incompatibility is associated with pollen with one generative nucleus in the pollen tube as occurs in various kinds of clover.", out.width="45%", fig.align='center'} -->
+<!-- # pdftools::pdf_convert("./references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 115, format = "png", filenames = "./images/incompatibility_systems.png", dpi = 300) -->
+<!-- knitr::include_graphics("./images/incompatibility_systems.png") -->
+<!-- ``` -->
+
+```{r si-comparison-reaction1, warning=FALSE, message=FALSE}
+incompatibility_systems <- read_csv("./data/incompatibility_systems.csv", comment = "#", 
+                                    skip = 5)
+incompatibility_systems[1:14,] %>% 
+  rename_all(list(~str_replace_all(., "_", " "))) %>% 
+  knitr::kable(booktabs = TRUE, caption = "Incompatibility reactions of different mating combinations in a mono- and digenic cross.") %>% 
+  kableExtra::kable_styling(bootstrap_options = "striped", font_size = 12) %>% 
+  kableExtra::column_spec(column = 1:9, width = c("4em", "4em", "4em", "4em", "6em", 
+                                                  "8em", "8em", "6em", "8em")) %>% 
+  kableExtra::footnote(general = c("Suppose there are incompatibility conditioning genes S and Z", 
+                                   "Two genes could have alleles S1, S2, S3, S4… and Z1, Z2, Z3, Z4,…", 
+                                   "Under SSI system, dominance relation holds: S1>S2>S3 and Z1>Z2>Z3."), general_title = "Assumptions:")
+```
+
+---
+
+```{r si-comparison-reaction2}
+incompatibility_systems[15:28,] %>% 
+  rename_all(list(~str_replace_all(., "_", " "))) %>% 
+  knitr::kable(booktabs = TRUE, 
+               caption = "Incompatibility reactions (...continued)") %>% 
+  kableExtra::kable_styling(latex_options = "striped", font_size = 12) %>% 
+  kableExtra::column_spec(column = 1:9, width = c("4em", "4em", "4em", "4em", "6em", 
+                                                  "8em", "8em", "6em", "8em"))
+```
+
+---
+
+## Expression of SI
   
 1. The germination of the pollen may be decreased (e.g., in broccoli); Removing the stigma allows normal pollen germination.
 
@@ -138,7 +167,7 @@ knitr::include_graphics("./images/incompatibility_systems.png")
 
 ---
 
-# Implications of SI
+## Implications of SI
 
 - Presence of this system may be exploited to facilitate some breeding methods. 
 - Self-incompatibility promotes heterozygosity. Consequently, selfing self-incompatible plants can create significant variability from which a breeder can select superior recombinants.
@@ -198,7 +227,7 @@ class: inverse, center, middle
 
 ---
 
-# Genetic male sterility
+## Genetic male sterility
 
 - Genetic (nuclear, genic) male sterility is widespread in plants. The gene for sterility has been found in species including barley, cotton, soybean, tomato, potato, and lima bean. 
 - It is believed that nearly all diploid and polyploidy plant species have at least one male sterility locus.
@@ -209,7 +238,7 @@ class: inverse, center, middle
 
 ---
 
-## Maintainance of GMS system
+### Maintainance of GMS system
 
 - The breeder cannot produce and maintain a pure population of male sterile plants. 
 - The genetically male sterile types ( _msms_) can be propagated by crossing them with a heterozygous pollen source ( _Msms_).
@@ -227,7 +256,7 @@ knitr::include_graphics("./images/gms_use.png")
 
 ---
 
-# Cytoplasmic male sterility
+## Cytoplasmic male sterility
 
 - Sometimes, male sterility is controlled by the cytoplasm (mitochondrial gene) but may be influenced by nuclear genes. 
 - A cytoplasm without sterility genes is described as normal (N) cytoplasm, while a cytoplasm that causes male sterility is called a sterile ( _s_) cytoplasm or said to have cytoplasmic male sterility (CMS).
@@ -238,7 +267,7 @@ knitr::include_graphics("./images/gms_use.png")
 
 ---
 
-# Cytoplasmic male sterility (...continued)
+## Cytoplasmic male sterility (...continued)
 
 ```{r cms-use, fig.cap="Cytoplasmic male sterility as applied in plant breeding (N, normal cytoplasm; s, sterile cytoplasm).", out.height="250px", out.width="auto", fig.align='center'}
 # pdftools::pdf_convert("./../../references_plb/Plant Breeding, 2nd Edition (2014).pdf", pages = 76, format = "png", filenames = "./images/cms_use.png", dpi = 300)
@@ -247,7 +276,7 @@ knitr::include_graphics("./images/cms_use.png")
 
 ---
 
-# Cytoplasmic male sterility (...continued)
+## Cytoplasmic male sterility (...continued)
 
 - Hybrid seed production using CMS requires three types of genotypes;   - male fertile lines (called *B* lines; maintained by selfing) with no cytoplasmic male sterility genes and which are homozygous for a dominant restorer gene (i.e. normal ( _n_) cytoplasm, _RfRf_);
   - cytoplasmic sterile female lines with male sterile cytoplasm but with no restorer genes (called *A* lines; maintained by crossing with isogeneic cytoplasmic male fertile line);
@@ -289,7 +318,7 @@ knitr::include_graphics("./images/cgms_systems.png")
 
 ---
 
-# Reproduction through plant parts
+## Reproduction through plant parts
 
 - A *bulb* is a modified shoot consisting of a very much shortened stem enclosed by fleshy leaves (e.g. a tulip or an onion).
 
@@ -304,7 +333,7 @@ knitr::include_graphics("./images/cgms_systems.png")
 - A *tuber* is a swollen stem that grows beneath the soil surface bearing buds (e.g. potato).
 ---
 
-# Reproduction by apomixis
+## Reproduction by apomixis
 
 - Asexual production of plant seeds can occur in obligate and facultative apomicts.
 
@@ -387,7 +416,7 @@ knitr::include_graphics("./images/cross_pollinated_mustard.jpg")
 ---
 
 ```{r eval=require('DT'), tidy=FALSE}
-self_pollinated <- readxl::read_xlsx("./03-modes_of_reproduction_and_pollination_control.xlsx", sheet = "predominantly_self")
+self_pollinated <- readxl::read_xlsx("./data/03-modes_of_reproduction_and_pollination_control.xlsx", sheet = "predominantly_self")
 DT::datatable(
   self_pollinated, caption = "Commonly self pollinated crops",
   fillContainer = FALSE, options = list(pageLength = 6)

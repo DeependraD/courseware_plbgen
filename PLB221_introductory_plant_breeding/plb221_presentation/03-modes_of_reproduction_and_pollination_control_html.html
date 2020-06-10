@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
   <head>
     <title>Modes of reproduction and pollination control</title>
     <meta charset="utf-8" />
     <meta name="author" content="Deependra Dhakal" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+    <script src="libs/kePrint/kePrint.js"></script>
     <script src="libs/htmlwidgets/htmlwidgets.js"></script>
     <script src="libs/jquery/jquery.min.js"></script>
     <link href="libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
@@ -23,7 +24,7 @@ class: center, middle, inverse, title-slide
 # Modes of reproduction and pollination control
 ## Modes<br/>Types of cultivars<br/>Annuals and perennials<br/>Reproductive sterility<br/>Pollination<br/>Incompatibility<br/>Male sterility
 ### Deependra Dhakal
-### 2019/04/06 (updated: 2019-04-16)
+### 2019/04/06 (updated: 2020-06-10)
 
 ---
 
@@ -64,7 +65,7 @@ class: inverse, center, middle
 ---
 
 &lt;div class="figure" style="text-align: center"&gt;
-&lt;img src="./images/gametogenesis.png" alt="Embryo sac and pollen formation" width="auto" height="600px" /&gt;
+&lt;img src="./images/sporogenesis.png" alt="Embryo sac and pollen formation" width="auto" height="600px" /&gt;
 &lt;p class="caption"&gt;Embryo sac and pollen formation&lt;/p&gt;
 &lt;/div&gt;
 
@@ -97,7 +98,8 @@ class: inverse, center, middle
 
 ---
 
-# Heteromorphic
+## Heteromorphic
+
 - Caused by heterostyly
 - Pin (long styles and short anthers) and thrum (long anthers and short styles; e.g., primula)
 - Pin conditioned by genotype ss, and thrum by Ss.
@@ -107,9 +109,9 @@ class: inverse, center, middle
   
 ---
 
-# Homomorphic
+## Homomorphic
 
-## Gametophytic incompatibility (originally called the oppositional factor system)
+### Gametophytic incompatibility (originally called the oppositional factor system)
 
 - The ability of the pollen to function is determined by its own genotype and not the plant that produces it.
 - This form of SI is more widespread (e.g. red clover, white clover and yellow sweet clover)
@@ -118,13 +120,6 @@ class: inverse, center, middle
 - Alleles exhibit no dominance
 - Incompatible pollen is inhibited in the style.
 - The pistil is diploid hence contains two incompatibility alleles (e.g., _S1_ _S3_, _S3_ _S4_). Reactions occur if identical alleles in both pollen and style are encountered. Only heterozygotes for _S_ alleles are produced in this system.
-
----
-
-&lt;div class="figure" style="text-align: center"&gt;
-&lt;img src="./images/incompatibility_systems.png" alt="Sporophytic and gametophytic SI systems; Types of self-incompatibility: (a) sporophytic and (b) gametophytic. Sporophytic incompatibility occurs in families such as Compositae and Cruciferae. It is associated with pollen grains with two generative nuclei, whereas gametophytic incompatibility is associated with pollen with one generative nucleus in the pollen tube as occurs in various kinds of clover." width="auto" height="400px" /&gt;
-&lt;p class="caption"&gt;Sporophytic and gametophytic SI systems; Types of self-incompatibility: (a) sporophytic and (b) gametophytic. Sporophytic incompatibility occurs in families such as Compositae and Cruciferae. It is associated with pollen grains with two generative nuclei, whereas gametophytic incompatibility is associated with pollen with one generative nucleus in the pollen tube as occurs in various kinds of clover.&lt;/p&gt;
-&lt;/div&gt;
 
 ---
 
@@ -140,7 +135,371 @@ class: inverse, center, middle
 
 ---
 
-# Expression of SI
+&lt;!-- ```{r incompatibility-systems, fig.cap="Sporophytic and gametophytic SI systems; Types of self-incompatibility: (a) sporophytic and (b) gametophytic. Sporophytic incompatibility occurs in families such as Compositae and Cruciferae. It is associated with pollen grains with two generative nuclei, whereas gametophytic incompatibility is associated with pollen with one generative nucleus in the pollen tube as occurs in various kinds of clover.", out.width="45%", fig.align='center'} --&gt;
+&lt;!-- # pdftools::pdf_convert("./references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 115, format = "png", filenames = "./images/incompatibility_systems.png", dpi = 300) --&gt;
+&lt;!-- knitr::include_graphics("./images/incompatibility_systems.png") --&gt;
+&lt;!-- ``` --&gt;
+
+&lt;table class="table table-striped" style="font-size: 12px; margin-left: auto; margin-right: auto;"&gt;
+&lt;caption style="font-size: initial !important;"&gt;Incompatibility reactions of different mating combinations in a mono- and digenic cross.&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; Cross &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Male parent &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Female parent &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Pollen gamete &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Gametophytic Reaction &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Gametophytic Progenies &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Sporophytic Pollen functional type &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Sporophytic Reaction &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Sporophytic Progenies &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;width: 4em; "&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Incompatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; - &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Incompatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; - &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;width: 4em; "&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Incompatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; - &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Incompatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; - &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;width: 4em; "&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S2S3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Compatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2, S1S3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Compatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2, S1S3 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;width: 4em; "&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S2S3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Incompatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; - &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Compatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S2S2, S2S3 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;width: 4em; "&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2Z1Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2Z1Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1Z1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Incompatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1Z1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Incompatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;width: 4em; "&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2Z1Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2Z1Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Incompatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1Z1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Incompatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;width: 4em; "&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2Z1Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2Z1Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S2Z1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Incompatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1Z1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Incompatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;width: 4em; "&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2Z1Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2Z1Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S2Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Incompatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1Z1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Incompatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;width: 4em; "&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2Z1Z3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2Z1Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1Z1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Incompatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1Z1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Incompatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;width: 4em; "&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2Z1Z3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2Z1Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1Z3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Compatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1Z1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Incompatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;width: 4em; "&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2Z1Z3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2Z1Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S2Z1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Incompatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1Z1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Incompatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;width: 4em; "&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2Z1Z3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2Z1Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S2Z3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Compatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1Z1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Incompatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;width: 4em; "&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S3S4Z3Z4 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2Z1Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S3Z3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Compatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S3Z3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Compatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;width: 4em; "&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S3S4Z3Z4 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2Z1Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S3Z4 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Compatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S3Z3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Compatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;tfoot&gt;
+&lt;tr&gt;&lt;td style="padding: 0; border: 0;" colspan="100%"&gt;&lt;span style="font-style: italic;"&gt;Assumptions:&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="padding: 0; border: 0;" colspan="100%"&gt;
+&lt;sup&gt;&lt;/sup&gt; Suppose there are incompatibility conditioning genes S and Z&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="padding: 0; border: 0;" colspan="100%"&gt;
+&lt;sup&gt;&lt;/sup&gt; Two genes could have alleles S1, S2, S3, S4… and Z1, Z2, Z3, Z4,…&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="padding: 0; border: 0;" colspan="100%"&gt;
+&lt;sup&gt;&lt;/sup&gt; Under SSI system, dominance relation holds: S1&amp;gt;S2&amp;gt;S3 and Z1&amp;gt;Z2&amp;gt;Z3.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tfoot&gt;
+&lt;/table&gt;
+
+---
+
+&lt;table class="table" style="font-size: 12px; margin-left: auto; margin-right: auto;"&gt;
+&lt;caption style="font-size: initial !important;"&gt;Incompatibility reactions (...continued)&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; Cross &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Male parent &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Female parent &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Pollen gamete &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Gametophytic Reaction &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Gametophytic Progenies &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Sporophytic Pollen functional type &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Sporophytic Reaction &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Sporophytic Progenies &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;width: 4em; "&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S3S4Z3Z4 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2Z1Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S4Z3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Compatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S3Z3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Compatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;width: 4em; "&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S3S4Z3Z4 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2Z1Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S4Z4 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Compatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S3Z3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Compatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;width: 4em; "&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S3Z1Z4 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2Z1Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1Z1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Incompatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1Z1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Incompatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;width: 4em; "&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S3Z1Z4 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2Z1Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1Z4 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Compatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1Z1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Incompatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;width: 4em; "&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S3Z1Z4 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2Z1Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S3Z1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Compatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1Z1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Incompatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;width: 4em; "&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S3Z1Z4 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2Z1Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S3Z4 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Incompatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1Z1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Incompatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;width: 4em; "&gt; 7 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S3Z2Z3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2Z1Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Incompatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Incompatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;width: 4em; "&gt; 7 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S3Z2Z3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2Z1Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1Z3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Compatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Incompatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;width: 4em; "&gt; 7 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S3Z2Z3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2Z1Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S3Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Compatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Incompatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;width: 4em; "&gt; 7 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S3Z2Z3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2Z1Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S3Z3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Compatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Incompatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;width: 4em; "&gt; 8 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S3Z2Z3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2Z1Z3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Compatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Compatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;width: 4em; "&gt; 8 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S3Z2Z3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2Z1Z3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1Z3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Incompatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Compatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;width: 4em; "&gt; 8 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S3Z2Z3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2Z1Z3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S3Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Compatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Compatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;width: 4em; "&gt; 8 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S3Z2Z3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1S2Z1Z3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S3Z3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Compatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; S1Z2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt; Compatible &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4em; "&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+## Expression of SI
   
 1. The germination of the pollen may be decreased (e.g., in broccoli); Removing the stigma allows normal pollen germination.
 
@@ -150,7 +509,7 @@ class: inverse, center, middle
 
 ---
 
-# Implications of SI
+## Implications of SI
 
 - Presence of this system may be exploited to facilitate some breeding methods. 
 - Self-incompatibility promotes heterozygosity. Consequently, selfing self-incompatible plants can create significant variability from which a breeder can select superior recombinants.
@@ -210,7 +569,7 @@ class: inverse, center, middle
 
 ---
 
-# Genetic male sterility
+## Genetic male sterility
 
 - Genetic (nuclear, genic) male sterility is widespread in plants. The gene for sterility has been found in species including barley, cotton, soybean, tomato, potato, and lima bean. 
 - It is believed that nearly all diploid and polyploidy plant species have at least one male sterility locus.
@@ -221,7 +580,7 @@ class: inverse, center, middle
 
 ---
 
-## Maintainance of GMS system
+### Maintainance of GMS system
 
 - The breeder cannot produce and maintain a pure population of male sterile plants. 
 - The genetically male sterile types ( _msms_) can be propagated by crossing them with a heterozygous pollen source ( _Msms_).
@@ -239,7 +598,7 @@ class: inverse, center, middle
 
 ---
 
-# Cytoplasmic male sterility
+## Cytoplasmic male sterility
 
 - Sometimes, male sterility is controlled by the cytoplasm (mitochondrial gene) but may be influenced by nuclear genes. 
 - A cytoplasm without sterility genes is described as normal (N) cytoplasm, while a cytoplasm that causes male sterility is called a sterile ( _s_) cytoplasm or said to have cytoplasmic male sterility (CMS).
@@ -250,7 +609,7 @@ class: inverse, center, middle
 
 ---
 
-# Cytoplasmic male sterility (...continued)
+## Cytoplasmic male sterility (...continued)
 
 &lt;div class="figure" style="text-align: center"&gt;
 &lt;img src="./images/cms_use.png" alt="Cytoplasmic male sterility as applied in plant breeding (N, normal cytoplasm; s, sterile cytoplasm)." width="auto" height="250px" /&gt;
@@ -259,7 +618,7 @@ class: inverse, center, middle
 
 ---
 
-# Cytoplasmic male sterility (...continued)
+## Cytoplasmic male sterility (...continued)
 
 - Hybrid seed production using CMS requires three types of genotypes;   - male fertile lines (called *B* lines; maintained by selfing) with no cytoplasmic male sterility genes and which are homozygous for a dominant restorer gene (i.e. normal ( _n_) cytoplasm, _RfRf_);
   - cytoplasmic sterile female lines with male sterile cytoplasm but with no restorer genes (called *A* lines; maintained by crossing with isogeneic cytoplasmic male fertile line);
@@ -301,7 +660,7 @@ lines; maintained by selfing) with normal cytoplasm and no restorer genes.
 
 ---
 
-# Reproduction through plant parts
+## Reproduction through plant parts
 
 - A *bulb* is a modified shoot consisting of a very much shortened stem enclosed by fleshy leaves (e.g. a tulip or an onion).
 
@@ -316,7 +675,7 @@ lines; maintained by selfing) with normal cytoplasm and no restorer genes.
 - A *tuber* is a swollen stem that grows beneath the soil surface bearing buds (e.g. potato).
 ---
 
-# Reproduction by apomixis
+## Reproduction by apomixis
 
 - Asexual production of plant seeds can occur in obligate and facultative apomicts.
 
@@ -400,8 +759,8 @@ class: center, bottom, inverse
 
 ---
 
-<div id="htmlwidget-f6f97646eab3ae741f7e" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-f6f97646eab3ae741f7e">{"x":{"filter":"none","caption":"<caption>Commonly self pollinated crops<\/caption>","fillContainer":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"],["Barley","Chickpea","Clover","Common bean","Cotton","Cowpea","Eggplant","Flax","Jute","Lettuce","Oat","Pea","Peach","Peanut","Rice","Sorghum","Soybean","Tobacco","Tomato","Wheat"],["Hordeum vulgare","Cicer arietinum","Trifolium spp.","Phaseolus vulgaris","Gossypium spp.","Vigna unguiculata","Solanum melongena","Linum usitatissimum","Corchorus espularis","Letuca sativa.","Avena sativa","Pisum sativum","Prunus persica","Arachis hypogaea","Oryza sativa","Sorghum bicolor","Glycine max","Nicotiana tabacum","Solanum lycopersicum","Triticum aestivum"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Common name<\/th>\n      <th>Scientific name<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"order":[],"autoWidth":false,"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}],"lengthMenu":[6,10,25,50,100],"rowCallback":"function(row, data) {\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+<div id="htmlwidget-7d4e09f97d6842f4986a" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7d4e09f97d6842f4986a">{"x":{"filter":"none","caption":"<caption>Commonly self pollinated crops<\/caption>","fillContainer":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"],["Barley","Chickpea","Clover","Common bean","Cotton","Cowpea","Eggplant","Flax","Jute","Lettuce","Oat","Pea","Peach","Peanut","Rice","Sorghum","Soybean","Tobacco","Tomato","Wheat"],["Hordeum vulgare","Cicer arietinum","Trifolium spp.","Phaseolus vulgaris","Gossypium spp.","Vigna unguiculata","Solanum melongena","Linum usitatissimum","Corchorus espularis","Letuca sativa.","Avena sativa","Pisum sativum","Prunus persica","Arachis hypogaea","Oryza sativa","Sorghum bicolor","Glycine max","Nicotiana tabacum","Solanum lycopersicum","Triticum aestivum"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Common name<\/th>\n      <th>Scientific name<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"order":[],"autoWidth":false,"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}],"lengthMenu":[6,10,25,50,100],"rowCallback":"function(row, data) {\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
 
 ---
 
@@ -416,7 +775,7 @@ class: center, bottom, inverse
 ---
 
 &lt;div class="figure" style="text-align: center"&gt;
-&lt;img src="./images/open_pollinated_onion.jpg" alt="Open pollinated crops" height="500px" /&gt;
+&lt;img src="./images/open_pollinated_onion.jpg" alt="Open pollinated crops" width="693" height="500px" /&gt;
 &lt;p class="caption"&gt;Open pollinated crops&lt;/p&gt;
 &lt;/div&gt;
 
@@ -499,9 +858,25 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     deleted = true;
   });
-})();</script>
-
-<script>
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
 (function() {
   var links = document.getElementsByTagName('a');
   for (var i = 0; i < links.length; i++) {
@@ -510,7 +885,23 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
   }
 })();
-</script>
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
 
 <script>
 slideshow._releaseMath = function(el) {

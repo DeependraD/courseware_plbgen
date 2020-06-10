@@ -57,11 +57,11 @@ $$Hybrid~vigour = \frac{F_1-\frac{(P_1+P_2)}{2}}{\frac{(P_1+P_2)}{2}}$$
 
 # Inbreeding depression (...Implication)
 
-- In Figure \@ref(fig:inbreeding-coefficient) (a) there is no inbreeding because there is no common ancestral pathway to the individual, A (i.e., all parents are different).
-- However, in Figure \@ref(fig:inbreeding-coefficient) (b) inbreeding exists because B and C have common parents (D and E), that is, they are full sibs.
-- To calculate the amount of inbreeding, the standard pedigree is converted to an arrow diagram, as shown in \@ref(fig:inbreeding-coefficient) (c). 
-- Each individual contributes 1/2 of its genotype to its offspring. The *coefficient of inbreeding* (F) is calculated by summing up all the pathways between two individuals through a common ancestor as: $F_{BC} = \sum{\left(\frac{1}{2}\right)^s}$ , where s is the number of steps (arrows) from B to the common ancestor and back to C. For example, B and C probably inherited $(1/2)(1/2) = 1/4$ of their genes in common through ancestor D. Similarly, B and C probably inherited 1/4 of their genes in common through ancestor E. 
-- The coefficient of relationship between B and C, as a result of common ancestry, is hence $F_{BC} = 1/4 + 1/4 = 1/2 = 50\%$
+- In Figure (a) there is no inbreeding because there is no common ancestral pathway to the individual, A (i.e., all parents are different).
+- However, in Figure (b) inbreeding exists because B and C have common parents (D and E), that is, they are full sibs.
+- To calculate the amount of inbreeding, the standard pedigree is converted to an arrow diagram, as shown in (c). 
+- Each individual contributes 1/2 of its genotype to its offspring. The *coefficient of inbreeding* (F) is calculated by summing up all the pathways between two individuals through a common ancestor as: $F_{BC} = \sum{\left(\frac{1}{2}\right)^s}$ , where s is the number of steps (arrows) from B to the common ancestor and back to C. For example, B and C probably inherited $(1/2)(1/2) = 1/4$ of their genes in common through ancestor D. Similarly, B and C probably inherited 1/4 of their genes in common through ancestor E. (Notice that individual whose inbreeding coefficient is being calculated does not constitute the loop and is hence ignored.)
+- The coefficient of inbreeding between B and C, as a result of common ancestry, is hence $F_{BC} = 1/4 + 1/4 = 1/2 = 50\%$
 
 ---
 

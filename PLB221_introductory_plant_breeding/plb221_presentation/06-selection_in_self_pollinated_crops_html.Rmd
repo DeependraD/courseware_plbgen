@@ -200,21 +200,17 @@ class: inverse, middle, center
 
 # Pedigree selection
 
-
-
 ---
-
-<!-- ```{r pedigree-selection, fig.cap="Generalized steps in breeding by pedigree selection", fig.align="center", out.width="auto", out.height="550px"} -->
-<!-- # pdftools::pdf_convert("./../../references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 327, format = "png", filenames = "./images/pedigree_selection.png", dpi = 300) -->
-<!-- knitr::include_graphics("./images/pedigree_selection.png") -->
-<!-- ``` -->
 
 ```{r pedigree-selection, fig.cap="Generalized steps in breeding by pedigree selection", fig.align="center", out.width="auto", out.height="550px"}
 knitr::include_graphics("./images/pedigree_breeding.png")
+# # pdftools::pdf_convert("./../../references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 327, format = "png", filenames = "./images/pedigree_selection.png", dpi = 300)
+# knitr::include_graphics("./images/pedigree_selection.png")
+
 ```
 
-
 ---
+
 class: inverse, middle, center
 
 # Bulk population
@@ -348,7 +344,7 @@ As an instance, with two gene difference between between recurrent parent (AABB)
 - When the trait is governed by a dominant gene, it is easy to identify plants carrying the desired gene. 
 - When the desired trait is conditioned by a recessive gene, an additional step is needed after each backcross to produce an F2 generation in order to identify the recessive trait.
 
---- 
+---
 
 ## Genetic advance in BC breeding depends on
 

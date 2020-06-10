@@ -4,7 +4,6 @@
     <title>Heterosis and inbreeding depression</title>
     <meta charset="utf-8" />
     <meta name="author" content="Deependra Dhakal" />
-    <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
   </head>
@@ -47,6 +46,8 @@ class: center, middle, inverse, title-slide
 - Plants including onions, sunflower, cucurbits, and rye are more tolerant of inbreeding with minimal consequences of inbreeding depression. 
 - Plants such as alfalfa and carrot are highly intolerant of inbreeding.
 
+&lt;!-- For a detailed review: https://www.nature.com/articles/nrg2664. pdf file is downloaded and available in repo under /literature/ --&gt;
+
 ---
 
 - Inbreeding is measured by the coefficient of inbreeding (F), which is the probability of identity of alleles by descent. The range of F is zero (no inbreeding; random mating) to one (prolonged selfing).
@@ -58,11 +59,11 @@ class: center, middle, inverse, title-slide
 
 # Inbreeding depression (...Implication)
 
-- In Figure \@ref(fig:inbreeding-coefficient) (a) there is no inbreeding because there is no common ancestral pathway to the individual, A (i.e., all parents are different).
-- However, in Figure \@ref(fig:inbreeding-coefficient) (b) inbreeding exists because B and C have common parents (D and E), that is, they are full sibs.
-- To calculate the amount of inbreeding, the standard pedigree is converted to an arrow diagram, as shown in \@ref(fig:inbreeding-coefficient) (c). 
-- Each individual contributes 1/2 of its genotype to its offspring. The *coefficient of inbreeding* (F) is calculated by summing up all the pathways between two individuals through a common ancestor as: `\(F_{BC} = \sum{\left(\frac{1}{2}\right)^s}\)` , where s is the number of steps (arrows) from B to the common ancestor and back to C. For example, B and C probably inherited `\((1/2)(1/2) = 1/4\)` of their genes in common through ancestor D. Similarly, B and C probably inherited 1/4 of their genes in common through ancestor E. 
-- The coefficient of relationship between B and C, as a result of common ancestry, is hence `\(F_{BC} = 1/4 + 1/4 = 1/2 = 50\%\)`
+- In Figure (a) there is no inbreeding because there is no common ancestral pathway to the individual, A (i.e., all parents are different).
+- However, in Figure (b) inbreeding exists because B and C have common parents (D and E), that is, they are full sibs.
+- To calculate the amount of inbreeding, the standard pedigree is converted to an arrow diagram, as shown in (c). 
+- Each individual contributes 1/2 of its genotype to its offspring. The *coefficient of inbreeding* (F) is calculated by summing up all the pathways between two individuals through a common ancestor as: `\(F_{BC} = \sum{\left(\frac{1}{2}\right)^s}\)` , where s is the number of steps (arrows) from B to the common ancestor and back to C. For example, B and C probably inherited `\((1/2)(1/2) = 1/4\)` of their genes in common through ancestor D. Similarly, B and C probably inherited 1/4 of their genes in common through ancestor E. (Notice that individual whose inbreeding coefficient is being calculated does not constitute the loop and is hence ignored.)
+- The coefficient of inbreeding between B and C, as a result of common ancestry, is hence `\(F_{BC} = 1/4 + 1/4 = 1/2 = 50\%\)`
 
 ---
 
@@ -146,7 +147,16 @@ class: center, middle, inverse, title-slide
 
 ---
 
-# Breeding of CMS hybrids
+## Maintenance of genetic male sterility and its application
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="./images/gms_use.png" alt="Maintenance of Genetic Male Sterility and its applications" width="auto" height="450px" /&gt;
+&lt;p class="caption"&gt;Maintenance of Genetic Male Sterility and its applications&lt;/p&gt;
+&lt;/div&gt;
+
+---
+
+## Breeding of CMS hybrids
 
 &lt;div class="figure" style="text-align: center"&gt;
 &lt;img src="./images/cms_hybrids.png" alt="Breeding by CMS. (a) single cross and (b) double cross. N, normal cytoplasm; S, sterile cytoplasm. Parent A=A-line; parent B=B-line, and parent D=R-line." width="auto" height="450px" /&gt;
