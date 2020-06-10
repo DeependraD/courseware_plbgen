@@ -1,37 +1,34 @@
 ---
-title: Selection in cross pollinated crops
-author: Deependra Dhakal
-date: Academic year 2019-2020 
-institute: |
-  | Gokuleshwor Agriculture and Animal Science College
-  | Tribhuwan University
-  | \textit{ddhakal.rookie@gmail.com}
-  | \url{https://rookie.rbind.io}
-output: 
-  binb::metropolis:
-    includes:
-      in_header: beamer_header_template.tex
-classoption: "aspectratio=169" # "compressed"
-fontsize: 11pt
-bibliography: [./../../bibliographies.bib]
+title: "Selection in cross pollinated crops"
+subtitle: "Response and gain from selection<br/>Variability"
+author: "Deependra Dhakal"
+date: "2019/04/15 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
 ---
 
-```{r,setup, include=FALSE}
-library(knitr)
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+options(knitr.kable.NA = "", digits = 3)
+knitr::opts_chunk$set(tidy = FALSE, echo = FALSE)
 require(tidyverse)
-set.seed(453)
-# invalidate cache when the package version changes
-knitr::opts_chunk$set(tidy = FALSE, echo = FALSE, 
-                  message = FALSE, warning = FALSE,
-                  out.width = "45%", cache = TRUE)
-options(knitr.table.format = "latex")
-options(knitr.kable.NA = "", digits = 2)
-options(kableExtra.latex.load_packages = FALSE)
 ```
 
-# Introduction
+## Background
 
-##
+- Breeding cross-pollinated species tends to focus on population improvement rather than the improvement of individual plants, as is the focus in breeding self-pollinated species. 
+- In addition to methods such as mass selection that are applicable to both self-pollinated and cross-pollinated species, there are specific methods that are suited to population improvement. 
+- Certain methods are more effective and readily applied for breeding certain species than others.
+
+---
+
+## Recurrent selection
+
 
 # Response from selection
 

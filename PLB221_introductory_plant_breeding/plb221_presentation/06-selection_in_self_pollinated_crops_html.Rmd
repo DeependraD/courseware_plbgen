@@ -200,12 +200,19 @@ class: inverse, middle, center
 
 # Pedigree selection
 
+
+
 ---
 
+<!-- ```{r pedigree-selection, fig.cap="Generalized steps in breeding by pedigree selection", fig.align="center", out.width="auto", out.height="550px"} -->
+<!-- # pdftools::pdf_convert("./../../references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 327, format = "png", filenames = "./images/pedigree_selection.png", dpi = 300) -->
+<!-- knitr::include_graphics("./images/pedigree_selection.png") -->
+<!-- ``` -->
+
 ```{r pedigree-selection, fig.cap="Generalized steps in breeding by pedigree selection", fig.align="center", out.width="auto", out.height="550px"}
-# pdftools::pdf_convert("./../../references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 327, format = "png", filenames = "./images/pedigree_selection.png", dpi = 300)
-knitr::include_graphics("./images/pedigree_selection.png")
+knitr::include_graphics("./images/pedigree_breeding.png")
 ```
+
 
 ---
 class: inverse, middle, center
@@ -269,6 +276,13 @@ knitr::include_graphics("./images/bulk_selection.png")
 ---
 class: inverse, middle, center
 
+## Comparison of backcross breeding types
+
+```{r backcross-transfer-comparison, fig.cap="Backcross breeding methods", fig.align='center', out.width="auto", out.height="550px"}
+knitr::include_graphics("./images/backcross_breeding_dominant_recessive.png")
+```
+
+
 ## Dominant gene transfer
 
 ---
@@ -294,17 +308,19 @@ knitr::include_graphics("./images/backcross_recessive.png")
 
 ## Genetic issues
 
-- In theory, the BC4 genotype will be 93.75% identical to the recurrent parent. The mathematical relationship for the recovery of the recurrent parent is presented by W. Allard is:
+- In theory, the BC3 genotype will be 93.75% **identical to the recurrent parent**. The mathematical relationship for the recovery of the recurrent parent is presented by W. Allard is:
 
 $$
-1-\left(\frac{1}{2}\right)^{m-1}
+1-\left(\frac{1}{2}\right)^{m+1}
 $$
 
-where $m$ is the number of generations of selfing or backcrosses. Same relation also gives the proportion of homozygous individuals in any generations of recurrent selfing. For example, for $5^{th}$ BC generation,
+where $m$ is the number of generations of selfing or backcrosses. 
+
+- Same relation also gives the proportion of homozygous individuals (includes both homozygous dominant and recessive individuals) in any generations of recurrent selfing. For example, for $3^{th}$ BC generation,
 
 $$
 \begin{aligned}
-1-\left(\frac{1}{2}\right)^{m-1} &=& 1-\left(\frac{1}{2}\right)^{5-1} \\
+1-\left(\frac{1}{2}\right)^{m+1} &=& 1-\left(\frac{1}{2}\right)^{3+1} \\
 ~ &=& 1-\left(\frac{1}{16}\right) \\
 ~ &=& 0.9375
 \end{aligned}
@@ -312,11 +328,17 @@ $$
 
 ---
 
-In another way, the proportion of the donor genes is reduced by 50% following each generation of backcrossing. This is obtained by the relationship $\left(\frac{1}{2}\right)^{m+1}$, where m is the number of crosses and backcross to the parent. For example, in the BC4, the value is $\left(\frac{1}{2}\right)^{5} = 3.125\%$. To obtain the percentage of homozygotes for alleles of recurrent parents in any generation, the mathematical relationship is:
+- In another way, the proportion of the donor genes is reduced by 50% following each generation of backcrossing. This is obtained by the relationship $\left(\frac{1}{2}\right)^{m+1}$, where m is the number of crosses and backcross to the parent. For example, in the BC4, the value is $\left(\frac{1}{2}\right)^{5} = 3.125\%$. 
+
+???
+
+- The proportion of completely homozygotes plants for any number, n, of genes in a particular backcross generation is:
 
 $$\left[\frac{\left(2^{m-1}\right)}{2^m}\right]^{n}$$
 
 Where $n$ is the number of genes.
+
+As an instance, with two gene difference between between recurrent parent (AABB) and donor parent (aabb), the BC1 (m = 1; n = 2) shall have four genptypes viz. AABB; AABb; AaBB and AaBb in equal proportion. As expected, on an average 75\% alleles of recurrent parent, at both loci individually as well as jointly, are recovered in BC1 but only 25% plants are completely homozygous for both the genes (AABB) of the recurrent parent. The 25% plants each have 3 alleles (2A, 1B and 1A and 2B) of recurrent parent while remaining 25% have only 2 alleles (AB) in common with the recurrent parent. The above formula gives the number of individuals homozygous for genes of recurrent parent because all the complete homozygotes in backcross resemble only to the recurrent parent.
 
 ---
 

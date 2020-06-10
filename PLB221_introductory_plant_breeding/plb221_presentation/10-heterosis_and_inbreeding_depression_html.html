@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
   <head>
     <title>Heterosis and inbreeding depression</title>
     <meta charset="utf-8" />
     <meta name="author" content="Deependra Dhakal" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
   </head>
@@ -14,7 +15,7 @@ class: center, middle, inverse, title-slide
 # Heterosis and inbreeding depression
 ## Effects of inbreeding<br/>Inbreeding depression<br/>Heterosis and its genetics and physiological basis<br/>Utilization and fixation of heterosis
 ### Deependra Dhakal
-### 2019/04/21 (updated: 2019-05-26)
+### 2019/04/21 (updated: 2020-06-10)
 
 ---
 
@@ -48,7 +49,7 @@ class: center, middle, inverse, title-slide
 
 ---
 
-- Inbreeding is easured by the coefficient of inbreeding (F), which is the probability of identity of alleles by descent. The range of F is zero (no inbreeding; random mating) to one (prolonged selfing).
+- Inbreeding is measured by the coefficient of inbreeding (F), which is the probability of identity of alleles by descent. The range of F is zero (no inbreeding; random mating) to one (prolonged selfing).
 - An unfit (deleterious) recessive allele is fairly quickly reduced in frequency but declines slowly thereafter. 
 - On the other hand, an unfit dominant allele is rapidly eliminated from the population, while an intermediate allele is reduced more rapidly than a recessive allele because the former is open to selection in the heterozygote.
 - The consequence of these outcomes is that unfit dominant or intermediate alleles are rare in cross-breeding populations, while unfit recessive alleles persist because they are protected by their recessiveness.
@@ -60,8 +61,8 @@ class: center, middle, inverse, title-slide
 - In Figure \@ref(fig:inbreeding-coefficient) (a) there is no inbreeding because there is no common ancestral pathway to the individual, A (i.e., all parents are different).
 - However, in Figure \@ref(fig:inbreeding-coefficient) (b) inbreeding exists because B and C have common parents (D and E), that is, they are full sibs.
 - To calculate the amount of inbreeding, the standard pedigree is converted to an arrow diagram, as shown in \@ref(fig:inbreeding-coefficient) (c). 
-- Each individual contributes 1/2 of its genotype to its offspring. The *coefficient of relationship* (R) is calculated by summing up all the pathways between two individuals through a common ancestor as: `\(R_{BC} = \sum{\left(\frac{1}{2}\right)^s}\)` , where s is the number of steps (arrows) from B to the common ancestor and back to C. For example, B and C probably inherited `\((1/2)(1/2) = 1/4\)` of their genes in common through ancestor D. Similarly, B and C probably inherited 1/4 of their genes in common through ancestor E. 
-- The coefficient of relationship between B and C, as a result of common ancestry, is hence `\(R_{BC} = 1/4 + 1/4 = 1/2 = 50\%\)`
+- Each individual contributes 1/2 of its genotype to its offspring. The *coefficient of inbreeding* (F) is calculated by summing up all the pathways between two individuals through a common ancestor as: `\(F_{BC} = \sum{\left(\frac{1}{2}\right)^s}\)` , where s is the number of steps (arrows) from B to the common ancestor and back to C. For example, B and C probably inherited `\((1/2)(1/2) = 1/4\)` of their genes in common through ancestor D. Similarly, B and C probably inherited 1/4 of their genes in common through ancestor E. 
+- The coefficient of relationship between B and C, as a result of common ancestry, is hence `\(F_{BC} = 1/4 + 1/4 = 1/2 = 50\%\)`
 
 ---
 
@@ -119,6 +120,8 @@ class: center, middle, inverse, title-slide
 ## Mid parent heterosis
 
 `$$\large  Hybrid~vigour = \frac{F_1-\frac{(P_1+P_2)}{2}}{\frac{(P_1+P_2)}{2}}$$`
+
+---
 
 ## Commercial heterosis
 
@@ -195,9 +198,25 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     deleted = true;
   });
-})();</script>
-
-<script>
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
 (function() {
   var links = document.getElementsByTagName('a');
   for (var i = 0; i < links.length; i++) {
@@ -206,7 +225,23 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
   }
 })();
-</script>
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
 
 <script>
 slideshow._releaseMath = function(el) {

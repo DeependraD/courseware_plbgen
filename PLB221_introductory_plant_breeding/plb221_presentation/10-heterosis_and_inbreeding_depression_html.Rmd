@@ -44,6 +44,8 @@ $$Hybrid~vigour = \frac{F_1-\frac{(P_1+P_2)}{2}}{\frac{(P_1+P_2)}{2}}$$
 - Plants including onions, sunflower, cucurbits, and rye are more tolerant of inbreeding with minimal consequences of inbreeding depression. 
 - Plants such as alfalfa and carrot are highly intolerant of inbreeding.
 
+<!-- For a detailed review: https://www.nature.com/articles/nrg2664. pdf file is downloaded and available in repo under /literature/ -->
+
 ---
 
 - Inbreeding is measured by the coefficient of inbreeding (F), which is the probability of identity of alleles by descent. The range of F is zero (no inbreeding; random mating) to one (prolonged selfing).
@@ -58,8 +60,8 @@ $$Hybrid~vigour = \frac{F_1-\frac{(P_1+P_2)}{2}}{\frac{(P_1+P_2)}{2}}$$
 - In Figure \@ref(fig:inbreeding-coefficient) (a) there is no inbreeding because there is no common ancestral pathway to the individual, A (i.e., all parents are different).
 - However, in Figure \@ref(fig:inbreeding-coefficient) (b) inbreeding exists because B and C have common parents (D and E), that is, they are full sibs.
 - To calculate the amount of inbreeding, the standard pedigree is converted to an arrow diagram, as shown in \@ref(fig:inbreeding-coefficient) (c). 
-- Each individual contributes 1/2 of its genotype to its offspring. The *coefficient of relationship* (R) is calculated by summing up all the pathways between two individuals through a common ancestor as: $R_{BC} = \sum{\left(\frac{1}{2}\right)^s}$ , where s is the number of steps (arrows) from B to the common ancestor and back to C. For example, B and C probably inherited $(1/2)(1/2) = 1/4$ of their genes in common through ancestor D. Similarly, B and C probably inherited 1/4 of their genes in common through ancestor E. 
-- The coefficient of relationship between B and C, as a result of common ancestry, is hence $R_{BC} = 1/4 + 1/4 = 1/2 = 50\%$
+- Each individual contributes 1/2 of its genotype to its offspring. The *coefficient of inbreeding* (F) is calculated by summing up all the pathways between two individuals through a common ancestor as: $F_{BC} = \sum{\left(\frac{1}{2}\right)^s}$ , where s is the number of steps (arrows) from B to the common ancestor and back to C. For example, B and C probably inherited $(1/2)(1/2) = 1/4$ of their genes in common through ancestor D. Similarly, B and C probably inherited 1/4 of their genes in common through ancestor E. 
+- The coefficient of relationship between B and C, as a result of common ancestry, is hence $F_{BC} = 1/4 + 1/4 = 1/2 = 50\%$
 
 ---
 
@@ -149,7 +151,15 @@ $$\large  Hybrid~vigour = \frac{F_1-Commercial~Hybrid}{Commercial~Hybrid}$$
 
 ---
 
-# Breeding of CMS hybrids
+## Maintenance of genetic male sterility and its application
+
+```{r gms-application, fig.cap="Maintenance of Genetic Male Sterility and its applications", fig.align="center", out.width="auto", out.height="450px"}
+knitr::include_graphics("./images/gms_use.png")
+```
+
+---
+
+## Breeding of CMS hybrids
 
 ```{r cms-hybrids, fig.cap="Breeding by CMS. (a) single cross and (b) double cross. N, normal cytoplasm; S, sterile cytoplasm. Parent A=A-line; parent B=B-line, and parent D=R-line.", fig.align="center", out.width="auto", out.height="450px"}
 # pdftools::pdf_convert("./../../references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 372, format = "png", filenames = "./images/cms_hybrids.png", dpi = 300)
