@@ -213,3 +213,12 @@ class: inverse, middle, center
 ---
 
 # Mating systems
+
+## Assortative mating
+
+- Individuals choose mates based on resemblance to themselves.
+- Two types of assortative mating systems: Positive assortative mating and negative assortative mating. For example, if tall individuals preferentially mate with other tall individuals and short individuals mate with other short individuals.
+- We expect an excess of homozygotes for the "tall" alleles among the progeny of tall mating pairs and excess of homozygotes for short alleles among the progeny of short mating pairs.
+
+- Negative assortative mating is common in plant kingdom. It is exemplified by the self-incompatibility, or S, locus in Brassica crops.
+- The stigma of a plant will not be receptive to pollen that carries either of its own alleles. For example, the stigma of an S1/S2 heterozygote will not allow pollen grains carrying either an S1 or S2 allele to germinate and fertilize its ovules, although pollen grain carrying S3 and S4 can do so. 

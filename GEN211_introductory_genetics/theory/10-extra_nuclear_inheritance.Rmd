@@ -10,6 +10,7 @@ institute: |
   | \url{https://rookie.rbind.io}
 output: 
   binb::metropolis:
+    citation_package: biblatex
     includes:
       in_header: beamer_header_template.tex
 classoption: "aspectratio=169" # "compressed"

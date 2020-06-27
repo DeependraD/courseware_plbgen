@@ -371,6 +371,8 @@ knitr::include_graphics("./images/Teosinte_maize.jpg")
 - For detailed history refer to Principles of Plant Genetics and Breeding `r Citet(myBib,"acquaah2009principles")`, Chapter 2 (Page 22-39).
 - For detailed history of Genetics refer to `r Citet(myBib,"griffiths2015introduction")`.
 
+<!-- Or history of plant breeding is shown very well polished in this youtube video by Genomics Lab: https://www.youtube.com/watch?v=YoAjus5O_tA -->
+
 ]]]
 
 .pull-right[

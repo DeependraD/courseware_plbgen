@@ -1,6 +1,6 @@
 ---
 title: "Hybridization techniques and its consequences"
-subtitle: "Objectives<br/>Types<br/>Program<br/>Procedures<br/>Consequences"
+subtitle: "Meaning<br/>Objectives<br/>Types<br/>Program<br/>Procedures<br/>Consequences"
 author: "Deependra Dhakal"
 date: "2019/04/21 (updated: `r Sys.Date()`)"
 output:
@@ -20,23 +20,26 @@ knitr::opts_chunk$set(tidy = FALSE, echo = FALSE)
 require(tidyverse)
 ```
 
-```{r maize, fig.cap="Quantitative characters", fig.align='center', out.height="400px", out.width="auto"}
-knitr::include_graphics("./images/pomato_hybrid_graft.jpg")
-```
-
----
-
+background-image: \url('./images/pomato_hybrid_graft.jpg')
 class: inverse, center, middle
 
 # Hybridization
 
 ---
 
+## Meaning
+
 - *Hybrid* : Any sort of sexual or somatic combination of genetically more or less differentiated parental cells, individuals, or taxa; specifically, an individual plant from a cross between parents of differing genotypes; any heterozygote represents dissimilar alleles at a given locus; or a hybrid graft gene
 
 - Hybrid breeding (syn *heterosis breeding*): Involves the transfer of genes from one source or genetic background to another, or combining genes from different sources that complement each other, with the hope that the new cultivar will combine the best of both parents.
 
-- In flowering species, *sexual hybridization* is the mode.
+- The term hybridization is prone to ambiguity. The concept of a cross between individuals from two distinct groups is superficially simple, but uncertainty arises in defining *distinct groups*.
+
+- Harrison, 1990 defined hybridization as a cross between individuals from separate populations that differ in one or more heritable traits.
+
+---
+
+- In flowering species, *sexual hybridization* is the commonly occuring mode of hybridization.
   - Natural hybridization
   - Artifical hybridization
 
@@ -104,7 +107,7 @@ class: inverse, center, middle
 ## Subsequent effects
 
 ```{r wheat-experiment}
-f2_var_genes <- readxl::read_xlsx("./07-hybridization_techniques_and_its_consequences.xlsx", sheet = "f2_var_and_genes") 
+f2_var_genes <- readxl::read_xlsx("./data/07-hybridization_techniques_and_its_consequences.xlsx", sheet = "f2_var_and_genes") 
 f2_var_genes %>% 
   mutate_at("Number of heterozygotes in the F2 (2^n)", 
             list(~2^`Number of heterozygous loci (n)`)) %>% 

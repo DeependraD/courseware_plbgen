@@ -33,12 +33,26 @@ options(kableExtra.latex.load_packages = FALSE)
 
 ---
 
+- Allogamous species (producing seed through cross pollination) or out breeder plants have characters which promote cross pollination which include dichogamy, monoecy, dioecy, heterostyly, heterogamy, self incompatibility and male sterility.
+- Some important features of out breeders are:
+  1. They have random mating. In such population, each genotype has equal chance of mating with all other genotypes
+  2. Individuals are heterozygous and have advantage of heterozygosity
+  3. Individuals have deleterious recessive gene which are concealed by masking effect of dominant genes.
+  4. Out breeders are intolerant to inbreeding. They exhibit high degree of inbreeding depression on selfing.
+  5. Cross pollination permits new gene combinations from different sources.
+  6. In these species, variability is distributed over entire population.
+  7. They have wide adaptability and more flexibility to environmental changes due to heterozygosity and heterogenety.
+
+---
+
 # Breeding methods
 
-- The classification of population improvement is several, according to the unit of selection – either individual plants or family of plants. 
-- The method can also be grouped according to the populations undergoing selection as either intra-population or inter-population. 
-  - In intra-population improvement, the end product will be a population or synthetic cultivar, and it may end up elite pure lines for hybrid production. Or, it can also be used for developing mixed genotype cultivars (in self-pollinated crops). Commonly used methods are mass selection, ear-to-row selection and recurrent selection. This consists of both single plant (mass selection) and family based selection (recurrent selection).
-  - Inter-population improvement deals with the selection on the basis of the performance of a cross between two populations. The final product will be a hybrid cultivar with heterosis.
+- The classification of population improvement is: 
+  - according to the unit of selection – either individual plants or family of plants. 
+  - according to the populations undergoing selection as either intra-population or inter-population. 
+  
+- In **intra-population** improvement, the end product will be a population or synthetic cultivar, and it may end up elite pure lines for hybrid production. Or, it can also be used for developing mixed genotype cultivars (in self-pollinated crops). Commonly used methods are mass selection, ear-to-row selection and recurrent selection. This consists of both single plant (mass selection) and family based selection (recurrent selection).
+- **Inter-population** improvement deals with the selection on the basis of the performance of a cross between two populations. The final product will be a hybrid cultivar with heterosis.
 
 ---
 

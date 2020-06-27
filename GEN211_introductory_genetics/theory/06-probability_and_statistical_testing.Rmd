@@ -9,14 +9,16 @@ institute: |
   | \url{https://rookie.rbind.io}
 output: 
   binb::metropolis:
+    citation_package: biblatex
+    keep_tex: yes
     includes:
       in_header: beamer_header_template.tex
 classoption: "aspectratio=169" # "compressed"
 fontsize: 11pt
-bibliography: [./../bibliographies.bib]
+bibliography: [./bibliographies.bib]
 ---
 
-```{r,setup, include=FALSE}
+```{r setup, include=FALSE}
 library(knitr)
 require(tidyverse)
 set.seed(453)
@@ -58,62 +60,62 @@ $$
 p(\textrm{two 4's or two 5's}) = \frac{1}{36} + \frac{1}{36} = \frac{1}{18}
 $$
 
-## Problem: Probability rules
+<!-- ## Problem: Probability rules -->
 
-- What proportion of the progenies will be suitable to be used as tester parent in the cross between two parental genotypes:
+<!-- - What proportion of the progenies will be suitable to be used as tester parent in the cross between two parental genotypes: -->
 
-$$
-A/a;b/b;C/c;D/d;E/e \times a/a;b/b;c/c;d/d;E/e
-$$
+<!-- $$ -->
+<!-- A/a;b/b;C/c;D/d;E/e \times a/a;b/b;c/c;d/d;E/e -->
+<!-- $$ -->
 
-- Approach using product rule.
+<!-- - Approach using product rule. -->
 
-## How many progenies do we need ?
+<!-- ## How many progenies do we need ? -->
 
-- Assume we need to estimate how many progeny plants need to be grown to stand a reasonable chance of obtaining the desired genotype a/a; b/b; c/c; d/d; e/e.
-- First calculate the proportion of progeny that is expected to be of that genotype, as such we need at least 256 progeny to stand an average chance of obtaining one individual plant of the desired genotype.
-- The probability of obtaining one "success" (a fully recessive plant) out of 256 has to be considered more carefully. This is the average probability of success. Unfortunately, if we isolated and tested 256 progeny, we would very likely have no success at all, simply from bad luck.
-- A more meaningful question to as ask would, hence be, what sample size do we need to be 95% confident that we will obtain at least one success ?
-- Probability of obtaining at least one success can be expressed as:
+<!-- - Assume we need to estimate how many progeny plants need to be grown to stand a reasonable chance of obtaining the desired genotype a/a; b/b; c/c; d/d; e/e. -->
+<!-- - First calculate the proportion of progeny that is expected to be of that genotype, as such we need at least 256 progeny to stand an average chance of obtaining one individual plant of the desired genotype. -->
+<!-- - The probability of obtaining one "success" (a fully recessive plant) out of 256 has to be considered more carefully. This is the average probability of success. Unfortunately, if we isolated and tested 256 progeny, we would very likely have no success at all, simply from bad luck. -->
+<!-- - A more meaningful question to as ask would, hence be, what sample size do we need to be 95% confident that we will obtain at least one success ? -->
+<!-- - Probability of obtaining at least one success can be expressed as: -->
 
-$$
-1-\left(\frac{255}{256}\right)^n
-$$
+<!-- $$ -->
+<!-- 1-\left(\frac{255}{256}\right)^n -->
+<!-- $$ -->
 
-##
+<!-- ## -->
 
-- To be 95% confident that our sample will contain at least one genotype we intended, we solve:
+<!-- - To be 95% confident that our sample will contain at least one genotype we intended, we solve: -->
 
-$$
-1-\left(\frac{255}{256}\right)^n = 0.95
-$$
+<!-- $$ -->
+<!-- 1-\left(\frac{255}{256}\right)^n = 0.95 -->
+<!-- $$ -->
 
-- Solving for $n$ gives `r round(log(1-0.95)/log(255/256))`, which is the right amount of progeny samples to be raised to assure 95% success of having 1 individual out of 256 totals.
+<!-- - Solving for $n$ gives `r round(log(1-0.95)/log(255/256))`, which is the right amount of progeny samples to be raised to assure 95% success of having 1 individual out of 256 totals. -->
 
-##
+<!-- ## -->
 
-```{r confidence-sampling, fig.width=6, fig.height=4, out.width="60%", fig.align='center'}
-contain_confidence95 <- function(x){1-(255/256)^x}
-root_solution <- log(1-0.95)/log(255/256)
+<!-- ```{r confidence-sampling, fig.width=6, fig.height=4, out.width="60%", fig.align='center'} -->
+<!-- contain_confidence95 <- function(x){1-(255/256)^x} -->
+<!-- root_solution <- log(1-0.95)/log(255/256) -->
 
-contain_conf_samples <- ggplot(data.frame(x=c(0, 1000)), aes(x)) + 
-  stat_function(fun=contain_confidence95) +
-  scale_y_continuous(labels = scales::percent_format(), limits = c(0, 1)) +
-  geom_vline(xintercept = root_solution, color = "blue") +
-  geom_hline(yintercept = 0.95, color = "red") +
-  geom_text(aes(0, 0.95, label = scales::percent(.95), vjust = +2, hjust = -1)) +
-  geom_text(aes(root_solution, 0, label = round(root_solution), vjust = -2, hjust = 1.5)) + 
-  labs(x = "Number of samples", y = "Confidence of having success")
+<!-- contain_conf_samples <- ggplot(data.frame(x=c(0, 1000)), aes(x)) +  -->
+<!--   stat_function(fun=contain_confidence95) + -->
+<!--   scale_y_continuous(labels = scales::percent_format(), limits = c(0, 1)) + -->
+<!--   geom_vline(xintercept = root_solution, color = "blue") + -->
+<!--   geom_hline(yintercept = 0.95, color = "red") + -->
+<!--   geom_text(aes(0, 0.95, label = scales::percent(.95), vjust = +2, hjust = -1)) + -->
+<!--   geom_text(aes(root_solution, 0, label = round(root_solution), vjust = -2, hjust = 1.5)) +  -->
+<!--   labs(x = "Number of samples", y = "Confidence of having success") -->
 
-x <- 0:1000
-ycord <- contain_confidence95(x)
-dframe <- data.frame(x = x, ycord = ycord)
+<!-- x <- 0:1000 -->
+<!-- ycord <- contain_confidence95(x) -->
+<!-- dframe <- data.frame(x = x, ycord = ycord) -->
 
-contain_conf_samples +
-  geom_ribbon(aes(ymin = 0, ymax = ycord,
-                  fill = NULL), alpha = 0.25, data = dframe) +
-  annotate("point", x = root_solution, y = 0.95, color = "grey4")
-```
+<!-- contain_conf_samples + -->
+<!--   geom_ribbon(aes(ymin = 0, ymax = ycord, -->
+<!--                   fill = NULL), alpha = 0.25, data = dframe) + -->
+<!--   annotate("point", x = root_solution, y = 0.95, color = "grey4") -->
+<!-- ``` -->
 
 # Using $\Large \chi^2$ test on monohybrid and dihybrid ratios
 
@@ -249,7 +251,7 @@ $$
 \text{Coefficient} = \frac{n!}{s! t!}
 $$
 
-  - Where, n = index of binomial, s = index of a in the given term and t = index of b in the term.
+- Where, n = index of binomial, s = index of a in the given term and t = index of b in the term.
 - It is applicable to those events in which the number of mutually exclusive events is two.
 
 ## Problem
@@ -332,5 +334,3 @@ The probability is, therefore, computed as: `r choose(5, 3)*(1/2)^3*(1/2)^2`.
 ## Reading materials
 
 For numerical analysis using $\chi^2$ test, See pp 96 of @griffiths2015introduction.
-
-## References

@@ -1,0 +1,24 @@
+Breeding methods of Rice
+
+Origin: South East Asia
+
+Distribution: Humid tropical and subtropical climate. 90% of the world rice production is consumed in SE Asia. China, India, Japan, Korea, Pakistan, Bangladesh, etc. major rice growing countries.
+
+Cultivated rice species:
+
+1. Oryza sativa: Asian rice
+2. Oryza glaberrima: African rice
+
+Origin of Rice
+
+1. Monophyletic origin: According to this theory both asian rice and african rice arose from a commmon parent ( _O. perennis_). This view is the most accepted one because both Asian rice and african rice are similar except for glume pubescence, ligule size and color of pericarp which is red in color in African rice. _O. glaberrima_ is thought to have originated in the upper valley of Niger river in Africa.
+
+Species in the genus Oryza (details on Vaughan, 2008):
+
+```{r rice-section-complex-species}
+
+read_csv("./data/rice-diversity-dvaughan.csv", na = "") %>% 
+  knitr::kable(booktabs = TRUE)
+```
+
+2. Polyphyletic origin: According to this theory, the two forms of cultivated rice have evolved independently in their respective regions form several species. ?figure of polyphyletic origin history.

@@ -443,10 +443,30 @@ $$
 
 ---
 
-In simple terms, to estimate the $h_b^2$ of $F_2$ family (or any other segregating family), only following estimates are required:
+- In simple terms, to estimate the $h_b^2$ of $F_2$ family (or any other segregating family), only following estimates are required:
 
 1. Total phenotypic variance (Obtained from measurement on plants within $F_2$ families)
 2. Environmental variance (Obtained from measurement on $F_1$ families)
+
+---
+
+## Variance component estimation summary
+
+Variances from additive, dominant and environmental effects may be obtained as follows:
+
+$V_{P1} = E; \quad V_{P2} = E; \quad V_{F1} = E$
+
+$V_{F2} = \frac{1}{2}A + \frac{1}{4}D + E$
+
+$V_{B1} = \frac{1}{4}A + \frac{1}{4}D + E$
+
+$V_{B2} = \frac{1}{4}A + \frac{1}{4}D + E$
+
+$V_{B1} + V_{B2} = \frac{1}{2}A + \frac{1}{2}D + 2E$
+
+Elsewhere, following relation is also mentioned: $$V_{E} = \frac{V_{P1} + V_{P2} + V_{F1}}{3} \tag{Equation 1} \label{eqn:lab1}$$
+
+\@ref{eqn:lab1} was the worst of all.
 
 ---
 
@@ -594,14 +614,15 @@ Vd <- 4*(he_filial_pop[he_filial_pop$Population == "BC1", 2, drop=T] +
            Ve)
 
 Va <- Vg-Vd
-heritability_ns <- Va/Vp
-heritability_bs <- Vd/Vp
+heritability_ns <- (1/2)*Va/Vp
+heritability_bs <- ((1/4)*Vd + (1/2)*Va)/Vp
 ```
 
 $h^2_{bs}$ = `r heritability_bs`
 
 $h^2_{bs}$ = `r heritability_ns`
 
+For simplified calculation, refer to Acquaah, P 86.
 
 ---
 
