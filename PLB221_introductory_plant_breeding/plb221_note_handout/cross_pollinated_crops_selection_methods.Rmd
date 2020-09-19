@@ -1,0 +1,136 @@
+---
+title: "Selection Methods for Cross Pollinated Crops"
+subtitle: "Theoretical exposition and numerical solutions"
+author: "Deependra Dhakal"
+date: "`r Sys.Date()`"
+output: 
+  tint::tintPdf:
+    keep_tex: true
+tables: yes
+bibliography: [cross-pollinated-crops.bib]
+link-citations: yes
+header-includes:
+  - \usepackage{booktabs}
+  - \usepackage{longtable}
+  - \usepackage{array}
+  - \usepackage{multirow}
+  - \usepackage{wrapfig}
+  - \usepackage{float}
+  - \usepackage{colortbl}
+  - \usepackage{pdflscape}
+  - \usepackage{tabu}
+  - \usepackage{threeparttable}
+  - \usepackage{threeparttablex}
+  - \usepackage[normalem]{ulem}
+  - \usepackage{makecell}
+  - \usepackage{xcolor}
+  - \usepackage{tikz}
+  - \usepackage{pgfplots}
+  - \pgfplotsset{compat=1.16}
+  - \usepackage{smartdiagram}
+  - \usetikzlibrary{shapes.geometric,intersections}
+---
+
+```{r setup, include=FALSE}
+library(tint)
+library(knitr)
+require(tidyverse)
+set.seed(453)
+# invalidate cache when the package version changes
+knitr::opts_chunk$set(tidy = FALSE, echo = FALSE, 
+                      cache.extra = packageVersion('tint'), 
+                      message = FALSE, warning = FALSE)
+options(htmltools.dir.version = FALSE) 
+options(knitr.table.format = "latex")
+options(knitr.kable.NA = "", digits = 2)
+options(kableExtra.latex.load_packages = FALSE)
+```
+
+\clearpage
+
+# Introduction
+
+[@posselt2010breeding] provides a detailed overview of breeding methods commonly used in Cross Pollinated species. The text found basis on the systematics of breeding explained by @schnell1982synoptic.
+
+Breeding methods are specific, not so much to crops, but rather to modes of reproduction and to types of varieties to be bred. According to propagational type of the resulting varieties breeding methods can be classified into four breeding categories: Line, population, hybrid and clone.
+
+\vspace{1cm}
+
+\begin{figure}
+\centering
+\begin{tikzpicture}
+\coordinate (A) at (1,0);
+\coordinate (B) at (4,{sqrt(27)});
+\coordinate (C) at (7,0);
+<!-- % \draw[step=0.5cm,color=gray] (0,-3) grid (8,6); -->
+\draw[name path=UP, fill, color=blue!88, draw=red, line width=2pt,opacity=0.6]
+(A) node[anchor=north,align=center]{(Autogamy)\\ Line varieties} -- (C) node[anchor=north,align=center]{(Allogamy)\\ Population varieties} -- (B) node[anchor=south,align=center]{Clone varieties\\ (Apomixis)} -- cycle;
+\draw[name path=DOWN,dotted] (A)--(4,-2) node[anchor=north,align=center]{Hybrid varieties}--(C);
+<!-- % using name path requires intersections tikzlibrary -->
+\end{tikzpicture}
+\caption{The reproduction triangle with the modes of reproduction (in bracketted letters) and the four breeding categories and resulting types of varieties. The system also imples that thare are not strict barriers between reproductive systems, but a gradual transition from one mode to the neighboring one. Clonal varieties can be selected for strictly apomictic plants. While autogamy and allogamy are not as strict in plant kingdom as even highly autogamous lines may cross fertilize nearby plants. Hybrid breeding, as shown involves both autogamy and allogamy and could be called a man-made breeding system.} \label{fig:triangle-of-breeding}
+\end{figure}
+
+<!-- \smartdiagram[priority descriptive diagram]{ -->
+<!--   Develop a document structure, -->
+<!--   Choose a document class, -->
+<!--   Select suitable packages, -->
+<!--   Setup the document preamble, -->
+<!--   Write your document, -->
+<!--   Finetune the layout} -->
+
+Four types of varieties mentioned above can be grouped according to their genetic and phenotypic variability (homogeneity or heterogeneity) and their genetic constitution (homozygous or heterozygous). Maximum heterozygosity can be achieved in single-cross hybrids.
+
+## Breeding Population Varieties
+
+According to @schnell1982synoptic, two types of population varieties can be distinguished: OPVs and Synthetics. 
+
+`r tint::margin_note("\\textbf{OPVs}: The result of population improvement through recurrent selection, and synthetic varieties.")`
+
+`r tint::margin_note("\\textbf{Synthetics}: A commercial synthetic variety is an advanced generation of a population initiated by crosses among a restricted number of [GCA] selected parents and multiplied by a number of random out-crossing in isolation")`
+
+Both OPVs and synthetic varieties constitute panmictic populations, since they are produced by random fertilization, at least in the advanced generations of seed production.
+
+To structure breeding methods, partitioning of breeding into three phases will be helpful:
+
+1. Procuring intitial variation: This step creates a base population for imposing selection. If non-adapted materials shall be used, pre-breeding methods may be necessary beforehand.
+
+2. Forming varietal parents: It comprises selection of the best individuals as the immediate parents of the first generation used to construct experimental varieties, or to create an improved breeding population. Since the likelihood of success after one step of selection is rather poor, population improvement through recurrent selection is typical in population breeding and is inevitable for future breeding progress.
+
+3. Testing experimental varieties: Experimental varieties are constructed and tested. In this phase, procedures differ between schemes of OPV and synthetic breeding.
+
+`r tint::margin_note("Principe source materials are:
+\\newline 1. Wild types
+\\newline 2. Ecotypes (from own collections or genebanks)
+\\newline 3. Landraces
+\\newline 4. Improved breeding materials (populations, families, clones, inbreds)
+\\newline 5. Released varieties (OPVs, synthetics)")`
+
+`r tint::newthought("Choice of germplasm is a critical decision that requires considerable thought. Hasty decisions either to eliminate or to decrease number of growing seasons required may in the long run increase the number of growing seasons required to develop usable materials. In many instances the selected germplasm will be the basis of the breeding program for the lifetime of the breeder. Choice of germplasm will determine maximum potential improvement that can be attained via breeding; the breeding system used will determine how much of that maximum potential can be realized.")`
+
+`r tint::quote_footer("Haullauer and Miranda (1981)")`
+
+Breeder faces several problems of choice regarding creating of base population: 
+
+- Whether to establish one or several base populations, 
+- Use of base population in short-term or long-term selection programmes
+- Whether to allow open population or maintain closed population
+
+<!-- `r tint::margin_note("Mostly for research studies, closed populations are used.$$\\frac{d}{dx}\\left( \\int_{a}^{x} f(u)\\,du\\right)=f(x)$$.")` -->
+
+For some examples of base population establishment refer to @boller2010fodder.
+
+The upgrading of the breeding population can be done for the following reasons: (i) increase of the already reduced genetic variance, (ii) avoidance of inbreeding through the introduction of unrelated material and (iii) introgression of new genes affecting newly defined traits of interest. Depending on the purpose of upgrading, a back-up of the original base population which underwent some type of relaxed selection could already fulfil most of the requirements made. Otherwise, narrow breeding or backcross populations, superior families or other so-called elite breeding material could be useful in broadening the genetic base of the respective base population. After creation of the base population it may be worthwhile estimating the overall performance of the population. In general, populations with a large phenotypic variation have lower means than those with a narrow base.
+
+### Considerations for selected base population
+
+- Random mating: Practically, the concept of HW equilibrium in reference population is most often violated. However, importantly response to selection is not obvious (or mean and variance of the population may be different from those of its next generation) in a non-equilibriated population^[Selection starting from poorly
+equilibrated base populations is like gambling.].
+- Mutation
+- Migration
+- Random drift
+- Natural selection
+  
+\clearpage
+
+# References

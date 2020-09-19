@@ -1,0 +1,282 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  answers,addpoints,12pt]{exam}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Numerical solutions to some problems in Plant Breeding},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[top=1.5cm,bottom=1.5cm,left=1.5cm,right=1.5cm]{geometry}
+\usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% \usepackage{exam}
+
+\newcommand{\bquestions}{\begin{questions}}
+\newcommand{\equestions}{\end{questions}}
+\newcommand{\bsolution}{\begin{solution}}
+\newcommand{\esolution}{\end{solution}}
+\newcommand{\bparts}{\begin{parts}}
+\newcommand{\eparts}{\end{parts}}
+\newcommand{\stpart}{\part} % this is absolutely necessary to make new part command
+\newcommand{\bsubparts}{\begin{subparts}}
+\newcommand{\esubparts}{\end{subparts}}
+\newcommand{\stsubpart}{\subpart}
+
+% solution environment is a minipage and cannot support float so, always use "HOLD_position" 
+\usepackage{float} % this package is essential for solution with code
+
+% eqnarray is better avoided, most suggestion lead to \align provided in amsmath
+% also split is used when there are very long lines of equation
+% for different expression of the same equation use line separator \\ and use \notag or \nonumber
+\usepackage{eqnarray, amsmath}
+
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{caption}
+
+\title{Numerical solutions to some problems in Plant Breeding}
+\author{Deependra Dhakal\\
+Gokuleshwor Agriculture and Animal Science College, Baitadi, Nepal}
+\date{9/18/2020}
+
+\begin{document}
+\maketitle
+
+\hypertarget{solution-to-exam-qustions}{%
+\section{Solution to Exam Qustions}\label{solution-to-exam-qustions}}
+
+\bquestions
+
+\question[4] \label{quest:first}
+
+Mention different factors that affect gene and genotype frequencies. A population consisting of 10,000 individual, 25 individuals are of ``aa'' genotype. If the population is in Hardy-Weinberg equilibrium, find the gene and genotype frequencies of that population.
+
+\bsolution (Question \ref{quest:first})
+
+Refer to lecture note on Genetic Composition of Cross Pollinated Crops for factors affecting gene and genotype frequencies.
+
+\underline{Numerical}
+
+Total population (\(N\)) = 10000
+
+Number of individuals of \(aa\) genotype = 25
+
+Since the population is in HW equilibrium, gene and genotype frequencies of the population stay constant over generations, i.e.
+
+Gene frequencies = \(p^2 + q^2 = 1\), and
+
+Genotype frequencies = \(p^2AA + 2pqAa + q^2aa = 1\)
+
+So,
+
+\(\rightarrow\) genotype frequency of homozygous recessive \(aa\)(\(q^2\)) = \(\frac{25}{10000}\) = 0.0025
+
+\(\rightarrow\) gene frequency of minor allele \(a\)(\(q\)) = \(\sqrt{\frac{25}{10000}}\) = 0.05
+
+\(\rightarrow\) gene frequency of major allele \(A\)(\(p\)) = \(1 - p\) = 0.95
+
+\(\rightarrow\) genotype frequency of heterogygous \(Aa\)(\(2pq\)) = 0.095
+
+\(\rightarrow\) genotype frequency of homozygous dominant \(AA\)(\(p^2\)) = 0.9025
+
+\esolution
+
+\question[4] Calculate gametic and phenotypic frequencies of GGGg individuals after selfing. Also, write types of genotype and phenotype.
+
+\bsolution
+
+Let us assume tetraploid from only bivalents during pairing. If we start with a GGGg plant and self it we can deduce the frequency of possible gametes for the given genotype as:
+
+\begin{figure}[H]
+\includegraphics[width=0.5\linewidth]{plant_breeding_solution1_files/figure-latex/diagram-gamete-1} \caption{Pairing of chromosomes of gametes in a tetraploid of genotype AAAa}\label{fig:diagram-gamete}
+\end{figure}
+
+Here, following proportion of gametes are formed:
+
+\begin{table}[H]
+
+\caption{\label{tab:gamete-proportion}Proportion of gametes formed by segregation of bivalents in a tetraploid of genotype AAAa}
+\centering
+\begin{tabular}[t]{lrr}
+\toprule
+Gamete & Number & Proportion\\
+\midrule
+Aa & 3 & 0.5\\
+AA & 3 & 0.5\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Now, if selfing were to be performed in the individual of genotype of AAAa, following outcome of progeny genotypes is possible:
+
+\captionsetup[table]{labelformat=empty,skip=1pt}
+\begin{longtable}{lll}
+\toprule
+& \multicolumn{2}{c}{Male} \\ 
+ \cmidrule(lr){2-3}
+ & AA & Aa \\ 
+\midrule
+\multicolumn{1}{l}{Female} \\ 
+\midrule
+AA & AAAA & AAAa \\ 
+Aa & AaAA & AaAa \\ 
+\bottomrule
+\end{longtable}
+
+It could be observed that out of 3 genotypes are possible and (based on dominance hypothesis) only one phenotype results in the progeny.
+
+\esolution
+
+\question[4] What are advantages of partial diallel cross ? Make a partial diallel scheme involving 8 parents.
+\label{quest:diallel}
+
+\bsolution (Question \ref{quest:diallel})
+
+Features of a diallel cross design are:
+
+\begin{itemize}
+\item Not all the crosses are made.
+\item There are no reciprocals or selfs.
+\end{itemize}
+
+The goal is to reduce the breeding workload for a given sample of parents by making less than \(\frac{n(n-1)}{2}\) crosses for n parents.
+
+With the partial scheme of diallel cross, same number of parents could be tested in a framework with fewer crosses. The number of crosses in a partial diallel scheme is given by,
+
+\[
+x = \frac{n \times s}{2}
+\]
+
+By analogy, we could have said that large number of lines could be tested with lesser crossings under diallel scheme. Rearranging the above relationship, \(\large n = \frac{2x}{s}\).
+
+Further, there is restriction as to how \(s\) should is selected, for example, is \(s = n -1\) it gives half diallel cross. \(s\) is a whole number greater than or equal to 2, and \(k\) is a whole number -- \(k = \frac{n + 1 - s}{2}\).
+
+Here (Table \ref{tab:partial-diallel-8p-table}) is for example diallel cross involving 8 parental lines and 5 set of cross involving each parent,
+
+\begingroup\fontsize{8}{10}\selectfont
+
+\begin{longtable}[t]{rllllllll}
+\caption{\label{tab:partial-diallel-8p-table}Partial diallel cross involving 8 parents combined in 5 set of crossess each.}\\
+\toprule
+p & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8\\
+\midrule
+\rowcolor{gray!6}  1 &  &  & 3 x 1 & 4 x 1 & 5 x 1 & 6 x 1 & 7 x 1 & \\
+2 &  &  &  & 4 x 2 & 5 x 2 & 6 x 2 & 7 x 2 & 8 x 2\\
+\rowcolor{gray!6}  3 &  &  &  &  & 5 x 3 & 6 x 3 & 7 x 3 & 8 x 3\\
+4 &  &  &  &  &  & 6 x 4 & 7 x 4 & 8 x 4\\
+\rowcolor{gray!6}  5 &  &  &  &  &  &  & 7 x 5 & 8 x 5\\
+\addlinespace
+6 &  &  &  &  &  &  &  & 8 x 6\\
+\rowcolor{gray!6}  7 &  &  &  &  &  &  &  & \\
+8 &  &  &  &  &  &  &  & \\
+\bottomrule
+\end{longtable}
+\endgroup{}
+
+\esolution
+
+\question[4] For a quantitative trait in RMP, mean is 100 and variation is 240. The regression of the offspring on mid-parent value is 0.25. Truncation selection is practiced with a selection differential of 32. What is the expected mean in the next generation ?
+
+\bsolution
+
+\underline{Numerical}
+
+Given,
+
+Mean (\(\mu_0\)) = 100
+
+Variation (\(\sigma^2\)) = 240
+
+Regression of offspring on mid-parent value (\(b\)) = 0.25
+
+Selection differential (\(\mu_s - \mu_0\)) = 32
+
+We know that the performance of a selected population after applying selection differential:
+
+\begin{align}
+S &= \sqrt{\sigma^2} i \notag \\
+  &= \sqrt{240} i \notag \\
+i &= \frac{S}{\sqrt{240}} \notag
+\end{align}
+
+Thus, \(\rightarrow\) \(i\) = 2.0655911. And we know that \(b = h^2_{ns}\), so:
+
+\(\rightarrow\) \(R = \sigma i h^2\) = 8
+
+Hence, the expected mean of next (progeny) generation (\(P\)) = \(\mu_0 + \sigma i h^2\) = 108.
+
+\esolution
+\equestions
+
+\end{document}
