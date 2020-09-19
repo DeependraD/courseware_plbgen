@@ -7,7 +7,7 @@ output:
   tint::tintPdf:
     keep_tex: true
 tables: yes
-bibliography: [skeleton.bib, bibliographies.bib]
+bibliography: ["skeleton.bib", "../bibliographies.bib"]
 link-citations: yes
 header-includes:
   - \usepackage{booktabs}
@@ -27,9 +27,9 @@ header-includes:
 ---
 
 ```{r setup, include=FALSE}
+require(tidyverse)
 library(tint)
 library(knitr)
-require(tidyverse)
 require(plantbreeding)
 set.seed(453)
 # invalidate cache when the package version changes
@@ -41,6 +41,42 @@ options(knitr.table.format = "latex")
 options(knitr.kable.NA = "", digits = 2)
 options(kableExtra.latex.load_packages = FALSE)
 ```
+
+
+```{r partial-dial-fun}
+partial_dial <- function(n, s, display_mat = c("upper", "lower", "reciprocal")) {
+  n <- as.integer(n) # total number of parents
+  s <- as.integer(s) # sets of crossess for parent "j" in 1:n
+  k <- (n + 1L - s)/2L # possible whole number values for given "n" and "s"
+  display <- match.arg(display_mat)
+  
+  stopifnot( all(k == floor(k)) ) # ensure k is integer
+  parent_names <- paste("p", 1:n, sep = "")
+  
+  partial_matrix <- matrix(nrow = s, ncol = n)
+  
+  for(i in 1:s) {
+    for(j in 1:n) {
+      if(display == "reciprocal"){
+        if(j > (n-k-i+1) )
+          partial_matrix[i, j] <- paste(j, "x", (i+k+j-1)-n)
+        else
+          partial_matrix[i, j] <- paste(j, "x", i+k+j-1)
+      }
+      if(display == "upper"){
+        if(j < (n-k-i+1) )
+          partial_matrix[i, j] <- paste(j, "x", i+k+j-1)
+      }
+      else
+        if(j > (n-k-i+1) )
+          partial_matrix[i, j] <- paste(j, "x", (i+k+j-1)-n)
+    }
+  }
+  colnames(partial_matrix) <- parent_names
+  return(partial_matrix)
+}
+```
+
 
 \clearpage
 
@@ -202,29 +238,109 @@ mating_mat %>%
 
 3. Partial diallel: Not all the crosses are made. There are no reciprocals or selfs. The goal is to reduce the breeding workload for a given sample of parents by making less than $\frac{n(n-1)}{2}$ crosses for n parents (Table \ref{tab:partial-diallel}).
 
-```{r partial-diallel}
-# Partial diallel mating scheme
+With the partial scheme of diallel cross, same number of parents could be tested in a framework with fewer crosses. The number of crosses in a partial diallel scheme is given by,
 
-ten_ind <- gl(10, k = 1, ordered = T, labels = paste("P", 1:10, sep = ""))
-mating_mat <- cross_df(.l = list(M = ten_ind, F = ten_ind)) %>% 
-  unite(col = "cross", sep = " x ", remove = F) %>% 
-  spread(key = F, value = cross) %>% 
-  dplyr::rename(Parents = M)
+$$
+x = \frac{n \times s}{2}
+$$
 
-mating_mat[,-1][upper.tri(mating_mat[,-1], diag = TRUE)] = NA
-mating_mat[,-1] <- mating_mat[,-1] %>% 
-  mutate_all(.funs = list(~replace(., sample(1:10, 
-                                            size = sample(1:5, size = 1, replace = TRUE), 
-                                            replace = FALSE), NA)))
+By analogy, we could have said that large number of lines could be tested with lesser crossings under diallel scheme. Rearranging the above relationship, $\large n = \frac{2x}{s}$.
 
-# mating_mat[sample(1:10, 2, replace = TRUE), sample(1:10, 3, replace = TRUE)]
+Further, there is restriction as to how $s$ should is selected, for example, is $s = n -1$ it gives half diallel cross. $s$ is a whole number greater than or equal to 2, and $k$ is a whole number -- $k = \frac{n + 1 - s}{2}$.
+
+Each parent occurs in $s$ crosses, hence the number of crosses sampled is $ns/2$. For this to be true, For k to be a whole number, we do not want both $n$ and $s$ to be odd or both even.
+
+Now let's return to our previous example, with number of parents ($n$) to be 10. With $n = 10$ we definitely want each parent to occur in at least 2 sets of crosses. But, note that number of parents too is positive (10). Hence, we even values of $s$ is not allowed. Thus value of $s$ could be anywhere in $\{3, 5, 7, 9\}$. We could also verify that even values of $s$ does not satisfy the requirement for $k$ to be a wholenumber.
+
+For $s = 2$, $k = \frac{n + 1 - s}{2} = \frac{10 + 1 - 2}{2} = \frac{9}{2} \neq \textrm{whole number}$
+
+For $s = 4$, $k = \frac{n + 1 - s}{2} = \frac{10 + 1 - 4}{2} = \frac{7}{2} \neq \textrm{whole number}$, and so on.
+
+
+<!-- ```{r partial-diallel} -->
+<!-- # Partial diallel mating scheme -->
+
+<!-- ten_ind <- gl(10, k = 1, ordered = T, labels = paste("P", 1:10, sep = "")) -->
+<!-- mating_mat <- cross_df(.l = list(M = ten_ind, F = ten_ind)) %>%  -->
+<!--   unite(col = "cross", sep = " x ", remove = F) %>%  -->
+<!--   spread(key = F, value = cross) %>%  -->
+<!--   dplyr::rename(Parents = M) -->
+
+<!-- mating_mat[,-1][upper.tri(mating_mat[,-1], diag = TRUE)] = NA -->
+<!-- mating_mat[,-1] <- mating_mat[,-1] %>%  -->
+<!--   mutate_all(.funs = list(~replace(., sample(1:10,  -->
+<!--                                             size = sample(1:5, size = 1, replace = TRUE),  -->
+<!--                                             replace = FALSE), NA))) -->
+
+<!-- # mating_mat[sample(1:10, 2, replace = TRUE), sample(1:10, 3, replace = TRUE)] -->
+
+<!-- mating_mat %>% -->
+<!--   knitr::kable(caption = "Partial diallel mating scheme using 10 parents",  -->
+<!--                booktabs = TRUE, digits = 2, longtable = TRUE) %>%  -->
+<!--   kableExtra::kable_styling(latex_options = "striped", font_size = 8) %>%  -->
+<!--   kableExtra::column_spec(1, bold = TRUE) %>%  -->
+<!--   kableExtra::column_spec(column = 1:11, width = "3.5em") -->
+<!-- ``` -->
+
+
+```{r partial-diallel-calculated}
+diallel_comparison_partial <- tribble(
+  ~"design", ~"s",
+  "partial", 2, 
+  "partial", 3, 
+  "partial", 4, 
+  "partial", 5, 
+  "partial", 6, 
+  "partial", 7, 
+  "partial", 8, 
+  "partial", 9, 
+  "full", NA, 
+  "half", NA
+) %>% 
+  mutate(
+    number_of_crosses = case_when(
+    design == "partial" ~ 10 * s/2,
+    design == "full" ~ 10 * 10, 
+    design == "half" ~ 10 * (10-1)/2, 
+    TRUE ~ NA_real_), 
+    k = case_when(
+      design == "partial" ~ (10 + 1 - s)/2,
+      TRUE ~ NA_real_)
+    )
   
-mating_mat %>%
-  knitr::kable(caption = "Partial diallel mating scheme using 10 parents", 
-               booktabs = TRUE, digits = 2, longtable = TRUE) %>% 
-  kableExtra::kable_styling(latex_options = "striped", font_size = 8) %>% 
-  kableExtra::column_spec(1, bold = TRUE) %>% 
-  kableExtra::column_spec(column = 1:11, width = "3.5em")
+# diallel_comparison_partial %>%
+#   knitr::kable(booktabs = TRUE, col.names = c("Design", "$s$", "Number of Crosses", "$k$"), escape = FALSE) %>%
+#   kableExtra::kable_styling() #%>%
+  # kableExtra::collapse_rows(1:2, row_group_label_position = "stack", latex_hline = "major")
+
+```
+
+Here (Table \ref{tab:partial-diallel-10p-table}) is for example diallel cross involving 10 parental lines and 7 set of cross involving each parent,
+
+```{r partial-diallel-10p-data}
+# # # generate partial design tidily ?
+# diallel_comparison_partial %>%
+#   filter(design == "partial") %>%
+#   filter((s %% 2) == 1)
+
+partial_diallel_10p <- partial_dial(n = 10, s = 5, display_mat = "lower") %>% 
+  as_tibble() %>% 
+  pivot_longer(cols = 1:10, names_to = "parent1", values_to = "cross") %>% ## using external vector is uncommon for dplyr so add `all_of`
+  dplyr::select(-parent1) %>% 
+  dplyr::filter(!is.na(cross)) %>% 
+  separate(col = cross, into = c("p1", "p2"), sep = c(" x "), remove = FALSE) %>%
+  mutate_at(vars(p1, p2), as.numeric) %>% 
+  complete(expand_grid(p1 = 1:10, p2 = 1:10)) %>%
+  pivot_wider(names_from = p1, values_from = cross) %>% 
+  dplyr::rename("p" = p2) 
+
+```
+
+
+```{r partial-diallel-10p-table}
+partial_diallel_10p %>% 
+  knitr::kable(booktabs = TRUE, caption = "Partial diallel cross involving 10 parents combined in 7 set of crossess each.", escape = FALSE, longtable = TRUE) %>% 
+  kableExtra::kable_styling(latex_options = c("striped", "HOLD_position"), font_size = 8)
 ```
 
 
@@ -348,7 +464,7 @@ Griffing's analysis of a diallel is by analysis of variance, where the total var
 Degrees of freedom (df), sum of squares (SS) and mean squares (MSq) from the analysis of variance for Method 1 for the assumption of model 1 (fixed effects) are shown in Table \ref{tab:complete-diallel-fixed}
 
 ```{r complete-diallel-fixed,echo=FALSE}
-complete_diallel1 <- read_csv("./../data/full_diallel_fixed_anova.csv")
+complete_diallel1 <- read_csv("../plb221_presentation/data/full_diallel_fixed_anova.csv")
 
 complete_diallel1 %>% 
   kable(format = "latex", booktabs = TRUE, escape = FALSE, caption = "Degrees of freedom, sum of squares and mean squares from the analysis of variance of a full diallel including parent selfs (Method 1) assuming fixed effects. Also shown are the expectations for the mean squares") %>% 
@@ -356,7 +472,7 @@ complete_diallel1 %>%
 ```
 
 ```{r complete-diallel-random,echo=FALSE}
-complete_diallel2 <- read_csv("./../data/full_diallel_random_anova.csv")
+complete_diallel2 <- read_csv("../plb221_presentation/data/full_diallel_random_anova.csv")
 
 complete_diallel2 %>% 
   kable(format = "latex", booktabs = TRUE, escape = FALSE, caption = "Degrees of freedom, sum of squares and mean squares from the analysis of variance of a full diallel including parent selfs (Method 1) assuming random effects. Also shown are the expectations for the mean squares.") %>% 
@@ -365,7 +481,7 @@ complete_diallel2 %>%
 
 
 ```{r half-diallel-fixed,echo=FALSE}
-half_diallel1 <- read_csv("./../data/half_diallel_fixed_anova.csv")
+half_diallel1 <- read_csv("../plb221_presentation/data/half_diallel_fixed_anova.csv")
 
 half_diallel1 %>% 
   kable(format = "latex", booktabs = TRUE, escape = FALSE, caption = "Degrees of freedom, sum of squares and mean squares from the analysis of variance of a half diallel including parent selfs (Method 2), assuming fixed effects. Also shown are the expectations for the mean squares.") %>% 
@@ -374,7 +490,7 @@ half_diallel1 %>%
 
 
 ```{r half-diallel-random,echo=FALSE}
-half_diallel2 <- read_csv("./../data/half_diallel_random_anova.csv")
+half_diallel2 <- read_csv("../plb221_presentation/data/half_diallel_random_anova.csv")
 
 half_diallel2 %>% 
   kable(format = "latex", booktabs = TRUE, escape = FALSE, caption = "Degrees of freedom, sum of squares and mean squares from the analysis of variance of a half diallel including parent selfs (Method 2) assuming random effects. Also shown are the expectations for the mean squares.") %>% 
@@ -415,8 +531,8 @@ Throughout the growth of this experiment a number of different traits were recor
 The average plant height of each of the 45$F_1$s and the 10 parents are shown in Table \ref{tab:half-diallel-pht}. The data used were the average of two plant heights (cms) as two representative plants were measured in each of the replicate plots.
 
 ```{r half-diallel-pht, echo=FALSE}
-half_diallel_pht <- read_csv("./../data/half_diallel_fixed_example_height.csv") %>% 
-  rename(" " = "X1")
+half_diallel_pht <- read_csv("../plb221_presentation/data/half_diallel_fixed_example_height.csv") %>% 
+  dplyr::rename(" " = "X1")
 
 half_diallel_pht %>% 
   kable(format = "latex", booktabs = TRUE, 
@@ -429,8 +545,8 @@ half_diallel_GCA <- half_diallel_pht %>% slice(11)
 
 half_diallel_pht <- half_diallel_pht %>% slice(-11) %>% select(-1)
 
-# fill up lower matrix to make complete matrix
-half_diallel_pht[upper.tri(half_diallel_pht, diag = FALSE)] <- t(half_diallel_pht)[upper.tri(half_diallel_pht, diag = FALSE)]
+# # fill up lower matrix to make complete matrix
+# half_diallel_pht[upper.tri(half_diallel_pht, diag = FALSE)] <- t(half_diallel_pht)[upper.tri(half_diallel_pht, diag = FALSE)]
 
 half_diallel_pht <- half_diallel_pht %>% 
   mutate_all(list(~as.numeric(.)))
@@ -446,7 +562,7 @@ half_diallel_pht_clean <- half_diallel_pht %>%
 half_diallel_pht_clean %>%
   group_by(Genotype_female) %>% 
   summarise_at("Values", .funs = list(GCA = ~ mean(., na.rm = TRUE)-mean(colMeans(half_diallel_pht)))) %>% 
-  rename("Genotype" = "Genotype_female") %>% 
+  dplyr::rename("Genotype" = "Genotype_female") %>% 
   kable(format = "latex", booktabs = TRUE, escape = TRUE, 
         caption = "GCA of 10 parents in a half diallel with selfs") %>% 
   kableExtra::kable_styling(latex_options = "striped", font_size = 8)
@@ -469,7 +585,7 @@ Table \ref{tab:half-diallel-pht2-gca} shows the GCA values for second replicatio
 half_diallel_pht2_clean %>%
   group_by(Genotype_female) %>% 
   summarise_at("Values", .funs = list(GCA = ~ mean(., na.rm = TRUE)-mean(colMeans(half_diallel_pht)))) %>% 
-  rename("Genotype" = "Genotype_female") %>%
+  dplyr::rename("Genotype" = "Genotype_female") %>%
   kable(format = "latex", booktabs = TRUE, escape = TRUE, 
         caption = "GCA of 10 parents in a half diallel with selfs") %>% 
   kableExtra::kable_styling(latex_options = "striped", font_size = 8)

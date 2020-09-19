@@ -37,7 +37,7 @@ require(tidyverse)
 ---
 
 ```{r ploidy-grape, fig.cap="Polyploids in grape", out.height="400px", out.width="auto"}
-knitr::include_graphics("../images/polyploidy_grapes.png")
+knitr::include_graphics("./images//polyploidy_grapes.png")
 ```
 
 ---
@@ -51,7 +51,7 @@ knitr::include_graphics("../images/polyploidy_grapes.png")
 ---
 
 ```{r wheat-ploidy, fig.cap="Polyploidization in common wheat", out.height="400px", out.width="auto"}
-knitr::include_graphics("../images/wheat_ploidy.png")
+knitr::include_graphics("./images//wheat_ploidy.png")
 ```
 
 ---
@@ -76,7 +76,7 @@ knitr::include_graphics("../images/wheat_ploidy.png")
 ---
 
 ```{r ploidy-description, fig.cap="Ploidy description", out.height="400px", out.width="auto"}
-knitr::include_graphics("../images/ploidy_description.png")
+knitr::include_graphics("./images//ploidy_description.png")
 ```
 
 ---
@@ -110,7 +110,7 @@ knitr::include_graphics("../images/ploidy_description.png")
 ---
 
 ```{r ploidy-genetics, fig.cap="Genetics of polyploidy", out.height="400px", out.width="auto"}
-knitr::include_graphics("../images/allele_genetics_polyploidy.png")
+knitr::include_graphics("./images//allele_genetics_polyploidy.png")
 ```
 
 ---
@@ -121,19 +121,19 @@ knitr::include_graphics("../images/allele_genetics_polyploidy.png")
 ---
 
 ```{r gamete-frequency-ploids, fig.cap="Autotetraploid assortment of gamete", out.height = "400px", out.width="auto"}
-knitr::include_graphics("../images/gamete_frequency_ploidy.png")
+knitr::include_graphics("./images//gamete_frequency_ploidy.png")
 ```
 
 ---
 
 ```{r dominance-phenotypes, fig.cap="Dominant and recessive phenotypes of an autotetraploid cross", out.height = "400px", out.width="auto"}
-knitr::include_graphics("../images/dominance_and_phenotype.png")
+knitr::include_graphics("./images//dominance_and_phenotype.png")
 ```
 
 ---
 
 ```{r inbreeding-effects, fig.cap = "Effects of inbreeding in autoploids", out.height="400px", out.width="auto"}
-knitr::include_graphics("../images/inbreeding_autoploids.png")
+knitr::include_graphics("./images//inbreeding_autoploids.png")
 ```
 
 ---
@@ -179,19 +179,19 @@ knitr::include_graphics("../images/inbreeding_autoploids.png")
 ---
 
 ```{r natural-alloploids, fig.cap="Natural alloploidization of Brassica", out.height="400px", out.width="auto"}
-knitr::include_graphics("../images/natural_alloploids.png")
+knitr::include_graphics("./images//natural_alloploids.png")
 ```
 
 ---
 
 ```{r production-allopolyploids, fig.cap = "Production of allopolyploids", out.height="400px", out.width="auto"}
-knitr::include_graphics("../images/production_of_alloploids.png")
+knitr::include_graphics("./images//production_of_alloploids.png")
 ```
 
 ---
 
 ```{r aneuploids-nomenclature, fig.cap="Nomenclature of aneuploids", out.height="400px", out.width="auto"}
-knitr::include_graphics("../images/aneuploids_nomenclature.png")
+knitr::include_graphics("./images//aneuploids_nomenclature.png")
 ```
 
 ---

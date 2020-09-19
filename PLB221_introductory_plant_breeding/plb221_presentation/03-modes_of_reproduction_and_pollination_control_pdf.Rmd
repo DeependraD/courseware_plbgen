@@ -38,8 +38,6 @@ options(kableExtra.latex.load_packages = FALSE)
 knitr::include_graphics("./images/Maize_inbred.jpg")
 ```
 
-# Modes of reproduction
-
 ## Sexual reproduction
 
 - Involves fusion of male and female gametes 
@@ -55,6 +53,12 @@ knitr::include_graphics("./images/Maize_inbred.jpg")
 
 ##
 
+- Female gametophyte contains the egg cell and central cell that become fertilized and give rise to the embryo and endosperm of the seed, respectively. 
+- It's development begins early in ovule development with the formation of a diploid megaspore mother cell that undergoes meiosis. One resulting haploid megaspore then develops into the female gametophyte.
+
+##
+
+
 ```{r plant-fertilization, fig.cap="Fertilization in plants", fig.align='center', out.width="38%"}
 # pdftools::pdf_convert("./references_plb/Rolf H. J. Schlegel - Encyclopedic Dictionary of Plant Breeding and Related Subjects-The Food Products Press (2003).pdf", pages = 563, format = "png", filenames = "./images/fertilization_in_self_pollinated_species.png", dpi = 300)
 knitr::include_graphics("./images/fertilization_in_self_pollinated_species.png")
@@ -65,7 +69,40 @@ knitr::include_graphics("./images/fertilization_in_self_pollinated_species.png")
 ```{r sporogenesis, fig.cap="Embryo sac and pollen formation", out.width="38%", fig.align='center'}
 # pdftools::pdf_convert("./references_plb/Rolf H. J. Schlegel - Encyclopedic Dictionary of Plant Breeding and Related Subjects-The Food Products Press (2003).pdf", pages = 554, format = "png", filenames = "./images/sporogenesis.png", dpi = 300)
 knitr::include_graphics("./images/sporogenesis.png")
+
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3268550/ has more info on female gametophyte
 ```
+
+# Alternation of generation in flowering plants
+
+##
+
+```{r alternation-generation, fig.cap="Alternation of generations", fig.align='center', out.width="60%"}
+# pdftools::pdf_convert("./references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 110, format = "png", filenames = "./images/alternation_of_generations.png", dpi = 300)
+knitr::include_graphics("./images/alternation_of_generations.png")
+```
+
+##
+
+\begin{columns}[T,onlytextwidth]
+  
+  \column{0.5\linewidth}
+  \footnotesize
+
+```{r hybrid, fig.cap="Hybrid", fig.show='hold', out.width="60%"}
+knitr::include_graphics("./images/Teosinte_maize_hybrid_cross.jpg")
+```
+
+  \column{0.5\linewidth}
+  \footnotesize
+  
+```{r openpollinated, fig.cap="Open pollinated", fig.show='hold', out.width="80%"}
+knitr::include_graphics("./images/cross_pollinated_mustard.jpg")
+```
+
+\end{columns}
+
+# Modes of reproduction
 
 ## Autogamy/Self-pollination
 
@@ -332,35 +369,6 @@ knitr::include_graphics("./images/cgms_systems.png")
 ## Sexuality versus asexuality 
 
 - Sexually reproducing species are capable of providing seed through sexual means. Asexuality manifests in one of two ways - vegetative reproduction (in which no seed is produced) or agamospermy (in which seed is produced).
-
-# Alternation of generation in flowering plants
-
-##
-
-```{r alternation-generation, fig.cap="Alternation of generations", fig.align='center', out.width="60%"}
-# pdftools::pdf_convert("./references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 110, format = "png", filenames = "./images/alternation_of_generations.png", dpi = 300)
-knitr::include_graphics("./images/alternation_of_generations.png")
-```
-
-##
-
-\begin{columns}[T,onlytextwidth]
-  
-  \column{0.5\linewidth}
-  \footnotesize
-
-```{r hybrid, fig.cap="Hybrid", fig.show='hold', out.width="60%"}
-knitr::include_graphics("./images/Teosinte_maize_hybrid_cross.jpg")
-```
-
-  \column{0.5\linewidth}
-  \footnotesize
-  
-```{r openpollinated, fig.cap="Open pollinated", fig.show='hold', out.width="80%"}
-knitr::include_graphics("./images/cross_pollinated_mustard.jpg")
-```
-
-\end{columns}
 
 # Types of cultivar
 

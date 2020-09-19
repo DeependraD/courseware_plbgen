@@ -69,7 +69,7 @@
 % title / author / date
 \title{Crossing plans}
 \author{Deependra Dhakal}
-\date{2019-06-06}
+\date{2020-07-23}
 
 %% -- tint overrides
 %% fonts, using roboto (condensed) as default
@@ -375,7 +375,7 @@ and its variations are as follows:
 
 \begingroup\fontsize{10}{12}\selectfont
 
-\begin{longtable}{>{\raggedright\arraybackslash}p{3em}>{\raggedleft\arraybackslash}p{3em}>{\raggedleft\arraybackslash}p{3em}>{\raggedleft\arraybackslash}p{3em}>{\raggedleft\arraybackslash}p{3em}>{\raggedleft\arraybackslash}p{3em}>{\raggedleft\arraybackslash}p{3em}>{\raggedleft\arraybackslash}p{3em}>{\raggedleft\arraybackslash}p{3em}>{\raggedleft\arraybackslash}p{3em}>{\raggedleft\arraybackslash}p{3em}}
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{3em}>{\raggedleft\arraybackslash}p{3em}>{\raggedleft\arraybackslash}p{3em}>{\raggedleft\arraybackslash}p{3em}>{\raggedleft\arraybackslash}p{3em}>{\raggedleft\arraybackslash}p{3em}>{\raggedleft\arraybackslash}p{3em}>{\raggedleft\arraybackslash}p{3em}>{\raggedleft\arraybackslash}p{3em}>{\raggedleft\arraybackslash}p{3em}>{\raggedleft\arraybackslash}p{3em}}
 \caption{\label{tab:fabricated-diallel}Fabricated data from a diallel cross scheme using 10 parents}\\
 \toprule
 Parents & P1 & P2 & P3 & P4 & P5 & P6 & P7 & P8 & P9 & P10\\
@@ -402,13 +402,13 @@ obtained by adding together all the individual parents' total. The
 individual parents' sum and grand total is shown in the Table
 \ref{tab:sum-over-ind} below.
 
-\begin{table}[t]
+\begin{table}
 
 \caption{\label{tab:sum-over-ind}Totals of individual lines and grand total of diallel cross
  scheme using 10 parents}
 \centering
 \fontsize{10}{12}\selectfont
-\begin{tabular}{>{\bfseries}lr}
+\begin{tabular}[t]{>{\bfseries}lr}
 \toprule
 Parents & Line total\\
 \midrule
@@ -449,7 +449,7 @@ There are four types of popular diallel crossing designs:
 
 \begingroup\fontsize{8}{10}\selectfont
 
-\begin{longtable}{>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}}
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}}
 \caption{\label{tab:full-diallel}Full diallel mating scheme using 10 parents}\\
 \toprule
 Parents & P1 & P2 & P3 & P4 & P5 & P6 & P7 & P8 & P9 & P10\\
@@ -481,7 +481,7 @@ P10 & P10 x P1 & P10 x P2 & P10 x P3 & P10 x P4 & P10 x P5 & P10 x P6 & P10 x P7
 
 \begingroup\fontsize{8}{10}\selectfont
 
-\begin{longtable}{>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}}
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}}
 \caption{\label{tab:half-diallel}Half diallel mating scheme using 10 parents}\\
 \toprule
 Parents & P1 & P2 & P3 & P4 & P5 & P6 & P7 & P8 & P9 & P10\\
@@ -523,24 +523,64 @@ P10 & P10 x P1 & P10 x P2 & P10 x P3 & P10 x P4 & P10 x P5 & P10 x P6 & P10 x P7
   crosses for n parents (Table \ref{tab:partial-diallel}).
 \end{enumerate}
 
+With the partial scheme of diallel cross, same number of parents could
+be tested in a framework with fewer crosses. The number of crosses in a
+partial diallel scheme is given by,
+
+\[
+x = \frac{n \times s}{2}
+\]
+
+By analogy, we could have said that large number of lines could be
+tested with lesser crossings under diallel scheme. Rearranging the above
+relationship, \(\large n = \frac{2x}{s}\).
+
+Further, there is restriction as to how \(s\) should is selected, for
+example, is \(s = n -1\) it gives half diallel cross. \(s\) is a whole
+number greater than or equal to 2, and \(k\) is a whole number --
+\(k = \frac{n + 1 - s}{2}\).
+
+Each parent occurs in \(s\) crosses, hence the number of crosses sampled
+is \(ns/2\). For this to be true, For k to be a whole number, we do not
+want both \(n\) and \(s\) to be odd or both even.
+
+Now let's return to our previous example, with number of parents (\(n\))
+to be 10. With \(n = 10\) we definitely want each parent to occur in at
+least 2 sets of crosses. But, note that number of parents too is
+positive (10). Hence, we even values of \(s\) is not allowed. Thus value
+of \(s\) could be anywhere in \(\{3, 5, 7, 9\}\). We could also verify
+that even values of \(s\) does not satisfy the requirement for \(k\) to
+be a wholenumber.
+
+For \(s = 2\),
+\(k = \frac{n + 1 - s}{2} = \frac{10 + 1 - 2}{2} = \frac{9}{2} \neq \textrm{whole number}\)
+
+For \(s = 4\),
+\(k = \frac{n + 1 - s}{2} = \frac{10 + 1 - 4}{2} = \frac{7}{2} \neq \textrm{whole number}\),
+and so on.
+
+Here (Table \ref{tab:partial-diallel-10p-table}) is for example diallel
+cross involving 10 parental lines and 7 set of cross involving each
+parent,
+
 \begingroup\fontsize{8}{10}\selectfont
 
-\begin{longtable}{>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}}
-\caption{\label{tab:partial-diallel}Partial diallel mating scheme using 10 parents}\\
+\begin{longtable}[t]{rllllllllll}
+\caption{\label{tab:partial-diallel-10p-table}Partial diallel cross involving 10 parents combined in 7 set of crossess each.}\\
 \toprule
-Parents & P1 & P2 & P3 & P4 & P5 & P6 & P7 & P8 & P9 & P10\\
+p & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\
 \midrule
-\rowcolor{gray!6}  P1 &  &  &  &  &  &  &  &  &  & \\
-P2 & P2 x P1 &  &  &  &  &  &  &  &  & \\
-\rowcolor{gray!6}  P3 & P3 x P1 & P3 x P2 &  &  &  &  &  &  &  & \\
-P4 & P4 x P1 & P4 x P2 & P4 x P3 &  &  &  &  &  &  & \\
-\rowcolor{gray!6}  P5 &  & P5 x P2 &  & P5 x P4 &  &  &  &  &  & \\
+\rowcolor{gray!6}  1 &  &  &  & 4 x 1 & 5 x 1 & 6 x 1 & 7 x 1 & 8 x 1 &  & \\
+2 &  &  &  &  & 5 x 2 & 6 x 2 & 7 x 2 & 8 x 2 & 9 x 2 & \\
+\rowcolor{gray!6}  3 &  &  &  &  &  & 6 x 3 & 7 x 3 & 8 x 3 & 9 x 3 & 10 x 3\\
+4 &  &  &  &  &  &  & 7 x 4 & 8 x 4 & 9 x 4 & 10 x 4\\
+\rowcolor{gray!6}  5 &  &  &  &  &  &  &  & 8 x 5 & 9 x 5 & 10 x 5\\
 \addlinespace
-P6 & P6 x P1 &  &  & P6 x P4 & P6 x P5 &  &  &  &  & \\
-\rowcolor{gray!6}  P7 & P7 x P1 &  &  & P7 x P4 & P7 x P5 & P7 x P6 &  &  &  & \\
-P8 & P8 x P1 & P8 x P2 & P8 x P3 &  & P8 x P5 & P8 x P6 &  &  &  & \\
-\rowcolor{gray!6}  P9 & P9 x P1 & P9 x P2 & P9 x P3 & P9 x P4 &  & P9 x P6 & P9 x P7 &  &  & \\
-P10 & P10 x P1 & P10 x P2 & P10 x P3 &  &  & P10 x P6 &  & P10 x P8 & P10 x P9 & \\
+6 &  &  &  &  &  &  &  &  & 9 x 6 & 10 x 6\\
+\rowcolor{gray!6}  7 &  &  &  &  &  &  &  &  &  & 10 x 7\\
+8 &  &  &  &  &  &  &  &  &  & \\
+\rowcolor{gray!6}  9 &  &  &  &  &  &  &  &  &  & \\
+10 &  &  &  &  &  &  &  &  &  & \\
 \bottomrule
 \end{longtable}
 \endgroup{}
@@ -560,7 +600,7 @@ P10 & P10 x P1 & P10 x P2 & P10 x P3 &  &  & P10 x P6 &  & P10 x P8 & P10 x P9 &
 
 \begingroup\fontsize{8}{10}\selectfont
 
-\begin{longtable}{>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}ll}
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}ll}
 \caption{\label{tab:connected-diallel}Connected diallel mating scheme using 12 parents}\\
 \toprule
 Parents & P1 & P2 & P3 & P4 & P5 & P6 & P7 & P8 & P9 & P10 & P11 & P12\\
@@ -572,13 +612,13 @@ P4 & P4 x P1 & P4 x P2 & P4 x P3 &  &  &  &  &  & P4 x P9 &  &  & \\
 \rowcolor{gray!6}  P5 &  & P5 x P2 & P5 x P3 & P5 x P4 &  &  &  &  &  &  &  & \\
 \addlinespace
 P6 & P6 x P1 & P6 x P2 & P6 x P3 & P6 x P4 & P6 x P5 &  &  &  &  &  &  & \\
-\rowcolor{gray!6}  P7 & P7 x P1 &  &  &  &  &  &  &  &  & P7 x P10 &  & P7 x P12\\
-P8 &  &  &  &  &  &  &  &  & P8 x P9 &  &  & \\
-\rowcolor{gray!6}  P9 &  &  & P9 x P3 &  &  &  & P9 x P7 & P9 x P8 &  &  &  & P9 x P12\\
+\rowcolor{gray!6}  P7 & P7 x P1 &  &  &  &  &  &  &  & P7 x P9 &  & P7 x P11 & \\
+P8 &  &  &  &  &  &  &  &  &  &  &  & \\
+\rowcolor{gray!6}  P9 &  &  & P9 x P3 &  &  &  &  &  &  &  &  & \\
 P10 &  & P10 x P2 &  &  &  &  &  & P10 x P8 &  &  &  & \\
 \addlinespace
-\rowcolor{gray!6}  P11 &  &  &  &  &  &  &  &  &  & P11 x P10 &  & \\
-P12 &  &  &  &  &  &  & P12 x P7 & P12 x P8 &  &  & P12 x P11 & P12 x P12\\
+\rowcolor{gray!6}  P11 &  &  &  &  &  &  & P11 x P7 &  &  & P11 x P10 & P11 x P11 & \\
+P12 &  &  &  &  &  &  &  &  &  &  &  & P12 x P12\\
 \bottomrule
 \end{longtable}
 \endgroup{}
@@ -679,11 +719,11 @@ Degrees of freedom (df), sum of squares (SS) and mean squares (MSq) from
 the analysis of variance for Method 1 for the assumption of model 1
 (fixed effects) are shown in Table \ref{tab:complete-diallel-fixed}
 
-\begin{table}[t]
+\begin{table}
 
 \caption{\label{tab:complete-diallel-fixed}Degrees of freedom, sum of squares and mean squares from the analysis of variance of a full diallel including parent selfs (Method 1) assuming fixed effects. Also shown are the expectations for the mean squares}
 \centering
-\begin{tabular}{lllll}
+\begin{tabular}[t]{lllll}
 \toprule
 Source & df & SS & Msq & EMS\\
 \midrule
@@ -695,11 +735,11 @@ Error & $(r-1)p^2$ & $S_e$ & $M_e$ & $\sigma^2$\\
 \end{tabular}
 \end{table}
 
-\begin{table}[t]
+\begin{table}
 
 \caption{\label{tab:complete-diallel-random}Degrees of freedom, sum of squares and mean squares from the analysis of variance of a full diallel including parent selfs (Method 1) assuming random effects. Also shown are the expectations for the mean squares.}
 \centering
-\begin{tabular}{lllll}
+\begin{tabular}[t]{lllll}
 \toprule
 Source & df & SS & Msq & EMS\\
 \midrule
@@ -711,11 +751,11 @@ Error & $(r-1)p^2$ & $S_e$ & $M_e$ & $\sigma^2$\\
 \end{tabular}
 \end{table}
 
-\begin{table}[t]
+\begin{table}
 
 \caption{\label{tab:half-diallel-fixed}Degrees of freedom, sum of squares and mean squares from the analysis of variance of a half diallel including parent selfs (Method 2), assuming fixed effects. Also shown are the expectations for the mean squares.}
 \centering
-\begin{tabular}{lllll}
+\begin{tabular}[t]{lllll}
 \toprule
 Source & df & SS & Msq & EMS\\
 \midrule
@@ -726,11 +766,11 @@ Error & $(r-1)p\frac{p+1}{2}$ & $S_e$ & $M_e$ & $\sigma^2$\\
 \end{tabular}
 \end{table}
 
-\begin{table}[t]
+\begin{table}
 
 \caption{\label{tab:half-diallel-random}Degrees of freedom, sum of squares and mean squares from the analysis of variance of a half diallel including parent selfs (Method 2) assuming random effects. Also shown are the expectations for the mean squares.}
 \centering
-\begin{tabular}{lllll}
+\begin{tabular}[t]{lllll}
 \toprule
 Source & df & SS & Msq & EMS\\
 \midrule
@@ -853,7 +893,7 @@ are shown in Table \ref{tab:half-diallel-pht}. The data used were the
 average of two plant heights (cms) as two representative plants were
 measured in each of the replicate plots.
 
-\begin{longtable}{lrrrrrrrrrr}
+\begin{longtable}[t]{lrrrrrrrrrr}
 \caption{\label{tab:half-diallel-pht}Average plant height (cm) of each of the 45 F1s and the 10 parents in a half diallel with selfs (replication 1)}\\
 \toprule
   & Bijay & Swargadwari & WK-1204 & Aditya & Gautam & Tilottama & HD-2967 & Mayil & Borlaug-100 & BL-4341\\
@@ -881,12 +921,12 @@ interactions between replicates and other factors). Sum of squares (SS)
 and mean squares (MS) obtained are shown in Table
 \ref{tab:half-diallel-pht-anova}.
 
-\begin{table}[t]
+\begin{table}
 
 \caption{\label{tab:half-diallel-pht-gca}GCA of 10 parents in a half diallel with selfs}
 \centering
 \fontsize{8}{10}\selectfont
-\begin{tabular}{lr}
+\begin{tabular}[t]{lr}
 \toprule
 Genotype & GCA\\
 \midrule
@@ -909,44 +949,44 @@ Table \ref{tab:half-diallel-pht2-gca} shows the GCA values for second
 replication of the experiment for plant height data (actually
 simulated).
 
-\begin{table}[t]
+\begin{table}
 
 \caption{\label{tab:half-diallel-pht2-gca}GCA of 10 parents in a half diallel with selfs}
 \centering
 \fontsize{8}{10}\selectfont
-\begin{tabular}{lr}
+\begin{tabular}[t]{lr}
 \toprule
 Genotype & GCA\\
 \midrule
-\rowcolor{gray!6}  Aditya & -6.42\\
-Bijay & -0.99\\
-\rowcolor{gray!6}  BL-4341 & -3.66\\
-Borlaug-100 & -17.67\\
-\rowcolor{gray!6}  Gautam & -0.12\\
+\rowcolor{gray!6}  Aditya & -4.8\\
+Bijay & 2.8\\
+\rowcolor{gray!6}  BL-4341 & -3.6\\
+Borlaug-100 & -20.4\\
+\rowcolor{gray!6}  Gautam & -2.0\\
 \addlinespace
-HD-2967 & -8.94\\
-\rowcolor{gray!6}  Mayil & -9.27\\
-Swargadwari & 4.86\\
-\rowcolor{gray!6}  Tilottama & -6.68\\
-WK-1204 & -0.76\\
+HD-2967 & -5.9\\
+\rowcolor{gray!6}  Mayil & -10.8\\
+Swargadwari & 4.8\\
+\rowcolor{gray!6}  Tilottama & -7.4\\
+WK-1204 & -1.9\\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\begin{table}[t]
+\begin{table}
 
 \caption{\label{tab:half-diallel-pht-anova}Degrees of freedom, sum of squares and mean squares from the analysis of variance of plant height of a half diallel including parent selfs. In the analysis, the total variance is partitioned into differences between the two replicate blocks (replication), general combining ability (Genotype male), specific combining ability (Genotype male:Genotype female) and an error term (based based on the replicate differences)}
 \centering
 \resizebox{\linewidth}{!}{
 \fontsize{10}{12}\selectfont
-\begin{tabular}{lrrrrr}
+\begin{tabular}[t]{lrrrrr}
 \toprule
 term & df & sumsq & meansq & statistic & p.value\\
 \midrule
-\rowcolor{gray!6}  Genotype male & 9 & 5353 & 595 & 50 & 0\\
-replication & 1 & 874 & 874 & 73 & 0\\
-\rowcolor{gray!6}  Genotype male:Genotype female & 45 & 14241 & 316 & 27 & 0\\
-Residuals & 54 & 644 & 12 &  & \\
+\rowcolor{gray!6}  Genotype male & 9 & 5842 & 649 & 61 & 0\\
+replication & 1 & 909 & 909 & 85 & 0\\
+\rowcolor{gray!6}  Genotype male:Genotype female & 45 & 16340 & 363 & 34 & 0\\
+Residuals & 54 & 575 & 11 &  & \\
 \bottomrule
 \end{tabular}}
 \end{table}
@@ -1040,7 +1080,7 @@ that plant height at the \(F_1\) stage in this \emph{B. napus} breeding
 program can be predicted with good accuracy, depending upon the general
 combining ability of the chosen parental lines.
 
-\bibliography{skeleton.bib,bibliographies.bib}
+\bibliography{skeleton.bib,../bibliographies.bib}
 
 
 

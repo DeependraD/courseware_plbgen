@@ -343,9 +343,13 @@ class: inverse, middle, center
 
 ## Additive
 
+*Note: Refer to Lecture 10 (Heterosis and inbreeding depression) of Introductory Plant Breeding Course.
+
 ---
 
 # Gene interaction
+
+*Note: Refer to Lecture 7 (Gene Action and Interaction) of Introductory Genetics course.
 
 ---
 class: center, middle, inverse
@@ -373,8 +377,11 @@ $$V_{P} = V_{G} + V_{E} + V_{GE}$$
 Where,
 
 $V_P$ = Observed phenotypic variance
+
 $V_G$ =  Genotypic variance
+
 $V_E$ = Environmental variance
+
 $V_{GE}$ = Variance due to interaction of Genotype and Environment
 
 ---
@@ -437,9 +444,14 @@ $$
 - Thus broad sense heritability of the $F_2$ generation is:
 
 $$
+\label{eqn:hbs-filial}
 h_b^2 = \frac{\frac{1}{2}V_A + \frac{1}{4}V_D}{\frac{1}{2}V_A + \frac{1}{4}V_D + \sigma_E^2}
 \tag{iii}
 $$
+
+???
+
+1. Note that denominator has variation of simple $V_P = V_A + V_D + V_E$. This is because total phenotypic variation of $F_2$ has larger contribution of environmental and additive components than dominance component.
 
 ---
 
@@ -447,62 +459,6 @@ $$
 
 1. Total phenotypic variance (Obtained from measurement on plants within $F_2$ families)
 2. Environmental variance (Obtained from measurement on $F_1$ families)
-
----
-
-## Variance component estimation summary
-
-Variances from additive, dominant and environmental effects may be obtained as follows:
-
-$V_{P1} = E; \quad V_{P2} = E; \quad V_{F1} = E$
-
-$V_{F2} = \frac{1}{2}A + \frac{1}{4}D + E$
-
-$V_{B1} = \frac{1}{4}A + \frac{1}{4}D + E$
-
-$V_{B2} = \frac{1}{4}A + \frac{1}{4}D + E$
-
-$V_{B1} + V_{B2} = \frac{1}{2}A + \frac{1}{2}D + 2E$
-
-Elsewhere, following relation is also mentioned: $$V_{E} = \frac{V_{P1} + V_{P2} + V_{F1}}{3} \tag{Equation 1} \label{eqn:lab1}$$
-
-\@ref{eqn:lab1} was the worst of all.
-
----
-
-## Problem
-
-Consider a field experiment with an inbreeding species such as wheat or barley. Parent 1 included 20 plants, Parent 2 included 20 plants and $F_2$ family derived from selfing of $F_1$ generation, which was obtained by intercrossing the two parents (i.e. Parent 1 x Parent 2), consisted of 100 individuals. These 140 plants were completely randomized within the experiment, and at harvest the weight of seeds from each plant was recorded. The variances in seed weight of the two parents were $\sigma_{\bar{P_1}}^2 = 16.8~kg^2$ and $\sigma_{\bar{P_2}}^2 = 18.4~kg^2$. The phenotypic variance (which included both genetic and environmental variation) of the $F_2$ was $\sigma_{\bar{F_2}}^2 = 56.9~kg^2$. The total phenotypic varinace of the $F_2$ generation is represented by denominator term of $h_b^2$ is estimated to be $56.9 kg^2$.
-
-But the problem is what is the value of environmental component of the phenotypic variance $\sigma_E^2$?
-
----
-
-## Solution
-
-It now follows that the $h_b^2$, from given inform is:
-
-$$
-h_b^2 = \frac{56.9-\sigma_E^2}{56.9}
-$$
-
-Since, both parents are homozygous inbreds, any variance displayed by either must be attributable exclusively to the environment. The best esimate of the $\sigma_E^2$ is therefore:
-
-$$
-\begin{aligned}
-\sigma_E^2 &= \frac{\sigma_{\bar{P_1}}^2 + \sigma_{\bar{P_2}}^2}{2} \\
-&= \frac{16.8 + 18.4}{2} = 17.6~kg^2
-\end{aligned}
-$$
-
----
-
-And, therefore,
-
-$$
-h_b^2=\frac{56.9-17.6}{56.9} = 0.691
-$$
-Thus 69.1% of the phenotypic variance of the $F_2$ generation is estimated to be genetic in origin.
 
 ---
 
@@ -519,15 +475,26 @@ $$\sigma_E = \frac{\sigma_{\bar{P_1}}^2 + 2\sigma_{\bar{F_1}}^2 + \sigma_{\bar{P
 The ratio of additive genetic variance to total phenotypic variance is called the narrow-sense heritability.
 
 $$
-h_n^2 = \frac{\frac{1}{2}V_A}{\frac{1}{2}V_A + \frac{1}{4}V_D + \sigma_E^2}
+h_n^2 = \frac{\frac{1}{2}V_A}{\frac{1}{2}V_A + \frac{1}{4}V_D + V_E}
 \tag{v}
 $$
 
 In order to estimate $h_n^2$, it is therefore necessary to partition the genetic variance into its two components ( $V_A$ and $V_D$). This is done by considering the phenotypic variance of the two backcross families ( $\sigma_{\bar{B_1}}^2$ and $\sigma_{\bar{B_2}}^2$ ).
 
-Following known relation can be used:
+Following known relation can be used for estimating genetic components of $F_2$ generation:
 
-$$V_D = 4\left(\sigma_{\bar{B_1}}^2 + \sigma_{\bar{B_2}}^2 - \sigma_{\bar{F_2}}^2 - \sigma_E^2 \right)$$
+$$V_D = 4\left(V_{\bar{B_1}} + V_{\bar{B_2}} - V_{\bar{F_2}} - V_E \right)$$
+
+$$V_A = 2V_{\bar{F_2}} - (V_{B_1} + V_{B_2})$$
+
+???
+
+1. Expressions for both $V_D$ and $V_A$ are derived from known relations:
+
+$$V_{\bar{F_2}} = \frac{1}{2}A + \frac{1}{4}D + V_E$$ and
+
+$$V_{B_1} + V_{B_2} = \frac{1}{2}A + \frac{1}{2}D + 2V_E$$
+
 
 ---
 
@@ -577,7 +544,63 @@ readxl::read_xlsx("./data/04-qualitative_and_quantitative_characters.xlsx", "h2_
 
 ---
 
+## Variance component estimation summary
+
+Variances from additive, dominant and environmental effects may be obtained as follows:
+
+$V_{P1} = E; \quad V_{P2} = E; \quad V_{F1} = E; \quad \frac{V_{P1} + V_{P2} + 2V_{F1}}{4} \sim \frac{V_{P1} + V_{P2} + V_{F1}}{3} = E$
+
+$V_{F2} = \frac{1}{2}A + \frac{1}{4}D + E$
+
+$V_{B1} = \frac{1}{4}A + \frac{1}{4}D + E$
+
+$V_{B2} = \frac{1}{4}A + \frac{1}{4}D + E$
+
+$V_{B1} + V_{B2} = \frac{1}{2}A + \frac{1}{2}D + 2E$
+
+---
+
 # Questions
+
+---
+
+## Problem
+
+Consider a field experiment with an inbreeding species such as wheat or barley. Parent 1 included 20 plants, Parent 2 included 20 plants and $F_2$ family derived from selfing of $F_1$ generation, which was obtained by intercrossing the two parents (i.e. Parent 1 x Parent 2), consisted of 100 individuals. These 140 plants were completely randomized within the experiment, and at harvest the weight of seeds from each plant was recorded. The variances in seed weight of the two parents were $\sigma_{\bar{P_1}}^2 = 16.8~kg^2$ and $\sigma_{\bar{P_2}}^2 = 18.4~kg^2$. The phenotypic variance (which included both genetic and environmental variation) of the $F_2$ was $\sigma_{\bar{F_2}}^2 = 56.9~kg^2$. The total phenotypic varinace of the $F_2$ generation is represented by denominator term of $h_b^2$ is estimated to be $56.9 kg^2$.
+
+But the problem is what is the value of environmental component of the phenotypic variance $\sigma_E^2$?
+
+---
+
+## Solution
+
+It now follows that the $h_b^2$, from given inform is:
+
+$$
+h_b^2 = \frac{56.9-\sigma_E^2}{56.9}
+$$
+
+Since, both parents are homozygous inbreds, any variance displayed by either must be attributable exclusively to the environment. The best esimate of the $\sigma_E^2$ is therefore:
+
+$$
+\begin{aligned}
+\sigma_E^2 &= \frac{\sigma_{\bar{P_1}}^2 + \sigma_{\bar{P_2}}^2}{2} \\
+&= \frac{16.8 + 18.4}{2} = 17.6~kg^2
+\end{aligned}
+$$
+
+---
+
+And, therefore,
+
+$$
+h_b^2=\frac{56.9-17.6}{56.9} = 0.691
+$$
+Thus 69.1% of the phenotypic variance of the $F_2$ generation is estimated to be genetic in origin.
+
+---
+
+## Problem
 
 1. Two pure lines of rice are crossed. In the $F_1$ the variance in spike length is 1.5. The F1 is selfed. In the $F_2$ the variance in spike length is 4.5. Estimate broad sense heritability of spike length in rice
 
@@ -601,7 +624,54 @@ he_filial_pop %>%
   kableExtra::kable_styling()
 ```
 
-```{r heritability-estimates-filial-population2}
+Elaborate solution:
+
+```{r heritability-estimates-filial-population2-1}
+Vp <- function(Va, Vd, Ve){
+  1/2*Va + 1/4*Vd + Ve
+}
+
+Ve <- (he_filial_pop[he_filial_pop$Population == "P1", 2, drop=T] +
+         he_filial_pop[he_filial_pop$Population == "P2", 2, drop=T] +
+         2*(he_filial_pop[he_filial_pop$Population == "F1", 2, drop=T]))/4
+
+Vd <- 4*(he_filial_pop[he_filial_pop$Population == "BC1", 2, drop=T] + 
+           he_filial_pop[he_filial_pop$Population == "BC2", 2, drop=T] -
+           he_filial_pop[he_filial_pop$Population == "F2", 2, drop=T] - 
+           Ve)
+
+Va <- 2*(he_filial_pop[he_filial_pop$Population == "F2", 2, drop=T]) - 
+  (he_filial_pop[he_filial_pop$Population == "BC1", 2, drop=T] + 
+     he_filial_pop[he_filial_pop$Population == "BC2", 2, drop=T])
+
+heritability_ns <- (1/2)*Va/Vp(Va, Vd, Ve)
+heritability_bs <- ((1/4)*Vd + (1/2)*Va)/Vp(Va, Vd, Ve)
+```
+
+$h^2_{bs}$ = `r heritability_bs`
+
+$h^2_{ns}$ = `r heritability_ns`
+
+Simplified solution (refer to Acquaah, P 86.):
+
+```{r heritability-estimates-filial-population2-2}
+# # narrow sense and broad sense alternative estimation
+# Vp <- he_filial_pop[he_filial_pop$Population == "F2", 2, drop=T]
+# Ve <- (he_filial_pop[he_filial_pop$Population == "P1", 2, drop=T] +
+#          he_filial_pop[he_filial_pop$Population == "P2", 2, drop=T] +
+#          2*(he_filial_pop[he_filial_pop$Population == "F1", 2, drop=T]))/4
+# Vg <- Vp-Ve
+# 
+# Vd <- 4*(he_filial_pop[he_filial_pop$Population == "BC1", 2, drop=T] + 
+#            he_filial_pop[he_filial_pop$Population == "BC2", 2, drop=T] -
+#            he_filial_pop[he_filial_pop$Population == "F2", 2, drop=T] - 
+#            Ve)
+# 
+# Va <- Vg-Vd
+# heritability_ns <- (1/2)*Va/Vp
+# heritability_bs <- ((1/4)*Vd + (1/2)*Va)/Vp
+
+# narrow sense and broad sense alternative estimation
 Vp <- he_filial_pop[he_filial_pop$Population == "F2", 2, drop=T]
 Ve <- (he_filial_pop[he_filial_pop$Population == "P1", 2, drop=T] +
          he_filial_pop[he_filial_pop$Population == "P2", 2, drop=T] +
@@ -614,15 +684,18 @@ Vd <- 4*(he_filial_pop[he_filial_pop$Population == "BC1", 2, drop=T] +
            Ve)
 
 Va <- Vg-Vd
-heritability_ns <- (1/2)*Va/Vp
-heritability_bs <- ((1/4)*Vd + (1/2)*Va)/Vp
+heritability_ns <- Va/Vp # yet another variation could use 1/2 as factor!
+heritability_bs <- Vg/Vp
+
 ```
 
 $h^2_{bs}$ = `r heritability_bs`
 
-$h^2_{bs}$ = `r heritability_ns`
+$h^2_{ns}$ = `r heritability_ns`
 
-For simplified calculation, refer to Acquaah, P 86.
+???
+
+1. To choose any one method suggest the simpler method to students.
 
 ---
 

@@ -34,29 +34,20 @@ options(knitr.kable.NA = "", digits = 2)
 options(kableExtra.latex.load_packages = FALSE)
 ```
 
-# Why ?
+# Introduction
 
-## Why study genetics ?
+## Background
 
 ::: incremental
 
 - Pivotal position in biology
-- Central to human affairs
+- Issues of overnment regimes -- politics of masses during Hitler's Germany.
 - Can we stay ignorant about genetic issues ?
-- What does headlines today read ?
-
-:::
-
-# What ?
-
-## Reach
-
-::: incremental
-
-- What does it not affect ?
-- Since how long have we been practicing ?
+- Human civilization hinged on cultivation of modern crops. Since 10,000 years in the past, we have been practicing selection.
 - The major drive of the green revolution
-- Don't we consume engineered drugs ?
+- Don't we consume engineered drugs, use plants with modification ?
+- Can traditional agriculture satisfy human needs in distant future ?
+- Debates about -- is it safe ?
 
 :::
 
@@ -108,7 +99,7 @@ knitr::include_graphics("../images/green_revolution_crop.png")
 knitr::include_graphics("../images/genetics_subdivision.png")
 ```
 
-# How ?
+# The big picture
 
 ## Gregor Mendel
 
@@ -213,9 +204,7 @@ knitr::include_graphics("../images/model_organisms_mus.png")
 
 \end{columns}
 
-# Fundamental concepts of genetics
-
-##
+## Fundamental concepts of genetics
 
 ::: incremental
 
