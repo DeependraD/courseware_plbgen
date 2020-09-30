@@ -44,9 +44,9 @@ jobs:
         # working-directory: PLB221_introductory_plant_breeding/plb221_presentation
       - name: Upload Xaringan builds
       - uses: actions/upload-artifact@v2
-          with:
-            name: My Xaringan PDF builds
-            path: _builds/introplb/*.pdf
-            if-no-files-found: warn # 'error' or 'ignore' are also available, defaults to `warn`
+        with:
+          name: My Xaringan PDF builds
+          path: _builds/introplb/*.pdf
+          if-no-files-found: warn # 'error' or 'ignore' are also available, defaults to `warn`
       
       
