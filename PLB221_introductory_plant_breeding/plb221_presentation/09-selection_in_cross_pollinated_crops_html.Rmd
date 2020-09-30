@@ -6,10 +6,12 @@ output:
   xaringan::moon_reader:
     lib_dir: libs
     nature:
+      ratio: "16:9"
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
 ---
+class: inverse, center, middle
 
 ```{r,setup, include=FALSE}
 library(knitr)
@@ -26,10 +28,11 @@ options(kableExtra.latex.load_packages = FALSE)
 
 # Introduction
 
+---
+
 - Plant species where normal mode of seed set is through a high degree of cross-pollination have characteristic reproductive features and population structure. 
 - Each plant receives a blend of pollen from a large number of individuals each having different genotypes. 
 - Such populations are characterized by a high degree of heterozygosity with tremendous free and potential genetic variation, which is maintained in a steady state by free gene flow among individuals within the populations. 
-- In the development of hybrid varieties, the aim is to identify the most productive heterozygote from the population, which then is produced with the exclusion of other members of the population.
 
 ---
 
@@ -42,10 +45,15 @@ options(kableExtra.latex.load_packages = FALSE)
   5. Cross pollination permits new gene combinations from different sources.
   6. In these species, variability is distributed over entire population.
   7. They have wide adaptability and more flexibility to environmental changes due to heterozygosity and heterogenety.
+- In the development of hybrid varieties, the aim is to identify the most productive heterozygote from the population, which then is produced with the exclusion of other members of the population.
 
 ---
 
+class: inverse, middle, center
+
 # Breeding methods
+
+---
 
 - The classification of population improvement is: 
   - according to the unit of selection – either individual plants or family of plants. 
@@ -56,7 +64,7 @@ options(kableExtra.latex.load_packages = FALSE)
 
 ---
 
-```{r, out.width="100%"}
+```{r cross-pollinated, out.width="80%", fig.align='center'}
 knitr::include_graphics("./images/varietal_cross_pollinated.png")
 ```
 
@@ -87,35 +95,15 @@ knitr::include_graphics("./images/varietal_cross_pollinated.png")
 
 ## Recurrent selection
 
-- This type of selection is a refined version of the mass selection procedure and differs as follows:
-  
-  - Visually selected individuals out of the base population undergo progeny testing
-  - Individuals selected on basis of the progeny test data are crossed with each other in every possible way to produce seed to form the new base population.
-
 - In the simplest form, recurrent selection consists of selecting desired individuals within a population prior to mating followed by the intermating of selected individuals. Consequently, both female and male gametes have undergone selection, and genetic progress should be at least 100% faster than for mass selection.
+- Recurrent selection scheme are variations of modification of progeny selection or ear to row method.
 
----
-
-- The recurrent selection has 3 major steps:
-  - the parents are crossed in all possible combinations and individual families are created for evaluation, 
-  - the families are evaluated and a new set of parents are selected, and 
-  - the selected parents are inter-mated to produce the population for the next cycle of selection.
+- Steps:
+  - Visually selected individuals out of the base population undergo progeny testing
+  - The parents are crossed in all possible combinations and individual families are created for evaluation, 
+  - The families are evaluated and a new set of parents are selected, and 
+  - The selected parents are inter-mated to produce the population for the next cycle of selection.
 - The aforesaid cycle is repeated several times (3-5 times). The original cycle is labelled $C_0$ and is called the base population. The subsequent cycles are named as $C_1, C_2, C_3, ... C_n$
-
----
-
-```{r out.width="100%", fig.cap="Simple recurrent selection"}
-knitr::include_graphics("./images/simple_recurrent_selection.png")
-```
-
----
-
-- This method of selection is useful to improve one or more traits so that a new population that is superior to the original population is achieved.
-- The source material may be random mating populations, synthetic cultivars and single-cross or double-cross plants.
-- The improved population may be released as a new cultivar or used as a breding material (parent) in other breeding programmes.
-- This selection ensures improvement of population without reduction in genetic variability.
-- It is advisable to include as many parent as possible in the initaial crossing to increase genetic diversity.
-- The breeder can decide on the number of generations of inter-mating that is appropriate for a breeding programme.
 
 ---
 
@@ -138,11 +126,30 @@ knitr::include_graphics("./images/simple_recurrent_selection.png")
 <!-- $\sigma_p$ = Phenotypic standard deviation among the units of selection -->
 
 ---
+
+.pull-left[
+
+- This method of selection is useful to improve one or more traits so that a new population that is superior to the original population is achieved.
+- The source material may be random mating populations, synthetic cultivars and single-cross or double-cross plants.
+- The improved population may be released as a new cultivar or used as a breding material (parent) in other breeding programmes.
+- This selection ensures improvement of population without reduction in genetic variability.
+- It is advisable to include as many parent as possible in the initial crossing to increase genetic diversity.
+- The breeder can decide on the number of generations of inter-mating that is appropriate for a breeding programme.
+
+]
+
+.pull-right[
+```{r simple-recurrent-selection, out.width="100%", fig.cap="Simple recurrent selection", fig.align='center'}
+knitr::include_graphics("./images/simple_recurrent_selection.png")
+```
+]
+
+---
 class: inverse, center, middle
 
 # Progeny testing
 
-```{r out.width="100%"}
+```{r progeny-testing, out.width="60%", fig.align='center'}
 knitr::include_graphics("./images/selection_based_on_progeny_test.png")
 ```
 
@@ -157,7 +164,7 @@ knitr::include_graphics("./images/selection_based_on_progeny_test.png")
 
 ---
 
-```{r half-sib-selection, fig.cap="Generalized steps of half sib selection scheme", out.width="100%"}
+```{r half-sib-selection, fig.cap="Generalized steps of half sib selection scheme", out.width="60%", fig.align='center'}
 knitr::include_graphics("./images/half_sib_selection.png")
 ```
 
@@ -179,12 +186,65 @@ knitr::include_graphics("./images/half_sib_selection.png")
 
 ---
 
-```{r full-sib-selection, fig.cap="Generalized steps of full sib family selection", out.width="100%"}
+```{r full-sib-selection, fig.cap="Generalized steps of full sib family selection", out.width="60%", fig.align='center'}
 knitr::include_graphics("./images/full_sib_selection.png")
 ```
 
 
 ---
+class: inverse, middle, center
 
-# Response from selection
+# Response to selection
+
+---
+
+- Selection entails discriminating among genetic variation to identify and choose a number of individuals to establish the next generation.
+- This results in differential reproduction of genotypes, i.e. those that are selected have chance to increase their gene frequencies.
+- Subsequently, the genotypic and phenotypic values of the targeted traits also improve.
+- By selecting and advancing superior individuals (with high genetic potential) from a mixed population, the breeder aims to change population mean of the trait in a positive way in the next generation.
+
+---
+
+## Response to selection (R)
+
+The difference between the mean phenotypic value of the offspring of the selected parents and the whole of the parental generation before selection. 
+
+- Response to selection is related to heritability by the following equation (**Breeder's equation**):
+
+$$
+R = \Delta G = h^2 S
+$$
+
+## Selection differenatial (S)
+
+The selection differential (S) is the mean phenotypic value of the individuals selected as parents expressed as a deviation from the population mean (i.e., from the mean phenotypic value of all the individuals in the parental generation before selection). 
+
+$$
+S = X_s - X_o = i \sigma
+$$
+
+---
+
+- The genetic advance achieved through selection depends on three factors:
+
+  1. The total variation (phenotypic) in the population in which selection will be conducted.
+  2. Heritability of the target trait.
+  3. Selection pressure to be imposed by the plant breeder (i.e., the proportion of the population that is selected for the next generation).
+- For desirable gain from selection
+  - Phenotypic variance should be large and clearly distinguishable
+  - Heritability of the selected phenotype should be high
+  - Selection pressure should be optimal.
+- In principle, the prediction of response is valid for only one generation of selection. - To predict the response in subsequent generations, heritabilities must be determined in each generation. Heritabilities are expected to change from one generation to the next because, if there is a response, it must be accompanied by change in gene frequencies on which heritability depends.
+- Also, selection of parents tends to reduce phenotypic variance especially in early generations.
+
+---
+
+
+```{r response-to-selection, fig.cap="Genetic gain or genetic advance from selection indicates the progress plant breeders make from one generation to another based on the selection decisions they make.", out.width="45%", fig.align='center'}
+knitr::include_graphics("./images/response_to_selection.png")
+```
+
+```{r}
+# pagedown::chrome_print("./09-selection_in_cross_pollinated_crops_html.Rmd")
+```
 

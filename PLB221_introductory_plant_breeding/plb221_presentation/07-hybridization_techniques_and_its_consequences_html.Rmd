@@ -8,6 +8,7 @@ output:
     lib_dir: libs
     css: [default, default-fonts, animate.css, mycss.css]
     nature:
+      ratio: "16:9"
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
@@ -29,15 +30,13 @@ class: inverse, center, middle
 
 ## Meaning
 
-- *Hybrid* : Any sort of sexual or somatic combination of genetically more or less differentiated parental cells, individuals, or taxa; specifically, an individual plant from a cross between parents of differing genotypes; any heterozygote represents dissimilar alleles at a given locus; or a hybrid graft gene
+- *Hybrid* : Any sort of sexual or somatic combination of genetically more or less differentiated parental cells, individuals, or taxa; specifically, an individual plant from a cross between parents of differing genotypes; any heterozygote represents dissimilar alleles at a given locus; or a hybrid graft gene.
 
 - Hybrid breeding (syn *heterosis breeding*): Involves the transfer of genes from one source or genetic background to another, or combining genes from different sources that complement each other, with the hope that the new cultivar will combine the best of both parents.
 
 - The term hybridization is prone to ambiguity. The concept of a cross between individuals from two distinct groups is superficially simple, but uncertainty arises in defining *distinct groups*.
 
 - Harrison, 1990 defined hybridization as a cross between individuals from separate populations that differ in one or more heritable traits.
-
----
 
 - In flowering species, *sexual hybridization* is the commonly occuring mode of hybridization.
   - Natural hybridization
@@ -57,10 +56,13 @@ class: inverse, center, middle
 - For genetic analysis
 
 ---
+class: inverse, center, middle
 
 # Artificial hybridization
 
-## Basic conditions for successful hybridization
+---
+
+## Preconditions
 
 - Parents should belong to same or closely related species
 - Parents should together supply the critical genes needed to accomplish the breeding objective.
@@ -72,7 +74,7 @@ class: inverse, center, middle
 
 - Mechanical control
 - Chemical control
-- Genetical control
+- Genetic control
 
 ---
 
@@ -91,8 +93,11 @@ class: inverse, center, middle
   - Tagging after pollination
   
 ---
+class: inverse, center, middle
 
 # Genetic issues in hybridization
+
+---
 
 ## Immediate effect
 
@@ -114,9 +119,9 @@ f2_var_genes %>%
   mutate_at("Number of different genotypes in the F2 (3^n)", 
             list(~3^`Number of heterozygous loci (n)`)) %>% 
   mutate_at("Minimum population size for chance to include each genotype (4^n)", 
-            list(~4^`Number of heterozygous loci (n)`)) %>% 
+            list(~4^`Number of heterozygous loci (n)` %>% format(scientific = FALSE))) %>% 
   rename_all(list(~str_wrap(., width = 12))) %>% 
-  knitr::kable(format = "html", caption = "The variability in an F2 population as affected by the number of genes that are different between the two parents") %>% 
+  knitr::kable(format = "html", caption = "The variability in an F2 population as affected by the number of genes that are different between the two parents", digits = 2) %>% 
   kableExtra::kable_styling(bootstrap_options = "striped", font_size = 12)
 ```
 

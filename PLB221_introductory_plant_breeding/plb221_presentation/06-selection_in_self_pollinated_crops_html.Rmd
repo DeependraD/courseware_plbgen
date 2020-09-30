@@ -7,10 +7,17 @@ output:
   xaringan::moon_reader:
     lib_dir: libs
     nature:
+      ratio: "16:9"
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
 ---
+
+<style type="text/css">
+.small-font {
+  font-size: 14px;
+}
+</style>
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
@@ -46,8 +53,6 @@ class: inverse, center, middle
 - Major objective: Population improvement by increasing gene frequencies of desirable genes.
 ---
 
-# Mass selection (...continued)
-
 ```{r mass-selection, fig.cap="Mass selection in self pollinated crops", fig.align="center", out.width="auto", out.height="450px"}
 # pdftools::pdf_convert("./../../references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 315, format = "png", filenames = "./images/mass_selection.png", dpi = 300)
 
@@ -55,8 +60,6 @@ knitr::include_graphics("./images/mass_selection.png")
 ```
 
 ---
-
-# Mass selection (...continued)
 
 - General procedure in mass selection is to rogue out off-types or plants with undesirable traits (*Negative mass selection*). 
 - The specific strategies for retaining representative individuals for the population vary according to species, traits of interest, or creativity of the breeder. 
@@ -66,16 +69,12 @@ bulked.
 
 ---
 
-# Mass selection (...continued)
-
 - The breeder plants the heterogeneous population in the field, looks for off-types to remove and discard. 
 - A mechanical device (e.g., using a sieve to determine which size of grain would be advanced) may be used, or selection may be purely on visual basis according to the breeder's visual evaluation.
 - Further, selection may be based on targeted traits (*direct selection*) or indirectly by selecting a trait correlated with the trait to be improved.
   - Year 1: If the objective is to purify an established cultivar, seed of selected plants may be progeny rowed to confirm the purity of the selected plants prior to bulking. This would make a cycle of mass selection have a two-year duration instead of one year. The original cultivar needs to be planted alongside for comparison.
   - Year 2: Evaluate composite seed in replicated trial, using original cultivar as check. This test may be conducted at different locations and over several years. The seed is bulk-harvested.
 ---
-
-# Mass selection (...continued)
 
 - Contamination from outcrossing may produce heterozygotes in the population. Mass selection is most effective if the expression of the trait of interest is conditioned by additive gene action.
 
@@ -91,8 +90,6 @@ bulked.
 
 ---
 
-# Mass selection (...continued)
-
 ## Advantages
 
 - It is rapid, simple, and straightforward. Large populations can be handled and one generation per cycle can be used.
@@ -107,11 +104,13 @@ bulked.
 - With dominance, heterozygotes are indistinguishable from homozygous dominant genotypes. Without progeny testing, the selected heterozygotes will segregate in the next generation.
 
 ---
+class: inverse, middle, center
 
 # Pure line selection
 
-- A pure line suggests that a cultivar has identical alleles at all loci.
+---
 
+- A pure line suggests that a cultivar has identical alleles at all loci.
 - The theory of the pure line was developed in 1903 by the Danish botanist Johannsen.
 
 ```{r johannsen-bean, fig.cap="The development of the pure line theory by Johannsen", fig.align="center", out.width="auto", out.height="400px"}
@@ -121,28 +120,20 @@ knitr::include_graphics("./images/johannsen_bean.png")
 
 ---
 
-# Pure line selection (...continued)
-
 - Johannsen demonstrated that a mixed population of self-pollinated species could be sorted out into genetically pure lines.
-
 - These lines were subsequently non-responsive to selection within each of them . 
-
 - Selection is a passive process, since it eliminates variation but does not create it.
-
-## Pureline theory
-
-- Lines that are genetically different may be successfully isolated from within a population of mixed genetic types.
-
-- Any variation that occurs within a pure line is not heritable but due to environmental factors only. Consequently, as Johansen's bean study showed, further selection within the line is not effective.
-
----
-
-# Pure line selection (...continued)
-
 - Lines are used;
   - as cultivars or as parents in hybrid production (inbred lines).
   - in the development of genetic stock (containing specific genes such as disease resistance, nutritional quality) and synthetic and multiline cultivars.
 - Line cultivars have a very narrow genetic base and tend to be uniform in traits of interest (e.g., height, maturity).
+
+---
+
+## Pureline theory
+
+- Lines that are genetically different may be successfully isolated from within a population of mixed genetic types.
+- Any variation that occurs within a pure line is not heritable but due to environmental factors only. Consequently, as Johansen's bean study showed, further selection within the line is not effective.
 
 ---
 
@@ -157,8 +148,9 @@ knitr::include_graphics("./images/johannsen_bean.png")
 
 ---
 
-## Overview
+## Procedure
 
+.small-font[.pull-left[
 - The pure-line selection in breeding entails repeated cycles of selfing following the initial selection from a mixture of homozygous lines. 
 - Natural populations of self-pollinated species consist of mixtures of homozygous lines with transient heterozygosity originating from mutations and outcrossing.
 - Steps:
@@ -166,27 +158,28 @@ knitr::include_graphics("./images/johannsen_bean.png")
   - Year 2: Grow progeny rows of selected plants. Rogue out any variants. Harvest selected progenies individually. These are experimental strains.
   - Year 3-6: Conduct preliminary yield trials of the experimental strains including appropriate check cultivars.
   - Year 7-10: Conduct advanced yield trials at multilocations. Release highest yielding line as new cultivar.
+]]
 
----
-
-```{r pureline-selection, fig.cap="Generalized steps in breeding by pure-line selection", fig.align="center", out.width="auto", out.height="550px"}
+.pull-right[
+```{r pureline-selection, fig.cap="Generalized steps in breeding by pure-line selection", fig.align="center", out.width="110%"}
 # pdftools::pdf_convert("./../../references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 318, format = "png", filenames = "./images/pureline_selection.png", dpi = 300)
 knitr::include_graphics("./images/pureline_selection.png")
 ```
+]
 
 ---
 
-# Genetic issues (...Pureline selection)
+## Genetic issues
 
 - Pure-line breeding produces cultivars with a narrow genetic base and, hence, that are less likely to produce stable yields over a wider range of environments. Such cultivars are more prone to being wiped out by pathogenic outbreaks.
 - Pure-line cultivars depend primarily on phenotypic plasticity for production response and stability across environments.
+
+---
 
 ## Advantages
 - It is a rapid breeding method.
 - The method is inexpensive to conduct. The base population can be a landrace. The population size selected is variable and can be small or large, depending on the objective.
 - The cultivar developed by this method has great "eye appeal" (because of the high uniformity of, e.g., harvesting time, height, etc.).
-
----
 
 ## Disadvantages
 - The purity of the cultivar may be altered through admixture, natural crossing with other cultivars, and mutations. Such off-type plants should be rogued out to maintain cultivar purity.
@@ -223,8 +216,11 @@ knitr::include_graphics("./images/bulk_selection.png")
 ```
 
 ---
+class: inverse, center, middle
 
 # Single seed descent
+
+---
 
 - The method of single seed descent was born out of a need to speed up the breeding program by rapidly inbreeding a population prior to beginning individual plant selection and evaluation, while reducing a loss of genotypes during the segregating generations.
 - The concept was first proposed by C.H. Goulden in 1941 when he attained the F6 generation in two years by reducing the number of generations grown from a plant to one or two, while conducting multiple plantings per year, using the greenhouse and the off season.
@@ -274,28 +270,38 @@ class: inverse, middle, center
 
 ## Comparison of backcross breeding types
 
-```{r backcross-transfer-comparison, fig.cap="Backcross breeding methods", fig.align='center', out.width="auto", out.height="550px"}
-knitr::include_graphics("./images/backcross_breeding_dominant_recessive.png")
-```
+---
 
+```{r backcross-transfer-comparison, fig.cap="Backcross breeding methods", fig.align='center', out.width="60%"}
+# knitr::include_graphics("./images/backcross_breeding_dominant_recessive.png")
+```
 
 ## Dominant gene transfer
 
----
+.small-font[.pull-left[
+- Cross Wild (W) × Adapted (A) $\longrightarrow$ F1 = 50% genetic contribution of each parent.
+- F1 x A $\longrightarrow$ BC1 =75% genetic contribution of A (Golden Promise) and 25% genetic contribution of W (wild type);
+  - Screen BC1 population and select plants with good resistance to disease (i.e. Rr types).
+- Use the resistant plants in cross of BC1 x A $\longrightarrow$ BC2 = 87.5% genetic contribution of A and 12.5% genetic contribution of W;
+  - Screen BC2 population and select plants with good resistance to disease (i.e. Rr types).
+- Use the resistant plants in cross of BC2 x A $\longrightarrow$ BC3 = 93.75% genetic contribution of A and 6.25% genetic contribution of W;
+  - Screen BC3 population and select plants with good resistance to disease (i.e. Rr types).
+- Use the resistant plants in cross of BC3 x A $\longrightarrow$ BC4 = 96.87% genetic contribution of A and 3.12% genetic contribution of W.
+- Now, self pollinate BC4 plants to produce BC4F2 and identify lines with homozygous disease resistance (RR). These plants should have 96.87% of the adaptated cultivar with the resistance gene. However, this may be somewhat overestimated due to linkage drag pooling a high percentage of the wild type when selecting for the resistance gene.
+]]
 
-```{r dominant-backcross-transfer, fig.cap="Generalized steps in breeding a dominant trait by the backcross method.", fig.align="center", out.width="auto", out.height="550px"}
+.pull-right[
+```{r dominant-backcross-transfer, fig.cap="Generalized steps in breeding a dominant trait by the backcross method.", fig.align="center", out.width="99%"}
 # pdftools::pdf_convert("./../../references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 335, format = "png", filenames = "./images/backcross_dominant.png", dpi = 300)
 knitr::include_graphics("./images/backcross_dominant.png")
 ```
+]
 
 ---
-class: inverse, middle, center
 
 ## Recessive gene transfer
 
----
-
-```{r recessive-backcross-transfer, fig.cap="Generalized steps in breeding a recessive trait by the backcross method.", fig.align="center", out.width="auto", out.height="550px"}
+```{r recessive-backcross-transfer, fig.cap="Generalized steps in breeding a recessive trait by the backcross method.", fig.align="center", out.width="85%"}
 # pdftools::pdf_convert("./../../references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 337, format = "png", filenames = "./images/backcross_recessive.png", dpi = 300)
 knitr::include_graphics("./images/backcross_recessive.png")
 ```

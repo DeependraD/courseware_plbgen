@@ -7,11 +7,15 @@ output:
   xaringan::moon_reader:
     lib_dir: libs
     nature:
+      ratio: "16:9"
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
 bibliography: ['../bibliographies.bib']
 ---
+class: inverse, center, middle
+background-image: \url('./images/Maize_inbred.jpg')
+background-size: cover
 
 ```{r setup, include=FALSE}
 require(knitr)
@@ -21,16 +25,10 @@ options(knitr.kable.NA = "", digits = 3, knitr.table.format = "html")
 knitr::opts_chunk$set(tidy = FALSE, echo = FALSE, cache = TRUE)
 ```
 
-```{r maize, fig.cap="Inbred line of maize", fig.align='center', out.height="400px", out.width="auto"}
-knitr::include_graphics("./images/Maize_inbred.jpg")
-```
-
----
-class: inverse, center, middle
-
 # Modes of reproduction
 
 ---
+
 # Sexual reproduction
 
 - Involves fusion of male and female gametes 
@@ -60,7 +58,7 @@ knitr::include_graphics("./images/sporogenesis.png")
 
 ---
 
-# Autogamy/Self-pollination
+## Autogamy/Self-pollination
 
 - Mechanisms that promote autogamy
   - Cleistogamy (flower fails to open)/Chasmogamy (opening of flower after pollination)
@@ -71,7 +69,7 @@ knitr::include_graphics("./images/sporogenesis.png")
 
 ---
 
-# Self incompatibility (lack of self-fruitfulness)
+## Self incompatibility (lack of self-fruitfulness)
 
 - A condition in which the pollen from a flower is not receptive on the stigma of the same flower, and hence incapable of setting seed. 
 - Both pollen and ovule development are normal and viable. 
@@ -79,11 +77,9 @@ knitr::include_graphics("./images/sporogenesis.png")
 - Self incompatibility is widespread in nature, occurring in families such as Poaceae, Cruciferae, Compositae, and Rosaceae.
 - The incompatibility reaction is genetically conditioned by a locus designated *S*, with multiple alleles that can number over 100 in some species such as *Trifolium pretense*. 
 - Unlike monoecy and dioecy, all plants produce seed in self-incompatible species.
-
----
-class: inverse, center, middle
-
-# Systems of SI
+- There are two well known systems:
+  - Homomorphic
+  - Heteromorphic
 
 ---
 
@@ -97,10 +93,13 @@ class: inverse, center, middle
 - The condition is called distyly
   
 ---
+class: inverse, middle, center
 
-## Homomorphic
+# Homomorphic
 
-### Gametophytic incompatibility (originally called the oppositional factor system)
+---
+
+## Gametophytic incompatibility (originally called the oppositional factor system)
 
 - The ability of the pollen to function is determined by its own genotype and not the plant that produces it.
 - This form of SI is more widespread (e.g. red clover, white clover and yellow sweet clover)
@@ -124,11 +123,6 @@ class: inverse, center, middle
 
 ---
 
-<!-- ```{r incompatibility-systems, fig.cap="Sporophytic and gametophytic SI systems; Types of self-incompatibility: (a) sporophytic and (b) gametophytic. Sporophytic incompatibility occurs in families such as Compositae and Cruciferae. It is associated with pollen grains with two generative nuclei, whereas gametophytic incompatibility is associated with pollen with one generative nucleus in the pollen tube as occurs in various kinds of clover.", out.width="45%", fig.align='center'} -->
-<!-- # pdftools::pdf_convert("./references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 115, format = "png", filenames = "./images/incompatibility_systems.png", dpi = 300) -->
-<!-- knitr::include_graphics("./images/incompatibility_systems.png") -->
-<!-- ``` -->
-
 ```{r si-comparison-reaction1, warning=FALSE, message=FALSE}
 incompatibility_systems <- read_csv("./data/incompatibility_systems.csv", comment = "#", 
                                     skip = 5)
@@ -141,6 +135,7 @@ incompatibility_systems[1:14,] %>%
   kableExtra::footnote(general = c("Suppose there are incompatibility conditioning genes S and Z", 
                                    "Two genes could have alleles S1, S2, S3, S4… and Z1, Z2, Z3, Z4,…", 
                                    "Under SSI system, dominance relation holds: S1>S2>S3 and Z1>Z2>Z3."), general_title = "Assumptions:")
+
 ```
 
 ---
@@ -160,9 +155,7 @@ incompatibility_systems[15:28,] %>%
 ## Expression of SI
   
 1. The germination of the pollen may be decreased (e.g., in broccoli); Removing the stigma allows normal pollen germination.
-
-2. Pollen germination is normal but pollen tube growth is inhibited in the style (e.g., tobacco). 
-
+2. Pollen germination is normal but pollen tube growth is inhibited in the style (e.g., tobacco).
 3. The incompatibility reaction occurs after fertilization (e.g., in _Gesteria_). This mechanism is rare.
 
 ---
@@ -182,28 +175,69 @@ incompatibility_systems[15:28,] %>%
 
 ---
 
-```{r si-use-sc, fig.cap="Application of self-incompatibility in practical plant breeding (A)", out.height="300px", out.width="auto", fig.align='center'}
+```{r si-use-sc, fig.cap="Production of single cross hybrid using inbred lines and sporophytic self incompatibility", out.width="90%", fig.align='center'}
 # pdftools::pdf_convert("./../../references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 118, format = "png", filenames = "./images/incompatibility_use.png", dpi = 300)
-knitr::include_graphics("./images/incompatibility_use_SC.png")
+# knitr::include_graphics("./images/incompatibility_use_SC.png")
+DiagrammeR::mermaid(
+  "graph TB
+  A[A<br>S1S1] --> AB[AB<br>S1S2]
+  B[B<br>S2S2] --> AB
+  "
+)
 ```
 
 ---
 
-```{r si-use-dc, fig.cap="Application of self-incompatibility in practical plant breeding (B)", out.height="300px", out.width="auto", fig.align='center'}
+```{r si-use-dc, fig.cap="Production of double cross hybrid using inbred lines and sporophytic self incompatibility", out.width="90%", fig.align='center'}
 # pdftools::pdf_convert("./../../references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 118, format = "png", filenames = "./images/incompatibility_use.png", dpi = 300)
-knitr::include_graphics("./images/incompatibility_use_DC.png")
+# knitr::include_graphics("./images/incompatibility_use_DC.png")
+
+DiagrammeR::mermaid(
+  "graph TB
+  A[A<br>S1S1] --> AB[AB<br>S1S2]
+  B[B<br>S2S2] --> AB
+  
+  C[C<br>S3S3] --> CD[CD<br>S3S4]
+  D[D<br>S4S4] --> CD
+  AB --> ABCD[ABCD<br>S1S3, S1S4, S2S3, S2S4]
+  CD --> ABCD
+  "
+)
 ```
 
 ---
 
-```{r si-use-tc, fig.cap="Application of self-incompatibility in practical plant breeding (C)", out.height="300px", out.width="auto", fig.align='center'}
+```{r si-use-tc, fig.cap="Production of triple cross hybrid using inbred lines and sporophytic self incompatibility", out.width="90%", fig.align='center'}
 # pdftools::pdf_convert("./../../references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 118, format = "png", filenames = "./images/incompatibility_use.png", dpi = 300)
-knitr::include_graphics("./images/incompatibility_use_TC.png")
+# knitr::include_graphics("./images/incompatibility_use_TC.png")
+DiagrammeR::mermaid(
+  "graph TB
+  A[A<br>S1S1] --> AB[AB<br>S1S2]
+  B[B<br>S2S2] --> AB
+  
+  C[C<br>S3S3] --> Cdown[C<br>S3S3]
+  AB --> ABC[ABC<br>S1S3, S2S3]
+  Cdown --> ABC
+  
+  D[D<br>S4S4] --> DE[DE<br>S4S5]
+  E[E<br>S5S5] --> DE
+  
+  F[F<br>S6S6] --> Fdown[F<br>S6S6]
+  DE --> DEF[DEF<br>S4S6, S5S6]
+  Fdown --> DEF
+  
+  ABC --> ABCDEF[ABCDEF<br>S1S4, S1S6, S1S5<br>S2S4, S2S6, S2S5<br>S3S4, S3S6, S3S5]
+  DEF --> ABCDEF
+  "
+)
 ```
 
 ---
+class: inverse, middle, center
 
 # Male sterility
+
+---
 
 - Male sterility is a condition in plants whereby the anthers or pollen are non-functional. Male sterility also enforces cross-pollination.
   - as absence of or extreme scarcity of pollen, 
@@ -212,7 +246,7 @@ knitr::include_graphics("./images/incompatibility_use_TC.png")
   
 ---
   
-# Kinds of sterility based on the origin of the abnormality
+## Kinds of sterility based on the origin of the abnormality
 
 1. True male sterility - This is due to unisexual flowers that lack male sex organs (dioecy and monoecy), or bisexual flowers with abnormal or non-functional microspores (leading to pollen abortion).
 
@@ -267,25 +301,7 @@ knitr::include_graphics("./images/gms_use.png")
 
 ---
 
-## Cytoplasmic male sterility (...continued)
-
-```{r cms-use, fig.cap="Cytoplasmic male sterility as applied in plant breeding (N, normal cytoplasm; s, sterile cytoplasm).", out.height="250px", out.width="auto", fig.align='center'}
-# pdftools::pdf_convert("./../../references_plb/Plant Breeding, 2nd Edition (2014).pdf", pages = 76, format = "png", filenames = "./images/cms_use.png", dpi = 300)
-knitr::include_graphics("./images/cms_use.png")
-```
-
----
-
-## Cytoplasmic male sterility (...continued)
-
-- Hybrid seed production using CMS requires three types of genotypes;   - male fertile lines (called *B* lines; maintained by selfing) with no cytoplasmic male sterility genes and which are homozygous for a dominant restorer gene (i.e. normal ( _n_) cytoplasm, _RfRf_);
-  - cytoplasmic sterile female lines with male sterile cytoplasm but with no restorer genes (called *A* lines; maintained by crossing with isogeneic cytoplasmic male fertile line);
-  - 'male-fertile' female lines (called *A'* lines or *A'* maintainer
-lines; maintained by selfing) with normal cytoplasm and no restorer genes.
-
----
-
-# Cytoplasmic-genetic male sterility
+## Cytoplasmic-genetic male sterility
 
 - Cytoplasmic male sterility may be modified by the presence of fertility-restoring genes in the nucleus. 
 - CMS is rendered ineffective when the dominant allele for the fertility-restoring gene ( _Rf_) occurs, making the anthers able to produce normal pollen.
@@ -302,6 +318,34 @@ knitr::include_graphics("./images/cgms_systems.png")
 
 ---
 
+## Hybrid production using CGMS
+
+.pull-left[
+- Hybrid seed production using CMS requires three types of genotypes:
+  - cytoplasmic sterile female lines with male sterile cytoplasm but with no restorer genes (called *A* lines; maintained by crossing with isogeneic cytoplasmic male fertile line)
+  - 'male-fertile' female lines (called *B* lines or maintainer lines; maintained by selfing) with normal cytoplasm and no restorer genes
+  - male fertile lines (called *R* lines; maintained by selfing) with no cytoplasmic male sterility genes and which are homozygous for a dominant restorer gene (i.e. normal ( _n_) cytoplasm, _RfRf_)
+]
+
+.pull-right[
+```{r cgms-dc-hybrid, out.width="85%", out.height = "600px", fig.align='center', fig.cap="CGMS system used in production of double cross hybrid using A, B and R lines"}
+# there's a bug in code. running Rmd compilation twice leads to changed figure
+DiagrammeR::mermaid(
+  "graph TB;
+  L1[Line 1 <br> CMS, non-restorer] --> SC1[Ms-rr];
+  L2[Line 2 <br> MF, non-restorer] --> SC1;
+  L3[Line 3 <br> CMS, non-restorer] --> SC2[MF-Rr];
+  L4[Line 4 <br> MF, restorer] --> SC2;
+  SC1 --> DC[DC hybrid <br> 1/2 MS-rr, 1/2 MF-Rr];
+  SC2 --> DC;
+  "
+  )
+
+```
+]
+
+---
+
 # Dichogamy (mechanism enforcing cross pollination)
 
 - Dichogamy is the maturing of pistils and stamens of a flower at different times.
@@ -309,8 +353,12 @@ knitr::include_graphics("./images/cgms_systems.png")
   - Protandry (pollen is released from the anther before the female is receptive).
 
 ---
+class: inverse, middle, center
 
 # Asexual reproduction
+
+---
+
 - Production of offsprings that are genetically identical to the mother plant, and plants that are produced this way are called *clones*.
 - Two methods of asexual reproduction
   - Reproduction through plant parts
@@ -331,6 +379,7 @@ knitr::include_graphics("./images/cgms_systems.png")
 - A *stolon* is a horizontally growing stem that roots at nodes (e.g. strawberry runners).
 
 - A *tuber* is a swollen stem that grows beneath the soil surface bearing buds (e.g. potato).
+
 ---
 
 ## Reproduction by apomixis
@@ -346,9 +395,9 @@ knitr::include_graphics("./images/cgms_systems.png")
   - Parthenogenesis (Egg cell without fertilization)
 
 - In many cases, pollination must occur (pseudogamy) if viable apomictic seeds are to be formed.
----
 
-class: center, bottom, inverse
+---
+class: center, middle, inverse
 
 # Reproductive options in plants
 
@@ -376,7 +425,7 @@ class: center, bottom, inverse
 
 ---
 
-# Alternation of generation in flowering plants
+## Alternation of generation in flowering plants
 
 ```{r alternation-generation, fig.cap="Alternation of generations", out.height="400px", fig.align='center', out.width="auto"}
 # pdftools::pdf_convert("./../../references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 110, format = "png", filenames = "./images/alternation_of_generations.png", dpi = 300)
@@ -384,6 +433,7 @@ knitr::include_graphics("./images/alternation_of_generations.png")
 ```
 
 ---
+
 .pull-left[
 ```{r hybrid, fig.cap="Hybrid", fig.show='hold', out.height="400px", out.width="auto"}
 knitr::include_graphics("./images/Teosinte_maize_hybrid_cross.jpg")
@@ -395,9 +445,13 @@ knitr::include_graphics("./images/Teosinte_maize_hybrid_cross.jpg")
 knitr::include_graphics("./images/cross_pollinated_mustard.jpg")
 ```
 ]
+
 ---
+class: inverse, middle, center
 
 # Types of cultivar
+
+---
 
 - Cultivar types include pure-lines, hybrids, clones, open-pollinated populations, composite-crosses, synthetics and multilines. 
 - It is difficult, if not impossible to develop a pure-line cultivar of a crop species like potato ( _Solanum tuberosum_ ) as it is mainly reproduced vegetatively, and has many deleterious (or lethal) recessive alleles. 
@@ -405,7 +459,7 @@ knitr::include_graphics("./images/cross_pollinated_mustard.jpg")
 
 ---
 
-# Pure-line cultivars
+## Pure-line cultivars
 
 - Pure-line cultivars are homozygous, or near-- homozygous, lines.
 - Can be produced most readily in naturally self-pollinating species.
@@ -426,24 +480,26 @@ DT::datatable(
 
 ---
 
-# Open pollinated cultivars
+## Open pollinated cultivars
 
+.pull-left[
 - Heterogenous populations comprised of different plants which are genetically non-identical.
 - Also heterozygous
 - Almost exclusively from cross pollinating species
 - Stable for character of interest
 - E.g.: Onions, rye, herbage grass, non-hybrid sweetcorn, sugar beet and oil palm 
+]
 
----
-
-```{r, fig.align='center', fig.cap="Open pollinated crops", out.height="500px"}
+.pull-right[
+```{r onion-op, fig.align='center', fig.cap="Open pollinated crops", out.width="80%"}
 
 knitr::include_graphics("./images/open_pollinated_onion.jpg")
 ```
+]
 
 ---
 
-# Hybrid
+## Hybrid
 
 - Hybrid cultivars have different leves of homogeneity but, importantly are highly heterozygous.
 
@@ -461,7 +517,7 @@ knitr::include_graphics("./images/open_pollinated_onion.jpg")
 
 ---
 
-# Clonal cultivars
+## Clonal cultivars
 
 - Clonal cultivars are genetically uniform but tend to be highly heterozygous
 - Uniformity of plant types is maintained through vegetative rather than sexual reproduction.
@@ -474,3 +530,19 @@ knitr::include_graphics("./images/open_pollinated_onion.jpg")
 - A cultivar can also be classified as a clone if it is propagated through obligate apomixis (e.g. buffelgrass)
 - Genetic constitution of cloned selection remains 'fixed'
 - e.g.: Potatoes, Bananas, Peaches, Apples, Cassava, Sugarcane, Strawberries, Blueberries and Chrysanthemums. 
+
+---
+
+## Synthetics
+
+- A synthetic cultivar development follows procedure similar to open pollinated population improvement, although a synthetic cultivar cannot be propagated by open-pollination without changing the genetic make-up of the population. 
+<!-- This has perhaps been a primary reason for the rapid change-over from open-pollinated cultivars to synthetic ones, since it means that farmers need to return to the seed companies for new seed each year.  -->
+- It has been commercial seed companies that have been responsible for breeding almost all synthetic varieties. By 1980 there were 17 public-sector alfalfa breeders, but now there are more than three times (52) the number of private breeders developing synthetic lines.
+- A synthetic cultivar must be reconstructed from its parental lines or clones. 
+- Synthetics have also been used almost exclusively in the development of alfalfa, forage grass and forage legume cultivars, maize, etc. 
+- The breeding method used for the development of synthetic cultivars is dependent on the ability to develop either homozygous lines from a species or to propagate parental lines clonally. 
+- In the case of maize, for example, synthetic cultivars are developed using inbred lines as a three-stage process:
+  - develop a number of inbred lines;
+  - progeny-test the inbred lines for general combining ability;
+  - identify the 'best' parents and intercross these to produce the synthetic cultivar.
+- This process is almost identical to the procedure used for developing hybrid cultivars, and only differs in the last stage where many more parents will be included in a synthetic than in a hybrid cultivar.

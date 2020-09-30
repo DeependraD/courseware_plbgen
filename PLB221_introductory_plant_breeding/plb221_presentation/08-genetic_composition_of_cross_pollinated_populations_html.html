@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
   <head>
     <title>Genetic composition of cross pollinated crops</title>
     <meta charset="utf-8" />
     <meta name="author" content="Deependra Dhakal" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
   </head>
@@ -14,14 +15,19 @@ class: center, middle, inverse, title-slide
 # Genetic composition of cross pollinated crops
 ## Hardy-weinberg law<br/>Equilibrium<br/>Mating systems
 ### Deependra Dhakal
-### 2019/04/15 (updated: 2019-05-27)
+### 2019/04/15 (updated: 2020-09-29)
 
 ---
 
+class: inverse, middle, center
 
 
 
 # Introduction
+
+---
+background-image: linear-gradient(to bottom, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.4) 100%), url("./images/human_population.jpg")
+background-size: cover
 
 - A population is a group of sexually interbreeding individuals.
 - The capacity to interbreed implies that every gene within the group is accessible to all members through the sexual process.
@@ -33,8 +39,11 @@ class: center, middle, inverse, title-slide
 - Rather than inheritance of traits, *genetics of population* is concerned with how the frequencies of alleles in a gene pool change over time.
 
 ---
+class: inverse, middle, center
 
 # Hardy-weinberg law 
+
+---
 
 - The genetic constitution of individuals in a population is reconstituted for each subsequent generation whereas the genes carried by the population have continuity from one generation to the next.
 - Plant breeders often work with genetic phenomena in populations that exhibit no apparent Mendelian segregation, even though in actuality, they obey Mendelian laws. 
@@ -51,6 +60,7 @@ class: center, middle, inverse, title-slide
 - To understand the genetic structure of population, consider a large population in which random mating occurs, with no mutation or gene flow between this population and others, no selective advantage for any genotype, and normal meiosis.
 
 ---
+
 - Consider also one locus, `\(A\)`, with two alleles, `\(A\)` and `\(a\)`. The frequency of allele `\(A_1\)`, in the gene pool is `\(p\)`, while the frequency of allele `\(A_2\)` is `\(q\)`. Also, `\(p + q = 1\)` (or 100% of the gene pool). Assume a population of `\(N\)` diploids in which two alleles ( `\(A\)`, `\(a\)`) occur at one locus.
 
 - Assuming dominance at the locus, three genotypes – `\(AA\)`, `\(Aa\)` and `\(aa\)` – are possible in an `\(F_2\)` segregating population. Assume the genotypic frequencies are `\(D\)` (for `\(AA\)`), `\(H\)` (for `\(Aa\)`) and `\(Q\)` (for `\(aa\)`). Since the population is diploid, there will be `\(2N\)` alleles in it. The genotype `\(AA\)` has two `\(A\)` alleles. Hence, the total number of `\(A\)` alleles in the population is calculated as `\(2D + H\)`. The proportion or frequency of `\(A\)` alleles (designated as `\(p\)`) in the population is obtained as follows.
@@ -86,8 +96,11 @@ $$
 Since `\(p + q = 1\)`, `\(q = 1-p\)`, and hence `\(q = 1-0.2 = 0.8\)`.
 
 ---
+class: inverse, middle, center
 
 # HW Equilibrium
+
+---
 
 - Consider a random mating population (each male gamete has an equal chance of mating with any female gamete). 
 - Random mating involving the previous locus (A/a) will yield the following genotypes: `\(AA\)`, `\(Aa\)`, and `\(aa\)`, with the corresponding frequencies of `\(p^2+2pq+q^2\)`, respectively. 
@@ -97,9 +110,7 @@ Since `\(p + q = 1\)`, `\(q = 1-p\)`, and hence `\(q = 1-0.2 = 0.8\)`.
 
 ---
 
-# HW Equilibrium
-
-Considering the previous example, the genotypic frequencies for the next generation following random mating can be calculated as follows:
+With previous example, the genotypic frequencies for the next generation following random mating can be calculated as follows:
 
 $$
 `\begin{align}
@@ -132,12 +143,19 @@ And, `\(q = 1-p = 0.8\)`
   - The mutation rate of allele `\(A\)` is equal to that of allele `\(a\)`.
 
 ---
+class: inverse, middle, center
 
-# Changing gene and genotypic frequencies in HW population
+## Changing gene and genotypic frequencies in HW population
 
-?figure?
+---
 
-The relationship between allele frequencies and genotype frequencies in a population in Hardy–Weinberg equilibrium for two alleles. The frequency of the heterozygotes cannot be more than 50%, and this maximum occurs when the allele frequencies are `\(p=q=0.5\)`. Further, when the frequency of an allele is low, the rare allele occurs predominantly in heterozygotes and there are very few homozygotes. (Adapted from Falconer, 1981.)
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="./images/hw_gene_genotype_frequency.png" alt="The relationship between allele frequencies and genotype frequencies in a population in Hardy–Weinberg equilibrium for two alleles." width="55%" /&gt;
+&lt;p class="caption"&gt;The relationship between allele frequencies and genotype frequencies in a population in Hardy–Weinberg equilibrium for two alleles.&lt;/p&gt;
+&lt;/div&gt;
+
+- The frequency of the heterozygotes cannot be more than 50%, and this maximum occurs when the allele frequencies are `\(p=q=0.5\)`. 
+- When the frequency of an allele is low, the rare allele occurs predominantly in heterozygotes and there are very few homozygotes. (Adapted from Falconer, 1981.)
 
 ---
 
@@ -150,8 +168,11 @@ The relationship between allele frequencies and genotype frequencies in a popula
 - The maximum frequency of the heterozygote (H) cannot exceed 0.5. The Hardy-Weinberg law states that equilibrium is established at any locus after one generation of random mating. 
 
 ---
+class: inverse, middle, class
 
-## Plant Breeding implications of HW principle
+# Plant Breeding implications of HW principle
+
+---
 
 - From the standpoint of plant breeding, two states of variability are present – two homozygotes (AA, aa), called “free variability” that can be fixed by selection and the intermediate heterozygous (Aa), called “hidden or potential variability, that can generate new variability through segregation.
 - In outcrossing species, the homozygotes can hybridize to generate more heterozygotic variability. Under random mating and no selection, the rate of crossing and segregation will be balanced to maintain the proportion of free and potential variability of 50%:50%.
@@ -159,8 +180,6 @@ The relationship between allele frequencies and genotype frequencies in a popula
 - If genetic linkage is strong, the rate of attainment of equilibrium will be even much slower.
 
 ---
-
-## Plant Breeding application of HW principle
 
 - In disease resistance breeding, plant breeders cross an elite susceptible cultivar with one that has disease resistance. Consider a cross between two populations, susceptible x resistant. If the gene frequencies of an allele `\(A\)` in the two populations are represented by `\(P_1\)` and `\(P_2\)`, the gene frequency in the `\(F_1 = \frac{P_1 + P_2}{2} = p\)`. Assuming the frequency of the resistance gene (Note here that same allele is being considered) in the resistant cultivar is `\(P_1=0.7\)` and that in the susceptible elite cultivar is `\(P_2=0.05\)`, the gene frequency in the progeny of the cross p would be obtained as follows: 
 `\(p = \frac{P_1 + P_2}{2} = (0.7 + 0.05)/2 = 0.375\)`
@@ -173,7 +192,7 @@ class: inverse, middle, center
 
 ---
 
-# Mutation
+## Mutation
 
 - Introduces a particular gene into a population
 - A unique mutation (non-recurrent mutation) would have little impact on gene frequencies.
@@ -184,7 +203,7 @@ class: inverse, middle, center
 
 ---
 
-# Selection and fitness
+## Selection and fitness
 
 - One of the most important causes for the change in gene frequency lies in the ability of its carriers to produce surviving offspring.
 - If individuals carrying gene A are more successful in reproduction, than those carrying a, the frequency of former tends to be greater than the latter.
@@ -196,7 +215,7 @@ class: inverse, middle, center
 
 ---
 
-# Migration
+## Migration
 
 - A population may receive alleles by migration from a nearby population that maintains an entirely different gene frequency.
 - Two factors are important for recipient population in this case:
@@ -205,20 +224,42 @@ class: inverse, middle, center
 
 ---
 
-# Random genetic drift
+## Random genetic drift
 
+.pull-left[
 - When unopposed the previously discussed forces (Mutation, selection and migration) can lead of fixation of one allele and elimination of all others, or, when balanced, they can lead to equilibrium between two or more alleles.
 - However, Random genetic drift is one of the most important non-directional forces that arises from variable sampling of the gene pool each generation and is known as random genetic drift.
 - Genetic drift is caused by the fact that real populations are limited in size rather than infinite, so that gene-frequency changes occur because of sampling errors.
+- Random genetic drift is weakest in large population.
 - Example: If only a few parents are chosen to begin a new generation, such a small sample of genes may deviate widely from the gene frequency of the previous generation.
+]
+
+.pull-right[
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="./images/hardy_weinberg_genetic_drift.png" alt="Computer simulations of random genetic drift. Each colored line represents a simulated population over 30 generations." width="65%" /&gt;
+&lt;p class="caption"&gt;Computer simulations of random genetic drift. Each colored line represents a simulated population over 30 generations.&lt;/p&gt;
+&lt;/div&gt;
+
+]
 
 ---
 
-# Mating systems
+## Mating systems
+
+**Assortative mating**
+
+- Individuals choose mates based on resemblance to themselves.
+- Two types of assortative mating systems: Positive assortative mating and negative assortative mating. For example, if tall individuals preferentially mate with other tall individuals and short individuals mate with other short individuals.
+- We expect an excess of homozygotes for the "tall" alleles among the progeny of tall mating pairs and excess of homozygotes for short alleles among the progeny of short mating pairs.
+
+- Negative assortative mating is common in plant kingdom. It is exemplified by the self-incompatibility, or S, locus in Brassica crops.
+- The stigma of a plant will not be receptive to pollen that carries either of its own alleles. For example, the stigma of an S1/S2 heterozygote will not allow pollen grains carrying either an S1 or S2 allele to germinate and fertilize its ovules, although pollen grain carrying S3 and S4 can do so. 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
+"ratio": "16:9",
 "highlightStyle": "github",
 "highlightLines": true,
 "countIncrementalSlides": false
@@ -261,9 +302,25 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     deleted = true;
   });
-})();</script>
-
-<script>
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
 (function() {
   var links = document.getElementsByTagName('a');
   for (var i = 0; i < links.length; i++) {
@@ -272,7 +329,23 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
   }
 })();
-</script>
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
 
 <script>
 slideshow._releaseMath = function(el) {

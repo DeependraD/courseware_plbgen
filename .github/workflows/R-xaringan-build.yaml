@@ -1,0 +1,52 @@
+# For help debugging build failures open an issue on the RStudio community with the 'github-actions' tag.
+# https://community.rstudio.com/new-topic?category=Package%20development&tags=github-actions
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+name: R-xaringan-build
+
+jobs:
+  R-xaringan-build:
+    runs-on: 'ubuntu-16.04'
+    steps:
+      - uses: actions/checkout@v2
+      - uses: r-lib/actions/setup-r@master
+      - name: Install dependencies
+        run: |
+          install.packages(c("tidyverse", "devtools", "xaringan", "webshot"))
+          remotes::install_deps(dependencies = TRUE)
+        shell: Rscript {0}
+      - name: Install Pandoc
+      - uses: actions/checkout@master
+      - uses: r-lib/actions/setup-pandoc@v1
+        with:
+          pandoc-version: '2.9' # The pandoc version to download (if necessary) and use.
+      - run: echo "# Test" | pandoc -t html
+      - name: Install TinyTeX
+      - uses: actions/checkout@master
+      - uses: r-lib/actions/setup-tinytex@v1
+      - run: tlmgr --version
+      - name: Compile xaraingan slides and generate PDF
+        run: |
+          echo "Create _builds/introplb"
+          mkdir -p _builds/introplb
+          echo "Entering inside PLB221_introductory_plant_breeding/plb221_presentation/"
+          cd "./PLB221_introductory_plant_breeding/plb221_presentation/"
+          Rscript -e 'xaringan::infinite_moon_reader(moon = "./01-introduction_to_plant_breeding_html.Rmd", cast_from = ".")'
+          Rscript -e 'webshot::webshot("./01-introduction_to_plant_breeding_html.Rmd")'
+          mv "./01-introduction_to_plant_breeding_html.pdf" "../../_builds/introplb/"
+        shell: bash
+        # working-directory: PLB221_introductory_plant_breeding/plb221_presentation
+      - name: Upload Xaringan builds
+      - uses: actions/upload-artifact@v2
+          with:
+            name: My Xaringan PDF builds
+            path: _builds/introplb/*.pdf
+            if-no-files-found: warn # 'error' or 'ignore' are also available, defaults to `warn`
+      
+      

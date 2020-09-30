@@ -15,7 +15,7 @@ output:
       in_header: beamer_header_template.tex
 classoption: "aspectratio=169" # "compressed"
 fontsize: 11pt
-bibliography: [./../bibliographies.bib]
+bibliography: [./../bibliography/bibliographies.bib]
 ---
 
 ```{r,setup, include=FALSE}
