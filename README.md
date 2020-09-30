@@ -1,6 +1,6 @@
-  <!-- badges: start -->
-  [![R build status](https://github.com/DeependraD/courseware_plbgen/workflows/R-CMD-check/badge.svg)](https://github.com/DeependraD/courseware_plbgen/actions)
-  <!-- badges: end -->
+<!-- badges: start -->
+[![R build status](https://github.com/DeependraD/courseware_plbgen/workflows/R-CMD-check/badge.svg)](https://github.com/DeependraD/courseware_plbgen/actions)
+<!-- badges: end -->
 
 # Courseware for undergraduate curriculum in Plant Breeding and Genetics
 
