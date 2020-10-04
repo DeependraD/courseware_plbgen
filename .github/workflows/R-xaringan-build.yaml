@@ -29,7 +29,7 @@ jobs:
       
       - name: Install debian packages
         run: |
-          sudo apt-get install libcurl4-openssl-dev libpoppler-cpp-dev libpoppler-dev
+          sudo apt-get install libcurl4-openssl-dev libpoppler-cpp-dev libpoppler-dev chromium-browser
           
       - name: Cache packages
         uses: actions/cache@v2
@@ -53,7 +53,8 @@ jobs:
       - name: Render HTML slide
         run: |
           setwd("./PLB221_introductory_plant_breeding/plb221_presentation/")
-          Rscript -e 'xaringan::infinite_moon_reader("./02-domestication_plant_introduction_and_acclimatization_html.Rmd")'
+          xaringan::infinite_moon_reader("./02-domestication_plant_introduction_and_acclimatization_html.Rmd")
+          pagedown::chrome_print("./02-domestication_plant_introduction_and_acclimatization_html.html")
           setwd("../../")
         shell: Rscript {0}
       
@@ -62,4 +63,9 @@ jobs:
         with:
           name: _book
           path: _book/
-        
+      - name: Commit results
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git commit "./PLB221_introductory_plant_breeding/plb221_presentation/02-domestication_plant_introduction_and_acclimatization_html.pdf" -m 'Re-build second lecture' || echo "Second lecture rebuilt"
+          git push origin || echo "Second lecture rebuilt"
