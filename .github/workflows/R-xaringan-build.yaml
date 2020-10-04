@@ -11,9 +11,6 @@ on:
 env:
   RENV_PATHS_ROOT: ~/.local/share/renv
 
-steps:
-
-
 name: R-xaringan-build
 jobs:
   R-xaringan-build:
