@@ -6,12 +6,16 @@ date: "2019/04/13 (updated: `r Sys.Date()`)"
 output:
   xaringan::moon_reader:
     lib_dir: libs
-    css: [default, default-fonts, animate.css, mycss.css]
+    css: [default, default-fonts]
     nature:
+      ratio: "16:9"
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
 ---
+class: inverse, center, middle
+background-image: \url('./images/Pea_lathyrus_odoratus_flower.jpg')
+background-size: cover
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
@@ -19,13 +23,6 @@ options(knitr.kable.NA = "", digits = 3)
 knitr::opts_chunk$set(tidy = FALSE, echo = FALSE)
 ```
 
-```{r maize, fig.cap="Quantitative characters", fig.align='center', out.height="400px", out.width="auto"}
-knitr::include_graphics("./images/Pea_lathyrus_odoratus_flower.jpg")
-```
-
----
-
-class: inverse, center, middle
 
 # Introduction
 
@@ -33,8 +30,10 @@ class: inverse, center, middle
 
 - Discovery of the mutagentic effects of X-rays on the fruit fly (Drosophila) by H. Muller in the 1920s.
 - In 1928, H. Stubbe demonstrated the use of mutagenesis in producing mutants in tomatoes, soybeans, and other crops.
-- In terms of origin, mutations may be spontaneous (natural) or induced (artificial, with the aid of agents). 
-- Spontaneous mutations arise at the very low rate of about 10-5 or 10-6 per generation for most loci in most organisms. This translates to 1 in 100, 000 or 1 in 1, 000, 000 gametes that may carry a newly mutated allele at any locus. They are caused by mistakes in molecular processes associated with the replication of DNA, recombination, and nuclear division.
+- Spontaneous mutations arise at the very low rate of about 10-5 or 10-6 per generation for most loci in most organisms. This translates to 1 in 100, 000 or 1 in 1, 000, 000 gametes that may carry a newly mutated allele at any locus. 
+- They are caused by mistakes in molecular processes associated with the replication of DNA, recombination, and nuclear division.
+- There are currently over 3220 oficially released mutant cultivars in over 210 plant species (as of 2015).
+- Mutant traits can be produced for most if not all breeding goals and include yield, quality, stature, disease, pest resistance, tolerance to abiotic stresses, postharvest degradation, and novel end-user character.
 
 ---
 
@@ -66,14 +65,11 @@ class: inverse, center, middle
 
 ---
 
--On the basis of cell type:
+- On the basis of cell type:
   - *Gametic mutations* are heritable from one generation to the next and expressed in the entire plant.
   - *Somatic mutations* affect only a portion of plant thus resulting in a condition called chimera (Chimera consists of two genetically distinct tissues).
 
-- What happens in tillering species?
-- Why is commercial use of chimera not feasible?
-
-It is also well known that cells at the G2 (gap phase) and M (mitosis) stages are more sensitive to radiation than those at the G1 and S (synthesis) stages. 
+- It is also well known that cells at the G2 (gap phase) and M (mitosis) stages are more sensitive to radiation than those at the G1 and S (synthesis) stages. 
 
 - On the basis of functional expression:
   - Recessive mutation. change of a dominant allele to a recessive allele (A $\rightarrow$ a).
@@ -86,20 +82,26 @@ class: inverse, center
 
 # Mechanisms of mutation
 
-## Gene mutation
-
+---
+.pull-left[
 - Transition
 - Transversion
 - Tautomeric shift
 - Effect of base analogue
 - Single base deletion or addition
+]
 
 ---
 
-# Gene mutation
-
 - Gene mutations entails a change in the nucleotide constitution of the DNA sequence, adding or deleting nucleotides.
 - DNA consists of four bases: A-T, C-G.
+
+```{r point-mutation-types, fig.cap="Types of point mutation", out.width='50%', fig.align='center'}
+knitr::include_graphics("./images/point_mutation_type.png")
+```
+
+
+---
 
 *Transitions* 
 
@@ -120,6 +122,12 @@ class: inverse, center
 *Effect of base analogues*
 
 - Certain analogues of the naturally occurring bases in the DNA molecule have been shown to have mutagenic effects. For example, the natural base thymine (T), a 5-methyluracil, has a structural analog, 5-bromouracil (5-BU). The two bases are so similar that 5-BU can substitute for T during replication, leading to base pair transition.
+
+```{r base-substitution, fig.cap="Subsitution of nucleotide base by a base analogue", fig.align='center', fig.width="50%"}
+knitr::include_graphics("./images/base_analogue_substitution.png")
+```
+
+---
 
 *Effect at the protein level*
 
@@ -151,10 +159,19 @@ Neutral mutation: This kind of mutation involves an altered triplet code that co
 
 # Structural chromosomal changes (aberrations)
 
+.pull-left[
 - Changes in chromosome structure begin with a physical break that may be caused by ionizing radiation (e.g., X-rays). After a break, several events may occur:
 - The ends of the segment may be disunited.
 - The break may be repaired to restore the chromosome to its original form (restitution). 
 - Or, one or both ends of a break may join to the ends produced by a different break event (non-restitutional union). These events may result in one of four types of rearrangement – deletions, duplications, inversions, or translocations. The resulting consequences are variable.
+]
+
+.pull-right[
+
+```{r mutation-types, fig.cap="Types of mutation", out.width='95%', fig.align='center'}
+knitr::include_graphics("./images/types_of_chromosome_mutations.png")
+```
+]
 
 ---
 
@@ -192,65 +209,85 @@ Ferreira et al. (2009) evaluated the effect of various doses of gamma radiation 
 - Other chemical mutagens commonly used are ethyl methane sulfonate (EMS) and diethylsulfonate (DES). 
 - The half-life (time taken for degradation of half the initial amount of alkylating agent) for EMS in water is about 93 hours at 20 8C but only 10 hours at 37 8C.
 
+```{r}
+# for a nice difference between physical and chemical mutageneis refer to plant breeding reviews volume 39, page 53.
+```
+
+
 ---
+class: inverse, middle, center
+
+# Mutation breeding: Methodology
+
+---
+
+.pull-left[
+- Mutagenesis derived lines in a plant breeding scheme are labelled according to the number of generations after mutagenesis has taken place. For example, seeds prior to mutation treatment are called $M_0$ population , while the generation immediately after the mutation treatment is termed the $M_1$.
+- In appropriate species, these plants can be self-pollinated to produce an $M_2$ generation, and so on (in line with $F_1$, $F_2$, $F_3$, etc., for the more usual sexual generations).
+- Practical screeing of mutants is only viable in $M_2$ population.
+]
+
+.pull-right[
+```{r rice-mutation-breeding, fig.cap="Radio sensitivity of 2 week old seedling of two contrasting rice cultivars after gamma radiation; Rows of M1 seedlings after seed treatment of 0, 100, 200, 300, 400 and 500 Gy treatment."}
+knitr::include_graphics("./images/rice_mutation_radiosensitivity.png")
+```
+]
+
+---
+
+- Refer to Basmati Rice mutation breeding program
+- Refer to FAO's reference manual
+
+---
+
+class: inverse, middle, center
 
 # Factors affecting the success of mutagenesis
 
-## Clear objective. 
+---
+
+## Clear objective
+
 - A program established to select one specific trait is more focused and easier to conduct with a higher chance of success than a program designed to select more than one trait.
 
-## Efficient screening method. 
+## Efficient screening method
 
-- Mutation breeding programs examine large segregating populations to increase the chance of finding the typically rare desirable mutational events. An efficient method of screening should be developed for a mutation breeding program. Proper choice of mutation and method of treatment. Mutagens, as previously discussed, vary in various properties including source, ease of use, penetration of tissue, and safety. Some are suitable for soft tissues, whereas others are suited to hard tissue.
+- Mutation breeding programs examine large segregating populations to increase the chance of finding the typically rare desirable mutational events. 
+- Proper choice of mutation and method of treatment. Mutagens vary in various properties including source, ease of use, penetration of tissue, and safety. Some are suitable for soft tissues, whereas others are suited to hard tissue.
 
-## Dose and rate. 
-- The proper dose rate is determined by experimentation for each species and genotype. 
-- Plant materials differ in sensitivity to mutagenic treatment. It is difficult to find the precise dose (intensity), but careful experimentation can identify an optimum dose rate. 
-- Mutagenic treatments invariably kill some cells. Overdose kills too many cells and often produces crippled plants, whereas underdose tends to produce too few mutants. Not only are dose–response relationships rarely known, but they are influenced by the experimental conditions. 
+---
+
+## Dose and rate
+
+- Plant materials differ in sensitivity to mutagenic treatment. It is difficult to find the precise dose (intensity), but careful experimentation for a given genotype can identify an optimum dose rate. 
+- Overdose kills too many cells and often produces crippled plants, whereas underdose tends to produce too few mutants. Not only are dose–response relationships rarely known, but they are influenced by the experimental conditions.
 - It is recommended that three dose levels be used in a project – the optimal rate, plus one dose above and below this rate.
 
 ---
 
-# Factors affecting the success of mutagenesis (...Continued)
+## Proper experimental conditions
 
-## Proper experimental conditions. 
-- It is known that the oxygen level in the plant material affects the amount of damage caused by the mutagen, the higher the oxygen level, the greater the injury to the material tends to be. 
-- The change in the effect of a mutagen with oxygen supply is called the oxygen enhancement ratio.
+- Oxygen level in the plant material affects the amount of damage caused by the mutagen, the higher the oxygen level, the greater the injury to the material tends to be. Adjustments to mutagenesis with oxygen supply is called the oxygen enhancement ratio.
 - Similarly, higher the tissue moisture, the lower the tissue oxygen supply.
 - pH of the environment in chemical mutagenesis is equally important. For example, EMS is most effective at pH 7.0, whereas sodium azide is most effective at pH 3.0. 
 - Sometimes, dry seeds need to be pre-soaked to prepare the cells to initiate metabolic activity.
 
 ---
+class: inverse, middle, center
 
 # Mutation breeding applications
 
-## 
-
-The use of in vitro cell cultures treated with mutagenic agents reduces the incidence of chimeras, facilitates the selection of mutants for dominant or recessive traits that appear with a low frequency, and enables the use of chemical mutagens because this in vitro method circumvents the difficulty associated with tissue penetration when the treatments are performed in vivo in plant tissues propagated vegetatively.
-
 ---
 
-## 
-
-Mutation is recommended when the expansion of natural genetic variability is desired or when there are restrictions on the use of conventional genetic improvement methods. Garlic has been cited as an example for in vitro mutagenesis because the lack of flowering in this plant precludes the use of crosses between different cultivars.
-
----
-
-According to Ahloowalia et al. (2004), the main strategy for the use of mutagenesis in genetic breeding is to gain one or two of the traits of greatest interest without excessively changing important agronomic traits, including yield.
-
-## 
-
----
-
-# Mutation goes along with in-vitro propagation
-
-## 
-
-- Both ex-vitro and in-vitro methods can be employed
-- In-vitro methods are best in that they require less space and provide opportunity for obtaining maximum regenerants.
+- According to Ahloowalia et al. (2004), the main strategy for the use of mutagenesis in genetic breeding is to gain one or two of the traits of greatest interest without excessively changing important agronomic traits, including yield.
+- The use of in vitro cell cultures treated with mutagenic agents reduces the incidence of chimeras
+- Facilitates the selection of mutants for dominant or recessive traits that appear with a low frequency
+- Mutation is recommended when the *expansion* of natural genetic variability is desired or when there are restrictions on the use of conventional genetic improvement methods. 
+- Garlic has been cited as an example for in vitro mutagenesis because the lack of flowering in this plant precludes the use of crosses between different cultivars.
 
 ---
 
 # Mutant screening
 
-After applying mutagens to the explants, which can be in the form of a callus or cell suspension, mutant cells, such as buds and pollen grains, among others, must be selected, and these cells will multiply and generate plants. Methods have been established for generating certain mutations, including resistance to disease, herbicides, and soil salinity, which incorporate the problem-causing agents into the culture medium, thereby facilitating the identification of resistant or tolerant cells.
+- After applying mutagens to the explants, which can be in the form of a callus or cell suspension, mutant cells, such as buds and pollen grains, among others, must be selected, and these cells will multiply and generate plants. 
+- Methods have been established for generating certain mutations, including resistance to disease, herbicides, and soil salinity, which incorporate the problem-causing agents into the culture medium, thereby facilitating the identification of resistant or tolerant cells.

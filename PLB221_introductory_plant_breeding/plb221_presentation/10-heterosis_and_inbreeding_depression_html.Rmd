@@ -1,16 +1,18 @@
 ---
 title: "Heterosis and inbreeding depression"
-subtitle: "Effects of inbreeding<br/>Inbreeding depression<br/>Heterosis and its genetics and physiological basis<br/>Utilization and fixation of heterosis"
+subtitle: "Inbreeding depression<br/>Heterosis: its genetic basis and biometrics<br/>Utilization and fixation of heterosis"
 author: "Deependra Dhakal"
 date: "2019/04/21 (updated: `r Sys.Date()`)"
 output:
   xaringan::moon_reader:
     lib_dir: libs
     nature:
+      ratio: "16:9"
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
 ---
+class: inverse, middle, center
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
@@ -19,22 +21,9 @@ knitr::opts_chunk$set(tidy = FALSE, echo = FALSE)
 require(tidyverse)
 ```
 
-# Hybrid vigour (Heterosis)
-
-- Hybrid vigor may be defined as the increase in size, vigor, fertility, and overall productivity of a hybrid plant over the mid-parent value (average performance of the two parents). 
-- It is calculated as the difference between the crossbred and inbred means:
-
-$$Hybrid~vigour = \frac{F_1-\frac{(P_1+P_2)}{2}}{\frac{(P_1+P_2)}{2}}$$
-
-- The estimate is usually calculated as a percentage.
-- The synonymous term, heterosis, was coined by G.H. Shull.
-- Advantageous hybrid vigor is observed more frequently when breeders cross parents that are genetically diverse; When two inbred lines of outbred species are crossed.
-- The practical definition of heterosis is hybrid vigor that greatly exceeds the better or higher parent in a cross.
-- Hybrid breeding in maize quadrupled yields of maize in US between 1930s and 1970s.
+# Inbreeding depression
 
 ---
-
-# Inbreeding depression
 
 - Inbreeding depression is reduction in fitness as a direct result of inbreeding. 
 - In theory, the heterosis observed on crossing is expected to be equal to the depression upon inbreeding, considering a large number of crosses between lines derived from a single base population. 
@@ -55,13 +44,11 @@ $$Hybrid~vigour = \frac{F_1-\frac{(P_1+P_2)}{2}}{\frac{(P_1+P_2)}{2}}$$
 
 ---
 
-# Inbreeding depression (...Implication)
-
 - In Figure (a) there is no inbreeding because there is no common ancestral pathway to the individual, A (i.e., all parents are different).
 - However, in Figure (b) inbreeding exists because B and C have common parents (D and E), that is, they are full sibs.
 - To calculate the amount of inbreeding, the standard pedigree is converted to an arrow diagram, as shown in (c). 
 - Each individual contributes 1/2 of its genotype to its offspring. The *coefficient of inbreeding* (F) is calculated by summing up all the pathways between two individuals through a common ancestor as: $F_{BC} = \sum{\left(\frac{1}{2}\right)^s}$ , where s is the number of steps (arrows) from B to the common ancestor and back to C. For example, B and C probably inherited $(1/2)(1/2) = 1/4$ of their genes in common through ancestor D. Similarly, B and C probably inherited 1/4 of their genes in common through ancestor E. (Notice that individual whose inbreeding coefficient is being calculated does not constitute the loop and is hence ignored.)
-- The coefficient of inbreeding between B and C, as a result of common ancestry, is hence $F_{BC} = 1/4 + 1/4 = 1/2 = 50\%$
+- Given the proportion of common genes, F can be calculated by squaring the proportion -- i.e. $F = \left(\frac{1}{4}\right)^2 + \left(\frac{1}{4}\right)^2 = \frac{1}{8} + \frac{1}{8} = \frac{1}{4}$. Here we sum twice because two loops are involved with same proportion of genes common.
 
 ---
 
@@ -71,8 +58,26 @@ knitr::include_graphics("./images/arrow_diagram.png")
 ```
 
 ---
+class: inverse, middle, center
 
-# Genetic basis of heterosis
+# Hybrid vigour (Heterosis)
+
+---
+
+- Hybrid vigor may be defined as the increase in size, vigor, fertility, and overall productivity of a hybrid plant over the mid-parent value (average performance of the two parents). 
+- It is calculated as the difference between the crossbred and inbred means:
+
+$$Hybrid~vigour = \frac{F_1-\frac{(P_1+P_2)}{2}}{\frac{(P_1+P_2)}{2}}$$
+
+- The estimate is usually calculated as a percentage.
+- The synonymous term, heterosis, was coined by G.H. Shull.
+- Advantageous hybrid vigor is observed more frequently when breeders cross parents that are genetically diverse; When two inbred lines of outbred species are crossed.
+- The practical definition of heterosis is hybrid vigor that greatly exceeds the better or higher parent in a cross.
+- Hybrid breeding in maize quadrupled yields of maize in US between 1930s and 1970s.
+
+---
+
+## Genetic basis of heterosis
 
 - To explain the genetic basis for why fitness lost on inbreeding tends to be restored upon crossing, two theories have been proposed.
   - Dominance theory: C.G. Davenport in 1908 and later by I.M. Lerner, 
@@ -82,7 +87,7 @@ knitr::include_graphics("./images/arrow_diagram.png")
 
 ---
 
-# Dominance theory
+## Dominance theory
 
 - The dominance theory assumes that vigor in plants is conditioned by dominant alleles, recessive alleles being deleterious or neutral in effect. 
 - It follows: a genotype with more dominant alleles will be more vigorous than one with few dominant alleles.
@@ -102,7 +107,7 @@ knitr::include_graphics("./images/dominance_theory.png")
 
 ---
 
-# Overdominance theory
+## Overdominance theory
 
 - The phenomenon of the heterozygote being superior to the homozygote is called overdominance (i.e., heterozygosity _per se_ is assumed to be responsible for heterosis). 
 - Theory assumes that the alleles of a gene (e.g., A, a) are contrasting but each has a different favorable effect in the plant. 
@@ -116,25 +121,28 @@ knitr::include_graphics("./images/overdominance_theory.png")
 
 ---
 
-# Biometrics of heterosis
+## Biometrics of heterosis
 
-## Better parent heterosis (Heterobeltiosis)
+### Better parent heterosis (Heterobeltiosis)
 
 $$\large  Hybrid~vigour = \frac{F_1-Better~parent}{Better~parent}$$
 
-## Mid parent heterosis
+### Mid parent heterosis
 
 $$\large  Hybrid~vigour = \frac{F_1-\frac{(P_1+P_2)}{2}}{\frac{(P_1+P_2)}{2}}$$
 
 ---
 
-## Commercial heterosis
+### Commercial heterosis
 
 $$\large  Hybrid~vigour = \frac{F_1-Commercial~Hybrid}{Commercial~Hybrid}$$
 
 ---
+class: inverse, middle, center
 
 # Types of hybrids
+
+---
 
 - Commercial applications of hybrid breeding started with a cross of two inbred lines (a single cross - AxB) and later shifted to the more economic double cross, ([AxB]x[CxD]) and then back to a single cross. 
 - Other parent combinations in hybrid development have been proposed, including the three-way cross ([AxB]xC) and modified versions of the single cross, in which closely related crosses showed that the single cross was superior in performance to the other two in terms of average yield. 
