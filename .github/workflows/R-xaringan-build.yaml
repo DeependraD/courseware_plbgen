@@ -16,29 +16,48 @@ jobs:
   R-xaringan-build:
     runs-on: 'ubuntu-16.04'
     steps:
-      - uses: actions/checkout@v2
-      - uses: r-lib/actions/setup-r@master
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      
+      - name: Setup R  
+        uses: r-lib/actions/setup-r@master
+      
+      - name: Install pandoc and pandoc citeproc
+        run: |
+          sudo apt-get install pandoc
+          sudo apt-get install pandoc-citeproc
+      
       - name: Install debian packages
         run: |
-          sudo apt-get install libcurl4-openssl-dev
+          sudo apt-get install libcurl4-openssl-dev libpoppler-cpp-dev libpoppler-dev
+          
       - name: Cache packages
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
-          path: ${{ env.RENV_PATHS_ROOT }}
-          key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-renv-
+          path: $HOME/.local/share/renv
+          key: r-${{ hashFiles('renv.lock') }}
+          restore-keys: | r-
+      
+      - name: Cache bookdown results
+        uses: actions/cache@v2
+        with:
+          path: _bookdown_files
+          key: bookdown-${{ hashFiles('**/*Rmd') }}
+          restore-keys: bookdown-
+          
       - name: Restore packages
-        shell: Rscript {0}
         run: |
-          if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
-          renv::restore()
+          R -e 'install.packages("renv")'
+          R -e 'renv::restore()'
+      
       - name: Render HTML slide
         run: |
           setwd("./PLB221_introductory_plant_breeding/plb221_presentation/")
           Rscript -e 'xaringan::infinite_moon_reader("./02-domestication_plant_introduction_and_acclimatization_html.Rmd")'
           setwd("../../")
         shell: Rscript {0}
+      
+      - name: Upload artifacts to local repository
       - uses: actions/upload-artifact@v1
         with:
           name: _book
