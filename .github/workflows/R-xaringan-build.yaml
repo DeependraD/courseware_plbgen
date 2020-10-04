@@ -58,7 +58,7 @@ jobs:
         shell: Rscript {0}
       
       - name: Upload artifacts to local repository
-      - uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v1
         with:
           name: _book
           path: _book/
