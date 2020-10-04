@@ -18,6 +18,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: r-lib/actions/setup-r@master
+      - name: Install debian packages
+        run: |
+          sudo apt-get install libcurl4-openssl-dev
       - name: Cache packages
         uses: actions/cache@v1
         with:
@@ -30,12 +33,14 @@ jobs:
         run: |
           if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
           renv::restore()
-      - name: Install debian packages
+      - name: Render HTML slide
         run: |
-          sudo apt-get install libcurl4-openssl-dev
-      - name: Install dependencies
-        run: |
-          install.packages(c("tidyverse", "devtools", "xaringan", "webshot"))
-          remotes::install_deps(dependencies = TRUE)
+          setwd("./PLB221_introductory_plant_breeding/plb221_presentation/")
+          Rscript -e 'xaringan::infinite_moon_reader("./02-domestication_plant_introduction_and_acclimatization_html.Rmd")'
+          setwd("../../")
         shell: Rscript {0}
+      - uses: actions/upload-artifact@v1
+        with:
+          name: _book
+          path: _book/
         
