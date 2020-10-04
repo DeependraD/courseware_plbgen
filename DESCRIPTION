@@ -1,0 +1,15 @@
+Package: coursewareplbgen
+Title: This is not a Package but Collection of Course Manuals
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Deependra",
+           family = "Dhakal",
+           role = c("aut", "cre"),
+           email = "dean.ionized@gmail.com",
+           comment = c(ORCID = ""))
+Description: This package hosts lecture contents for teaching Genetics and Plant Breeding in undergraduate curriculum.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
