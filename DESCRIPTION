@@ -6,7 +6,7 @@ Authors@R:
            family = "Dhakal",
            role = c("aut", "cre"),
            email = "dean.ionized@gmail.com",
-           comment = c(ORCID = ""))
+           comment = c(ORCID = "0000-0002-0347-7950"))
 Description: This package hosts lecture contents for teaching Genetics and Plant Breeding in undergraduate curriculum.
 License: MIT + file LICENSE
 Encoding: UTF-8
