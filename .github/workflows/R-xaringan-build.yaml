@@ -57,22 +57,24 @@ jobs:
           
           # List all html outputing Rmd files
           rmd_file_list <- list.files(".", "_html.Rmd$")
-          html_file_list <- gsub(".(Rmd)$", replacement = ".html", rmd_file_list)
-          purrr::map(rmd_file_list, purrr::possibly(~rmarkdown::render(.x), otherwise = FALSE))
+          
+          # Render to html slides
+          html_file_list <- purrr::map(rmd_file_list, purrr::possibly(~rmarkdown::render(.x), otherwise = NULL))
+          # html_file_list <- gsub(".(Rmd)$", replacement = ".html", rmd_file_list) # not necessary
+          html_file_list <- unlist(html_file_list)
           
           # chrome print (it would be better if any way to only print changed html files?)
-          purrr::map(html_file_list, purrr::possibly(~pagedown::chrome_print(.x), otherwise = FALSE))
-          
-          # list all rmd --> html --> pdf files
-          pdf_file_list <- list.files(".", "_html.pdf$")
+          pdf_file_list <- purrr::map(html_file_list, purrr::possibly(~pagedown::chrome_print(.x), otherwise = NULL))
+          pdf_file_list <- unlist(pdf_file_list)
           
           # go to top directory
           setwd("../../")
           
           dir.create('_book', showWarnings = T)
           purrr::map(pdf_file_list, 
-              ~file.rename(paste0("./PLB221_introductory_plant_breeding/plb221_presentation/", .x), paste0("_book/", .x)))
+                     ~file.rename(.x, gsub("PLB221_introductory_plant_breeding/plb221_presentation/", "_book/", .x)))
           list.files("_book/")
+
         shell: Rscript {0}
       
       - name: Upload artifacts to local repository
