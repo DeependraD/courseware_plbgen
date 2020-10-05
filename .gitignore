@@ -359,3 +359,7 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/r,linux,latex,windows,bookdown
+
+# ignore _book directory
+_book/
+_book/*
