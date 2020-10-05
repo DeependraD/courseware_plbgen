@@ -123,7 +123,7 @@ knitr::include_graphics("./images/point_mutation_type.png")
 
 - Certain analogues of the naturally occurring bases in the DNA molecule have been shown to have mutagenic effects. For example, the natural base thymine (T), a 5-methyluracil, has a structural analog, 5-bromouracil (5-BU). The two bases are so similar that 5-BU can substitute for T during replication, leading to base pair transition.
 
-```{r base-substitution, fig.cap="Subsitution of nucleotide base by a base analogue", fig.align='center', fig.width="50%"}
+```{r base-substitution, fig.cap="Subsitution of nucleotide base by a base analogue", fig.align='center', out.width="50%"}
 knitr::include_graphics("./images/base_analogue_substitution.png")
 ```
 
