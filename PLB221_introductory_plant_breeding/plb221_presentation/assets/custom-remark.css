@@ -420,3 +420,10 @@ Accent grey - supportive #F1F1F1
 C=0 M=0 Y=0 K=10
 R=241 G=241 B=241 
 */
+
+.small-font {
+    font-size: 40%;
+}
+.medium-font {
+    font-size: 75%;
+}

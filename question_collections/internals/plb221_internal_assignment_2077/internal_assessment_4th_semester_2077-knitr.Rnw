@@ -1,0 +1,145 @@
+\documentclass[12pt]{article}
+\usepackage[portrait,left=1.5cm,right=1.5cm,top=1.5cm,bottom=1.5cm,footskip=0.2in]{geometry}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\setlength{\parindent}{0cm}
+
+\begin{document}
+
+<<include=FALSE>>=
+library(knitr)
+opts_chunk$set(
+concordance=TRUE
+)
+options(knitr.kable.NA = '')
+@
+
+
+<<echo=FALSE, message=FALSE>>=
+suppressPackageStartupMessages(require(tidyverse))
+
+questions_till_date <- readxl::read_xlsx("../../data/questions_till_date.xlsx", sheet = "questions_till_date", range = "A2:I227") %>% 
+  filter(!is.na(Question))
+
+# question_till_date %>%
+#   filter(Subject == "Introductory plant breeding") %>% 
+#   select(-Exam_form) %>% 
+#   group_by(Year) %>%
+#   summarise(n())
+@
+
+
+<<results='asis', echo=FALSE, warning=FALSE, message=FALSE>>=
+
+questions_plb_extended <- readxl::read_xlsx("../../data/questions_till_date.xlsx", 
+                                              sheet = "plb") %>% 
+  group_by(SN) %>% 
+  nest()
+
+questions_till_date <- questions_till_date %>% 
+  filter(Subject == "Introductory plant breeding") %>%
+  select(-Exam_form) %>% 
+  left_join(questions_plb_extended) %>% 
+  mutate(Question = case_when(
+    str_detect(Question, "plb\\_\\d+") ~ map(data, ~list(as_tibble(.x))), 
+    TRUE ~ map(Question, c))
+  ) %>% 
+  select(-data)
+
+question_replicates <- replicate(50, {
+  questions_till_date %>% 
+    select(-Exam_type, -Level_semester, -Subject, -Year, -University) %>% 
+    group_by(Question_type) %>% 
+    nest() %>%
+    ungroup() %>% 
+    mutate(sample_size = c(1, 10)) %>% 
+    mutate(sampled_df = map2(data, sample_size, sample_n)) %>% 
+    select(-data, -sample_size) %>% 
+    unnest(sampled_df)
+}, simplify = FALSE) %>% 
+  bind_rows(.id = "roll_no") %>% 
+  group_by(roll_no) %>% 
+  nest() %>% 
+  ungroup() %>% 
+  mutate(date = "October 25, 2020") %>% 
+  mutate(subject = "Introductory Plant Breeding") %>% 
+  mutate(exam_type = "Internal Assessment") %>% 
+  mutate(semester = "4th Semester")
+
+# custom function to print questions with table
+question_with_kable <- function(dfname, ...){ # accepts question_split dataframe
+  major <- dfname$major_q
+  minor_df <- dfname %>% dplyr::select(matches("^minor_qc\\d+"))
+  minor_df <- minor_df %>%
+    janitor::remove_empty(which = "cols") %>%
+    janitor::row_to_names(1)
+  major <- purrr::discard(major, is.na)
+  paste0(major, "\\\\")
+  kableExtra::kbl(minor_df, ...) %>% kableExtra::kable_styling(font_size = 8, latex_options = c("H"))
+}
+
+pwalk(question_replicates,
+      function(roll_no, data, date, 
+               subject, exam_type, 
+               semester){
+        cat("{\\centering",
+            "\\Large{\\textbf{Gokuleshwor Agriculture and Animal Science College, Baitadi}} \\\\[0.25cm]
+            \\textbf{Institute}: GAASC, IAAS \\\\[0.2cm]
+            \\textbf{Internal Assessment} \\\\[0.2cm]}", "\n")
+        
+        cat("\\textbf{Credit hours}: 3 + 1 \\\\", "\n")
+        
+        cat("\\textbf{Level}: B. Sc. Ag (", semester, ") \\\\", "\n", sep = "")
+        
+        cat("\\textbf{Roll no}:", roll_no, "\\\\[0.5cm]", "\n")
+        
+        question_split <- data %>% .[["Question"]]
+        
+        pwalk(question_split, 
+              function(q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11)
+              {
+                cat("\\textbf{Essay type} (1 x 10 = 10 marks) \\\\", "\n", sep = "")
+                if(any(class(q1) == "data.frame")){cat("Question 1. ", q1$major_q[[1]], "\\\\ \n", question_with_kable(q1, format = "latex", booktabs = TRUE), "\n", sep = "")}
+                else{cat("Question 1. ", q1, "\\\\", "\n", sep = "")}
+                cat("\\textbf{Short answer type}", " (10 x 3 = 30 marks) \\\\", "\n", sep = "")
+                if(any(class(q2) == "data.frame")){cat("Question 2. ", q2$major_q[[1]], "\\\\ \n", question_with_kable(q2, format = "latex", booktabs = TRUE), "\n", sep = "")}
+                else{cat("Question 2. ", q2, "\\\\", "\n", sep = "")}
+                if(any(class(q3) == "data.frame")){cat("Question 3. ", q3$major_q[[1]], "\\\\ \n", question_with_kable(q3, format = "latex", booktabs = TRUE), "\n", sep = "")}
+                else{cat("Question 3. ", q3, "\\\\", "\n", sep = "")}
+                if(any(class(q4) == "data.frame")){cat("Question 4. ", q4$major_q[[1]], "\\\\ \n", question_with_kable(q4, format = "latex", booktabs = TRUE), "\n", sep = "")}
+                else{cat("Question 4. ", q4, "\\\\", "\n", sep = "")}
+                if(any(class(q5) == "data.frame")){cat("Question 5. ", q5$major_q[[1]], "\\\\ \n", question_with_kable(q5, format = "latex", booktabs = TRUE), "\n", sep = "")}
+                else{cat("Question 5. ", q5, "\\\\", "\n", sep = "")}
+                if(any(class(q6) == "data.frame")){cat("Question 6. ", q6$major_q[[1]], "\\\\ \n", question_with_kable(q6, format = "latex", booktabs = TRUE), "\n", sep = "")}
+                else{cat("Question 6. ", q6, "\\\\", "\n", sep = "")}
+                if(any(class(q7) == "data.frame")){cat("Question 7. ", q7$major_q[[1]], "\\\\ \n", question_with_kable(q7, format = "latex", booktabs = TRUE), "\n", sep = "")}
+                else{cat("Question 7. ", q7, "\\\\", "\n", sep = "")}
+                if(any(class(q8) == "data.frame")){cat("Question 8. ", q8$major_q[[1]], "\\\\ \n", question_with_kable(q8, format = "latex", booktabs = TRUE), "\n", sep = "")}
+                else{cat("Question 8. ", q8, "\\\\", "\n", sep = "")}
+                if(any(class(q9) == "data.frame")){cat("Question 9. ", q9$major_q[[1]], "\\\\ \n", question_with_kable(q9, format = "latex", booktabs = TRUE), "\n", sep = "")}
+                else{cat("Question 9. ", q9, "\\\\", "\n", sep = "")}
+                if(any(class(q10) == "data.frame")){cat("Question 10. ", q10$major_q[[1]], "\\\\ \n", question_with_kable(q10, format = "latex", booktabs = TRUE), "\n", sep = "")}
+                else{cat("Question 10. ", q10, "\\\\", "\n", sep = "")}
+                if(any(class(q11) == "data.frame")){cat("Question 11. ", q11$major_q[[1]], "\\\\ \n", question_with_kable(q11, format = "latex", booktabs = TRUE), "\n", sep = "")}
+                else{cat("Question 11. ", q11, "\\\\", "\n", sep = "")}
+              }
+        )
+        cat("\\clearpage", "\n")
+      }
+)
+
+@
+
+\end{document}

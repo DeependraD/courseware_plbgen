@@ -29,15 +29,20 @@ options(knitr.kable.NA = "", digits = 2)
 options(kableExtra.latex.load_packages = FALSE)
 ```
 
+```{r model-organisms-cover, out.width="80%", fig.align='center'}
+knitr::include_graphics('../images/model_organisms_cover.png')
+```
+
 # Escherichia coli
 
 ##
 
-- _E.coli_ is a gram negative, facultative anaerobic, rod-shaped, coliform bacterium that is commonly found in the lower intestine of warm-blooded organisms.
-- _E.coli_ is the most widely studied prokaryotic unicellular model organism. 
-- Most _E.coli_ strains are harmless, but some can cause serious food poisoning. Shiga toxin-producing _E.coli_ (STEC) is a bacterium that can cause severe foodborne disease.
+- _E. coli_ is a gram negative, facultative anaerobic, rod-shaped, coliform bacterium that is commonly found in the lower intestine of warm-blooded organisms.
+- _E. coli_ is the most widely studied prokaryotic unicellular model organism. 
+- Most _E. coli_ strains are harmless, but some can cause serious food poisoning. Shiga toxin-producing _E. coli_ (STEC) is a bacterium that can cause severe foodborne disease.
 - Can grow with or without oxygen. 
-- _E.coli_ is about 2.0 micrometer long and 0.25-1.0 micrometer in diameter with a cell volume of 0.6-0.7 micro cubic meter.
+- _E. coli_ is about 2.0 micrometer long and 0.25-1.0 micrometer in diameter with a cell volume of 0.6-0.7 micro cubic meter.
+- Because _E. coli_ can be obtained from the human gut, it is easy to culture.
 
 ## Taxonomy and classification
 
@@ -57,16 +62,18 @@ They have thin cell wall with only 1 or 2 layers of peptidoglycan.
 
 ##
 
-[Image of bacterium]
+```{r bacteria-colony, out.width="48%", fig.align='center'}
+knitr::include_graphics("../images/bacteria_colony.png")
+```
 
 ## Genetics
 
-- Genome size :4.6Mb
-- Chromosomes:Circular
-- No.of genes:4000
-- Percentage with human chromosomes:8%
-- Average gene density: 
-- Gene sequenced:1997
+- Genome size: 4.6Mb
+- Chromosomes: Circular
+- No.of genes: 4000
+- Percentage with human chromosomes: 8%
+- Average gene density: 1 kb, no introns
+- Gene sequenced: 1997
 
 ## Reproduction
 
@@ -77,6 +84,26 @@ They have thin cell wall with only 1 or 2 layers of peptidoglycan.
 - Instead _E.coli_ can divide (under ideal condition) in as little as 20 minutes.
 - Prokaryotes reproduce asexually through binary fission.
 - The cell divides leaving two copies of original bacterium called daughter cells 
+
+##
+
+- In binary fission, the haploid genome replicates and partitions with the dividing cell.
+- In conjugation (sexual cycle; discovered by J. Lederberg and E. Tatum), genetically differentiated "sexes" fuse and exchange some or all of their genomes, sometimes leading to recombination.
+- "Males" can convert "females" into males by the transmission of a particular plasmid (extragenomic 100-kb DNA) called F (determines a type of maleness).
+- F+ cells act as male "donors".
+- The F plasmid can integrate into the chromosome to form an Hfr cell type, which transmits the chromosome linearly into F- recipients.
+- Other plasmids (e.g. drug-resistance gene carrying) are also found in _E. coli_ in nature.
+
+## Mutation studies
+
+\footnotesize
+
+- Null mutation of any essential gene will result in no growth; these mutations can be selected by adding penicillin.
+- Mutations affecting the expression of a specific gene of interest can be screened by fusing it to a reporter gene such as the _lac_ Z gene.
+- After a set of mutants affecting the process of interest have been obtained, the mutations are sorted into their genes by recombination and complementation.
+- These genes are cloned and sequenced to obtain clues to function.
+- In _E. coli_ crosses are used to map mutations and to produce specific cell types. Recombinants are made by mixing Hfr cells (having an integrated F plasmid) and F- cells. Generally an Hfr donor transmits part of bacterial genome, forming a temporary merozygote in which recombination takes place.
+- Hfr crosses can be used to perform mapping by time-of-marker entry or by recombinant frequency. By transfer of F' derivatives carrying donor genes to F-, it is possible to make stable partial diploids to study gene interaction or dominance.
 
 ## Studies
 
@@ -89,9 +116,9 @@ They have thin cell wall with only 1 or 2 layers of peptidoglycan.
 ## Suitability as model organism
 
 - Rapid reproduction and small size
-- Under optimal condition,they can reproduce every 20 minutes,in a mere 7 hours, a single bacterial cells can give rise to more than 2million descendents.
+- Under optimal condition,they can reproduce every 20 minutes,in a mere 7 hours, a single bacterial cells can give rise to more than 2 million descendants.
 - Thus enormous numbers of cells can be grown quickly,so that even very rare mutations will appear in a short period of time.
-- Consequently,numerous mutations in _E.coli_ everything from colony appearance to drug resistance, have been isolated and characterised.
+- Consequently,numerous mutations in _E.coli_ everything from colony appearance to drug resistance, have been isolated and characterized.
 - _E.coli_ is easy to culture in the laboratory in liquid medium or on solid medium within petri plates.
 - In liquid culture, _E.coli_ cells will grow to a concentration of a billion cells per millilitre and trillion of bacterial cells can be easily grown on a single test tube.
 
@@ -130,7 +157,42 @@ knitr::include_graphics("../images/escherichia_coli2.png")
 
 ##
 
-```{r s-cerevisiae, out.width="48%", fig.align='center'}
+- Genome size: 12 Mb
+- Chromosomes (n): 16
+- Number of genes: 6000
+- Percentage with human homologs: 25\%
+- Average gene size: 1.5 kb, 0.03 intron/gene
+- Transposons: Small proportion of DNA
+- Genome sequenced in: 1996
+
+##
+
+- Belongs to Ascomycete phylum.
+- Name: Yeast, Baker's yeast, Budding yeast
+- Although laboratory strains are mostly haploid, cells in nature can be diploid or polyploid.
+- Life cycle consists of both sexual and asexual phases(budding)
+- Forms compact colonies or plates, in much the same way as bacterium.
+- But like eukaryote, it has meiosis, cell cycle, and mitochondria, and these features have been at the center of the yeast success story.
+- Cells are small (10 $\mu$m) and complete their cell cycle in just 90 minutes, allowing them to be produced in huge numbers in a short time.
+- Cells can respire anaerobically by using the fermenatation cycle and hence can do without mitochondria, allowing mitochondrial mutants to be viable.
+
+## Genetics analysis
+
+- In order to make crosses in yeast (in order to build special purpose strains for screens and selections), strains of opposite mating type are simply mixed on an appropriate medium.
+- The resulting a/$\alpha$ diploids are induced to undergo meiosis by using a special sporulation medium.
+- Finally the ascospores may be isolated using special equipment.
+- Engineered plasmid are used to produce homozygous 'a/a' or '$\alpha$/$\alpha$' strains.
+- The availability of both haploid and diploid cell types provides flexibility for mutational studies.
+- Haploid cells are useful for large scale selection or screens because mutant phenotypes are expressed directly.
+- Diploid cells are convenient for obtaining dominant mutations, sheltering lethal mutations, performing complementation tests, and exploring gene interaction.
+
+## Reproduction
+
+- In sexual cycle of the yeast, cell may be haploid or diploid
+- Two mating types are determined by alleles MAT$\alpha$ and MATa; when haploid cells of different mating type unite, they form a diploid cell, which can divide mitotically or undergo meiotic division.
+- The products of meiosis are a nonlinear tetrad of four ascospores.
+
+```{r s-cerevisiae, out.width="38%", fig.align='center'}
 # pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Griffiths - An Introduction to Genetic Analysis 11th Edition c2015.pdf",
 #                       pages = 822,
 #                       dpi = 300, format = "png",
@@ -138,6 +200,24 @@ knitr::include_graphics("../images/escherichia_coli2.png")
 
 knitr::include_graphics("../images/saccharomyces_cerevisiae.png")
 ```
+
+## Techniques of genetic manipulation
+
+- Chemical and radiation: Random somatic mutations
+- Transposon: Random somatic insertions
+- Integrative plasmid: Insert by homologous recombination
+- Replicative plasmid: Can replicate autonomously (2 $\mu$ or ARS origin of replication)
+- Yeast artificial chromosome: Replicates and segrates as a chromosome
+- Shuttle vector: Can replicate in yeast or _E. coli_
+- Gene replacement: Homologous recombination replaces wild-type allele with null copy.
+
+## Yeast vector for genetic modification
+
+- Budding yeast are most conveniently manipulate genetically.
+- Exogenous DNA is taken up easily by cells whose cell walls have been partly removed by enzyme digestion or abrasion.
+- For a plasmid to replicate free of the chromosomes, it must contain a normal yeast replication origin (ARS) or a replication origin from a 2-$\mu$m plasmid found in certain yeast isolates.
+- The most elaborate vector, YAC consists of an ARS, a yeast centromere and two telomeres.
+- A YAC can carry large transgenic inserts, which are then inherited in the same way as Mendelian chromosome.
 
 ##
 
@@ -152,6 +232,24 @@ knitr::include_graphics("../images/saccharomyces_cerevisiae2.png")
 
 # Neurospora crassa
 
+## Life cycle
+
+\footnotesize
+
+- _N. crassa_ has a diploid eukaryotic life cycle.
+- A haploid asexual spore (called conidium) germinates to produce a germ tube that extends at its tip.
+- Progressive tip growth and branching produce a mass of branched threads (called hyphae), which forms a compact colony on growth medium.
+- Because hyphae have no cross walls, a colony is essentially one cell containing many haploid nuclei. The colony  buds off milion of asexual spores, which can disperse in air and repeat the sexual cycle.
+- In _N crassa's_ sexual cycle, there are two identical looking mating types MAT-A and MAT-$\alpha$, which can be viewed as simple "sexes". As in yeast, two mating types are determined by two alleles of one gene.
+- When colonies of different mating type come in contact, their cell walls and nuclei fuse.
+- Many transient diploid nuclei arise, each of which undergoes meiosis, producing an octad of ascospores. The ascospores germinate and produce colonies exactly like those produced by asexual spores.
+- It takes a period of 4 weeks for sexual cycle to complete.
+
+##
+
+- Because _Neurospora_ is haploid, newly obtained mutant phenotypes are easily detected with the use of various types of screens and selections.
+- A favorite system for study of the mechanism of mutation is the $ad-3$ gene, because $ad-3$ mutants are purple and easily detected.
+
 ##
 
 ```{r n-crassa1, out.width="48%", fig.align='center'}
@@ -165,7 +263,15 @@ knitr::include_graphics("../images/neurospora_crassa1.png")
 
 ##
 
-```{r n-crassa2, out.width="48%", fig.align='center'}
+```{r n-crassa-life-cycle, out.width="38%", fig.align="center"}
+knitr::include_graphics("../images/neurospora_crassa_life_cycle.png")
+```
+
+##
+
+- G. Beadle and E. Tatum used Neurospora as the model organism in their pioneering studies on gene-enzyme relations, in which they were able to determine the enzymatic steps in the synthesis of arginine.
+
+```{r n-crassa2, out.width="42%", fig.align='center', fig.cap="Pathway synthesizing orange carotenoid pigment in Neurospora."}
 # pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Griffiths - An Introduction to Genetic Analysis 11th Edition c2015.pdf",
 #                       pages = 825,
 #                       dpi = 300, format = "png",
@@ -178,7 +284,26 @@ knitr::include_graphics("../images/neurospora_crassa2.png")
 
 ##
 
-```{r a-thaliana1, out.width="48%", fig.align='center'}
+- Genome size: 125 Mb
+- Chromosomes: diploid, 5 autosomes (2n = 10)
+- Number of genes: 25000
+- Percentage with human homologs: 18%
+- Average gene size: 2 kb, 4 introns/gene
+- Transposons: 10% of the genome
+- Genome sequenced: 2000 AD
+
+##
+
+- Member of Brassicaceae family.
+- Has no economic significance but grows prolifically as a weed in many temperate parts of the world.
+- Can be grown artificially in large numbers owing to its small size (< 10 cm height under certain conditions).
+
+## Life cycle
+
+- With the diploid phase dominant in life cycle, plant bears several flowers, each of which produce many seeds, like many annual weeds.
+- Life cycle takes only about 6 weeks for a planted seed to produce a new crop of seeds.
+
+```{r a-thaliana1, out.width="35%", fig.align='center'}
 # pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Griffiths - An Introduction to Genetic Analysis 11th Edition c2015.pdf",
 #                       pages = 826,
 #                       dpi = 300, format = "png",
@@ -189,7 +314,12 @@ knitr::include_graphics("../images/arabidopsis_thaliana1.png")
 
 ##
 
-```{r a-thaliana2, out.width="48%", fig.align='center'}
+- Studies in Arabidopsis have made key contributions to our understanding of the genetic ocntrol of plant development. 
+- Homeotic mutations, for example, affecting flower development have been isolated.
+- In such mutants, one type of floral part is replaced by another.
+- Integration of the action of these mutants has led to an elegant model of flower-whorl determination based on overlapping patterns of regulatory-gene expression in the flower meristem.
+
+```{r a-thaliana2, out.width="45%", fig.align='center'}
 # pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Griffiths - An Introduction to Genetic Analysis 11th Edition c2015.pdf",
 #                       pages = 827,
 #                       dpi = 300, format = "png",
@@ -212,7 +342,14 @@ knitr::include_graphics("../images/arabidopsis_thaliana2.png")
 
 ## Taxonomy and classification
 
-
+- Domain: Eukaryota
+- Kingdom: Animalia
+- Phylum: Nematoda
+- Class: Chromadorea
+- Order: Rhabditida
+- Family: Rhabditidae
+- Genus: _Caenorhabditis_
+- Species: _C. elegans_
 
 ## Morpho-anatomy of adult and lifecycle of worm
 
@@ -220,7 +357,18 @@ knitr::include_graphics("../images/arabidopsis_thaliana2.png")
 - A temperature‐sensitive morphological mutant which develops into an adult with dumpy phenotype, at $15^{\circ}C$, but with roller phenotype at $25^{\circ}C$, in addition to dumpy phenotype, was isolated.
 - The heterozygous offspring (F1), produced by crossing the mutant hermaphrodite with wild‐type males, were rollers in both hermaphrodites and males.
 
-[Image of adult]
+##
+
+```{r c-elegans1, out.width="80%", fig.align='center'}
+# pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Griffiths - An Introduction to Genetic Analysis 11th Edition c2015.pdf",
+#                       pages = 828,
+#                       dpi = 300, format = "png",
+#                       filenames = "../images/caenorhabditis_elegans.png")
+
+knitr::include_graphics("../images/caenorhabditis_elegans.png")
+```
+
+##
 
 - It has a cuticle (a tough outer covering, as an exoskeleton), four main epidermal cords, and a fluid-filled pseudocoelom (body cavity). 
 - It also has some of the same organ systems as larger animals. About one in a thousand individuals is male and the rest are hermaphrodites.
@@ -230,8 +378,6 @@ knitr::include_graphics("../images/arabidopsis_thaliana2.png")
 - Males have a single-lobed gonad, a vas deferens, and a tail specialized for mating, which incorporates spicules. 
 - Hermaphrodites have two ovaries, oviducts, and spermatheca, and a single uterus.
 
-[Lifecycle]
-
 ## Genetics
 
 - The genome sequence was published in 1998, although some small gaps were present; the last gap was finished by October 2002.
@@ -239,6 +385,9 @@ knitr::include_graphics("../images/arabidopsis_thaliana2.png")
 - The biggest difference is that _C. elegans_ has motor excitatory and inhibitory neurons.
 - The _C. elegans_ genome is about 100 million base pairs long and consists of six chromosomes and a mitochondrial genome.
 - Its gene density is about one gene per five kilo-base pairs. Introns make up 26% and intergenic regions 47% of the genome.
+
+##
+
 - _C. elegans_ and other nematodes are among the few eukaryotes currently known to have operons; these include trypanosomes, flatworms (notably the trematode Schistosoma mansoni), and a primitive chordate tunicate .
 - The genome contains an estimated 20,470 protein-coding genes. About 35% of _C. elegans_ genes have human homologs. 
 - Remarkably, human genes have been shown repeatedly to replace their _C. elegans_ homologs when introduced into _C. elegans_. Conversely, many _C. elegans_ genes can function similarly to mammalian genes.The number of known RNA genes in the genome has increased greatly due to the 2006 discovery of a new class of 21U-RNA genes, and the genome is now believed to contain more than 16,000 RNA genes, up from as few as 1,300 in 2005.
@@ -260,32 +409,94 @@ knitr::include_graphics("../images/arabidopsis_thaliana2.png")
 - Notable research using _C. elegans_ includes the discoveries of caspases, RNA interference, and microRNAs. Six scientists have won the Nobel prize for their work on _C. elegans_.
 - _C. elegans_ made news when specimens were discovered to have survived the Space Shuttle Columbia disaster in February 2003.
 
-##
-
-
-##
-
-```{r c-elegans1, out.width="48%", fig.align='center'}
-# pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Griffiths - An Introduction to Genetic Analysis 11th Edition c2015.pdf",
-#                       pages = 828,
-#                       dpi = 300, format = "png",
-#                       filenames = "../images/caenorhabditis_elegans.png")
-
-knitr::include_graphics("../images/caenorhabditis_elegans.png")
-```
-
-##
-
-```{r c-elegans2, out.width="48%", fig.align='center'}
-# pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Griffiths - An Introduction to Genetic Analysis 11th Edition c2015.pdf",
-#                       pages = 829,
-#                       dpi = 300, format = "png",
-#                       filenames = "../images/caenorhabditis_elegans2.png")
-
-knitr::include_graphics("../images/caenorhabditis_elegans2.png")
-```
-
 # Drosophila melanogaster
+
+##
+
+```{r drosophila-couples, out.width="50%", fig.align='center'}
+knitr::include_graphics('../images/drosophila_couples.jpg')
+```
+
+##
+
+- Taxonomic order Diptera in the family Drosophilidae. 
+- The species is known generally as the common fruit fly or vinegar fly. 
+- Charles W. Woodworth's proposed the use of this species as a model organism.
+- D. melanogaster continues to be widely used for biological research in genetics, physiology, microbial pathogenesis, and life history evolution. As of 2017, six Nobel prizes had been awarded for research using Drosophila.
+- D. melanogaster is typically used in research owing to its rapid life cycle, relatively simple genetics with only four pairs of chromosomes, and large number of offspring per generation.
+- D. melanogaster is a common pest in homes, restaurants, and other places where food is served.
+
+## Taxonomy and classification^[https://en.wikipedia.org/wiki/Drosophila]
+
+- Domain: Eukaryota
+- Kingdom: Animalia
+- Phylum: Arthropoda
+- Class: Insecta
+- Order: Diptera
+- Family: Drosophilidae
+- Subfamily: Drosophilinae
+- Genus: _Drosophila_ (Fallén, 1823)
+
+## Life cycle
+
+- Under optimal growth conditions at 25 degree C, the _D. melanogaster_ lifespan is about 50 days from egg to death.
+- The developmental period for _D. melanogaster_ varies with temperature, as with many ectothermic species. 
+- The shortest development time (egg to adult), 7 days, is achieved at 28 degree C.
+- Development times increase at higher temperatures (11 days at 30 degree C) due to heat stress. 
+- Under ideal conditions, the development time at 25 degree C is 8.5 days, at 18 degree C it takes 19 days and at 12 degree C it takes over 50 days.
+- Under crowded conditions, development time increases, while the emerging flies are smaller.
+- Females lay some 400 eggs (embryos), about five at a time, into rotting fruit or other suitable material such as decaying mushrooms and sap fluxes. 
+
+##
+
+- *Drosophila melanogaster* is a holometabolous insect, so it undergoes a full metamorphosis. 
+- Their life cycle is broken down into 4 stages: embryo, larva, pupa, adult.
+- The eggs, which are about 0.5 mm long, hatch after 12–15 hours (at 25 degree C).
+- The resulting larvae grow for about 4 days (at 25 degree C) while molting twice (into second- and third-instar larvae), at about 24 and 48 h after hatching.
+- During this time, they feed on the microorganisms that decompose the fruit, as well as on the sugar of the fruit itself. The mother puts feces on the egg sacs to establish the same microbial composition in the larvae's guts that has worked positively for herself.
+- Then the larvae encapsulate in the puparium and undergo a 4-day-long metamorphosis (at 25 degree C), after which the adults emerge.
+
+##
+
+- Males perform a sequence of five behavioral patterns to court females. 
+- First, males orient themselves while playing a courtship song by horizontally extending and vibrating their wings.
+- Upon copulation, females store the sperm in a tubular receptacle and in two mushroom-shaped spermathecae; sperm from multiple matings compete for fertilization. 
+- A last male precedence is believed to exist; the last male to mate with a female sires about 80% of her offspring. 
+- This precedence was found to occur through both displacement and incapacitation.
+- Sensory neurons in the uterus of female D. melanogaster respond to a male protein, sex peptide, which is found in semen.
+
+##
+
+- This protein makes the female reluctant to copulate for about 10 days after insemination. 
+- Gonadotropic hormones in Drosophila maintain homeostasis and govern reproductive output via a cyclic interrelationship, not unlike the mammalian estrous cycle.
+- Females become receptive to courting males about 8–12 hours after emergence.
+- *D. melanogaster* males exhibit a strong reproductive learning curve. That is, with sexual experience, these flies tend to modify their future mating behavior in multiple ways. These changes include increased selectivity for courting only intraspecifically, as well as decreased courtship times.
+
+## Laboratory use of D. melanogaster
+
+- Its care and culture require little equipment, space, and expense even when using large cultures.
+- It can be safely and readily anesthetized (usually with ether, carbon dioxide gas, by cooling, or with products such as FlyNap).
+- Its morphology is easy to identify once anesthetized.
+- It has a short generation time (about 10 days at room temperature), so several generations can be studied within a few weeks.
+- It has a high fecundity (females lay up to 100 eggs per day, and perhaps 2000 in a lifetime).
+- Males and females are readily distinguished, and virgin females are easily isolated, facilitating genetic crossing.
+- The mature larva has giant chromosomes in the salivary glands called polytene chromosomes, "puffs", which indicate regions of transcription, hence gene activity. The under-replication of rDNA occurs resulting in only 20% of DNA compared to the brain. Compare to the 47%, less rDNA in Sarcophaga barbata ovaries.
+
+##
+
+- It has only four pairs of chromosomes – three autosomes, and one pair of sex chromosomes.
+- Males do not show meiotic recombination, facilitating genetic studies.
+- Recessive lethal "balancer chromosomes" carrying visible genetic markers can be used to keep stocks of lethal alleles in a heterozygous state without recombination due to multiple inversions in the balancer.
+- The development of this organism—from fertilized egg to mature adult—is well understood.
+- Genetic transformation techniques have been available since 1987.
+- Its complete genome was sequenced and first published in 2000^[https://pubmed.ncbi.nlm.nih.gov/10731132].
+- Sexual mosaics can be readily produced, providing an additional tool for studying the development and behavior of these flies.
+
+## Drosophila genetics
+
+- The genome of D. melanogaster (sequenced in 2000, and curated at the FlyBase database) contains four pairs of chromosomes – an X/Y pair, and three autosomes labeled 2, 3, and 4. 
+- The fourth chromosome is so tiny, it is often ignored, aside from its important eyeless gene. The D. melanogaster sequenced genome of 139.5 million base pairs has been annotated and contains around 15,682 genes according to Ensemble release 73.
+- More than 60% of the genome appears to be functional non-protein-coding DNA involved in gene expression control. Determination of sex in Drosophila occurs by the X:A ratio of X chromosomes to autosomes, not because of the presence of a Y chromosome as in human sex determination. Although the Y chromosome is entirely heterochromatic, it contains at least 16 genes, many of which are thought to have male-related functions.
 
 ##
 
@@ -313,12 +524,42 @@ knitr::include_graphics("../images/drosophila_melanogaster2.png")
 
 ##
 
+```{r m-musculus1, out.width="48%", fig.align='center'}
+# pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Griffiths - An Introduction to Genetic Analysis 11th Edition c2015.pdf",
+#                       pages = 832,
+#                       dpi = 300, format = "png",
+#                       filenames = "../images/mus_musculus1.png")
+
+knitr::include_graphics("../images/mus_musculus1.png")
+```
+
+##
+
 - _Mus musculus_ is a small mammal of the order Rodentia, characteristically having a pointed snout, large rounded ears, and a long and hairy tail.
 - Mouses dates long back on the genetic research as a model organism
 - Out of the order rodentia mouse is a orgamism with short breeding period.
 - They are widely used to study human genetic disorders (downs syndrome, cystic fibrosis, epilepsy, heart diseases, cancers, tumours and many more).
 
-## Classification and taxonomy
+##
+
+- _Mus musculus_ is a small mammal of the order Rodentia, characteristically having a pointed snout, large rounded ears, and a long and hairy tail.
+- Mouses dates long back on the genetic research as a model organism
+- Out of the order rodentia mouse is a orgamism with short breeding period.
+- They are widely used to study human genetic disorders (downs syndrome, cystic fibrosis, epilepsy, heart diseases, cancers, tumours and many more).
+
+## Classification and taxonomy^[https://en.wikipedia.org/wiki/House_mouse]
+
+\footnotesize
+
+- Domain: Eukaryota
+- Kingdom: Animalia
+- Phylum: Chordata
+- Class: Mammalia
+- Order: Rodentia
+- Family: Muridae
+- Genus: _Mus_
+- Subgenus: _Mus_
+- Species: _M. musculus_
 
 ## Genetics
 
@@ -330,9 +571,21 @@ knitr::include_graphics("../images/drosophila_melanogaster2.png")
 - Genome length (3000 mb distributed over 19 autosomes plus one and two sex chromosome).
 - The primary coding genes are 23,139 out of which 20210 protein coding genes are found.
 
-## Chromosomes
+## Genetics
 
-[Images]
+- The complete mouse genome was discovered in 2002 AD.
+- Chromosome number (2n): 40; n=20
+- The haploid genome is about 3 picograms, similar to humans.
+- Unlike the mostly metacentric chromosomes of humans, all mouse chromosomes are acrocentric.
+- Haploid chromosome contains 3.1 billion base pairs long
+- Genome length (3000 mb distributed over 19 autosomes plus one and two sex chromosome).
+- The primary coding genes are 23,139 out of which 20210 protein coding genes are found.
+
+## Chromosome
+
+```{r mouse-karyotype, fig.cap="Karyotypic features of mice chromosomes", out.width = "70%", fig.align='center'}
+knitr::include_graphics("../images/mouse_karyotype.jpg")
+```
 
 ## Morphology
 
@@ -341,7 +594,7 @@ knitr::include_graphics("../images/drosophila_melanogaster2.png")
 - Common varieties includes deermouse, housemouse, wood mouse, spingmose and zebramouse.
 - Colour of mouse ranges from white,brown to grey
 - Length: 1 to 7 inches
-- Weigtht: 0.23kg to 0.28kg
+- Weight: 0.23kg to 0.28kg
 - Smallest mouse: African pygmy measure (1.2-3.1 inches).
 - Some mice have tail that are as long as their body.
 
@@ -366,6 +619,8 @@ knitr::include_graphics("../images/drosophila_melanogaster2.png")
 
 ## Studies
 
+\footnotesize
+
 - William Harvey studied blood circulation and reproduction in 16th century.
 - Gregor Mendel carried out his early investigations of inheritance on mouse coat color but was asked by his superior to stop breeding in his cell "smelly creatures that, in addition, copulated and had sex"
 - Frederick Griffith in 1928 conducted an experiment on mouse and found that bacteria are capable of transferring genetic information through a process known as transformation.
@@ -375,28 +630,6 @@ knitr::include_graphics("../images/drosophila_melanogaster2.png")
 - Methods have been developed for successfully generating hair growth in nude mice, this has a potential hair loss treatment in human.
 - Study have related good health in mice to plenty of _Clostiridia_ in its gut, at the same time those with an impaired immune system lose their microbes from their gut as they age.
 
-##
-
-```{r m-musculus1, out.width="48%", fig.align='center'}
-# pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Griffiths - An Introduction to Genetic Analysis 11th Edition c2015.pdf",
-#                       pages = 832,
-#                       dpi = 300, format = "png",
-#                       filenames = "../images/mus_musculus1.png")
-
-knitr::include_graphics("../images/mus_musculus1.png")
-```
-
-##
-
-```{r m-musculus2, out.width="48%", fig.align='center'}
-# pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Griffiths - An Introduction to Genetic Analysis 11th Edition c2015.pdf",
-#                       pages = 833,
-#                       dpi = 300, format = "png",
-#                       filenames = "../images/mus_musculus2.png")
-
-knitr::include_graphics("../images/mus_musculus2.png")
-```
-
 # Corn
 
 ##
@@ -405,7 +638,7 @@ knitr::include_graphics("../images/mus_musculus2.png")
 
   \column{.4\linewidth}
 
-```{r teosinte, fig.cap="Ancestor of modern day maize."}
+```{r teosinte, fig.cap="Ancestor of modern day maize.", out.width="1.2\\textwidth"}
 include_graphics("../images/Teosinte4.jpg")
 ```
 
@@ -459,7 +692,7 @@ knitr::include_graphics("../images/alternation_of_generations.png")
 
 ##
 
-```{r sporogenesis, fig.cap="Embryo sac and pollen formation", out.width="45%", fig.align='center'}
+```{r sporogenesis, fig.cap="Embryo sac and pollen formation", out.width="40%", fig.align='center'}
 # pdftools::pdf_convert("./../../references_plb/Rolf H. J. Schlegel - Encyclopedic Dictionary of Plant Breeding and Related Subjects-The Food Products Press (2003).pdf", pages = 554, format = "png", filenames = "./images/sporogenesis.png", dpi = 300)
 knitr::include_graphics("../images/sporogenesis.png")
 ```
