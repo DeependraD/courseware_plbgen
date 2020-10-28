@@ -1,0 +1,132 @@
+\documentclass[12pt]{article}
+\usepackage[portrait,left=1.5cm,right=1.5cm,top=1.5cm,bottom=1.5cm,footskip=0.2in]{geometry}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\setlength{\parindent}{0cm}
+
+\begin{document}
+
+<<include=FALSE>>=
+library(knitr)
+opts_chunk$set(
+concordance=TRUE
+)
+options(knitr.kable.NA = '')
+@
+
+
+<<echo=FALSE>>=
+suppressPackageStartupMessages(require(tidyverse))
+question_exam <- tibble::tribble(
+  ~"question_no", ~"major_q", ~"minor_q", ~"marks",
+  1, "An individual heterozygous for four genes; Aa.Bb.Cc.Dd is test crossed to aabbccdd and 1000 progeny were classified by the gametic contribution of the heterozygous parent as follows:", "Which genes are linked ?", 1, 
+  1, NA, "If two pure breeding lines had been crossed to produce the heterozygous individual, what would their genotypes have been ?", 1, 
+  1, NA, "Draw a linkage map of the linked genes showing the correct genes order and their map distances.", 1, 
+  1, NA, "Calculate CC and I.", 1, 
+  2, "Show a scheme showing trihybrid testcross and answer the following:", "What gametes are produced by a trihybrid individual ?", 1, 
+  2, NA, "What are the phenotypic and genotypic ratios of trihybrid selfing and testcross ?", 1, 
+  2, NA, "What is the advantage of testcross over selfing of trihybrid in linkage mapping ?", 1, 
+  2, NA, "What is recombination and crossing over ?", 1,
+  3, "In maize, F1 heterozygous plants were test crossed with colourless, shrunken, waxy plants and the following types of progeny were obtained. CfS: 50, cFs: 46, Cfs: 383, cfS: 380, Dfs: 72, cFS: 68, CFS: 6, cfs: 5. Symbols: Colored = C, Colorless = c, Full = F, Shrunken = f, Starchy = S, waxy = s.", "Are these genes linked ? Give reason.", 0.5, 
+  3, NA, "Write the genes in correct order on the chromosome.", 0.5, 
+  3, NA, "What are double crossover, non-crossover and single crossover types ?", 0.5,
+  3, NA, "Write the genotypes involved in the parental and test crosses.", 0.5, 
+  3, NA, "Draw a linkage map showing map distances.", 0.5,
+  3, NA, "Calculate coefficient of coincidence (CC) and inference.", 0.5,
+  3, NA, "Interpret the value.", 1, 
+  4, "Mendel's law of inheritance", "Explain in detail about Mendel's law of inheritance with the help of appropriate examples and crosses.", 2, 
+  4, NA, "If you had a plant that was of phenotype A\\_B\\_, what test would you conduct to determine whether it was AABB or AaBB or AABb or AaBb ? Explain logically.", 2, 
+  5, "A dominant gene (B), in maize, produces brown pericarp, and its recessive allele (b) produces colorless pericarp. Tissue adjacent to pericarp is aleurone, which is triploid. The purple pigment is deposited in aleurone when dominant ('C) is present, its recessive allele (c) results in colorless aleurone. The color of the endosperm itself is modified by a pair of alleles. Yellow is governed by the dominant allele, Y, and white by the recessive allele y. Both C and Y show xenia to their respective alleles. A plant which is bbCcYy is pollinated by a plant of genotype BbCcYy.", "What phenotypic ratio is expected among the progeny kernels ?", 2, 
+ 5, NA, "If the F1 is pollinated by plants of genotype bbccyy, in what proportions color ratio will the resulting F2 kernels be expected to occur ?", 2, 
+ 6, "Cell cycle", "Write in short about meiosis cell division.", 1, 
+ 6, NA, "What is sporogenesis and oogenesis ? Diagrammatically show, how gamete formation takes place in life cycle of maize.", 3, 
+ 7, "Mode of reproduction and sex determination", "What is apomixis ? What is the benefit of apomictic rice ?", 2, 
+ 7, NA, "In mammals, including humans, a fixed sex ratio is maintained. Explain the genetic mechanism.", 2, 
+ 8, "Segregation ratios and non-mendelian inheritance", "Calculate gametic and phenotypic frequencies of Aaaa individual after selfing. Also, write the types of genotype and phenotype.", 2, 
+ 8, NA, "What do you mean by extra nuclear inheritance ? Explain.", 2
+)
+
+# question_exam %>% 
+#   group_by(question_no) %>% 
+#   summarise(sum(marks))
+@
+
+
+<<results='asis', echo=FALSE,warning=FALSE>>=
+
+question_replicates <- replicate(14, {
+  question_exam %>% 
+    group_by(question_no) %>% 
+    nest() %>% 
+    ungroup() %>% 
+    sample_n(2) %>% 
+    unnest(data)
+}, simplify = FALSE) %>% 
+  bind_rows(.id = "roll_no") %>% 
+  group_by(roll_no) %>% 
+  nest() %>% 
+  ungroup() %>% 
+  mutate(date = "October 22, 2020") %>% 
+  mutate(subject = "Introductory Genetics (GEN111)") %>% 
+  mutate(exam_type = "Internal Assessment") %>% 
+  mutate(semester = "1st Semester")
+
+pwalk(question_replicates,
+      function(roll_no, data, date, 
+               subject, exam_type, 
+               semester){
+        cat("{\\centering
+            \\Large{\\textbf{Gokuleshwor Agriculture and Animal Science College, Baitadi}} \\\\[0.25cm]
+            \\textbf{Institute}: IAAS, GAASC \\\\}")
+        
+        
+        cat("\\textbf{Credit hours}: 3 + 1 \\\\")
+        
+        cat("\\textbf{Level}: B. Sc. Ag, $1^{st}$ Semester \\\\")
+        
+        cat("\\textbf{Roll no}:", roll_no, "\\\\")
+        
+        cat("\\textbf{Title}:", exam_type, "\\\\[1cm]")
+        
+        # print(knitr::kable(data, 
+        #                    col.names = c("Question number", "Major question", "Minor question", "Marks"),
+        #                    escape = T, format = "latex", booktabs = TRUE, longtable = TRUE) %>% 
+        #         kableExtra::kable_styling(font_size = 10) %>% 
+        #         kableExtra::column_spec(column = 1:4, width = rep("10em", times = 4)))
+        question_split <- data %>% 
+          group_split(question_no) %>% 
+          map(~.x %>% select(-1))
+        
+        for (i in 1:length(question_split)){
+          cat("Question", i, ".", question_split[[i]]$major_q[[1]], "\\\\")
+          for(j in 1:nrow(question_split[[i]])){
+            cat("\\hspace{0.5cm}", j, ".", question_split[[i]]$minor_q[[j]], "\\\\", sep = "")
+          }
+        }
+
+        
+        
+        # cat("\\vfill")
+        # cat("\\textbf{Date}:", date, "\\hfill ", "\\parbox{5cm}{\\raggedright Deependra Dhakal \\ \\underline{\\hspace{5cm}}\\\\ Advisor}")
+        
+        
+        cat("\\clearpage")
+      }
+)
+
+@
+
+\end{document}
+

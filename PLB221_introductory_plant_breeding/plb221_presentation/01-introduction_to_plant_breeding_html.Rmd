@@ -1,41 +1,62 @@
 ---
 title: "Introduction to plant breeding"
-subtitle: "Overview<br/>Concepts<br/>Definition<br/>History<br/>Objectives<br/>Activities<br/>Achievements<br/>Constraints<br/>Opportunities<br/>Current state<br/>"
 author: "Deependra Dhakal"
 date: "2019/04/04 (updated: `r Sys.Date()`)"
 output:
   xaringan::moon_reader:
     lib_dir: libs
-    css: ["default", "assets/custom-fonts.css", "assets/custom-remark.css"]
     self_contained: false # if true, fonts will be stored locally
-    seal: true # show a title slide with YAML information
-    includes:
-      in_header: "assets/mathjax-equation-numbers.html"
+    seal: false # show a title slide with YAML information
+    css: ['xaringan-themer.css', 'assets/slides-style.css', 'assets/custom-remark.css', 'assets/custom-fonts.css']
     nature:
-      beforeInit: ["assets/remark-zoom.js", "https://platform.twitter.com/widgets.js"]
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
       ratio: '16:9' # alternatives '16:9' or '4:3' or others e.g. 13:9
       navigation:
         scroll: false # disable slide transitions by scrolling
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+bibliography: ['./../bibliographies.bib']
 ---
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 options(knitr.kable.NA = "", digits = 3)
 knitr::opts_chunk$set(tidy = FALSE, echo = FALSE)
-# knitr::opts_knit$set(root.dir = normalizePath("."))
+
 ```
 
-background-image: url("./images/Wheat_bread.jpg")
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+# color inspiration: pantone 2020 colors
+# https://store.pantone.com/uk/en/color-of-the-year-2020-palette-exploration
+style_duo_accent(
+  primary_color = "#0F4C81",   # pantone classic blue
+  secondary_color = "#DBCCBE", # pantone pink tint
+  black_color = "#7A8387",     # pantone monument
+  text_color = "#2A2A35",      # pantone night sky
+  header_font_google = google_font("Arvo"),
+  text_font_google   = google_font("Montserrat", "300", "300i"),
+  code_font_google   = google_font("Source Code Pro"),
+  title_slide_text_color = "#DBCCBE",
+  base_font_size = "24px",
+  text_font_size = "1.2rem",
+  link_color = "#B6CADA"
+)
+```
+
+background-image: \url("./images/Wheat_bread.jpg")
 background-position: 50% 50%
-background-size: 80%
+background-size: 85%
 class: middle, center
 
-<!-- `r knitr::include_graphics('./images/Wheat_bread.jpg')` -->
+## .yellow[.large[Introduction to Plant Breeding]]
 
-## .yellow[.large[Introduction]]
+Overview<br/>Concepts<br/>Definition<br/>History<br/>Objectives<br/>Activities<br/>Achievements<br/>Constraints<br/>Opportunities<br/>Current state<br/>
 
 ---
 class: center, middle
@@ -148,21 +169,18 @@ knitr::include_graphics("./images/Triticum3.jpg")
 
 ## Concepts `r icon::fa("quote-right", pull = "right")`
 
-.columns-2[
-.content-box-gray[
+.pull-left[
 - "Breeder's eye" viewpoint of Plant Breeding: 
   - Plant breeding is an applied science and an art 
   - Early plant breeders depended primarily on intuition, skill, and judgement in their work.
   - Plant breeding was practiced first when people learned to look for superior plants to harvest for seed; thus selection became the earliest method of plant breeding. However few people may have had conscious efforts in so-doing.
 ]
-.content-box-green[
+.pull-right[
 - Scientific viewpoint of Plant Breeding: 
   - "Breeding" is about a more active process of crossing different strains of plant for particular results.
   - Plant evolution directed by man (N.I. Vavilov)
   - Process of generating and utilizing variability
   - "Selection" is about picking the best from each generation
-
-]
 ]
 
 ---
@@ -181,35 +199,21 @@ knitr::include_graphics("./images/Triticum3.jpg")
 
 ---
 
-## Definition
-
 .pull-left[
-.blockquote[
-### `r icon::fa_language()` Linguistic
-**Plant breeding is the art and the science of changing and improving the heredity of plants**
-
+### `r icon::fa_language()` Linguistic definition
+- **Plant breeding is the art and the science of changing and improving the heredity of plants**
 - Breeding is about manipulating plant attributes, structure and composition, to make them more useful to humans.
-
 - Plant breeding is essentially an election made by man of the best plants within a variable population as a potential cultivar. 
-
 - In other words plant breeding is a 'selection' made possible by the existence of 'variability'.
-
 ]
 
-]
 .pull-right[
-
-.blockquote[
-### `r icon::fa_sign_language()` Mathematic
-
+### `r icon::fa_sign_language()` Mathematic definition
 $$\Large \Delta{G}=\frac{Ih^2 \sigma}{I}$$
-
-]
-
 ]
 
 .footnote[
-It is obvious that mathematical definition of plant breeding is more eloquent.
+Mathematical definition of plant breeding is eloquent.
 ]
 
 ---
@@ -233,44 +237,56 @@ class: center, middle
 
 ---
 
-## Pre-mendel era
+## .small[What important activities in plant breeding took place during pre-mendel era ?]
 
-.scroll-box-20[
-
-- Plant breeding started with sedentary agriculture and the domestication of the first agricultural plants, the cereals, which were chosen by early man. This led to the rapid elimination of undesirable characters such as seed shattering and dormancy. It seems natural that the need to collect fruits, seeds and roots for nutrition brought with it the knowledge to identify plants, aspects of their biology and their potential as food, poison or other uses. The need for pollination for fruit setting in dates was recognized some nine centuries before Christ, as can be deduced from the observation of an Asyrian bas-relief showing the pollination of female date palms with male pollen. Until the first decenium of this century plant breeding was in the hands of 'experts' who in many cases were unable to make progress due to a lack of knowledge of the fundamental plant processes such as the reproductive system. In spite of this, however, some important goals were reached before the rediscovery of Mendel's laws and the consecration of genetics as a science. Some examples are worth mentioning. In France, in the 17th century, several varieties of 'heading lettuce' were developed, some of which are still in cultivation.
-
+.tiny[.sample-answer[
+- Sedentary agriculture and the domestication of the first agricultural plants, the cereals, which were chosen by early man. 
+- Rapid elimination of undesirable characters such as seed shattering and dormancy. 
+- The need to collect fruits, seeds and roots for nutrition brought with it the knowledge to identify plants, aspects of their biology and their potential as food, poison or other uses. 
+- In France, in the 17th century, several varieties of 'heading lettuce' were developed, some of which are still in cultivation.
 - A family of French seed growers, the Vilmorins, established in 1727 the first company devoted to plant breeding and the production of new varieties. A member of the family, Louis de Vilmorin, was the first, some years later, to use the progeny test, evaluating a selection by the study of its descendants.
+- Until recently (1910) plant breeding experts lacked knowledge of the fundamental plant processes such as the reproductive system.
+- The sexuality of plants was described by Caesalpinus in 1583 and in 1696 Camerarius published an essay entitled 'De sexo plantarum', but it was Kolreuter, a German botanist who was the first to exploit this knowledge in the production of the first artificial plant hybrids in Nicotiana.
+- In 1747 Margraaf discovered that the roots of the forage beet contained about 6% of sucrose. By the beginning of the 19th century, Achard, by means of mass selection, increased this to 11 %. Application of the Vilmorin pedigree method had further increased this to 16% by 1810. Hence the modern day sugarbeet came to be.
+- The cross of Fragaria x ananassa was developed in the botanical garden of Paris by Duchesne, in the 17th century by crossing F. chiloense with F. virginiana. In England at about the same time new varieties of fruits, wheat and peas were being obtained by artificial hybridization.
+]]
 
-- The sexuality of plants was described by Caesalpinus in 1583 and in 1696 Camerarius published an essay entitled 'De sexo plantarum', but it was Kolreuter, a German botanist who was the first to exploit this knowledge in the production of the first artificial plant hybrids in Nicotiana. A well-known example of premendelian plant breeding is that of sugar beet. In 1747 Margraaf discovered that the roots of the forage beet contained about 6% of sucrose. By the beginning of the 19th century, Achard, by means of mass selection, increased this to 11 %. Application of the Vilmorin pedigree method had further increased this to 16% by 1810.
+.footnote[The need for pollination for fruit setting in dates was recognized some nine centuries before Christ, as can be deduced from the observation of an Asyrian bas-relief showing the pollination of female date palms with male pollen.]
 
-- The use of artificial crosses in premendelian breeding can be exemplified by the case of Fragaria x ananassa developed in the botanical garden of Paris by Duchesne, in the 17th century by crossing F. chiloense with F. virginiana. In England at about the same time new varieties of fruits, wheat and peas were being obtained by artificial hybridization.
-
-]
 ---
 
-## Post-mendel era
+## .small[What important activities in plant breeding took place during post-mendel era ?]
 
-.scroll-box-20[
+.tiny[.sample-answer[
+- Rediscovery of the work of Mendel in 1900
+- Six years afterwards, Bateson (coined the name 'genetics' for the new science) realized that this new discipline could give a scientific basis and new openings to plant breeding methods. 
+- Modem plant breeding is, as has already been stated, applied genetics, but its scientific basis is broader and uses, as conceptual and technical tools, cytology, systematics, physiology, pathology, entomology, chemistry and statistics and has also developed its own technology. 
+- Ideas contributed by aforementioned fields include:
+  - Demonstration of the auto- and allopolyploid nature of many crop plants and their origin. This opened the way to the production of artificial polyploid forms and their direct or indirect exploitation. 
+  - Possibility of increasing the frequency of mutations by means of radiation or chemicals was hailed as a means of increasing the variability available to the breeder. 
+  - Concept of quantitative inheritance and genotype x environment interaction, resistance breeding, and the conservation and characterization of genetic resources.]]
 
-- After the rediscovery of the work of Mendel in 1900 it was some six years before Bateson, who coined the name 'genetics' for the new science, realized that this new discipline could give a scientific basis and new openings to plant breeding methods. Modem plant breeding is, as has already been stated, applied genetics, but its scientific basis is broader and uses, as conceptual and technical tools, cytology, systematics, physiology, pathology, entomology, chemistry and statistics and has also developed its own technology. There have been many advances in these various areas which have made a substantial contribution to plant breeding. These include the demonstration of the auto- and allopolyploid nature of many crop plants and their origin. This opened the way to the production of artificial polyploid forms and their direct or indirect exploitation. The discovery of the possibility of increasing the frequency of mutations by means of radiation or chemicals was hailed as a means of increasing the variability available to the breeder. There have been many other developments which have all contributed to the progress and success of plant breeding too numerous to exemplify in detail but include such areas as quantitative inheritance and genotype x environment interaction, resistance breeding, and the conservation and characterization of genetic resources. 
+---
 
-- Genetics has given to breeding a better knowledge of the processes involved in the mechanisms of variability and the necessary information for regulating and increasing such variability. More recent genetical advances than those outlined above have allowed breeders to design new methods as is well exemplified by the developments in such areas as RFLP mapping and marker-assisted selection, gene cloning and genetic transformation. These new enabling technologies, all adding to the overall science of plant breeding, are considered in some detail in this book. They hold out great promise for the future. The ceilings for yield that some authorities claim have been reached will be surpassed by the combined application of the classical and the new methods available to the breeder. Where yield as such is not the prime criterion of a breeding programme they will allow the production of more efficient cultivars which can maintain production without the requirement for expensive inputs. At the same time breeding can and will make a positive contribution to halting the decline in the agricultural environment.
-
-]
+.tiny[.sample-answer-continued[
+- Genetic advances in areas such areas as RFLP mapping and marker-assisted selection, gene cloning and genetic transformation have provided plant breeding a better knowledge of the processes involved in the mechanisms of variability and the necessary information for regulating and increasing such variability. 
+- They hold out great promise for the future. The ceilings for yield that some authorities claim have been reached will be surpassed by the combined application of the classical and the new methods available to the breeder. Where yield as such is not the prime criterion of a breeding programs they will allow the production of more efficient cultivars which can maintain production without the requirement for expensive inputs. 
+- Breeding can and will make a positive contribution to halting the decline in the agricultural environment.
+]]
 
 ---
 
 ## Domestication and evolution
 
 .pull-left[
-```{r secale-cereale, fig.cap="Image of ancestor of wheat <i>Secale cereale</i>", fig.width=4, out.width="75%"}
+```{r secale-cereale, fig.cap="Image of ancestor of wheat <i>Secale cereale</i>", fig.width=4, out.width="95%"}
 knitr::include_graphics("./images/rye_crop.jpg")
 ```
 
 ]
 
 .pull-right[
-```{r modern-wheat, fig.width=4, out.width="75%", fig.cap="Modern wheat <i>Triticum aestivum</i>"}
+```{r modern-wheat, fig.width=4, out.width="95%", fig.cap="Modern wheat <i>Triticum aestivum</i>"}
 knitr::include_graphics("./images/wheat_borlaug-100.jpg")
 ```
 
@@ -330,7 +346,7 @@ knitr::include_graphics("./images/Ornamental_cabbage.jpg")
 
 
 .pull-left[
-```{r maize-ancestor-teosinte, fig.width=4, out.width="75%", fig.cap="Wild progenitor of modern day maize -- Teosinte"}
+```{r maize-ancestor-teosinte, fig.width=4, out.width="65%", fig.cap="Wild progenitor of modern day maize -- Teosinte"}
 knitr::include_graphics("./images/Teosinte.jpg")
 ```
 
@@ -360,24 +376,18 @@ knitr::include_graphics("./images/Teosinte_maize.jpg")
 ## Interesting historical facts
 
 .pull-left[
-.scroll-box-16[
-.font80[
+.font60[
 - Luther Burbank is the last great prescientific plant breeder.
-
 - Burbank admired Darwin but not Mendel
-
 - Remarkably strong start in plant breeding was made by Soviet Communists in twentieth century. But dissapointingly, intrigue and ideology ensured that Mendelian genetics was discarded.
-
 - For detailed history refer to Principles of Plant Genetics and Breeding `r Citet(myBib,"acquaah2009principles")`, Chapter 2 (Page 22-39).
 - For detailed history of Genetics refer to `r Citet(myBib,"griffiths2015introduction")`.
-
 <!-- Or history of plant breeding is shown very well polished in this youtube video by Genomics Lab: https://www.youtube.com/watch?v=YoAjus5O_tA -->
-
-]]]
+]
+]
 
 .pull-right[
-.scroll-box-20[
-.font80[
+.font60[
 ```{r history-data, tidy=FALSE}
 # "History of genetics; Page 6, Chapter 1 (The Genetics Revolution), An introduction to Genetic Analysis, 11th edition, W.H. Freeman"
 
@@ -395,7 +405,7 @@ DT::datatable(
 
 ```
 ]
-]]
+]
 
 ---
 
@@ -405,59 +415,49 @@ knitr::include_graphics("./images/plant_breeding_history.png")
 
 ---
 
-## Objectives `r icon::fa_object_group()`
+.pull-left-1[
+.small[
 
-.pull-left[
-
-- Before initiating a breeding project, clear breeding objectives are defined based on factors such as producer needs, consumer preferences and needs, and environmental impact. Broadly .fn[1], objectives could be,
-    - Feed the growing population
-    - Maximize resource and energy use efficiency
-    - Fasten return on investment
-    - Introgress desired modification in crop species
+### Broad objectives .fn[1] `r icon::fa_object_group()`
 ]
+.font70[
+- Should address factors such as producer needs, consumer preferences and needs, and environmental impact.
+- Feed the growing population
+- Maximize resource and energy use efficiency
+- Fasten return on investment
+- Introgress desired modification in crop species
+]]
 
 .footnote[
 [1] The goal of the field on entirety is the betterment of human lives.
-
 ]
-
 --
 
-```{r spinner}
-icon::fa("spinner", size = 2, 
-         animate = "spin")
-```
+.pull-right-2[
+.small[
+### Specific objectives `r icon::fa("spinner", size = 1,  animate = "spin")`
+]
 
-.pull-right[
-
-### Specifically
-
-.scroll-box-14[.font80[.content-box-purple[
-
+.font70[
 - Increasing the potential productivity of a plant by modifying its morphological characteristics such as: 
   - The number of kernels per ear in a cereal
   - The weight of individual seeds within the pod of a pulse, 
-
 - Modifying physiological traits such as: 
   - harvest index, 
   - utilization of nutrients,
   - tolerance to stress. 
-
 - Quality and nutritive value are now of increasing importance, particularly in association with improved efficiency of production.
-
 - Modern agriculture is highly mechanized and for this reason some breeding programmes include objectives to make the crop more amenable to mechanical handling. 
   - Development of monogerm beets for mechanical sowing thus eliminating the need for thinning, or the introduction of 'jointless' tomatoes for mechanical harvesting. 
   - Use of some agrochemicals is often coupled with the need for specific crop characteristics e.g. herbicide resistance.
 ]
-
-]]
 ]
 
 ---
 
 ## Activities
 
-```{r plb-disciplines, fig.height=4, out.width="550px", fig.cap="Inter-desciplinary linkage of plant breeding"}
+```{r plb-disciplines, fig.height=4, out.width="50%", fig.cap="Inter-desciplinary linkage of plant breeding", fig.align='center'}
 knitr::include_graphics("./images/interdisciplinary_science.png")
 ```
 
@@ -465,80 +465,80 @@ knitr::include_graphics("./images/interdisciplinary_science.png")
 
 ## Inter-disciplinary linkage of plant breeding `r Citet(myBib,"poehlman1987breeding")`
 
-- .content-box-gray[Botany]: Plant breeders should be accomplished botanists in order to understand the taxonomy, anatomy, morphology, and reproduction of the plants with which they work.
+.font80[
+- Botany: Plant breeders should be accomplished botanists in order to understand the taxonomy, anatomy, morphology, and reproduction of the plants with which they work.
 
-- .content-box-purple[Genetics and Cytogenetics]: The plant breeder needs a thorough understanding of the mechanism of heredity in plants since modern plant-breeding methods are based on a knowledge of genetic principles and chromosome behavior. This knowledge is being extended to the molecular level with advances in biochemical genetics.
+- Genetics and Cytogenetics: The plant breeder needs a thorough understanding of the mechanism of heredity in plants since modern plant-breeding methods are based on a knowledge of genetic principles and chromosome behavior. This knowledge is being extended to the molecular level with advances in biochemical genetics.
 
-- .content-box-green[Plant Physiology]: Variety adaptation is determined by the response of plants to their environment, which includes the effects of heat, cold, drought, and soil nutrient response. The plant breeder strives to make inherent modifications of physiological processes that will enable the plant to function more efficiently.
-
----
-
-- .content-box-purple[Plant Pathology]: Plant disease reduces crop yields. Host resistance is an important means of combating many plant diseases. Evaluation of the response ofthe plant genotype to infection by the pathogen is an essential part of breeding for host plant resistance.
-
-- .content-box-yellow[Entomology]: Biological control of insect populations by breeding for insect resistance is an important way of reducing insect damage in crop plants.
-
-- .content-box-green[Plant Biochemistry]: Inherent improvements in the nutritive value of a crop variety are given attention by the plant breeder. Suitability for industrial utilization often determines the market demand for a particular variety of a crop. This includes such characteristics as the milling and baking qualities of a wheat variety, the cooking and eating qualities of a rice variety, or the fiber qualities of a cotton variety. Biochemical genetics is contributing toward a better understanding of the structure and function of the gene.
+- Plant Physiology: Variety adaptation is determined by the response of plants to their environment, which includes the effects of heat, cold, drought, and soil nutrient response. The plant breeder strives to make inherent modifications of physiological processes that will enable the plant to function more efficiently.
+]
 
 ---
 
-- .content-box-purple[Statistics]: The plant breeder compares the performance of many genetically different strains. Sound field plot techniques and suitable methods for statistical analyses of data are necessary to obtain reliable results and to interpret the results correctly. The application of statistical procedures has provided for a better understanding of the inheritance of quantitative characteristics and for predicting the possible genetic advance that may be obtained with particular systems of mating.
+.font80[
+- Plant Pathology: Plant disease reduces crop yields. Host resistance is an important means of combating many plant diseases. Evaluation of the response ofthe plant genotype to infection by the pathogen is an essential part of breeding for host plant resistance.
 
-- .content-box-gray[Agronomy]: In addition to all of these, the breeder offield crops should be a sound agronomist. Plant breeders should know crops and their production. They should understand what the farmer wants and needs in the way of new varieties. Only then will they be able to evaluate critically the breeding materials available to them, plan an efficient breeding program, and direct their breeding efforts toward the agronomically important objectives.
+- Entomology: Biological control of insect populations by breeding for insect resistance is an important way of reducing insect damage in crop plants.
+
+- Plant Biochemistry: Inherent improvements in the nutritive value of a crop variety are given attention by the plant breeder. Suitability for industrial utilization often determines the market demand for a particular variety of a crop. This includes such characteristics as the milling and baking qualities of a wheat variety, the cooking and eating qualities of a rice variety, or the fiber qualities of a cotton variety. Biochemical genetics is contributing toward a better understanding of the structure and function of the gene.
+]
 
 ---
 
-## Steps (Activities) in plant breeding:
+- Statistics: The plant breeder compares the performance of many genetically different strains. Sound field plot techniques and suitable methods for statistical analyses of data are necessary to obtain reliable results and to interpret the results correctly. The application of statistical procedures has provided for a better understanding of the inheritance of quantitative characteristics and for predicting the possible genetic advance that may be obtained with particular systems of mating.
 
-- Setting objective/s
+- Agronomy: In addition to all of these, the breeder of field crops should be a sound agronomist. Plant breeders should know crops and their production. They should understand what the farmer wants and needs in the way of new varieties. Only then will they be able to evaluate critically the breeding materials available to them, plan an efficient breeding program, and direct their breeding efforts toward the astronomically important objectives.
 
-- Germplasm
+---
 
-- Creation of variation
+## Steps (Activities) in plant breeding
+
+- .content-box-grey[Setting objective/s]
+
+- .content-box-army[Germplasm]
+
+- .content-box-green[Creation of variation]
   - Genetic variation can be created by domestication, germplasm collection, plant introduction, hybridization, polyploidy, somaclonal variation and genetic engineering
 
-- Selection
+- .content-box-blue[Selection]
   - Identification and isolation of plants having desirable combinations of characters and growing their progeny is called selection. Selection is necessarily based on phenotype. Various breeding methods have been designed to increase efficacy of selection. Selection finally yields an improved lines or population.
 
 ---
 
-- Evaluation
+- .content-box-red[Evaluation]
   - Newly selected lines/population are tested for yield and other traits. Performance is compared with existing best varieties (checks). Evaluation is a step-wise process, ordinary conducted at several locations for three or more years.
 
-- Multiplication
+- .content-box-yellow[Multiplication]
   - This step concerns the large scale production of source/certified seed after release and notification of varieties. Seed production is usually done by seed production organizations, in concert with seed certification agencies.
 
-- Certification and cultivar release
+- .content-box-purple[Certification and cultivar release]
   - Certified seed is ultimately sold to the farmers who use it for commercial crop production. This activity alone makes it possible to reap the economic benefits from above activities.
   
 ---
 
 ## Achievements
 
+.font80[
 - Yield increase
-	- Has been achieved through either directly targeting the yield *per se* or its components. Theoretically, any characterstic that enables plant to perform better in given biotic/abiotic stress condition can increase yield.
-
-	- In US, yield of corn rose from about 2000 kg/ha in the 1940s to about 7000 kg/ha in the 1990s. 
+	- Has been achieved through either directly targeting the yield *per se* or its components. Theoretically, any characteristic that enables plant to perform better in given biotic/abiotic stress condition can increase yield.
+	- Corn yield in US rose from about 2000 kg/ha in the 1940s to about 7000 kg/ha in the 1990s. 
 	- In England, it took only 40 years for wheat yields to rise from 2 metric tons/ ha to 6 metric tons/ha. 
 	- Between 1961 and 2000, FAO shows:
   	- Wheat yield increased by 681% in China, 301% in India, 299% in Europe, 235% in Africa, 209% in South America, and 175% in the USA. 
   	- Although, a half proportion of the entire gain in yield levels could be attributed to genetic improvement per se, others being due to agronomic practices.
+]
 
 ---
 
 - Enhanced value of food crops due to nutritional quality or compositional trait improvement or special purpose crops.
-	
 	- The shelf life of fruits (e.g., tomato) has been extended through the use of genetic engineering techniques to reduce the expression of compounds associated with fruit deterioration.
-
-	- For example, cereals tend to be low in lysine and threonine, while legumes tend to be low in cysteine and methionine (both sulfur containing amino acids). Now biofortified series of cereal crops that have enhanced amino acids contents are available (QPM maize).
-	
-	- Zincol, ZincShakti and Mayil in Wheat are enriched for protein and Zinc mineral. Similarly, recently notified lentil varieties Khajura Masuro-4 (ILL-7723) and Black masuro are high Zinc and iron containing genotypes.
+  - For example, cereals tend to be low in lysine and threonine, while legumes tend to be low in cysteine and methionine (both sulfur containing amino acids). Now biofortified series of cereal crops that have enhanced amino acids contents are available (QPM maize).
+  - Zincol, ZincShakti and Mayil in Wheat are enriched for protein and Zinc mineral. Similarly, recently notified lentil varieties Khajura Masuro-4 (ILL-7723) and Black masuro are high Zinc and iron containing genotypes.
 
 ---
 
 	- Rice, a major world food, lacks pro-vitamin A (the precursor of vitamin A). IRRI undertaking The Golden Rice project with Golden rice 2 (a variety with a 20-fold increase in pro-vitamin A) implementing the concept of developed by Syngenta's Jealott's Hill International Research Centre in Berkshire, UK.
-	
-	- Breeding for reduction of toxin and anti-nutritional constituents (Eg. Aflatoxin, [phytohaemagglutinin](https://en.wikipedia.org/wiki/Phytohaemagglutinin)). 
-	
+	- Breeding for reduction of toxin and anti-nutritional constituents (Eg. Aflatoxin, [phytohaemagglutinin](https://en.wikipedia.org/wiki/Phytohaemagglutinin)).
 	- Breeding stripy petunias (Petunia x hybrida); Ornamental breeding
 
 ---
@@ -611,14 +611,13 @@ PrintBibliography(myBib)
 ```
 
 ---
-class: sydney-blue
+class: invert, middle, center
 background-size: 260px
 background-position: 5% 95%
-<!-- background-image: url(path/to/image) -->
+background-color: blue
+<!-- background-image: \url(path/to/image) -->
 
 # Thank you!
-
-.pull-right[.pull-down[
 
 <a href="mailto:ddhakal.rookie@gmail.com">
 .white[`r icon::fa("paper-plane")` ddhakal.rookie@gmail.com]
@@ -635,17 +634,3 @@ background-position: 5% 95%
 <a href="http://github.com/deependrad">
 .white[`r icon::fa("github")` @deependrad]
 </a>
-
-<br><br><br>
-
-]]
-
-<!-- ```{r convert-to-pdf} -->
-<!-- # install webshot and phantom_js -->
-<!-- # install.packages("webshot") -->
-<!-- # webshot::install_phantomjs() -->
-<!-- library(webshot) -->
-<!-- webshot(paste0("file://", normalizePath("01-introduction_to_plant_breeding_html.html")),  -->
-<!--         "introduction.pdf", delay = 5) -->
-<!-- ``` -->
-
