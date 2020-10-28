@@ -8,11 +8,11 @@ output:
     lib_dir: libs
     self_contained: false
     seal: true
-    ratio: '16:9'
     css: [default, default-fonts, assets/custom-remark.css]
     navigation:
       scroll: false
     nature:
+      ratio: '16:9'
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
@@ -49,23 +49,6 @@ class: inverse, center, middle
     - for grain yield $kg~ha^{-1}$
       - thousand grain weight (gram), 
       - plant height (cm) variation may be differing by small units
-
----
-
-# Qualitative genetics versus quantitative genetics
-
-- Nature of traits: Qualitative genetics is concerned with traits that have Mendelian inheritance and can be described according to kind and, as previously discussed, can be unambiguously categorized. Quantitative genetic traits are described in terms of the degree of expression of the trait, rather than the kind.
-
-- Scale of variability: Qualitative genetic traits provide discrete (discontinuous) phenotypic variation, whereas quantitative genetic traits produce phenotypic variation that spans the full spectrum (continuous).
-
-- Number of genes: In qualitative genetics, the effects of single genes are readily detectable, while in quantitative genetics single gene effects are not discernible. Rather, traits are under polygenic control (genes with small indistinguishable effects).
-
----
-
-- Mating pattern: Qualitative genetics is concerned with individual matings and their progenies. Quantitative genetics is concerned with a population of individuals that may comprise of a diversity of mating kinds.
-
-- Statistical analysis: Qualitative genetic analysis is quite straight forward; it is based on counts and ratios. On the other hand, quantitative analysis provides estimates of population parameters (attributes of the population from which the sample was obtained).
-
 ---
 
 background-image: url(./images/Pea_lathyrus_odoratus_flower.jpg)
@@ -73,7 +56,7 @@ background-position: 50% 50%
 background-size: 70%
 class: inverse, middle, center
 
-# Quantitative inheritance
+# Qualitative and quantitative inheritance
 
 ---
 
@@ -85,12 +68,6 @@ class: inverse, middle, center
 - Quantitative characters are governed by several genes; each gene has a small effect, which is usually cumulative.
 - The environments considerably affect these characters.
 - Quantitative characters often show continuous variation with normal distribution
-
----
-
-class: inverse, middle, center
-
-# Qualitative inheritance
 
 ---
 
@@ -114,11 +91,7 @@ knitr::include_graphics("./images/incomplete_dominance.png")
 
 ---
 
-class: inverse, middle, center
-
-# Difference between quantitative and qualitative traits
-
----
+## Difference between quantitative and qualitative traits
 
 ```{r tidy=FALSE}
 difference_qualquant <- readxl::read_xlsx("./data/04-qualitative_and_quantitative_characters.xlsx", sheet = "qual_quant")
@@ -133,7 +106,26 @@ knitr::kable(
 
 ---
 
-# Penetrance 
+- Nature of traits: Qualitative genetics is concerned with traits that have Mendelian inheritance and can be described according to kind and, as previously discussed, can be unambiguously categorized. Quantitative genetic traits are described in terms of the degree of expression of the trait, rather than the kind.
+
+- Scale of variability: Qualitative genetic traits provide discrete (discontinuous) phenotypic variation, whereas quantitative genetic traits produce phenotypic variation that spans the full spectrum (continuous).
+
+- Number of genes: In qualitative genetics, the effects of single genes are readily detectable, while in quantitative genetics single gene effects are not discernible. Rather, traits are under polygenic control (genes with small indistinguishable effects).
+
+---
+
+- Mating pattern: Qualitative genetics is concerned with individual matings and their progenies. Quantitative genetics is concerned with a population of individuals that may comprise of a diversity of mating kinds.
+
+- Statistical analysis: Qualitative genetic analysis is quite straight forward; it is based on counts and ratios. On the other hand, quantitative analysis provides estimates of population parameters (attributes of the population from which the sample was obtained).
+
+---
+class: inverse, center, middle
+
+# Penetrance and expressivity
+
+---
+
+## Penetrance
 
 - The ability of a gene to express itself in the individuals carrying it in the appropriate genotype. 
 - Generally, oligogenes express themselves in all individuals that carry them and their expression is fairly uniform.
@@ -158,13 +150,11 @@ knitr::include_graphics("./images/incomplete_penetrance.png")
 
 ---
 
-# Expressivity
+## Expressivity
 
 - The ability of a gene to express itself uniformly in all individuals that carry it in the appropriate genotype.
 - A gene that expresses itself uniformly in all individuals has uniform expressivity while those that are unable to do so have variable expressivity. 
-
 - Expressivity measures the degree to which a given allele is expressed at the phenotypic level; that is, expressivity measures the intensity of the phenotype. For example, "brown" animals (genotype b/b) from different stocks might show very different intensities of brown pigment from light to dark. As for penetrance, variable expressivity may be due to variation in the allelic constitution of the rest of the genome or to environmental factors.
-
 - Expressivity is indicated as variable or uniform.
 
 ---
@@ -176,14 +166,16 @@ knitr::include_graphics("./images/penetrance_expressivity.png")
 
 ---
 
-# Effect in selection
+## Effect in selection
 
-- Incomplete penetrance and variable expressivity confuse the relation between genotype and phenotype. 
-- Consequently such genes pose difficulty in selection of desired types.
+- Incomplete penetrance and variable expressivity confuse the relation between genotype and phenotype. - Consequently such genes pose difficulty in selection of desired types.
 
 ---
+class: inverse, center, middle
 
 # Threshold character
+
+---
 
 - Some genes require specific environment, e.g a particular temperature, for expression. 
 - Traits governed by such genes are known as threshold characters.
@@ -191,8 +183,13 @@ knitr::include_graphics("./images/penetrance_expressivity.png")
 - Incomplete penetrance of some genes may be due to a threshold requirement. 
 
 ---
+class: inverse, center, middle
 
 # Multiple factor hypothesis
+
+---
+
+## Multiple factor hypothesis<sup>1</sup>
 
 - Many genes with small cumulative effect for any one quantitative character account for bell-shaped normal curve appearance of common traits. The genetic factors responsible for this type of effects were termed as multiple factors.
 - Now multiple factor has been replaced by polygene or multiple genes (purposed by Mather). 
@@ -201,9 +198,10 @@ knitr::include_graphics("./images/penetrance_expressivity.png")
 - The distribution of resulting individuals from cross was explained on the basis of two pairs of genes segregating independently, which each dominant allele adding to the intensity of the red color.
 - Two or more non allelic genes that affect in similar way of development of a quantitative character are called multiple genes or polygenes.
 
+.footnote[
+Refer to Chapter 14: Quantitative inheritance, Genetics, Monroe. M. Strickberger, Page 245
+]
 ---
-
-# Multiple factor hypothesis (Example)
 
 - According to Nilsson-ehle, there were three individual gene pairs involved in determination of grain color in wheat, i.e., Aa, Bb, Cc, with genes for red (ABC) dominant over genes for white (abc). Each of these three gene pairs segregated in predictable mendelian fashion, so that the products of heterozygotes for any one pair, i.e. Aa x Ax, produced offspring in the ratio 3 red (A\_):1 white (aa). When two gene-pair differences were segregating at the same time in Nilsson-Ehle's experiments, i.e., AaBb x AaBb, the results also followed mendelian principles, producing a ratio 15 red (A\_B\_, A\_bb, aaB\_): 1 white (aabb). Similarly a cross between heterozygotes for three gene paris produced a close fit to the predicted ratio 63 red: 1 white.
 
@@ -215,15 +213,13 @@ readxl::read_xlsx("./data/04-qualitative_and_quantitative_characters.xlsx", shee
   kableExtra::kable_styling(bootstrap_options = "striped", font_size = 12)
 ```
 
----
-
-# Multiple factor hypothesis (...continued)
-
-- Refer to Chapter 14: Quantitative inheritance, Genetics, Monroe. M. Strickberger, Page 245
 
 ---
+class: inverse, center, middle
 
 # Transgressive segregation
+
+---
 
 - Appearance of features that are unlike either parent.
 - Quantitative character of progeny may fall outside the range of parents is called transgressive segregation. 
@@ -235,19 +231,7 @@ knitr::include_graphics("./images/transgressive_segregation.jpg")
 
 ---
 
-# Multiallelic inheritance 
-
-- For given number of alleles, number of genotype combinations possible are:
-
----
-
-# Multigenic inheritance
-
-- For given number of gene loci, number of genotype combinations possible are:
-
----
-
-# Diagnostics of trait genetics
+## Problem 1
 
 The leaves of pineapples can be classified into three types: spiny (S), spiny tip (ST), and piping
 (nonspiny; P). In crosses between pure strains followed by intercrosses of the F1, the following results appeared:
@@ -266,7 +250,7 @@ b. Using the model from part a, give the phenotypic ratios that you would expect
 
 ---
 
-## Solution
+## Solution 1
 
 **a**. First, let's look at the F2 ratios. We have clear 3 : 1 ratios in crosses 1 and 2, indicating single-gene segregations. Cross 3, however, shows a ratio that is almost certainly a 12 : 3 : 1 ratio. How do we know this ratio? Well, there are simply not that many complex ratios in genetics, and trial and error brings us to the 12 : 3 : 1 quite quickly. In the 128 progeny total, the numbers of 96 : 24 : 8 are expected, but the actual numbers fit these expectations remarkably well.
 
@@ -323,8 +307,7 @@ Notice that the two single-gene segregations in crosses 1 and 2 do not show that
 
 ---
 
-**b**. Now it is simply a matter of using Mendel's laws to predict
-cross outcomes:
+**b**. Now it is simply a matter of using Mendel's laws to predict cross outcomes:
 
 ```{r trait-genetics, fig.align='center', out.height="400px", out.width="auto"}
 # pdftools::pdf_convert("./../../references_plb/An Introduction to Genetic Analysis-W. H. Freeman (2015).pdf", pages = 271, format = "png", filenames = "./images/trait_genetics.png", dpi = 300)
@@ -340,21 +323,20 @@ class: inverse, middle, center
 
 ---
 
-# Gene action
+## Gene action<sup>2</sup>
 
-## Dominance
+### Dominance
 
-## Overdominance
+### Overdominance
 
-## Additive
+### Additive
 
-*Note: Refer to Lecture 10 (Heterosis and inbreeding depression) of Introductory Plant Breeding Course.
+## Gene interaction<sup>3</sup>
 
----
-
-# Gene interaction
-
-*Note: Refer to Lecture 7 (Gene Action and Interaction) of Introductory Genetics course.
+.footnote[
+- Refer to Lecture 10 (Heterosis and inbreeding depression) of Introductory Plant Breeding Course.
+- Refer to Lecture 7 (Gene Action and Interaction) of Introductory Genetics course.
+]
 
 ---
 class: center, middle, inverse
@@ -363,7 +345,7 @@ class: center, middle, inverse
 
 ---
 
-# Number of genes contributing to a quantitative character
+## Number of genes contributing to a quantitative character
 
 A formula has been purposed for estimating the number of genes n involved in the inheritance of a quantitative character.
 
@@ -373,7 +355,7 @@ Where, $\bar{P_1}$ and $\bar{P_2}$ are trait means of inbred parents $P_1$ and $
 
 ---
 
-# Components of variation of a quantitative character
+## Components of variation of a quantitative character
 
 - Quantitative characters are more affected by environments. Thus phenotypic mean may be described according to a mathematical model to facilitate statistical analysis and interpretation:
 
@@ -454,16 +436,14 @@ h_b^2 = \frac{\frac{1}{2}V_A + \frac{1}{4}V_D}{\frac{1}{2}V_A + \frac{1}{4}V_D +
 \tag{iii}
 $$
 
-???
-
-1. Note that denominator has variation of simple $V_P = V_A + V_D + V_E$. This is because total phenotypic variation of $F_2$ has larger contribution of environmental and additive components than dominance component.
-
----
-
 - In simple terms, to estimate the $h_b^2$ of $F_2$ family (or any other segregating family), only following estimates are required:
 
 1. Total phenotypic variance (Obtained from measurement on plants within $F_2$ families)
 2. Environmental variance (Obtained from measurement on $F_1$ families)
+
+???
+
+1. Note that denominator has variation of simple $V_P = V_A + V_D + V_E$. This is because total phenotypic variation of $F_2$ has larger contribution of environmental and additive components than dominance component.
 
 ---
 
@@ -564,6 +544,7 @@ $V_{B2} = \frac{1}{4}A + \frac{1}{4}D + E$
 $V_{B1} + V_{B2} = \frac{1}{2}A + \frac{1}{2}D + 2E$
 
 ---
+class: inverse, middle, center
 
 # Questions
 
