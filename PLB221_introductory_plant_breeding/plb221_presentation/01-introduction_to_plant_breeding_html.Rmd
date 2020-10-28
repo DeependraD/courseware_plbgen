@@ -67,7 +67,7 @@ knitr::include_graphics("./images/x_men_mutants.jpg")
 ```
 
 
-```{r, load-refs, echo=FALSE, cache=FALSE, warning=FALSE}
+```{r load-refs, echo=FALSE, cache=FALSE, warning=FALSE}
 suppressPackageStartupMessages(library(RefManageR))
 suppressPackageStartupMessages(require(magrittr))
 BibOptions(check.entries = FALSE, 

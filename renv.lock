@@ -312,10 +312,10 @@
     },
     "digest": {
       "Package": "digest",
-      "Version": "0.6.25",
+      "Version": "0.6.27",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "f697db7d92b7028c4b3436e9603fb636"
+      "Hash": "a0cbe758a531d054b537d16dff4d58a1"
     },
     "downloader": {
       "Package": "downloader",
@@ -492,10 +492,10 @@
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteRepo": "icon",
-      "RemoteUsername": "emitanaka",
+      "RemoteUsername": "ropenscilabs",
       "RemoteRef": "HEAD",
-      "RemoteSha": "8458546e28153e25688042a5d7d97a2c899f9b4c",
-      "Hash": "242219cd131316876d0ca293eb6c3df9"
+      "RemoteSha": "a5bc1cc928b15a5296b06f66faa9e08264ad4064",
+      "Hash": "e8034d1dff8b07070984eff0498effb5"
     },
     "igraph": {
       "Package": "igraph",
@@ -835,17 +835,17 @@
     },
     "rlang": {
       "Package": "rlang",
-      "Version": "0.4.7",
+      "Version": "0.4.8",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "c06d2a6887f4b414f8e927afd9ee976a"
+      "Hash": "843a6af51414bce7f8a8e372f11d6cd0"
     },
     "rmarkdown": {
       "Package": "rmarkdown",
-      "Version": "2.4",
+      "Version": "2.5",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "ec8febc2bd653b754d5b03c9d4b996bb"
+      "Hash": "20a0a94af9e8f7040510447763aab3e9"
     },
     "rprojroot": {
       "Package": "rprojroot",
