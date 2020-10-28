@@ -1043,6 +1043,13 @@
       "Repository": "CRAN",
       "Hash": "ea1560bbabaff9ca40c6f6f77b9da415"
     },
+    "xaringanthemer": {
+      "Package": "xaringanthemer",
+      "Version": "0.3.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "402482b841f115baa6250a3fc49f802f"
+    },
     "xfun": {
       "Package": "xfun",
       "Version": "0.18",
