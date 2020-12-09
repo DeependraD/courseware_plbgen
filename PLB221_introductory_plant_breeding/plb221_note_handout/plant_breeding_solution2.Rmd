@@ -1,0 +1,194 @@
+---
+title: "Numerical solutions to some problems in Plant Breeding"
+subtitle: "Part II"
+author: |
+  | Deependra Dhakal
+  | Gokuleshwor Agriculture and Animal Science College, Baitadi, Nepal
+date: "9/18/2020"
+output: 
+  bookdown::pdf_document2:
+    keep_tex: yes
+    toc: false
+    includes:
+      in_header: plant_breeding_solutions_header.tex
+documentclass: exam
+classoption: "answers,addpoints,12pt"
+geometry: "top=1.5cm,bottom=1.5cm,left=1.5cm,right=1.5cm"
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, include = TRUE, message = FALSE, warning = FALSE)
+options(knitr.kable.NA = '')
+require(tidyverse)
+```
+
+# Solution to Exam Qustions
+
+
+\bquestions
+
+\question[4] \label{quest:first}
+
+How do you produce hybrid seed using one self-incompatible (P1) and another self-compatible (P2) parents ?
+
+\bsolution (Question \ref{quest:first}) 
+
+System of self-incompatibility prevents self fertilization based on the descrimination between self- and non-self pollen. It is known to be controlled by single S-locus with multi-allelic nature demonstrated among different groups of crops (more than 100 families and in approximately 40\% of species). Early instances of overcoming incompatibility is recorded in sweet cherry (\textit{Prunus avium L.}) cultivars through irradiation. However, using the same technique of SI during 1940s and 1950s, Japanese seed companies' introduced hybrid Cabbage gained heights of popularity.
+
+The S-locus encodes both male and female specificity determinants (S-determinants) whose products are predicted to interact and trigger the self/non-self discrimination process. Most types of SI can be classified as sporophytic or gametophytic based on time of gene action in the stamen. The pollen phenotype is determined by the S-genotype of the diploid pollen-parent in sporophytic SI and by the genotype of the individual microspore in gametophytic SI.
+
+In crops exhibiting SI (and even in SC crops), cultivars that serve as pollen donors ("pollenizers") are usually interspersed throughout orchards since fruit set depends largely on cross-pollinations. Pollenizers are commonly used in canola (\textit{Brassica L.}), sunflower, strawberry and apple.
+
+To achieve hybrid viour or heterosis, two parents with different genetic backgrounds (usually pure lines) need to be crossed. Heterotic F1 progeny show elevated yields as well as other agriculturally desirable traits. Since most cultivated crops are SC, producing hybrid seed requires an efficient system to control pollination to prevent the female parent from self-fertilization. SI has been reported to be preferred over male sterility in crop species with entomophilous pollination since pollen-collecting bees rarely visit male-sterile plants. Nonetheless, SI also may have disadvantages, for example, F1 hybrids of two SI parents are also SI and this may be undesirable for crop production. SI hybrids in such cases have hindered seed production (e.g., oilseed rape/canola) or fruit production. This is in regard of the fact that hybrid production requires maintanence of one or two lines continually over generations. If either of the two parents cannot be self fertilized, nevertheless it needs to be maintained, it is done by transiently breaking down the incompatibility by using chemical or physical techniques.
+
+A system of hybrid breeding utilizing one SI line as female parent (P1) and the other self compatible line as male parent (P2) is shown below:
+
+```{r diagram-si-system1, fig.width=4, out.width="80%", fig.cap="Maintenance of parental lines. P1 is Self incompatible (SI) while P2 is self compatible (SC). Propagating P1 requires transiently overcoming SI to allow selfing.", fig.align='center', fig.pos="H"}
+
+DiagrammeR::mermaid(
+  "
+  graph TB
+  subgraph P1
+  a1[S1S2<br> Self incompatible, female] -- Selfing --> a2[Incompatible]
+  end
+  
+  subgraph P2
+  b1[S0S0<br> Self compatible, male] -- Selfing --> b2[Compatible]
+  end
+  "
+)
+
+```
+
+
+```{r diagram-si-system2, fig.width=4, out.width="0.6\\textwidth", fig.cap="Production of single cross hybrid using P1 and P2", fig.align='center', fig.pos="H"}
+
+DiagrammeR::mermaid(
+  "
+  graph TB
+  
+  11[S1S2<br> Self incompatible, female] --> 21[\"S1S0, S2S0 <br>  Self (In)compatible\"]
+  12[S0S0<br> Self compatible, male] --> 21
+  "
+)
+```
+
+\esolution
+
+\question[4] \label{quest:second}
+
+What are the differences between half-sib and full-sib selection procedure ?
+
+\bsolution
+
+**Half sib selection**
+
+- Lines composited to form a new population are selected from progeny performance rather than phenotypic appearance.
+- Effective in changing gene frequency for highly heritable characters that could be selected visually.
+- Not effective for characteristics with low heritability.
+- Like mass selection, it is based on maternal plant selection, without pollen control.
+- Heritability estimates made from single parent only, and thus are reduced by one-half.
+- Includes half sib selection using top cross progeny test, open-pollinated progeny test, some forms of maternal line selection, and the polycross progeny test.
+
+**Full sib selection**
+
+- Crosses are made between selected pair of plants from the source population.
+- The seeds of crosses are used both for progeny tests and for reconstituting the new population. 
+- Measures the combining ability from mating specific individuals -- i.e., both specific as well as general combining abilities are known for the parents used crosses.
+- Suitable for improvement of traits with lower heritability.
+- Heritability estimates are obtained using information from both parents.
+- Includes full sib selection using inbred parents and selfed progeny selection.
+
+\esolution
+
+\question[4] \label{quest:third}
+
+In a random mating population, the mean plant height and variance are 120 cm and 121 $cm^2$ respectively. A plant breeder selected the top 5% plants from the base population and found mean plant height 110 cm in the next generation. Find the genetic gain, selection differential and the heritability of this trait.
+
+\bsolution
+
+\underline{Numerical}
+
+Given,
+
+Mean ($X_0$) = `r (X0 = 120)`
+
+Variation ($\sigma^2$) = `r (sigma_sq = 121)`
+
+Mean of next (progeny) generation ($X_p$) = `r (Xp = 110)`
+
+Selection intensity ($k$) = `r (k = 0.05)`
+
+Here, 
+
+Response to selection (a.k.a. Genetic gain; R) = `r (Xp-X0)` ($\because$ height has decreased in progeny, the gain is negative in value).
+
+Selection differential (S) = $-\sigma i$ = $\sqrt{121} \times 2.06$ = `r -(sqrt(sigma_sq)*2.06)` ($\because$ selection has reduced the mean phenotype, selection differential is expressed as negative in value).
+
+To estimate heritability ($h^2$), we have:
+
+\begin{align}
+R &= i \sigma h^{2} \notag \\
+|110-120|  &= \sqrt{121} \times 2.06 h^{2} \notag \\
+h^2 &= \frac{10}{2.06 \times 11} \notag \\
+  &= 0.44 \notag
+\end{align}
+
+\esolution
+
+\question[4] \label{quest:fourth}
+
+With the help of following table, answer the following questions.
+
+```{r}
+cultivar_response <- tribble(
+  ~"variety", ~"virus_concentration", ~"yellowing", ~"yield_with_virus", ~"yield_without_virus", 
+  "A", 100, 8, 80, 90, 
+  "B", 60, 1, 100, 120, 
+  "C", 50, 3, 40, 90
+)
+
+cultivar_response %>% 
+  rename_all(function(x)str_replace_all(x, "_", " ") %>% 
+               str_to_sentence()) %>% 
+  knitr::kable(booktabs = TRUE) %>% 
+  kableExtra::kable_styling(position = "center")
+```
+
+1. Which variety is the most susceptible and why ?
+2. Which variety is the most resistant and why ?
+3. Which variety is the most tolerant and why ?
+4. Which variety is the most sensitive and why ?
+
+\bsolution
+
+1. Cultivar A is the most susceptible due to it having the maximum virus concentration.
+2. Cultivar C is the most resistant because of the least concentration of the virus.
+
+3.
+
+```{r}
+sensitivity_tolerance <- cultivar_response %>% 
+  group_by(variety) %>% 
+  summarize(sensitivity = ((yield_without_virus - yield_with_virus)/yield_without_virus)/virus_concentration, 
+            tolerance = 1 - sensitivity) %>% 
+  ungroup() %>% 
+  mutate(indicator = case_when(
+    tolerance == max(tolerance) ~ "Highest tolerance",
+    sensitivity == max(sensitivity) ~ "Highest sensitivity", 
+    TRUE ~ NA_character_
+    ))
+
+sensitivity_tolerance %>% 
+  rename_all(function(x)str_replace_all(x, "_", " ") %>% 
+               str_to_sentence()) %>% 
+  knitr::kable(booktabs = TRUE, digits = 3) %>% 
+  kableExtra::kable_styling(position = "center")
+
+```
+
+\esolution
+
+\equestions
+

@@ -1,0 +1,51 @@
+# Numerical problems on law of independent assortment
+
+## Question 1
+
+In tomatoes, one gene determines whether the plant has purple (P) or green (G) stems, and a separate, independent gene determines whether the leaves are "cut" (C) or "potato" (Po). Five matings of tomato-plant phenotypes give the following results. 
+
+1. Which alleles are dominant ?
+2. What are the most probable genotypes for the parents in each cross ?
+  
+```{r independent-assortment-example, out.width="40%", fig.align='center'}
+# pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Griffiths - An Introduction to Genetic Analysis 11th Edition c2015.pdf",
+#                       pages = 148,
+#                       dpi = 300, format = "png",
+#                       filenames = "../images/independent_assortment_example1.png")
+
+knitr::include_graphics("../images/independent_assortment_example1.png")
+```
+
+
+## Solution 1
+
+Dominance and parental genotype determination
+
+- Cross 2 indicates that purple (G) is dominant over green (g), and cross 1 indicates that cut (P) is dominant over potato (p).
+
+```{r}
+cross_tomato <- tribble(~"cross", ~"observed_approximate_ratio", 
+        "Cross 1: G/g; P/p x g/g; P/p", "There are 3 cut:1 potato, and 1 purple: 1 green", 
+        "Cross 2: G/g; P/p x G/g; p/p", "There are 3 purple: 1 green, and 1 cut: 1 potato", 
+        "Cross 3: G/G; P/p x g/g; P/p", "There is no green, and there are 3 cut: 1 potato", 
+        "Cross 4: G/g; P/P x g/g; p/p", "There is no potato, and there is 1 purple: 2", 
+        "Cross 5: G/g; p/p x g/g; P/p", "There is 1 cut: 1 potato, and there is 1 purple: 1 green")
+
+cross_tomato %>% 
+  rename_all(function(x)str_replace_all(x, "_", " ") %>% 
+               str_to_sentence()) %>% 
+  knitr::kable(booktabs = TRUE) %>% 
+  kableExtra::kable_styling(latex_options = "striped", position = "center", font_size = 10)
+```
+
+## Question 3
+
+A presumed dihybrid in Drosophila, B/b ; F/f is test- crossed with b/b ; f/f. (B = black body ; b = brown body; F = forked bristles; f = unforked bristles.) The results are,
+- Black, forked : 230
+- Black, unforked : 210
+- Brown, forked : 240
+- Brown, unforked : 250
+
+Use the Chi-square test to determine if these results fit the results expected from testcrossing the hypothesized dihybrid.
+
+## Solution 3

@@ -8,6 +8,7 @@ output:
     lib_dir: libs
     nature:
       highlightStyle: github
+      ratio: "16:9"
       highlightLines: true
       countIncrementalSlides: false
 bibliography: ['./../bibliographies.bib']  

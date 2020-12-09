@@ -27,7 +27,7 @@ bibliography: ['./../bibliographies.bib']
 options(htmltools.dir.version = FALSE)
 options(knitr.kable.NA = "", digits = 3)
 knitr::opts_chunk$set(tidy = FALSE, echo = FALSE)
-
+# convert to pdf using chromium browser manually
 ```
 
 ```{r xaringan-themer, include=FALSE, warning=FALSE}

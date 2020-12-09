@@ -69,6 +69,17 @@ knitr::include_graphics("../images/cell_structure_plant.png")
 
 ##
 
+```{r chromosome-structure, fig.cap="Chromosomes occur as compact entities during nuclear division (e.g., in metaphase and anaphase of mitosis). This entity is what was originally named 'chromosome.' (a) A satellite chromosome with the two telomeres, the centromere with the two kinetochores (insertion points of the microtubules on the spindle apparatus), heterochromatic bands (additional regions on the telomeres and in the region of the centromere), and the characteristic (for satellite chromosomes) nucleolar organizing region (NOR) and a heterochromatic satellite. The chromosome is split longitudinally into two chromatids that later become daughter chromosomes. (b) Anaphase chromosomes of barley (Hordeum vulgare) with a diploid chromosome number 2n = 28, two satellite chromosomes per complement. The four NORs and four satellites of the two complements of daughter chromosomes can be seen clearly (x1,880). (c) Chromosome complement of \\textit{Anemone blanda} (2n = 16); heterochromatic bands (except at the centromere) picked out with color (x600)", out.width="25%"}
+# pdftools::pdf_convert("../../literatures/Plant Science Straussberger.pdf", 
+#                       pages = 76,
+#                       dpi = 300, format = "png",
+#                       filenames = "../images/chromosome_structure.png")
+
+knitr::include_graphics("../images/chromosome_structure.png")
+```
+
+##
+
 - The chromosome complement in a cell nucleus in the members of a species is called their karyotype (records all the cytologically identifiable chromosome features (size, form, number)).
 - The karyotype is an important genetic, systematic, and phylogenetic characteristic.
 - The number of identical chromosome sets in a cell nucleus determines the level of ploidy, _n_. 
@@ -105,48 +116,75 @@ knitr::include_graphics("../images/cell_structure_plant.png")
 - In some species e.g., maize, amphibia etc, chromosomes during first prophase of meiosis (pachytene), show small bead-like structures called chroommeres.
 - Homologous chromosomes always show identical pattern of chromomere distribution.
 
-<!-- ## Chromosome numbers -->
+## Chromosome numbers
 
-<!-- ```{r genetics-history2, eval = TRUE} -->
-<!-- chr_no <- read_csv("./../data/chromosome_numbers.csv") -->
-<!-- chr_no <- chr_no %>%  -->
-<!--   mutate(Species = paste0("$\textit{", Species, "}$")) %>%  -->
-<!--   group_split(Organism) -->
-<!-- ``` -->
+```{r genetics-history2, eval = TRUE}
+chr_no <- read_csv("./../data/chromosome_numbers.csv")
+chr_no <- chr_no %>%
+  mutate(Species = paste0("\\textit{", Species, "}")) %>%
+  group_split(Organism)
+```
 
-<!-- ## -->
+\begin{columns}[T,onlytextwidth]
+  
+  \column{0.5\textwidth}
 
-<!-- ```{r chromosome-number1} -->
-<!-- chr_no[[1]] %>%  -->
-<!--   knitr::kable(caption = "Chromosome numbers found different species of organisms",  -->
-<!--                booktabs = TRUE, escape = FALSE) %>% -->
-<!--   kableExtra::kable_styling(font_size = 5, position = "center", latex_options = "striped") %>%  -->
-<!--   # kableExtra::column_spec(1:2, width = c("5em", "50em")) %>%  -->
-<!--   kableExtra::collapse_rows(columns = 1, valign = "top") -->
-<!-- ``` -->
+  \scalebox{0.80}{\begin{minipage}{1.0\textwidth}
 
-<!-- ## -->
+```{r chromosome-number11}
+chr_no[[1]][1:10,] %>%
+  select(-1) %>% 
+  knitr::kable(caption = "Chromosome numbers found different species of organisms (animals)",
+               booktabs = TRUE, escape = FALSE) %>%
+  kableExtra::kable_styling(font_size = 5, position = "center", latex_options = "striped") #%>%
+  # kableExtra::column_spec(1:2, width = c("5em", "50em")) %>%
+  # kableExtra::collapse_rows(columns = 1, valign = "top")
+```
 
-<!-- ```{r chromosome-number2} -->
-<!-- chr_no[[2]] %>%  -->
-<!--   knitr::kable(caption = "Chromosome numbers found different species of organisms ... continued",  -->
-<!--                booktabs = TRUE, escape = FALSE) %>% -->
-<!--   kableExtra::kable_styling(font_size = 5, position = "center", latex_options = "striped") %>%  -->
-<!--   # kableExtra::column_spec(1:2, width = c("5em", "50em")) %>%  -->
-<!--   kableExtra::collapse_rows(columns = 1, valign = "top") -->
-<!-- ``` -->
+\end{minipage}}
 
-<!-- ## -->
+  \column{0.5\textwidth}
 
-<!-- ```{r chromosome-number3} -->
-<!-- chr_no[[3]] %>%  -->
-<!--   knitr::kable(caption = "Chromosome numbers found different species of organisms ...continued",  -->
-<!--                booktabs = TRUE, escape = FALSE) %>% -->
-<!--   kableExtra::kable_styling(font_size = 4, position = "center",  -->
-<!--                             latex_options = "striped") %>%  -->
-<!--   # kableExtra::column_spec(1:2, width = c("5em", "50em")) %>%  -->
-<!--   kableExtra::collapse_rows(columns = 1, valign = "top") -->
-<!-- ``` -->
+\scalebox{0.70}{\begin{minipage}{1.0\textwidth}
+
+```{r chromosome-number12}
+chr_no[[1]][11:nrow(chr_no[[1]]),] %>%
+  select(-1) %>% 
+  knitr::kable(caption = "Chromosome numbers found different species of organisms (animals) ... continued",
+               booktabs = TRUE, escape = FALSE) %>%
+  kableExtra::kable_styling(font_size = 5, position = "center", latex_options = "striped") #%>%
+  # kableExtra::column_spec(1:2, width = c("5em", "50em")) %>%
+  # kableExtra::collapse_rows(columns = 1, valign = "top")
+```
+
+\end{minipage}}
+
+\end{columns}
+
+##
+
+```{r chromosome-number2}
+chr_no[[2]] %>%
+  select(-1) %>% 
+  knitr::kable(caption = "Chromosome numbers (haploid number) found different species of organisms (micro-organisms) ... continued",
+               booktabs = TRUE, escape = FALSE) %>%
+  kableExtra::kable_styling(font_size = 5, position = "center", latex_options = "striped") #%>%
+  # kableExtra::column_spec(1:2, width = c("5em", "50em")) %>%
+  # kableExtra::collapse_rows(columns = 1, valign = "top")
+```
+
+##
+
+```{r chromosome-number3}
+chr_no[[3]] %>%
+  select(-1) %>% 
+  knitr::kable(caption = "Chromosome numbers found different species of organisms (plants) ...continued",
+               booktabs = TRUE, escape = FALSE) %>%
+  kableExtra::kable_styling(font_size = 4, position = "center",
+                            latex_options = "striped") #%>%
+  # kableExtra::column_spec(1:2, width = c("5em", "50em")) %>%
+  # kableExtra::collapse_rows(columns = 1, valign = "top")
+```
 
 ## Structure of chromatin
 
@@ -234,9 +272,44 @@ knitr::include_graphics("../images/cell_division_eukaryotes_overview.png")
 - In general heterochromatin is found in the centromeric and telomeric regions.
 - Almost all of the genes in a chromosomes are found in euchromatin region.
 
+<!-- ## DNA replication is bidirectional -->
+
+<!-- ```{r bidirectional-replication, out.width="60%", fig.cap="DNA replication proceeds in both directions from an origin of replication. Black arrows indicate the direction of growth of daughter DNA molecules. (a) Starting at the origin, DNA polymerases move outward in both directions. Long yellow arrows represent leading strands and short joined yellow arrows represent lagging strands. (b) How replication proceeds at the chromosome level. Three origins of replication are shown in this example."} -->
+<!-- # pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Anthony_J.F._Griffiths,_Susan_R._Wessler,_Sean_B.pdf", -->
+<!-- #                       pages = 299, -->
+<!-- #                       dpi = 300, format = "png", -->
+<!-- #                       filenames = "../images/bidirectional_dna_replication.png") -->
+
+<!-- knitr::include_graphics("../images/bidirectional_dna_replication.png") -->
+<!-- ``` -->
+
+<!-- ## Chromatin -->
+
+<!-- \small -->
+
+<!-- Most of the nuclear DNA is complexed with histones. Histones are commonly found throughout the eukaryotes. An exception is the dinoflagellates whose chromatin is organized differently. These unicellular organisms are typical eukaryotes in every other aspect. The mass ratio of histone to DNA is about 1:1. Histones only occur together with DNA in living cells. They are synthesized synchronously with the DNA in the replication phase of the cell cycle (S phase) in the cytoplasm and are immediately transferred to the cell nucleus. The strongly acidic DNA acts as a polyanion and attracts the histone molecule, which is basic as a result of its many lysine and arginine residues (pI about 12) and acts as a polycation. The H1–H4 (Given in Table \ref{fig:histone-types}) series is ordered according to the decreasing proportion of lysine and the increasing proportion of arginine. The histones, especially H3 and H4, have altered little during phylogenesis.  -->
+
+<!-- ## -->
+
+<!-- \small -->
+
+<!-- There are also tissue-specific variants that in part deviate somewhat from each other in terms of activation of histogenes (isotypes) and in part differ in their posttranslational, reversible modification of the histone molecule (acetylation or phosphorylation of individual amino acids). The four histones H2A–H4, which have similar molecular sizes and shapes, automatically form (even without DNA) flat-ellipsoid quaternary structures. In these particles, with diameters of up to 10 nm and thicknesses of 5 nm, two molecules of every histone type are involved -- histone octamers, made up of core histones. The edge of the histone octamer is flatly encircled by a 145-bp-long sequence of DNA, marking the location of the particularly basic N-termini of the histone molecule (Shown in Figure \ref{fig:nucleosome-structure}). The DNA double helix twists just about twice around the histone octamer before going on to the next one. The approximately 60-bp intermediate linker represents the preferred attack site for endonucleases. Thus, cleavage events attack uniform nucleohistone complexes of the same particle mass, the nucleosomes. Electron microscope observations show greatly loosened H1-free chromatin with a typical beaded pattern. -->
+
+<!-- ## -->
+
+<!-- \small -->
+
+<!-- This changes when H1 is added. This molecularly heavier histone (also less conserved in evolutionary terms) is not involved in the construction of the histone octamers or nucleosomes but preferentially binds, using nonspecific sequences, to linker DNA and densely binds nucleosomes to histone octamers already occupied by DNA. This gives H1 its other name of linker histone. It causes the chromatin to condense; increasing amount of H1 makes the molecule even more compact. Initially, nucleofilaments (elementary or fundamental fibrils) form with diameters of 10 nm; further condensation results in superstructures, e.g., solenoids (helix structures with six nucleosomes per turn; from greek _solen_ tube) regular zigzag structures, or supranucleosomal granula (nucleomeres). Finally, the chromatin fibril is formed, a 35-nm-thick filamentous structure. The DNA double helix packed into the chromatin fibril would be more than 20 times as long were it to be in its uncondensed form. -->
+
+<!-- ## -->
+
+<!-- \small -->
+
+<!-- Even higher grades of chromatin condensation occur, particularly during nuclear division. Various nonhistone proteins then form a filamentous chromosome skeleton from which the chromatin fibrils protrude as lateral loops in all directions. This is how chromonemes (visible even with a light microscope), with diameters of 0.2 mm, are formed. The most extreme chromatin compaction is achieved by even more twisting of the metaphase chromosomes during mitosis and more so during meiosis. -->
+
 # Cell division
 
-## Cell division processes
+## Background
 
 - **Mitosis** is the division of the genetic material in the nucleus, usually followed immediately by **cytokinesis**.
 - Walther Flemming coined the terms *mitosis* and *chromatin*.
@@ -245,49 +318,47 @@ knitr::include_graphics("../images/cell_division_eukaryotes_overview.png")
 - In each division meiosis reduces the chromosome number from 46 (two sets of chromosomes) to 23 (one set), hence called the reductional division.
 - Fertilization fuses gametes together and returns chromosome number to 46.
 
-<!-- ## Cell division in plants -->
+## Cell division in plants
 
-<!-- ```{r cell-division-plants, out.width="28%", fig.align='center'} -->
-<!-- # pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Anthony_J.F._Griffiths,_Susan_R._Wessler,_Sean_B.pdf", -->
-<!-- #                       pages = 61, -->
-<!-- #                       dpi = 300, format = "png", -->
-<!-- #                       filenames = "../images/cell_division_plants.png") -->
+```{r cell-division-plants, out.width="28%", fig.align='center'}
+# pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Anthony_J.F._Griffiths,_Susan_R._Wessler,_Sean_B.pdf",
+#                       pages = 61,
+#                       dpi = 300, format = "png",
+#                       filenames = "../images/cell_division_plants.png")
 
-<!-- knitr::include_graphics("../images/cell_division_plants.png") -->
-<!-- ``` -->
+knitr::include_graphics("../images/cell_division_plants.png")
+```
 
-<!-- ## Key events in mitosis and meiosis -->
+## Key events in mitosis and meiosis
 
-<!-- \begin{columns}[T,onlytextwidth] -->
+\begin{columns}[T,onlytextwidth]
 
-<!--   \column{0.5\textwidth} -->
+  \column{0.5\textwidth}
 
-<!-- ```{r key-events1, out.width="68%", fig.align='center'} -->
-<!-- # pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Anthony_J.F._Griffiths,_Susan_R._Wessler,_Sean_B.pdf", -->
-<!-- #                       pages = 62, -->
-<!-- #                       dpi = 300, format = "png", -->
-<!-- #                       filenames = "../images/key_events_mitosis_meiosis.png") -->
+```{r key-events1, out.width="68%", fig.align='center'}
+# pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Anthony_J.F._Griffiths,_Susan_R._Wessler,_Sean_B.pdf",
+#                       pages = 62,
+#                       dpi = 300, format = "png",
+#                       filenames = "../images/key_events_mitosis_meiosis.png")
 
-<!-- knitr::include_graphics("../images/key_events_mitosis_meiosis.png") -->
-<!-- ``` -->
-<!--   \column{0.5\textwidth} -->
+knitr::include_graphics("../images/key_events_mitosis_meiosis.png")
+```
+  \column{0.5\textwidth}
 
-<!-- ```{r key-events2, out.width="100%", fig.align='center'} -->
-<!-- # pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Anthony_J.F._Griffiths,_Susan_R._Wessler,_Sean_B.pdf", -->
-<!-- #                       pages = 63, -->
-<!-- #                       dpi = 300, format = "png", -->
-<!-- #                       filenames = "../images/key_events_mitosis_meiosis2.png") -->
+```{r key-events2, out.width="100%", fig.align='center'}
+# pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Anthony_J.F._Griffiths,_Susan_R._Wessler,_Sean_B.pdf",
+#                       pages = 63,
+#                       dpi = 300, format = "png",
+#                       filenames = "../images/key_events_mitosis_meiosis2.png")
 
-<!-- knitr::include_graphics("../images/key_events_mitosis_meiosis2.png") -->
-<!-- ``` -->
+knitr::include_graphics("../images/key_events_mitosis_meiosis2.png")
+```
 
-<!-- \end{columns} -->
+\end{columns}
 
-# Mitosis
+## Phases of a cell cycle
 
-## Phases of the cell cycle
-
-- Mitotic (M) phase, including both mitosis and cytokinesis is the shortest part of the cell cycle.
+- Mitotic (M) phase, including both mitosis and cytokinesis, is the shortest part of a cell's life cycle.
 - M phase alternates with **interphase** (accounts for 90% of the cycle).
 - Interphase can be divided into subphases (with time lapse for a normal human cell, about **24 hours**): 
   - the $\mathbf{G_1}$ phase ("first gap") $\longrightarrow$ 5-6 hours, 
@@ -296,7 +367,7 @@ knitr::include_graphics("../images/cell_division_eukaryotes_overview.png")
 - During all three subphases, a cell that will eventually divide grows by producing proteins and cytoplasmic organelles such as mitochondria and endoplasmic reticulum. 
 - Chromosomes are duplicated only during the S phase.
 
-## Events in mitosis
+## Key events in mitosis
 
 - Mitotic spindle (consists of microtubules fibers and associated proteins) forms in the cytoplasm during prophase.
 - Spindle formation starts at centrosomes, division of which has occured during interphase.
@@ -338,154 +409,7 @@ knitr::include_graphics("../images/cell_division_eukaryotes_overview.png")
 
 <!-- Even higher grades of chromatin condensation occur, particularly during nuclear division. Various nonhistone proteins then form a filamentous chromosome skeleton from which the chromatin fibrils protrude as lateral loops in all directions. This is how chromonemes (visible even with a light microscope), with diameters of 0.2 mm, are formed. The most extreme chromatin compaction is achieved by even more twisting of the metaphase chromosomes during mitosis and more so during meiosis. -->
 
-##
-
-```{r chromosome-structure, fig.cap="Chromosomes occur as compact entities during nuclear division (e.g., in metaphase and anaphase of mitosis). This entity is what was originally named 'chromosome.' (a) A satellite chromosome with the two telomeres, the centromere with the two kinetochores (insertion points of the microtubules on the spindle apparatus), heterochromatic bands (additional regions on the telomeres and in the region of the centromere), and the characteristic (for satellite chromosomes) nucleolar organizing region (NOR) and a heterochromatic satellite. The chromosome is split longitudinally into two chromatids that later become daughter chromosomes. (b) Anaphase chromosomes of barley (Hordeum vulgare) with a diploid chromosome number 2n = 28, two satellite chromosomes per complement. The four NORs and four satellites of the two complements of daughter chromosomes can be seen clearly (x1,880). (c) Chromosome complement of \\textit{Anemone blanda} (2n = 16); heterochromatic bands (except at the centromere) picked out with color (x600)", out.width="25%"}
-# pdftools::pdf_convert("../../literatures/Plant Science Straussberger.pdf", 
-#                       pages = 76,
-#                       dpi = 300, format = "png",
-#                       filenames = "../images/chromosome_structure.png")
-
-knitr::include_graphics("../images/chromosome_structure.png")
-```
-
-# Stages of mitosis
-
-##
-
-```{r mitosis-stages, out.width="64%", fig.align='center'}
-# pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Anthony_J.F._Griffiths,_Susan_R._Wessler,_Sean_B.pdf",
-#                       pages = 103,
-#                       dpi = 300, format = "png",
-#                       filenames = "../images/mitosis_stages.png")
-
-knitr::include_graphics("../images/mitosis_stages.png")
-```
-
-##
-
-\begin{columns}[T,onlytextwidth]
-  
-  \column{0.33\textwidth}
-
-```{r mitosis-animal21, out.width="60%", fig.align='center'}
-# pdftools::pdf_convert("/media/deependra/e4da4ac5-3b38-4b89-9402-397eb940e4d3/Addition/Generalized Study/Reece Campbell Biology 9th txtbk.pdf",
-#                       pages = 280,
-#                       dpi = 300, format = "png",
-#                       filenames = "../images/mitosis_animal_cell2.png")
-
-knitr::include_graphics("../images/mitosis_animal_cell21.png")
-```
-
-  \column{0.33\textwidth}
-  
-```{r mitosis-animal22, out.width="60%", fig.align='center'}
-# pdftools::pdf_convert("/media/deependra/e4da4ac5-3b38-4b89-9402-397eb940e4d3/Addition/Generalized Study/Reece Campbell Biology 9th txtbk.pdf",
-#                       pages = 280,
-#                       dpi = 300, format = "png",
-#                       filenames = "../images/mitosis_animal_cell2.png")
-
-knitr::include_graphics("../images/mitosis_animal_cell22.png")
-```
-  
-  \column{0.33\textwidth}
-
-```{r mitosis-animal23, out.width="60%", fig.align='center'}
-# pdftools::pdf_convert("/media/deependra/e4da4ac5-3b38-4b89-9402-397eb940e4d3/Addition/Generalized Study/Reece Campbell Biology 9th txtbk.pdf",
-#                       pages = 280,
-#                       dpi = 300, format = "png",
-#                       filenames = "../images/mitosis_animal_cell2.png")
-
-knitr::include_graphics("../images/mitosis_animal_cell23.png")
-```  
-  
-\end{columns}
-
-##
-
-\begin{columns}[T,onlytextwidth]
-  
-  \column{0.33\textwidth}
-
-```{r mitosis-animal31, out.width="64%", fig.align='center'}
-# pdftools::pdf_convert("/media/deependra/e4da4ac5-3b38-4b89-9402-397eb940e4d3/Addition/Generalized Study/Reece Campbell Biology 9th txtbk.pdf",
-#                       pages = 281,
-#                       dpi = 300, format = "png",
-#                       filenames = "../images/mitosis_animal_cell3.png")
-
-knitr::include_graphics("../images/mitosis_animal_cell31.png")
-```
-
-  \column{0.33\textwidth}
-
-```{r mitosis-animal32, out.width="64%", fig.align='center'}
-# pdftools::pdf_convert("/media/deependra/e4da4ac5-3b38-4b89-9402-397eb940e4d3/Addition/Generalized Study/Reece Campbell Biology 9th txtbk.pdf",
-#                       pages = 281,
-#                       dpi = 300, format = "png",
-#                       filenames = "../images/mitosis_animal_cell3.png")
-
-knitr::include_graphics("../images/mitosis_animal_cell32.png")
-```
-
-  \column{0.33\textwidth}
-
-```{r mitosis-animal33, out.width="64%", fig.align='center'}
-# pdftools::pdf_convert("/media/deependra/e4da4ac5-3b38-4b89-9402-397eb940e4d3/Addition/Generalized Study/Reece Campbell Biology 9th txtbk.pdf",
-#                       pages = 281,
-#                       dpi = 300, format = "png",
-#                       filenames = "../images/mitosis_animal_cell3.png")
-
-knitr::include_graphics("../images/mitosis_animal_cell33.png")
-```
-
-\end{columns}
-
-# Meiosis
-
-## Background
-
-- Before meiosis, chromosome replication takes place to form sister chromatids, which become visible at meiosis. 
-- Contrasting mitosis and meiosis:
-  - Centromere appears not to divide at this stage, whereas it does in mitosis. 
-  - The homologous pairs of sister chromatids now unite to form a bundle of four homologous chromatids, they do not in mitosis.
-- Joining of the homologous pairs is called **synapsis**, and it relies on the properties of a macromolecular assemblage called the synaptonemal complex (SC), which runs down the center of the pair. 
-- Replicate sister chromosomes are together called a **dyad** (from the Greek word for two). The unit comprising the pair of synapsed dyads is called a **bivalent**. 
-- The four chromatids that make up a bivalent are called a **tetrad** (Greek for four), to indicate that there are four homologous units in the bundle.
-
-##
-
-```{r bivalent-tetrad, out.width="45%", fig.align='center'}
-
-knitr::include_graphics("../images/bivalent_tetrad.png")
-```
-
-- The bivalents of all chromosomes move to the cell’s equator, and, when the cell divides, one dyad moves into each new cell, pulled by spindle fibers attached to the centromeres. 
-- In the second cell division of meiosis, the centromeres divide and each member of a dyad (each member of a pair of chromatids) moves into a daughter cell. Hence, although the process starts with the same genomic content as that for mitosis, the two successive segregations result in four haploid cells.
-- Each of the four haploid cells that constitute the four products of meiosis contains one member of a tetrad; hence, the group of four cells is sometimes called a tetrad, too.
-
-# Stages of meiosis
-
-##
-
-```{r meiosis-stages1, out.width="50%", fig.align='center'}
-# pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Anthony_J.F._Griffiths,_Susan_R._Wessler,_Sean_B.pdf",
-#                       pages = 104,
-#                       dpi = 300, format = "png",
-#                       filenames = "../images/meiosis_stages1.png")
-
-knitr::include_graphics("../images/meiosis_stages1.png")
-```
-
-##
-
-```{r meiosis-stages2, out.width="58%", fig.align='center'}
-# pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Anthony_J.F._Griffiths,_Susan_R._Wessler,_Sean_B.pdf",
-#                       pages = 105,
-#                       dpi = 300, format = "png",
-#                       filenames = "../images/meiosis_stages2.png")
-
-knitr::include_graphics("../images/meiosis_stages2.png")
-```
+<!-- ## -->
 
 <!-- ```{r eukaryotic-ori, out.width="22%", fig.cap="Example showing the initiation of DNA synthesis at an \\textbf{origin of replication} in a eukaryote (yeast). As with prokaryotic initiation, proteins of the origin recognition complex (ORC) bind to the origin, where they separate the two strands of the double helix and recruit replisome components at the two replication forks. Replication is linked to the cell cycle through the availability of two proteins: Cdc6 and Cdt1."} -->
 <!-- # pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Anthony_J.F._Griffiths,_Susan_R._Wessler,_Sean_B.pdf", -->
@@ -495,6 +419,8 @@ knitr::include_graphics("../images/meiosis_stages2.png")
 
 <!-- knitr::include_graphics("../images/eukaryotic_origin_of_replication.png") -->
 <!-- ``` -->
+
+## Key events in meiosis
 
 # Associated events in eukaryotic cell division
 
@@ -530,6 +456,7 @@ knitr::include_graphics("../images/chiasma_genesis.png")
 
 knitr::include_graphics("../images/autotetraploid_chromosome_pairing.png")
 ```
+
 
 # Bibliography
 

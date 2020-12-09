@@ -272,22 +272,33 @@ Sex-influenced or sex-conditioned traits are phenotypes affected by whether they
 
 These are characters only expressed in one sex. They may be caused by genes on either autosomal or sex chromosomes. Examples: \female sterility in Drosophila; and many polymorphic characters in insects, especially in relation to mimicry. Closely linked genes on autosomes called "supergenes" are often responsible for the latter.
 
+## Klinefelter syndrome
+
+- Also known as 47, XXY or XXY, is the symptom that result from two or more X chromosomes in males.
+- Primary features are: infertility and small testicles.
+- Symptoms may be subtle and often non observable.
+- Other symptoms may include: weaker muscles, greater height, poor coordination, less body hair, breast growth and lesser sexual interest.
+- Symptoms are more severe if three or more X chromosomes are present XXXY, or XXXXY syndrome.
+
+## Turner syndrome
+
+- also known 45, X, is a genetic condition in which a female is partly or completely missing an X chromosome. 
+- Signs and symptoms vary among those affected. Often, a short and webbed neck, low-set ears, low hairline at the back of the neck, short stature, and swollen hands and feet are seen at birth.
+- They show impaired reproductive system (infertile) unless assisted with hormone treatment.
+
+- Both the types of syndromes (Turner and Klinefelter) are non-inherited disorders.
+
 # Numerical problems
 
-## Problem 2: Sex linked inheritance
+## Problem 1: Sex linked inheritance
 
-- A sex-linked recessive allele $c$ produces a red-green color blindness in humans. A normal woman whose father was color blind marries a color-blind man.
+A sex-linked recessive allele $c$ produces a red-green color blindness in humans. A normal woman whose father was color blind marries a color-blind man.
   a. What genotypes are possible for the mother of the color blind man ?
   b. What are the chances that the first child from this marriage will be a color-blind boy ?
   c. Of the girls produced by these parents, what proportion can be expected to be color blind ?
   d. Of all the children (sex unspecified) of these parents, what proportion can be expected to have normal color vision ?
-  
-## Solution 2: Sex linked inheritance
 
-a. $X^C/X^c, X^c/X^c$
-b. p (color-blind) x p (\male) = (1/2)(1/2) = 1/4
-c. The girls will be 1 normal ($X^C/X^c$): 1 color-blind ($X^c/X^c$).
-d. The cross is $X^C/X^c \times X^c/Y$, yielding 1 normal:1 color-blind for both sexes.
+(For solution refer to the practical (10) entitled "Numerical Problems on Cytoplasmic Inheritance, Sex Linked Inheritance and Sex Determination")
 
 # Bibliography
 

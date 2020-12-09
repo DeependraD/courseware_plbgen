@@ -8,7 +8,6 @@ output:
     lib_dir: libs
     self_contained: false
     seal: true
-    css: [default, default-fonts, assets/custom-remark.css]
     navigation:
       scroll: false
     nature:

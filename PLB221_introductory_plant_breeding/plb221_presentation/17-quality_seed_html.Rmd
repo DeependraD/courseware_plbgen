@@ -5,26 +5,63 @@ date: "2019/04/15 (updated: `r Sys.Date()`)"
 output:
   xaringan::moon_reader:
     lib_dir: libs
-    css: ["default", "./assets/custom-remark.css"]
+    self_contained: false # if true, fonts will be stored locally
+    seal: false # show a title slide with YAML information
+    css: ['xaringan-themer.css', 'assets/slides-style.css', 'assets/custom-remark.css', 'assets/custom-fonts.css']
     chakra: libs/remark-latest.min.js # for offline, use chakra and xaringan::summon_remark()
     nature:
       ratio: "16:9"
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
+      navigation:
+        scroll: false # disable slide transitions by scrolling
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
 bibliography: ['../bibliographies.bib']
 ---
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+# color inspiration: pantone 2020 colors
+# https://store.pantone.com/uk/en/color-of-the-year-2020-palette-exploration
+style_duo_accent(
+  primary_color = "#0F4C81",   # pantone classic blue
+  secondary_color = "#DBCCBE", # pantone pink tint
+  black_color = "#7A8387",     # pantone monument
+  text_color = "#2A2A35",      # pantone night sky
+  header_font_google = google_font("Arvo"),
+  text_font_google   = google_font("Montserrat", "300", "300i"),
+  code_font_google   = google_font("Source Code Pro"),
+  title_slide_text_color = "#DBCCBE",
+  base_font_size = "24px",
+  text_font_size = "0.8rem",
+  link_color = "#B6CADA"
+)
+```
+
 class: inverse, middle, center
-background-image: \url('./images/')
+background-color: blue
 background-size: 60%, auto
+
+<style type="text/css">
+.remark-slide-content {
+    font-size: 16px;
+    padding: 1em 4em 1em 4em;
+}
+</style>
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 options(knitr.kable.NA = "", digits = 3)
-knitr::opts_chunk$set(tidy = FALSE, echo = FALSE)
+knitr::opts_chunk$set(tidy = FALSE, echo = FALSE, warning = FALSE, message = FALSE)
 require(tidyverse)
 
 # pagedown::chrome_print("./14-breeding_methods_in_cross_pollinated_crops_html.html")
+# better pdf rendering with manually printing of chromium
 ```
 
 # Seed systems in Nepal
@@ -33,20 +70,20 @@ require(tidyverse)
 
 Broadly, two types of seed system are recognized in Nepal
 
-1. Informal Seed System:
+1. Informal Seed System
   - Characterized by farmers producing and preserving their own seeds for subsequent planting.
   - Farmers exchange small amount of seeds with other farmers as gift, and for both monetary and non monetary value.
   - Most traditional and local landraces are product of such selection and maintenance process, these land races are important genetic resources for modern plant breeding. 
   - Seed production process is usually managed as a part of crop production and seed distribution as per farmers' choice and demand among neighbors. 
   - Use of retained seeds from their own production, farmers to farmers' seed exchange, informal purchase, gifts etc.
 
----
-
-2. Formal seed system:
+2. Formal seed system
   - Characterized by a vertically organized production and distribution of tested and released/registered varieties by public and private organizations using agreed quality control mechanism.
   - Comprises different phases of seed cycle: Breeder, Foundation, Certified and Improved seeds. Formal system: It comprises public or private sector organizations that are linked to the national seed system. NARC, DOA, NSC, Seed companies, NGOs, DISSPRO and CBSP groups etc are under this category.
 
 ---
+class: inverse, center, middle
+background-color: green
 
 # Seed versus Grain
 
@@ -108,13 +145,16 @@ class: inverse, middle, center
 
 ---
 
+.pull-left[
 - Normally, genetic purity of FS is 99.5 and that of CS is 99%.
 - For longer storage in cereals, vegetables, legumes and oilseeds, and orthodox seeds, optimum moisture content: 12% or less.
 - In recalcitrant seeds, moisture content is best kept close to 20%.
 - In the moisture regime between 5-14%, for every drop in 1% storage life of the seed is doubled (Jems F Herington)
 - Forbidden diseases of crops:
   - Cauliflower: Black rot, Alternaria leaf spot
+]
 
+.pull-right[
 ```{r number-of-seed-per-ten-g}
 tibble::tribble(~"Crop", ~"Number of seeds", 
         "Carrot", 8280, 
@@ -135,11 +175,15 @@ tibble::tribble(~"Crop", ~"Number of seeds",
         "Luffa gourd", 40
         ) %>% 
   knitr::kable(booktabs = TRUE, caption = "Number of seeds per 10 gram of vegetable crops") %>% 
-  kableExtra::kable_styling(latex_options = "striped")
+  kableExtra::kable_styling(latex_options = "striped", font_size = 10)
 ```
+]
+
+---
 
 ### Seed certification system
 
+.pull-left[
 - Seed act was first enacted in 2045 BS. Since then it's first amendment came into being in 2064.
 - Organized seed production program intitiated in Nepal in 1973 (Wheat)
 - 90% of the seeds are supplied through informal sector (SQCC, 2011).
@@ -153,6 +197,9 @@ tibble::tribble(~"Crop", ~"Number of seeds",
 - In 1966, Rice variety CH-45 was released.
 - In 1974, AIC established under Corporation Act, 1965.
 - In 1980, Seed production and input storated project (SPISP, USAID) launched
+]
+
+.pull-right[
 - In 1982, Seed technology and improvement programme
 - In 1984, Central seed science and technology division established
 - In 1988, Seed act enacted
@@ -165,6 +212,7 @@ tibble::tribble(~"Crop", ~"Number of seeds",
 - In 2004, First hybrid of maize -- Gaurav, was officially released.
 - In 2010, First hybrid of tomato -- Srijana, was registered
 - Upto 2010, 231 hybrids were registered for cultivation in Nepal.
+]
 
 ---
 
@@ -199,28 +247,32 @@ tibble::tribble(~"Crop", ~"Number of seeds",
 3. Source of seed verification
 4. Timing of inspector assignment
 
+---
+
 ### Certification standards
 
 ```{r certification-standards-field}
 readxl::read_xlsx("./data/seed_certification_requirements.xlsx", sheet = "field_standards") %>% 
+  rename_all(function(x)str_replace_all(x, "_", " ")) %>% 
   knitr::kable(caption = "Field standards of standing crop for certification", booktabs = TRUE, longtable = TRUE) %>% 
-  kableExtra::kable_styling(latex_options = "striped") %>% 
+  kableExtra::kable_styling(latex_options = "striped", font_size = 8) %>% 
   kableExtra::column_spec(column = 1:9, width = c("8em", rep("6em", times = 8))) %>% 
   kableExtra::landscape()
 ```
 
-\blandscape
+---
 
 ```{r certification-standards-seed}
 readxl::read_xlsx("./data/seed_certification_requirements.xlsx", sheet = "seed_standards") %>%
-  select(1:9) %>% 
+  select(1:9) %>%
+  rename_all(function(x)str_replace_all(x, "_", " ")) %>% 
   knitr::kable(caption = "Minimum seed standards for certification", booktabs = TRUE) %>% 
   kableExtra::column_spec(column = 1:9, width = c("4em", rep("5em", times = 8)))
 # kableExtra::landscape(margin = c("1cm", "1cm", "1cm", "1cm"))
 readxl::read_xlsx("./data/seed_certification_requirements.xlsx", sheet = "seed_standards") %>% 
   select(1,10:15) %>% 
+  rename_all(function(x)str_replace_all(x, "_", " ")) %>% 
   knitr::kable(caption = "Minimum seed standards for certification", booktabs = TRUE) %>% 
   kableExtra::column_spec(column = 1:7, width = c("4em", rep("6em", times = 6)))
 ```
 
-\elandscape

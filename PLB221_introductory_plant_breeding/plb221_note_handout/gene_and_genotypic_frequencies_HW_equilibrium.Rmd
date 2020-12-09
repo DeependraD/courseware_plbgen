@@ -137,7 +137,7 @@ $$
 
 When there are n alleles, there are n homozygous genotypes, $A_iA_i$, $i = 1, 2, ...., n$. If we first view an $A_iA_j$ heterozygote as distinct from an $A_jA_i$ heterozygote, there are $n(n-1)$ such heterozygotes. The actual number of heterozygotes will be one half this number, or $\frac{n(n-1)}{2}$. Thus, the total number of genotypes is $\frac{n+n(n-1)}{2}= \frac{n(n+1)}{2}$.
 
-1. Derive the hardy weinberg law for a sex-linked locus. Let the initial frequency A, in female be $p_f$ and in males be $p_m$. Follow the two allele frequencies in successive generations untill you understand the allele frequency dynamics. Then, jump ahead and find the equilibrium genotype frequencies in females and males. Finally, graph the male and female allele frequencies over several generations for a population that is started with all $A_1A_1$ females ($p_f = 1$) and A_2 males ($p_m = 0$)
+2. Derive the hardy weinberg law for a sex-linked locus. Let the initial frequency A, in female be $p_f$ and in males be $p_m$. Follow the two allele frequencies in successive generations untill you understand the allele frequency dynamics. Then, jump ahead and find the equilibrium genotype frequencies in females and males. Finally, graph the male and female allele frequencies over several generations for a population that is started with all $A_1A_1$ females ($p_f = 1$) and A_2 males ($p_m = 0$)
 
 As males get their X-chromosomes from their mother, the frequency of A_1 in males is always equal to the frequency in females in the previous generation. As a female gets one X from her mother and one from her father, the allele freq in females is always the average of the male and female frequencies in the previous generation. Thus, the allele frequencies over the first three generation are as follows.
 
@@ -161,9 +161,7 @@ $$
 
 does not change over time. (Convince yourself that this is so by calculating p in generations 2 and 3). Second, the difference between the allele frequencies in females and males is halved each generation, as recorded in table. Taken together, these two observations show that eventually the allele frequencies in male and females will converge to $p$. At that time, the genotype frequencies in females will be at Hardy-Weinberg frequencies.
 
-## Example case
-
-A population is consisted of 200 plants. Out of them, 100 plants are of Aa, 50 plants are of AA and 50 plants are of aa genotypes. This is a random mating population and in this population the frequencies of these three genotypes are at H-W equilibrium state. After $5^{th}$ generations of random mating, plants having genotypes AA, Aa and aa are found in 500, 300 and 200 numbers respectively. Are they still in H-W equilibrium? Test the result with the help of $\chi^2$ goodness of fit test.
+3. A population is consisted of 200 plants. Out of them, 100 plants are of Aa, 50 plants are of AA and 50 plants are of aa genotypes. This is a random mating population and in this population the frequencies of these three genotypes are at H-W equilibrium state. After $5^{th}$ generations of random mating, plants having genotypes AA, Aa and aa are found in 500, 300 and 200 numbers respectively. Are they still in H-W equilibrium? Test the result with the help of $\chi^2$ goodness of fit test.
 
 $\Large \rightarrow$ Here, the population of 200 plants is stated to be in H-W equilibrium; we already have equilibrium frequencies. Hence a $\chi^2$ test for would show whether or not both the populations are same or have diverged from H-W equilibrium state (i.e. observed frequncy of population after 5th generation is same or different than expected population frequency at initial condition). For facilitating comparison, we convert the given frequencies of observed genotypes (that of $5^{th}$ generation) to the add upto current population count (200 individual). 
 
@@ -192,3 +190,74 @@ hw_chi_test <- chisq.test(x = hw_contingency_chi, correct = FALSE)
 ```
 
 Here since the number of df is `r hw_chi_test$parameter`, we do not apply the Yate's correction. After computation, we find $\chi^2$ = `r hw_chi_test$statistic` with probability of `r hw_chi_test$p.value` which is well within the confidence band of 0.95 to 0.05. We fail to reject the null hypothesis that two observations were taken from same populations. Thus, we conclude that even after $5^{th}$ generation of mating the population continues to be in HW equilibrium state.
+
+4. In a population of 1000 Drosophila melanogaster, 600 have red eyes while the rest have sepia eyes. The sepia eye trait is recessive to red eyes. How many individuals would you expect to be homozygous for red eye color ?
+
+Red eyes = 600
+Sepia eyes = 400
+Frequency of sepia genotype (homozygous recessive): 500/1000 - 4\*(q^2)
+q = 0.63
+p = 0.37
+Frequency of homozygous red eye genotype = 0.37^2 = 0.14
+Number of individuals with homozygous red eyes: 1000\*(0.14) = 140
+
+5. 1 in 1700 US Caucasian newborns have cystic fibrosis. The normal allele, C, is dominant over the allele for cystic fibrosis, c.
+
+a. When counting the phenotypes in a population why is cc the most significant ?
+When complete dominance is the case, both CC and Cc are phenotypically indistinguishable. However, there is only one phenotype for the homozygous recessive cc -- in this case the presence of cystic fibrosis. You can calculate allele (and genotype) frequencies if the number of homozygous recessives is known.
+
+b. What percent of the above population have cystic fibrosis (cc or q^2) ?
+
+q^2 = 1/1700 = 0.00059 (0.059\%)
+
+c. Calculate the allele frequencies and genotype frequencies (assuming Hardy-Weinberg equilibrium):
+
+Allele frequencies:
+q = 0.024
+p = 1-0024 = 0.976
+
+Genotype frequencies:
+q^2 = 0.00059
+2pq = 0.04685
+p^2 = 0.95258
+
+d. How many of the 1700 people in the population are homozygous normal ?
+
+p^2 = 0.95258\*(1700) = 1619
+
+e. How many of the 1700 people in the population are heterozygous (carriers) ?
+
+2pq = 0.04685(1700) = 79.6
+
+If a trait is controlled by two alternate alleles in a population of wild pigs such that the allele for brown coat is recessive and the allele for white coat is dominant, can you count the number of recessive alleles in this population by looking at the phenotypes ? Explain why or why not.
+
+No. Some of the white coat individuals may be heterozygous for the trait so you cannot estimate the number of dominant/recessive alleles simply by looking at the phenotypes in the population. If you assumed that the population is in H-W equilibrium (and you state that is your assumption), then you can determine the frequencies of alleles and genotypes using the H-W equation stating with a count of the homozygous recessive individuals (brown phenotype) which will give you q^2.
+
+6. (Genetic Drift) For a diploid species, assume one set of 100 populations, each with a constant size of 50 individuals, and another set of 100 populations, each with 100 individuals. If in each population the frequencies of neutral alleles A_1 and A_2 are 0.4 and 0.6 respectively, what fraction of populations in each set are likely to become fixed for A_1 and A_2 ?
+
+The probability that an allele will go to fixation is the current frequency of the allele. The probability that A_1 will be fixed is 0.4 or 40\% and probability that A_2 will be fixed is 0.6 or 60\%.
+
+Does the population size matter ? No 
+
+7. (Non Random Mating) Wayne et al. 1991 found that the Isle Royale, Michigan population of gray wolves is inbred.
+a. Make a predication about the genotype frequency of heterozygotes Wayne et al. 1991 measured in this population.
+
+The frequency of heterozygotes will be less than expected if genotypes were in Hardy-Weinberg equilibrium. This is property of inbreeding.
+
+b. Should conservation biologists be concerned about inbreeding depression and the long term survival of this population ? Why or why not ? In your response, be sure to define inbreeding depression. (Freeman and Herron, 2004)
+
+Conservation biologists should be concerned. Inbreeding leads to the loss of genetic variation. If a disease were to enter the population all individuals would be affected similarly. Additionally, in an inbred population, the probability of being homozygous for deleterious or lethal recessiveness increases. Deleterious alleles would lead to reduced viability and/or fecundity and lethal recessives result in death.
+
+It is estimated that every individual human carries 3-5 recessive lethal alleles (i.e. alleles that cause death in the homozygous state) in their genome of ca. 30000 loci.
+
+a. Use this information and what you know about the effects of inbreeding in briefly (~sentences) explain the observation that inbred individuals (of any species) are on average less likely to survive than individuals that result from random matings.
+
+Inbred individuals are more likely to express recessive alleles because they are more likely to be homozygous at all of their loci. If the recessive alleles are lethal or deleterious an inbred individual will be more likely to suffer from their effects than a non-inbred individual.
+
+People from Sri Lanka have an average of zero recessive lethal alleles. What can you infer about he history of this population form this information ? (~ sentences)
+
+This population must be inbred because inbreeding (or non random mating) is the only way to expose recessive alleles to selection. In this way the lethal alleles were purged from the population. Drift is also a possibility.
+
+## Attainment of equilibrium at two or more loci
+
+The establishment of equilibrium in one generation holds true as long as we consider each single gene locus separetely without being concerned about what is happening at the other gene loci. If however, we consider the products of two independently assorting gene-pair differences simultaneously, e.g., Aa and Bb, the number of possible genotypes increases to 3^2 (i.e., AABB, AABb, AaBB, AaBb, etc.). As expected, more terms are not involved in the multinomial expansion, so that if we call p, q, r and s the gene frequencies of A, a, B and b, respectively, the equilibrium ratios of their genotypes are expressed as (pr + ps + qr + qs)^2, or p^2r^2 AABB, 2p^2rs AABb, 2p^2s^2AAbb, 2pqr^2AaBB, ..., q^2s^2 aabb.
