@@ -1,0 +1,628 @@
+---
+title: Population genetics models and data structures
+author: Deependra Dhakal
+date: July, 2020
+output: html_document
+bibliography: ["./bibliography.bib"]
+---
+
+```{r setup, include=FALSE}
+require(tidyverse)
+# install.packages("learnPopGen")
+require(learnPopGen)
+# install and require packages
+# install.packages("adegenet")
+# install.packages("pegas")
+# install.packages("hierfstat")
+require(adegenet)
+require(pegas)
+require(hierfstat)
+require(viridis)
+require(HardyWeinberg)
+require(rsample)
+
+knitr::opts_chunk$set(echo = TRUE)
+theme_set(theme_bw())
+```
+
+# Equilibrium models and simulation of population genetic data
+
+## Coalescent theory
+
+In coalescent model, different allelic forms of individuals are shown to develop over generations. Let us, for example, consider 10 generations of evolution of 20 individual genotypes.
+
+```{r coalescent-theory}
+# source: https://github.com/liamrevell/learnPopGen/blob/master/R/evolution.R
+ngen <- 10 # number of generations
+n <- 20 # number of individuals
+mar <- c(2.1,4.1,2.1,1.1) # for margin
+lwd <- 2
+sleep <- 0.1 # slow down coalescent tree growth display
+colors <- rainbow(n=n)
+
+# col.order<-"sequential"
+col.order<-"alternating"
+if(n%%2==1){ # if col.order == "alternating"
+  ii<-as.vector(rbind(1:((n+1)/2),1:((n+1)/2)+(n+1)/2))
+} else {
+  ii<-as.vector(rbind(1:(n/2),n/2+1:(n/2)))
+}
+colors<-colors[ii]
+
+popn<-matrix(NA,ngen+1,n)
+parent<-matrix(NA,ngen,n)
+popn[1,]<-1:n
+for(i in 1:ngen){
+  parent[i,]<-sort(sample(1:n,replace=TRUE))
+  popn[i+1,]<-popn[i,parent[i,]]
+}
+plot.new()
+par(mar=mar)
+plot.window(xlim=c(0.5,n+0.5),ylim=c(ngen,0))
+axis(2)
+title(ylab="time (generations)")
+cx.pt<-2*25/max(n,ngen)
+points(1:n,rep(0,n),bg=colors,pch=21,cex=cx.pt)
+for(i in 1:ngen){
+  dev.hold()
+  for(j in 1:n){
+    lines(c(parent[i,j],j),c(i-1,i),lwd=lwd,
+          col=colors[popn[i+1,j]])
+  }
+  points(1:n,rep(i-1,n),col="grey",bg=colors[popn[i,]],pch=21,
+         cex=cx.pt)
+  points(1:n,rep(i,n),col="grey",bg=colors[popn[i+1,]],pch=21,
+         cex=cx.pt)
+  dev.flush()
+  Sys.sleep(sleep)
+}
+```
+
+## Genetic drift
+
+Genetic drift is the result of bernouli process on survival of individuals (given some probability for each of them) of a population over a number of independent trials (Generation).
+
+In drift, small number effective population size, longer generation duration and high probability value of some allele type (A) leads to quick fixation.
+
+```{r}
+learnPopGen::drift.selection(p0 = 0.46, Ne = 100, ngen = 500, nrep = 5)
+```
+
+A blog post entitled "Simulating genetic drift" that simulates population and generation data to show genetic drift is available.
+
+## Population growth model
+
+Number of individuals one generation in the future $(N(t+1))$ is a product of the number of individuals present now $(Nt)$ multiplied by the finite rate of increase of population (lambda).
+
+```{r}
+unbound_growth <- function(Nt0, lambda, Gen){
+  Nt <- vector() # poulation vector
+  Nt[1] <- Nt0 # starting population
+  lambda <- lambda # growth parameter
+  Gen <- Gen # number of generations
+  
+  for(i in 2:Gen){
+    Nt[i] <- Nt[i-1]*lambda
+  }
+  return(Nt)
+}
+
+tibble(population = unbound_growth(Nt0 = 102, lambda = 1.2, Gen = 20)) %>% 
+  mutate(generation = row_number()) %>% 
+  ggplot(aes(x = generation, y = population)) +
+  geom_point(shape = 2, size = 1.4, color = "blue") +
+  geom_path(color = "green", size = 1.1)
+```
+
+In the above `unbound_growth` model, $\lambda$ is a multiplier that represents the net difference between the number of individuals lost from the population due to death and the number of new individuals recruited to the population by reproduction each generation.
+
+The population growth rate can be thought of as the chance that an individual contributes one offspring to the next generation.
+
+## Natural selection model
+
+Natural selection is really just a special case of this base population growth model where each genotype has its own growth rate.
+
+A population is compose of 10 genotypes of asexual organisms like a bacterial species that reproduces only by clonal division over discrete generations.
+
+We may assign all individuals to have same base population to start, or given total base population proportion of each genotype may be specified in order to obtain base population.
+
+Individuals have genotypes-specific growth rates or absolute fitness values defined by `pop_individuals_lambda` (some stochastic variable).
+
+```{r}
+growth_under_selection <- function(n_genotypes=5, Nt0=1000, gen=20, 
+                                   proportion_base = c(0.1, 0.24, 0.34, 0.12, 0.2), # this can be null
+                                   lambda0 = c(1.04, 1.02, 1.07, 1.02, 1.01)) {
+  n_genotypes <- n_genotypes
+  Nt0 <- Nt0 # base total population 
+  gen <- gen # number of generations of growth
+  lambda0 <- lambda0 # growth rate for each genotype (absolute fitness)
+  
+  pop_individuals <- vector("list", gen) # base population size for each genotype
+
+  if(is.null(proportion_base)){
+    # pop_individuals[[1]] <- rep(Nt0/n_genotypes, times = n_genotypes) # assume equal proportion
+    proportion_base <- prop.table(runif(n_genotypes))
+    pop_individuals[[1]] <- proportion_base*Nt0 # random initial proportion
+  } else {
+    pop_individuals[[1]] <- proportion_base*Nt0
+  }
+  
+  relative_fitness0 <- lambda0/lambda0[[1]] # with respect to first genotype
+  
+  genotype_freq <- vector("list", gen)
+  genotype_freq[[1]] <- proportion_base*relative_fitness0 # genotype frequency after natural selection
+  
+  for(i in 2:gen) {
+    for(j in 1:n_genotypes){
+      pop_individuals[[i]][j] <- pop_individuals[[i-1]][[j]]*lambda0[j]
+      genotype_freq[[i]][j] <- genotype_freq[[i-1]][[j]]/sum(genotype_freq[[i-1]]) # this line needs fixing
+    }
+    pop_individuals <- magrittr::set_names(pop_individuals, paste0("gen ", 1:gen))
+    genotype_freq <- magrittr::set_names(genotype_freq, paste0("gen ", 1:gen))
+  }
+  return(list(pop_individuals, genotype_freq))
+}
+
+growth_under_selection(n_genotypes = 5, 
+                       Nt0 = 1000, gen = 20, 
+                       proportion_base = c(0.1, 0.24, 0.34, 0.12, 0.2)) %>% 
+  bind_cols() %>%
+  mutate(genotype_id = as.factor(row_number())) %>% 
+  pivot_longer(-last_col(), names_to = "gen", values_to = "population") %>% 
+  mutate(gen_num = as.numeric(str_extract(gen, "\\d+$"))) %>% 
+  ggplot(aes(x = gen_num, y = population, group = genotype_id)) +
+  geom_point(color = "blue") +
+  geom_path(aes(color = genotype_id), size = 1.4)
+
+```
+
+## Binomial distribution and bayesian probability updating
+
+```{r bayesian-probability-updating}
+# # bayesian probability updating
+# a_alpha = 5
+# a_beta = 10
+# flips <- rbinom(30, 1, prob = 0.5) ## 30 filps
+# ggplot(tibble(
+#   x = 0:1
+# ), aes(x)) +
+#   stat_function(fun = dbeta, args = list(shape1 = a_alpha, shape2 = a_beta)) +
+#   geom_vline(xintercept = 0.5, col = "red") +
+#   lapply(seq_along(flips), function(i){
+#     stat_function(fun = dbeta, args = list(shape1 = a_alpha+cumsum(flips)[i], 
+#                                            shape2 = a_beta + (i-cumsum(flips)[i])), lwd = 0.2
+#                   )
+#   }) +
+#   transition_layers(layer_length = 1) +
+#   labs(x = 'P(heads)', y = 'Density')
+
+```
+
+
+## Data structures in population genetics
+
+Source: https://popgen.nescent.org/startMicrosatellite.html#data
+
+The data is contained in genind object, i.e., an object of the package adegennet. It contains microsatellite genotypes of 237 cats from 17 colonies of Nancy (France). Each individual of the 17 colonies are genotyped for 9 microsatellite loci.
+
+```{r nancycats-summary}
+data("nancycats", package = "adegenet")
+
+# summary with print option
+nancycats
+
+# summary with summary option
+summary(nancycats)
+
+# skim summary is useful for viewing allelewise distribution
+skimr::skim(nancycats)
+```
+
+`genind` class is useful for several reasons, one of those being its flexibility to convert back and forth from a dataframe. To show that, we generate a simple random data below.
+
+```{r three-locus-simulation}
+## simple example
+three_locus_sim <- data.frame(locusA=c("11","11","12","32"),
+                 locusB=c(NA,"34","55","15"),
+                 locusC=c("22","22","21","22"))
+row.names(three_locus_sim) <- .genlab("genotype", 4)
+three_locus_sim
+
+three_locus_sim_genind <- df2genind(three_locus_sim, ploidy=2, ncode=1) # ncode is the number of letters specifying genotype at a locus
+three_locus_sim_genind
+tab(three_locus_sim_genind)
+
+## converting a genind back to data.frame
+genind2df(three_locus_sim_genind)
+genind2df(three_locus_sim_genind, sep="/")
+
+# number of loci
+three_locus_sim_genind@loc.fac %>% levels() %>% length()
+
+# name of all alleles at all loci
+three_locus_sim_genind@all.names
+
+# ploidy level of all individuals
+three_locus_sim_genind@ploidy
+
+# save summary to a dataframe for later use
+three_locus_sim_genind_summary <- summary(three_locus_sim_genind)
+```
+
+### Basic statistical description of genotype data
+
+The `summary` function also provides the expected and observed heterozygosity rates. This can be plotted.
+
+### Loci heterozygosity
+
+```{r loci-heterozygosity}
+nancycats_summary <- summary(nancycats)
+
+nancycats_summary$Hobs %>% 
+  enframe(name = "locus", value = "observed_heterozygosity") %>% 
+  left_join(nancycats_summary$Hexp %>% 
+              enframe(name = "locus", value = "expected_heterozygosity")) %>% 
+  pivot_longer(cols = c(observed_heterozygosity, expected_heterozygosity), names_to = "locus_state", values_to = "heterozygosity_rate") %>% 
+  ggplot(aes(x = locus, y = heterozygosity_rate)) +
+  geom_bar(aes(fill = locus_state), color = "navy", stat = "identity", 
+           position = position_dodge2()) +
+  scale_fill_viridis_d(name = "Locus state", 
+                       labels = c("Expected heterozygosity", "Observed heterozygosity")) +
+  scale_y_continuous(labels = scales::percent_format()) +
+  labs(title = "Heterozygosity rate per locus", y = "Heterozygosity (%)") +
+  theme_bw() +
+  theme(legend.position = "bottom")
+```
+
+### Variance homogeniety
+
+Now we can test for the difference of variances in homozygosity using Bartlett's test.
+
+```{r}
+# Bartlett's test of the null that the variances in each of the groups (samples) are the same.
+bartlett.test(list(nancycats_summary$Hexp, nancycats_summary$Hobs)) %>% 
+  broom::tidy()
+```
+
+### Other parameters
+
+Further information can be extracted with `basic.stats` function. Basic statistics include observed heterozygosity ($H_0$), mean gene diversities within population ($H_s$), $F_{is}$ and $F_{st}$.
+
+```{r}
+nancycats_hfstat <- genind2hierfstat(nancycats)
+nancycats_basicstat <- basic.stats(nancycats_hfstat, diploid = TRUE, digits = 2)
+
+# # manually compute basic statistic
+# observed heterozygosity rate within population (`basic.stats`)
+dum <- getal.b(nancycats_hfstat[, -1])
+Ho <- dum[, , 1] == dum[, , 2]
+sHo <- (1 - t(apply(Ho, 2, fun <- function(x) tapply(x, nancycats_hfstat[, 1], mean, na.rm = TRUE))))
+mHo <- apply(sHo, 1, mean, na.rm = TRUE) # mean of sHo
+
+# # observed heterozygosity rate within population (tidyverse way)
+# sHo <- Ho %>% 
+#   as_tibble() %>% 
+#   mutate(pop = nancycats_hfstat[, 1]) %>% 
+#   group_by(pop) %>% 
+#   summarize_if(is.logical, list(~1 - mean(., na.rm = T))) %>%
+#   select(-1) %>% 
+#   t()
+
+# divide diploid locus genotypes to alleles
+nancycats_hfstat_allele <- nancycats_hfstat %>% 
+  # mutate(dummy.loc = (sample(9, replace = T, size = nrow(.))+100)*1001) %>%
+  as.data.frame() %>%
+  getal() %>% 
+  select(-2)
+
+# heterozygosity rate within population for a locus ("5")
+table(nancycats_hfstat_allele[,5], nancycats_hfstat_allele[,1]) # note there are none marker alleles in "P17" for 5th locus (fca45)
+sweep(table(nancycats_hfstat_allele[,5], nancycats_hfstat_allele[,1]), 2,
+      colSums(table(nancycats_hfstat_allele[,5], nancycats_hfstat_allele[,1])), "/")
+
+# generate within population heterozygosity for all loci (`hierfstat::pop.freq`)
+freq_sweeper <- function(x) {
+  if (is.character(x)) 
+    dum <- table(factor(x), nancycats_hfstat_allele[, 1])
+  else dum <- (table(x, nancycats_hfstat_allele[, 1]))
+  eff <- colSums(dum, na.rm = TRUE)
+  freq <- sweep(dum, 2, eff, FUN = "/")
+}
+
+frequency_pop <- apply(nancycats_hfstat_allele[, -1], 2, freq_sweeper)
+
+# # this is essentially same as:
+# frequency_pop <- pop.freq(nancycats_hfstat, diploid = T)
+
+# generate within population heterozygosity for all loci (tidyverse way)
+frequency_pop1 <- nancycats_hfstat_allele %>% 
+  pivot_longer(cols = fca8:fca37, names_to = "locus", values_to = "allele") %>% 
+  group_by(pop, allele = as.factor(allele), locus) %>% 
+  count() %>% 
+  filter(!is.na(allele)) %>% # no allele information at some locus, filtering na out matches `hierfstat::pop.freq`
+  ungroup() %>% 
+  split(.$locus) %>%
+  map(
+    ~.x %>% 
+      group_by(pop) %>% 
+      mutate_if(is.numeric, list(~./sum(.))) %>% 
+      pivot_wider(names_from = pop, values_from = n, values_fill = 0) %>% 
+      select(-locus) %>% 
+      arrange(as.numeric(allele)))
+
+# individul population count (analogous to `hierfstat::ind.count`)
+individual_count <- nancycats_hfstat %>% 
+  group_by(pop) %>% 
+  summarise_if(is.numeric, list(~sum(!is.na(.)))) %>% 
+  na_if(0)
+individual_count <- t(individual_count[,-1])
+
+# obtain sp2
+# sp2 <- lapply(frequency_pop, fun <- function(x)apply(x, 2, fun2 <- function(x) sum(x^2)))
+sp2 <- frequency_pop1 %>% 
+  map(~.x %>% mutate_if(is.numeric, list(~.^2)) %>% column_to_rownames("allele") %>% colSums)
+
+sp2 <- map_dfr(sp2, bind_rows) # because of fca45 locus showing null marker frequency for p17, its value is NA
+
+Hs <- 1 - sp2 - sHo/(2*individual_count)
+Hs <- individual_count/(individual_count - 1) * Hs
+
+f_is <- 1 - sHo/Hs
+
+np <- apply(individual_count, 1, fun <- function(x)sum(!is.na(x)))
+mn <- apply(individual_count, 1, fun <- function(x){
+  np <- sum(!is.na(x))
+  np/sum(1/x[!is.na(x)])
+})
+
+msp2 <- apply(sp2, 1, mean, na.rm = TRUE)
+
+mp <- lapply(frequency_pop, fun <- function(x)apply(x, 1, mean, na.rm = TRUE))
+mp2 <- unlist(lapply(mp, fun1 <- function(x) sum(x^2)))
+
+mHs <- mn/(mn - 1)* (1 - msp2 - mHo/2/mn)
+Ht <- 1 - mp2 + mHs/mn/np - mHo/2/mn/np
+mFis <- 1 - mHo/mHs
+
+Dst <- Ht - mHs
+Dstp <- np/(np - 1) * Dst
+Htp <- mHs + Dstp
+Fst <- Dst/Ht
+Fstp <- Dstp/Htp
+Dest <- Dstp/(1 - mHs)
+
+exp_result <- tibble(mHo, mHs, Ht, Dst, Htp, Dstp, Fst, Fstp, mFis, Dest) %>% 
+  add_column(.before = 1, allele = names(nancycats@loc.n.all))
+rownames(sHo) <- names(nancycats@loc.n.all)
+rownames(f_is) <- names(nancycats@loc.n.all)
+
+exp_result <- exp_result %>% 
+  mutate_if(is.numeric, list(~if_else(is.nan(.), NA_real_, .)))
+
+overall_result <- exp_result[,-1] %>% map_dbl(mean, na.rm = TRUE)
+overall_result[7] <- overall_result[4]/overall_result[3]
+overall_result[8] <- overall_result[6]/overall_result[5]
+overall_result[9] <- 1 - overall_result[1]/overall_result[2]
+overall_result[10] <- overall_result[6]/(1 - overall_result[2])
+
+# all that is exploratory from `hierfstat::basic.stats`
+individual_count
+frequency_pop
+sHo
+Hs
+f_is
+exp_result
+overall_result
+
+# allele richness
+allelic.richness(nancycats)
+
+# allele count
+allele.count(nancycats)
+
+# # locuswise alleles in genotype data
+# alleles(nancycats)
+```
+
+Apparently $H_o$ and $H_t$ are the values of observed and expected heterozygosities of loci.
+
+### Confidence intervals using bootstrap resamping
+
+We can obtain bootstrap confidence intervals using `boot.ppfis` in hierfstat converted data (This is a plain dataframe), or this could be done manually with `rsample::bootstraps`.
+
+```{r}
+# using `hierfstat::boot.ppfis`
+boot.ppfis(nancycats_hfstat) # read function code to implement manually in tidyverse
+
+# using rsample::bootstraps
+nancy_bootstraps <- bootstraps(nancycats_hfstat, times = 50) # 50 bootstraps
+# nancy_bootstraps %>% class() # a rset object has a column of rsplit objects
+
+# # rsplit object has two main components analysis set and assessment set.
+# analysis(nancy_bootstraps[["splits"]][[1]])
+
+# # For bootstrap samples, the analysis data set is the bootstrap sample itself, and the assessment data set consists of all the out-of-bag samples.
+```
+
+Lociwise summary can be obtained, and presented informatively using `pegas::alleles2loci`.
+
+```{r loci-summary}
+pegas::alleles2loci(nancycats) %>% 
+  summary() %>%
+  unlist() %>% 
+  enframe() %>% 
+  separate(col = name, into = c("locus", "allele", "ag_type", "genotype"), sep = "\\.") %>%
+  split(.$ag_type, drop = T) %>% 
+  .[[1]] %>% # switch .[[2]] for genotype
+  pivot_wider(id_cols = c(locus, allele), names_from = c(ag_type, genotype), values_from = value)
+```
+
+### Rarefied allelic richness
+
+```{r allele-richness}
+allelic.richness(nancycats)$Ar %>% 
+  as_tibble(rownames = "locus") %>% 
+  pivot_longer(cols = P01:P17, names_to = "population", values_to = "richness") %>% 
+  ggplot() +
+  geom_boxplot(aes(x = locus, 
+                   y = richness, 
+                   fill = locus)) +
+  guides(fill = FALSE) +
+  scale_fill_viridis_d(alpha = 0.6) +
+  labs(y = "Richness") +
+  theme_bw()
+```
+
+### F-statistics and genetic variation/differentiation
+
+Population statistics are obtained through `basic.stats` or `wc` (`varcomp.glob` can also be used and will give the same results as `wc` for a one level hierarchy). Oddly though, the values of FST and FIS given by `wc` and `varcomp.glob` match but that by basic.stats do not.
+
+```{r}
+basic.stats(nancycats)
+
+# all are same for Fst calculations
+wc(nancycats)
+varcomp.glob(nancycats_hfstat[,1], nancycats_hfstat[, -1])
+pegas::Fst(as.loci(nancycats)) %>% colMeans() 
+
+pegas::Fst(as.loci(nancycats))
+```
+
+The F-statistic (also known as fixation indices) describes the statistically expected level of heterozygosity in a population; more specifically the expected degree of (usually) a reduction in heterozygosity when compared to Hardy-Weinberg expectation. This defaults to Nei's pairwise F-statistic between all pairs of populations. Heterogygotes are weighted by group sizes. It is futher moreover by `hierfstat::fstat` implementation.
+
+F-statistics can be thought of as a measure of the correlation between genes drawn at different levels of a (hierarchically) subdivided population^[https://en.wikipedia.org/wiki/F-statistics].
+
+The concept of F-statistics was developed during 1920s by Sewall Wright. The statistic can be used to define effective population size.
+
+The measures $F_{IS}$, $F_{ST}$ and $F_{IT}$ are related to the amounts of heterozygosity at various levels of population structure. Together, they are called F-statistics, and are derived from F, the inbreeding coefficient. In a simple two allele system with inbreeding, the genotypic frequencies are:
+
+$p^2(1- F) + pF$ for AA; $2pq(1 - F)$ for Aa; and $q^2(1 - F)$ for aa.
+
+The value of **F** is found by solving the equation for F using heterozygotes in the above inbred population. This becomes:
+
+$$
+F = 1 - \frac{O(f(Aa))}{E(f(Aa))} = 1 - \frac{\textrm{Observed frequency (Aa)}}{\textrm{Expected frequency(Aa)}},
+$$
+
+Where the expected frequency at Hardy-Weinberg equilibrium is given by
+
+$E(f(Aa)) = 2pq$,
+
+where p and q are the allele frequencies of **A** and **a**, respectively. It is also the probability that at any locus, two alleles form a random individual of the population are identical by descent.
+
+For example, consider the data from E. B. Ford (1971) on a single population of the scarlet tiger moth.
+
+```{r}
+tribble(
+  ~"Genotype", ~"White-spotted (AA)", ~"Intermediate (Aa)", ~"Little spotting (aa)", 
+  "Number", 1469, 138, 5
+) %>% 
+  select(-1) %>% 
+  rowwise() %>% 
+  mutate(Total = sum(.)) %>% 
+  knitr::kable(booktabs = TRUE)
+```
+
+From this, the allele frequency can be calculated, and the expectation of f(Aa) derived:
+
+$$
+\begin{aligned}
+p &= \frac{2 \times obs(Aa) + obs(Aa)}{2 \times (obs(AA) + obs(Aa) + obs(aa))} &= 0.954 \\
+q &= 1 - p &=  0.046 \\
+F &= 1 - \frac{obs(Aa)/n}{2pq} = 1 - \frac{138/1612}{2 (0.954)(0.046)} &= 0.023
+\end{aligned}
+$$
+
+The different F-statistics look at different levels of population structure. $F_{IT}$ is the inbreeding coefficient of an individual ($I$) relative to the total ($T$) population, as above; $F_{IS}$ is the inbreeding coefficient of an individual ($I$) relative to the subpopulation ($S$), using the above for subpopulations and averaging them; and $F_{ST}$ is the effect of subpopulations ($S$) compared to the total population ($T$), and is calculated by solving the equation: 
+
+$$
+(1 - F_{IS})(1 - F_{ST}) = 1 - F_{IT}
+$$
+
+### Nei's implementation of $F_{ST}$
+
+Let A and B be two populations of population sizes $n_A$ and $n_B$, with expected heterozygosity (averaged over loci) $Hs(A)$ and $Hs(B)$, respectively. We denote $Ht$ the expected heterozygosity of a population pooling A and B. Then, the pairwise Fst between A and B is computed as:
+
+$$
+Fst(A,B) = \frac{(Ht - (n_A Hs(A) + n_B Hs(B))/(n_A + n_B) )}{Ht}
+$$
+
+Originally the procedure for calculating gene diversity in subdivided populations was stated by @nei1973analysis.
+
+Likewise, $Hs$ or expected heterozygosity can be calculated within populations. Let $m(k)$ be the number of alleles of locus $k$, with a total of $K$ loci. We note $f_i$ the allele frequency of allele $i$ in a given population. Then, Hs is given for a given population by:
+
+$$
+\frac{1}{K} ∑_{k=1}^K (1 - ∑_{i=1}^{m(k)} f_i^2)
+$$
+
+### Partition due to population structure
+
+Consider a population that has a population structure of two levels; one from the individual ($I$) to the subpopulation ($S$) and one from the subpopulation to the total ($T$). Then the total $F$, known here as $F_{IT}$, can be partitioned into $F_{IS}$ (or f) and $F_{ST}$ (or $\theta$):
+
+$$
+1 - F_{IT} = (1 - F_{IS})(1 - F_{ST})
+$$
+
+This may be further partitioned for population substructure, and it expands according to the rules of binomial expansion, so that for $I$ partitions:
+
+$$
+1 - F = \prod_{i = 0}^{i = I} (1 - F_{i, i + 1})
+$$
+
+### Fixation index
+
+A reformulation of the definition of $F$ would be the ratio of the average number of differences between pairs of chromosomes sampled within diploid individuals with the average number obtained when sampling chromosomes randomly from the population (excluding the grouping per individual). One can modify this definition and consider a grouping per sub-population instead of per individual. Population geneticists have used that idea to measure the degree of structure in a population.
+
+Unfortunately, there is a large number of definitions for $F_{ST}$, causing some confusion in the scientific literature. A common definition is the following: 
+
+$$
+F_{ST} = \frac{var(\mathbf{p})}{p(1 - p)}
+$$
+
+where the variance of $\mathbf{p}$ is computed across sub-populations and p(1 - p) is the expected frequency of heterozygotes.
+
+# Bibliographic entries
+
+```
+@article{nei1973analysis,
+  title={Analysis of gene diversity in subdivided populations},
+  author={Nei, Masatoshi},
+  journal={Proceedings of the National Academy of Sciences},
+  volume={70},
+  number={12},
+  pages={3321--3323},
+  year={1973},
+  publisher={National Acad Sciences}
+}
+
+@article{weir1984estimating,
+  title={Estimating F-statistics for the analysis of population structure},
+  author={Weir, Bruce S and Cockerham, C Clark},
+  journal={evolution},
+  pages={1358--1370},
+  year={1984},
+  publisher={JSTOR}
+}
+
+```
+# References
+
+1. Calculating genetic differentiation and clustering methods from SNP data (link to the dataset available in the url); https://popgen.nescent.org/DifferentiationSNP.html.
+
+2. Applied population genetics; https://dyerlab.github.io/applied_population_genetics/genetic-structure.html
+
+3. Population genetic structure in a Mediterranean pine (Pinus pinaster Ait.): a comparison of allozyme markers and quantitative traits; https://www.nature.com/articles/6800114.pdf?draft=collection. (related to data in link 1)
+
+4. Population genetic structure and connectivity of deep-sea stony corals (Order Scleractinia) in the New Zealand region: Implications for the conservation and management of vulnerable marine ecosystems; http://europepmc.org/article/PMC/5680633#eva12509-sec-0030. (Data and data statement available)
+
+
+5. Intraspecific variation in soy across the leaf economics spectrum; https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6344108/. Although this literature does not use molecular sequencing/marker data, it very well explores analysis thoroughly using only phenotypic data.
+
+6. Quantitative genetics lectures by Bruce walsh
+
+https://www.youtube.com/watch?v=U-MTfNw7IvM
+https://www.youtube.com/watch?v=dnzZVVAu9w8
+https://www.youtube.com/watch?v=7h1Ovc4LwzI
+https://www.youtube.com/watch?v=lMegBoAG2zM
+
+7. Fixation index and its measurement in human; wiki [article](https://en.wikipedia.org/wiki/F-statistics).

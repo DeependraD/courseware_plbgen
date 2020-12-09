@@ -1,0 +1,14 @@
+\question[4] \label{quest:fifth}
+
+What are the reasons for obtaining hermaphrodite goat population in Chitwan ?
+
+\bsolution
+
+Hermaphrodity in Goat poulation may be due to one or multiple reasons given below:
+
+1. Recessive mutations that remained hidden in population for long time and may have suddenly expressed due to inbreeding or close breeding with exotic breeds.
+2. Some goat breeds, for example Saneen, are more likely to develop hermaphrodite progeny phenotypes than other breeds.
+3. Due to aged (old) goat stock kidding a newborn. The old age may accumulate mutations which can affect the gene for hermaphroditism.
+4. Due to the nature of hermaphroditism recognized in goat breeds -- pseudohermaphrodite. This is a condition in which only external genitalia development is affected. This could also be caused by environmental factors that affect sex expression loci in goats.
+
+\esolution
