@@ -9,7 +9,21 @@
 }
 \makeatother
 
-% \usepackage{fancyhdr} % loading exam package conflicts with fancyhdr
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{%
+\markboth{\thechapter.\ #1}{}}
+
+\newcommand{\TheAuthor}{} % As given in documentation of **fancyhdr**
+\newcommand{\Author}[1]{\renewcommand{\TheAuthor}{#1}}
+\fancyhead{} % clear all fields
+\fancyhead[CO]{\slshape \leftmark~ -- \TheAuthor}
+\fancyhead[CE]{\slshape \TheAuthor}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.6pt}
+\Author{Deependra Dhakal}
 
 \usepackage{longtable}
 \usepackage{booktabs}
@@ -57,3 +71,23 @@
 % for using minipage
 \newlength\Colsep
 \setlength\Colsep{10pt}
+
+% coffee spill
+\input fun-coffee
+\usepackage{everypage}
+\usepackage{pgf}
+
+\pgfmathsetseed{\pdfuniformdeviate 10000000}
+
+\pgfmathdeclarerandomlist{scales}{{1}{1.2}{1.6}{1.8}}
+\pgfmathdeclarerandomlist{stains}{{\coffeeA}{\coffeeB}{\coffeeC}{\coffeeD}}
+
+\AddEverypageHook{%
+  \pgfmathrandominteger{\angle}{15}{350}%
+  \pgfmathparse{rand/2.4}\xdef\xoffset{\pgfmathresult}%
+  \pgfmathparse{rand/2.4}\xdef\yoffset{\pgfmathresult}%
+  \pgfmathparse{(0.1 + rnd/3)}\xdef\trans{\pgfmathresult}%
+  \pgfmathrandomitem{\scale}{scales}%
+  \pgfmathrandomitem{\stain}{stains}%
+  \edef\coffeescale{\trans}\stain%
+}

@@ -1,1 +1,166 @@
 # Numerical problems on probability and statistical hypothesis testing
+
+## Problem 1
+
+If 5 coins are tossed together, determine the probability of getting
+
+1. 3H and 2T
+2. At least 3H
+3. More than 3H
+4. Less than 3H
+5. Not more than 3H
+
+## Solution 1
+
+Let $a$ represent probability of turning head ($P(H) = \frac{1}{2}$) and $b$ represent the probability of turning tail ($P(T) = \frac{1}{2}$), then, Binomial expansion can be used to mimic all 5 tosses.
+
+$$
+(a + b)^5 = a^5 + 5a^4b + 10 a^3 b^2 + 10 a^2 b^3 + 5 ab^4 + b^5
+$$
+
+Now,
+
+1. Probability(P) of 3H and 2T is given by $\mathrm{3^{rd}}$ term, which is: $10 a^3 b^2$ equals $\frac{5}{16}$.
+2. Probabilities of having (3H or 4H or 5H)
+3. Probabilities of having (4H or 5H)
+4. Probabilities of having (1H or 2H)
+5. Probabilities of having (1H or 2H or 3H)
+
+## Problem 2
+
+Two heterozygous brown-eyed (Bb) individuals have five children. What is the probability that two of the couple's five children will have blue eye ?
+
+## Solution 2
+
+Applying binomial expansion
+
+1. Calculate individual probabilities (Using punnet square)
+
+$$
+\begin{aligned}
+P_{(\text{blue eyes})} &= p = \frac{1}{4} \\
+P_{(\text{brown eyes})} &= q = \frac{3}{4}
+\end{aligned}
+$$
+
+2. Determine the number of events
+
+$$
+\begin{aligned}
+n &= \text{total number of children} = 5 \\
+x &= \text{total number of blue-eyed children} = 2
+\end{aligned}
+$$
+
+3. Substituting the values in the following binomial equation, $2^{nd}$ term ($\frac{n!}{s! t!} p^2 q^3$) and its coefficient gives the probability of having two children with blue eyes. That is,
+
+$$
+P = \frac{5!}{2! \times 3!} \left(\frac{1}{4}\right)^2 \left(\frac{3}{4}\right)^3 = 0.26
+$$
+
+This yields that 26% of the time, a heterozygote couples' five of the children will contain two with blue eyes and three with brown eyes.
+
+## Problem 3
+
+A presumed dihybrid in Drosophila, B/b ; F/f is test- crossed with b/b ; f/f. (B = black body ; b = brown body; F = forked bristles; f = unforked bristles.) The results are,
+
+- Black, forked (BF) : 230
+- Black, unforked (Bf) : 210
+- Brown, forked (bF) : 240
+- Brown, unforked (bf) : 250
+
+Use the Chi-square test to determine if these results fit the results expected from testcrossing the hypothesized dihybrid.
+
+## Solution 3
+
+If there is _no_ linkage, that is, the genes assort independently, we have seen that the following phenotypic proportions are expected in progeny:
+
+```{r}
+require(infer)
+bf_df <- tribble(~"Phenotype", ~"Proportion", 
+        "BF", 230,
+        "Bf", 210,
+        "bF", 240,
+        "bf", 250)
+
+bf_df_chi <- chisq.test(set_names(bf_df$Proportion, nm = bf_df$Phenotype), 
+           correct = FALSE, 
+           p = c(0.25, 0.25, 0.25, 0.25))
+
+bf_df_chi %>% 
+  broom::tidy() %>% 
+  knitr::kable(booktabs = TRUE) %>% 
+  kableExtra::kable_styling(position = "center", font_size = 8)
+  
+observed_statistic <- bf_df %>% 
+  transmute(sim_category = map2(Proportion, Phenotype, ~rep(.y, .x))) %>% 
+  unnest(sim_category) %>% 
+  specify(response = sim_category)  %>% 
+  hypothesize(null = "point", 
+              p = c("BF" = 1/4,
+                    "Bf" = 1/4,
+                    "bF" = 1/4,
+                    "bf" = 1/4)) %>% 
+  calculate(stat = "Chisq")
+  
+observed_pvalue <- bf_df %>% 
+  transmute(sim_category = map2(Proportion, Phenotype, ~rep(.y, .x))) %>% 
+  unnest(sim_category) %>% 
+  specify(response = sim_category)  %>% 
+  hypothesize(null = "point", 
+              p = c("BF" = 1/4,
+                    "Bf" = 1/4,
+                    "bF" = 1/4,
+                    "bf" = 1/4)) %>% 
+  generate(reps = 100, type = "simulate") %>%
+  calculate(stat = "Chisq") %>%
+  # visualise() %>% 
+  get_p_value(obs_stat = observed_statistic, direction = "greater")
+  
+```
+
+There is clearly a deviation from the absolute expected proportion, which is the case of having no linkage between genes.
+
+However, we know that chance deviations can provide results that resemble those produced by genetic processes; hence we, need the $\chi^2$ test to help calculate the probability of a chance deviation of this magnitude form a 1:1:1:1 ratio. If that hypothesis is rejected, we can infer linkage.
+
+The test statisic $\chi^2$ is obtained by:
+
+$$
+\chi^2 = \frac{\left[\sum|observed-expected|-\frac{1}{2}\right]^2}{expected}
+$$
+
+
+```{r chi-sqrt-linkage, message=FALSE, warning=FALSE, echo=FALSE}
+chi_sqrt_linkage <- tribble(~"Phenotype", ~"Proportion", 
+        "BF", 0.25,
+        "Bf", 0.25,
+        "bF", 0.25,
+        "bf", 0.25)
+
+chi_sqrt_linkage %>% 
+  kable(booktabs = TRUE, escape = FALSE, 
+      caption = "Chi-square calculations for the hypothesis that the observations of four phenotypic classes is obtained due to no linkage between loci B and F.") %>% 
+  kableExtra::kable_styling(latex_options = "striped", font_size = 8)
+```
+
+<!-- ```{r chi-sqrt-values, echo=FALSE, message=FALSE} -->
+<!-- # Set p-values -->
+<!-- p <- c(0.995, 0.99, 0.975, 0.95, 0.90, 0.10, 0.05, 0.025, 0.01, 0.005) -->
+<!-- # Set degrees of freedom -->
+<!-- df <- c(seq(1,20),25,30,35,40,50,100) -->
+<!-- # Calculate a matrix of chisq statistics -->
+<!-- m <- outer(p, df, function(x,y) qchisq(x,y)) -->
+<!-- # Transpose for a better view -->
+<!-- m <- t(m) -->
+<!-- # Set column and row names -->
+<!-- colnames(m) <- rev(p) -->
+<!-- rownames(m) <- df -->
+<!-- kable(m, format = "latex", booktabs = TRUE, escape = TRUE,  -->
+<!--       caption = "The probabilities of exceeding different chi-square values for degrees of freedom from 1 to 50 when the expected hypothesis is true") %>%  -->
+<!--   kableExtra::kable_styling(latex_options = "striped", font_size = 5) %>%  -->
+<!--   kableExtra::column_spec(6, border_left = TRUE) -->
+<!-- ``` -->
+
+Since there are four genotypic classes, we must use 4-1 = 3 degrees of freedom. Consulting the $\chi^2$ table, we see our values of `r observed_statistic[[1]]` and 3 df give a p value of `r observed_pvalue[[1]]`. This is more than the standard cut-off value of 5 %, so we cannot reject the hypothesis of no linkage.
+
+Hence, we are left with the conclusion that the genes are not linked.
