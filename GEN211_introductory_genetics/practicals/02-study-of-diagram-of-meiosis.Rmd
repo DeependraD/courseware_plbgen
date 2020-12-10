@@ -26,168 +26,222 @@ knitr::include_graphics("./../images/bivalent_tetrad.png")
 - In the second cell division of meiosis, the centromeres divide and each member of a dyad (each member of a pair of chromatids) moves into a daughter cell. Hence, although the process starts with the same genomic content as that for mitosis, the two successive segregations result in four haploid cells.
 - Each of the four haploid cells that constitute the four products of meiosis contains one member of a tetrad; hence, the group of four cells is sometimes called a tetrad, too.
 
-<!-- ## Stages of meiosis -->
+## Stages of meiosis
 
-<!-- \begin{columns}[T,onlytextwidth] -->
+\noindent\begin{minipage}{\textwidth}
+\begin{minipage}[t]{0.48\textwidth}
 
-<!--   \column{0.48\textwidth} -->
+Leptotene
 
-<!-- Leptotene -->
+The chromosomes become visible as long, thin single threads. Chromosomes begin to contract and continue contracting throughout the entire prophase.
 
-<!-- The chromosomes become visible as long, thin single threads. Chromosomes begin to contract and continue contracting throughout the entire prophase. -->
+\end{minipage}\hspace{0.5cm}
+\begin{minipage}[t]{0.48\textwidth}
 
-<!-- ```{r meiosis-leptotene, out.width="50%", fig.align='center'} -->
-<!-- knitr::include_graphics("../images/cell_cycle/meiosis_leptotene.png") -->
-<!-- ``` -->
+```{r meiosis-leptotene, out.width="50%", fig.align='center'}
+knitr::include_graphics("../images/cell_cycle/meiosis_leptotene.png")
+```
 
-<!--   \column{0.48\textwidth} -->
+\end{minipage}%
+\end{minipage}
 
-<!-- Zygotene -->
+\noindent\begin{minipage}{\textwidth}
+\begin{minipage}[t]{0.48\textwidth}
 
-<!-- The threads form pairs as each chromosome progressively aligns, or synapses, along the length of its homologous partner. -->
+Zygotene
 
-<!-- ```{r meiosis-zygotene, out.width="58%", fig.align='center'} -->
-<!-- knitr::include_graphics("../images/cell_cycle/meiosis_zygotene.png") -->
-<!-- ``` -->
+The threads form pairs as each chromosome progressively aligns, or synapses, along the length of its homologous partner.
 
-<!-- \end{columns} -->
+\end{minipage}\hspace{0.5cm}
+\begin{minipage}[t]{0.48\textwidth}
 
-<!-- Pachytene -->
+```{r meiosis-zygotene, out.width="58%", fig.align='center'}
+knitr::include_graphics("../images/cell_cycle/meiosis_zygotene.png")
+```
 
-<!-- Chromosomes are thick and fully synapsed. Thus, the number of pairs of homologous chromosomes is equal to the number n. -->
+\end{minipage}%
+\end{minipage}
 
-<!-- ```{r meiosis-pachytene, out.width="58%", fig.align='center'} -->
-<!-- knitr::include_graphics("../images/cell_cycle/meiosis_pachytene.png") -->
-<!-- ``` -->
+\noindent\begin{minipage}{\textwidth}
+\begin{minipage}[t]{0.48\textwidth}
 
-<!-- Diplotene -->
+Pachytene
 
-<!-- Although the DNA has already replicated during the premeiotic S phase, this fact first becomes manifest only in diplotene as each chromosome is seen to have become a pair of sister chromatids. The synapsed structure now consists of a bundle of four homologous chromosomes. The paired homologs separate slightly, and one or more cross-shaped structures called chiasmata (singular, chiasma) appear between nonsister chromatids. -->
+Chromosomes are thick and fully synapsed. Thus, the number of pairs of homologous chromosomes is equal to the number n.
 
-<!-- ```{r meiosis-diplotene, out.width="58%", fig.align='center'} -->
-<!-- knitr::include_graphics("../images/cell_cycle/meiosis_diplotene.png") -->
-<!-- ``` -->
+\end{minipage}\hspace{0.5cm}
+\begin{minipage}[t]{0.48\textwidth}
+```{r meiosis-pachytene, out.width="58%", fig.align='center'}
+knitr::include_graphics("../images/cell_cycle/meiosis_pachytene.png")
+```
 
-<!-- Diakinesis -->
+\end{minipage}%
+\end{minipage}
 
-<!-- Further chromosome contraction produces compact units that are very maneuverable. -->
+\noindent\begin{minipage}{\textwidth}
+\begin{minipage}[t]{0.48\textwidth}
 
-<!-- ```{r meiosis-diakinesis, out.width="58%", fig.align='center'} -->
-<!-- knitr::include_graphics("../images/cell_cycle/meiosis_diakinesis.png") -->
-<!-- ``` -->
+Diplotene
 
-<!-- Metaphase I -->
+Although the DNA has already replicated during the premeiotic S phase, this fact first becomes manifest only in diplotene as each chromosome is seen to have become a pair of sister chromatids. The synapsed structure now consists of a bundle of four homologous chromosomes. The paired homologs separate slightly, and one or more cross-shaped structures called chiasmata (singular, chiasma) appear between nonsister chromatids.
 
-<!-- The nuclear membrane has disappeared, and each pair of homologs takes up a position in the equatorial plane. At this stage of meiosis, the centromeres do not divide; this lack of division is a major difference from mitosis. The two centromeres of a homologous chromosome pair attach to spindle fibers from opposite poles.  -->
+Diakinesis
 
-<!-- ```{r meiosis-metaphasei, out.width="58%", fig.align='center'} -->
-<!-- knitr::include_graphics("../images/cell_cycle/meiosis_metaphasei.png") -->
-<!-- ``` -->
+Further chromosome contraction produces compact units that are very maneuverable.
 
-<!-- Anaphase I -->
+\end{minipage}\hspace{0.5cm}
+\begin{minipage}[t]{0.48\textwidth}
 
-<!-- The members of each homologous pair move to opposite poles. -->
+```{r meiosis-diplotene, out.width="58%", fig.align='center'}
+knitr::include_graphics("../images/cell_cycle/meiosis_diplotene.png")
+```
 
-<!-- \begin{columns}[T,onlytextwidth] -->
+```{r meiosis-diakinesis, out.width="58%", fig.align='center'}
+knitr::include_graphics("../images/cell_cycle/meiosis_diakinesis.png")
+```
 
-<!--   \column{0.48\textwidth} -->
+\end{minipage}%
+\end{minipage}
 
-<!-- Anaphase (Early) I -->
+\noindent\begin{minipage}{\textwidth}
+\begin{minipage}[t]{0.48\textwidth}
 
-<!-- ```{r meiosis-early-anaphasei, out.width="58%", fig.align='center'} -->
-<!-- knitr::include_graphics("../images/cell_cycle/meiosis_early_anaphasei.png") -->
-<!-- ``` -->
+Metaphase I
 
-<!--   \column{0.48\textwidth} -->
+The nuclear membrane has disappeared, and each pair of homologs takes up a position in the equatorial plane. At this stage of meiosis, the centromeres do not divide; this lack of division is a major difference from mitosis. The two centromeres of a homologous chromosome pair attach to spindle fibers from opposite poles.
 
-<!-- Anaphase (Late) I -->
+\end{minipage}\hspace{0.5cm}
+\begin{minipage}[t]{0.48\textwidth}
 
-<!-- ```{r meiosis-late-anaphasei, out.width="58%", fig.align='center'} -->
-<!-- knitr::include_graphics("../images/cell_cycle/meiosis_late_anaphasei.png") -->
-<!-- ``` -->
+```{r meiosis-metaphasei, out.width="58%", fig.align='center'}
+knitr::include_graphics("../images/cell_cycle/meiosis_metaphasei.png")
+```
 
-<!-- \end{columns} -->
+\end{minipage}%
+\end{minipage}
 
-<!-- Telophase I and Interphase -->
+\noindent\begin{minipage}{\textwidth}
+\begin{minipage}[t]{0.48\textwidth}
+Anaphase I
 
-<!-- The chromosomes elongate and become diffuse, the nuclear membrane re-forms and the cell divides. After telophase I, there is an interphase, called interkinesis. In many organisms, telophase I and interkinesis do not exist or are brief in duration. In any case, there is never DNA synthesis at this time, and the genetic state of the chromosomes does not change. -->
+The members of each homologous pair move to opposite poles.
 
-<!-- \begin{columns}[T,onlytextwidth] -->
+\end{minipage}\hspace{0.5cm}
+\begin{minipage}[t]{0.48\textwidth}
 
-<!--   \column{0.48\textwidth} -->
+Anaphase (Early) I
 
-<!-- Telophase -->
+```{r meiosis-early-anaphasei, out.width="58%", fig.align='center'}
+knitr::include_graphics("../images/cell_cycle/meiosis_early_anaphasei.png")
+```
 
-<!-- ```{r meiosis-telophasei, out.width="58%", fig.align='center'} -->
-<!-- knitr::include_graphics("../images/cell_cycle/meiosis_telophasei.png") -->
-<!-- ``` -->
+Anaphase (Late) I
 
-<!--   \column{0.48\textwidth} -->
+```{r meiosis-late-anaphasei, out.width="58%", fig.align='center'}
+knitr::include_graphics("../images/cell_cycle/meiosis_late_anaphasei.png")
+```
 
-<!-- Interphase II -->
+\end{minipage}%
+\end{minipage}
 
-<!-- ```{r meiosis-interphaseii, out.width="58%", fig.align='center'} -->
-<!-- knitr::include_graphics("../images/cell_cycle/meiosis_interphaseii.png") -->
-<!-- ``` -->
+\noindent\begin{minipage}{\textwidth}
+\begin{minipage}[t]{0.48\textwidth}
 
-<!-- \end{columns} -->
+Telophase I and Interphase
 
-<!-- Prophase II -->
+The chromosomes elongate and become diffuse, the nuclear membrane re-forms and the cell divides. After telophase I, there is an interphase, called interkinesis. In many organisms, telophase I and interkinesis do not exist or are brief in duration. In any case, there is never DNA synthesis at this time, and the genetic state of the chromosomes does not change.
 
-<!-- The haploid number of sister chromatid pairs are now present in contracted state. -->
+\end{minipage}
+\begin{minipage}[t]{0.48\textwidth}
+Telophase
 
-<!-- ```{r meiosis-prophaseii, out.width="58%", fig.align='center'} -->
-<!-- knitr::include_graphics("../images/cell_cycle/meiosis_prophaseii.png") -->
-<!-- ``` -->
+```{r meiosis-telophasei, out.width="58%", fig.align='center'}
+knitr::include_graphics("../images/cell_cycle/meiosis_telophasei.png")
+```
 
-<!-- Metaphase II -->
+Interphase II
 
-<!-- The pair of sister chromatids arrange themselves on the equatorial plane. Here the chromatids often partly dissociate from each other instead of being closely pressed together as they are in mitosis. -->
+```{r meiosis-interphaseii, out.width="58%", fig.align='center'}
+knitr::include_graphics("../images/cell_cycle/meiosis_interphaseii.png")
+```
 
-<!-- ```{r meiosis-metaphaseii, out.width="58%", fig.align='center'} -->
-<!-- knitr::include_graphics("../images/cell_cycle/meiosis_metaphaseii.png") -->
-<!-- ``` -->
+\end{minipage}%
+\end{minipage}
 
-<!-- Anaphase II -->
+\noindent\begin{minipage}{\textwidth}
+\begin{minipage}[t]{0.48\textwidth}
 
-<!-- Centromeres split and sister chromatids are pulled to opposite poles by the spindle fibers. -->
+Prophase II
 
-<!-- ```{r meiosis-anaphaseii, out.width="58%", fig.align='center'} -->
-<!-- knitr::include_graphics("../images/cell_cycle/meiosis_anaphaseii.png") -->
-<!-- ``` -->
+The haploid number of sister chromatid pairs are now present in contracted state.
 
-<!-- Telophase II -->
+```{r meiosis-prophaseii, out.width="58%", fig.align='center'}
+knitr::include_graphics("../images/cell_cycle/meiosis_prophaseii.png")
+```
 
-<!-- The nuclei re-form around the chromosomes at the poles. -->
+\end{minipage}\hspace{0.5cm}
+\begin{minipage}[t]{0.48\textwidth}
 
-<!-- ```{r meiosis-telophaseii, out.width="58%", fig.align='center'} -->
-<!-- knitr::include_graphics("../images/cell_cycle/meiosis_telophaseii.png") -->
-<!-- ``` -->
+Metaphase II
 
+The pair of sister chromatids arrange themselves on the equatorial plane. Here the chromatids often partly dissociate from each other instead of being closely pressed together as they are in mitosis.
 
-<!-- The tetrad and young pollen grains -->
+```{r meiosis-metaphaseii, out.width="58%", fig.align='center'}
+knitr::include_graphics("../images/cell_cycle/meiosis_metaphaseii.png")
+```
 
-<!-- In the anthers of a flower, the four products of meiosis develop into pollen grains. In other organisms, the products of meiosis differentiate into other kinds of structures, such as sperm cells in animals. -->
+\end{minipage}%
+\end{minipage}
 
-<!-- \begin{columns}[T,onlytextwidth] -->
+\noindent\begin{minipage}{\textwidth}
+\begin{minipage}[t]{0.48\textwidth}
 
-<!--   \column{0.48\textwidth} -->
+Anaphase II
 
-<!-- Tetrad -->
+Centromeres split and sister chromatids are pulled to opposite poles by the spindle fibers.
 
-<!-- ```{r meiosis-tetrad, out.width="58%", fig.align='center'} -->
-<!-- knitr::include_graphics("../images/cell_cycle/meiosis_tetrad.png") -->
-<!-- ``` -->
+```{r meiosis-anaphaseii, out.width="58%", fig.align='center'}
+knitr::include_graphics("../images/cell_cycle/meiosis_anaphaseii.png")
+```
 
-<!--   \column{0.48\textwidth} -->
+\end{minipage}\hspace{0.5cm}
+\begin{minipage}[t]{0.48\textwidth}
 
-<!-- Young pollen grain -->
+Telophase II
 
-<!-- ```{r meiosis-young-pollen, out.width="58%", fig.align='center'} -->
-<!-- knitr::include_graphics("../images/cell_cycle/meiosis_young_pollen.png") -->
-<!-- ``` -->
+The nuclei re-form around the chromosomes at the poles.
 
-<!-- \end{columns} -->
+```{r meiosis-telophaseii, out.width="58%", fig.align='center'}
+knitr::include_graphics("../images/cell_cycle/meiosis_telophaseii.png")
+```
+
+\end{minipage}%
+\end{minipage}
+
+\noindent\begin{minipage}{\textwidth}
+\begin{minipage}[t]{0.48\textwidth}
+
+The tetrad and young pollen grains
+
+In the anthers of a flower, the four products of meiosis develop into pollen grains. In other organisms, the products of meiosis differentiate into other kinds of structures, such as sperm cells in animals.
+
+\end{minipage}\hspace{0.5cm}
+\begin{minipage}[t]{0.48\textwidth}
+
+Tetrad
+
+```{r meiosis-tetrad, out.width="58%", fig.align='center'}
+knitr::include_graphics("../images/cell_cycle/meiosis_tetrad.png")
+```
+
+Young pollen grain
+
+```{r meiosis-young-pollen, out.width="58%", fig.align='center'}
+knitr::include_graphics("../images/cell_cycle/meiosis_young_pollen.png")
+```
+
+\end{minipage}%
+\end{minipage}
 
 ## Conclusion
 

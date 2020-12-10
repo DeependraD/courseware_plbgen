@@ -42,11 +42,8 @@ A particular human cell might undergo one division in 24 hours. Of this time, th
 knitr::include_graphics("./../images/cell_cycle/interphase_all.png")
 ```
 
-##
-
-\noindent\begin{minipage}{\textwidth}
-\begin{minipage}[t]{0.48\textwidth}
-
+\begin{minipage}[t]{\textwidth}
+\begin{minipage}[t]{0.50\textwidth}
 G2 of Interphase
 
 \begin{itemize}
@@ -55,11 +52,10 @@ G2 of Interphase
 \item Two centrosomes have formed by duplication of a single centrosome. Centrosomes are regions in cell that organize the microtubules of the spindle. Each centrosome contains two centrioles.
 \item Chromosomes, duplicated during S phase, cannot be seen individually because they have not yet condensed.
 \end{itemize}
-
 \end{minipage}\hspace{0.5cm}
-\begin{minipage}[t]{0.48\textwidth}
+\begin{minipage}[t]{0.3\textwidth}
 
-```{r g2-interphase, out.width="50%", fig.align='center'}
+```{r g2-interphase, fig.align='center', fig.show='hold'}
 # pdftools::pdf_convert("/media/deependra/e4da4ac5-3b38-4b89-9402-397eb940e4d3/Addition/Generalized Study/Reece Campbell Biology 9th txtbk.pdf",
 #                       pages = 280,
 #                       dpi = 300, format = "png",
@@ -67,7 +63,6 @@ G2 of Interphase
 
 knitr::include_graphics("./../images/cell_cycle/mitosis_animal_cell21.png")
 ```
-
 \end{minipage}%
 \end{minipage}
 
@@ -90,7 +85,7 @@ Following events describe mitotic phase:
 knitr::include_graphics("./../images/cell_cycle/mitosis_animal_cell22.png")
 ```
 
-\end{minipage} \hspace{0.5cm}
+\end{minipage}\hspace{0.5cm}
 \begin{minipage}[t]{0.30\textwidth}
 
 2. Early metaphase

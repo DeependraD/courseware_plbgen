@@ -10,7 +10,7 @@ A couple intends to have children but consult a genetic counselor because the ma
 
 If we let the allele causing the PKU phenotype be p and the respective normal allele be P, then the sister and brother of the man and woman, respectively, then the sister and brother of the man and woman, respectively, must have been p/p. To produce these affected persons, all four grandparents must have been heterozygous normal. The pedigree can be summarized as follows:
 
-```{r pedigree-plot, fig.align='center', fig.width=5, fig.height=4, out.width="50%", fig.cap="Pedigree diagram representing case of probability of PKU in a child."}
+```{r pedigree-plot, fig.align='center', fig.width=6, fig.height=4, out.width="50%", fig.cap="Pedigree diagram representing case of probability of PKU in a child."}
 library(kinship2)
 
 pku_pedigree <- tribble(~"id", ~"dad", ~"mom", ~"sex", ~"disease_stat",
@@ -22,10 +22,39 @@ pku_pedigree <- tribble(~"id", ~"dad", ~"mom", ~"sex", ~"disease_stat",
                         "id6", NA, NA, "male", 0,
                         "id7", "id6", "id5", "female", 1, 
                         "id8", "id6", "id5", "male", 0, 
-                        "id9", "id8", "id4", "male", NA) 
+                        "id9", "id8", "id4", "male", NA)
 
+pku_ids <- c("Child's\n maternal grandfather",
+             "Child's\n maternal grandmother",
+             "Child's\n mother's brother",
+             "Child's\n mother",
+             "Child's\n paternal grandmother",
+             "Child's\n paternal grandfather",
+             "Child's\n father's sister",
+             "Child's\n father",
+             "Child")
+
+par(mar=c(4,4,4,4), oma=c(4,4,4,4))
 with(pku_pedigree, pedigree(id = id, dadid = dad, momid = mom, sex = sex, affected = disease_stat)) %>% 
-  plot()
+  plot(id = pku_ids, cex = 0.6)
+
+# data("sample.ped")
+# df2 <- sample.ped[sample.ped$ped == 2, ]
+# names(df2)
+# df2$censor <- c(1, 1, rep(0, 12))
+# 
+# ped2 <- pedigree(df2$id, df2$father, df2$mother, df2$sex, affected = df2$affected, 
+#                  status = df2$censor)
+# aff2 <- data.frame(blue = df2$affected, bald = c(0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 
+#                                                  0, 0, 1))
+# ped2aff <- pedigree(df2$id, df2$father, df2$mother, df2$sex, affected = as.matrix(aff2), 
+#                     status = df2$censor)
+# 
+# id2 <- paste(df2$id, c("John", "Linda", "Jack", "Rachel", "Joe", "Deb", "Lucy", "Ken", 
+#                        "Barb", "Mike", "Matt", "Mindy", "Mark", "George"), sep = "\n")
+# plot(ped2aff, col = ifelse(df2$avail, 2, 1), id = id2, cex = 0.7)
+# pedigree.legend(ped2aff, location = "topright", radius = 0.3)
+
 ```
 
 
@@ -47,3 +76,12 @@ While performing a large scale grow out experiment of pea germplasm, a plant wit
 
 
 ## Solution 2
+
+The fact that about half of the $F_1$ progeny are mutant suggests that the mutation that results in three cotyledons in dominant and the original mutant heterozygous. If C = the mutant allele and c = the wild-type allele, the cross is as follows:
+
+$$
+\begin{aligned}
+P \hspace{3em} & C/c \times c/c \\
+F_1 \hspace{3em} & 1~C/c: 1~c/c~ \textrm{(three cotyledons: two cotyledons)} \\
+\end{aligned}
+$$
