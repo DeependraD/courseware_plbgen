@@ -1,0 +1,1087 @@
+\documentclass[nofonts,]{tufte-handout}
+
+% ams
+\usepackage{amssymb,amsmath}
+
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \makeatletter
+  \@ifpackageloaded{fontspec}{}{\usepackage{fontspec}}
+  \makeatother
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \makeatletter
+  \@ifpackageloaded{soul}{
+     \renewcommand\allcapsspacing[1]{{\addfontfeature{LetterSpace=15}#1}}
+     \renewcommand\smallcapsspacing[1]{{\addfontfeature{LetterSpace=10}#1}}
+   }{}
+  \makeatother
+\fi
+
+% graphix
+\usepackage{graphicx}
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+
+% booktabs
+\usepackage{booktabs}
+
+% url
+\usepackage{url}
+
+% hyperref
+\usepackage{hyperref}
+
+% units.
+\usepackage{units}
+
+
+\setcounter{secnumdepth}{-1}
+
+% citations
+\usepackage{natbib}
+\bibliographystyle{plainnat}
+
+%% tint override
+\setcitestyle{round} 
+
+% pandoc syntax highlighting
+
+% longtable
+\usepackage{longtable,booktabs}
+
+% multiplecol
+\usepackage{multicol}
+
+% strikeout
+\usepackage[normalem]{ulem}
+
+% morefloats
+\usepackage{morefloats}
+
+
+% tightlist macro required by pandoc >= 1.14
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% title / author / date
+\title{Crossing plans}
+\author{Deependra Dhakal}
+\date{2020-07-23}
+
+%% -- tint overrides
+%% fonts, using roboto (condensed) as default
+\usepackage[sfdefault,condensed]{roboto}
+%% also nice: \usepackage[default]{lato}
+
+%% colored links, setting 'borrowed' from RJournal.sty with 'Thanks, Achim!'
+\RequirePackage{color}
+\definecolor{link}{rgb}{0.1,0.1,0.8} %% blue with some grey
+\hypersetup{
+  colorlinks,%
+  citecolor=link,%
+  filecolor=link,%
+  linkcolor=link,%
+  urlcolor=link
+}
+
+%% macros
+\makeatletter
+
+%% -- tint does not use italics or allcaps in title
+\renewcommand{\maketitle}{%     
+  \newpage
+  \global\@topnum\z@% prevent floats from being placed at the top of the page
+  \begingroup
+    \setlength{\parindent}{0pt}%
+    \setlength{\parskip}{4pt}%
+    \let\@@title\@empty
+    \let\@@author\@empty
+    \let\@@date\@empty
+    \ifthenelse{\boolean{@tufte@sfsidenotes}}{%
+      %\gdef\@@title{\sffamily\LARGE\allcaps{\@title}\par}%
+      %\gdef\@@author{\sffamily\Large\allcaps{\@author}\par}%
+      %\gdef\@@date{\sffamily\Large\allcaps{\@date}\par}%
+      \gdef\@@title{\begingroup\fontseries{b}\selectfont\LARGE{\@title}\par}%
+      \gdef\@@author{\begingroup\fontseries{l}\selectfont\Large{\@author}\par}%
+      \gdef\@@date{\begingroup\fontseries{l}\selectfont\Large{\@date}\par}%
+    }{%
+      %\gdef\@@title{\LARGE\itshape\@title\par}%
+      %\gdef\@@author{\Large\itshape\@author\par}%
+      %\gdef\@@date{\Large\itshape\@date\par}%
+      \gdef\@@title{\begingroup\fontseries{b}\selectfont\LARGE\@title\par\endgroup}%
+      \gdef\@@author{\begingroup\fontseries{l}\selectfont\Large\@author\par\endgroup}%
+      \gdef\@@date{\begingroup\fontseries{l}\selectfont\Large\@date\par\endgroup}%
+    }%
+    \@@title
+    \@@author
+    \@@date
+  \endgroup
+  \thispagestyle{plain}% suppress the running head
+  \tuftebreak% add some space before the text begins
+  \@afterindentfalse\@afterheading% suppress indentation of the next paragraph
+}
+
+%% -- tint does not use italics or allcaps in section/subsection/paragraph
+\titleformat{\section}%
+  [hang]% shape
+  %{\normalfont\Large\itshape}% format applied to label+text
+  {\fontseries{b}\selectfont\Large}% format applied to label+text
+  {\thesection}% label
+  {1em}% horizontal separation between label and title body
+  {}% before the title body
+  []% after the title body
+
+\titleformat{\subsection}%
+  [hang]% shape
+  %{\normalfont\large\itshape}% format applied to label+text
+  {\fontseries{m}\selectfont\large}% format applied to label+text
+  {\thesubsection}% label
+  {1em}% horizontal separation between label and title body
+  {}% before the title body
+  []% after the title body
+
+\titleformat{\paragraph}%
+  [runin]% shape
+  %{\normalfont\itshape}% format applied to label+text
+  {\fontseries{l}\selectfont}% format applied to label+text
+  {\theparagraph}% label
+  {1em}% horizontal separation between label and title body
+  {}% before the title body
+  []% after the title body
+
+%% -- tint does not use italics here either
+% Formatting for main TOC (printed in front matter)
+% {section} [left] {above} {before w/label} {before w/o label} {filler + page} [after]
+\ifthenelse{\boolean{@tufte@toc}}{%
+  \titlecontents{part}% FIXME
+    [0em] % distance from left margin
+    %{\vspace{1.5\baselineskip}\begin{fullwidth}\LARGE\rmfamily\itshape} % above (global formatting of entry)
+    {\vspace{1.5\baselineskip}\begin{fullwidth}\fontseries{m}\selectfont\LARGE} % above (global formatting of entry)
+    {\contentslabel{2em}} % before w/label (label = ``II'')
+    {} % before w/o label
+    {\rmfamily\upshape\qquad\thecontentspage} % filler + page (leaders and page num)
+    [\end{fullwidth}] % after
+  \titlecontents{chapter}%
+    [0em] % distance from left margin
+    %{\vspace{1.5\baselineskip}\begin{fullwidth}\LARGE\rmfamily\itshape} % above (global formatting of entry)
+    {\vspace{1.5\baselineskip}\begin{fullwidth}\fontseries{m}\selectfont\LARGE} % above (global formatting of entry)
+    {\hspace*{0em}\contentslabel{2em}} % before w/label (label = ``2'')
+    {\hspace*{0em}} % before w/o label
+    %{\rmfamily\upshape\qquad\thecontentspage} % filler + page (leaders and page num)
+    {\upshape\qquad\thecontentspage} % filler + page (leaders and page num)
+    [\end{fullwidth}] % after
+  \titlecontents{section}% FIXME
+    [0em] % distance from left margin
+    %{\vspace{0\baselineskip}\begin{fullwidth}\Large\rmfamily\itshape} % above (global formatting of entry)
+    {\vspace{0\baselineskip}\begin{fullwidth}\fontseries{m}\selectfont\Large} % above (global formatting of entry)
+    {\hspace*{2em}\contentslabel{2em}} % before w/label (label = ``2.6'')
+    {\hspace*{2em}} % before w/o label
+    %{\rmfamily\upshape\qquad\thecontentspage} % filler + page (leaders and page num)
+    {\upshape\qquad\thecontentspage} % filler + page (leaders and page num)
+    [\end{fullwidth}] % after
+  \titlecontents{subsection}% FIXME
+    [0em] % distance from left margin
+    %{\vspace{0\baselineskip}\begin{fullwidth}\large\rmfamily\itshape} % above (global formatting of entry)
+    {\vspace{0\baselineskip}\begin{fullwidth}\fontseries{m}\selectfont\large} % above (global formatting of entry)
+    {\hspace*{4em}\contentslabel{4em}} % before w/label (label = ``2.6.1'')
+    {\hspace*{4em}} % before w/o label
+    %{\rmfamily\upshape\qquad\thecontentspage} % filler + page (leaders and page num)
+    {\upshape\qquad\thecontentspage} % filler + page (leaders and page num)
+    [\end{fullwidth}] % after
+  \titlecontents{paragraph}% FIXME
+    [0em] % distance from left margin
+    %{\vspace{0\baselineskip}\begin{fullwidth}\normalsize\rmfamily\itshape} % above (global formatting of entry)
+    {\vspace{0\baselineskip}\begin{fullwidth}\fontseries{m}\selectfont\normalsize\rmfamily} % above (global formatting of entry)
+    {\hspace*{6em}\contentslabel{2em}} % before w/label (label = ``2.6.0.0.1'')
+    {\hspace*{6em}} % before w/o label
+    %{\rmfamily\upshape\qquad\thecontentspage} % filler + page (leaders and page num)
+    {\upshape\qquad\thecontentspage} % filler + page (leaders and page num)
+    [\end{fullwidth}] % after
+}{}
+
+  
+\makeatother
+
+
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+
+\begin{document}
+
+\maketitle
+
+
+
+
+\clearpage
+
+\hypertarget{mating-designs-brown2014plantbreeding}{%
+\section{\texorpdfstring{Mating designs
+\citep{brown2014plantbreeding}}{Mating designs {[}@brown2014plantbreeding{]}}}\label{mating-designs-brown2014plantbreeding}}
+
+The concept of mating designs is based on early work of Louis de
+Vilmorin from the proposition he made that the only means to determine
+the value of an individual plant (or genotype) was to grow and evaluate
+its progeny -- A procedure known as Progeny testing.
+
+Mating designs allow for partitioning of phenotypic effects -- as due to
+genotype, environment or interacting effects among genes and alleles.
+Using one or more of these mating schemes, identification of heterotic
+groups, estimation of general and specific combining abilities and
+testing of environmental interactions could be done. Progenies resulting
+from a well designed mating are used for the dissection of trait
+genetics.
+
+In order to understand genetics of traits and to make effective choice
+of parents, two contrasting methods of selection should be understood
+first. Bluntly, selection methods can be stated as either being forward
+or backward. Forward selection is synonymous to \textbf{within-family
+selection} whereas the concept of backward selection embodies
+\textbf{selection among families}. Ideally, forward selection works best
+for highly heritable traits -- for those traits regulated by few small
+genes, as opposed to those involving large number of genes with small
+cumulative effects.
+
+Selection gets more complicated as data on several different individuals
+belonging to some families is available. {[}What we study versus what
+reality is; Insert soil layer image here{]}. Broadly, three distinct
+modes of selection could be practiced:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Strict within family selection
+\item
+  Selection on within family deviation
+\item
+  Combined family and within family selection; family selection index
+\end{enumerate}
+
+When the interest is to exploit the state of heterosis arising from
+certain combination of parental individuals, the genetic factors
+contributing well to superior phenotype should be underpinned. The whole
+process of determining favorable combination among parental individuals
+should be met with phenotypic data from many progeny, which is
+retrospective in purpose -- thus the name backward selection. Family
+selection has different variants and serve variying purposes as well.
+
+\begin{itemize}
+\tightlist
+\item
+  Half-sib selection is used to select superier individuals for their
+  GCA.
+\item
+  Full-sib selection is used to make distinct parental matings in order
+  to induce hybrid vigor by capturing specific combinining abilities
+\end{itemize}
+
+The concept of combining abilities was first laid out by Sprague and
+Tatum in 1942 \citep{sprague1942general} in order to generate variance
+estimates without too much of underlying genetic assumptions. The
+combining ability test procedure involves making crossess of several
+different combinations from a set of parents and ascribing the resultant
+variances statistically to either the genetic additiveness of parental
+charactersistics or the interacting parental genetic combinations. Thus,
+the phenotype (\(y_i\)) of a cross progeny can be modeled as linear
+combination of additive (\(A_i\)), dominance (\(D_i\)) and environmental
+(\(e_i\)) effects, is:
+
+\[y_i = \mu + A_i + D_i + e_i\]
+
+\hypertarget{combining-ability}{%
+\subsection{Combining ability}\label{combining-ability}}
+
+Crossing each line with several other lines produces an additional
+measure in the mean performance of each line in all crosses. This mean
+performance of a line, when expressed as a deviation from the mean of
+all crosses, gives what is called the general combining ability
+(\textbf{GCA}) of the lines. The GCA is calculated as the average of all
+\(F_1\)s having this particular line as one parent, the value being
+expressed as a deviation from the overall mean of crosses. Each cross
+has an expected value (the sum of GCAs of its two parental lines).
+
+The mean genotypic value of offspring from a particular cross may
+deviate from value expected considering the population mean and the sum
+of the parental GCA effects. This deviation is the specific combining
+ability (\textbf{SCA}) for that cross.
+
+The differences of GCA are due to the additive and additive x additive
+interactions in the base population. The differences in SCA are
+attributable to nonadditive genetic variance. SCA effects are derived
+from inter-allelic/intra-loci interactions. Furthermore, the SCA is
+expected to increase in variance more rapidly as inbreeding in the
+population reaches high levels. GCA is the average performance of a
+plant in a cross with different tester lines, while SCA measures the
+performance of a plant in a specific combination in comparison with
+other cross combinations.
+
+We can define the mean genotypic value (\(G_{AB}\)) for the full-sib
+family produced by crossing parents A and B as the sum of the overall
+mean \(\mu\), the GCAs of the two parents and the SCA value:
+
+\[G_{AB} = \mu + GCA_A + GCA_B + SCA_{AB}\]
+
+The types of interactions that can be obtained (SCA effects) depend upon
+the mating scheme used to produce the crosses, the most common being the
+diallel mating design, developed by B. Griffing (1956). Methods such as
+top cross and poly-cross are also not uncommon. A classical method to
+estimate dominance genetic variance (D) is to estimate the variance
+associated with SCA effects of many crosses. The expected value of the
+observed SCA variance component is 1/4 of the dominance genetic variance
+in the reference population.
+
+The GCA of each line is calculated as follows:
+
+\[
+\mathrm{G_x} = \left[\frac{T_x}{n-2}\right]-\left[\frac{\sum T}{n(n-2)}\right]
+\]
+
+Where \(x\) represents a specific line. Using fabricated dataset given
+in Table \ref{tab:fabricated-diallel} following procedures outlines how
+GCA for Parent 2 (P2) (\(GCA_{P2}\)) can be calculated.
+
+\begin{equation}
+\begin{split}
+\mathrm{G_b} & = \left[\frac{T_x}{n-2}\right]-\left[\frac{\sum T}{n(n-2)}\right] \\
+ & = \left[\frac{39.7}{8}\right]-\left[\frac{324.7}{10\times 8}\right] \\
+ & = 4.96-4.06 \\
+ & = 0.9
+\end{split}
+\end{equation}
+
+\hypertarget{diallel-scheme}{%
+\subsection{Diallel scheme}\label{diallel-scheme}}
+
+The diallel scheme is simply a more sophisticated application of
+Vilmorin's progeny test. The term \emph{diallel cross} was first used by
+Danish geneticist J. Schmidt in animal breeding work. The diallel cross
+and its variations are as follows:
+
+\begingroup\fontsize{10}{12}\selectfont
+
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{3em}>{\raggedleft\arraybackslash}p{3em}>{\raggedleft\arraybackslash}p{3em}>{\raggedleft\arraybackslash}p{3em}>{\raggedleft\arraybackslash}p{3em}>{\raggedleft\arraybackslash}p{3em}>{\raggedleft\arraybackslash}p{3em}>{\raggedleft\arraybackslash}p{3em}>{\raggedleft\arraybackslash}p{3em}>{\raggedleft\arraybackslash}p{3em}>{\raggedleft\arraybackslash}p{3em}}
+\caption{\label{tab:fabricated-diallel}Fabricated data from a diallel cross scheme using 10 parents}\\
+\toprule
+Parents & P1 & P2 & P3 & P4 & P5 & P6 & P7 & P8 & P9 & P10\\
+\midrule
+\rowcolor{gray!6}  P1 &  &  &  &  &  &  &  &  &  & \\
+P2 & 2.64 &  &  &  &  &  &  &  &  & \\
+\rowcolor{gray!6}  P3 & 3.30 & 4.9 &  &  &  &  &  &  &  & \\
+P4 & -0.69 & 8.3 & 5.7 &  &  &  &  &  &  & \\
+\rowcolor{gray!6}  P5 & 0.13 & 5.4 & 5.9 & 6.4 &  &  &  &  &  & \\
+\addlinespace
+P6 & -0.21 & 2.9 & 4.6 & 2.9 & 2.38 &  &  &  &  & \\
+\rowcolor{gray!6}  P7 & 0.33 & 2.4 & 5.3 & 4.2 & 1.72 & 0.57 &  &  &  & \\
+P8 & 3.70 & 2.1 & 5.0 & 4.2 & 0.13 & 2.99 & 5.3 &  &  & \\
+\rowcolor{gray!6}  P9 & 3.94 & 6.0 & 5.4 & 7.6 & 3.39 & 0.35 & 6.2 & 4.2 &  & \\
+P10 & 1.83 & 5.2 & 5.2 & 5.6 & 4.26 & 0.47 & 3.8 & 3.3 & 3.1 & \\
+\bottomrule
+\end{longtable}
+\endgroup{}
+
+Taking the above table of diallel cross data, total of each individual
+parental line could be computed by summing over all the crossess
+involving the common parent. Similarly, the grand totals could be
+obtained by adding together all the individual parents' total. The
+individual parents' sum and grand total is shown in the Table
+\ref{tab:sum-over-ind} below.
+
+\begin{table}
+
+\caption{\label{tab:sum-over-ind}Totals of individual lines and grand total of diallel cross
+ scheme using 10 parents}
+\centering
+\fontsize{10}{12}\selectfont
+\begin{tabular}[t]{>{\bfseries}lr}
+\toprule
+Parents & Line total\\
+\midrule
+\rowcolor{gray!6}  P1 & 15\\
+P2 & 40\\
+\rowcolor{gray!6}  P3 & 45\\
+P4 & 44\\
+\rowcolor{gray!6}  P5 & 30\\
+\addlinespace
+P6 & 17\\
+\rowcolor{gray!6}  P7 & 30\\
+P8 & 31\\
+\rowcolor{gray!6}  P9 & 40\\
+P10 & 33\\
+\addlinespace
+\rowcolor{gray!6}  Total & 325\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\hypertarget{types-of-diallel-mating-design}{%
+\subsection{Types of diallel mating
+design}\label{types-of-diallel-mating-design}}
+
+There are four types of popular diallel crossing designs:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Full/Complete diallels: All the possible combinations of crosses among
+  parents, including reciprocals and self-fertilization of the parents
+  are made. For a sample of \(n\) parents, the full-diallel requires
+  \(n \times n\) (\(n^2\)) progenies, a number that quickly becomes
+  unmanageable as more parents are sampled (Table
+  \ref{tab:full-diallel}).
+\end{enumerate}
+
+\begingroup\fontsize{8}{10}\selectfont
+
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}}
+\caption{\label{tab:full-diallel}Full diallel mating scheme using 10 parents}\\
+\toprule
+Parents & P1 & P2 & P3 & P4 & P5 & P6 & P7 & P8 & P9 & P10\\
+\midrule
+\rowcolor{gray!6}  P1 & P1 x P1 & P1 x P2 & P1 x P3 & P1 x P4 & P1 x P5 & P1 x P6 & P1 x P7 & P1 x P8 & P1 x P9 & P1 x P10\\
+P2 & P2 x P1 & P2 x P2 & P2 x P3 & P2 x P4 & P2 x P5 & P2 x P6 & P2 x P7 & P2 x P8 & P2 x P9 & P2 x P10\\
+\rowcolor{gray!6}  P3 & P3 x P1 & P3 x P2 & P3 x P3 & P3 x P4 & P3 x P5 & P3 x P6 & P3 x P7 & P3 x P8 & P3 x P9 & P3 x P10\\
+P4 & P4 x P1 & P4 x P2 & P4 x P3 & P4 x P4 & P4 x P5 & P4 x P6 & P4 x P7 & P4 x P8 & P4 x P9 & P4 x P10\\
+\rowcolor{gray!6}  P5 & P5 x P1 & P5 x P2 & P5 x P3 & P5 x P4 & P5 x P5 & P5 x P6 & P5 x P7 & P5 x P8 & P5 x P9 & P5 x P10\\
+\addlinespace
+P6 & P6 x P1 & P6 x P2 & P6 x P3 & P6 x P4 & P6 x P5 & P6 x P6 & P6 x P7 & P6 x P8 & P6 x P9 & P6 x P10\\
+\rowcolor{gray!6}  P7 & P7 x P1 & P7 x P2 & P7 x P3 & P7 x P4 & P7 x P5 & P7 x P6 & P7 x P7 & P7 x P8 & P7 x P9 & P7 x P10\\
+P8 & P8 x P1 & P8 x P2 & P8 x P3 & P8 x P4 & P8 x P5 & P8 x P6 & P8 x P7 & P8 x P8 & P8 x P9 & P8 x P10\\
+\rowcolor{gray!6}  P9 & P9 x P1 & P9 x P2 & P9 x P3 & P9 x P4 & P9 x P5 & P9 x P6 & P9 x P7 & P9 x P8 & P9 x P9 & P9 x P10\\
+P10 & P10 x P1 & P10 x P2 & P10 x P3 & P10 x P4 & P10 x P5 & P10 x P6 & P10 x P7 & P10 x P8 & P10 x P9 & P10 x P10\\
+\bottomrule
+\end{longtable}
+\endgroup{}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Half diallels: Each parent is mated with every other parent, excluding
+  selfs and reciprocals. This requires making \(\frac{n(n-1)}{2}\)
+  crosses for n parents (Table \ref{tab:half-diallel}).
+\end{enumerate}
+
+\begingroup\fontsize{8}{10}\selectfont
+
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}}
+\caption{\label{tab:half-diallel}Half diallel mating scheme using 10 parents}\\
+\toprule
+Parents & P1 & P2 & P3 & P4 & P5 & P6 & P7 & P8 & P9 & P10\\
+\midrule
+\endfirsthead
+\caption[]{Half diallel mating scheme using 10 parents \textit{(continued)}}\\
+\toprule
+Parents & P1 & P2 & P3 & P4 & P5 & P6 & P7 & P8 & P9 & P10\\
+\midrule
+\endhead
+\
+\endfoot
+\bottomrule
+\endlastfoot
+\rowcolor{gray!6}  P1 &  &  &  &  &  &  &  &  &  & \\
+P2 & P2 x P1 &  &  &  &  &  &  &  &  & \\
+\rowcolor{gray!6}  P3 & P3 x P1 & P3 x P2 &  &  &  &  &  &  &  & \\
+P4 & P4 x P1 & P4 x P2 & P4 x P3 &  &  &  &  &  &  & \\
+\rowcolor{gray!6}  P5 & P5 x P1 & P5 x P2 & P5 x P3 & P5 x P4 &  &  &  &  &  & \\
+\addlinespace
+P6 & P6 x P1 & P6 x P2 & P6 x P3 & P6 x P4 & P6 x P5 &  &  &  &  & \\
+\rowcolor{gray!6}  P7 & P7 x P1 & P7 x P2 & P7 x P3 & P7 x P4 & P7 x P5 & P7 x P6 &  &  &  & \\
+P8 & P8 x P1 & P8 x P2 & P8 x P3 & P8 x P4 & P8 x P5 & P8 x P6 & P8 x P7 &  &  & \\
+\rowcolor{gray!6}  P9 & P9 x P1 & P9 x P2 & P9 x P3 & P9 x P4 & P9 x P5 & P9 x P6 & P9 x P7 & P9 x P8 &  & \\
+P10 & P10 x P1 & P10 x P2 & P10 x P3 & P10 x P4 & P10 x P5 & P10 x P6 & P10 x P7 & P10 x P8 & P10 x P9 & \\*
+\end{longtable}
+\endgroup{}
+
+\clearpage
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Partial diallel: Not all the crosses are made. There are no
+  reciprocals or selfs. The goal is to reduce the breeding workload for
+  a given sample of parents by making less than \(\frac{n(n-1)}{2}\)
+  crosses for n parents (Table \ref{tab:partial-diallel}).
+\end{enumerate}
+
+With the partial scheme of diallel cross, same number of parents could
+be tested in a framework with fewer crosses. The number of crosses in a
+partial diallel scheme is given by,
+
+\[
+x = \frac{n \times s}{2}
+\]
+
+By analogy, we could have said that large number of lines could be
+tested with lesser crossings under diallel scheme. Rearranging the above
+relationship, \(\large n = \frac{2x}{s}\).
+
+Further, there is restriction as to how \(s\) should is selected, for
+example, is \(s = n -1\) it gives half diallel cross. \(s\) is a whole
+number greater than or equal to 2, and \(k\) is a whole number --
+\(k = \frac{n + 1 - s}{2}\).
+
+Each parent occurs in \(s\) crosses, hence the number of crosses sampled
+is \(ns/2\). For this to be true, For k to be a whole number, we do not
+want both \(n\) and \(s\) to be odd or both even.
+
+Now let's return to our previous example, with number of parents (\(n\))
+to be 10. With \(n = 10\) we definitely want each parent to occur in at
+least 2 sets of crosses. But, note that number of parents too is
+positive (10). Hence, we even values of \(s\) is not allowed. Thus value
+of \(s\) could be anywhere in \(\{3, 5, 7, 9\}\). We could also verify
+that even values of \(s\) does not satisfy the requirement for \(k\) to
+be a wholenumber.
+
+For \(s = 2\),
+\(k = \frac{n + 1 - s}{2} = \frac{10 + 1 - 2}{2} = \frac{9}{2} \neq \textrm{whole number}\)
+
+For \(s = 4\),
+\(k = \frac{n + 1 - s}{2} = \frac{10 + 1 - 4}{2} = \frac{7}{2} \neq \textrm{whole number}\),
+and so on.
+
+Here (Table \ref{tab:partial-diallel-10p-table}) is for example diallel
+cross involving 10 parental lines and 7 set of cross involving each
+parent,
+
+\begingroup\fontsize{8}{10}\selectfont
+
+\begin{longtable}[t]{rllllllllll}
+\caption{\label{tab:partial-diallel-10p-table}Partial diallel cross involving 10 parents combined in 7 set of crossess each.}\\
+\toprule
+p & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\
+\midrule
+\rowcolor{gray!6}  1 &  &  &  & 4 x 1 & 5 x 1 & 6 x 1 & 7 x 1 & 8 x 1 &  & \\
+2 &  &  &  &  & 5 x 2 & 6 x 2 & 7 x 2 & 8 x 2 & 9 x 2 & \\
+\rowcolor{gray!6}  3 &  &  &  &  &  & 6 x 3 & 7 x 3 & 8 x 3 & 9 x 3 & 10 x 3\\
+4 &  &  &  &  &  &  & 7 x 4 & 8 x 4 & 9 x 4 & 10 x 4\\
+\rowcolor{gray!6}  5 &  &  &  &  &  &  &  & 8 x 5 & 9 x 5 & 10 x 5\\
+\addlinespace
+6 &  &  &  &  &  &  &  &  & 9 x 6 & 10 x 6\\
+\rowcolor{gray!6}  7 &  &  &  &  &  &  &  &  &  & 10 x 7\\
+8 &  &  &  &  &  &  &  &  &  & \\
+\rowcolor{gray!6}  9 &  &  &  &  &  &  &  &  &  & \\
+10 &  &  &  &  &  &  &  &  &  & \\
+\bottomrule
+\end{longtable}
+\endgroup{}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Connected diallels: Two groups (for example, \(1-6\) and \(7-12\)) of
+  individuals are used to form two diallels (generally partial or other
+  diallel scheme in each group) but they are connected by crossing
+  \(4 \times 9\), \(7 \times 1\), \(9 \times 3\) and \(10 \times 2\). In
+  the example below, the second diallel also includes some selfs \((S)\)
+  and reciprocals \((R)\) (Table \ref{tab:connected-diallel}).
+\end{enumerate}
+
+\begingroup\fontsize{8}{10}\selectfont
+
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}>{\raggedright\arraybackslash}p{3.5em}ll}
+\caption{\label{tab:connected-diallel}Connected diallel mating scheme using 12 parents}\\
+\toprule
+Parents & P1 & P2 & P3 & P4 & P5 & P6 & P7 & P8 & P9 & P10 & P11 & P12\\
+\midrule
+\rowcolor{gray!6}  P1 &  &  &  &  &  &  &  &  &  &  &  & \\
+P2 & P2 x P1 &  &  &  &  &  &  &  &  &  &  & \\
+\rowcolor{gray!6}  P3 & P3 x P1 &  &  &  &  &  &  &  &  &  &  & \\
+P4 & P4 x P1 & P4 x P2 & P4 x P3 &  &  &  &  &  & P4 x P9 &  &  & \\
+\rowcolor{gray!6}  P5 &  & P5 x P2 & P5 x P3 & P5 x P4 &  &  &  &  &  &  &  & \\
+\addlinespace
+P6 & P6 x P1 & P6 x P2 & P6 x P3 & P6 x P4 & P6 x P5 &  &  &  &  &  &  & \\
+\rowcolor{gray!6}  P7 & P7 x P1 &  &  &  &  &  &  &  & P7 x P9 &  & P7 x P11 & \\
+P8 &  &  &  &  &  &  &  &  &  &  &  & \\
+\rowcolor{gray!6}  P9 &  &  & P9 x P3 &  &  &  &  &  &  &  &  & \\
+P10 &  & P10 x P2 &  &  &  &  &  & P10 x P8 &  &  &  & \\
+\addlinespace
+\rowcolor{gray!6}  P11 &  &  &  &  &  &  & P11 x P7 &  &  & P11 x P10 & P11 x P11 & \\
+P12 &  &  &  &  &  &  &  &  &  &  &  & P12 x P12\\
+\bottomrule
+\end{longtable}
+\endgroup{}
+
+With the convenience of using individuals as both male and female
+parents, diallel mating designs are popular for plant breeding studies.
+Certain diallel designs allow for estimation of reciprocal cross
+effects. Diallels cannot be used in dioecious species (female and male
+flowers occur in different plants). However, factorial designs can be
+used in dioecious species to estimate dominance genetic variance.
+
+If there are no connections between groups of parents, the design is a
+diallel in sets. Diallel mating designs provide good evaluation of
+parents and full-sib families. They also provide estimates of both
+additive and dominance genetic effects, and genetic gains due to
+additive and dominance genetic effects if we assume the sample of
+parents used is sufficient to represent the reference population
+\citep{baker1978issues, holland2003estimating}. One disadvantage of
+diallels is that the breeding and progeny evaluations can be costly due
+to large number of crosses required. As evident, For a full diallel with
+6 parents, 36 crosses are required; with 12 parents the number of
+crosses required is 144. On the other hand there is the looming
+question, if the sample of 6 or 12 individuals from a population
+provides useful estimate of the reference population genetic variances
+\citep{baker1978issues}. \citet{white2007forest} and
+\citet{hallauer1988quantitative} have described several other forms of
+diallel mating designs in detail.
+
+\hypertarget{analysis-of-diallel-cross}{%
+\subsection{Analysis of diallel cross}\label{analysis-of-diallel-cross}}
+
+There are mainly two approaches for analysis and interpretation of data
+derived from diallel cross. They are:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Analysis of general and specific combining ability. These methods are
+  often referred to as Griffing's analyses, after B. Griffing who
+  published his now famous paper \emph{Concept of general and specific
+  combining ability in relation to diallel crossing systems}.
+\item
+  Analysis of array variances and covariances, often referred to as
+  Hayman and Jinks' paper of 1953, \emph{The analysis of diallel
+  crosses}
+\end{enumerate}
+
+\hypertarget{griffing-analysis}{%
+\subsection{Griffing analysis}\label{griffing-analysis}}
+
+Griffing's approach provides easy interpretation of results compared to
+other analyses available. Parents used in diallel crosses can be
+homozygous or heterozygous; for simplicity, diallel types are described
+here in terms of homozygous (inbred) parents. Griffing's diallel
+comprise of full diallel, half diallel (all possible combinations
+without reciprocals but contains parental selfs), modified diallel (all
+possible without parental selfs).
+
+Griffing's analysis requires no assumptions and has been shown by many
+researchers to provide reliable information on the combining potential
+of parents. Once identifid, the ``best'' parental lines (those with the
+highest general combining ability) can be crossed to identify optimum
+hybrid combinations or to produce segregating progeny from which
+superior cultivars would occur at a high frequency.
+
+In simplest terms, the cross between two parents (i.e.~parent \(i\) and
+parent \(j\)) in Griffing's analysis would be expressed as:
+
+\[
+X_{ij} = \mu + g_i + g_j + s_{ij}
+\]
+
+Where \(\mu\) is the overall mean of all entries in the diallel design,
+\(g_i\) is the general combining ability of the \(i^{th}\) parent,
+\(g_j\) is the general combining ability of the \(j^{th}\) parent, and
+\(s_{ij}\) is the specific combining ability between the \(i_{th}\)
+parent and the \(j_{th}\) parent.
+
+General combining ability (GCA) measures the average performance of
+parental lines in cross combination. GCA is therefore related to (but
+not directly equal to) the proportion of variation that is genetically
+additive in nature.
+
+Specific combining ability (SCA) is the remaining part of the observed
+phenotype that is not explained by the general combining ability of both
+parents that constituted the progeny. By definition, SCA is the portion
+of genetic variability which is not additive.
+
+Griffing's analysis of a diallel is by analysis of variance, where the
+total variance of all entries is partitioned into; and error variances.
+In case where reciprocals are included, then reciprocals (or maternal
+effects) are also partitioned. Error variances are estimated by
+replication of families. To avoid excessive repetition, only Method 1
+(complete diallel) and Method 2 (half diallel), both including parents,
+will be considered further.
+
+Degrees of freedom (df), sum of squares (SS) and mean squares (MSq) from
+the analysis of variance for Method 1 for the assumption of model 1
+(fixed effects) are shown in Table \ref{tab:complete-diallel-fixed}
+
+\begin{table}
+
+\caption{\label{tab:complete-diallel-fixed}Degrees of freedom, sum of squares and mean squares from the analysis of variance of a full diallel including parent selfs (Method 1) assuming fixed effects. Also shown are the expectations for the mean squares}
+\centering
+\begin{tabular}[t]{lllll}
+\toprule
+Source & df & SS & Msq & EMS\\
+\midrule
+GCA & p-1 & $S_g$ & $M_g$ & $\sigma^2 + 2p(1/(1-p))\sum g^2_i$\\
+SCA & $\frac{p(p-1)}{2}$ & $S_s$ & $M_s$ & $\sigma^2 + \frac{2}{p(p-1)}\sum_{ij}s_{ij}^2$\\
+Reciprocal & $\frac{p(p-1)}{2}$ & $S_r$ & $M_r$ & $\sigma^2 + 2\frac{2}{p(p-1)}\sum_{i<j}r_{ij}^2$\\
+Error & $(r-1)p^2$ & $S_e$ & $M_e$ & $\sigma^2$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}
+
+\caption{\label{tab:complete-diallel-random}Degrees of freedom, sum of squares and mean squares from the analysis of variance of a full diallel including parent selfs (Method 1) assuming random effects. Also shown are the expectations for the mean squares.}
+\centering
+\begin{tabular}[t]{lllll}
+\toprule
+Source & df & SS & Msq & EMS\\
+\midrule
+GCA & p-1 & $S_g$ & $M_g$ & $\sigma^2 + 2p(1/(1-p))\sigma^2_s + 2p\sigma^2_g$\\
+SCA & $\frac{p(p-1)}{2}$ & $S_s$ & $M_s$ & $\sigma^2 + \frac{2(p^2-p+1)}{p^2 \sigma^2_s}\sum_{ij}s_{ij}^2$\\
+Reciprocal & $\frac{p(p-1)}{2}$ & $S_r$ & $M_r$ & $\sigma^2 + 2\sigma^2_r$\\
+Error & $(r-1)p^2$ & $S_e$ & $M_e$ & $\sigma^2$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}
+
+\caption{\label{tab:half-diallel-fixed}Degrees of freedom, sum of squares and mean squares from the analysis of variance of a half diallel including parent selfs (Method 2), assuming fixed effects. Also shown are the expectations for the mean squares.}
+\centering
+\begin{tabular}[t]{lllll}
+\toprule
+Source & df & SS & Msq & EMS\\
+\midrule
+GCA & p-1 & $S_g$ & $M_g$ & $\sigma^2 + (p+2)(\frac{1}{1-p})\sum g_i^2$\\
+SCA & $\frac{p(p-1)}{2}$ & $S_s$ & $M_s$ & $\sigma^2 + \frac{2p}{p-1}\sum_j s_{ij}^2$\\
+Error & $(r-1)p\frac{p+1}{2}$ & $S_e$ & $M_e$ & $\sigma^2$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}
+
+\caption{\label{tab:half-diallel-random}Degrees of freedom, sum of squares and mean squares from the analysis of variance of a half diallel including parent selfs (Method 2) assuming random effects. Also shown are the expectations for the mean squares.}
+\centering
+\begin{tabular}[t]{lllll}
+\toprule
+Source & df & SS & Msq & EMS\\
+\midrule
+GCA & p-1 & $S_g$ & $M_g$ & $\sigma^2 + \sigma^2_s + (p+2)\sigma^2_g$\\
+SCA & $\frac{p(p-1)}{2}$ & $S_s$ & $M_s$ & $\sigma^2 + \sigma_s^2$\\
+Error & $(r-1)\left(p\frac{p+1}{2}\right)$ & $S_e$ & $M_e$ & $\sigma^2$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+that is, sum over rows; \(X_j\) is
+\(\sum_ix_{ij} = x_{1j} + x_{2j} + x_{3j} + ...,\) that is, sum over
+columns; and \(X_{...}\) is \(\sum_{ij}x_{ij}\), the sum of all
+observations. Where r is the number of replicates; p is the numeber of
+parents; \(S_g\) is
+\(\frac{1}{p+2}(\sum_i(X_i + x_ii)^2-\frac{4}{pX_{...}^2})\); \(S_s\) is
+\(\sum_{i<j}x_{ij}^2-\frac{1}{p+2}\sum_i(X_i + x_{ii})^2 + \frac{2}{(p+1)(P+2)X_{...}^2}\)
+and \(X_{i...}\) is \(\sum_j x_{ij} = x_{i1} + x_{i2} + x_{i3} + ...,\)
+that is, the sum over rows; \(X_{...}\) is \(\sum_{ij}x_{ij}\), the sum
+of all observations.
+
+When SCA is relatively small in comparision with GCA, it should be
+possible to predict the performance of particular cross combinations
+based only on the values obtained for GCA of parents.
+
+A realtively large SCA/GCA ratio implies the presence of dominance
+and/or epistatic gene effects. It should be noted that if dominance x
+additive effects are present, the GCA component will also contain some
+of these effects in addition to pure additive effects.
+
+For inbred lines, the closer that the following equations are equal to
+one (i.e.~as SCA becomes small or very small compared with GCA), then
+greater predictability based on GCA will be possible. The ratio
+equations for each model are:
+
+\[
+\begin{aligned}
+Model~1 &: \frac{2g_i^2}{[2g_i^2 + s_{ij}^2]} \\
+Model~2 &: \frac{2\sigma_g^2}{[2\sigma_g^2 + \sigma_s^2}
+\end{aligned}
+\]
+
+Where \(g_i^2\), \(\sigma_g^2\) are the general combining ability mean
+square and variance, respectively and \(s_{ij}\) and \(\sigma_s^2\) are
+specific combining ability mean square and variance, respectively.
+
+The choice of Griffing method will depend on the plant breeder or
+researcher's preference and on the characters of the crop and trial
+under investigation. If, for example, there is suspicion that the
+particular inheritance has a maternal or cytoplasmic effect then Method
+1 or Method 3 may be the desired choice. If, however, there is no
+evidence of reciprocal differences, then Method 2 or Method 4 would be
+chosen. When the variance components are of major importance, then it
+has been suggested that Method 1 will result in more accurate and
+consistent variance estimation compared to other methods, available.
+Conversely, it has been reported that the inclusion of the parental
+genotypes in the diallel design can cause an upward bias in the
+estimation of GCA and SCA variances.
+
+Normally the \(F_1\) generation is considered in Griffing's analysis.
+However, as no genetic assumptions are involved then there are no
+reasons why \(F_2\) or indeed other segregating generations cannot be
+analysed. This is a tremendous advantage in crop species where seeds per
+hybridization event are few. For example in garbanzo bean (chick pea) a
+single emasculation and pollination will result in 1 or 2 seeds, so
+multiple hybridizations are needed to obtain quantities of seed suitable
+for a proper \(F_1\) diallel analyses. In this case it is easier to
+increase limited quantities of \(F_1\) seed to obtain larger quantities
+of \(F_2\) seed (which can simply be obtained by bagging flowers to
+prevent cross-pollination) for diallel analysis.
+
+Despite the attraction and simplicity of Griffing's analysis, several
+researchers have criticized the diallel technique. In open-pollinated
+species such as corn, where GCA is the only parameter of interest, then
+it has been suggested that other designs such as topcross or polycross
+would yield equally reliable results with less effort, and that these
+alternative methods provide the opportunity to test many more parental
+lines. Similarly it has been argued that in many instances North
+Carolina I designs (where a set of p parents to be tested are each
+intercrossed with a set number of other parents, and where each parent
+under test is not necessarily crossed to the same tester) or North
+Carolina II designs (where a set of p parents are crossed to a common
+set of n different parents and where each parent under test is crossed
+to the same set of non-test parental (or tester) lines) would offer a
+better alternative to diallel designs and Griffing's analysis.
+
+Many studies have shown that the GCA values of parents from diallel
+analyses are similar to actual phenotypic performance of the parents. It
+has, therefore, been argued that it is not necessary to progeny test
+potential parents in a plant breeding programme, but simply to ``cross
+the best with the best''. Many practical plant breeders often add to
+this statement, however, ``cross the best with the best, and hope for
+the best'', but perhaps that is what we would be doing anyhow.
+
+\hypertarget{example-of-griffings-analysis-of-half-diallel}{%
+\subsection{Example of Griffing's analysis of half
+diallel}\label{example-of-griffings-analysis-of-half-diallel}}
+
+Let us consider now an example of a half diallel. A half diallel
+crossing design between ten varieties of spring wheat ( \emph{Triticum
+aestivum}) was carried out at the Agriculture and Forestry University,
+Rampur, Chitwan, in the spring of 2018. The parental lines were: Bijay,
+Swargadwari, WK-1204, Aditya, Gautam, Tilottama, HD-2967, Mayil,
+Borlaug-100 and BL-4341. Bijay and Gautam are both popular and highly
+scaled varieties, while the others are still in their initial stages of
+being commercially tested. Crossing resulted in
+\(\frac{n(n-1)}{2} = 45\) different \(F_1\) families. Over the following
+winter, each of the 45 \(F_1\) families was grown in a two-replicate
+randomized complete block design which also included the 10 parent
+selfs, making a design with 55 entries \(\frac{n(n+1)}{2}\) and two
+replicated (i.e.~110 plots).
+
+Throughout the growth of this experiment a number of different traits
+were recorded on each of the 110 plots. For the simplicity of use case
+demonstration, only plant height character at the end of flowering will
+be considered.
+
+The average plant height of each of the 45\(F_1\)s and the 10 parents
+are shown in Table \ref{tab:half-diallel-pht}. The data used were the
+average of two plant heights (cms) as two representative plants were
+measured in each of the replicate plots.
+
+\begin{longtable}[t]{lrrrrrrrrrr}
+\caption{\label{tab:half-diallel-pht}Average plant height (cm) of each of the 45 F1s and the 10 parents in a half diallel with selfs (replication 1)}\\
+\toprule
+  & Bijay & Swargadwari & WK-1204 & Aditya & Gautam & Tilottama & HD-2967 & Mayil & Borlaug-100 & BL-4341\\
+\midrule
+Bijay & 94.0 & 101.0 & 98.0 & 95 & 65.0 & 58.0 & 72.0 & 90.0 & 63 & 83.0\\
+Swargadwari & 101.0 & 102.0 & 83.0 & 64 & 82.0 & 99.0 & 85.0 & 69.0 & 58 & 91.0\\
+WK-1204 & 98.0 & 83.0 & 67.0 & 76 & 66.0 & 69.0 & 75.0 & 70.0 & 88 & 77.0\\
+Aditya & 95.0 & 64.0 & 76.0 & 79 & 86.0 & 79.0 & 63.0 & 74.0 & 61 & 73.0\\
+Gautam & 65.0 & 82.0 & 66.0 & 86 & 86.0 & 92.0 & 80.0 & 73.0 & 50 & 107.0\\
+\addlinespace
+Tilottama & 58.0 & 99.0 & 69.0 & 79 & 92.0 & 67.0 & 65.0 & 68.0 & 58 & 78.0\\
+HD-2967 & 72.0 & 85.0 & 75.0 & 63 & 80.0 & 65.0 & 86.0 & 67.0 & 63 & 67.0\\
+Mayil & 90.0 & 69.0 & 70.0 & 74 & 73.0 & 68.0 & 67.0 & 52.0 & 58 & 71.0\\
+Borlaug-100 & 63.0 & 58.0 & 88.0 & 61 & 50.0 & 58.0 & 63.0 & 58.0 & 52 & 60.0\\
+BL-4341 & 83.0 & 91.0 & 77.0 & 73 & 107.0 & 78.0 & 67.0 & 71.0 & 60 & 75.0\\
+\addlinespace
+GCA & 6.9 & 8.4 & 1.9 & 0 & 3.7 & -1.7 & -2.7 & -5.8 & -14 & 3.2\\
+\bottomrule
+\end{longtable}
+
+From the data, the total variance (sum of squares) is partitioned into
+differences between the two replicate blocks (Reps), general combining
+ability, specific combining ability and an error term (based on
+interactions between replicates and other factors). Sum of squares (SS)
+and mean squares (MS) obtained are shown in Table
+\ref{tab:half-diallel-pht-anova}.
+
+\begin{table}
+
+\caption{\label{tab:half-diallel-pht-gca}GCA of 10 parents in a half diallel with selfs}
+\centering
+\fontsize{8}{10}\selectfont
+\begin{tabular}[t]{lr}
+\toprule
+Genotype & GCA\\
+\midrule
+\rowcolor{gray!6}  Aditya & 0.0\\
+Bijay & 6.9\\
+\rowcolor{gray!6}  BL-4341 & 3.2\\
+Borlaug-100 & -13.9\\
+\rowcolor{gray!6}  Gautam & 3.7\\
+\addlinespace
+HD-2967 & -2.7\\
+\rowcolor{gray!6}  Mayil & -5.8\\
+Swargadwari & 8.4\\
+\rowcolor{gray!6}  Tilottama & -1.7\\
+WK-1204 & 1.9\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table \ref{tab:half-diallel-pht2-gca} shows the GCA values for second
+replication of the experiment for plant height data (actually
+simulated).
+
+\begin{table}
+
+\caption{\label{tab:half-diallel-pht2-gca}GCA of 10 parents in a half diallel with selfs}
+\centering
+\fontsize{8}{10}\selectfont
+\begin{tabular}[t]{lr}
+\toprule
+Genotype & GCA\\
+\midrule
+\rowcolor{gray!6}  Aditya & -4.8\\
+Bijay & 2.8\\
+\rowcolor{gray!6}  BL-4341 & -3.6\\
+Borlaug-100 & -20.4\\
+\rowcolor{gray!6}  Gautam & -2.0\\
+\addlinespace
+HD-2967 & -5.9\\
+\rowcolor{gray!6}  Mayil & -10.8\\
+Swargadwari & 4.8\\
+\rowcolor{gray!6}  Tilottama & -7.4\\
+WK-1204 & -1.9\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}
+
+\caption{\label{tab:half-diallel-pht-anova}Degrees of freedom, sum of squares and mean squares from the analysis of variance of plant height of a half diallel including parent selfs. In the analysis, the total variance is partitioned into differences between the two replicate blocks (replication), general combining ability (Genotype male), specific combining ability (Genotype male:Genotype female) and an error term (based based on the replicate differences)}
+\centering
+\resizebox{\linewidth}{!}{
+\fontsize{10}{12}\selectfont
+\begin{tabular}[t]{lrrrrr}
+\toprule
+term & df & sumsq & meansq & statistic & p.value\\
+\midrule
+\rowcolor{gray!6}  Genotype male & 9 & 5842 & 649 & 61 & 0\\
+replication & 1 & 909 & 909 & 85 & 0\\
+\rowcolor{gray!6}  Genotype male:Genotype female & 45 & 16340 & 363 & 34 & 0\\
+Residuals & 54 & 575 & 11 &  & \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+The basis assumption of this experiment was that the ten parental lines
+were specifically chosen, although they were taken to be representative
+of a wide range of spring wheat cultivar types. We are therefore
+analysing a fixed effect model and all the mean squares in the analysis
+are tested for significance (using the ``F'' test) against the error
+mean square (i.e.~13).
+
+From the analysis, the overall replicate block effect (i.e.~difference
+between replicate one and replicate two) was not significant. An F-value
+is obtained for specific combining ability as \(\frac{312}{13} = 24\).
+This ``F'' value is compared to F-values found in statistical tables at
+differing probability levels with 45 and 54 degrees of freedom. When
+this is done, it is found that our observed F-value is greater than the
+value from the statistical tables at the 5\% level. Therefore in this
+example, specific combining ability is significant at the 5\% level, and
+hence there should be presence of both variances contributing to the
+overall phenotypes of progeny, this on the other hand implies a lowered
+opportunity to predict progeny performance based on parent GCA values.
+
+Consider now the variance ratio for general combining ability. The
+appropriate F-value is \(\frac{689}{13} = 53\). When this value is
+compared with the appropriate F-values in statistical tables with 9 and
+54 degrees of freedom, we find that it exceeds the appropriate
+expectation based on 99.9\% confidence (i.e.~approximately 3.54), and so
+we say that general combining ability is highly significant. This, in
+combination with the significant specific combining ability, suggests a
+genetic model with both additive and interactive terms. This is opposed
+to the model which would be composed of highly additive effects had
+variation for the specific combining ability between genotypes been
+lower.
+
+Now the expected mean square for specific combining ability of a half
+diallel with fixed effects is:
+
+\[
+\sigma^2 + \frac{2p}{p-1}\sum_is_i^2
+\]
+
+Therefore,
+
+\[
+\begin{aligned}
+312-13 &= \frac{2\times 10}{10-1}\sum_is_i^2 \\
+299 &= 2.2\sum_is_i^2
+\end{aligned}
+\]
+
+So,
+
+\[
+\begin{aligned}
+\sum_is_i^2 &= \frac{299}{2.2} \\
+& = 136
+\end{aligned}
+\] Similarly for general combining ability, the expected mean square is:
+
+\[
+\begin{aligned}
+689-13 &= (1 + 2)\left(\frac{1}{1-10}\right)\sum g_i^2 \\
+676 &= 1.33 \sum g_i^2 
+\end{aligned}
+\]
+
+So
+
+\[
+\begin{aligned}
+\sum g_i^2 &= \frac{676}{1.33} \\
+&= 508
+\end{aligned}
+\]
+
+Now, from the equation above we can compare GCA and SCA effects, so as
+noted earlier we have:
+
+\[
+\begin{aligned}
+\frac{2g_i^2}{[2g_i^2 + s_{ij}]} &= \frac{2\times 508}{[(2\times 508) + 136]} \\
+&= 0.88
+\end{aligned}
+\]
+
+As this value is very close to one, it indicates that, as expected,
+\(s_{ij}^2\) is relatively small compared to \(g_i^2\). Therefore
+additive genetic effects predominate. This means there is a good chance
+that plant height at the \(F_1\) stage in this \emph{B. napus} breeding
+program can be predicted with good accuracy, depending upon the general
+combining ability of the chosen parental lines.
+
+\bibliography{skeleton.bib,../bibliographies.bib}
+
+
+
+\end{document}

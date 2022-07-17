@@ -1,0 +1,481 @@
+\documentclass[nofonts,]{tufte-handout}
+
+% ams
+\usepackage{amssymb,amsmath}
+
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \makeatletter
+  \@ifpackageloaded{fontspec}{}{\usepackage{fontspec}}
+  \makeatother
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \makeatletter
+  \@ifpackageloaded{soul}{
+     \renewcommand\allcapsspacing[1]{{\addfontfeature{LetterSpace=15}#1}}
+     \renewcommand\smallcapsspacing[1]{{\addfontfeature{LetterSpace=10}#1}}
+   }{}
+  \makeatother
+\fi
+
+% graphix
+\usepackage{graphicx}
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+
+% booktabs
+\usepackage{booktabs}
+
+% url
+\usepackage{url}
+
+% hyperref
+\usepackage{hyperref}
+
+% units.
+\usepackage{units}
+
+
+\setcounter{secnumdepth}{-1}
+
+% citations
+\usepackage{natbib}
+\bibliographystyle{plainnat}
+
+%% tint override
+\setcitestyle{round} 
+
+% pandoc syntax highlighting
+
+% longtable
+
+% multiplecol
+\usepackage{multicol}
+
+% strikeout
+\usepackage[normalem]{ulem}
+
+% morefloats
+\usepackage{morefloats}
+
+
+% tightlist macro required by pandoc >= 1.14
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% title / author / date
+\title{Gene and alleles and equilibrium of population}
+\author{Deependra Dhakal}
+\date{2019-06-12}
+
+%% -- tint overrides
+%% fonts, using roboto (condensed) as default
+\usepackage[sfdefault,condensed]{roboto}
+%% also nice: \usepackage[default]{lato}
+
+%% colored links, setting 'borrowed' from RJournal.sty with 'Thanks, Achim!'
+\RequirePackage{color}
+\definecolor{link}{rgb}{0.1,0.1,0.8} %% blue with some grey
+\hypersetup{
+  colorlinks,%
+  citecolor=link,%
+  filecolor=link,%
+  linkcolor=link,%
+  urlcolor=link
+}
+
+%% macros
+\makeatletter
+
+%% -- tint does not use italics or allcaps in title
+\renewcommand{\maketitle}{%     
+  \newpage
+  \global\@topnum\z@% prevent floats from being placed at the top of the page
+  \begingroup
+    \setlength{\parindent}{0pt}%
+    \setlength{\parskip}{4pt}%
+    \let\@@title\@empty
+    \let\@@author\@empty
+    \let\@@date\@empty
+    \ifthenelse{\boolean{@tufte@sfsidenotes}}{%
+      %\gdef\@@title{\sffamily\LARGE\allcaps{\@title}\par}%
+      %\gdef\@@author{\sffamily\Large\allcaps{\@author}\par}%
+      %\gdef\@@date{\sffamily\Large\allcaps{\@date}\par}%
+      \gdef\@@title{\begingroup\fontseries{b}\selectfont\LARGE{\@title}\par}%
+      \gdef\@@author{\begingroup\fontseries{l}\selectfont\Large{\@author}\par}%
+      \gdef\@@date{\begingroup\fontseries{l}\selectfont\Large{\@date}\par}%
+    }{%
+      %\gdef\@@title{\LARGE\itshape\@title\par}%
+      %\gdef\@@author{\Large\itshape\@author\par}%
+      %\gdef\@@date{\Large\itshape\@date\par}%
+      \gdef\@@title{\begingroup\fontseries{b}\selectfont\LARGE\@title\par\endgroup}%
+      \gdef\@@author{\begingroup\fontseries{l}\selectfont\Large\@author\par\endgroup}%
+      \gdef\@@date{\begingroup\fontseries{l}\selectfont\Large\@date\par\endgroup}%
+    }%
+    \@@title
+    \@@author
+    \@@date
+  \endgroup
+  \thispagestyle{plain}% suppress the running head
+  \tuftebreak% add some space before the text begins
+  \@afterindentfalse\@afterheading% suppress indentation of the next paragraph
+}
+
+%% -- tint does not use italics or allcaps in section/subsection/paragraph
+\titleformat{\section}%
+  [hang]% shape
+  %{\normalfont\Large\itshape}% format applied to label+text
+  {\fontseries{b}\selectfont\Large}% format applied to label+text
+  {\thesection}% label
+  {1em}% horizontal separation between label and title body
+  {}% before the title body
+  []% after the title body
+
+\titleformat{\subsection}%
+  [hang]% shape
+  %{\normalfont\large\itshape}% format applied to label+text
+  {\fontseries{m}\selectfont\large}% format applied to label+text
+  {\thesubsection}% label
+  {1em}% horizontal separation between label and title body
+  {}% before the title body
+  []% after the title body
+
+\titleformat{\paragraph}%
+  [runin]% shape
+  %{\normalfont\itshape}% format applied to label+text
+  {\fontseries{l}\selectfont}% format applied to label+text
+  {\theparagraph}% label
+  {1em}% horizontal separation between label and title body
+  {}% before the title body
+  []% after the title body
+
+%% -- tint does not use italics here either
+% Formatting for main TOC (printed in front matter)
+% {section} [left] {above} {before w/label} {before w/o label} {filler + page} [after]
+\ifthenelse{\boolean{@tufte@toc}}{%
+  \titlecontents{part}% FIXME
+    [0em] % distance from left margin
+    %{\vspace{1.5\baselineskip}\begin{fullwidth}\LARGE\rmfamily\itshape} % above (global formatting of entry)
+    {\vspace{1.5\baselineskip}\begin{fullwidth}\fontseries{m}\selectfont\LARGE} % above (global formatting of entry)
+    {\contentslabel{2em}} % before w/label (label = ``II'')
+    {} % before w/o label
+    {\rmfamily\upshape\qquad\thecontentspage} % filler + page (leaders and page num)
+    [\end{fullwidth}] % after
+  \titlecontents{chapter}%
+    [0em] % distance from left margin
+    %{\vspace{1.5\baselineskip}\begin{fullwidth}\LARGE\rmfamily\itshape} % above (global formatting of entry)
+    {\vspace{1.5\baselineskip}\begin{fullwidth}\fontseries{m}\selectfont\LARGE} % above (global formatting of entry)
+    {\hspace*{0em}\contentslabel{2em}} % before w/label (label = ``2'')
+    {\hspace*{0em}} % before w/o label
+    %{\rmfamily\upshape\qquad\thecontentspage} % filler + page (leaders and page num)
+    {\upshape\qquad\thecontentspage} % filler + page (leaders and page num)
+    [\end{fullwidth}] % after
+  \titlecontents{section}% FIXME
+    [0em] % distance from left margin
+    %{\vspace{0\baselineskip}\begin{fullwidth}\Large\rmfamily\itshape} % above (global formatting of entry)
+    {\vspace{0\baselineskip}\begin{fullwidth}\fontseries{m}\selectfont\Large} % above (global formatting of entry)
+    {\hspace*{2em}\contentslabel{2em}} % before w/label (label = ``2.6'')
+    {\hspace*{2em}} % before w/o label
+    %{\rmfamily\upshape\qquad\thecontentspage} % filler + page (leaders and page num)
+    {\upshape\qquad\thecontentspage} % filler + page (leaders and page num)
+    [\end{fullwidth}] % after
+  \titlecontents{subsection}% FIXME
+    [0em] % distance from left margin
+    %{\vspace{0\baselineskip}\begin{fullwidth}\large\rmfamily\itshape} % above (global formatting of entry)
+    {\vspace{0\baselineskip}\begin{fullwidth}\fontseries{m}\selectfont\large} % above (global formatting of entry)
+    {\hspace*{4em}\contentslabel{4em}} % before w/label (label = ``2.6.1'')
+    {\hspace*{4em}} % before w/o label
+    %{\rmfamily\upshape\qquad\thecontentspage} % filler + page (leaders and page num)
+    {\upshape\qquad\thecontentspage} % filler + page (leaders and page num)
+    [\end{fullwidth}] % after
+  \titlecontents{paragraph}% FIXME
+    [0em] % distance from left margin
+    %{\vspace{0\baselineskip}\begin{fullwidth}\normalsize\rmfamily\itshape} % above (global formatting of entry)
+    {\vspace{0\baselineskip}\begin{fullwidth}\fontseries{m}\selectfont\normalsize\rmfamily} % above (global formatting of entry)
+    {\hspace*{6em}\contentslabel{2em}} % before w/label (label = ``2.6.0.0.1'')
+    {\hspace*{6em}} % before w/o label
+    %{\rmfamily\upshape\qquad\thecontentspage} % filler + page (leaders and page num)
+    {\upshape\qquad\thecontentspage} % filler + page (leaders and page num)
+    [\end{fullwidth}] % after
+}{}
+
+  
+\makeatother
+
+
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+
+\begin{document}
+
+\maketitle
+
+
+
+
+\clearpage
+
+\hypertarget{gene-and-genotypes}{%
+\section{Gene and genotypes}\label{gene-and-genotypes}}
+
+\hypertarget{what-is-allelegene}{%
+\subsection{What is allele/gene ?}\label{what-is-allelegene}}
+
+An allele/gene is the bit of DNA at the place called locus (the place on
+a chromosome where an allele resides). An allele is instantiation of a
+locus. But by orthology, a locus is not template for an allele.
+Similarly, a locus is not tangible, rather a map describing where to
+find a tangible thing, an allele on a chromosome. A diploid individual
+has two alleles at a particular autosomal locus.
+
+\hypertarget{mechanisms-by-which-alleles-at-same-locus-changes}{%
+\subsection{Mechanisms by which alleles at same locus
+changes}\label{mechanisms-by-which-alleles-at-same-locus-changes}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  By origin: Same locus but different chromosome.
+\item
+  By state: It is indicative of the context they are put in. i.e.~DNA
+  sequence or amino acid sequence. Same amino acid sequence in some
+  alleles may arise due to different DNA sequences (Redundancy of
+  genetic code).
+\item
+  By descent: In practice, we are often concerned with relatively short
+  time in past and are content to say that two alleles differ by descent
+  if they do not share common ancestor in say, the past 10 generations.
+  Two alleles different by descent may or may not be different by state
+  because of mutation.
+\end{enumerate}
+
+Converse of the mechanisms which cause differences in alleles are termed
+as identical by origin, stage or descent. Diploid individuals are said
+to be heterozygous at a locus if two alleles at that locus are different
+by state. If we are studying proteins, we may call an individual
+homozygous at a locus when the protein sequence of the two alleles are
+identical, even if their DNA sequences differ.
+
+\begin{figure}
+\includegraphics{gene_and_genotypic_frequencies_HW_equilibrium_files/figure-latex/unnamed-chunk-1-1} \caption[An example of pedigree tree showing single pedigree family with 14 subjects]{An example of pedigree tree showing single pedigree family with 14 subjects}\label{fig:unnamed-chunk-1}
+\end{figure}
+
+\hypertarget{kreitmans-sample}{%
+\subsection{Kreitman's sample}\label{kreitmans-sample}}
+
+Kreitman's sample contain II alleles that differ by origin. How many
+alleles differ by state? If we were interested in the full DNA sequence,
+the sample contains six alleles that differ by state. If we were
+interested in the proteins, then sample contains only two alleles that
+differ by state. Of the two protein alleles, the one with a lysine at
+position 192 makes up \(\frac{6}{10} = 0.55\) of the alleles. The usual
+way to say this is that the allele frequency is an estimate of the
+population allele frequency. It's not a particularly precise estimate
+because of the small sample size. A rough approximation to the 95\%
+confidence interval for a proportion is,
+
+\[
+\hat{p} \pm 1.96 \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}
+\]
+
+Where \(\hat{p}\) is the estimate of proportion, 0.55 in our case and
+\(n\) is the sample size. Thus, the probability that the populatoin
+allele frequency falls within the interval (0.26, 0.84) is 0.95. If more
+precise estimate is needed, the sample size would have to be increased.
+
+\hypertarget{genotype-and-allele-frequencies}{%
+\subsection{Genotype and allele
+frequencies}\label{genotype-and-allele-frequencies}}
+
+In A loci, suppose, two alleles \(A_1\) and \(A_2\) are present in a
+diploid organism the genotype and genotypic frequency of segregating
+population will be;
+
+\[
+\begin{aligned}
+Genotype \hspace{20pt} & A_1A_1 & A_1A_2 \hspace{20pt} & A_2A_2 \\
+Relative frequency \hspace{20pt} & x_{11} & x_{12} \hspace{20pt} & x_{22}
+\end{aligned}
+\]
+
+As, relative frequencies must add to 1,
+
+\[
+x_{11} + x_{12} + x_{22} = 1
+\]
+
+The order of subscripting heterozygous is arbitrary.
+
+Frequency of A\_1 allele in the population is,
+
+\[
+p = x_{11} + \frac{1}{2}x_{12}
+\]
+
+and frequency of A\_2 allele is,
+
+\[
+q = 1-p = x_{22} + \frac{1}{2}x_{12}
+\]
+
+Measure of each allele frequency can be thought of as independent
+events. For e.g., for allele \(p\) to be selected;
+
+\[
+p = \left(x_{11} \times \frac{1}{P(p_{A_1A_1})}\right) + \left(x_{12} \times \frac{1}{2}\right) + (x_{22} \times 0)
+\]
+
+Where, \(P(p, A_1A_1)\) is the probability of getting \(p\) allele from
+\(A_1A_1\) genotype, for loci with more than two alleles, frequency of
+\(i^{th}\) allele will be called \(p_i\). Frequency of \(A_iA_j\)
+genotype will be called \(x_ij\) for heterozygotes, \(i\neq j\) and, by
+convention, \(i<j\). If there are \(n\) alleles,
+
+\[
+\begin{aligned}
+1 &= x_{11} + x_{22} + x_{33} + ... + x_{nn} + x_{12} + x_{13} + x_{(n-1)n} \\
+  &= \sum^n_{i=1}\sum^n_{j\geq i}{x_{ij}}
+\end{aligned}
+\]
+
+The frequency of \(i^th\) allele is
+
+\[
+p_i = x_{ii} + \frac{1}{2}\sum^{i-1}_{j = 1}{x_{ji}} + \frac{1}{2}\sum^n_{j = i+1}{x_{ij}}
+\]
+
+\hypertarget{problems}{%
+\subsection{Problems}\label{problems}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  How many different genotypes are there at a locus with n alleles that
+  differ by state?
+\end{enumerate}
+
+When there are n alleles, there are n homozygous genotypes, \(A_iA_i\),
+\(i = 1, 2, ...., n\). If we first view an \(A_iA_j\) heterozygote as
+distinct from an \(A_jA_i\) heterozygote, there are \(n(n-1)\) such
+heterozygotes. The actual number of heterozygotes will be one half this
+number, or \(\frac{n(n-1)}{2}\). Thus, the total number of genotypes is
+\(\frac{n+n(n-1)}{2}= \frac{n(n+1)}{2}\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Derive the hardy weinberg law for a sex-linked locus. Let the initial
+  frequency A, in female be \(p_f\) and in males be \(p_m\). Follow the
+  two allele frequencies in successive generations untill you understand
+  the allele frequency dynamics. Then, jump ahead and find the
+  equilibrium genotype frequencies in females and males. Finally, graph
+  the male and female allele frequencies over several generations for a
+  population that is started with all \(A_1A_1\) females (\(p_f = 1\))
+  and A\_2 males (\(p_m = 0\))
+\end{enumerate}
+
+As males get their X-chromosomes from their mother, the frequency of
+A\_1 in males is always equal to the frequency in females in the
+previous generation. As a female gets one X from her mother and one from
+her father, the allele freq in females is always the average of the male
+and female frequencies in the previous generation. Thus, the allele
+frequencies over the first three generation are as follows.
+
+\begin{tabular}{rlll}
+\toprule
+Generation & Females & Males & Female-male\\
+\midrule
+1 & $p_f$ & $p_m$ & $p_f - p_m$\\
+2 & $\frac{p_f + p_m}{2}$ & $p_m$ & $-\frac{p_f -p_m}{2}$\\
+3 & $\frac{p_f + \frac{p_f + p_m}{2}}{2}$ & $\frac{p_f+ p_m}{2}$ & $\frac{p_f -p_m}{2}$\\
+\bottomrule
+\end{tabular}
+
+Two important things emerge from the table. First, the overall allele
+frequecy,
+
+\[
+p = \frac{2}{3}p_f + \frac{1}{3}p_m
+\]
+
+does not change over time. (Convince yourself that this is so by
+calculating p in generations 2 and 3). Second, the difference between
+the allele frequencies in females and males is halved each generation,
+as recorded in table. Taken together, these two observations show that
+eventually the allele frequencies in male and females will converge to
+\(p\). At that time, the genotype frequencies in females will be at
+Hardy-Weinberg frequencies.
+
+\hypertarget{example-case}{%
+\subsection{Example case}\label{example-case}}
+
+A population is consisted of 200 plants. Out of them, 100 plants are of
+Aa, 50 plants are of AA and 50 plants are of aa genotypes. This is a
+random mating population and in this population the frequencies of these
+three genotypes are at H-W equilibrium state. After \(5^{th}\)
+generations of random mating, plants having genotypes AA, Aa and aa are
+found in 500, 300 and 200 numbers respectively. Are they still in H-W
+equilibrium? Test the result with the help of \(\chi^2\) goodness of fit
+test.
+
+\(\Large \rightarrow\) Here, the population of 200 plants is stated to
+be in H-W equilibrium; we already have equilibrium frequencies. Hence a
+\(\chi^2\) test for would show whether or not both the populations are
+same or have diverged from H-W equilibrium state (i.e.~observed frequncy
+of population after 5th generation is same or different than expected
+population frequency at initial condition). For facilitating comparison,
+we convert the given frequencies of observed genotypes (that of
+\(5^{th}\) generation) to the add upto current population count (200
+individual).
+
+Thus observed frequencies are AA: 100; Aa: 60 and aa: 40.
+
+Note, however, we commonly compute the expected frequency based on the
+expected ratios. Therefore it also imperative to show the expected
+frequency as the proportion of total count of observed frequency.
+
+Now we construct contingency table, as shown in Table
+\ref{tab:hw-equilibrium-independence-chi}.
+
+\begin{longtable}{llrrr}
+\caption{\label{tab:hw-equilibrium-independence-chi}2x3 contingency table of frequency of genotypes at equilibrium generation and at 5th generation of mating}\\
+\toprule
+\multicolumn{2}{c}{  } & \multicolumn{3}{c}{Genotype frequency} \\
+\cmidrule(l{3pt}r{3pt}){3-5}
+  &   & Dominant (AA) & Homozygous dominant (Aa) & Recessive (aa)\\
+\midrule
+ & $1^{st}$ & 100 & 50 & 50\\
+\cmidrule{2-5}
+\multirow{-2}{*}{\raggedright\arraybackslash Generation} & $5^{th}$ & 100 & 60 & 40\\
+\bottomrule
+\end{longtable}
+
+Here since the number of df is 2, we do not apply the Yate's correction.
+After computation, we find \(\chi^2\) = 2.020202 with probability of
+0.3641822 which is well within the confidence band of 0.95 to 0.05. We
+fail to reject the null hypothesis that two observations were taken from
+same populations. Thus, we conclude that even after \(5^{th}\)
+generation of mating the population continues to be in HW equilibrium
+state.
+
+\bibliography{skeleton.bib,bibliography.bib}
+
+
+
+\end{document}

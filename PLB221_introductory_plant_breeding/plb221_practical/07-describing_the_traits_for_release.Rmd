@@ -1,3 +1,0 @@
-# Describing the traits for release of a new variety {#practical-7}
-
-We have finished a nice book.

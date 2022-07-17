@@ -1,0 +1,503 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[11pt,ignorenonframetext,aspectratio=169]{beamer}
+\IfFileExists{pgfpages.sty}{\usepackage{pgfpages}}{}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+\fi
+\defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+
+
+
+
+
+
+
+\fi
+
+
+
+
+
+
+
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+  \usepackage{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+
+
+\newif\ifbibliography
+
+
+\hypersetup{
+      pdftitle={Introduction to genetics},
+        pdfauthor={Deependra Dhakal},
+          pdfborder={0 0 0},
+    breaklinks=true}
+%\urlstyle{same}  % Use monospace font for urls
+
+
+
+
+
+
+
+% Prevent slide breaks in the middle of a paragraph:
+\widowpenalties 1 10000
+\raggedbottom
+
+  \AtBeginPart{
+    \let\insertpartnumber\relax
+    \let\partname\relax
+    \frame{\partpage}
+  }
+  \AtBeginSection{
+    \ifbibliography
+    \else
+      \let\insertsectionnumber\relax
+      \let\sectionname\relax
+      \frame{\sectionpage}
+    \fi
+  }
+  \AtBeginSubsection{
+    \let\insertsubsectionnumber\relax
+    \let\subsectionname\relax
+    \frame{\subsectionpage}
+  }
+
+
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+  \setcounter{secnumdepth}{0}
+
+
+  \usepackage{setspace}
+  \usepackage{wasysym}
+  % \usepackage{fontenc}
+  \usepackage{booktabs,siunitx}
+  \usepackage{longtable}
+  \usepackage{array}
+  \usepackage{multirow}
+  \usepackage{wrapfig}
+  \usepackage{float}
+  \usepackage{colortbl}
+  \usepackage{pdflscape}
+  \usepackage{tabu}
+  \usepackage{threeparttable}
+  \usepackage{threeparttablex}
+  \usepackage[normalem]{ulem}
+  \usepackage{makecell}
+  \usepackage{xcolor}
+  \usepackage{tikz} % required for image opacity change
+  \usepackage[absolute,overlay]{textpos} % for text formatting
+  \usepackage[skip=0.333\baselineskip]{caption}
+  % \usepackage{newtxtext,newtxmath}% better than txfonts   
+
+  \sisetup{per-mode=symbol}
+
+  % % Added by CII
+  % \usepackage[format=hang,labelfont=bf,margin=0.5cm,justification=centering]{caption}
+  % \captionsetup{font=small,width=0.9\linewidth,labelfont=small,textfont={small}}
+  % % End of CII addition
+
+  \usepackage{subcaption}
+  % \newcommand{\subfloat}[2][need a sub-caption]{\subcaptionbox{#1}{#2}}
+
+  \captionsetup[sub]{font=footnotesize,labelfont=footnotesize,textfont=footnotesize}
+  % \captionsetup[subfigure]{font=small,labelfont=small,textfont=small}
+  % \captionsetup[subfloat]{font=scriptsize,labelfont=scriptsize,textfont=scriptsize}
+
+  % this font option is amenable for beamer, although these are global settings
+  \setbeamerfont{caption}{size=\tiny}
+  % \setbeamerfont{subcaption}{size=\tiny} % this does not chage subfloat fonts
+  % \setbeamerfont{subfloat}{size=\tiny} % this does not change subfloat fonts
+   
+  % use single line spacing ?
+  \singlespacing
+
+  % use customize theme and colortheme
+  % \usetheme[subsectionpage=progressbar,background=light]{metropolis}
+  % \usetheme[]{Warsaw} % other options are: rose, Berlin
+  % \usetheme[subsectionpage=progressbar,background=light]{metropolis} % it should be integrated to template itself by replacing preset theme
+  \setbeamercolor{title}{fg=blue!85!black,bg=red!20!white}
+  \setbeamertemplate{section in toc shaded}[default][50]
+  % \usecolortheme{crane}
+  \usecolortheme{seahorse}
+  % beamer progress bar customization
+  \usetikzlibrary{calc}
+
+  \definecolor{pbblue}{HTML}{0A75A8}% filling color for the progress bar
+  \definecolor{pbgray}{HTML}{575757}% background color for the progress bar
+
+  \makeatletter
+  \def\progressbar@progressbar{} % the progress bar
+  \newcount\progressbar@tmpcounta% auxiliary counter
+  \newcount\progressbar@tmpcountb% auxiliary counter
+  \newdimen\progressbar@pbht %progressbar height
+  \newdimen\progressbar@pbwd %progressbar width
+  \newdimen\progressbar@tmpdim % auxiliary dimension
+
+  \progressbar@pbwd=\linewidth
+  \progressbar@pbht=1.0ex
+
+  % the progress bar
+  \def\progressbar@progressbar{%
+
+      \progressbar@tmpcounta=\insertframenumber
+      \progressbar@tmpcountb=\inserttotalframenumber
+      \progressbar@tmpdim=\progressbar@pbwd
+      \multiply\progressbar@tmpdim by \progressbar@tmpcounta
+      \divide\progressbar@tmpdim by \progressbar@tmpcountb
+
+    \begin{tikzpicture}[rounded corners=2pt,very thin]
+
+      \shade[top color=pbgray!20,bottom color=pbgray!20,middle color=pbgray!50]
+        (0pt, 0pt) rectangle ++ (\progressbar@pbwd, \progressbar@pbht);
+
+        \shade[draw=pbblue,top color=pbblue!50,bottom color=pbblue!50,middle color=pbblue] %
+          (0pt, 0pt) rectangle ++ (\progressbar@tmpdim, \progressbar@pbht);
+
+      \draw[color=normal text.fg!50]  
+        (0pt, 0pt) rectangle (\progressbar@pbwd, \progressbar@pbht) 
+          node[pos=0.5,color=normal text.fg] {\textnormal{%
+               \pgfmathparse{\insertframenumber*100/\inserttotalframenumber}%
+               \pgfmathprintnumber[fixed,precision=2]{\pgfmathresult}\,\%%
+          }%
+      };
+    \end{tikzpicture}%
+  }
+
+  \addtobeamertemplate{footline}{} % modified from 'headline' by dd_rookie
+  {%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=4ex,center,dp=1ex]{white}%
+      \progressbar@progressbar%
+    \end{beamercolorbox}%
+  }
+  \makeatother
+
+  \title[]{Introduction to genetics}
+
+  \subtitle{An overview}
+
+  \author[
+        Deependra Dhakal
+    ]{Deependra Dhakal}
+
+  \institute[
+    ]{
+    College of Natural Resource Management, Tikapur, Kailali\\
+Agriculture and Forestry University\\
+\textit{ddhakal.rookie@gmail.com}\\
+\url{https://rookie.rbind.io}
+    }
+
+\date[
+      Academic year 2022-2023
+  ]{
+      Academic year 2022-2023
+        }
+
+\begin{document}
+
+% Hide progress bar and footline on titlepage
+  \begin{frame}[plain]
+  \titlepage
+  \end{frame}
+
+
+  \begin{frame}
+  \frametitle{Outline} % modified by dd_rookie
+  \tableofcontents[hideallsubsections,pausesections] % modified by dd_rookie
+  \end{frame}
+
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+\begin{frame}{Background}
+\protect\hypertarget{background}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  A scientific discipline
+\item
+  The major drive of the green revolution
+\item
+  Issues of government regimes -- politics of masses during Hitler's
+  Germany.
+\item
+  Can traditional agriculture satisfy human needs in distant future ?
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    Modern variety
+  \item
+    GM crops and their safety
+  \end{itemize}
+\item
+  Medical drugs, genetic engineering
+\item
+  Appreciation
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section}{}
+\begin{columns}[T,onlytextwidth]
+  
+  \column{0.5\textwidth}
+
+\begin{figure}
+\includegraphics[width=0.7\linewidth]{../images/wild_flowers_abroad} \end{figure}
+\begin{figure}
+\includegraphics[width=0.7\linewidth]{../images/jacaranda_kathmandu} \end{figure}
+
+  \column{0.5\textwidth}
+
+\begin{figure}
+\includegraphics[width=0.96\linewidth]{../images/wheat_trial_plots} \caption{Crop improvement}\label{fig:genetics-applications-2}
+\end{figure}
+
+\end{columns}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-1}{}
+\begin{columns}[T,onlytextwidth]
+  
+  \column{0.5\textwidth}
+
+\begin{figure}
+\includegraphics[width=0.38\linewidth]{../images/green_revolution_borlaug} \caption{Norman Borlaug, a leader in the development of new strains of wheat that led to the Green Revolution. Borlaug was awarded the Nobel Peace Prize in 1970.}\label{fig:green-revolution-borlaug}
+\end{figure}
+
+  \column{0.5\textwidth}
+
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{../images/green_revolution_crop} \caption{Modern, high-yielding rice plant (left) and traditional rice plant (right)}\label{fig:green-revolution-crop}
+\end{figure}
+
+\end{columns}
+\end{frame}
+
+\begin{frame}{Definition}
+\protect\hypertarget{definition}{}
+\begin{block}{Study of heredity}
+\protect\hypertarget{study-of-heredity}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Why cats always have kittens and humans always have babies ?
+\item
+  Why do children resemble their parents ?
+\item
+  Why two people are never same ?
+\end{itemize}
+\end{block}
+
+\begin{block}{Etymology}
+\protect\hypertarget{etymology}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  ``gene''
+\item
+  At any level of study genes are central
+\item
+  Genes have unique nature to perform their biological roles --
+  replication, information bearing/generation of form and mutation
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Terminologies}
+\protect\hypertarget{terminologies}{}
+\begin{columns}[T,onlytextwidth]
+  
+  \column{0.3\textwidth}
+
+\begin{itemize}
+\item Selection
+\item DNA
+\item RNA
+\item PCR
+\item Viruses (Coronaviruses, H1N1)
+\item BLAST
+\item TATA
+\item Hox1, Pht1
+\item ELISA
+\item FISH
+\item CRISPR
+\end{itemize}
+
+  \column{0.7\textwidth}
+
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{../images/chicken_selection} \caption{Terminologies and implications. Selection}\label{fig:terminologies-1}
+\end{figure}
+
+\end{columns}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-2}{}
+\begin{center}\includegraphics[width=0.3\linewidth]{../images/viruses} \end{center}
+\end{frame}
+
+\begin{frame}{Branches}
+\protect\hypertarget{branches}{}
+\begin{figure}
+\includegraphics[width=0.45\linewidth]{../images/genetics_subdivision} \caption{Subdivision of genetics into three interrelated fields}\label{fig:genetics-subdivision}
+\end{figure}
+\end{frame}
+
+\hypertarget{past-and-present}{%
+\section{Past and present}\label{past-and-present}}
+
+\begin{frame}{Gregor Mendel}
+\protect\hypertarget{gregor-mendel}{}
+\begin{itemize}
+\tightlist
+\item
+  Blending theory of inheritance
+\item
+  Mendelian theory of inheritance
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Mendel's Experiment}
+\protect\hypertarget{mendels-experiment}{}
+\begin{columns}[T,onlytextwidth]
+  
+  \column{0.5\textwidth}
+
+\begin{figure}
+\includegraphics[width=0.35\linewidth]{../images/mendels_experiment} \caption{The mating scheme for Mendel’s experiment involving the crossing of purple- and white- flowered varieties of pea plants. The purple and white circles signify the gene variants for purple vs. white flower color. Gametes carry one gene copy; the plants each carry two gene copies. The $  imes$ signifies a cross-pollination between the purple -- and white-flowered plants.}\label{fig:mendels-experiment}
+\end{figure}
+  
+  \column{0.5\textwidth}
+
+\begin{figure}
+\includegraphics[width=0.5\linewidth]{../images/mendels_pea} \caption{\textbf{The seven phenotypic pairs studied by Mendel; For each character Mendel studied two contrasting phenotypes} \newline }\label{fig:mendels-pea}
+\end{figure}
+
+\end{columns}
+\end{frame}
+
+\begin{frame}{The crossing}
+\protect\hypertarget{the-crossing}{}
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{../images/crossing_selfing} \caption{Cross-pollination and selfing are two types of crosses}\label{fig:crossing-pea}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Model organisms}
+\protect\hypertarget{model-organisms}{}
+\begin{columns}[T,onlytextwidth]
+  
+  \column{0.33\textwidth}
+  
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{../images/model_organisms_drosophila} \caption{\textit{Drosophila melanogaster}}\label{fig:model-organisms-drosophila}
+\end{figure}
+
+  \column{0.33\textwidth}
+
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{../images/model_organisms_coli} \caption{\textit{Escherichia coli}}\label{fig:model-organisms-ecoli}
+\end{figure}
+
+  \column{0.33\textwidth}
+
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{../images/model_organisms_elegans} \caption{\textit{Caenorhabditis elegans}}\label{fig:model-organisms-caenorhabditis}
+\end{figure}
+
+\end{columns}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-3}{}
+\begin{columns}[T,onlytextwidth]
+  
+  \column{0.33\textwidth}
+
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{../images/model_organisms_arabidopsis} \caption{\textit{Arabidopsis thaliana}}\label{fig:model-organisms-arabidopsis}
+\end{figure}
+
+  \column{0.33\textwidth}
+
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{../images/model_organisms_cerevisiae} \caption{\textit{Saccharomyces cerevisiae}}\label{fig:model-organisms-cerevisiae}
+\end{figure}
+
+  \column{0.33\textwidth}
+
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{../images/model_organisms_mus} \caption{\textit{Mus musculus}}\label{fig:model-organisms-mus}
+\end{figure}
+
+\end{columns}
+\end{frame}
+
+\begin{frame}{Fundamental concepts of genetics}
+\protect\hypertarget{fundamental-concepts-of-genetics}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Cells are of two basic types: \alert{Eukaryotic} and
+  \alert{prokaryotic}
+\item
+  The gene is the fundamental unit of heredity
+\item
+  Genes come in multiple forms called alleles
+\item
+  Genes confer phenotypes
+\item
+  Genetic information is carried in DNA and RNA
+\item
+  Genes are located on chromosomes
+\item
+  Chromosomes separate through the process of mitosis and meiosis
+\item
+  Genetic information is transferred from DNA to RNA to protein
+\item
+  Mutations are permanent, heritable changes in genetic information
+\item
+  Some traits are affected by multiple factors
+\item
+  Evolution is genetic change
+\end{itemize}
+\end{frame}
+
+\hypertarget{bibliography}{%
+\section{Bibliography}\label{bibliography}}
+
+
+
+
+\end{document}

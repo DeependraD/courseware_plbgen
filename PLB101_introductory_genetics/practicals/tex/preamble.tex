@@ -1,0 +1,93 @@
+\usepackage{booktabs}
+
+\usepackage{geometry} % for custom layout of book and landscape geometry support
+\usepackage{amsthm}
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=8pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
+
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{%
+\markboth{\thechapter.\ #1}{}}
+
+\newcommand{\TheAuthor}{} % As given in documentation of **fancyhdr**
+\newcommand{\Author}[1]{\renewcommand{\TheAuthor}{#1}}
+\fancyhead{} % clear all fields
+\fancyhead[CO]{\slshape \leftmark~ -- \TheAuthor}
+\fancyhead[CE]{\slshape \TheAuthor}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.6pt}
+\Author{Deependra Dhakal}
+
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{dcolumn}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{multirow}
+% \usepackage[table]{xcolor}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage[normalem]{ulem}
+\usepackage{rotating}
+\newcommand{\blandscape}{\begin{landscape}}
+\newcommand{\elandscape}{\end{landscape}}
+\usepackage[format=hang,labelfont=bf,margin=0.5cm,justification=centering]{caption}
+% \usepackage{exam} % this and exam.sty cause error
+\usepackage{pdfpages}
+\usepackage{wasysym}
+\usepackage{subcaption} % doesn't work with tinytex in windows
+% \newcommand{\subfloat}[2][need a sub-caption]{\subcaptionbox{#1}{#2}}
+
+% % use either of these two hacks to turn off section numbering
+% % turn off section numbering in text body
+% \setcounter{secnumdepth}{0}
+
+% remove section numbering but keep references to the section
+\makeatletter
+\renewcommand{\@seccntformat}[1]{}
+\makeatother
+
+% to format chapter prefix and name in common line
+\usepackage{titlesec}
+\titleformat{\chapter}[hang] %possible values are hang, display, leftmargin, drop, etc.
+  {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter: } % format to be applied to the whole title and label setting
+  {0pt} %horizontal separation between label and title body
+  {} %code preceding the title body
+
+\titlespacing{\chapter}{0pt}{40pt}{4\baselineskip}
+\renewcommand{\chaptername}{Practical} %to change "Chapter" into "Practical"
+
+% for using minipage
+\newlength\Colsep
+\setlength\Colsep{10pt}
+
+% coffee spill
+\input fun-coffee
+\usepackage{everypage}
+\usepackage{pgf}
+
+\pgfmathsetseed{\pdfuniformdeviate 10000000}
+
+\pgfmathdeclarerandomlist{scales}{{1}{1.2}{1.6}{1.8}}
+\pgfmathdeclarerandomlist{stains}{{\coffeeA}{\coffeeB}{\coffeeC}{\coffeeD}}
+
+\AddEverypageHook{%
+  \pgfmathrandominteger{\angle}{15}{350}%
+  \pgfmathparse{rand/2.4}\xdef\xoffset{\pgfmathresult}%
+  \pgfmathparse{rand/2.4}\xdef\yoffset{\pgfmathresult}%
+  \pgfmathparse{(0.1 + rnd/3)}\xdef\trans{\pgfmathresult}%
+  \pgfmathrandomitem{\scale}{scales}%
+  \pgfmathrandomitem{\stain}{stains}%
+  \edef\coffeescale{\trans}\stain%
+}

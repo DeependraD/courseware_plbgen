@@ -1,0 +1,102 @@
+Type of gene/s,Phenomena type,Phenomena,Individuals,Out of,Phenotypes,Genotypes
+,,,,,,
+Each gene pair affecting a different character,1,Complete dominance at both gene pairs,9,16,yellow round,"1, 2, 3, 4, 5, 7, 9, 10, 13"
+Each gene pair affecting a different character,1,Example: Mendel's peas,3,16,yellow wrinkled,"6, 8, 14"
+Each gene pair affecting a different character,1,Gene pair A: (seed color) yellow dominant over green,3,16,green round,"11, 12, 15"
+Each gene pair affecting a different character,1,Gene pair B: (seed shape) round dominant over wrinkled,1,16,green wrinkled,16
+Each gene pair affecting a different character,1,,,,,
+,,,,,,
+Each gene pair affecting a different character,2,Complete dominance at one gene pair; partial or codominance at the other,6,16,polled roan,"2, 4, 5, 7, 10, 13"
+Each gene pair affecting a different character,2,Example: Cattle,3,16,polled red,"1, 3, 9"
+Each gene pair affecting a different character,2,Gene pair A: polled (hornless) dominant over horned,3,16,polled white,"6, 8, 14"
+Each gene pair affecting a different character,2,"Gene pair B: red hair color partially dominant over white, producing “roan” heterozygotes",2,16,horned roan,"12, 15"
+Each gene pair affecting a different character,2,,1,16,horned red,11
+Each gene pair affecting a different character,2,,1,16,horned white,16
+,,,,,,
+Each gene pair affecting a different character,3,Partial or codominance at both gene paris,1,16,AAMM,1
+Each gene pair affecting a different character,3,Example: human blood groups,2,16,AAMN,"2, 5"
+Each gene pair affecting a different character,3,Gene pair A: (ABO) A and B codominant,1,16,AANN,6
+Each gene pair affecting a different character,3,Gene pair B: (MN) M and N codominant,2,16,ABMM,"3, 9"
+Each gene pair affecting a different character,3,,4,16,ABMN,"4, 7, 10, 13"
+Each gene pair affecting a different character,3,,2,16,ABNN,"8, 14"
+Each gene pair affecting a different character,3,,1,16,BBMM,11
+Each gene pair affecting a different character,3,,2,16,BBMN,"12, 15"
+Each gene pair affecting a different character,3,,1,16,BBNN,16
+Each gene pair affecting a different character,3,,,,,
+,,,,,,
+Each gene pair affecting the same character,4,"Complete dominance at both gene pairs; new phenotypes resulting from interaction between dominants, and also from interaction between both homozygous recessives",9,16,walnut,"1, 2, 3, 4, 5, 7, 9, 10, 13"
+Each gene pair affecting the same character,4,Example: comb shape in poultry,3,16,rose,"6, 8, 14"
+Each gene pair affecting the same character,4,Gene pair A: rose comb dominant over nonrose,3,16,pea,"11, 12, 15"
+Each gene pair affecting the same character,4,Gene pair B: pea comb dominant over nonpea,1,16,single,16
+Each gene pair affecting the same character,4,Interaction: Dominants for rose and pea produce walnut comb. Homozygous recessives for rose and pea produce single comb,,,,
+Each gene pair affecting the same character,4,,,,,
+,,,,,,
+Each gene pair affecting the same character,5,"Complete dominance at both gene pairs, but one gene, when homozygous recessive, is epistatic to the other",9,16,agouti,"1, 2, 3, 4, 5, 7, 9, 10, 13"
+Each gene pair affecting the same character,5,Example: mouse coat color,3,16,black,"6, 8, 14"
+Each gene pair affecting the same character,5,Gene pair A: color dominant over albino,4,16,albino,"11, 12, 15, 16"
+Each gene pair affecting the same character,5,Gene pair B: agouti color dominant over black,,,,
+Each gene pair affecting the same character,5,Interaction: homozygous albino is epistatic to agouti and black,,,,
+,,,,,,
+Each gene pair affecting the same character,6,"Complete dominance at both gene pairs, but either recessive homozygote is epistatic to the effects of the other gene",9,16,purple,"1, 2, 3, 4, 5, 7, 9, 10, 13"
+Each gene pair affecting the same character,6,Example: sweet pea flower color,7,16,white,"6, 8, 11, 12, 14, 15, 16"
+Each gene pair affecting the same character,6,Gene pair A: purple dominant over white,,,,
+Each gene pair affecting the same character,6,Gene pair B: color dominant to colorless (white),,,,
+Each gene pair affecting the same character,6,Interaction: homozygous recessives at either gene A or B produce white,,,,
+,,,,,,
+Each gene pair affecting the same character,7,"Complete dominance at both gene pairs, but one gene, when dominant, epistatic to the other",12,16,white,"1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 13, 14"
+Each gene pair affecting the same character,7,Example: fruit color in summer squash,3,16,yellow,"11, 12, 15"
+Each gene pair affecting the same character,7,Gene pair A: white dominant to color,1,16,green,16
+Each gene pair affecting the same character,7,Gene pair B: yellow dominant to green,,,,
+Each gene pair affecting the same character,7,Interaction: Dominant white hides the effect of yellow or green,,,,
+,,,,,,
+Each gene pair affecting the same character,8,"Complete dominance at both gene pairs, but either gene, when dominant, epistatic to the other",15,16,triangular,"1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15"
+Each gene pair affecting the same character,8,Example: seed capsule of Shepherd's purse (Bursa),1,16,ovoid,16
+Each gene pair affecting the same character,8,Gene pair A: triangular shape dominant to oviod,,,,
+Each gene pair affecting the same character,8,Gene pair B: triangular shape dominant to ovoid,,,,
+Each gene pair affecting the same character,8,"Interaction: A dominant allele at either gene pair, hides the effect of ovoid",,,,
+,,,,,,
+Each gene pair affecting the same character,9,"Complete dominance at both gene pairs, but one gene, when dominant, epistatic to the second, and the second gene, when homozygous recessive, epistatic to the first",13,16,white,"1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 13, 14, 16"
+Each gene pair affecting the same character,9,Example: feather color in fowl,3,16,color,"11, 12, 15"
+Each gene pair affecting the same character,9,Gene pair A: color inhibition is dominant to color appearance,,,,
+Each gene pair affecting the same character,9,Gene pair B: color is dominant to white,,,,
+Each gene pair affecting the same character,9,"Interaction: dominant color inhibition prevents color even when color is present: color gene, when homozygous recessive, prevents color even when dominant inhibitor is absent",,,,
+,,,,,,
+Each gene pair affecting the same character,10,Complete dominance at both gene pairs; interaction between both dominants to give new phenotypes,9,16,disc,"1, 2, 3, 4, 5, 7, 9, 10, 13"
+Each gene pair affecting the same character,10,Example: fruit shape in summer squash,6,16,sphere,"6, 8, 11, 12, 14, 15"
+Each gene pair affecting the same character,10,Gene pair A: sphere shape dominant over long shape,1,16,long,16
+Each gene pair affecting the same character,10,Gene pair B: sphere shape dominant over long shape,,,,
+Each gene pair affecting the same character,10,"Interaction: dominants at A and B, when present together, form disc-shaped fruit",,,,
+,,,,,,
+Each gene pair affecting the same character,11,"Complete dominance at one gene pair, partial dominance at the other; first gene, when homozygous recessive, is epistatic to second gene",7,16,smooth,"1, 3, 9, 11, 12, 15, 16"
+Each gene pair affecting the same character,11,Example: hair direction in guinea pigs,6,16,partly rough,"2, 4, 5, 7, 10, 13"
+Each gene pair affecting the same character,11,Gene pair A: rough hair dominant over smooth,3,16,full rough,"6, 8, 14"
+Each gene pair affecting the same character,11,Gene pair B: modifies rough to smooth ($A\_BB$ smooth; $A\_Bb$ partly rough; $A\_bb$ full rough),,,,
+Each gene pair affecting the same character,11,Interaction: when hair is smooth (aa) effect of modifier does not appear,,,,
+Each gene pair affecting the same character,11,,,,,
+,,,,,,
+Each gene pair affecting the same character,12,"Complete dominance at one gene pair, partial dominance at the other; either gene, when homozygous recessive, is epistatic to the other; when both genes are homozygous recessive, the second is epistatic to the first",6,16,sooty,"2, 4, 5, 7, 10, 13"
+Each gene pair affecting the same character,12,"Example: body color in the flour beetle, \textit{Tribolium castaneum}",3,16,red,"1, 3, 9"
+Each gene pair affecting the same character,12,Gene pair A: normal (red) is completely dominant over a jet (a darker color with a tinge of red),3,16,jet,"11, 12, 15"
+Each gene pair affecting the same character,12,Gene pair B: normal (red) is completely dominant over black; the black heterozygote appears sooty in color,4,16,black,"6, 8, 14, 16"
+Each gene pair affecting the same character,12,"Interaction: when jet is homozygous recessive (aa), the effect of BB or Bb does not appear; the double recessive, aabb, is black",,,,
+,,,,,,
+Each gene pair affecting the same character,13,"Complete dominance at one gene pair, partial dominance at the other; the partially dominant heterozygote has the same phenotype as the recessive homozygote at the other gene pair and an additive effect when they are both combined",7,16,sooty,"2, 4, 5, 7, 10, 11, 13"
+Each gene pair affecting the same character,13,"Example: body color in the flour beetle, \textit{Tribolium castaneum}",4,16,black,"6, 8, 14, 16"
+Each gene pair affecting the same character,13,Gene pair A: normal (red) is completely dominant over sooty,3,16,red,"1, 3, 9"
+Each gene pair affecting the same character,13,Gene pair B: normal (red) is partially dominant over black; the black heterozygote is sooty in color and when combined with the sooty homozygote (aa) causes a dark-sooty phenotype,2,16,dark sooty,"12, 15"
+,,,,,,
+Each gene pair affecting the same character,14,"Dominance at both gene pairs only if both kinds of dominant alleles are present. If the dominant allele at one gene pair is absent, the dominant allele at the other gene pair acts as recessive",11,16,glandular,"1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 13"
+Each gene pair affecting the same character,14,Example: pigment glands in cotton plants (\textit{Gossypium hirsutum}),5,16,glandless,"8, 12, 14, 15, 16"
+Each gene pair affecting the same character,14,Gene pair A: glandular dominant to glandless,,,,
+Each gene pair affecting the same character,14,Gene pair B: glandular dominant to glandless,,,,
+Each gene pair affecting the same character,14,"Interaction: dominants at A and B, when present together, produce pigment glands; absence of dominant allele at one gene pair produces glandular plants only when the dominant allele at the other gene pair in homozygous (e.g., aaBB, Aabb)",,,,
+,,,,,,
+Each gene pair affecting the same character,15,Partial dominance at both gene pairs; additive effects for each partially dominant gene,1,16,purple shade 10,1
+Each gene pair affecting the same character,15,Example: flower color in beans (Mendel),2,16,purple shade 8,"2, 5"
+Each gene pair affecting the same character,15,"Gene pair A: purple flower color partially dominant to white; additive effect on color for each A gene (i.e., value of 3)",2,16,purple shade 7,"3, 9"
+Each gene pair affecting the same character,15,"Gene pair B: purple flower color partially dominant to white; additive effect on color for each A gene (i.e., value of 2)",1,16,purple shade 6,6
+Each gene pair affecting the same character,15,,4,16,purple shade 5,"4, 7, 10, 13"
+Each gene pair affecting the same character,15,,1,16,purple shade 4,11
+Each gene pair affecting the same character,15,,2,16,purple shade 3,"8, 14"
+Each gene pair affecting the same character,15,,2,16,purple shade 2,"12, 15"
+Each gene pair affecting the same character,15,,1,16,purple shade 0 (white),16

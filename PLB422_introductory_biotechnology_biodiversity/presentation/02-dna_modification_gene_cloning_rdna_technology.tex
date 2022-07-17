@@ -1,33 +1,36 @@
-\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
 \PassOptionsToPackage{dvipsnames,svgnames*,x11names*}{xcolor}
 %
-\documentclass[ignorenonframetext,aspectratio=169]{beamer}
+\documentclass[
+  ignorenonframetext,
+  aspectratio=169]{beamer}
 \usepackage{pgfpages}
 \setbeamertemplate{caption}[numbered]
 \setbeamertemplate{caption label separator}{: }
 \setbeamercolor{caption name}{fg=normal text.fg}
 \beamertemplatenavigationsymbolsempty
-% Prevent slide breaks in the middle of a paragraph:
+% Prevent slide breaks in the middle of a paragraph
 \widowpenalties 1 10000
 \raggedbottom
 \setbeamertemplate{part page}{
-\centering
-\begin{beamercolorbox}[sep=16pt,center]{part title}
-  \usebeamerfont{part title}\insertpart\par
-\end{beamercolorbox}
+  \centering
+  \begin{beamercolorbox}[sep=16pt,center]{part title}
+    \usebeamerfont{part title}\insertpart\par
+  \end{beamercolorbox}
 }
 \setbeamertemplate{section page}{
-\centering
-\begin{beamercolorbox}[sep=12pt,center]{part title}
-  \usebeamerfont{section title}\insertsection\par
-\end{beamercolorbox}
+  \centering
+  \begin{beamercolorbox}[sep=12pt,center]{part title}
+    \usebeamerfont{section title}\insertsection\par
+  \end{beamercolorbox}
 }
 \setbeamertemplate{subsection page}{
-\centering
-\begin{beamercolorbox}[sep=8pt,center]{part title}
-  \usebeamerfont{subsection title}\insertsubsection\par
-\end{beamercolorbox}
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center]{part title}
+    \usebeamerfont{subsection title}\insertsubsection\par
+  \end{beamercolorbox}
 }
 \AtBeginPart{
   \frame{\partpage}
@@ -44,54 +47,52 @@
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provides euro and other symbols
-\else % if luatex or xelatex
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
   \usepackage{unicode-math}
-  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
 \fi
 \usetheme[]{Frankfurt}
 \usecolortheme{beaver}
 \usefonttheme{structuresmallcapsserif}
-% use upquote if available, for straight quotes in verbatim environments
+% Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-% use microtype if available
-\IfFileExists{microtype.sty}{%
-\usepackage[]{microtype}
-\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\IfFileExists{parskip.sty}{%
-\usepackage{parskip}
-}{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
 \usepackage{xcolor}
-\usepackage{hyperref}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-            pdftitle={DNA modification, gene cloning and rDNA technology},
-            pdfauthor={Deependra Dhakal},
-            colorlinks=true,
-            linkcolor=red,
-            filecolor=Maroon,
-            citecolor=blue,
-            urlcolor=red,
-            breaklinks=true}
-\urlstyle{same}  % don't use monospace font for urls
+  pdftitle={DNA modification, gene cloning and rDNA technology},
+  pdfauthor={Deependra Dhakal},
+  colorlinks=true,
+  linkcolor=red,
+  filecolor=Maroon,
+  citecolor=blue,
+  urlcolor=red,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
 \newif\ifbibliography
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{0}
-
-% set default figure placement to htbp
-\makeatletter
-\def\fps@figure{htbp}
-\makeatother
-
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 % define new footline defination
 \setbeamertemplate{footline}
 {
@@ -142,22 +143,20 @@
 
 \title{DNA modification, gene cloning and rDNA technology}
 \author{Deependra Dhakal}
-\providecommand{\institute}[1]{}
-\institute{GAASC, Baitadi \and Tribhuwan University}
 \date{Academic year 2019-2020}
+\institute{GAASC, Baitadi \and Tribhuwan University}
 
 \begin{document}
 \frame{\titlepage}
 
-\begin{frame}
-\tableofcontents[hideallsubsections]
+\begin{frame}[allowframebreaks]
+  \tableofcontents[hideallsubsections]
 \end{frame}
 \hypertarget{genetic-structure}{%
 \section{Genetic Structure}\label{genetic-structure}}
 
 \begin{frame}{History}
 \protect\hypertarget{history}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -170,41 +169,49 @@
 \item
   After talks, ideas combined.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{Structure of DNA}
 \protect\hypertarget{structure-of-dna}{}
-
 \begin{figure}
 \includegraphics[width=0.45\linewidth]{./../images/dna_structure_a} \caption{DNA has two strands antiparallel to each other. The structure of the subcomponents is shown to the sides.}\label{fig:nucleic-acid-dna}
 \end{figure}
-
 \end{frame}
 
 \begin{frame}{Structure of RNA}
 \protect\hypertarget{structure-of-rna}{}
-
 \begin{figure}
 \includegraphics[width=0.45\linewidth]{./../images/dna_structure_b} \caption{RNA is usually single-stranded and has two chemical differences from DNA. First, an extra hydroxyl group (-OH) is found at the 2 prime position of ribose, and second, thymine is replaced by uracil.}\label{fig:nucleic-acid-rna}
 \end{figure}
-
 \end{frame}
 
 \begin{frame}{DNA modification: simplified}
 \protect\hypertarget{dna-modification-simplified}{}
-
 \begin{itemize}
 \tightlist
 \item
-  Isolate different fragments of DNA from animals, other bacterias, and
-  viruses.
+  Identification and isolation of the desired gene/DNA fragment to be
+  cloned from different animals, other bacteria, and viruses.
+  Restriction endonucleases are used for producing desired fragments of
+  a given genome.
 \item
-  Ligate the disparate fragments into a small plasmid from E. coli.
+  Insertion of the gene/DNA segment in a vector; plasmid, virus, cosmid,
+  etc.
 \item
-  Transform the engineered plasmid back into E. coli.
+  Introduction of the recombinant vector into a suitable host
+  (transformation).
+\item
+  Integration of the desired gene into the nuclear/organeller genome of
+  the host cell.
+\item
+  Selection of the transformed host cells.
+\item
+  Expression of the cloned genes.
+\item
+  Regeneration of the cloned genes.
+\item
+  Transmission to the progenies.
 \end{itemize}
-
 \end{frame}
 
 \hypertarget{dna-isolation-and-purification}{%
@@ -213,7 +220,6 @@ purification}\label{dna-isolation-and-purification}}
 
 \begin{frame}{Overview}
 \protect\hypertarget{overview}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -223,12 +229,10 @@ purification}\label{dna-isolation-and-purification}}
 \item
   Distinction between two DNAs is made based on their sizes.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{Isolation steps}
 \protect\hypertarget{isolation-steps}{}
-
 \begin{enumerate}
 \tightlist
 \item
@@ -247,12 +251,10 @@ purification}\label{dna-isolation-and-purification}}
   Extraction of unwanted proteins from DNA with phenol (Dissolves
   60\%-70\% of all living matter).
 \end{enumerate}
-
 \end{frame}
 
 \begin{frame}{Purification procedure}
 \protect\hypertarget{purification-procedure}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -267,7 +269,6 @@ purification}\label{dna-isolation-and-purification}}
   aqueous phase, while ribonucleotides stay soluble, thus favoring
   centrifugation extraction of DNA
 \end{itemize}
-
 \end{frame}
 
 \hypertarget{dna-fragment-separation-using-electrophoresis}{%
@@ -276,7 +277,6 @@ Electrophoresis}\label{dna-fragment-separation-using-electrophoresis}}
 
 \begin{frame}{Initial preparation}
 \protect\hypertarget{initial-preparation}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -293,12 +293,10 @@ Electrophoresis}\label{dna-fragment-separation-using-electrophoresis}}
   To make small wells or holes at one end of the gel, comb is inserted
   before the gel hardens.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{Process}
 \protect\hypertarget{process}{}
-
 Gel electrophoresis uses electric current to separate DNA molecules by
 size. The agarose slab is immersed in a buffer-filled tank that has a
 positive electrode at one end and a negative electrode at the other. DNA
@@ -309,12 +307,10 @@ toward the positive electrode. Polymerized agarose acts as a sieve with
 small holes between the tangled chains of agarose. The DNA must migrate
 through these gaps. Agarose separates the DNA by size because larger
 pieces of DNA are slowed down more by the agarose.
-
 \end{frame}
 
 \begin{frame}{Visualization}
 \protect\hypertarget{visualization}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -330,12 +326,10 @@ pieces of DNA are slowed down more by the agarose.
   dye interacts with the negatively charged backbone of the DNA and is a
   nontoxic alternative that does not require ultraviolet light sources.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{Notes}
 \protect\hypertarget{notes}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -353,16 +347,13 @@ pieces of DNA are slowed down more by the agarose.
 \begin{block}{}
 \textrm{Fragments of DNA are separated by size using gel electrophoresis. A current causes the DNA fragments to move away from the negative electrode and toward the positive. As the DNA travels through agarose, the larger fragments get stuck in the gel pores more than the smaller DNA fragments. Pulsed field gel electrophoresis separates large pieces of DNA by alternating the electric current at right angles.}
 \end{block}
-
 \end{frame}
 
 \begin{frame}{Electrophoresis apparatus and visualization}
 \protect\hypertarget{electrophoresis-apparatus-and-visualization}{}
-
 \begin{figure}
 \includegraphics[width=0.45\linewidth]{./../images/electrophoresis} \caption{(A) Photo of electrophoresis supplies. Electrophoresis chamber holds an agarose gel in the center portion, and the rest of the tank is filled with buffer solution. The red and black leads are then attached to an electrical source. FisherBiotech Horizontal Electrophoresis Systems, Midigel System; Standard; 13 $\times$ 16-cm gel size; 800 mL buffer volume; Model No. FB-SB-1316. (B) Agarose gel separation of DNA. The size of the fragments can be calculated by comparing them to the standard DNA marker in lane 1. The brighter bands in the marker are 1000 base pairs and 500 base pairs, with the 1000 base-pair marker closer to the wells (marked with numbers 1–8).}\label{fig:gel-electrophoresis}
 \end{figure}
-
 \end{frame}
 
 \hypertarget{dna-modification}{%
@@ -370,7 +361,6 @@ pieces of DNA are slowed down more by the agarose.
 
 \begin{frame}{DNA cutters: Restriction enzymes}
 \protect\hypertarget{dna-cutters-restriction-enzymes}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -389,21 +379,17 @@ pieces of DNA are slowed down more by the agarose.
   sequence as the corresponding restriction enzyme. These methylate each
   recognition site in the bacterial genome.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{DNA cutters: Restriction enzymes}
 \protect\hypertarget{dna-cutters-restriction-enzymes-1}{}
-
 \begin{figure}
 \includegraphics[width=0.5\linewidth]{./../images/restriction_enzymes} \caption{\textbf{Type II Restriction Enzymes -- Blunt versus Sticky ends} \newline \textit{Hpal} is a bunt-end restriction enzyme; that is, it cuts both strands of DNA in exactly the same position.    extit{EcoR}I is a sticky-end restriction enzyme. The enzyme cuts between the G and A on both strands, which generates four base-pair overhangs on the ends of the DNA. Since these ends may base pair with complementary sequences, they are considered 'sticky'.}\label{fig:restriction-enzymes}
 \end{figure}
-
 \end{frame}
 
 \begin{frame}{DNA cutters: Restriction enzymes}
 \protect\hypertarget{dna-cutters-restriction-enzymes-2}{}
-
 \begin{itemize}
 \item
   Restriction enzymes have been exploited to cut DNA at specific sites,
@@ -426,21 +412,17 @@ pieces of DNA are slowed down more by the agarose.
   inverted repeats so that the enzymes cut between the same bases on the
   both strands.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{DNA cutters: Restriction enzymes}
 \protect\hypertarget{dna-cutters-restriction-enzymes-3}{}
-
 \begin{figure}
 \includegraphics[width=0.5\linewidth]{./../images/restriction_enzymes_ex} \caption{Common restriction enzymes}\label{fig:restriction-enzymes-ex}
 \end{figure}
-
 \end{frame}
 
 \begin{frame}{DNA cutters: Restriction enzymes}
 \protect\hypertarget{dna-cutters-restriction-enzymes-4}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -450,12 +432,10 @@ pieces of DNA are slowed down more by the agarose.
   So to generate fewer, longer fragments, restriction enzymes with six
   or more base-pair recognition sequences are used.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{DNA joiners: Ligase -- Overview}
 \protect\hypertarget{dna-joiners-ligase-overview}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -471,12 +451,10 @@ pieces of DNA are slowed down more by the agarose.
   The efficiency of ligases depends on the total concentration of the
   substrates and also on the closeness of the ends to be ligated.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{DNA joiners: Ligase -- Types}
 \protect\hypertarget{dna-joiners-ligase-types}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -486,16 +464,13 @@ pieces of DNA are slowed down more by the agarose.
   repair of double-strand breaks and nonhomologous end joining, joining
   of recombining plasmid vectors.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{DNA joiners: Ligase}
 \protect\hypertarget{dna-joiners-ligase}{}
-
 \begin{figure}
 \includegraphics[width=0.14\linewidth]{./../images/restriction_ligation} \caption{\textbf{Compatible overhangs are linked using DNA Ligase}\newline BamHI and Bgl Il generate the same overhanging or sticky ends: a $3^\prime$-CTAG-$5^\prime$ overhang plus a $5^\prime$-GATC-$3^\prime$ overhang. These are complementary and base pair by hydrogen bonding. The breaks in the DNA backbones are sealed by T4 DNA ligase, which hydrolyzes ATP to energize the reaction.}\label{fig:restriction-ligation}
 \end{figure}
-
 \end{frame}
 
 \hypertarget{dna-detection}{%
@@ -503,7 +478,6 @@ pieces of DNA are slowed down more by the agarose.
 
 \begin{frame}{Background}
 \protect\hypertarget{background}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -526,21 +500,17 @@ pieces of DNA are slowed down more by the agarose.
   developing the autoradiograph, and superimposing the autoradiograph on
   a photograph of the chromosomes.
 \end{itemize}
-
 \end{frame}
 
-\begin{frame}{In situ hybridization: Classical}
-\protect\hypertarget{in-situ-hybridization-classical}{}
-
+\begin{frame}{In situ hybridization}
+\protect\hypertarget{in-situ-hybridization}{}
 \begin{figure}
 \includegraphics[width=0.65\linewidth]{./../images/insitu_hybrid_steps} \caption{Steps in in-situ hybridization}\label{fig:insitu-hybridization}
 \end{figure}
-
 \end{frame}
 
-\begin{frame}{FISH}
-\protect\hypertarget{fish}{}
-
+\begin{frame}{Fluorescent In Sity Hybridization}
+\protect\hypertarget{fluorescent-in-sity-hybridization}{}
 \begin{itemize}
 \tightlist
 \item
@@ -555,12 +525,10 @@ pieces of DNA are slowed down more by the agarose.
   hybridization probes that are linked to fluorescent dyes or antibodies
   tagged with fluorescent compounds \ref{fig:fish-hybridization1}.
 \end{itemize}
-
 \end{frame}
 
-\begin{frame}{FISH}
-\protect\hypertarget{fish-1}{}
-
+\begin{frame}{Fluorescent In Sity Hybridization}
+\protect\hypertarget{fluorescent-in-sity-hybridization-1}{}
 \begin{itemize}
 \tightlist
 \item
@@ -581,27 +549,151 @@ pieces of DNA are slowed down more by the agarose.
   locations of single-copy sequences in human mitotic and interphase
   chromosomes.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{FISH: Procedure}
 \protect\hypertarget{fish-procedure}{}
-
 \begin{columns}[T,onlytextwidth]
   \column{0.5\textwidth}
 
 \begin{figure}
-\includegraphics[width=0.65\linewidth]{./../images/fish_hybridization1} \caption{Localization of repeated DNA sequences in chromosomes by in situ hybridization performed with fluorescent probes}\label{fig:fish-hybridization1}
+\includegraphics[width=0.8\linewidth]{./../images/fish_hybridization1} \caption{Localization of repeated DNA sequences in chromosomes by in situ hybridization performed with fluorescent probes}\label{fig:fish-hybridization1}
 \end{figure}
 
   \column{0.5\textwidth}
 
 \begin{figure}
-\includegraphics[width=0.4\linewidth]{./../images/fish_hybridization2} \caption{The use of fluorescent dyes to localize the TTAGGG repeat sequence to the telomeres of human chromosomes and a photomicrograph demonstrating its telomeric location is shown in.}\label{fig:fish-hybridization2}
+\includegraphics[width=0.5\linewidth]{./../images/fish_hybridization2} \caption{The use of fluorescent dyes to localize the TTAGGG repeat sequence to the telomeres of human chromosomes and a photomicrograph demonstrating its telomeric location is shown in.}\label{fig:fish-hybridization2}
 \end{figure}
 
 \end{columns}
+\end{frame}
 
+\hypertarget{pcr}{%
+\section{PCR}\label{pcr}}
+
+\begin{frame}{Background}
+\protect\hypertarget{background-1}{}
+\begin{itemize}
+\tightlist
+\item
+  An in vitro technique that enables DNA fragments to be copied in a
+  process that is referred to as \emph{amplification}.
+\item
+  Usefulness is because sufficient DNA can be generated to characterize
+  and analyze it.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    e.g.: tracking disease processes by characterizing genetic
+    fingerprints of pathogenic organisms
+  \end{itemize}
+\item
+  The polymerase chain reaction makes copies of dissociated DNA or
+  single - stranded copies of mRNA.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{PCR steps}
+\protect\hypertarget{pcr-steps}{}
+\begin{itemize}
+\tightlist
+\item
+  Denaturing of the target sequence so that the polynucleotide is in a
+  single stranded, unwound form. For DNA, this requires a temperature of
+  \(94-96^\circ\) C for 5 min.
+\item
+  Hybridization so that the primers bind to complementary bases that
+  flank the regions on either side of the polynucleotide of interest.
+  This step requires about 30 s and is carried out at \(30-65^\circ\).
+\item
+  Polymerization (i.e., polynucleotide or DNA synthesis) by DNA
+  polymerase. The enzyme reads the template strand between the flanking
+  primers, and matches the bases with complementary ribonucleotides,
+  which are then incorporated into the primer strand. This is carried
+  out at \(72-80^\circ\)C for several minutes at pH = 8.4 in Tris buffer
+  containing ribonucleotides representing all 4 bases (A, G, C, T).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section}{}
+\begin{figure}
+\includegraphics[width=0.38\linewidth]{./../images/pcr_steps} \caption{Graphical representation of amplifying a target DNA sequence through the polymerase chain reaction (PCR) [reproduced from Brown (2006), Fig. 9.2] .}\label{fig:pcr-steps}
+\end{figure}
+\end{frame}
+
+\begin{frame}{PCR ingredient: Thermally tolerant DNA polymerase}
+\protect\hypertarget{pcr-ingredient-thermally-tolerant-dna-polymerase}{}
+\begin{itemize}
+\tightlist
+\item
+  Polymerase from the thermophilic bacterium \emph{Thermus aquaticus}
+  resolved issues of specificity and speed.
+\item
+  \emph{T. aquaticus} (abbreviated \emph{Taq}) is found in hotsprings
+  and grows at \(75^\circ\)C. Its enzyme has an optimum temperature of
+  \(72^\circ\)C and is sufficiently stable at \(96^\circ\)C so that
+  fresh Taq enzyme does not need to be added after each cycle.
+\item
+  Taq polymerase allows primer annealing and extension to be carried out
+  at temperatures significantly higher than those for E. coli
+  polymerase. This reduces imperfect annealing and subsequent
+  amplification of an imperfect (nonspecific) product.
+\item
+  This enabled researchers to design and build automated PCR machines,
+  and thereby accelerated the rapid application of this technology.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{PCR: Classic protocol}
+\protect\hypertarget{pcr-classic-protocol}{}
+\begin{block}{Watson et al. ( 1992, p. 8) state:}
+The standard PCR is typically done in a 50 - or 100 $\mu l$ volume and, in addition to the sample DNA, contains 50 mM KCl, 10 mM Tris/HCl (pH 8.4 at room temp.), 1.5 mM MgCl 2, 100 $\mu$g/ml gelatin, 0.25 $\mu$M of each primer, 200 $\mu$M of each deoxynucleotide triphosphate (dATP, dCTP, dGTP, and dTTP), and 2.5 units of Taq polymerase. The type of the DNA sample will be variable but it will usually have between $10^2$ to $10^5$ copies of the template (e.g., 0.1 $\mu$g DNA). A few drops of mineral oil are often added to seal the reaction and prevent condensation ... The amplification can be conveniently performed in a DNA Thermal Cycler (Perkin -Elmer Instruments) using the “Step-Cycle” program set to denature at $94^\circ$C for 20 sec, anneal at $55^\circ$C for 20 sec, and extend at  $72^\circ$C for 30 sec for a total of 30 cycles. (The “Step-Cycle” program causes the instrument to heat and cool to the target temperatures as quickly as possible. In the current instrument, this results in a heating rate of about  $0.3^\circ$C per sec and a cooling rate of about  $1^\circ$C per sec, for an overall single cycle time of approximately 3.75 min).
+\end{block}
+\end{frame}
+
+\begin{frame}{PCR: Detailed methodology}
+\protect\hypertarget{pcr-detailed-methodology}{}
+\begin{itemize}
+\tightlist
+\item
+  A sequence of a small stretch of nucleotides on either side of the
+  target must be known, these flanking sequences are then used to
+  specify and synthesize single-stranded oligonucleotide fragments, or
+  primers (\textasciitilde20 bp).
+\item
+  A mixture of the template sequence (primers), Taq polymerase,
+  triphosphorylated deoxyribonucleotides, and buffer then doubles the
+  amount of DNA each cycle.
+\item
+  The amount of DNA is doubled during each cycle, with n cycles
+  producing \(2^n\) as present to begin with.
+\item
+  Rate of misincorporation: 1 base out of 10,000 - 1 base out of 200,000
+  per PCR cycle.
+\item
+  This limitation was overcome for sequencing long fragments of genomic
+  DNA through use of in vivo DNA amplification using yeast or BACs.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Applications}
+\protect\hypertarget{applications}{}
+\begin{itemize}
+\tightlist
+\item
+  Detection of pathogenic microorganisms ( \emph{H. pylori},
+  tuberculosis, chlamydia, viral meningitis, viral hepatitis, AIDs,
+  etc.)
+\item
+  Disease epidemiology and forcasting.
+\item
+  Crime detection and forensic application.
+\item
+  Crop variety characterization by DNA fingerprinting.
+\end{itemize}
 \end{frame}
 
 \end{document}

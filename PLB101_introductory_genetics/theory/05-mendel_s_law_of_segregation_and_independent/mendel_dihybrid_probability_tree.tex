@@ -1,0 +1,38 @@
+\documentclass{article}
+
+\usepackage{tikz}
+\usetikzlibrary{trees}
+\begin{document}
+
+% Set the overall layout of the tree
+% \tikzstyle{level 1}=[level distance=3.5cm, sibling distance=3.5cm]
+\tikzstyle{level 1}=[level distance=2.5cm, sibling distance=4cm]
+\tikzstyle{level 2}=[level distance=4cm, sibling distance=2.5cm]
+
+% Define styles for bags and leafs
+\tikzstyle{bag} = [text width=8em, text centered]
+\tikzstyle{end} = [circle, minimum width=3pt,fill, inner sep=0pt]
+
+\begin{tikzpicture}[grow=right, sloped]
+\node[bag] {Monohybrid crosses}
+    child {
+        node[bag] {$\frac{3}{4}$ of the $F_2$ is round}% This is the first of three "Bag 2"
+        child {
+                node[bag] {$\frac{3}{4}$ of these round seeds will be yellow}
+            }
+            child {
+                node[bag] {$\frac{1}{4}$ of these will be green}
+            }
+    }
+    child {
+        node[bag] {$\frac{1}{4}$ of the $F_2$ is wrinkled}
+            child {
+                node[bag] {$\frac{3}{4}$ of these wrinkled seeds will be yellow}
+            }
+            child {
+                node[bag] {$\frac{1}{4}$ will be green}
+            }
+    };
+\end{tikzpicture}
+
+\end{document}

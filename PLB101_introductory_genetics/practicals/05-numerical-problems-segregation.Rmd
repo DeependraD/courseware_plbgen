@@ -1,0 +1,87 @@
+# Numerical problems on law of segregation
+
+## Question 1
+
+Phenylketonuria (PKU) is a human hereditary disease resulting from the inability of the body to process the chemical phenylalanine, which is contained in the protein that we eat. PKU is manifested in early infancy and, if it remains untreated, generally leads to mental retardation. PKU is caused by a recessive allele with simple Mendelian inheritance.
+
+A couple intends to have children but consult a genetic counselor because the man has a sister with PKU and the woman has a brother with PKU. There are no other known cases in their families. They ask the genetic counselor to determine the probability that their first child will have PKU. What is this probability?
+
+## Solution 1
+
+If we let the allele causing the PKU phenotype be p and the respective normal allele be P, then the sister and brother of the man and woman, respectively, then the sister and brother of the man and woman, respectively, must have been p/p. To produce these affected persons, all four grandparents must have been heterozygous normal. The pedigree can be summarized as follows:
+
+```{r pedigree-plot, fig.align='center', fig.width=6, fig.height=4, out.width="50%", fig.cap="Pedigree diagram representing case of probability of PKU in a child."}
+library(kinship2)
+
+pku_pedigree <- tribble(~"id", ~"dad", ~"mom", ~"sex", ~"disease_stat",
+                        "id1", NA, NA, "male", 0, 
+                        "id2", NA, NA, "female", 0, 
+                        "id3", "id1", "id2", "male", 1, 
+                        "id4", "id1", "id2", "female", 0, 
+                        "id5", NA, NA, "female", 0, 
+                        "id6", NA, NA, "male", 0,
+                        "id7", "id6", "id5", "female", 1, 
+                        "id8", "id6", "id5", "male", 0, 
+                        "id9", "id8", "id4", "male", NA)
+
+pku_ids <- c("Child's\n maternal grandfather",
+             "Child's\n maternal grandmother",
+             "Child's\n mother's brother",
+             "Child's\n mother",
+             "Child's\n paternal grandmother",
+             "Child's\n paternal grandfather",
+             "Child's\n father's sister",
+             "Child's\n father",
+             "Child")
+
+par(mar=c(4,4,4,4), oma=c(4,4,4,4))
+with(pku_pedigree, pedigree(id = id, dadid = dad, momid = mom, sex = sex, affected = disease_stat)) %>% 
+  plot(id = pku_ids, cex = 0.6)
+
+# data("sample.ped")
+# df2 <- sample.ped[sample.ped$ped == 2, ]
+# names(df2)
+# df2$censor <- c(1, 1, rep(0, 12))
+# 
+# ped2 <- pedigree(df2$id, df2$father, df2$mother, df2$sex, affected = df2$affected, 
+#                  status = df2$censor)
+# aff2 <- data.frame(blue = df2$affected, bald = c(0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 
+#                                                  0, 0, 1))
+# ped2aff <- pedigree(df2$id, df2$father, df2$mother, df2$sex, affected = as.matrix(aff2), 
+#                     status = df2$censor)
+# 
+# id2 <- paste(df2$id, c("John", "Linda", "Jack", "Rachel", "Joe", "Deb", "Lucy", "Ken", 
+#                        "Barb", "Mike", "Matt", "Mindy", "Mark", "George"), sep = "\n")
+# plot(ped2aff, col = ifelse(df2$avail, 2, 1), id = id2, cex = 0.7)
+# pedigree.legend(ped2aff, location = "topright", radius = 0.3)
+
+```
+
+
+When these inferences have been made, the problem is reduced to an application of the product rule. The only way in which the man and woman can have a PKU child is if both of them are heterozygotes (it is obvious that they themselves do not have the disease). Both the grandparental matings are simple Mendelian monohybrid crosses expected to produce progeny in the following proportions:
+
+\begin{equation}
+\begin{aligned}
+\frac{1}{4} P/P; \\
+\frac{1}{2} P/\_; & \textrm{Normal (P/P + P/\_); } \longrightarrow \frac{3}{4} \\
+\frac{1}{4} p/p; & \textrm{PKU; } \longrightarrow \frac{1}{4} \nonumber
+\end{aligned}
+\end{equation}
+
+We know that the man and the woman are normal, and so the probability of each being a heterozygote is 2/3 because, within the P/_ class, 2/3 are P/p and 1/3 are P/P. The probability of both the man and the woman being heterozygotes is 2/3 x 2/3 = 4/9. If both are heterozygous, then one-quarter of their children would have PKU, and so the probability that their first child will have PKU is 1/4 and the probability of their being heterozygous and of their first child’s having PKU is 4/9 x 1/4 = 4/36 = 1/9, which is the answer.
+
+## Question 2
+
+While performing a large scale grow out experiment of pea germplasm, a plant with three cotyledons was discovered (normally, there are 2 cotyledons). This plant was crossed with a normal pure-breeding wild-type plant, and 600 seeds from this cross were planted. There were 298 plants with two cotyledons and 302 with three cotyledons. What can be said about the inheritance of three cotyledons ?
+
+
+## Solution 2
+
+The fact that about half of the $F_1$ progeny are mutant suggests that the mutation that results in three cotyledons in dominant and the original mutant heterozygous. If C = the mutant allele and c = the wild-type allele, the cross is as follows:
+
+$$
+\begin{aligned}
+P \hspace{3em} & C/c \times c/c \\
+F_1 \hspace{3em} & 1~C/c: 1~c/c~ \textrm{(three cotyledons: two cotyledons)} \\
+\end{aligned}
+$$

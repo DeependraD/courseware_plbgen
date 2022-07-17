@@ -1,4 +1,0 @@
-Source,df,SS,Msq,EMS
-GCA,p-1,$S_g$,$M_g$,$\sigma^2 + \sigma^2_s + (p+2)\sigma^2_g$
-SCA,$\frac{p(p-1)}{2}$,$S_s$,$M_s$,$\sigma^2 + \sigma_s^2$
-Error,$(r-1)\left(p\frac{p+1}{2}\right)$,$S_e$,$M_e$,$\sigma^2$

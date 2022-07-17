@@ -1,0 +1,64 @@
+language: r
+latex: true
+r: release
+warnings_are_errors: false
+cache:
+    directories:
+        - $HOME/.local/share/renv
+        - $TRAVIS_BUILD_DIR/renv/library
+        - $HOME/.TinyTeX
+    packages: true
+pandoc_version: 2.9.2.1
+
+env:
+  global:
+    - RENV_CONFIG_REPOS_OVERRIDE=https://cloud.r-project.org
+
+repos:
+  CRAN: https://cloud.r-project.org
+  ropensci: http://packages.ropensci.org
+
+# addons:
+#   apt:
+#     packages:
+#     - ghostscript
+#     - libxml2-dev
+
+branches:
+  - master
+  - "/^v\\d+\\.\\d+/"
+
+install:
+  - Rscript -e "if (!requireNamespace('renv', quietly = TRUE)) install.packages('renv')"
+  - Rscript -e "renv::restore()"
+
+before_script:
+  - chmod +x ./_build.sh
+  - chmod +x ./_deploy.sh
+
+script:
+  - ./_build.sh
+  - ./_deploy.sh
+  # - Rscript -e '<your-build-action>'
+
+before_deploy:
+      # Set up git user name and tag this commit
+        if ! [[ $TRAVIS_TAG ]]; then
+                git config --local user.name "DeependraD" &&
+                git config --local user.email "dean.ionized@gmail.com" &&
+                export TRAVIS_TAG="${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}" &&
+                git tag "$TRAVIS_TAG";
+        fi
+
+deploy:
+        provider: releases
+        # overwrite: true
+        skip_cleanup: true
+        # github_token: $GH_TOKEN  # Set in the settings page of your repository, as a secure variable
+        api_key:
+                secure: CYNXSuO66VuU1dXgdJ/DxSmeJ8NZQBFCjAR36jvy0zKzsMVSf1lJYcpYTVRzX3L83wW2uEBgDJInKiVlI1eqZjfbztz+kSX7Dx5H3pCr+IfIQKXF/hI0sn+bF0tnWowL6eGK0ShWF9NR6F8CNJxDvgwKmiAWTbnkLXsAWR2ARC5q0HPNRugkZqVOE0ptJNo6BDsjLv6G/fa02w/l41qR8m2fj6Zbu1PV7Cv3qktMpT7SCS7wQPkEQXCKAbVmuAvAHlEMgHk3JByTutjT7m1lp5OsCVxzpa7uXh4O+YgEEjmQXdQHuvv7vwhilcq+x5a/PwW3uED3dk0DDLgsLbsplMYzR+XFPtbhlsExFtks+8++CI10Id1X7L0sGxEVMC4IoUbzHREe8MEZOCkHrRU+jFkEoemRNha2q/TKVsRce1f24bLKEatlb9G/i+eyBCpTbuvvWMQ1ww3DLM/VgpgeFsPJGQtkIkb0S8n9cM/6MQv+RfccaZwr19uNFfzWiFn04CsWpCgS7+TFJNoZKwKwdPMZj7Ga+oy+zmVIJJ1jG0//8jiWDQG/OppJrbZ7JRFIJQ+ZLoh6hgL2w9F/T/o5km6Ca2iYjdaymoAfF/PX6Yw/GAkrnGJor/7JoV36DdDWVIW8A26GDuDWQy0DH6QD+pSIWXLW3bjiJT2cTyqUdKc=
+        file:
+                - ./_book/practical-genetics.pdf
+        on:
+                rep: DeependraD/practical-genetics
+                tags: true

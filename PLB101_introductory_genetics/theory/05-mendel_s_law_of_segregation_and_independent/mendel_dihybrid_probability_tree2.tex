@@ -1,0 +1,51 @@
+\documentclass[tikz,border=10pt,multi]{standalone}
+\usetikzlibrary{arrows.meta}
+\usepackage{forest}
+\begin{document}
+\forestset{%
+  declare toks={my label}{},
+  probability tree/.style={%
+    for tree={%
+      math content,
+      grow'=0,
+      child anchor=parent,
+      l sep+=40pt,
+      +edge={every node/.append style={sloped, midway}},
+      delay={%
+      split option={my label}{:}{above edge, below edge},
+      }
+    },
+      where n children=0{%
+      +edge={-{Circle[width=3pt,length=3pt]}},
+      if n=1{
+      !u.s sep+=20pt,
+      }{}
+      }{%
+      text width=50pt,
+      text centered,
+      if={isodd(n_children)}{%
+      for n/.wrap pgfmath arg={{##1}{calign with current edge}}{int(.5*(n_children()+1))}
+      }{},
+      },
+      above edge/.style={%
+      +edge label={node [above] {$##1$}},
+      },
+      below edge/.style={%
+      +edge label={node [below] {$##1$}},
+      },
+      },
+      }
+      \begin{forest}
+      probability tree
+      [{Monohybrid cross}, plain content
+      [{2G, 4R, 2W}
+      ]
+      [{3G, 4R, 1W}, my label=W:\frac{2}{9}
+      % [{P(W_1\cap W_2)=\frac{2}{9}\times\frac{1}{8}=\frac{1}{36}},my label=W:\frac{1}{8}
+      % ]
+      [{P(W_1\cap W_2)=\frac{2}{9}\times\frac{1}{8}=\frac{1}{36}},my label=W:\frac{1}{8}
+      ]
+      ]
+      ]
+      \end{forest}
+      \end{document}

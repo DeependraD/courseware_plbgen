@@ -1,0 +1,170 @@
+---
+title: "Biometrical techniques in plant breeding"
+subtitle: "Assessment of variability<br/>Aids to selection<br/>Choice of parents<br/>Crossing techniques<br/>Genotype-by-environment interaction"
+author: "Deependra Dhakal"
+date: "2019/04/14 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      ratio: "16:9"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+options(knitr.kable.NA = "", digits = 3)
+knitr::opts_chunk$set(tidy = FALSE, echo = FALSE)
+```
+
+```{r maize, fig.cap="Biometrical techniques in plant breeding", fig.align='center', out.height="400px", out.width="auto"}
+# knitr::include_graphics("./images/")
+```
+
+---
+class: inverse, center, middle
+
+# Assessment of variability
+
+---
+
+## Introduction
+
+Biometry/biometrics is the science that deals with the application of statistical procedures to the study of biological problems. Similarly, biometrical genetics is that branch of genetics which attempts to unravel the inheritance of quantitative traits using statistical concepts and procedures. Biometrical techniques are useful to plant breeders in following ways:
+
+1. In the assessment of genetic variability present in a population (range, variance, standard deviation, CV, standard error, D2 statistic, metroglyph analysis).
+2. In the selection of elite genotypes from mixed populations (correlation, path and discriminant function analysis).
+3. In th choice of parents and breeding procedures (diallel, partial diallel, line x tester, generation means, triallel, quadriallel, biparental crossess, triple test cross analysis)
+4. In determining the varietal adaptation (stability analysis).
+
+---
+
+## Assessment of variability
+
+1. Total variance (Phenotypic variance) ($V_p$) = $V_g$ + $V_e$.
+2. Genotypic variation occurs due to genotypic differences among individuals within a population. So, $V_g = V_a + V_d + V_i$. Where, $V_a$, $V_d$ and $V_i$ respectively mean additive, dominance and epistatic components.
+
+- The variability present in breeding populations can be assessed in following ways:
+  - Range: Difference between highest and lowest values
+  - Mean: $\frac{\sum{X}}{N}$
+  - Variance ($\sigma^2$): $\frac{\sum{(X - \bar{x})^2}}{N}$
+  - Standard deviation ($\sigma$): $\sqrt{\sigma^2}$
+  - Coefficient of variation (CV): $\frac{SD}{Mean} \times 100$
+  - Standard error (SE): $\frac{\sigma}{\sqrt{N}}$
+
+## Pooled variance
+
+- Pooled variance (also known as combined, composite, or overall variance; square root known as pooled standard deviation) is a method for estimating variance of several different populations when the mean of each population may be different, but one may assume that the variance of each population is the same.
+
+- Under the assumption of equal population variances, the pooled sample variance provides a higher precision estimate of variance than the individual sample variances. 
+
+- This higher precision can lead to increased statistical power when used in statistical tests that compare the populations, such as the t-test.
+
+---
+
+The pooled variance is an estimate of the fixed common variance ${\displaystyle \sigma ^{2}}$ underlying various populations that have different means.
+
+## Computation
+
+If the populations are indexed ${\displaystyle i=1,\ldots ,k}$ then the pooled variance ${\displaystyle s_{p}^{2}}$ can be computed by the weighted average.
+
+$$
+{\displaystyle s_{p}^{2}={\frac {\sum _{i=1}^{k}(n_{i}-1)s_{i}^{2}}{\sum _{i=1}^{k}(n_{i}-1)}}={\frac {(n_{1}-1)s_{1}^{2}+(n_{2}-1)s_{2}^{2}+\cdots +(n_{k}-1)s_{k}^{2}}{n_{1}+n_{2}+\cdots +n_{k}-k}},}
+$$
+
+where ${\displaystyle n_{i}}$ is the sample size of population ${\displaystyle i}$ and the sample variances are
+
+$$
+{\displaystyle {\frac {1}{n_{i}-1}}\sum _{j=1}^{n_{i}}\left(y_{j}-{\overline {y_{i}}}\right)^{2}}
+$$
+
+Use of ${\displaystyle (n_{i}-1)}$ weighting factors instead of ${\displaystyle n_{i}}$ comes from Bessel's correction.
+
+## Variants
+
+The unbiased least squares estimate of ${\displaystyle \sigma ^{2},}$
+
+$$
+{\displaystyle s_{p}^{2}={\frac {\sum _{i=1}^{k}(n_{i}-1)s_{i}^{2}}{\sum _{i=1}^{k}(n_{i}-1)}},}
+$$
+and the biased maximum likelihood estimate
+
+$${\displaystyle s_{p}^{2}={\frac {\sum _{i=1}^{k}(n_{i}-1)s_{i}^{2}}{\sum _{i=1}^{k}n_{i}}},}$$
+
+are used in different contexts. The former can give an unbiased ${\displaystyle s_{p}^{2}}$ to estimate ${\displaystyle \sigma ^{2}}$ when the two groups share an equal population variance. The latter one can give a more efficient ${\displaystyle s_{p}^{2}}$ to estimate ${\displaystyle \sigma ^{2}}$ biasedly. Note that the quantities ${\displaystyle s_{i}^{2}}$ in the right hand sides of both equations are the unbiased estimates.
+
+---
+
+## Pooled variance
+
+For further details,
+
+https://en.wikipedia.org/wiki/Pooled_variance
+
+---
+
+# Aids to selection 
+
+---
+
+- Selection is the most important activity in all plant breeding programs. Some of the popular schemes for selection include mass selection, bulk selection, progeny selection, recurrent selection, etc.
+- Depending upon the mode of pollination of crop species and the heritability of the character concerned, selection is practiced in both homozygous lines or segregating populations.
+- The efficiency of selection largely depends on the extent of genetic variability present in a population, intensity of selection and the heritability value of the character being selected, with selection responding better if higher is the trait heritability. 
+- Complex traits like yield do not respond to direct selection because of its low heritability.
+- Indirect selection is useful to to improve such traits with complex inheritance.
+- Some of the popular statistical techniques aiding selection of traits are discussed below.
+
+---
+
+## Correlation coefficient analysis
+
+## Pathway coefficient analysis
+
+## Discriminant function analysis
+
+---
+
+# Other tools used in biometry
+
+---
+
+## Choice of parents
+
+- It should be done not only on the basis of phenotypic performance but also on the basis of their genetic (breeding) values. 
+- Choice of parents mainly depends on the breeding objective.
+
+## Crossing techniques
+
+1. Diallel cross: Crossing a number of genotypes in all possible combinations
+
+2. Partial diallel cross: A diallel cross based on a specified sample of crosses from among all possible crosses (diallel scheme) among a number of parental lines.
+
+Sampling procedure: $K = \frac{N + 1 - S}{2}$, where $K$ is a constant, N is number of parents, $S$ is number of sampled crosses per parent or array. In partial diallel cross, the number of crosses is $\frac{NS}{2}$ the S should be either greater than or equal to $\frac{N}{2}$. As a rule, both N and S should neither be both odd or even. If $N$ is odd, $S$ should be even and vice versa.
+
+3. Three way cross. A cross involving three parents.
+
+$$
+\text{Number of three way crosses} = \frac{n(n-1)(n-2)}{2}
+$$
+4. Double cross: A cross involving four parents.
+
+$$
+\text{Number of three way crosses} = \frac{3\times n!}{4!(n-4)!}
+$$
+
+---
+
+5. Line x Tester analysis
+
+- Line x Tester cross is modification of top cross scheme proposed by Davis in 1927 for inbred evaluation. Kempthorne developed the line x tester technique in 1957. It is good approach for screening the germplasm on the basis of GCA and SCA variances, and effects. The total number of crosses to be made is equal to the product of number of lines and the number of testers included in the study. So, the total number of crosses = $n \times t$, where n is the number of lines and t is the number of testers.
+
+6. Six generation mean analysis (Refer to earlier lecture on variance component estimation).
+
+7. Biparental cross analysis: It is includes full sib and half sib progenies in the mating program. Additive and dominance genetic variances are estimated.
+
+
+---
+
+## Genotype-by-environment interactions

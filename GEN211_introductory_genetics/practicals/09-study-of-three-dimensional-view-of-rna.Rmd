@@ -1,6 +1,0 @@
-# Study of structure of RNA
-
-1. RNA and its forms
-2. Structure of RNA (mRNA, tRNA, rRNA)
-3. Ribonucleotide bases
-5. Nature of different RNA molecules

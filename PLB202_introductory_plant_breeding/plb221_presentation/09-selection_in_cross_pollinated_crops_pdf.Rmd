@@ -1,0 +1,37 @@
+---
+title: "Selection in cross pollinated crops"
+subtitle: "Response and gain from selection<br/>Variability"
+author: "Deependra Dhakal"
+date: "2019/04/15 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+options(knitr.kable.NA = "", digits = 3)
+knitr::opts_chunk$set(tidy = FALSE, echo = FALSE)
+require(tidyverse)
+```
+
+## Background
+
+- Breeding cross-pollinated species tends to focus on population improvement rather than the improvement of individual plants, as is the focus in breeding self-pollinated species. 
+- In addition to methods such as mass selection that are applicable to both self-pollinated and cross-pollinated species, there are specific methods that are suited to population improvement. 
+- Certain methods are more effective and readily applied for breeding certain species than others.
+
+---
+
+## Recurrent selection
+
+
+# Response from selection
+
+
+
+# Variability

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Heterosis and inbreeding depression</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Deependra Dhakal" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Heterosis and inbreeding depression
+## Inbreeding depression<br/>Heterosis: its genetic basis and biometrics<br/>Utilization and fixation of heterosis
+### Deependra Dhakal
+### 2019/04/21 (updated: 2020-10-01)
+
+---
+
+class: inverse, middle, center
+
+
+
+# Inbreeding depression
+
+---
+
+- Inbreeding depression is reduction in fitness as a direct result of inbreeding. 
+- In theory, the heterosis observed on crossing is expected to be equal to the depression upon inbreeding, considering a large number of crosses between lines derived from a single base population. 
+- In practice, plant breeders are interested in heterosis expressed by specific crosses between selected parents, or between populations that have no known common origin.
+- Reduction in fitness is usually manifested as a reduction in vigor, fertility, and productivity. 
+- The effect is more severe in the early generations (5-8). 
+- Plants including onions, sunflower, cucurbits, and rye are more tolerant of inbreeding with minimal consequences of inbreeding depression. 
+- Plants such as alfalfa and carrot are highly intolerant of inbreeding.
+
+&lt;!-- For a detailed review: https://www.nature.com/articles/nrg2664. pdf file is downloaded and available in repo under /literature/ --&gt;
+
+---
+
+- Inbreeding is measured by the coefficient of inbreeding (F), which is the probability of identity of alleles by descent. The range of F is zero (no inbreeding; random mating) to one (prolonged selfing).
+- An unfit (deleterious) recessive allele is fairly quickly reduced in frequency but declines slowly thereafter. 
+- On the other hand, an unfit dominant allele is rapidly eliminated from the population, while an intermediate allele is reduced more rapidly than a recessive allele because the former is open to selection in the heterozygote.
+- The consequence of these outcomes is that unfit dominant or intermediate alleles are rare in cross-breeding populations, while unfit recessive alleles persist because they are protected by their recessiveness.
+
+---
+
+- In Figure (a) there is no inbreeding because there is no common ancestral pathway to the individual, A (i.e., all parents are different).
+- However, in Figure (b) inbreeding exists because B and C have common parents (D and E), that is, they are full sibs.
+- To calculate the amount of inbreeding, the standard pedigree is converted to an arrow diagram, as shown in (c). 
+- Each individual contributes 1/2 of its genotype to its offspring. The *coefficient of inbreeding* (F) is calculated by summing up all the pathways between two individuals through a common ancestor as: `\(F_{BC} = \sum{\left(\frac{1}{2}\right)^s}\)` , where s is the number of steps (arrows) from B to the common ancestor and back to C. For example, B and C probably inherited `\((1/2)(1/2) = 1/4\)` of their genes in common through ancestor D. Similarly, B and C probably inherited 1/4 of their genes in common through ancestor E. (Notice that individual whose inbreeding coefficient is being calculated does not constitute the loop and is hence ignored.)
+- Given the proportion of common genes, F can be calculated by squaring the proportion -- i.e. `\(F = \left(\frac{1}{4}\right)^2 + \left(\frac{1}{4}\right)^2 = \frac{1}{8} + \frac{1}{8} = \frac{1}{4}\)`. Here we sum twice because two loops are involved with same proportion of genes common.
+
+---
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="./images/arrow_diagram.png" alt="Pedigree diagrams can be drawn in the standard form (a, b) or converted to into an arrow diagram (c)." width="auto" height="400px" /&gt;
+&lt;p class="caption"&gt;Pedigree diagrams can be drawn in the standard form (a, b) or converted to into an arrow diagram (c).&lt;/p&gt;
+&lt;/div&gt;
+
+---
+class: inverse, middle, center
+
+# Hybrid vigour (Heterosis)
+
+---
+
+- Hybrid vigor may be defined as the increase in size, vigor, fertility, and overall productivity of a hybrid plant over the mid-parent value (average performance of the two parents). 
+- It is calculated as the difference between the crossbred and inbred means:
+
+`$$Hybrid~vigour = \frac{F_1-\frac{(P_1+P_2)}{2}}{\frac{(P_1+P_2)}{2}}$$`
+
+- The estimate is usually calculated as a percentage.
+- The synonymous term, heterosis, was coined by G.H. Shull.
+- Advantageous hybrid vigor is observed more frequently when breeders cross parents that are genetically diverse; When two inbred lines of outbred species are crossed.
+- The practical definition of heterosis is hybrid vigor that greatly exceeds the better or higher parent in a cross.
+- Hybrid breeding in maize quadrupled yields of maize in US between 1930s and 1970s.
+
+---
+
+## Genetic basis of heterosis
+
+- To explain the genetic basis for why fitness lost on inbreeding tends to be restored upon crossing, two theories have been proposed.
+  - Dominance theory: C.G. Davenport in 1908 and later by I.M. Lerner, 
+  - Overdominance theory: Shull in 1908 and later by K. Mather and J.L. Jinks. 
+  
+- A third theory, the mechanism of epistasis (non-allelic gene interactions), has also been proposed.
+
+---
+
+## Dominance theory
+
+- The dominance theory assumes that vigor in plants is conditioned by dominant alleles, recessive alleles being deleterious or neutral in effect. 
+- It follows: a genotype with more dominant alleles will be more vigorous than one with few dominant alleles.
+- Consequently, crossing two parents with complementary dominant alleles will concentrate more favorable alleles in the hybrid than either parent. 
+- In practice, if too many deleterious alleles are present, it makes it difficult to inbreed to recover sufficient loci with homozygous dominant alleles. 
+- Inbreeding depression occurs upon selfing because the deleterious recessive alleles that are protected in the heterozygous condition (heterozygous advantage) become homozygous and are expressed. 
+
+- Assume that each dominant genotype contributes two units to the phenotype, while a recessive genotype contributes one unit.
+- A cross between two inbred parents could produce the following outcome:
+
+---
+
+&lt;img src="./images/dominance_theory.png" width="auto" height="200px" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Overdominance theory
+
+- The phenomenon of the heterozygote being superior to the homozygote is called overdominance (i.e., heterozygosity _per se_ is assumed to be responsible for heterosis). 
+- Theory assumes that the alleles of a gene (e.g., A, a) are contrasting but each has a different favorable effect in the plant. 
+- A genotype with more heterozygous loci would be more vigorous than one with less heterozygotes.
+- Consider a quantitative trait conditioned by four loci, and assume that recessive, heterozygote, and homozygote dominants contribute 1, 2, and 1.5 units to the phenotypic value, respectively:
+
+&lt;img src="./images/overdominance_theory.png" width="auto" height="200px" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Biometrics of heterosis
+
+### Better parent heterosis (Heterobeltiosis)
+
+`$$\large  Hybrid~vigour = \frac{F_1-Better~parent}{Better~parent}$$`
+
+### Mid parent heterosis
+
+`$$\large  Hybrid~vigour = \frac{F_1-\frac{(P_1+P_2)}{2}}{\frac{(P_1+P_2)}{2}}$$`
+
+---
+
+### Commercial heterosis
+
+`$$\large  Hybrid~vigour = \frac{F_1-Commercial~Hybrid}{Commercial~Hybrid}$$`
+
+---
+class: inverse, middle, center
+
+# Types of hybrids
+
+---
+
+- Commercial applications of hybrid breeding started with a cross of two inbred lines (a single cross - AxB) and later shifted to the more economic double cross, ([AxB]x[CxD]) and then back to a single cross. 
+- Other parent combinations in hybrid development have been proposed, including the three-way cross ([AxB]xC) and modified versions of the single cross, in which closely related crosses showed that the single cross was superior in performance to the other two in terms of average yield. 
+- However, it was noted also that the genotype x environment interaction (hybrid x environment) variability was more than twice that for the double crosses, while the mean variability for the three-way cross being intermediate.
+
+---
+
+- This indicated that the single crosses were more sensitive or responsive to environmental conditions than the other crosses. 
+- Whereas high average yield is important to the producer, consistency in performance across years and locations (i.e., yield stability) is also important. 
+- Double and three-way crosses have a more genetically divergent population for achieving buffering. 
+- Today commercial hybrids are predominantly single cross, of best combining parental inbred lines.
+
+- For outline of mating scheme, See Lecture 7 on "Hybridization techniques and its consequences". 
+
+---
+
+## Maintenance of genetic male sterility and its application
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="./images/gms_use.png" alt="Maintenance of Genetic Male Sterility and its applications" width="auto" height="450px" /&gt;
+&lt;p class="caption"&gt;Maintenance of Genetic Male Sterility and its applications&lt;/p&gt;
+&lt;/div&gt;
+
+---
+
+## Breeding of CMS hybrids
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="./images/cms_hybrids.png" alt="Breeding by CMS. (a) single cross and (b) double cross. N, normal cytoplasm; S, sterile cytoplasm. Parent A=A-line; parent B=B-line, and parent D=R-line." width="auto" height="450px" /&gt;
+&lt;p class="caption"&gt;Breeding by CMS. (a) single cross and (b) double cross. N, normal cytoplasm; S, sterile cytoplasm. Parent A=A-line; parent B=B-line, and parent D=R-line.&lt;/p&gt;
+&lt;/div&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

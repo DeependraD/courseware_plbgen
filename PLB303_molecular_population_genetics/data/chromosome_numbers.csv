@@ -1,0 +1,60 @@
+Organism,Common name,Species,Diploid Number
+Animal,Man,Homo sapiens,46
+Animal,Chimpanzee,Pan troglodytes,48
+Animal,Gorilla,Gorilla gorilla,48
+Animal,Rhesus monkey,Macaca mulatta,42
+Animal,Cattle,Bos taurus,60
+Animal,Dog,Canis familaris,78
+Animal,Cattle,Felis domesticus,38
+Animal,Horse,Equus calibus,64
+Animal,Donkey,Equus asinus,62
+Animal,House mouse,Mus musculus,40
+Animal,Rat,Rattus norvegicus,42
+Animal,Golden hampster,Mesocrietus auratus,44
+Animal,Guinea pig,Cavia cobaya,64
+Animal,Rabbit,Orychtolagus cuniculus,44
+Animal,Pigeon,Columbia livia,80
+Animal,Chicken,Gallus domesticus,78
+Animal,Alligator,Alligator mississipiensis,32
+Animal,Toad,Bufo americanus,22
+Animal,Frog,Rana pipiens,26
+Animal,Carp,Cyprinus carpio,104
+Animal,Starfish,Asterias forbesi,36
+Animal,Silkworm,Bombyx mori,56
+Animal,Red ant,Formica sanguinea,48
+Animal,House fly,Musca domestica,12
+Animal,Fruit fly,Drosophila melanogaster,8
+Animal,Mosquito,Culex pipiens,6
+Animal,Cockroach,Blatta germanica,"23 $\male$, 24 $\female$"
+Animal,Grasshopper,Melanoplus differentialis,24
+Animal,Honeybee,Apis mellifera,32
+Animal,Flatworm,Planaria torva,16
+Animal,Freshwater hydra,Hydra vulgaria attenuata,32
+Animal,Nematode,Caenorhabditis elegans,"11 $\male$, 12 $\female$"
+Plant,Green algae,Acetabularia mediterranea,20
+Plant,Garden onion,Allium cepa,16
+Plant,Barley,Hordeum vulgare,14
+Plant,Rice,Oryza sativa,24
+Plant,Spiderwort,Tradescantia vairginiana,24
+Plant,Wheat,Triticum aestivum,42
+Plant,Corn (maize),Zea mays,20
+Plant,Snapdragon,Antirrhinum majus,16
+Plant,Squash,Cucurbita pepo,40
+Plant,Upland cotton,Gossypium hirsutum,52
+Plant,Tomato,Lycopersicon esculentum,24
+Plant,Tobacco,Nicotiana tabacum,48
+Plant,Evening primerose,Oenothera biennis,14
+Plant,Kidney bean,Phaseolus vulgaris,22
+Plant,White oak,Quercus alba,24
+Plant,Pine,Pinus species,24
+Plant,Garden pea,Pisum sativum,14
+Plant,Potato,Solanum tuberosum,48
+Plant,White clover,Trifolium repens,32
+Plant,Broad bean,Vicia faba,12
+Other (haploid number),Yeast,Saccharomyces cerevisiae,17
+Other (haploid number),Slime mold,Dictyostelium discoideum,7
+Other (haploid number),Black bread mold,Aspergillus nidulans,8
+Other (haploid number),Pink bread mold,Neurospora crassa,7
+Other (haploid number),Penicillin mold,Penicillium species,4
+Other (haploid number),Green algae,Chlamydomonas reinhardtii,16
+Other (haploid number),Amoeba,Amoeba proteus,250

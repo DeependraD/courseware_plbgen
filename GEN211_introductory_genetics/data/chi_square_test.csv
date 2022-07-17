@@ -1,7 +1,0 @@
-  ,AB,Ab,aB,ab,Totals
-Observed,60,37,41,62,200
-Expected,$\frac{1}{4}\times 200 = 50$,$\frac{1}{4}\times 200 = 50$,$\frac{1}{4}\times 200 = 50$,$\frac{1}{4}\times 200 = 50$,200
-Observed - Expected,10,-13,-9,12,
-$|Observed-Expected|^2$,100,169,81,144,
-$\left (|Observed-Expected| \right)^2/Expected$,2,3.38,1.62,2.88,
-$\chi^2$,,,,,9.88

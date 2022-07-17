@@ -1,0 +1,110 @@
+---
+title: Biometrical techniques in plant breeding
+author: Deependra Dhakal
+date: Academic year 2019-2020 
+institute: |
+  | Gokuleshwor Agriculture and Animal Science College
+  | Tribhuwan University
+  | \textit{ddhakal.rookie@gmail.com}
+  | \url{https://rookie.rbind.io}
+output: 
+  binb::metropolis:
+    includes:
+      in_header: beamer_header_template.tex
+classoption: "aspectratio=169" # "compressed"
+fontsize: 11pt
+bibliography: [./../../bibliographies.bib]
+---
+
+```{r,setup, include=FALSE}
+library(knitr)
+require(tidyverse)
+set.seed(453)
+# invalidate cache when the package version changes
+knitr::opts_chunk$set(tidy = FALSE, echo = FALSE, 
+                  message = FALSE, warning = FALSE,
+                  out.width = "45%", cache = TRUE)
+options(knitr.table.format = "latex")
+options(knitr.kable.NA = "", digits = 2)
+options(kableExtra.latex.load_packages = FALSE)
+```
+
+# Introduction
+
+##
+
+```{r maize, fig.cap="Biometrical techniques in plant breeding", fig.align='center', out.height="400px", out.width="auto"}
+# knitr::include_graphics("./images/")
+```
+
+---
+class: inverse, center, middle
+
+# Assessment of variability
+
+---
+
+# Assessment of variability
+
+## Variance
+
+## Pooled variance
+
+- Pooled variance (also known as combined, composite, or overall variance; square root known as pooled standard deviation) is a method for estimating variance of several different populations when the mean of each population may be different, but one may assume that the variance of each population is the same.
+
+- Under the assumption of equal population variances, the pooled sample variance provides a higher precision estimate of variance than the individual sample variances. 
+
+- This higher precision can lead to increased statistical power when used in statistical tests that compare the populations, such as the t-test.
+
+---
+
+The pooled variance is an estimate of the fixed common variance ${\displaystyle \sigma ^{2}}$ underlying various populations that have different means.
+
+## Computation
+
+If the populations are indexed ${\displaystyle i=1,\ldots ,k}$ then the pooled variance ${\displaystyle s_{p}^{2}}$ can be computed by the weighted average.
+
+$$
+{\displaystyle s_{p}^{2}={\frac {\sum _{i=1}^{k}(n_{i}-1)s_{i}^{2}}{\sum _{i=1}^{k}(n_{i}-1)}}={\frac {(n_{1}-1)s_{1}^{2}+(n_{2}-1)s_{2}^{2}+\cdots +(n_{k}-1)s_{k}^{2}}{n_{1}+n_{2}+\cdots +n_{k}-k}},}
+$$
+
+where ${\displaystyle n_{i}}$ is the sample size of population ${\displaystyle i}$ and the sample variances are
+
+$$
+{\displaystyle {\frac {1}{n_{i}-1}}\sum _{j=1}^{n_{i}}\left(y_{j}-{\overline {y_{i}}}\right)^{2}}
+$$
+
+Use of ${\displaystyle (n_{i}-1)}$ weighting factors instead of ${\displaystyle n_{i}}$ comes from Bessel's correction.
+
+## Variants
+
+The unbiased least squares estimate of ${\displaystyle \sigma ^{2},}$
+
+$$
+{\displaystyle s_{p}^{2}={\frac {\sum _{i=1}^{k}(n_{i}-1)s_{i}^{2}}{\sum _{i=1}^{k}(n_{i}-1)}},}
+$$
+and the biased maximum likelihood estimate
+
+$${\displaystyle s_{p}^{2}={\frac {\sum _{i=1}^{k}(n_{i}-1)s_{i}^{2}}{\sum _{i=1}^{k}n_{i}}},}$$
+
+are used in different contexts. The former can give an unbiased ${\displaystyle s_{p}^{2}}$ to estimate ${\displaystyle \sigma ^{2}}$ when the two groups share an equal population variance. The latter one can give a more efficient ${\displaystyle s_{p}^{2}}$ to estimate ${\displaystyle \sigma ^{2}}$ biasedly. Note that the quantities ${\displaystyle s_{i}^{2}}$ in the right hand sides of both equations are the unbiased estimates.
+
+---
+
+## Pooled variance
+
+For further details,
+
+https://en.wikipedia.org/wiki/Pooled_variance
+
+---
+
+# aids to selection 
+
+# choice of parents
+
+# crossing techniques
+
+# genotype-by-environment interactions
+
+---

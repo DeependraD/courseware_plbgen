@@ -363,3 +363,7 @@ $RECYCLE.BIN/
 # ignore _book directory
 _book/
 _book/*
+
+# ignore literature directory
+literature/
+literature/*

@@ -1,0 +1,30 @@
+---
+title: "Numerical Problems"
+author: |
+  | Deependra Dhakal
+  | Gokuleshwor Agriculture and Animal Science College, Baitadi, Nepal
+date: "9/18/2020"
+output: 
+  bookdown::pdf_document2:
+    keep_tex: yes
+    toc: false
+    includes:
+      in_header: gen_solutions_header.tex
+documentclass: exam
+classoption: "answers,addpoints,12pt"
+geometry: "top=1.5cm,bottom=1.5cm,left=1.5cm,right=1.5cm"
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, include = TRUE, message = FALSE, warning = FALSE)
+options(knitr.kable.NA = '')
+require(tidyverse)
+```
+
+1. Calculate gametic and phenotypic frequencies of AAaa individual after selfing. Also write the types of genotype and phenotype.
+2. Albino is due to homozygote recessive allele, say aa. In a population consisting of 10000 babies there is one albino baby. What is the probability $(p)$ of *a* allele occuring in that population ?
+3. Calculate the gametic and phenotypic frequencies of following individduals after selfing. Also, write the types of genotype and phenotype.
+  - AAa
+  - AAaa
+4. In a family with 5 children, what is the probability that it has 3 boys and 2 girls among them.

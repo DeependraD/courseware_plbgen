@@ -68,9 +68,14 @@ knitr::include_graphics("./../images/dna_structure_b.png")
 
 ### DNA modification: simplified
 
-- Isolate different fragments of DNA from animals, other bacterias, and viruses.
-- Ligate the disparate fragments into a small plasmid from E. coli.
-- Transform the engineered plasmid back into E. coli.
+- Identification and isolation of the desired gene/DNA fragment to be cloned from different animals, other bacteria, and viruses. Restriction endonucleases are used for producing desired fragments of a given genome.
+- Insertion of the gene/DNA segment in a vector; plasmid, virus, cosmid, etc.
+- Introduction of the recombinant vector into a suitable host (transformation).
+- Integration of the desired gene into the nuclear/organeller genome of the host cell.
+- Selection of the transformed host cells.
+- Expression of the cloned genes.
+- Regeneration of the cloned genes.
+- Transmission to the progenies.
 
 # DNA isolation and purification
 
@@ -259,9 +264,9 @@ knitr::include_graphics("./../images/fish_hybridization2.png")
 - Hybridization so that the primers bind to complementary bases that flank the regions on either side of the polynucleotide of interest. This step requires about 30 s and is carried out at $30-65^\circ$.
 - Polymerization (i.e., polynucleotide or DNA synthesis) by DNA polymerase. The enzyme reads the template strand between the flanking primers, and matches the bases with complementary ribonucleotides, which are then incorporated into the primer strand. This is carried out at $72-80^\circ$C for several minutes at pH = 8.4 in Tris buffer containing ribonucleotides representing all 4 bases (A, G, C, T).
 
-### PCR: Steps
+###
 
-```{r pcr-steps, fig.cap="Graphical representation of amplifying a target DNA sequence through the polymerase chain reaction (PCR) [reproduced from Brown (2006), Fig. 9.2] .", out.width="50%"}
+```{r pcr-steps, fig.cap="Graphical representation of amplifying a target DNA sequence through the polymerase chain reaction (PCR) [reproduced from Brown (2006), Fig. 9.2] .", out.width="36%"}
 # pdftools::pdf_convert("./../../literatures/biotechnology/Modern Biotechnology - Nathan S. Mosier, Michael R. Ladisch (Wiley-AIChE, 2009).pdf",
 #                       pages = 431, dpi = 250, format = "png", filenames = "../images/pcr_steps.png")
 

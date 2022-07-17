@@ -1,0 +1,71 @@
+---
+title: "Numerical Problems"
+author: |
+  | Deependra Dhakal
+  | Gokuleshwor Agriculture and Animal Science College, Baitadi, Nepal
+date: "9/18/2020"
+output: 
+  bookdown::pdf_document2:
+    keep_tex: yes
+    toc: false
+    includes:
+      in_header: gen_solutions_header.tex
+documentclass: exam
+classoption: "answers,addpoints,12pt"
+geometry: "top=1.5cm,bottom=1.5cm,left=1.5cm,right=1.5cm"
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, include = TRUE, message = FALSE, warning = FALSE)
+options(knitr.kable.NA = '')
+require(tidyverse)
+```
+
+## Problem 1: Monohybrid cross and dominance relation
+
+- While performing a large scale grow out experiment of pea germplasm, a plant with three cotyledons was discovered (normally, there are 2 cotyledons). This plant was crossed with a normal pure-breeding wild-type plant, and 600 seeds from this cross were planted. There were 298 plants with two cotyledons and 302 with three cotyledons. What can be said about the inheritance of three cotyledons ? Hint: Invert gene symbols as part of your explaination.
+
+## Solution 1: Monohybrid cross and dominance relation
+
+- The fact that about half of the $F_1$ progeny are mutant suggests that the mutation that results in three cotyledons in dominant and the original mutant heterozygous. If C = the mutant allele and c = the wild-type allele, the cross is as follows:
+
+$$
+\begin{aligned}
+P \hspace{3em} & C/c \times c/c \\
+F_1 \hspace{3em} & 1~C/c: 1~c/c~ \textrm{(three cotyledons: two cotyledons)} \\
+\end{aligned}
+$$
+
+## Problem 3: Dominance and parental genotype determination
+
+- In tomatoes, one gene determines whether the plant has purple (P) or green (G) stems, and a separate, independent gene determines whether the leaves are "cut" (C) or "potato" (Po). Five matings of tomato-plant phenotypes give the following results.
+  a. Which alleles are dominant ?
+  b. What are the most probable genotypes for the parents in each cross ?
+
+```{r independent-assortment-example, out.width="40%", fig.align='center'}
+# pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Griffiths - An Introduction to Genetic Analysis 11th Edition c2015.pdf",
+#                       pages = 148,
+#                       dpi = 300, format = "png",
+#                       filenames = "../images/independent_assortment_example1.png")
+
+knitr::include_graphics("../../images/independent_assortment_example1.png")
+```
+
+## Solution 3: Dominance and parental genotype determination
+
+- Cross 2 indicates that purple (G) is dominant over green (g), and cross 1 indicates that cut (P) is dominant over potato (p).
+
+```{r}
+cross_tomato <- tribble(~"x1", ~"x2", 
+        "Cross 1: G/g; P/p x g/g; P/p", "There are 3 cut:1 potato, and 1 purple: 1 green", 
+        "Cross 2: G/g; P/p x G/g; p/p", "There are 3 purple: 1 green, and 1 cut: 1 potato", 
+        "Cross 3: G/G; P/p x g/g; P/p", "There is no green, and there are 3 cut: 1 potato", 
+        "Cross 4: G/g; P/P x g/g; p/p", "There is no potato, and there is 1 purple: 2", 
+        "Cross 5: G/g; p/p x g/g; P/p", "There is 1 cut: 1 potato, and there is 1 purple: 1 green")
+
+cross_tomato %>% 
+  knitr::kable(booktabs = TRUE, col.names = c(" ", " ")) %>% 
+  kableExtra::kable_styling(latex_options = "scale_down", position = "center")
+```
+
