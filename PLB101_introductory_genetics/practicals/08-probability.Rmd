@@ -1,0 +1,62 @@
+# Probability
+
+## Problem 1
+
+If 5 coins are tossed together, determine the probability of getting
+
+1. 3H and 2T
+2. At least 3H
+3. More than 3H
+4. Less than 3H
+5. Not more than 3H
+
+## Solution 1
+
+Let $a$ represent probability of turning head ($P(H) = \frac{1}{2}$) and $b$ represent the probability of turning tail ($P(T) = \frac{1}{2}$), then, Binomial expansion can be used to mimic all 5 tosses.
+
+$$
+(a + b)^5 = a^5 + 5a^4b + 10 a^3 b^2 + 10 a^2 b^3 + 5 ab^4 + b^5
+$$
+
+Now,
+
+1. Probability(P) of 3H and 2T is given by $\mathrm{3^{rd}}$ term, which is: $10 a^3 b^2$ equals $\frac{5}{16}$.
+2. Probabilities of having (3H or 4H or 5H)
+3. Probabilities of having (4H or 5H)
+4. Probabilities of having (1H or 2H)
+5. Probabilities of having (1H or 2H or 3H)
+
+## Problem 2
+
+Two heterozygous brown-eyed (Bb) individuals have five children. What is the probability that two of the couple's five children will have blue eye ?
+
+## Solution 2
+
+Applying binomial expansion
+
+1. Calculate individual probabilities (Using punnet square)
+
+$$
+\begin{aligned}
+P_{(\text{blue eyes})} &= p = \frac{1}{4} \\
+P_{(\text{brown eyes})} &= q = \frac{3}{4}
+\end{aligned}
+$$
+
+2. Determine the number of events
+
+$$
+\begin{aligned}
+n &= \text{total number of children} = 5 \\
+x &= \text{total number of blue-eyed children} = 2
+\end{aligned}
+$$
+
+3. Substituting the values in the following binomial equation, $2^{nd}$ term ($\frac{n!}{s! t!} p^2 q^3$) and its coefficient gives the probability of having two children with blue eyes. That is,
+
+$$
+P = \frac{5!}{2! \times 3!} \left(\frac{1}{4}\right)^2 \left(\frac{3}{4}\right)^3 = 0.26
+$$
+
+This yields that 26% of the time, a heterozygote couples' five of the children will contain two with blue eyes and three with brown eyes.
+

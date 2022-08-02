@@ -359,3 +359,6 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/r,linux,latex,windows,bookdown
+
+# ddignore: ignore any pdf file built within this directory
+*.pdf

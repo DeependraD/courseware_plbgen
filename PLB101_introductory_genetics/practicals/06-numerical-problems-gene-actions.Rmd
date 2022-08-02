@@ -1,0 +1,41 @@
+# Solution of numerical problems related to gene actions
+
+## Question 1
+
+Two curly winged fruit flies are mated. The $F_1$ consists of 341 curly and 170 normal. Explain.
+
+## Question 2
+
+In families in which both parents have sickle cell trait. What is the probability of their having
+
+(a) A child with sickle cell trait
+(b) A normal child
+
+## Question 3
+
+If a man of blood group *AB* marries a woman of blood group *A* whose father was of blood group *O*, to what different blood groups can this man and woman expect their children to belong ?
+
+## Question 4
+
+In cattle the gene, *R* for red coat is not dominant over white *r*. The heterozygous *Rr* produces roan coat color. What phenotypes might be expected from the following mating ?
+
+(a) Red x red, roan x roan, red x roan, roan x white, red x white, and white x white. Give the genotypes of the parents and progeny.
+
+## Question 5
+
+From the following table, can the paternity of the children be established ?
+
+```{r paternity-establishment}
+tribble(
+  ~"Person", ~"Antigen AB", ~"Antigen MN", ~"Antigen RH",
+  "Husband", "O", "M", "RH+",
+  "Wife's lover", "AB", "MN", "RH-",
+  "Wife", "A", "N", "RH+",
+  "Child 1", "O", "MN", "RH+",
+  "Child 2", "A", "N", "RH+",
+  "Child 3", "A", "MN", "RH-"
+) %>% 
+  knitr::kable(booktabs = TRUE) %>% 
+  kableExtra::kable_styling(position = "center", font_size = 8, latex_options = "HOLD_position")
+```
+

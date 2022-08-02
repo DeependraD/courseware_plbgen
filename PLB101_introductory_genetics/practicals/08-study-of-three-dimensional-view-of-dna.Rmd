@@ -1,7 +1,0 @@
-# Study of structure of DNA
-
-1. DNA and its forms
-2. Structure of DNA double helix
-3. Deoxyribonucleotide bases
-4. Sugar phosphate bond
-5. Nature of DNA helix

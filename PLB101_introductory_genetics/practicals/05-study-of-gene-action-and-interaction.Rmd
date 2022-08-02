@@ -1,0 +1,608 @@
+# Study of gene action and interaction
+
+## Objective
+
+- To understand how alleles of a gene interact to give rise to phenotypes in diploid organism
+- To understand how non-allelic genes interact to affect trait phenotypes in diploid organism.
+
+## Theory
+
+In Mendelian phenotypic ratio, one gene is involved in expression of a single phenotype. However, some phenotype develop through gene interaction between two or more genes. i.e. two or more genes may also be involved in determination of a single trait and the phenotypic ratio deviates from the expected Mendelian phenotypic ratio.
+
+- There are a variety of phenotypic ratios which are the result of a variety of gene interaction. Steps in inferring gene interaction :
+  1. Obtain many single-gene mutants and test for dominance
+  2. Test the mutants for allelism
+  3. Combine the mutants in pairs to form double mutants to see if the genes interact.
+
+\underline{Types of gene interaction}
+
+- No interaction (Each gene pair affects a different character; gene action) (9:3:3:1)
+- Duplicate gene action (15:1)
+- Complementary gene action (9:7)
+- Supplementary gene action (9:3:4)
+- Inhibitory gene action (13:3)
+- Masking gene action (12:3:1)
+- Polymeric gene action (9:6:1)
+- Additive gene action (1:4:6:4:1)
+
+**Inter allelic or intra-genic gene interaction**
+
+1. Incomplete or partial dominance
+
+The phenotypic expression of heterozygous for a gene being intermediate to those of the two concerned homozygous. e.g., four o' clock plant ( *Mirabilis jalapa*), we can cross a plant of red flower petals with another plant with white petals. The offspring of this cross will have pink colored petals. If these pink flowered F1 plants are selfed and F2 are obtained the progeny phenotypes of red:pink:white occur in the ratio 1:2:1.
+
+2. Codominance
+
+Both the alleles of a gene express themselves in the heterozygous. e.g. coat color in cattle, blood type in human coat color in cattle;
+
+```{r codominance-mirabilis, out.width="0.24\\textwidth"}
+DiagrammeR::mermaid(
+  "
+  graph TB
+  
+  x11[RR<br>Red] --> x21[F1, Rr<br>Roan]
+  x12[rr<br>White] --> x21
+  x21 -- selfing --> x31[F2, 1RR:2Rr:1rr<br>]
+  
+  "
+)
+```
+
+3. Dominance
+4. Overdominance
+
+```{r gene-action-interactions-data}
+gene_action_interactions <- read_csv("../data/gene_interactions.csv") %>% 
+  filter(!is.na(`Type of gene/s`)) %>% 
+  mutate(Individuals = if_else(condition = is.na(Individuals), 
+                 NA_character_, 
+                 paste0("$\\frac{", `Individuals`, "}" , "{", `Out of`, "}$"))) %>% 
+  select(-`Out of`)
+
+gene_action_interactions_splits <- gene_action_interactions %>% 
+  group_split(`Phenomena type`)
+
+gene_action_interactions_splits <- gene_action_interactions_splits %>% 
+  map(.f = ~ .x %>% mutate(`Type of gene/s` = replace(`Type of gene/s`, duplicated(`Type of gene/s`), NA))) %>% 
+  map(.f = ~ .x %>% replace_na())
+
+gene_action_interactions_splits2 <- gene_action_interactions_splits %>% 
+  map(.f = ~ .x %>% mutate(Genotypes = map(Genotypes, 
+                                           function(stringy){
+                                             str_extract_all(stringy, "\\d{1,2}") %>% 
+                                               unlist() %>% 
+                                               as.integer()
+                                           })) %>%
+        mutate(color_name = seq_along(Phenotypes)))
+
+# # to see which color palette would be useful
+# colorspace::swatchplot(c(colors()[seq(1, 120, by = 8)]))
+
+color_profiles <- c(colors()[seq(1, 120, by = 8)]) %>% 
+  enframe(name = "numeric_code", 
+          value = "color_name") %>% 
+  mutate(color_name = gplots::col2hex(color_name))
+
+gene_action_interactions_splits2 <- gene_action_interactions_splits2 %>% 
+  # map(~ .x %>% mutate(Genotypes = replace(Genotypes, is.na(Phenotypes), NA))) %>% # this is useless 
+  map(~ .x %>% mutate(color_name = replace(color_name, is.na(Phenotypes),NA_integer_))) %>% 
+  map(~ .x %>% mutate(color_name = recode(color_name, 
+                                           !!!set_names(color_profiles$color_name, color_profiles$numeric_code))))
+
+rotate <- function(x) t(apply(x, 2, rev))
+
+```
+
+
+```{r gene-action-interactions1}
+# # use this for manual table setup
+# gene_action_interactions[1:11,] %>%
+#   filter(`Type of gene/s` == "Each gene pair affecting a different character") %>%
+#   knitr::kable(caption = "Each gene pair affecting a different character",
+#                booktabs = TRUE, escape = FALSE) %>%
+#   kableExtra::kable_styling(bootstrap_options = "striped",font_size = 6) %>%
+#   kableExtra::column_spec(1:6, width = c("8em", "4em", "22em", "4em", "6em", "8em")) %>%
+#   kableExtra::collapse_rows(columns = c(1, 2),
+#                             valign = "middle", latex_hline = "major",
+#                             row_group_label_position = "stack")
+
+# # or use this automatic table setup
+gene_action_interactions_splits[[1]] %>%
+  select(-2) %>% 
+  knitr::kable(caption = "Each gene pair affecting a different character",
+               booktabs = TRUE, escape = FALSE, longtable = TRUE) %>%
+  kableExtra::kable_styling(latex_options = "striped", font_size = 5) %>%
+  kableExtra::column_spec(1:5, width = c("6em", "14em", "3em", "4em", "6em"))
+  # kableExtra::collapse_rows(columns = c(1),
+  #                           valign = "middle", latex_hline = "major")
+```
+
+```{r gamete-three-combination1}
+# gamete types
+gamete_types <- expand.grid(c("A", "a"), 
+                            c("B", "b")) %>% 
+  unite(col = "gamete_types", sep = "") %>% 
+  pull("gamete_types")
+
+# random mating of gametes
+combination_genotypes <- crossing(gamete_m = gamete_types, gamete_f = gamete_types) %>% 
+  # group_by(gamete_types)
+  unite(col = "genotype", remove = FALSE, sep = "") %>% 
+  spread(key = gamete_m, value = genotype)
+
+# # number of unique genotypes
+# ca <- c("AA", "Aa", "aa")
+# cb <- c("BB", "Bb", "bb")
+# unique_genotypes <- expand.grid(ca, cb) %>% 
+#   unite(col = "all_gametes", sep = "") %>% 
+#   pull(all_gametes) %>% 
+#   unique()
+
+# specify colors data frame
+color_df <- gene_action_interactions_splits2[[1]][, c(6, 7)] %>% 
+  unnest(cols = Genotypes) %>% 
+  na.omit() %>% 
+  arrange(Genotypes) %>% 
+  mutate(row = rep(c("ab", "aB", "Ab", "AB"), each = 4)) %>% 
+  # group_by(row) %>% 
+  mutate(col = rep(c("ab", "aB", "Ab", "AB"), times = 4)) %>% 
+  # ungroup() %>% 
+  select(-Genotypes) %>% 
+  spread(key = `col`, value = `color_name`)
+
+map2_dfc(.x = (combination_genotypes %>%
+                 rename("Gamete" = gamete_f) %>% 
+                 rotate() %>% 
+                 rotate() %>% 
+                 as_tibble() %>% 
+                 select(Gamete, everything()))[, -1], 
+         .y = color_df[, -1], 
+         .f = ~kableExtra::cell_spec(.x, background = .y, format = "latex")) %>%
+  add_column(.before = 1, "Gamete" = colnames(.)) %>% 
+  kable(booktabs = TRUE, format = "latex", escape = FALSE, linesep = "", longtable = TRUE) %>%
+  kableExtra::kable_styling(font_size = 6) %>% 
+  kableExtra::column_spec(1:5, width = c("2em", "1.8em", "1.8em", "1.8em", "1.8em"))
+
+```
+  
+### No interaction
+
+- Two dominant genes controlling the development of a single trait.
+
+```{r gene-action-interactions4}
+
+# # or use this automatic table setup
+gene_action_interactions_splits[[4]] %>%
+  select(-2) %>% 
+  knitr::kable(caption = "Each gene pair affecting the same character",
+               booktabs = TRUE, escape = FALSE, longtable = TRUE) %>%
+  kableExtra::kable_styling(bootstrap_options = "striped", font_size = 6) %>%
+  kableExtra::column_spec(1:5, width = c("8em", "22em", "4em", "6em", "8em"))
+  # kableExtra::collapse_rows(columns = c(1),
+  #                           valign = "middle", latex_hline = "major")
+```
+
+\renewcommand{\arraystretch}{2}
+
+```{r gamete-three-combination4}
+# gamete types
+gamete_types <- expand.grid(c("A", "a"), 
+                            c("B", "b")) %>% 
+  unite(col = "gamete_types", sep = "") %>% 
+  pull("gamete_types")
+
+# random mating of gametes
+combination_genotypes <- crossing(gamete_m = gamete_types, gamete_f = gamete_types) %>% 
+  # group_by(gamete_types)
+  unite(col = "genotype", remove = FALSE, sep = "") %>% 
+  spread(key = gamete_m, value = genotype)
+
+# # number of unique genotypes
+# ca <- c("AA", "Aa", "aa")
+# cb <- c("BB", "Bb", "bb")
+# unique_genotypes <- expand.grid(ca, cb) %>% 
+#   unite(col = "all_gametes", sep = "") %>% 
+#   pull(all_gametes) %>% 
+#   unique()
+
+# specify colors data frame
+color_df <- gene_action_interactions_splits2[[4]][, c(6, 7)] %>% 
+  unnest(Genotypes) %>% 
+  na.omit() %>% 
+  arrange(Genotypes) %>% 
+  mutate(row = rep(c("ab", "aB", "Ab", "AB"), each = 4)) %>% 
+  # group_by(row) %>% 
+  mutate(col = rep(c("ab", "aB", "Ab", "AB"), times = 4)) %>% 
+  # ungroup() %>% 
+  select(-Genotypes) %>% 
+  spread(key = `col`, value = `color_name`)
+
+map2_dfc(.x = (combination_genotypes %>%
+                 rename("Gamete" = gamete_f) %>% 
+                 rotate() %>% 
+                 rotate() %>% 
+                 as_tibble() %>% 
+                 select(Gamete, everything()))[, -1], 
+         .y = color_df[, -1], 
+         .f = ~kableExtra::cell_spec(.x, background = .y, format = "latex")) %>%
+  add_column(.before = 1, "Gamete" = colnames(.)) %>% 
+  kable(booktabs = TRUE, format = "latex", escape = FALSE, linesep = "", longtable = TRUE) %>%
+  kableExtra::kable_styling(font_size = 6) %>% 
+  kableExtra::column_spec(1:5, width = c("2em", "1.8em", "1.8em", "1.8em", "1.8em"))
+
+```
+
+\renewcommand{\arraystretch}{1}
+
+### Supplementary gene action
+
+- The dominant allele of one gene produces a phenotypic effect.
+- The dominant allele of the other gene does not produce any phenotypic effect on its own, but when present with dominant allele of the first gene, it modifies the phenotypic effect produced by the first gene.
+- For e.g. development of grain (aleurone) color in maize producing 9:3:4 ratio in $F_2$.
+
+```{r gene-action-interactions5}
+
+# # or use this automatic table setup
+gene_action_interactions_splits[[5]] %>%
+  select(-2) %>% 
+  knitr::kable(caption = "Each gene pair affecting the same character",
+               booktabs = TRUE, escape = FALSE, longtable = TRUE) %>%
+  kableExtra::kable_styling(bootstrap_options = "striped", font_size = 6) %>%
+  kableExtra::column_spec(1:5, width = c("8em", "22em", "4em", "6em", "8em"))
+  # kableExtra::collapse_rows(columns = c(1),
+  #                           valign = "middle", latex_hline = "major")
+```
+
+\renewcommand{\arraystretch}{2}
+
+```{r gamete-three-combination5}
+# gamete types
+gamete_types <- expand.grid(c("A", "a"), 
+                            c("B", "b")) %>% 
+  unite(col = "gamete_types", sep = "") %>% 
+  pull("gamete_types")
+
+# random mating of gametes
+combination_genotypes <- crossing(gamete_m = gamete_types, gamete_f = gamete_types) %>% 
+  # group_by(gamete_types)
+  unite(col = "genotype", remove = FALSE, sep = "") %>% 
+  spread(key = gamete_m, value = genotype)
+
+# specify colors data frame
+color_df <- gene_action_interactions_splits2[[5]][, c(6, 7)] %>% 
+  unnest(Genotypes) %>% 
+  na.omit() %>% 
+  arrange(Genotypes) %>% 
+  mutate(row = rep(c("ab", "aB", "Ab", "AB"), each = 4)) %>% 
+  # group_by(row) %>% 
+  mutate(col = rep(c("ab", "aB", "Ab", "AB"), times = 4)) %>% 
+  # ungroup() %>% 
+  select(-Genotypes) %>% 
+  spread(key = `col`, value = `color_name`)
+
+map2_dfc(.x = (combination_genotypes %>%
+                 rename("Gamete" = gamete_f) %>% 
+                 rotate() %>% 
+                 rotate() %>% 
+                 as_tibble() %>% 
+                 select(Gamete, everything()))[, -1], 
+         .y = color_df[, -1], 
+         .f = ~kableExtra::cell_spec(.x, background = .y, format = "latex")) %>%
+  add_column(.before = 1, "Gamete" = colnames(.)) %>% 
+  kable(booktabs = TRUE, format = "latex", escape = FALSE, linesep = "", longtable = TRUE) %>%
+  kableExtra::kable_styling(font_size = 6) %>% 
+  kableExtra::column_spec(1:5, width = c("2em", "1.8em", "1.8em", "1.8em", "1.8em"))
+
+```
+
+\renewcommand{\arraystretch}{1}
+
+### Complementary gene action
+
+- Production of one phenotype requires the presence of dominant alleles of both genes controlling the character.
+- When any one of the two or both the genes are present in homozygous recessive state, the contrasting phenotype is produced.
+
+```{r gene-action-interactions6}
+
+# # or use this automatic table setup
+gene_action_interactions_splits[[6]] %>%
+  select(-2) %>% 
+  knitr::kable(caption = "Each gene pair affecting the same character",
+               booktabs = TRUE, escape = FALSE, longtable = TRUE) %>%
+  kableExtra::kable_styling(bootstrap_options = "striped", font_size = 6) %>%
+  kableExtra::column_spec(1:5, width = c("8em", "22em", "4em", "6em", "8em"))
+  # kableExtra::collapse_rows(columns = c(1),
+  #                           valign = "middle", latex_hline = "major")
+```
+
+\renewcommand{\arraystretch}{2}
+
+```{r gamete-three-combination6}
+# gamete types
+gamete_types <- expand.grid(c("A", "a"), 
+                            c("B", "b")) %>% 
+  unite(col = "gamete_types", sep = "") %>% 
+  pull("gamete_types")
+
+# random mating of gametes
+combination_genotypes <- crossing(gamete_m = gamete_types, gamete_f = gamete_types) %>% 
+  # group_by(gamete_types)
+  unite(col = "genotype", remove = FALSE, sep = "") %>% 
+  spread(key = gamete_m, value = genotype)
+
+# specify colors data frame
+color_df <- gene_action_interactions_splits2[[6]][, c(6, 7)] %>% 
+  unnest(Genotypes) %>% 
+  na.omit() %>% 
+  arrange(Genotypes) %>% 
+  mutate(row = rep(c("ab", "aB", "Ab", "AB"), each = 4)) %>% 
+  # group_by(row) %>% 
+  mutate(col = rep(c("ab", "aB", "Ab", "AB"), times = 4)) %>% 
+  # ungroup() %>% 
+  select(-Genotypes) %>% 
+  spread(key = `col`, value = `color_name`)
+
+map2_dfc(.x = (combination_genotypes %>%
+                 rename("Gamete" = gamete_f) %>% 
+                 rotate() %>% 
+                 rotate() %>% 
+                 as_tibble() %>% 
+                 select(Gamete, everything()))[, -1], 
+         .y = color_df[, -1], 
+         .f = ~kableExtra::cell_spec(.x, background = .y, format = "latex")) %>%
+  add_column(.before = 1, "Gamete" = colnames(.)) %>% 
+  kable(booktabs = TRUE, format = "latex", escape = FALSE, linesep = "", longtable = TRUE) %>%
+  kableExtra::kable_styling(font_size = 6) %>% 
+  kableExtra::column_spec(1:5, width = c("2em", "1.8em", "1.8em", "1.8em", "1.8em"))
+
+```
+
+\renewcommand{\arraystretch}{1}
+
+### Masking gene action
+
+- Dominant alleles of the two genes affecting a character produce distinct phenotypes when they are alone. But when dominant alleles of both the genes are present together, the expression of dominant allele of one gene masks the expression of the other. When both the genes are present in recessive state, a different phenotype is produced.
+
+```{r gene-action-interactions7}
+
+# # or use this automatic table setup
+gene_action_interactions_splits[[7]] %>%
+  select(-2) %>% 
+  knitr::kable(caption = "Each gene pair affecting the same character",
+               booktabs = TRUE, escape = FALSE, longtable = TRUE) %>%
+  kableExtra::kable_styling(bootstrap_options = "striped", font_size = 6) %>%
+  kableExtra::column_spec(1:5, width = c("8em", "22em", "4em", "6em", "8em"))
+  # kableExtra::collapse_rows(columns = c(1),
+  #                           valign = "middle", latex_hline = "major")
+```
+
+\renewcommand{\arraystretch}{2}
+
+```{r gamete-three-combination7}
+# gamete types
+gamete_types <- expand.grid(c("A", "a"), 
+                            c("B", "b")) %>% 
+  unite(col = "gamete_types", sep = "") %>% 
+  pull("gamete_types")
+
+# random mating of gametes
+combination_genotypes <- crossing(gamete_m = gamete_types, gamete_f = gamete_types) %>% 
+  # group_by(gamete_types)
+  unite(col = "genotype", remove = FALSE, sep = "") %>% 
+  spread(key = gamete_m, value = genotype)
+
+# specify colors data frame
+color_df <- gene_action_interactions_splits2[[7]][, c(6, 7)] %>% 
+  unnest() %>% 
+  na.omit() %>% 
+  arrange(Genotypes) %>% 
+  mutate(row = rep(c("ab", "aB", "Ab", "AB"), each = 4)) %>% 
+  # group_by(row) %>% 
+  mutate(col = rep(c("ab", "aB", "Ab", "AB"), times = 4)) %>% 
+  # ungroup() %>% 
+  select(-Genotypes) %>% 
+  spread(key = `col`, value = `color_name`)
+
+map2_dfc(.x = (combination_genotypes %>%
+                 rename("Gamete" = gamete_f) %>% 
+                 rotate() %>% 
+                 rotate() %>% 
+                 as_tibble() %>% 
+                 select(Gamete, everything()))[, -1], 
+         .y = color_df[, -1], 
+         .f = ~kableExtra::cell_spec(.x, background = .y, format = "latex")) %>%
+  add_column(.before = 1, "Gamete" = colnames(.)) %>% 
+  kable(booktabs = TRUE, format = "latex", escape = FALSE, linesep = "", longtable = TRUE) %>%
+  kableExtra::kable_styling(font_size = 6) %>% 
+  kableExtra::column_spec(1:5, width = c("2em", "1.8em", "1.8em", "1.8em", "1.8em"))
+
+```
+
+\renewcommand{\arraystretch}{1}
+
+### Inhibitory gene action
+
+- One dominant gene produces the concerned phenotype or the character, while its recessive allele produces the contrasting phenotype.
+- The second gene has no effect of its own on the character in question, but it stops the expression of the dominant allele of the first gene.
+- As a result, when two dominant genes are present togethe, they produce the same phenotype as that produced by the recessive homozygote of the first gene.
+- The recessive allele of the second gene does not affect the development of the character in any way.
+- For e.g. genes controlling seed color in maize.
+
+```{r gene-action-interactions9}
+
+# # or use this automatic table setup
+gene_action_interactions_splits[[9]] %>%
+  select(-2) %>% 
+  knitr::kable(caption = "Each gene pair affecting the same character",
+               booktabs = TRUE, escape = FALSE, longtable = TRUE) %>%
+  kableExtra::kable_styling(bootstrap_options = "striped", font_size = 6) %>%
+  kableExtra::column_spec(1:5, width = c("8em", "22em", "4em", "6em", "8em"))
+  # kableExtra::collapse_rows(columns = c(1),
+  #                           valign = "middle", latex_hline = "major")
+```
+
+\renewcommand{\arraystretch}{2}
+
+```{r gamete-three-combination9}
+# gamete types
+gamete_types <- expand.grid(c("A", "a"), 
+                            c("B", "b")) %>% 
+  unite(col = "gamete_types", sep = "") %>% 
+  pull("gamete_types")
+
+# random mating of gametes
+combination_genotypes <- crossing(gamete_m = gamete_types, gamete_f = gamete_types) %>% 
+  # group_by(gamete_types)
+  unite(col = "genotype", remove = FALSE, sep = "") %>% 
+  spread(key = gamete_m, value = genotype)
+
+# specify colors data frame
+color_df <- gene_action_interactions_splits2[[9]][, c(6, 7)] %>% 
+  unnest() %>% 
+  na.omit() %>% 
+  arrange(Genotypes) %>% 
+  mutate(row = rep(c("ab", "aB", "Ab", "AB"), each = 4)) %>% 
+  # group_by(row) %>% 
+  mutate(col = rep(c("ab", "aB", "Ab", "AB"), times = 4)) %>% 
+  # ungroup() %>% 
+  select(-Genotypes) %>% 
+  spread(key = `col`, value = `color_name`)
+
+map2_dfc(.x = (combination_genotypes %>%
+                 rename("Gamete" = gamete_f) %>% 
+                 rotate() %>% 
+                 rotate() %>% 
+                 as_tibble() %>% 
+                 select(Gamete, everything()))[, -1], 
+         .y = color_df[, -1], 
+         .f = ~kableExtra::cell_spec(.x, background = .y, format = "latex")) %>%
+  add_column(.before = 1, "Gamete" = colnames(.)) %>% 
+  kable(booktabs = TRUE, format = "latex", escape = FALSE, linesep = "", longtable = TRUE) %>%
+  kableExtra::kable_styling(font_size = 6) %>% 
+  kableExtra::column_spec(1:5, width = c("2em", "1.8em", "1.8em", "1.8em", "1.8em"))
+```
+
+\renewcommand{\arraystretch}{1}
+
+### Polymeric gene action
+
+- Two completely dominant genes controlling a character produce the same phenotype when their dominant alleles are alone. But when dominant alleles of both genes are present together, their phenotypic effect is enhanced as if the effect of the two genes are present together, their phenotypic effect is enhanced as if the effect of the two genes were cumulative or additive.
+
+```{r gene-action-interactions10}
+
+# # or use this automatic table setup
+gene_action_interactions_splits[[10]] %>%
+  select(-2) %>% 
+  knitr::kable(caption = "Each gene pair affecting the same character",
+               booktabs = TRUE, escape = FALSE, longtable = TRUE) %>%
+  kableExtra::kable_styling(bootstrap_options = "striped", font_size = 6) %>%
+  kableExtra::column_spec(1:5, width = c("8em", "22em", "4em", "6em", "8em"))
+  # kableExtra::collapse_rows(columns = c(1),
+  #                           valign = "middle", latex_hline = "major")
+```
+
+\renewcommand{\arraystretch}{2}
+
+```{r gamete-three-combination10}
+# gamete types
+gamete_types <- expand.grid(c("A", "a"), 
+                            c("B", "b")) %>% 
+  unite(col = "gamete_types", sep = "") %>% 
+  pull("gamete_types")
+
+# random mating of gametes
+combination_genotypes <- crossing(gamete_m = gamete_types, gamete_f = gamete_types) %>% 
+  # group_by(gamete_types)
+  unite(col = "genotype", remove = FALSE, sep = "") %>% 
+  spread(key = gamete_m, value = genotype)
+
+# specify colors data frame
+color_df <- gene_action_interactions_splits2[[10]][, c(6, 7)] %>% 
+  unnest() %>% 
+  na.omit() %>% 
+  arrange(Genotypes) %>% 
+  mutate(row = rep(c("ab", "aB", "Ab", "AB"), each = 4)) %>% 
+  # group_by(row) %>% 
+  mutate(col = rep(c("ab", "aB", "Ab", "AB"), times = 4)) %>% 
+  # ungroup() %>% 
+  select(-Genotypes) %>% 
+  spread(key = `col`, value = `color_name`)
+
+map2_dfc(.x = (combination_genotypes %>%
+                 rename("Gamete" = gamete_f) %>% 
+                 rotate() %>% 
+                 rotate() %>% 
+                 as_tibble() %>% 
+                 select(Gamete, everything()))[, -1], 
+         .y = color_df[, -1], 
+         .f = ~kableExtra::cell_spec(.x, background = .y, format = "latex")) %>%
+  add_column(.before = 1, "Gamete" = colnames(.)) %>% 
+  kable(booktabs = TRUE, format = "latex", escape = FALSE, linesep = "", longtable = TRUE) %>%
+  kableExtra::kable_styling(font_size = 6) %>% 
+  kableExtra::column_spec(1:5, width = c("2em", "1.8em", "1.8em", "1.8em", "1.8em"))
+```
+
+\renewcommand{\arraystretch}{1}
+
+### Additive gene action
+
+- Each positive allele of the two genes governing a trait produces equal and identical effect on the character.
+- This gene action is the basis for **multiple factor hypothesis** and the gene action sometimes aka polygenic action.
+
+
+```{r gene-action-interactions15}
+# # or use this automatic table setup
+gene_action_interactions_splits[[15]] %>%
+  select(-2) %>% 
+  knitr::kable(caption = "Each gene pair affecting the same character",
+               booktabs = TRUE, escape = FALSE, longtable = TRUE) %>%
+  kableExtra::kable_styling(bootstrap_options = "striped", font_size = 6) %>%
+  kableExtra::column_spec(1:5, width = c("8em", "22em", "4em", "6em", "8em"))
+```
+
+\renewcommand{\arraystretch}{2}
+
+```{r gamete-three-combination15}
+# gamete types
+gamete_types <- expand.grid(c("A", "a"), 
+                            c("B", "b")) %>% 
+  unite(col = "gamete_types", sep = "") %>% 
+  pull("gamete_types")
+
+# random mating of gametes
+combination_genotypes <- crossing(gamete_m = gamete_types, gamete_f = gamete_types) %>% 
+  # group_by(gamete_types)
+  unite(col = "genotype", remove = FALSE, sep = "") %>% 
+  spread(key = gamete_m, value = genotype)
+
+# specify colors data frame
+color_df <- gene_action_interactions_splits2[[15]][, c(6, 7)] %>% 
+  unnest() %>% 
+  na.omit() %>% 
+  arrange(Genotypes) %>% 
+  mutate(row = rep(c("ab", "aB", "Ab", "AB"), each = 4)) %>% 
+  # group_by(row) %>% 
+  mutate(col = rep(c("ab", "aB", "Ab", "AB"), times = 4)) %>% 
+  # ungroup() %>% 
+  select(-Genotypes) %>% 
+  spread(key = `col`, value = `color_name`)
+
+map2_dfc(.x = (combination_genotypes %>%
+                 rename("Gamete" = gamete_f) %>% 
+                 rotate() %>% 
+                 rotate() %>% 
+                 as_tibble() %>% 
+                 select(Gamete, everything()))[, -1], 
+         .y = color_df[, -1], 
+         .f = ~kableExtra::cell_spec(.x, background = .y, format = "latex")) %>%
+  add_column(.before = 1, "Gamete" = colnames(.)) %>% 
+  kable(booktabs = TRUE, format = "latex", escape = FALSE, linesep = "", longtable = TRUE) %>%
+  kableExtra::kable_styling(font_size = 6) %>% 
+  kableExtra::column_spec(1:5, width = c("2em", "1.8em", "1.8em", "1.8em", "1.8em"))
+```
+
+\renewcommand{\arraystretch}{1}
+
+## Conclusion
+
+Thus by studying case scenarios in different traits of different organisms, we arrive at conclusion that genes have their effects on phenotype through interacting allelic action as well as through interacting action of non-allelic action gene loci.

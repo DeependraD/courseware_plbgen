@@ -1,0 +1,340 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[11pt,dvipsnames,ignorenonframetext,aspectratio=169]{beamer}
+\IfFileExists{pgfpages.sty}{\usepackage{pgfpages}}{}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+\fi
+\defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+
+
+
+
+
+
+
+\fi
+
+  \usetheme[]{monash}
+
+  \usecolortheme{monashwhite}
+
+
+% A default size of 24 is set in beamerthememonash.sty
+
+% Title page
+\setbeamertemplate{title page}
+{\placefig{-0.01}{-0.01}{width=1.01\paperwidth,height=1.01\paperheight}{deepseashrimp.jpg}
+% \begin{textblock}{7.5}(1,2.8)\usebeamerfont{title} % original
+\begin{textblock}{15}(1,2.2)\usebeamerfont{title}
+{\color{white}\raggedright\par\inserttitle}
+\end{textblock}
+\begin{textblock}{10}(1,6)
+\small
+{\color{white}\raggedright{\insertauthor}\mbox{}\\[0.1cm]
+\insertdate}
+\end{textblock}}
+
+
+  \useinnertheme{rounded}
+
+  \useoutertheme{smoothtree}
+
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+  \usepackage{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+
+
+\newif\ifbibliography
+
+
+\hypersetup{
+      pdftitle={Path Analysis},
+            colorlinks=true,
+    linkcolor=red,
+    citecolor=Blue,
+    urlcolor=lightgrayd,
+    breaklinks=true}
+%\urlstyle{same}  % Use monospace font for urls
+
+
+
+
+
+
+
+% Prevent slide breaks in the middle of a paragraph:
+\widowpenalties 1 10000
+\raggedbottom
+
+  \AtBeginPart{
+    \let\insertpartnumber\relax
+    \let\partname\relax
+    \frame{\partpage}
+  }
+  \AtBeginSection{
+    \ifbibliography
+    \else
+      \let\insertsectionnumber\relax
+      \let\sectionname\relax
+      \frame{\sectionpage}
+    \fi
+  }
+  \AtBeginSubsection{
+    \let\insertsubsectionnumber\relax
+    \let\subsectionname\relax
+    \frame{\subsectionpage}
+  }
+
+
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+  \setcounter{secnumdepth}{0}
+
+
+%% Monash overrides
+\AtBeginSection[]{
+   \frame<beamer>{
+   \frametitle{Outline}\vspace*{0.2cm}
+   
+   \tableofcontents[currentsection,hideallsubsections]
+  }}
+
+% Redefine shaded environment if it exists (to ensure text is black)
+\ifcsname Shaded\endcsname
+  \definecolor{shadecolor}{RGB}{225,225,225}
+  \renewenvironment{Shaded}{\color{black}\begin{snugshade}\color{black}}{\end{snugshade}}
+\fi
+%%
+
+  \usepackage{setspace}
+  \usepackage{wasysym}
+  % \usepackage{footnote} % don't use this this breaks all
+  \usepackage{fontenc}
+  \usepackage{fontawesome}
+  \usepackage{booktabs,siunitx}
+  \usepackage{longtable}
+  \usepackage{array}
+  \usepackage{multirow}
+  \usepackage{wrapfig}
+  \usepackage{float}
+  \usepackage{colortbl}
+  \usepackage{pdflscape}
+  \usepackage{tabu}
+  \usepackage{threeparttable}
+  \usepackage{threeparttablex}
+  \usepackage[normalem]{ulem}
+  \usepackage{makecell}
+  \usepackage{xcolor}
+  \usepackage{tikz} % required for image opacity change
+  \usepackage[absolute,overlay]{textpos} % for text formatting
+  \usepackage{chemfig}
+  \usepackage[skip=0.333\baselineskip]{caption}
+  % \newcommand*{\AlignChar}[1]{\makebox[1ex][c]{\ensuremath{\scriptstyle#1}}}%
+
+  % this font option is amenable for beamer
+  \setbeamerfont{caption}{size=\tiny}
+  \singlespacing
+  \definecolor{lightgrayd}{gray}{0.95}
+  \definecolor{skyblued}{rgb}{0.65, 0.6, 0.94}
+  \definecolor{oranged}{RGB}{245, 145, 200}
+
+  \newlength{\cslhangindent}
+  \setlength{\cslhangindent}{1.5em}
+  \newenvironment{cslreferences}%
+    {\setlength{\parindent}{0pt}%
+    \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
+    {\par}
+
+  \title[]{Path Analysis}
+
+
+  \author[
+        Deependra Dhakal\\
+College of Natural Resource Management\\
+Agriculture and Forestry University\\
+\textit{ddhakal.rookie@gmail.com}\\
+\url{https://rookie.rbind.io}
+    ]{Deependra Dhakal\\
+College of Natural Resource Management\\
+Agriculture and Forestry University\\
+\textit{ddhakal.rookie@gmail.com}\\
+\url{https://rookie.rbind.io}}
+
+
+\date[
+      
+  ]{
+    }
+
+\begin{document}
+
+% Hide progress bar and footline on titlepage
+  \begin{frame}[plain]
+  \titlepage
+  \end{frame}
+
+
+   \frame<beamer>{
+   \frametitle{Outline}\vspace*{0.2cm}
+   
+   \tableofcontents[hideallsubsections]
+  }
+
+\hypertarget{path-analysis}{%
+\section{Path analysis}\label{path-analysis}}
+
+\begin{frame}{Introduction}
+\protect\hypertarget{introduction}{}
+\begin{itemize}
+\tightlist
+\item
+  Path analysis, alike the family of related regression models, is a
+  linear model framework that models regression equations simultaneously
+  with the given observed variables. It can be thought of as a special
+  case of Structural Equation Modeling (SEM).
+\item
+  Variations of SEMs:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Simple regression
+  \item
+    Multiple regression
+  \item
+    Path analysis
+  \item
+    Confirmatory factor analysis
+  \item
+    Measurement model (Latent - Observed)
+  \item
+    Structural model (Latent - Latent)
+  \end{itemize}
+\item
+  Fit checks for SEMs
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Model \(\chi^2\)
+  \item
+    RMSEA values
+  \item
+    Baseline model comparison
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Example (fabricated) data}
+\protect\hypertarget{example-fabricated-data}{}
+\begin{table}
+
+\caption{\label{tab:soydata-preview}A (fabricated) data showing variables having proposed roles in yield pathway.}
+\centering
+\fontsize{8}{10}\selectfont
+\begin{tabular}[t]{lllllll}
+\toprule
+plants & pods\_plants & seeds\_pods & seed\_wt & pods\_branch & branch\_plant & grain\_yield\\
+\midrule
+14 & 102 & 2 & 75 & 9 & 11 & 1.1\\
+14 & 92 & 2 & 62 & 10 & 10 & 1.01\\
+18 & 83 & 3 & 86 & 6 & 14 & 1.44\\
+... & ... & ... & ... & ... & ... & ...\\
+15 & 72 & 2 & 76 & 6 & 9 & 1.17\\
+\addlinespace
+19 & 75 & 2 & 74 & 8 & 9 & 1.21\\
+17 & 70 & 3 & 75 & 7 & 10 & 1.25\\
+20 & 62 & 3 & 82 & 5 & 10 & 1.38\\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}{Conventions and symbology}
+\protect\hypertarget{conventions-and-symbology}{}
+\begin{itemize}
+\item
+  Circles are latent (unobserved) variables
+\item
+  Squares are manifest (observed) variables
+\item
+  Triangles can be used to interpret intercepts (part of square or
+  circle but need to be turned on `specifically')
+\item
+  Except on specific model types (multigroup and latent growth), these
+  are not estimated.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section}{}
+\begin{itemize}
+\item
+  Straight arrows are ``causal'' or directional
+\item
+  Non-standardized solution -\textgreater{} these are the \(b\) or slope
+  values
+\item
+  Standardized solution -\textgreater{} these are beta values
+  (standardized z score)
+\item
+  Curved arrows are non-directional
+\item
+  Non-standardized -\textgreater{} covariance
+\item
+  Standardized -\textgreater{} correlation
+\item
+  All endogenous variables (have arrows coming into them) have to have
+  error terms.
+\item
+  Why is the arrow going into the variable ?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Because the error in the model is not explained by any other
+    variable (otherwise it wouldn't be error).
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-1}{}
+\includegraphics[width=0.85\linewidth]{06.3-path_analysis_files/figure-beamer/soybean-path-model-1}
+\end{frame}
+
+\hypertarget{bibliography}{%
+\section{Bibliography}\label{bibliography}}
+
+\begin{frame}{References}
+\protect\hypertarget{references}{}
+\end{frame}
+
+
+
+
+\end{document}

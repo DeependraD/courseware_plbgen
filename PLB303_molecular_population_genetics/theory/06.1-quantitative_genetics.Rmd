@@ -2,11 +2,10 @@
 title: "Quantitative genetics"
 author: |
   | Deependra Dhakal
-  | Gokuleshwor Agriculture and Animal Science College
-  | Tribhuwan University
+  | College of Natural Resource Management
+  | Agriculture and Forestry University
   | \textit{ddhakal.rookie@gmail.com}
   | \url{https://rookie.rbind.io}
-date: Academic year 2019-2020
 output: 
   binb::monash:
     toc: true
@@ -22,6 +21,7 @@ outercolortheme: whale
 linkcolor: red
 urlcolor: lightgrayd
 # titlefontsize: 22pt # breaks custom \lineskip
+titlepage: falcon.png
 fontsize: 11pt
 classoption: "aspectratio=169" # "compressed"
 bibliography: [./../bibliographies.bib]
@@ -43,6 +43,196 @@ options(knitr.kable.NA = "", digits = 2)
 options(kableExtra.latex.load_packages = FALSE)
 theme_set(theme_bw())
 ```
+
+# Heterosis and Inbreeding depression
+
+## Inbreeding depression
+
+\footnotesize
+
+- Inbreeding depression is reduction in fitness as a direct result of inbreeding. 
+- In theory, the heterosis observed on crossing is expected to be equal to the depression upon inbreeding, considering a large number of crosses between lines derived from a single base population. 
+- In practice, plant breeders are interested in heterosis expressed by specific crosses between selected parents, or between populations that have no known common origin.
+- Reduction in fitness is usually manifested as a reduction in vigor, fertility, and productivity. 
+- The effect is more severe in the early generations (5-8). 
+- Plants including onions, sunflower, cucurbits, and rye are more tolerant of inbreeding with minimal consequences of inbreeding depression. 
+- Plants such as alfalfa and carrot are highly intolerant of inbreeding.
+- A phenotypic measure of inbreeding depression is obtained through generational mean analysis. It is calculated as:
+
+$$
+\text{Inbreeding depression (ID)} = \frac{F_1 - F_2}{F_1} \times 100\%
+$$
+
+##
+
+- Inbreeding is measured by the **Coefficient of Inbreeding** (**F**), which is the probability of identity of alleles by descent. The range of F is zero (no inbreeding; random mating) to one (prolonged selfing).
+- An unfit (deleterious) recessive allele is fairly quickly reduced in frequency but declines slowly thereafter. 
+- On the other hand, an unfit dominant allele is rapidly eliminated from the population, while an intermediate allele is reduced more rapidly than a recessive allele because the former is open to selection in the heterozygote.
+- The consequence of these outcomes is that unfit dominant or intermediate alleles are rare in cross-breeding populations, while unfit recessive alleles persist because they are protected by their recessiveness.
+
+##
+
+\begin{columns}
+\column{0.75\textwidth}
+\begin{itemize}
+\footnotesize
+\item The alleles transmitted with each mating are labelled, $w, x, y~\text{and}~z$. We use "$\sim$" to symbolize IBD. We are interested to calculate the probability that $w$ and $x$ are IBD.
+  \begin{itemize}
+  \scriptsize
+  \item The probability that "C" transmits the copy inherited from A to I, $P(x \sim y)$ = $\frac{1}{2}$
+  \item The probability that "B" transmits the copy inherited from A to I, $P(w \sim z)$ = $\frac{1}{2}$
+\end{itemize}
+\item The probability that $z$ and $y$ are IBD can be through two ways:
+  \begin{itemize}
+  \scriptsize
+  \item First way is when $z$ and $y$ are both the same copy (both pink or blue). This happens $\frac{1}{2}$ of the time since 1/4 of the time they are both blue and 1/4 both pink.
+  \item Second way is when $z$ and $y$ are different copies (one pink and the other blue) but individual A was inbred. The probability that A's two copies are IBD is the inbreeding coefficient of A -- $F_A$. The probability that $z$ and $y$ are different copies that are IBD is $\frac{1}{2}\times F_A$.Thus,
+  \end{itemize}
+\end{itemize}
+
+$$
+\small
+P(z \sim y) = \frac{1}{2} + \frac{1}{2}F_A
+$$
+\column{0.25\textwidth}
+
+```{r inbreeding-coefficient-in-half-sibs, fig.cap="\\textbf{Inbreeding for half sibs.} B and C are half sibs who have the same mother, A, but different fathers; B and C have a daughter, I. Notice there is a closed loop from I through B and A and back to I through C. Since I's two copies of the gene trace back to the same copy in her grandmother, her two copies are identical by descent (IBD).", out.width="65%"}
+knitr::include_graphics("../images/inbreeding_coefficient_half_sibs.png")
+```
+
+\end{columns}
+
+##
+
+- Since, $P(x \sim y), P(w \sim z),~\text{and},~P(z \sim y)$ are independent probabilities, product rule can be used to obtain combined probability.
+
+$$
+\begin{aligned}
+F_I &= P(x \sim y)\times P(w \sim z) \times P(z \sim y) \\
+&= \frac{1}{2} \times \frac{1}{2} \times \left( \frac{1}{2} + \frac{1}{2}F_A \right) \\
+&= \left( \frac{1}{2} \right)^3 (1 + F_A)
+\end{aligned}
+$$
+
+- If $F_A$ for individual A is supposed to be 0, then $F_I = \frac{1}{8}$.
+- $\therefore$ Offspring of half-sib mating will be homozygous for alleles that are IBD for at least 1/8 (depending upon $F_A$) of their genes.
+
+##
+
+- In Figure \ref{fig:inbreeding-coefficient} (a) there is no inbreeding because there is no common ancestral pathway to the individual, A (i.e., all parents are different).
+- However, in Figure \ref{fig:inbreeding-coefficient} (b) inbreeding exists because B and C have common parents (D and E), that is, they are full sibs.
+- To calculate the amount of inbreeding, the standard pedigree is converted to an arrow diagram, as shown in \ref{fig:inbreeding-coefficient} (c). 
+- Each individual contributes 1/2 of its genotype to its offspring. The *coefficient of relationship* (R) is calculated by summing up all the pathways between two individuals through a common ancestor as: $R_{BC} = \sum{\left(\frac{1}{2}\right)^s}$ , where s is the number of steps (arrows) from B to the common ancestor and back to C. For example, B and C probably inherited $(1/2)(1/2) = 1/4$ of their genes in common through ancestor D. Similarly, B and C probably inherited 1/4 of their genes in common through ancestor E. 
+- The coefficient of relationship between B and C, as a result of common ancestry, is hence $R_{BC} = 1/4 + 1/4 = 1/2 = 50\%$
+
+##
+
+```{r inbreeding-coefficient, fig.cap="Pedigree diagrams can be drawn in the standard form (a, b) or converted to into an arrow diagram (c).", fig.align="center", out.width="45%"}
+# pdftools::pdf_convert("./../../references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 64, format = "png", filenames = "./images/arrow_diagram.png", dpi = 300)
+knitr::include_graphics("../images/arrow_diagram.png")
+```
+
+## Heterosis (Hybrid vigor)
+
+- Hybrid vigor may be defined as the increase in size, vigor, fertility, and overall productivity of a hybrid plant over the mid-parent value (average performance of the two parents). 
+- It is calculated as the difference between the crossbred and inbred means:
+
+$$\text{Hybrid vigour} = \frac{F_1-\frac{(P_1+P_2)}{2}}{\frac{(P_1+P_2)}{2}}$$
+
+- The estimate is usually calculated as a percentage.
+- The synonymous term, heterosis, was coined by G.H. Shull.
+- Advantageous hybrid vigor is observed more frequently when breeders cross parents that are genetically diverse; When two inbred lines of outbred species are crossed.
+- The practical definition of heterosis is hybrid vigor that greatly exceeds the better or higher parent in a cross.
+- Hybrid breeding in maize quadrupled yields of maize in US between 1930s and 1970s.
+
+## Genetic basis of heterosis
+
+- To explain the genetic basis for why fitness lost on inbreeding tends to be restored upon crossing, two theories have been proposed.
+  - Dominance theory: C.G. Davenport in 1908 and later by I.M. Lerner, 
+  - Overdominance theory: Shull in 1908 and later by K. Mather and J.L. Jinks. 
+- A third theory, the mechanism of epistasis (non-allelic gene interactions), has also been proposed.
+
+## Dominance theory
+
+\footnotesize
+
+- The dominance theory assumes that vigor in plants is conditioned by dominant alleles, recessive alleles being deleterious or neutral in effect.
+- It follows: a genotype with more dominant alleles will be more vigorous than one with few dominant alleles.
+- Consequently, crossing two parents with complementary dominant alleles will concentrate more favorable alleles in the hybrid than either parent.
+- In practice, if too many deleterious alleles are present, it makes it difficult to inbreed to recover sufficient loci with homozygous dominant alleles.
+- Inbreeding depression occurs upon selfing because the deleterious recessive alleles that are protected in the heterozygous condition (heterozygous advantage) become homozygous and are expressed.
+- Assume that each dominant genotype contributes 2 units to the phenotype, while a recessive genotype contributes 1 unit. A cross between two inbred parents could produce the following outcome:
+
+```{r dominance-theory, fig.align="center", out.width="35%"}
+# pdftools::pdf_convert("./../../references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 368, format = "png", filenames = "./images/dominance_theory.png", dpi = 300)
+knitr::include_graphics("../images/dominance_theory.png")
+```
+
+## Overdominance theory
+
+\footnotesize
+
+- The phenomenon of the heterozygote being superior to the homozygote is called overdominance (i.e., heterozygosity _per se_ is assumed to be responsible for heterosis).
+- Theory assumes that the alleles of a gene (e.g., A, a) are contrasting but each has a different favorable effect in the plant.
+- A genotype with more heterozygous loci would be more vigorous than one with less heterozygotes.
+- Consider a quantitative trait conditioned by four loci, and assume that recessive, heterozygote, and homozygote dominants contribute 1, 2, and 1.5 units to the phenotypic value, respectively:
+
+```{r overdominance-theory, fig.align="center", out.width="35%"}
+# pdftools::pdf_convert("./../../references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 369, format = "png", filenames = "./images/overdominance_theory.png", dpi = 300)
+knitr::include_graphics("../images/overdominance_theory.png")
+```
+
+## Biometrics of heterosis
+
+1. Better parent heterosis (Heterobeltiosis)
+$$Hybrid~vigour = \frac{F_1-Better~parent}{Better~parent}$$
+2. Mid parent heterosis
+$$Hybrid~vigour = \frac{F_1-\frac{(P_1+P_2)}{2}}{\frac{(P_1+P_2)}{2}}$$
+3. Commercial heterosis
+$$Hybrid~vigour = \frac{F_1-Commercial~Hybrid}{Commercial~Hybrid}$$
+
+## Types of hybrids
+
+- Commercial applications of hybrid breeding started with a cross of two inbred lines (a single cross - AxB) and later shifted to the more economic double cross, ([AxB]x[CxD]) and then back to a single cross. 
+- Other parent combinations in hybrid development have been proposed, including the three-way cross ([AxB]xC) and modified versions of the single cross, in which closely related crosses showed that the single cross was superior in performance to the other two in terms of average yield. 
+- However, it was noted also that the genotype x environment interaction (hybrid x environment) variability was more than twice that for the double crosses, while the mean variability for the three-way cross being intermediate.
+
+##
+
+- This indicated that the single crosses were more sensitive or responsive to environmental conditions than the other crosses. 
+- Whereas high average yield is important to the producer, consistency in performance across years and locations (i.e., yield stability) is also important. 
+- Double and three-way crosses have a more genetically divergent population for achieving buffering. 
+- Today commercial hybrids are predominantly single cross, of best combining parental inbred lines.
+- For outline of mating scheme, See Lecture 7 on "Hybridization techniques and its consequences" (Course: Introductory plant breeding, $4^{th}$ semester, BScAg). 
+
+## Numerical problem
+
+In blackgram, grain yield of parents ($P_1$ and $P_2$) their $F_1$ and $F_2$ progenies are given below:
+
+```{r}
+tribble(
+  ~"Parent 1", ~"Parent 2", ~"F1 hybrid", ~"F2 progeny",
+  18.94, 22.69, 29.38, 15.18
+) %>% 
+  kable(booktabs = TRUE) %>% 
+  kableExtra::kable_styling(font_size = 6, position = "center")
+```
+
+Calculate average heterosis, heterobeltiosis and inbreeding depression.
+
+## Solution
+
+\begin{equation}
+\begin{aligned}
+\text{Mid parent heterosis} &= \frac{F_1 - MP}{MP} \times 100\% \\
+\text{Here, Value of } F_1 &= 29.38 \\
+\text{Mean of parents (MP)} &= \frac{18.9+22.69}{2} = 20.81 \\
+\text{Mid parent heterosis } &= \frac{29.38-20.81}{20.81} \times 100\% = 41.12\% \\
+\text{Heterobeltiosis} &= \frac{F_1-BP}{BP} \times 100\% = \frac{29.38-22.69}{22.69} \times 100\% = 29.48\% \\
+\text{Inbreeding depression} &= \frac{F_1-F_2}{F_1} \times 100\% = \frac{29.38-15.18}{15.18} \times 100\%= 48.33\%
+\end{aligned}
+\nonumber
+\end{equation}
 
 # Inheritance of traits
 
@@ -218,7 +408,7 @@ gamete_types <- expand.grid(c("A", "a"),
   pull("gamete_types")
 
 # random mating of gametes
-combination_genotypes <- crossing(gamete_types, gamete_types) %>% 
+combination_genotypes <- crossing(gamete_types1 = gamete_types, gamete_types) %>% 
   # group_by(gamete_types)
   unite(col = "genotype", remove = FALSE, sep = "") %>% 
   spread(key = gamete_types1, value = genotype)

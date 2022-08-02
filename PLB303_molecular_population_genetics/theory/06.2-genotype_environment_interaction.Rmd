@@ -2,11 +2,10 @@
 title: "Genotype by environment interaction"
 author: |
   | Deependra Dhakal
-  | Gokuleshwor Agriculture and Animal Science College
-  | Tribhuwan University
+  | College of Natural Resource Management
+  | Agriculture and Forestry University
   | \textit{ddhakal.rookie@gmail.com}
   | \url{https://rookie.rbind.io}
-date: Academic year 2019-2020
 output: 
   binb::monash:
     toc: true
@@ -22,6 +21,7 @@ outercolortheme: whale
 linkcolor: red
 urlcolor: lightgrayd
 # titlefontsize: 22pt # breaks custom \lineskip
+titlepage: deepseashrimp.jpg
 fontsize: 11pt
 classoption: "aspectratio=169" # "compressed"
 bibliography: [./../bibliographies.bib]
@@ -56,7 +56,7 @@ theme_set(theme_bw())
 
 - The type of $G \times E$ interaction influences the nature of the cultivar the breeder eventually releases for the production region.
 - The biological basis of $G \times E$ interaction is complex by nature.
-- As the number of environments (n) and number of genotypes (m) increase, the number of possible $G \times E$ interactions is given by $\frac{mn!}{m!n!}$. However, only one genotype is the best performer under all environments.
+- As the number of environments (n) and number of genotypes (m) increase, the number of possible $G \times E$ interactions increase in a multiplicative fashion. However, only one genotype is the best performer under all environments.
 
 ##
 

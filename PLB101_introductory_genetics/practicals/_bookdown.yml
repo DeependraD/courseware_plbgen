@@ -6,5 +6,22 @@ language:
 # dput(list.files(".", pattern = ".*-(body)_.*"))
 rmd_files:
   html: []
-  latex: ["index.Rmd", "01-study-of-diagram-of-mitosis.Rmd", "02-study-of-diagram-of-meiosis.Rmd", "03-microscopic-study-of-different-stages-of-mitosis.Rmd", "04-microscopic-study-of-different-stages-of-meiosis.Rmd", "05-numerical-problems-segregation.Rmd", "06-numerical-problems-independent-assortment.Rmd", "07-study-of-gene-action-and-interaction.Rmd", "08-study-of-three-dimensional-view-of-dna.Rmd", "09-study-of-three-dimensional-view-of-rna.Rmd", "10-numerical-problems-cytoplasmic-inheritance-sex-linked-inheritance-determination.Rmd", "11-numerical-problems-linkage-analysis.Rmd", "12-numerical-problems-probability-statistics.Rmd", "13-study-of-life-cycle-of-maize.Rmd"]
+  latex: ["index.Rmd",
+          "01-study-of-diagram-of-mitosis.Rmd",
+          "02-study-of-diagram-of-meiosis.Rmd",
+          "03.null-microscopic-study-of-different-stages-of-mitosis.Rmd",
+          "03-numerical-problems-segregation.Rmd",
+          "04.null-microscopic-study-of-different-stages-of-meiosis.Rmd",
+          "04-numerical-problems-independent-assortment.Rmd",
+          "05-study-of-gene-action-and-interaction.Rmd",
+          "06-numerical-problems-gene-actions.Rmd",
+          "07-numerical-problems-gene-interactions.Rmd",
+          "08-probability.Rmd",
+          "09-chi-square-test.Rmd",
+          "10-numerical-problems-linkage.Rmd",
+          "11-numerical-problems-crossing-over.Rmd",
+          "12-numerical-problems-sex-determination-sex-linkage.Rmd",
+          "13-microscopic-study-dna-rna.Rmd",
+          "14-field-demonstration-of-segregation.Rmd",
+          "15-field-demonstration-cytoplasmic-genetic-male-sterility.Rmd"]
   epub: []

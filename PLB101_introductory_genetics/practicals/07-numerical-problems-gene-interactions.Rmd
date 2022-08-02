@@ -1,0 +1,67 @@
+# Solution of numberical problems related to gene interactions
+
+## Question 1
+
+In summer squash, fruits may be white, yellow or green. In one case the cross of **Y x W** produced an $F_1$ of all **W** fruited plants that, when selfed, gave an $F_2$ segregating 12 W, 3 Y, and 1 G,
+
+(a) suggest genotypes for the **W**, **Y** and **G** phenotypes.
+(b) give genotypes of the parents, $F_1$ and $F_2$ of this cross.
+(c) if the $F_2$ progenies were found as 135 W and 105 Y phenotypes, explain the results giving genotypes of the parents, $F_1$ and $F_2$ of this cross.
+
+## Question 2
+
+Consider the production of flower color in the *Pharbitis*. Dominant alleles of either of two separate genes (**A_bb** or **aaB_**) produce purple petals. **A_B_** produce blue petals and **aabb** produces scarlet petals. Deduce the genotypes of parents and progeny in the following crosses.
+
+```{r pharbitis-flower-petal}
+tribble(
+  ~"Parents", ~"Progenies",
+  "Blue x Scarlet", "$\\frac{1}{4}B, \\frac{1}{2}P, \\frac{1}{4}S$",
+  "Purple x Purple", "$\\frac{1}{4}B, \\frac{1}{2}P, \\frac{1}{4}S$",
+  "Blue x Blue", "$\\frac{3}{4}B, \\frac{1}{4}P$",
+  "Blue x Purple", "$\\frac{3}{8}B, \\frac{4}{8}P, \\frac{1}{8}S$",
+  "Purple x Scarlet", "$\\frac{1}{2}P, \\frac{1}{2}S$"
+) %>% 
+  knitr::kable(booktabs = TRUE, escape = FALSE) %>% 
+  kableExtra::kable_styling(position = "center", font_size = 8)
+```
+
+
+## Question 3
+
+Radishes may be long, round or oval and they may be red, white or purple. You cross a long white variety with round red one and obtain an oval purple $F_1$. Following nine phenotypic classes are observed:
+
+- 9 long red,
+- 15 long purple,
+- 19 oval red,
+- 32 oval purple,
+- 8 long white,
+- 16 round purple,
+- 8 round white,
+- 16 oval white and
+- 9 round red
+
+(a) Provide a genetic explanation of these results. Be sure to define the genotypes and show the constitution of parents in $F_1$ and $F_2$.
+(b) Predict the genotypic and phenotypic proportions in the progeny of a cross between a long purple radish and an oval purple one.
+
+## Question 4
+
+In sweet pea, dominnat genes **C** and **R** together produce colored flowers. Determine the gametes, and the genotypes and phenotypes of progeny obtained in the following crosses.
+
+(a) **CCRR** x **ccrr**
+(b) **CcRr** x **CcRr**
+(c) **CcRr** x **ccrr**
+(d) **CcRr** x **CCrr**
+(e) **ccRr** x **Ccrr**
+(f) **CCRr** x **ccRr**
+(g) **CCRR** x **CCRr**
+
+## Question 5
+
+In maize, gene **R** produces red aleurone color, while gene **P**, when present together with **R**, produces purple color. Determine the phenotypes fo parents, and the genotypes and phenotypes of the progeny produced from the following crosses.
+
+(a) **RRpp** x **Rrpp**
+(b) **RRpp** x **RrPP**
+(c) **RrPp** x **Rrpp**
+(d) **rrPP** x **RrPP**
+(e) **RrPp** x **RrPp**
+(f) **RrPp** x **rrPp**

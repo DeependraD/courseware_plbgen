@@ -36,6 +36,19 @@
 
 % A default size of 24 is set in beamerthememonash.sty
 
+% Title page
+\setbeamertemplate{title page}
+{\placefig{-0.01}{-0.01}{width=1.01\paperwidth,height=1.01\paperheight}{falcon.png}
+% \begin{textblock}{7.5}(1,2.8)\usebeamerfont{title} % original
+\begin{textblock}{15}(1,2.2)\usebeamerfont{title}
+{\color{white}\raggedright\par\inserttitle}
+\end{textblock}
+\begin{textblock}{10}(1,6)
+\small
+{\color{white}\raggedright{\insertauthor}\mbox{}\\[0.1cm]
+\insertdate}
+\end{textblock}}
+
 
   \useinnertheme{rounded}
 
@@ -141,7 +154,7 @@
   \usepackage{chemfig}
   \usepackage[skip=0.333\baselineskip]{caption}
   % \newcommand*{\AlignChar}[1]{\makebox[1ex][c]{\ensuremath{\scriptstyle#1}}}%
-  
+
   % this font option is amenable for beamer
   \setbeamerfont{caption}{size=\tiny}
   \singlespacing
@@ -149,27 +162,33 @@
   \definecolor{skyblued}{rgb}{0.65, 0.6, 0.94}
   \definecolor{oranged}{RGB}{245, 145, 200}
 
+  \newlength{\cslhangindent}
+  \setlength{\cslhangindent}{1.5em}
+  \newenvironment{cslreferences}%
+    {\setlength{\parindent}{0pt}%
+    \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
+    {\par}
+
   \title[]{Quantitative genetics}
 
 
   \author[
         Deependra Dhakal\\
-Gokuleshwor Agriculture and Animal Science College\\
-Tribhuwan University\\
+College of Natural Resource Management\\
+Agriculture and Forestry University\\
 \textit{ddhakal.rookie@gmail.com}\\
 \url{https://rookie.rbind.io}
     ]{Deependra Dhakal\\
-Gokuleshwor Agriculture and Animal Science College\\
-Tribhuwan University\\
+College of Natural Resource Management\\
+Agriculture and Forestry University\\
 \textit{ddhakal.rookie@gmail.com}\\
 \url{https://rookie.rbind.io}}
 
 
 \date[
-      Academic year 2019-2020
+      
   ]{
-      Academic year 2019-2020
-        }
+    }
 
 \begin{document}
 
@@ -185,12 +204,398 @@ Tribhuwan University\\
    \tableofcontents[hideallsubsections]
   }
 
+\hypertarget{heterosis-and-inbreeding-depression}{%
+\section{Heterosis and Inbreeding
+depression}\label{heterosis-and-inbreeding-depression}}
+
+\begin{frame}{Inbreeding depression}
+\protect\hypertarget{inbreeding-depression}{}
+\footnotesize
+
+\begin{itemize}
+\tightlist
+\item
+  Inbreeding depression is reduction in fitness as a direct result of
+  inbreeding.
+\item
+  In theory, the heterosis observed on crossing is expected to be equal
+  to the depression upon inbreeding, considering a large number of
+  crosses between lines derived from a single base population.
+\item
+  In practice, plant breeders are interested in heterosis expressed by
+  specific crosses between selected parents, or between populations that
+  have no known common origin.
+\item
+  Reduction in fitness is usually manifested as a reduction in vigor,
+  fertility, and productivity.
+\item
+  The effect is more severe in the early generations (5-8).
+\item
+  Plants including onions, sunflower, cucurbits, and rye are more
+  tolerant of inbreeding with minimal consequences of inbreeding
+  depression.
+\item
+  Plants such as alfalfa and carrot are highly intolerant of inbreeding.
+\item
+  A phenotypic measure of inbreeding depression is obtained through
+  generational mean analysis. It is calculated as:
+\end{itemize}
+
+\[
+\text{Inbreeding depression (ID)} = \frac{F_1 - F_2}{F_1} \times 100\%
+\]
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section}{}
+\begin{itemize}
+\tightlist
+\item
+  Inbreeding is measured by the \textbf{Coefficient of Inbreeding}
+  (\textbf{F}), which is the probability of identity of alleles by
+  descent. The range of F is zero (no inbreeding; random mating) to one
+  (prolonged selfing).
+\item
+  An unfit (deleterious) recessive allele is fairly quickly reduced in
+  frequency but declines slowly thereafter.
+\item
+  On the other hand, an unfit dominant allele is rapidly eliminated from
+  the population, while an intermediate allele is reduced more rapidly
+  than a recessive allele because the former is open to selection in the
+  heterozygote.
+\item
+  The consequence of these outcomes is that unfit dominant or
+  intermediate alleles are rare in cross-breeding populations, while
+  unfit recessive alleles persist because they are protected by their
+  recessiveness.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-1}{}
+\begin{columns}
+\column{0.75\textwidth}
+\begin{itemize}
+\footnotesize
+\item The alleles transmitted with each mating are labelled, $w, x, y~\text{and}~z$. We use "$\sim$" to symbolize IBD. We are interested to calculate the probability that $w$ and $x$ are IBD.
+  \begin{itemize}
+  \scriptsize
+  \item The probability that "C" transmits the copy inherited from A to I, $P(x \sim y)$ = $\frac{1}{2}$
+  \item The probability that "B" transmits the copy inherited from A to I, $P(w \sim z)$ = $\frac{1}{2}$
+\end{itemize}
+\item The probability that $z$ and $y$ are IBD can be through two ways:
+  \begin{itemize}
+  \scriptsize
+  \item First way is when $z$ and $y$ are both the same copy (both pink or blue). This happens $\frac{1}{2}$ of the time since 1/4 of the time they are both blue and 1/4 both pink.
+  \item Second way is when $z$ and $y$ are different copies (one pink and the other blue) but individual A was inbred. The probability that A's two copies are IBD is the inbreeding coefficient of A -- $F_A$. The probability that $z$ and $y$ are different copies that are IBD is $\frac{1}{2}\times F_A$.Thus,
+  \end{itemize}
+\end{itemize}
+
+$$
+\small
+P(z \sim y) = \frac{1}{2} + \frac{1}{2}F_A
+$$
+\column{0.25\textwidth}
+
+\begin{figure}
+\includegraphics[width=0.65\linewidth]{../images/inbreeding_coefficient_half_sibs} \caption{\textbf{Inbreeding for half sibs.} B and C are half sibs who have the same mother, A, but different fathers; B and C have a daughter, I. Notice there is a closed loop from I through B and A and back to I through C. Since I's two copies of the gene trace back to the same copy in her grandmother, her two copies are identical by descent (IBD).}\label{fig:inbreeding-coefficient-in-half-sibs}
+\end{figure}
+
+\end{columns}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-2}{}
+\begin{itemize}
+\tightlist
+\item
+  Since, \(P(x \sim y), P(w \sim z),~\text{and},~P(z \sim y)\) are
+  independent probabilities, product rule can be used to obtain combined
+  probability.
+\end{itemize}
+
+\[
+\begin{aligned}
+F_I &= P(x \sim y)\times P(w \sim z) \times P(z \sim y) \\
+&= \frac{1}{2} \times \frac{1}{2} \times \left( \frac{1}{2} + \frac{1}{2}F_A \right) \\
+&= \left( \frac{1}{2} \right)^3 (1 + F_A)
+\end{aligned}
+\]
+
+\begin{itemize}
+\tightlist
+\item
+  If \(F_A\) for individual A is supposed to be 0, then
+  \(F_I = \frac{1}{8}\).
+\item
+  \(\therefore\) Offspring of half-sib mating will be homozygous for
+  alleles that are IBD for at least 1/8 (depending upon \(F_A\)) of
+  their genes.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-3}{}
+\begin{itemize}
+\tightlist
+\item
+  In Figure \ref{fig:inbreeding-coefficient} (a) there is no inbreeding
+  because there is no common ancestral pathway to the individual, A
+  (i.e., all parents are different).
+\item
+  However, in Figure \ref{fig:inbreeding-coefficient} (b) inbreeding
+  exists because B and C have common parents (D and E), that is, they
+  are full sibs.
+\item
+  To calculate the amount of inbreeding, the standard pedigree is
+  converted to an arrow diagram, as shown in
+  \ref{fig:inbreeding-coefficient} (c).
+\item
+  Each individual contributes 1/2 of its genotype to its offspring. The
+  \emph{coefficient of relationship} (R) is calculated by summing up all
+  the pathways between two individuals through a common ancestor as:
+  \(R_{BC} = \sum{\left(\frac{1}{2}\right)^s}\) , where s is the number
+  of steps (arrows) from B to the common ancestor and back to C. For
+  example, B and C probably inherited \((1/2)(1/2) = 1/4\) of their
+  genes in common through ancestor D. Similarly, B and C probably
+  inherited 1/4 of their genes in common through ancestor E.
+\item
+  The coefficient of relationship between B and C, as a result of common
+  ancestry, is hence \(R_{BC} = 1/4 + 1/4 = 1/2 = 50\%\)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-4}{}
+\begin{figure}
+
+{\centering \includegraphics[width=0.45\linewidth]{../images/arrow_diagram} 
+
+}
+
+\caption{Pedigree diagrams can be drawn in the standard form (a, b) or converted to into an arrow diagram (c).}\label{fig:inbreeding-coefficient}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Heterosis (Hybrid vigor)}
+\protect\hypertarget{heterosis-hybrid-vigor}{}
+\begin{itemize}
+\tightlist
+\item
+  Hybrid vigor may be defined as the increase in size, vigor, fertility,
+  and overall productivity of a hybrid plant over the mid-parent value
+  (average performance of the two parents).
+\item
+  It is calculated as the difference between the crossbred and inbred
+  means:
+\end{itemize}
+
+\[\text{Hybrid vigour} = \frac{F_1-\frac{(P_1+P_2)}{2}}{\frac{(P_1+P_2)}{2}}\]
+
+\begin{itemize}
+\tightlist
+\item
+  The estimate is usually calculated as a percentage.
+\item
+  The synonymous term, heterosis, was coined by G.H. Shull.
+\item
+  Advantageous hybrid vigor is observed more frequently when breeders
+  cross parents that are genetically diverse; When two inbred lines of
+  outbred species are crossed.
+\item
+  The practical definition of heterosis is hybrid vigor that greatly
+  exceeds the better or higher parent in a cross.
+\item
+  Hybrid breeding in maize quadrupled yields of maize in US between
+  1930s and 1970s.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Genetic basis of heterosis}
+\protect\hypertarget{genetic-basis-of-heterosis}{}
+\begin{itemize}
+\tightlist
+\item
+  To explain the genetic basis for why fitness lost on inbreeding tends
+  to be restored upon crossing, two theories have been proposed.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Dominance theory: C.G. Davenport in 1908 and later by I.M. Lerner,
+  \item
+    Overdominance theory: Shull in 1908 and later by K. Mather and J.L.
+    Jinks.
+  \end{itemize}
+\item
+  A third theory, the mechanism of epistasis (non-allelic gene
+  interactions), has also been proposed.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Dominance theory}
+\protect\hypertarget{dominance-theory}{}
+\footnotesize
+
+\begin{itemize}
+\tightlist
+\item
+  The dominance theory assumes that vigor in plants is conditioned by
+  dominant alleles, recessive alleles being deleterious or neutral in
+  effect.
+\item
+  It follows: a genotype with more dominant alleles will be more
+  vigorous than one with few dominant alleles.
+\item
+  Consequently, crossing two parents with complementary dominant alleles
+  will concentrate more favorable alleles in the hybrid than either
+  parent.
+\item
+  In practice, if too many deleterious alleles are present, it makes it
+  difficult to inbreed to recover sufficient loci with homozygous
+  dominant alleles.
+\item
+  Inbreeding depression occurs upon selfing because the deleterious
+  recessive alleles that are protected in the heterozygous condition
+  (heterozygous advantage) become homozygous and are expressed.
+\item
+  Assume that each dominant genotype contributes 2 units to the
+  phenotype, while a recessive genotype contributes 1 unit. A cross
+  between two inbred parents could produce the following outcome:
+\end{itemize}
+
+\begin{center}\includegraphics[width=0.35\linewidth]{../images/dominance_theory} \end{center}
+\end{frame}
+
+\begin{frame}{Overdominance theory}
+\protect\hypertarget{overdominance-theory}{}
+\footnotesize
+
+\begin{itemize}
+\tightlist
+\item
+  The phenomenon of the heterozygote being superior to the homozygote is
+  called overdominance (i.e., heterozygosity \emph{per se} is assumed to
+  be responsible for heterosis).
+\item
+  Theory assumes that the alleles of a gene (e.g., A, a) are contrasting
+  but each has a different favorable effect in the plant.
+\item
+  A genotype with more heterozygous loci would be more vigorous than one
+  with less heterozygotes.
+\item
+  Consider a quantitative trait conditioned by four loci, and assume
+  that recessive, heterozygote, and homozygote dominants contribute 1,
+  2, and 1.5 units to the phenotypic value, respectively:
+\end{itemize}
+
+\begin{center}\includegraphics[width=0.3\linewidth]{../images/overdominance_theory} \end{center}
+\end{frame}
+
+\begin{frame}{Biometrics of heterosis}
+\protect\hypertarget{biometrics-of-heterosis}{}
+\begin{enumerate}
+\tightlist
+\item
+  Better parent heterosis (Heterobeltiosis)
+  \[Hybrid~vigour = \frac{F_1-Better~parent}{Better~parent}\]
+\item
+  Mid parent heterosis
+  \[Hybrid~vigour = \frac{F_1-\frac{(P_1+P_2)}{2}}{\frac{(P_1+P_2)}{2}}\]
+\item
+  Commercial heterosis
+  \[Hybrid~vigour = \frac{F_1-Commercial~Hybrid}{Commercial~Hybrid}\]
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Types of hybrids}
+\protect\hypertarget{types-of-hybrids}{}
+\begin{itemize}
+\tightlist
+\item
+  Commercial applications of hybrid breeding started with a cross of two
+  inbred lines (a single cross - AxB) and later shifted to the more
+  economic double cross, ({[}AxB{]}x{[}CxD{]}) and then back to a single
+  cross.
+\item
+  Other parent combinations in hybrid development have been proposed,
+  including the three-way cross ({[}AxB{]}xC) and modified versions of
+  the single cross, in which closely related crosses showed that the
+  single cross was superior in performance to the other two in terms of
+  average yield.
+\item
+  However, it was noted also that the genotype x environment interaction
+  (hybrid x environment) variability was more than twice that for the
+  double crosses, while the mean variability for the three-way cross
+  being intermediate.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-5}{}
+\begin{itemize}
+\tightlist
+\item
+  This indicated that the single crosses were more sensitive or
+  responsive to environmental conditions than the other crosses.
+\item
+  Whereas high average yield is important to the producer, consistency
+  in performance across years and locations (i.e., yield stability) is
+  also important.
+\item
+  Double and three-way crosses have a more genetically divergent
+  population for achieving buffering.
+\item
+  Today commercial hybrids are predominantly single cross, of best
+  combining parental inbred lines.
+\item
+  For outline of mating scheme, See Lecture 7 on ``Hybridization
+  techniques and its consequences'' (Course: Introductory plant
+  breeding, \(4^{th}\) semester, BScAg).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Numerical problem}
+\protect\hypertarget{numerical-problem}{}
+In blackgram, grain yield of parents (\(P_1\) and \(P_2\)) their \(F_1\)
+and \(F_2\) progenies are given below:
+
+\begin{table}
+\centering\begingroup\fontsize{6}{8}\selectfont
+
+\begin{tabular}{rrrr}
+\toprule
+Parent 1 & Parent 2 & F1 hybrid & F2 progeny\\
+\midrule
+19 & 23 & 29 & 15\\
+\bottomrule
+\end{tabular}
+\endgroup{}
+\end{table}
+
+Calculate average heterosis, heterobeltiosis and inbreeding depression.
+\end{frame}
+
+\begin{frame}{Solution}
+\protect\hypertarget{solution}{}
+\begin{equation}
+\begin{aligned}
+\text{Mid parent heterosis} &= \frac{F_1 - MP}{MP} \times 100\% \\
+\text{Here, Value of } F_1 &= 29.38 \\
+\text{Mean of parents (MP)} &= \frac{18.9+22.69}{2} = 20.81 \\
+\text{Mid parent heterosis } &= \frac{29.38-20.81}{20.81} \times 100\% = 41.12\% \\
+\text{Heterobeltiosis} &= \frac{F_1-BP}{BP} \times 100\% = \frac{29.38-22.69}{22.69} \times 100\% = 29.48\% \\
+\text{Inbreeding depression} &= \frac{F_1-F_2}{F_1} \times 100\% = \frac{29.38-15.18}{15.18} \times 100\%= 48.33\%
+\end{aligned}
+\nonumber
+\end{equation}
+\end{frame}
+
 \hypertarget{inheritance-of-traits}{%
 \section{Inheritance of traits}\label{inheritance-of-traits}}
 
 \begin{frame}{Background}
 \protect\hypertarget{background}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -233,12 +638,10 @@ Tribhuwan University\\
     \end{itemize}
   \end{itemize}
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section}{}
-
+\protect\hypertarget{section-6}{}
 \begin{enumerate}
 \setcounter{enumi}{1}
 \tightlist
@@ -254,12 +657,10 @@ Tribhuwan University\\
     plant height (cm) variation may be differing by small units
   \end{itemize}
 \end{enumerate}
-
 \end{frame}
 
 \begin{frame}{Quantitative inheritance}
 \protect\hypertarget{quantitative-inheritance}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -280,12 +681,10 @@ Tribhuwan University\\
   Quantitative characters often show continuous variation with normal
   distribution
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{Qualitative inheritance}
 \protect\hypertarget{qualitative-inheritance}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -311,18 +710,16 @@ Tribhuwan University\\
     Linkage
   \end{enumerate}
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{Difference}
 \protect\hypertarget{difference}{}
-
-\begin{table}[t]
+\begin{table}
 
 \caption{\label{tab:quality-quantity-difference}Difference between qualitative and quantitative traits}
 \centering
 \fontsize{6}{8}\selectfont
-\begin{tabular}{>{\raggedright\arraybackslash}p{12em}>{\raggedright\arraybackslash}p{12em}>{\raggedright\arraybackslash}p{12em}}
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{12em}>{\raggedright\arraybackslash}p{12em}>{\raggedright\arraybackslash}p{12em}}
 \toprule
 Character & Qualitative & Quantitative\\
 \midrule
@@ -338,7 +735,6 @@ Examples & Disease resistance, Presence of awns, Seed color & Grain yield (kg/ha
 \bottomrule
 \end{tabular}
 \end{table}
-
 \end{frame}
 
 \hypertarget{johanssens-pureline-theory}{%
@@ -346,7 +742,6 @@ Examples & Disease resistance, Presence of awns, Seed color & Grain yield (kg/ha
 
 \begin{frame}{Pureline theory}
 \protect\hypertarget{pureline-theory}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -363,12 +758,10 @@ Examples & Disease resistance, Presence of awns, Seed color & Grain yield (kg/ha
   to environmental factors only. Consequently, as Johansen's bean study
   showed, further selection within the line is not effective.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-1}{}
-
+\protect\hypertarget{section-7}{}
 \begin{figure}
 
 {\centering \includegraphics[width=0.45\linewidth]{../images/johannsens_purlines} 
@@ -377,12 +770,10 @@ Examples & Disease resistance, Presence of awns, Seed color & Grain yield (kg/ha
 
 \caption{Johannsen's observation of Phaseolus bean shed light on Pureline theory}\label{fig:johannsens-purelines}
 \end{figure}
-
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-2}{}
-
+\protect\hypertarget{section-8}{}
 \begin{itemize}
 \tightlist
 \item
@@ -401,12 +792,10 @@ Examples & Disease resistance, Presence of awns, Seed color & Grain yield (kg/ha
   Line cultivars have a very narrow genetic base and tend to be uniform
   in traits of interest (e.g., height, maturity).
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{Application}
 \protect\hypertarget{application}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -429,12 +818,10 @@ Examples & Disease resistance, Presence of awns, Seed color & Grain yield (kg/ha
   breeding method,s such as the pedigree selection and bulk population
   selection.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{Overview}
 \protect\hypertarget{overview}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -466,12 +853,10 @@ Examples & Disease resistance, Presence of awns, Seed color & Grain yield (kg/ha
     highest yielding line as new cultivar.
   \end{itemize}
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-3}{}
-
+\protect\hypertarget{section-9}{}
 \begin{figure}
 
 {\centering \includegraphics[width=0.45\linewidth]{../images/pureline_selection} 
@@ -480,12 +865,10 @@ Examples & Disease resistance, Presence of awns, Seed color & Grain yield (kg/ha
 
 \caption{Generalized steps in breeding by pure-line selection}\label{fig:pureline-selection}
 \end{figure}
-
 \end{frame}
 
 \begin{frame}{Genetic issues}
 \protect\hypertarget{genetic-issues}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -497,12 +880,10 @@ Examples & Disease resistance, Presence of awns, Seed color & Grain yield (kg/ha
   Pure-line cultivars depend primarily on phenotypic plasticity for
   production response and stability across environments.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{Advantages}
 \protect\hypertarget{advantages}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -516,12 +897,10 @@ Examples & Disease resistance, Presence of awns, Seed color & Grain yield (kg/ha
   (because of the high uniformity of, e.g., harvesting time, height,
   etc.).
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{Disadvantages}
 \protect\hypertarget{disadvantages}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -543,7 +922,6 @@ Examples & Disease resistance, Presence of awns, Seed color & Grain yield (kg/ha
 \item
   Progeny rows takes up more resources (time, space, funds).
 \end{itemize}
-
 \end{frame}
 
 \hypertarget{polygenes-in-discontinuous-traits}{%
@@ -551,8 +929,7 @@ Examples & Disease resistance, Presence of awns, Seed color & Grain yield (kg/ha
 traits}\label{polygenes-in-discontinuous-traits}}
 
 \begin{frame}{}
-\protect\hypertarget{section-4}{}
-
+\protect\hypertarget{section-10}{}
 \begin{itemize}
 \tightlist
 \item
@@ -566,12 +943,10 @@ traits}\label{polygenes-in-discontinuous-traits}}
   Polygenes demonstrate the same properties in terms of dominance,
   epistasis, and linkage as classical Mendelian genes.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-5}{}
-
+\protect\hypertarget{section-11}{}
 \begin{itemize}
 \tightlist
 \item
@@ -585,12 +960,10 @@ traits}\label{polygenes-in-discontinuous-traits}}
 \item
   Such characters may nevertheless be influenced by numerous polygenes.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-6}{}
-
+\protect\hypertarget{section-12}{}
 \begin{itemize}
 \tightlist
 \item
@@ -606,12 +979,10 @@ traits}\label{polygenes-in-discontinuous-traits}}
   in crosses between strains of guinea pigs, that differed from each
   other in the \textbf{number of toes on the hind leg}.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-7}{}
-
+\protect\hypertarget{section-13}{}
 \begin{itemize}
 \tightlist
 \item
@@ -635,12 +1006,10 @@ traits}\label{polygenes-in-discontinuous-traits}}
   ``heterozygotes'' to the four-toed stock resulted in 77 percent
   four-toed to 23 percent three-toed offspring.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-8}{}
-
+\protect\hypertarget{section-14}{}
 \begin{itemize}
 \tightlist
 \item
@@ -656,15 +1025,13 @@ traits}\label{polygenes-in-discontinuous-traits}}
   centered far below the threshold, \(F_1\) hybrids were mostly three
   toed.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-9}{}
-
+\protect\hypertarget{section-15}{}
 \renewcommand{\arraystretch}{2}
 
-\begin{table}[H]
+\begin{table}
 \centering\begingroup\fontsize{6}{8}\selectfont
 
 \resizebox{\linewidth}{!}{
@@ -694,13 +1061,14 @@ ABCD & \cellcolor[HTML]{802acc}{aAbBcCdD} & \cellcolor[HTML]{802acc}{aAbBcCDD} &
 \end{table}
 
 \renewcommand{\arraystretch}{1}
-
 \end{frame}
 
 \hypertarget{heritability-brown2014plantbreeding}{%
 \section{Heritability (Brown, Caligari, and Campos
 2014)}\label{heritability-brown2014plantbreeding}}
 
+\begin{frame}{Meaning}
+\protect\hypertarget{meaning}{}
 \begin{itemize}
 \tightlist
 \item
@@ -743,10 +1111,10 @@ ABCD & \cellcolor[HTML]{802acc}{aAbBcCdD} & \cellcolor[HTML]{802acc}{aAbBcCDD} &
     Measuring the response of a population to given levels of selection.
   \end{enumerate}
 \end{itemize}
+\end{frame}
 
 \begin{frame}{Genetics of heritability}
 \protect\hypertarget{genetics-of-heritability}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -759,12 +1127,10 @@ ABCD & \cellcolor[HTML]{802acc}{aAbBcCdD} & \cellcolor[HTML]{802acc}{aAbBcCDD} &
   variance is the variation existing between homozygous loci in the
   segregating population.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{Broad sense heritability}
 \protect\hypertarget{broad-sense-heritability}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -788,12 +1154,10 @@ h_b^2 = \frac{V_A + V_D}{V_A + V_D + V_E}
   heterozygosity in the population and will differ between fillial
   generations.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{Narrow sense heritability}
 \protect\hypertarget{narrow-sense-heritability}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -805,12 +1169,10 @@ h_b^2 = \frac{V_A + V_D}{V_A + V_D + V_E}
 h_n^2 = \frac{V_A}{V_A+V_D+V_E}
 \tag{ii}
 \]
-
 \end{frame}
 
 \begin{frame}{Dominance and additive effects}
 \protect\hypertarget{dominance-and-additive-effects}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -833,12 +1195,10 @@ h_n^2 = \frac{V_A}{V_A+V_D+V_E}
   generations, and so narrow-sense heritability of recombinant inbred
   lines can be estimated from early-generation segregating families.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{Variance partitioning of filial generation}
 \protect\hypertarget{variance-partitioning-of-filial-generation}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -868,12 +1228,10 @@ h_n^2 = \frac{V_A}{V_A+V_D+V_E}
 h_b^2 = \frac{\frac{1}{2}V_A + \frac{1}{4}V_D}{\frac{1}{2}V_A + \frac{1}{4}V_D + \sigma_E^2}
 \tag{iii}
 \]
-
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-10}{}
-
+\protect\hypertarget{section-16}{}
 In simple terms, to estimate the \(h_b^2\) of \(F_2\) family (or any
 other segregating family), only following estimates are required:
 
@@ -885,12 +1243,10 @@ other segregating family), only following estimates are required:
 \item
   Environmental variance (Obtained from measurement on \(F_1\) families)
 \end{enumerate}
-
 \end{frame}
 
 \begin{frame}{Problem}
 \protect\hypertarget{problem}{}
-
 Consider a field experiment with an inbreeding species such as wheat or
 barley. Parent 1 included 20 plants, Parent 2 included 20 plants and
 \(F_2\) family derived from selfing of \(F_1\) generation, which was
@@ -907,12 +1263,10 @@ is estimated to be \(56.9 kg^2\).
 
 But the problem is what is the value of environmental component of the
 phenotypic variance \(\sigma_E^2\)?
-
 \end{frame}
 
 \begin{frame}{Solution}
-\protect\hypertarget{solution}{}
-
+\protect\hypertarget{solution-1}{}
 It now follows that the \(h_b^2\), from given inform is:
 
 \[
@@ -929,24 +1283,20 @@ esimate of the \(\sigma_E^2\) is therefore:
 &= \frac{16.8 + 18.4}{2} = 17.6~kg^2
 \end{aligned}
 \]
-
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-11}{}
-
+\protect\hypertarget{section-17}{}
 And, therefore,
 
 \[
 h_b^2=\frac{56.9-17.6}{56.9} = 0.691
 \] Thus 69.1\% of the phenotypic variance of the \(F_2\) generation is
 estimated to be genetic in origin.
-
 \end{frame}
 
 \begin{frame}{Partitioning environmental variance}
 \protect\hypertarget{partitioning-environmental-variance}{}
-
 The other generation in which the phenotypic variance is also entirely
 attributable to environmental effects is the \(F_1\). On the other hand,
 if the phenotypic variances of all these three generations were
@@ -957,12 +1307,10 @@ available, the environmental component of the phenotypic variance of the
 \sigma_E = \frac{\sigma_{\bar{P_1}}^2 + 2\sigma_{\bar{F_1}}^2 + \sigma_{\bar{P_2}}^2}{4}
 \tag{iv}
 \]
-
 \end{frame}
 
 \begin{frame}{Partitioning genetic variance}
 \protect\hypertarget{partitioning-genetic-variance}{}
-
 The ratio of additive genetic variance to total phenotypic variance is
 called the narrow-sense heritability.
 
@@ -975,12 +1323,10 @@ In order to estimate \(h_n^2\), it is therefore necessary to partition
 the genetic variance into its two components (\(V_A\) and \(V_D\)). This
 is done by considering the phenotypic variance of the two backcross
 families (\(\sigma_{\bar{B_1}}^2\) and \(\sigma_{\bar{B_2}}^2\)).
-
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-12}{}
-
+\protect\hypertarget{section-18}{}
 The expected variances of \(\sigma_{\bar{B_1}}^2\) and
 \(\sigma_{\bar{B_2}}^2\) are:
 
@@ -997,12 +1343,10 @@ equations,
 \sigma_{\bar{B_1}}^2 + \sigma_{\bar{B_2}}^2 = \frac{1}{2}V_A + \frac{1}{2}V_D + 2\sigma_E^2
 \tag{vi}
 \]
-
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-13}{}
-
+\protect\hypertarget{section-19}{}
 From the relationship we addressed earlier of \(\sigma_{\bar{F_2}}^2\)
 in terms of variance components, provided that numerical values for
 \(\sigma_{\bar{B_1}}^2\) and \(\sigma_{\bar{B_2}}^2\) can be estimated,
@@ -1022,12 +1366,10 @@ Therefore,
 V_D = 4\left(\sigma_{\bar{B_1}}^2 + \sigma_{\bar{B_2}}^2 - \sigma_{\bar{F_2}}^2 - \sigma_E^2 \right)
 \tag{vii}
 \]
-
 \end{frame}
 
 \begin{frame}{Problem}
 \protect\hypertarget{problem-1}{}
-
 A properly designed glasshouse experiment was carried out using the
 garden pea. Progeny from the \(F_1\), \(F_2\) and both backcross
 families (\(B_1\) and \(B_2\)) were arranged as single plants in a
@@ -1043,12 +1385,10 @@ data:
 \]
 
 Calculate \(h_b^2\) and \(h_n^2\).
-
 \end{frame}
 
 \begin{frame}{Solution}
-\protect\hypertarget{solution-1}{}
-
+\protect\hypertarget{solution-2}{}
 \begin{itemize}
 \tightlist
 \item
@@ -1075,12 +1415,10 @@ h_{ns}^2 &= \frac{V_A}{V_P}
     Six generation mean analysis method
   \end{itemize}
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{Parent offspring regression}
 \protect\hypertarget{parent-offspring-regression}{}
-
 \begin{itemize}
 \item
   This method is based on how much does the resemblance parents and
@@ -1097,12 +1435,10 @@ h_{ns}^2 &= \frac{V_A}{V_P}
 \end{itemize}
 
 \[b= h_{ns}^2 = \frac{V_A}{V_P}\]
-
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-14}{}
-
+\protect\hypertarget{section-20}{}
 \begin{itemize}
 \tightlist
 \item
@@ -1117,15 +1453,13 @@ h_{ns}^2 &= 2b
 \]
 
 \(b\) = slope of parent offspring regression line
-
 \end{frame}
 
 \hypertarget{numerical-problems}{%
 \section{Numerical problems}\label{numerical-problems}}
 
 \begin{frame}{}
-\protect\hypertarget{section-15}{}
-
+\protect\hypertarget{section-21}{}
 \begin{enumerate}
 \item
   Two pure lines of rice are crossed. In the \(F_1\) the variance in
@@ -1139,12 +1473,10 @@ h_{ns}^2 &= 2b
   genetic variance, environmental variance, narrow sense heritability
   and broad sense heritability.
 \end{enumerate}
-
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-16}{}
-
+\protect\hypertarget{section-22}{}
 \begin{enumerate}
 \setcounter{enumi}{2}
 \tightlist
@@ -1153,7 +1485,7 @@ h_{ns}^2 &= 2b
   the following available data.
 \end{enumerate}
 
-\begin{table}[H]
+\begin{table}
 \centering\begingroup\fontsize{6}{8}\selectfont
 
 \begin{tabular}{rr}
@@ -1171,12 +1503,10 @@ Mid parent value (X) & Individual offspring (Y)\\
 \end{tabular}
 \endgroup{}
 \end{table}
-
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-17}{}
-
+\protect\hypertarget{section-23}{}
 \begin{enumerate}
 \setcounter{enumi}{3}
 \tightlist
@@ -1189,12 +1519,10 @@ Mid parent value (X) & Individual offspring (Y)\\
   the grain yields of Parent A, Parent B and \(F_1\) hybrid on the basis
   of dominance and over-dominance hypothesis.
 \end{enumerate}
-
 \end{frame}
 
 \begin{frame}{Solution}
-\protect\hypertarget{solution-2}{}
-
+\protect\hypertarget{solution-3}{}
 \textbf{Question 3}
 
 \begin{tabular}{lrrrr}
@@ -1206,8 +1534,7 @@ term & estimate & std.error & statistic & p.value\\
 \bottomrule
 \end{tabular}
 
-\includegraphics[width=0.45\linewidth]{05-quantitative_genetics_files/figure-beamer/unnamed-chunk-1-1}
-
+\includegraphics[width=0.45\linewidth]{06.1-quantitative_genetics_files/figure-beamer/unnamed-chunk-2-1}
 \end{frame}
 
 \hypertarget{bibliography}{%
@@ -1215,12 +1542,12 @@ term & estimate & std.error & statistic & p.value\\
 
 \begin{frame}{References}
 \protect\hypertarget{references}{}
-
 \hypertarget{refs}{}
+\begin{cslreferences}
 \leavevmode\hypertarget{ref-brown2014plantbreeding}{}%
 Brown, Jack, Peter Caligari, and Hugo Campos. 2014. \emph{Plant
 Breeding}. Wiley Blackwell.
-
+\end{cslreferences}
 \end{frame}
 
 

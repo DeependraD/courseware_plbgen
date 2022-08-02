@@ -36,6 +36,19 @@
 
 % A default size of 24 is set in beamerthememonash.sty
 
+% Title page
+\setbeamertemplate{title page}
+{\placefig{-0.01}{-0.01}{width=1.01\paperwidth,height=1.01\paperheight}{deepseashrimp.jpg}
+% \begin{textblock}{7.5}(1,2.8)\usebeamerfont{title} % original
+\begin{textblock}{15}(1,2.2)\usebeamerfont{title}
+{\color{white}\raggedright\par\inserttitle}
+\end{textblock}
+\begin{textblock}{10}(1,6)
+\small
+{\color{white}\raggedright{\insertauthor}\mbox{}\\[0.1cm]
+\insertdate}
+\end{textblock}}
+
 
   \useinnertheme{rounded}
 
@@ -141,7 +154,7 @@
   \usepackage{chemfig}
   \usepackage[skip=0.333\baselineskip]{caption}
   % \newcommand*{\AlignChar}[1]{\makebox[1ex][c]{\ensuremath{\scriptstyle#1}}}%
-  
+
   % this font option is amenable for beamer
   \setbeamerfont{caption}{size=\tiny}
   \singlespacing
@@ -149,27 +162,33 @@
   \definecolor{skyblued}{rgb}{0.65, 0.6, 0.94}
   \definecolor{oranged}{RGB}{245, 145, 200}
 
+  \newlength{\cslhangindent}
+  \setlength{\cslhangindent}{1.5em}
+  \newenvironment{cslreferences}%
+    {\setlength{\parindent}{0pt}%
+    \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
+    {\par}
+
   \title[]{Genotype by environment interaction}
 
 
   \author[
         Deependra Dhakal\\
-Gokuleshwor Agriculture and Animal Science College\\
-Tribhuwan University\\
+College of Natural Resource Management\\
+Agriculture and Forestry University\\
 \textit{ddhakal.rookie@gmail.com}\\
 \url{https://rookie.rbind.io}
     ]{Deependra Dhakal\\
-Gokuleshwor Agriculture and Animal Science College\\
-Tribhuwan University\\
+College of Natural Resource Management\\
+Agriculture and Forestry University\\
 \textit{ddhakal.rookie@gmail.com}\\
 \url{https://rookie.rbind.io}}
 
 
 \date[
-      Academic year 2019-2020
+      
   ]{
-      Academic year 2019-2020
-        }
+    }
 
 \begin{document}
 
@@ -187,11 +206,10 @@ Tribhuwan University\\
 
 \hypertarget{g-times-e-interaction}{%
 \section{\texorpdfstring{G \(\times\) E
-interaction}{G \textbackslash{}times E interaction}}\label{g-times-e-interaction}}
+interaction}{G \textbackslash times E interaction}}\label{g-times-e-interaction}}
 
 \begin{frame}{}
 \protect\hypertarget{section}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -207,12 +225,10 @@ interaction}{G \textbackslash{}times E interaction}}\label{g-times-e-interaction
   The effect of this interaction is that the association between
   phenotype and genotype is reduced.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{Classification of \(G \times E\)}
 \protect\hypertarget{classification-of-g-times-e}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -223,16 +239,14 @@ interaction}{G \textbackslash{}times E interaction}}\label{g-times-e-interaction
   nature.
 \item
   As the number of environments (n) and number of genotypes (m)
-  increase, the number of possible \(G \times E\) interactions is given
-  by \(\frac{mn!}{m!n!}\). However, only one genotype is the best
+  increase, the number of possible \(G \times E\) interactions increase
+  in a multiplicative fashion. However, only one genotype is the best
   performer under all environments.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{}
 \protect\hypertarget{section-1}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -248,12 +262,10 @@ interaction}{G \textbackslash{}times E interaction}}\label{g-times-e-interaction
 \[
 A_1 - B_1 \neq A_2 - B_2 (or A_1-B_1 - (A_2-B_2) \neq 0)
 \]
-
 \end{frame}
 
 \begin{frame}{}
 \protect\hypertarget{section-2}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -269,17 +281,15 @@ A_1 - B_1 \neq A_2 - B_2 (or A_1-B_1 - (A_2-B_2) \neq 0)
     Crossover interaction (Quantitative interaction)
   \end{enumerate}
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{}
 \protect\hypertarget{section-3}{}
-
-\begin{table}[t]
+\begin{table}
 
 \caption{\label{tab:unnamed-chunk-1}Demonstration of $G \times E$ interaction}
 \centering
-\begin{tabular}{llrrl}
+\begin{tabular}[t]{llrrl}
 \toprule
 Interaction type & Genotype & Environment 1 & Environment 2 & Difference\\
 \midrule
@@ -303,12 +313,10 @@ Interaction type & Genotype & Environment 1 & Environment 2 & Difference\\
 \bottomrule
 \end{tabular}
 \end{table}
-
 \end{frame}
 
 \begin{frame}{No interaction}
 \protect\hypertarget{no-interaction}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -318,14 +326,12 @@ Interaction type & Genotype & Environment 1 & Environment 2 & Difference\\
 \end{itemize}
 
 \begin{figure}
-\includegraphics[width=0.45\linewidth]{05-genotype_environment_interaction_files/figure-beamer/no-interaction-1} \caption{No interaction}\label{fig:no-interaction}
+\includegraphics[width=0.45\linewidth]{06.2-genotype_environment_interaction_files/figure-beamer/no-interaction-1} \caption{No interaction}\label{fig:no-interaction}
 \end{figure}
-
 \end{frame}
 
 \begin{frame}{Non-crossover \(G \times E\) interaction}
 \protect\hypertarget{non-crossover-g-times-e-interaction}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -340,14 +346,12 @@ Interaction type & Genotype & Environment 1 & Environment 2 & Difference\\
 \end{itemize}
 
 \begin{figure}
-\includegraphics[width=0.45\linewidth]{05-genotype_environment_interaction_files/figure-beamer/non-crossover-1} \caption{Non-crossover interaction}\label{fig:non-crossover}
+\includegraphics[width=0.45\linewidth]{06.2-genotype_environment_interaction_files/figure-beamer/non-crossover-1} \caption{Non-crossover interaction}\label{fig:non-crossover}
 \end{figure}
-
 \end{frame}
 
 \begin{frame}{Crossover \(G \times E\) interaction}
 \protect\hypertarget{crossover-g-times-e-interaction}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -363,14 +367,12 @@ Interaction type & Genotype & Environment 1 & Environment 2 & Difference\\
 \end{itemize}
 
 \begin{figure}
-\includegraphics[width=0.35\linewidth]{05-genotype_environment_interaction_files/figure-beamer/crossover-interaction-1} \caption{Crossover interaction}\label{fig:crossover-interaction}
+\includegraphics[width=0.35\linewidth]{06.2-genotype_environment_interaction_files/figure-beamer/crossover-interaction-1} \caption{Crossover interaction}\label{fig:crossover-interaction}
 \end{figure}
-
 \end{frame}
 
 \begin{frame}{Combined \(G \times E\) interaction}
 \protect\hypertarget{combined-g-times-e-interaction}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -378,12 +380,10 @@ Interaction type & Genotype & Environment 1 & Environment 2 & Difference\\
   genotype and reduces for the other genotype, there is combined
   \(G \times E\) interaction.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{Interacting factors}
 \protect\hypertarget{interacting-factors}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -400,16 +400,14 @@ Interaction type & Genotype & Environment 1 & Environment 2 & Difference\\
   The breeder is most interested in repeatable \(G \times E\)
   interactions.
 \end{itemize}
-
 \end{frame}
 
 \hypertarget{measurement-of-g-times-e-interaction}{%
 \section{\texorpdfstring{Measurement of \(G \times E\)
-interaction}{Measurement of G \textbackslash{}times E interaction}}\label{measurement-of-g-times-e-interaction}}
+interaction}{Measurement of G \textbackslash times E interaction}}\label{measurement-of-g-times-e-interaction}}
 
 \begin{frame}{}
 \protect\hypertarget{section-4}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -429,12 +427,10 @@ interaction}{Measurement of G \textbackslash{}times E interaction}}\label{measur
   partitioning of variance, regression analysis, nonparametric methods,
   and multivariate techniques.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{ANOVA}
 \protect\hypertarget{anova}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -451,12 +447,10 @@ interaction}{Measurement of G \textbackslash{}times E interaction}}\label{measur
 \Large
 X = \mu + g + e + ge
 \]
-
 \end{frame}
 
 \begin{frame}{}
 \protect\hypertarget{section-5}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -476,12 +470,10 @@ X = \mu + g + e + ge
     \(ge\) is the the genotype x environment interaction
   \end{itemize}
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{}
 \protect\hypertarget{section-6}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -501,18 +493,16 @@ X = \mu + g + e + ge
   For a two-factor mixed model (fixed genotypes + random environment)
   the ANOVA table is shown in Table \ref{tab:anova-mixed}.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{}
 \protect\hypertarget{section-7}{}
-
-\begin{table}[t]
+\begin{table}
 
 \caption{\label{tab:anova-mixed}Two way anova with genotypes as fixed and environment as random factors}
 \centering
 \fontsize{6}{8}\selectfont
-\begin{tabular}{llll}
+\begin{tabular}[t]{llll}
 \toprule
 Source & df & MS & EMS\\
 \midrule
@@ -529,16 +519,14 @@ Error (G x R) & (g-1)(r-1)ly & $M_5$ & $\sigma^2_e$\\
 \bottomrule
 \end{tabular}
 \end{table}
-
 \end{frame}
 
 \hypertarget{breeding-implications-of-g-times-e-interaction}{%
 \section{\texorpdfstring{Breeding implications of \(G \times E\)
-interaction}{Breeding implications of G \textbackslash{}times E interaction}}\label{breeding-implications-of-g-times-e-interaction}}
+interaction}{Breeding implications of G \textbackslash times E interaction}}\label{breeding-implications-of-g-times-e-interaction}}
 
 \begin{frame}{}
 \protect\hypertarget{section-8}{}
-
 \small
 
 \begin{itemize}
@@ -563,12 +551,10 @@ interaction}{Breeding implications of G \textbackslash{}times E interaction}}\la
   average performance across locations and over years for release as new
   cultivars for the production region.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{}
 \protect\hypertarget{section-9}{}
-
 \small
 
 \begin{itemize}
@@ -592,7 +578,6 @@ interaction}{Breeding implications of G \textbackslash{}times E interaction}}\la
   on G x L interactions, the other interaction being considered in terms
   of yield stability.
 \end{itemize}
-
 \end{frame}
 
 \hypertarget{bibliography}{%
@@ -600,7 +585,6 @@ interaction}{Breeding implications of G \textbackslash{}times E interaction}}\la
 
 \begin{frame}{References}
 \protect\hypertarget{references}{}
-
 \end{frame}
 
 
