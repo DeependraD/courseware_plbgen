@@ -103,7 +103,7 @@ knitr::include_graphics("./../images/modern_ancient_birds.png")
 knitr::include_graphics("../images/insect_fooding_changes_evolution.png")
 ```
 
-```{r bacterial-antibiotic-exposure-guides-evolution, out.width="85%"}
+```{r bacterial-antibiotic-exposure-guides-evolution, out.width="80%"}
 knitr::include_graphics("../images/bacterial_antibiotic_resistance.png")
 ```
 
@@ -133,22 +133,20 @@ knitr::include_graphics("../images/floral-parts-as-leaf-homologues.png")
 
 ##
 
-\begin{columns}
+\begin{columns}[T,onlytextwidth]
 
-\column{0.62\textwidth}
-\textbf{\Large Sequence homology}
-\begin{itemize}
+\column{0.58\textwidth}
+\textbf{Sequence homology}
 \footnotesize
-\item Vertebrates are the least diverse group; however, most vertebrates still possess a lot of nucleotide diversity. For humans, nucleotide diversity is about 0.001, meaning that two randomly chosen human chromosomes will differ at about 1 bp per thousand. With 3 billion bp in our genome, that adds up to a total of about 3 million differences between the set of chromosomes inherited from a person's mother and the set inherited from a person's father for non-inbred individuals.
-\end{itemize}
+Vertebrates are the least diverse group; however, most vertebrates still possess a lot of nucleotide diversity. For humans, nucleotide diversity is about 0.001, meaning that two randomly chosen human chromosomes will differ at about 1 bp per thousand. With 3 billion bp in our genome, that adds up to a total of about 3 million differences between the set of chromosomes inherited from a person's mother and the set inherited from a person's father for non-inbred individuals.
 
-```{r nucleotide-diversity, out.width="36%", fig.align='center', fig.pos= "H"}
+```{r nucleotide-diversity, out.width="42%", fig.align='center', fig.pos= "H"}
 knitr::include_graphics("../images/nucleotide_diversity_organisms.png")
 ```
 
-\column{0.38\textwidth}
+\column{0.42\textwidth}
 
-```{r sequence-homology-g6pd-locus, out.width="99%", fig.cap="Nucleotide variation for 5102 bp of the G6PD gene for a worldwide sample of 47 men. Only the 18 variable sites are shown. The functional allele classes (A-, A+, or B) is shown for each sequence. SNP2 is a non-sysnomymous SNP that causes a valine-to-methionine change that underlies differences in enzyme activity associated with the A- allele. SNP3 is a nonsynomymous SNP that causes an aspartic-acid-to-asparagine amino acid change. (Data from M.A. Saunders et al., Genetics 162, 2002, 1849-1861)"}
+```{r sequence-homology-g6pd-locus, out.width="68%", fig.cap="Nucleotide variation for 5102 bp of the G6PD gene for a worldwide sample of 47 men. Only the 18 variable sites are shown. The functional allele classes (A-, A+, or B) is shown for each sequence. SNP2 is a non-sysnomymous SNP that causes a valine-to-methionine change that underlies differences in enzyme activity associated with the A- allele. SNP3 is a nonsynomymous SNP that causes an aspartic-acid-to-asparagine amino acid change. (Data from M.A. Saunders et al., Genetics 162, 2002, 1849-1861)", fig.pos="h"}
 # pdftools::pdf_convert("/home/deependra/ddhakal/000readables/genetics_breeding/general_textbooks/2015_An Introduction to Genetic Analysis.pdf", format = "png", dpi = 300, filenames = "../images/sequence_homology_variation_g6pd.png", pages = 711)
 
 knitr::include_graphics("../images/sequence_homology_variation_g6pd.png")
@@ -1189,21 +1187,22 @@ ld_decay <- map_dfc(set_names(seq(0.25,0.05,-0.01), seq(0.25,0.05,-0.01)),
 ```
 
 \begin{columns}[T,onlytextwidth]
-\column{0.7\textwidth}
+\column{0.6\textwidth}
+\setlength{\tabcolsep}{3pt}
 
 ```{r ld-decay-table}
 eq_attainment %>% 
   # pivot_longer(cols = 2:last_col(), names_to = "frequency_indicator", values_to = "frequency_value")
   rename_all(function(x)str_replace_all(x, "_", " ")) %>% 
   knitr::kable(booktabs = TRUE) %>% 
-  kableExtra::kable_styling(font_size = 7) %>% 
-  kableExtra::column_spec(column = 1:8, width = c("2.6em", rep("4.25em", 2), rep("3.25em", 4), "3.25em"))
+  kableExtra::kable_styling(font_size = 7, position = "left") %>% 
+  kableExtra::column_spec(column = 1:8, width = c("2.6em", rep("4.25em", 2), rep("3.em", 4), "3.25em"))
 
 ```
 
-\column{0.3\textwidth}
+\column{0.4\textwidth}
 
-```{r ld-decay-plot, fig.width=6, fig.height=4, out.width="95%", fig.align='center', fig.cap="With sexual reproduction and random mating, linkage disequilibrium falls over time. The graph shows the level of linkage disequilibrium between two loci over 40 generations in random-mating populations with different rates of recombination, r. The population starts with the coefficient of LD (D) at its maximum possible value, 0.25."}
+```{r ld-decay-plot, fig.width=6, fig.height=4, out.width="99%", fig.align='center', fig.cap="With sexual reproduction and random mating, linkage disequilibrium falls over time. The graph shows the level of linkage disequilibrium between two loci over 40 generations in random-mating populations with different rates of recombination, r. The population starts with the coefficient of LD (D) at its maximum possible value, 0.25."}
 ggplot(data = ld_decay, aes(x = generations, y = linkage_disequilibrium))  +
   geom_line(aes(color = recombination_frequency), show.legend = FALSE) +
   geom_text(data = tibble(x = c(40), r = ldeq_add_sub(0.25, seq(0.25,0.05,-0.05), 10),
@@ -1243,7 +1242,7 @@ Refer to @varshney2007application for a discourse on population structure using 
 - The difference between the fitness of an average genotype in a population and the fitness of some reference genotype, which may be either the best present in a population, or may be the theoretically optimal genotype.
 - The average individual taken from a population with a low genetic load will generally, when grown in the same conditions, have more surviving offspring than the average individual from a population with a high genetic load.
 - High genetic load may put a population in danger of extinction. 
-- Consider $n$ genotypes $\mathbf{A}_{1},\dots ,\mathbf{A}_{n}$, which have the fitnesses $ w_{1},\dots ,w_{n}$ and frequencies $p_{1},\dots, p_{n}$, respectively. Ignoring frequency-dependent selection, the genetic load $L$ may be calculated as:
+- Consider $n$ genotypes $\mathbf{A}_{1},\dots ,\mathbf{A}_{n}$, which have the fitnesses $w_{1},\dots, w_{n}$ and frequencies $p_{1},\dots, p_{n}$, respectively. Ignoring frequency-dependent selection, the genetic load $L$ may be calculated as:
 
 $$
 \small

@@ -291,7 +291,7 @@ The theory of \textbf{special creation} and the theory of \textbf{descent with m
 \includegraphics[width=0.9\linewidth]{../images/insect_fooding_changes_evolution} 
 
 
-\includegraphics[width=0.85\linewidth]{../images/bacterial_antibiotic_resistance} 
+\includegraphics[width=0.8\linewidth]{../images/bacterial_antibiotic_resistance} 
 
 \end{columns}
 \end{frame}
@@ -321,22 +321,20 @@ The theory of \textbf{special creation} and the theory of \textbf{descent with m
 
 \begin{frame}{}
 \protect\hypertarget{section-3}{}
-\begin{columns}
+\begin{columns}[T,onlytextwidth]
 
-\column{0.62\textwidth}
-\textbf{\Large Sequence homology}
-\begin{itemize}
+\column{0.58\textwidth}
+\textbf{Sequence homology}
 \footnotesize
-\item Vertebrates are the least diverse group; however, most vertebrates still possess a lot of nucleotide diversity. For humans, nucleotide diversity is about 0.001, meaning that two randomly chosen human chromosomes will differ at about 1 bp per thousand. With 3 billion bp in our genome, that adds up to a total of about 3 million differences between the set of chromosomes inherited from a person's mother and the set inherited from a person's father for non-inbred individuals.
-\end{itemize}
+Vertebrates are the least diverse group; however, most vertebrates still possess a lot of nucleotide diversity. For humans, nucleotide diversity is about 0.001, meaning that two randomly chosen human chromosomes will differ at about 1 bp per thousand. With 3 billion bp in our genome, that adds up to a total of about 3 million differences between the set of chromosomes inherited from a person's mother and the set inherited from a person's father for non-inbred individuals.
 
 
-\begin{center}\includegraphics[width=0.36\linewidth]{../images/nucleotide_diversity_organisms} \end{center}
+\begin{center}\includegraphics[width=0.42\linewidth]{../images/nucleotide_diversity_organisms} \end{center}
 
-\column{0.38\textwidth}
+\column{0.42\textwidth}
 
-\begin{figure}
-\includegraphics[width=0.99\linewidth]{../images/sequence_homology_variation_g6pd} \caption{Nucleotide variation for 5102 bp of the G6PD gene for a worldwide sample of 47 men. Only the 18 variable sites are shown. The functional allele classes (A-, A+, or B) is shown for each sequence. SNP2 is a non-sysnomymous SNP that causes a valine-to-methionine change that underlies differences in enzyme activity associated with the A- allele. SNP3 is a nonsynomymous SNP that causes an aspartic-acid-to-asparagine amino acid change. (Data from M.A. Saunders et al., Genetics 162, 2002, 1849-1861)}\label{fig:sequence-homology-g6pd-locus}
+\begin{figure}[h]
+\includegraphics[width=0.7\linewidth]{../images/sequence_homology_variation_g6pd} \caption{Nucleotide variation for 5102 bp of the G6PD gene for a worldwide sample of 47 men. Only the 18 variable sites are shown. The functional allele classes (A-, A+, or B) is shown for each sequence. SNP2 is a non-sysnomymous SNP that causes a valine-to-methionine change that underlies differences in enzyme activity associated with the A- allele. SNP3 is a nonsynomymous SNP that causes an aspartic-acid-to-asparagine amino acid change. (Data from M.A. Saunders et al., Genetics 162, 2002, 1849-1861)}\label{fig:sequence-homology-g6pd-locus}
 \end{figure}
 
 \end{columns}
@@ -1563,12 +1561,12 @@ chromosomes present and each is at a frequency of 0.5.
 \begin{frame}{Equilibrium frequency and linkage disequilibrium}
 \protect\hypertarget{equilibrium-frequency-and-linkage-disequilibrium}{}
 \begin{columns}[T,onlytextwidth]
-\column{0.7\textwidth}
+\column{0.6\textwidth}
+\setlength{\tabcolsep}{3pt}
 
-\begin{table}
-\centering\begingroup\fontsize{7}{9}\selectfont
+\begingroup\fontsize{7}{9}\selectfont
 
-\begin{tabular}{>{\raggedleft\arraybackslash}p{2.6em}>{\raggedleft\arraybackslash}p{4.25em}>{\raggedleft\arraybackslash}p{4.25em}>{\raggedleft\arraybackslash}p{3.25em}>{\raggedleft\arraybackslash}p{3.25em}>{\raggedleft\arraybackslash}p{3.25em}>{\raggedleft\arraybackslash}p{3.25em}>{\raggedleft\arraybackslash}p{3.25em}}
+\begin{tabular}{>{\raggedleft\arraybackslash}p{2.6em}>{\raggedleft\arraybackslash}p{4.25em}>{\raggedleft\arraybackslash}p{4.25em}>{\raggedleft\arraybackslash}p{3.em}>{\raggedleft\arraybackslash}p{3.em}>{\raggedleft\arraybackslash}p{3.em}>{\raggedleft\arraybackslash}p{3.em}>{\raggedleft\arraybackslash}p{3.25em}}
 \toprule
 generation & amount added or subtracted & proportion disequilibrium remaining & gametes AB & gametes Ab & gametes aB & gametes ab & recombination freq\\
 \midrule
@@ -1583,13 +1581,12 @@ generation & amount added or subtracted & proportion disequilibrium remaining & 
 \bottomrule
 \end{tabular}
 \endgroup{}
-\end{table}
 
-\column{0.3\textwidth}
+\column{0.4\textwidth}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.95\linewidth]{07-population_genetics_files/figure-beamer/ld-decay-plot-1} 
+{\centering \includegraphics[width=0.99\linewidth]{07-population_genetics_files/figure-beamer/ld-decay-plot-1} 
 
 }
 
@@ -1658,7 +1655,7 @@ using SNP.)
   High genetic load may put a population in danger of extinction.
 \item
   Consider \(n\) genotypes \(\mathbf{A}_{1},\dots ,\mathbf{A}_{n}\),
-  which have the fitnesses \$ w\_\{1\},\dots ,w\_\{n\}\$ and frequencies
+  which have the fitnesses \(w_{1},\dots, w_{n}\) and frequencies
   \(p_{1},\dots, p_{n}\), respectively. Ignoring frequency-dependent
   selection, the genetic load \(L\) may be calculated as:
 \end{itemize}
