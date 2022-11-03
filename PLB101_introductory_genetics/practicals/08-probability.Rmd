@@ -60,3 +60,15 @@ $$
 
 This yields that 26% of the time, a heterozygote couples' five of the children will contain two with blue eyes and three with brown eyes.
 
+## Problem 3
+
+How often in  families of 5 children where one parent is heterozygous for malaria resistance and other is homozygous for malaria resistance will the children be 3 resistant girls and 2 resistant boys ?
+
+## Problem 4
+
+Albinism in human is controlled by a recessive gene c. From a marriage between two partners, if both partners are carriers, Cc for albinism, what is the chance that:
+
+i. All 4 children of them are normal
+ii. 3 normal and 1 albino
+iii. 1 normal and 3 albino
+iv. All 4 are albinos

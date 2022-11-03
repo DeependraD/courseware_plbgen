@@ -1,6 +1,37 @@
-# Solution of numerical problems related to linkage analysis
+# Solution of numerical problems related to linkage analysis and crossing over
 
 ## Question 1
+
+In Drosophila the allele $dp+$ determines long wings and $dp$ determines short wings. At a separate locus $e+$ determines the gray body and $e$ determines ebony body. Both loci are autosomal. Pure line of long ebony parent was crossed to pureline of short gray and produced long gray $F_1$. The $F_1$ was crossed to pure line of short ebony and the following progeny were obtained.
+
+- Long ebony: 54
+- Long gray: 47
+- Short gray: 52
+- Short ebony: 47
+ 
+Use $\chi^2$ test to determine if these loci are linked.
+
+
+## Question 2
+
+Two different plants heterozygous for the concerned genes are self-pollinated and in $F_2$ following data was recorded:
+
+```{r}
+two_plants_f2 <- tribble(~"phenotypic_class1", ~"frequency1", ~"phenotypic_class2", ~"frequency2",
+       "A_B_", 250, "C_D_", 510,
+       "A_bb", 45, "C_dd", 240,
+       "aaB_", 35, "ccD_", 240,
+       "aabb", 70, "ccdd", 10)
+two_plants_f2 %>% 
+  kable(booktabs = TRUE, longtable = TRUE, col.names = rep(c("Phenotypic class", "Frequency"), 2)) %>% 
+  kableExtra::add_header_above(c("Plant 1" = 2, "Plant 2" = 2)) %>% 
+  kableExtra::kable_styling(font_size = 8)
+```
+
+i. Are the genes $a$ and $b$, and $c$ and $d$ linked ? If so, in which phase ?
+ii. Determine the frequency of recombination between the genes a and b, and c and d.
+
+## Question 3
 
 In maize, F1 heterozygous plants were test crossed with colourless, shrunken, waxy plants and the following types of progeny were obtained. 
 
@@ -18,7 +49,7 @@ tribble(
 ) %>% 
   rename_all(function(x)str_replace_all(x, "_", " ") %>% str_to_sentence()) %>% 
   knitr::kable(booktabs = TRUE) %>% 
-  kableExtra::kable_styling(position = "center")
+  kableExtra::kable_styling(position = "center", latex_options = "HOLD_position")
 ```
 
 
@@ -31,7 +62,7 @@ iv) Write the genotypes involved in the parental and test crosses.
 v) Draw a linkage map showing map distances. 
 vi) Calculate Coefficient of coincidence (CC) and interference (I). Interpret the value.
 
-## Question 2
+## Question 4
 
 Female F1 maize heterozygous for tall producing round and starchy seed was test-crossed and the following progenies were obtained. 
 
@@ -51,7 +82,7 @@ iv. Write the genotypes of flies involved in the parental and test crosses.
 v. Diagram the cross showing the arrangement of the genetic markers on the chromosomes. 
 vi. Calculate I and CC and interpret the results.
 
-## Question 3
+## Question 5
 
 An individual heterozygous for four genes; Aa.Bb.Cc.Dd is test crossed to aabbccdd and 1000 progeny were classified by the gametic contribution of the heterozygous parent as follows:
 
@@ -72,11 +103,11 @@ progenies <- tribble(~"Progeny type", ~"Numbers",
        "abCD", 310)
 
 progenies %>% 
-  kable(booktabs = TRUE) %>% 
-  kableExtra::kable_styling(font_size = 8)
+  kable(booktabs = TRUE, longtable = TRUE) %>% 
+  kableExtra::kable_styling(font_size = 8, latex_options = "HOLD_position")
 ```
 
-## Solution 3
+## Solution 5
 
 ```{r}
 colnames <- c("A", "B", "C", "D") %>% combn(2) %>% 
@@ -119,8 +150,8 @@ progenies_total <- progenies %>%
 
 progenies_recomb %>% 
   mutate(recombinants = recombinants/1000) %>% 
-  kable(booktabs = TRUE, col.names = c("Recombinant loci", "Recombinants")) %>% 
-  kableExtra::kable_styling(font_size = 8)
+  kable(booktabs = TRUE, col.names = c("Recombinant loci", "Recombinants"), longtable = TRUE) %>% 
+  kableExtra::kable_styling(font_size = 8, latex_options = "HOLD_position")
 ```
 
 Here, since no recombinant types of A_D are observed, we can conclude that these two genes are completely linked. In a situation like this, we can assume that the combination of two genes inherit as a single entity. Note here the recombination frequencies here is misleading, if taken into consideration for mapping the gene distances. Let us assume "E" represents the entity (combination of A and D) -- E for aD and e for Ad.
@@ -138,7 +169,7 @@ progenies <- tribble(~"Progeny type", ~"Numbers",
        "eBc", 305, 
        "EbC", 310)
 progenies %>% 
-  kable(booktabs = TRUE) %>% 
+  kable(booktabs = TRUE, longtable = TRUE) %>% 
   kableExtra::kable_styling(font_size = 8)
 ```
 
@@ -182,7 +213,7 @@ progenies_total <- progenies %>%
 
 progenies_recomb %>% 
   mutate(recombinants = recombinants/1000) %>% 
-  kable(booktabs = TRUE, col.names = c("Recombinant loci", "Recombinants")) %>% 
+  kable(booktabs = TRUE, col.names = c("Recombinant loci", "Recombinants"), longtable = TRUE) %>% 
   kableExtra::kable_styling(font_size = 8)
 ```
 
@@ -197,7 +228,7 @@ progenies %>%
   bind_rows(progenies %>% 
   filter(!`Progeny type` %in% c("EbC", "eBc"))) %>% 
   summarise(recombination_map_dist = sum(Numbers)) %>% 
-  kable(booktabs = TRUE, col.names = c("Recombinant map")) %>% 
+  kable(booktabs = TRUE, col.names = c("Recombinant map"), longtable = TRUE) %>% 
   kableExtra::kable_styling(font_size = 8)
 ```
 
@@ -240,3 +271,4 @@ Interference <- 1-coc
 ```
 
 Hence the Interference(I) = `r Interference*100`%. Which means that adjacent single crossover event prevents double crossover to occur by 50%.
+

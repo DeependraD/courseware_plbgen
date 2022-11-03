@@ -35,17 +35,22 @@ The phenotypic expression of heterozygous for a gene being intermediate to those
 
 Both the alleles of a gene express themselves in the heterozygous. e.g. coat color in cattle, blood type in human coat color in cattle;
 
-```{r codominance-mirabilis, out.width="0.24\\textwidth"}
-DiagrammeR::mermaid(
-  "
-  graph TB
-  
-  x11[RR<br>Red] --> x21[F1, Rr<br>Roan]
-  x12[rr<br>White] --> x21
-  x21 -- selfing --> x31[F2, 1RR:2Rr:1rr<br>]
-  
-  "
-)
+```{r codominance-mirabilis, out.width="25%"}
+# codominance_mirabilis_mer <- DiagrammeR::mermaid(
+#   "
+#   graph TB
+# 
+#   x11[RR<br>Red] --> x21[F1, Rr<br>Roan]
+#   x12[rr<br>White] --> x21
+#   x21 -- selfing --> x31[F2, 1RR:2Rr:1rr<br>]
+# 
+#   "
+# )
+# 
+# htmltools::html_print(codominance_mirabilis_mer) %>%
+#   webshot2::webshot("../images/codominance_mirabilis_mer.png", vwidth = 240, vheight = 480, zoom = 2)
+
+knitr::include_graphics("../images/codominance_mirabilis_mer.png")
 ```
 
 3. Dominance

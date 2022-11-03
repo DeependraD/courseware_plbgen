@@ -2,6 +2,17 @@
 
 ## Problem 1
 
+The F1 generation from a cross between albino and black strains of mice produced 75 black and 33 albino progeny.
+
+i. What is the expected ratio of offsprings in this case ?
+ii. State the null hypothesis.
+iii. Determine the degree of freedom.
+iv. Carry out $\chi^2$ test.
+v. Is any correction required in emperical formula for computation of $\chi^2$ statistic in this case ? Why ?
+vi Draw the conclusion.
+
+## Problem 2
+
 A presumed dihybrid in Drosophila, B/b ; F/f is test- crossed with b/b ; f/f. (B = black body ; b = brown body; F = forked bristles; f = unforked bristles.) The results are,
 
 - Black, forked (BF) : 230
@@ -11,7 +22,7 @@ A presumed dihybrid in Drosophila, B/b ; F/f is test- crossed with b/b ; f/f. (B
 
 Use the Chi-square test to determine if these results fit the results expected from testcrossing the hypothesized dihybrid.
 
-## Solution 1
+## Solution 2
 
 If there is _no_ linkage, that is, the genes assort independently, we have seen that the following phenotypic proportions are expected in progeny:
 
@@ -29,7 +40,7 @@ bf_df_chi <- chisq.test(set_names(bf_df$Proportion, nm = bf_df$Phenotype),
 
 bf_df_chi %>% 
   broom::tidy() %>% 
-  knitr::kable(booktabs = TRUE) %>% 
+  knitr::kable(booktabs = TRUE, longtable = TRUE) %>% 
   kableExtra::kable_styling(position = "center", font_size = 8)
   
 observed_statistic <- bf_df %>% 
@@ -79,7 +90,7 @@ chi_sqrt_linkage <- tribble(~"Phenotype", ~"Proportion",
 
 chi_sqrt_linkage %>% 
   kable(booktabs = TRUE, escape = FALSE, 
-      caption = "Chi-square calculations for the hypothesis that the observations of four phenotypic classes is obtained due to no linkage between loci B and F.") %>% 
+      caption = "Chi-square calculations for the hypothesis that the observations of four phenotypic classes is obtained due to no linkage between loci B and F.", longtable = TRUE) %>% 
   kableExtra::kable_styling(latex_options = "striped", font_size = 8)
 ```
 
