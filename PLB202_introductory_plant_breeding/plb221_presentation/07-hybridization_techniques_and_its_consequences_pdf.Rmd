@@ -100,7 +100,9 @@ class: inverse, center, middle
   - Application of pollen
   - Tagging after pollination
   
----
+## Wide hybridization (interspecific hybridization)
+
+Refer to Chapter 5 on 'Plant interspecific hybridization, outcomes and issues at the intersection of species', Plant Breeding Reviews, Volume 34.
 
 # Genetic issues in hybridization
 

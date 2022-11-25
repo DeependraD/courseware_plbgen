@@ -1,0 +1,732 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[11pt,ignorenonframetext,aspectratio=169]{beamer}
+\IfFileExists{pgfpages.sty}{\usepackage{pgfpages}}{}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+\fi
+\defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+
+
+
+
+
+
+
+\fi
+
+  \usetheme[sectionpage=progressbar, titleformat=regular,
+numbering=counter, block=fill]{metropolis}
+
+
+
+
+
+
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+  \usepackage{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+
+
+\newif\ifbibliography
+  \usepackage[round]{natbib}
+  \bibliographystyle{plainnat}
+
+
+\hypersetup{
+      pdftitle={Selection in Cross Pollinated Crops},
+        pdfauthor={Deependra Dhakal},
+          pdfborder={0 0 0},
+    breaklinks=true}
+%\urlstyle{same}  % Use monospace font for urls
+
+
+
+
+
+
+
+% Prevent slide breaks in the middle of a paragraph:
+\widowpenalties 1 10000
+\raggedbottom
+
+  \AtBeginPart{
+    \let\insertpartnumber\relax
+    \let\partname\relax
+    \frame{\partpage}
+  }
+  \AtBeginSection{
+    \ifbibliography
+    \else
+      \let\insertsectionnumber\relax
+      \let\sectionname\relax
+      \frame{\sectionpage}
+    \fi
+  }
+  \AtBeginSubsection{
+    \let\insertsubsectionnumber\relax
+    \let\subsectionname\relax
+    \frame{\subsectionpage}
+  }
+
+
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+  \setcounter{secnumdepth}{0}
+
+
+  \usepackage{setspace}
+  \usepackage{wasysym}
+  % \usepackage{fontenc}
+  \usepackage{booktabs,siunitx}
+  \usepackage{longtable}
+  \usepackage{array}
+  \usepackage{multirow}
+  \usepackage{wrapfig}
+  \usepackage{float}
+  \usepackage{colortbl}
+  \usepackage{pdflscape}
+  \usepackage{tabu}
+  \usepackage{threeparttable}
+  \usepackage{threeparttablex}
+  \usepackage[normalem]{ulem}
+  \usepackage{makecell}
+  \usepackage{xcolor}
+  \usepackage{tikz} % required for image opacity change
+  \usepackage[absolute,overlay]{textpos} % for text formatting
+  \usepackage[skip=0.333\baselineskip]{caption}
+  % \usepackage{newtxtext,newtxmath}% better than txfonts   
+  \usepackage[english]{babel}
+  \usepackage{pgfpages}
+
+  \sisetup{per-mode=symbol}
+
+  % % Added by CII
+  % \usepackage[format=hang,labelfont=bf,margin=0.5cm,justification=centering]{caption}
+  % \captionsetup{font=small,width=0.9\linewidth,labelfont=small,textfont={small}}
+  % % End of CII addition
+
+  % \usepackage{subcaption}
+  % \newcommand{\subfloat}[2][need a sub-caption]{\subcaptionbox{#1}{#2}}
+
+  \captionsetup[sub]{font=footnotesize,labelfont=footnotesize,textfont=footnotesize}
+  % \captionsetup[subfigure]{font=small,labelfont=small,textfont=small}
+  % \captionsetup[subfloat]{font=scriptsize,labelfont=scriptsize,textfont=scriptsize}
+
+  % this font option is amenable for beamer, although these are global settings
+  \setbeamerfont{caption}{size=\tiny}
+  % \setbeamerfont{subcaption}{size=\tiny} % this does not chage subfloat fonts
+  % \setbeamerfont{subfloat}{size=\tiny} % this does not change subfloat fonts
+   
+   % use single line spacing ?
+  \singlespacing
+
+  % use cslreferences environment
+  % this is revised as of Oct, 2022 (https://stackoverflow.com/questions/59193797/pandocs-environment-cslreferences-undefined-when-knitting-rmarkdown-to-pdf-in-r)
+  \newlength{\cslhangindent}
+  \setlength{\cslhangindent}{1.5em}
+  \newenvironment{CSLReferences}%
+    {\setlength{\parindent}{0pt}%
+    \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
+    {\par}
+
+
+  \newcommand{\bcolumns}{\begin{columns}[T, onlytextwidth]}
+  \newcommand{\ecolumns}{\end{columns}}
+
+  \newcommand{\bdescription}{\begin{description}}
+  \newcommand{\edescription}{\end{description}}
+
+  \newcommand{\bitemize}{\begin{itemize}}
+  \newcommand{\eitemize}{\end{itemize}}
+  \vspace{-1cm}\centering\titlegraphic{\includegraphics[width=\linewidth]{potato_plant}}
+
+  \title[]{Selection in Cross Pollinated Crops}
+
+  \subtitle{Response to and gain from selection, and Variability}
+
+  \author[
+        Deependra Dhakal
+    ]{Deependra Dhakal}
+
+  \institute[
+    ]{
+    Agriculture and Forestry University\\
+\textit{ddhakal.rookie@gmail.com}\\
+\url{https://rookie.rbind.io}
+    }
+
+\date[
+      
+  ]{
+    }
+
+
+\begin{document}
+
+% Hide progress bar and footline on titlepage
+  \begin{frame}[plain]
+  \titlepage
+  \end{frame}
+
+
+
+\hypertarget{the-nature-of-cross-pollinated-crops}{%
+\section{The nature of cross pollinated
+crops}\label{the-nature-of-cross-pollinated-crops}}
+
+\begin{frame}{}
+\protect\hypertarget{section}{}
+\begin{itemize}
+\tightlist
+\item
+  Plant species where normal mode of seed set is through a high degree
+  of cross-pollination have characteristic reproductive features and
+  population structure.
+\item
+  Each plant receives a blend of pollen from a large number of
+  individuals each having different genotypes.
+\item
+  Allogamous species (producing seed through cross pollination) or out
+  breeders have characters which promote cross pollination which include
+  dichogamy, monoecy, dioecy, heterostyly, heterogamy, self
+  incompatibility and male sterility.
+\item
+  Such populations are characterized by a
+  \alert{high degree of heterozygosity} with tremendous
+  \alert{free and potential genetic variation}, which is maintained in a
+  steady state by free gene flow among individuals within the
+  populations.
+\item
+  Breeding cross-pollinated species tends to focus on
+  \alert{population improvement} rather than the improvement of
+  individual plants.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-1}{}
+\begin{itemize}
+\tightlist
+\item
+  Some important features of out breeders are:
+
+  \begin{enumerate}
+  \tightlist
+  \item
+    They have random mating. In such population, each genotype has equal
+    chance of mating with all other genotypes
+  \item
+    Individuals are heterozygous and have advantage of heterozygosity
+  \item
+    Individuals have deleterious recessive gene which are concealed by
+    masking effect of dominant genes.
+  \item
+    Out breeders are intolerant to inbreeding. They exhibit high degree
+    of inbreeding depression on selfing.
+  \item
+    Cross pollination permits new gene combinations from different
+    sources.
+  \item
+    In these species, variability is distributed over entire population.
+  \item
+    They have wide adaptability and more flexibility to environmental
+    changes due to heterozygosity and heterogeneity.
+  \end{enumerate}
+\item
+  In the development of hybrid varieties, the aim is to identify the
+  most productive heterozygote from the population, which then is
+  produced with the exclusion of other members of the population.
+\end{itemize}
+\end{frame}
+
+\hypertarget{population-improvement-methods}{%
+\section{Population improvement
+methods}\label{population-improvement-methods}}
+
+\begin{frame}{Classification}
+\protect\hypertarget{classification}{}
+\begin{itemize}
+\tightlist
+\item
+  In addition to methods such as mass selection that are applicable to
+  both self-pollinated and cross-pollinated species, there are specific
+  methods that are suited to population improvement.
+\end{itemize}
+
+\begin{enumerate}
+\tightlist
+\item
+  According to the unit of selection -- either individual plants or
+  family of plants.
+\item
+  According to the populations undergoing selection as either
+  intra-population or inter-population.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-2}{}
+\bcolumns
+\column{0.6\textwidth}
+
+\begin{itemize}
+\tightlist
+\item
+  In \textbf{intra-population} improvement, the end product will be a
+  population or synthetic cultivar, and it may end up elite pure lines
+  for hybrid production. Or, it can also be used for developing mixed
+  genotype cultivars (in self-pollinated crops). Commonly used methods
+  are mass selection, ear-to-row selection and recurrent selection. This
+  consists of both single plant (mass selection) and family based
+  selection (recurrent selection).
+\item
+  \textbf{Inter-population} improvement deals with the selection on the
+  basis of the performance of a cross between two populations. The final
+  product will be a hybrid cultivar with heterosis.
+\end{itemize}
+
+\column{0.4\textwidth}
+
+\begin{center}\includegraphics[width=0.96\linewidth]{./images/varietal_cross_pollinated} \end{center}
+
+\ecolumns
+\end{frame}
+
+\begin{frame}{Mass selection}
+\protect\hypertarget{mass-selection}{}
+\begin{itemize}
+\tightlist
+\item
+  It is the simplest, easiest and oldest method of selection where
+  individual plants are selected based on phenotypic performance, and
+  seeds are bulked.
+\item
+  It is effective in maize improvement at the initial stages but its
+  efficacy is poor for improvement of yield.
+\item
+  The selection after pollination does not provide any control over the
+  pollen parent as result of which effective selection is limited only
+  to female parents.
+\item
+  The heritability estimates are reduced by half, since only female
+  parents are used to harvest seed whereas the pollen source is not
+  known after the cross pollination has taken place.
+\item
+  Also, since this selection is solely based on phenotype, heritability
+  of the trait plays a pivotal role in its effectiveness -- mostly
+  effective for additive genes.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Expected genetic advance}
+\protect\hypertarget{expected-genetic-advance}{}
+\[
+\Delta G = \left[ \frac{\frac{1}{2}i \sigma^2_A}{\sigma^2_p} \right] = \left[ \frac{\frac{1}{2}i \sigma^2_A}{\sigma^2_A + \sigma^2_D + \sigma^2_{AE} + \sigma^2_{DE} + \sigma^2_e + \sigma^2_{me}} \right]
+\]
+
+\begin{itemize}
+\tightlist
+\item
+  Where,
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \(\sigma_p\) = Phenotypic standard deviation in the population
+  \item
+    \(\sigma^2_A\) = Additive variance
+  \item
+    \(\sigma^2_D\) = Dominance variance
+  \end{itemize}
+\end{itemize}
+
+Other factors are interaction variances. \(\Delta G_m\) doubles with
+both sexes. This large denominator makes mass selection inefficient for
+low heritability traits.
+\end{frame}
+
+\begin{frame}{Recurrent selection}
+\protect\hypertarget{recurrent-selection}{}
+\small
+
+\begin{itemize}
+\tightlist
+\item
+  In the simplest form, recurrent selection consists of selecting
+  desired individuals within a population prior to mating followed by
+  the intermating of selected individuals. Consequently, both female and
+  male gametes have undergone selection, and genetic progress should be
+  at least 100\% faster than for mass selection.
+\item
+  Recurrent selection scheme are variations of modification of progeny
+  selection or ear to row method.
+\item
+  Steps:
+
+  \begin{itemize}
+  \footnotesize
+  \item Visually selected individuals out of the base population undergo progeny testing
+  \item The parents are crossed in all possible combinations and individual families are created for evaluation, 
+  \item The families are evaluated and a new set of parents are selected, and 
+  \item The selected parents are inter-mated to produce the population for the next cycle of selection.
+  \end{itemize}
+\item
+  The aforesaid cycle is repeated several times (3-5 times). The
+  original cycle is labelled \(C_0\) and is called the base population.
+  The subsequent cycles are named as \(C_1, C_2, C_3, ... C_n\)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Types of recurrent selection}
+\protect\hypertarget{types-of-recurrent-selection}{}
+\begin{itemize}
+\tightlist
+\item
+  Simple recurrent selection: Similar to mass selection with 1-2 year
+  per cycle. Does not involve a tester. Phenotypic scores are the basis
+  for selection (aka., Phenotypic recurrent selection).
+\item
+  Recurrent selection for general combining ability (Half sib progeny
+  test procedure): When additive gene effects are more important.
+\item
+  Recurrent selection for specific combining ability: When overdominance
+  gene effects are more important.
+\item
+  Reciprocal recurrent selection: When both gene effects are important.
+  Two heterozygous population are involved, each serving as a tester for
+  the other.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Expected genetic advance}
+\protect\hypertarget{expected-genetic-advance-1}{}
+\[\Delta G = \frac{CiV_A}{y \sigma_p}\]
+
+\begin{itemize}
+\tightlist
+\item
+  Where,
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \(\Delta G\) = Expected genetic advance
+  \item
+    \(C\) = Measure of parental control (C = 0.5 if selection is based
+    on one parent and equals 1 when both parents are involved)
+  \item
+    \(i\) = Selection intensity
+  \item
+    \(V_A\) = Additive genetic variance among the units of selection
+  \item
+    \(y\) = Number of years per cycle
+  \item
+    \(\sigma_p\) = Phenotypic standard deviation among the units of
+    selection
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Simple recurrent selection}
+\protect\hypertarget{simple-recurrent-selection}{}
+\bcolumns
+\column{0.6\textwidth}
+\small
+
+\begin{itemize}
+\tightlist
+\item
+  This method of selection is useful to improve one or more traits so
+  that a new population that is superior to the original population is
+  achieved.
+\item
+  The source material may be random mating populations, synthetic
+  cultivars and single-cross or double-cross plants.
+\item
+  The improved population may be released as a new cultivar or used as a
+  breding material (parent) in other breeding programmes.
+\item
+  This selection ensures improvement of population without reduction in
+  genetic variability.
+\item
+  It is advisable to include as many parent as possible in the initial
+  crossing to increase genetic diversity.
+\item
+  The breeder can decide on the number of generations of inter-mating
+  that is appropriate for a breeding programme.
+\end{itemize}
+
+\column{0.4\textwidth}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.98\linewidth]{./images/simple_recurrent_selection} 
+
+}
+
+\caption{Simple recurrent selection}\label{fig:simple-recurrent-selection}
+\end{figure}
+
+\ecolumns
+\end{frame}
+
+\begin{frame}{Expected variance after k stages of selection}
+\protect\hypertarget{expected-variance-after-k-stages-of-selection}{}
+\[
+\textbf{S}_{Q} = \Psi_n(y) = E(Y^2|\textbf{S}_{Q})- \left[E(Y|\textbf{S}_{Q})\right]^2
+\]
+\end{frame}
+
+\hypertarget{progeny-testing}{%
+\section{Progeny testing}\label{progeny-testing}}
+
+\begin{frame}{}
+\protect\hypertarget{section-3}{}
+\begin{center}\includegraphics[width=0.6\linewidth]{./images/selection_based_on_progeny_test} \end{center}
+\end{frame}
+
+\begin{frame}{Half-sib selection with progeny testing}
+\protect\hypertarget{half-sib-selection-with-progeny-testing}{}
+\bcolumns
+\column{0.6\textwidth}
+\small
+
+\begin{itemize}
+\tightlist
+\item
+  Selections are made based on progeny test performance instead of
+  phenotypic appearance of the parental plants.
+\item
+  Seed from selected half-sibs, which have been pollinated by random
+  pollen from the population (meaning that only the female parent is
+  known and selected, hence the term ``half-sib'') is grown in
+  unreplicated progeny rows for the purpose of selection.
+\item
+  A part of the seed is planted to determine the yielding ability, or
+  breeding value, for any character of each plant.
+\item
+  The seed from the most productive rows or remnant seed from the
+  outstanding half-sibs is bulked to complete one cycle of selection.
+\end{itemize}
+
+\column{0.4\textwidth}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.88\linewidth]{./images/half_sib_selection} 
+
+}
+
+\caption{Generalized steps of half sib selection scheme}\label{fig:half-sib-selection}
+\end{figure}
+
+\ecolumns
+\end{frame}
+
+\begin{frame}{Full-sib selection with progeny testing}
+\protect\hypertarget{full-sib-selection-with-progeny-testing}{}
+\begin{itemize}
+\tightlist
+\item
+  A number of full-sib families, each produced by making crosses between
+  the two plants from the base population are evaluated in replicated
+  trials.
+\item
+  A part of each full-sib family is saved for recombination. Based on
+  evaluation the remnant seed of selected full-sib families is used to
+  recombine the best families.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Estimate of genetic gain}
+\protect\hypertarget{estimate-of-genetic-gain}{}
+\bcolumns
+\column{0.4\textwidth}
+
+\[
+\Delta_{FS} = \left[\frac{i \sigma^2_A}{2 \sigma_{FS}}\right]
+\]
+
+Where \(\sigma_{FS}\) is the phenotypic standard deviation of the
+full-sib families.
+
+\column{0.6\textwidth}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.88\linewidth]{./images/full_sib_selection} 
+
+}
+
+\caption{Generalized steps of full sib family selection}\label{fig:full-sib-selection}
+\end{figure}
+
+\ecolumns
+\end{frame}
+
+\hypertarget{response-to-selection-and-genetic-gain}{%
+\section{Response to selection and genetic
+gain}\label{response-to-selection-and-genetic-gain}}
+
+\begin{frame}{Response to selection (R)}
+\protect\hypertarget{response-to-selection-r}{}
+\small
+
+\begin{itemize}
+\tightlist
+\item
+  Selection entails discriminating among genetic variation to identify
+  and choose a number of individuals to establish the next generation.
+\item
+  This results in differential reproduction of genotypes, i.e.~those
+  that are selected have chance to increase their gene frequencies.
+\item
+  Subsequently, the genotypic and phenotypic values of the targeted
+  traits also improve.
+\item
+  By selecting and advancing superior individuals (with high genetic
+  potential) from a mixed population, the breeder aims to change
+  population mean of the trait in a positive way in the next generation.
+\item
+  \alert{Response to selection} is the difference between the mean
+  phenotypic value of the offspring of the selected parents and the
+  whole of the parental generation before selection. It is related to
+  \emph{heritability} as shown in the following
+  \alert{Breeder's equation}:
+\end{itemize}
+
+\bcolumns
+\column{0.5\textwidth}
+
+\[
+R = \Delta G = h^2 S
+\] \column{0.5\textwidth}
+
+\begin{itemize}
+\tightlist
+\item
+  Where,
+
+  \begin{itemize}
+  \footnotesize
+  \item $R$ is the response to selection
+  \item $h^2$ is the heritability of trait ($h^2_{bs}$ or $h^2_{ns}$)
+  \item $S$ is the selection differential
+  \end{itemize}
+\end{itemize}
+
+\ecolumns
+\end{frame}
+
+\begin{frame}{Selection differenatial (S)}
+\protect\hypertarget{selection-differenatial-s}{}
+\begin{itemize}
+\tightlist
+\item
+  \alert{Selection differential (S)} is the mean phenotypic value of the
+  individuals selected as parents expressed as a deviation from the
+  population mean (i.e., from the mean phenotypic value of all the
+  individuals in the parental generation before selection).
+\end{itemize}
+
+\[
+S = X_s - X_o = i \sigma
+\]
+
+\begin{itemize}
+\tightlist
+\item
+  Genetic advance achieved through selection depends on three factors:
+
+  \begin{enumerate}
+  \footnotesize
+  \item Total variation (phenotypic) in the population in which selection will be conducted.
+  \item Heritability of the target trait.
+  \item Selection pressure to be imposed by the plant breeder (i.e., the proportion of the population that is selected for the next generation).
+  \end{enumerate}
+\item
+  For desirable gain from selection
+
+  \begin{itemize}
+  \footnotesize
+  \item Phenotypic variance should be large and clearly distinguishable
+  \item Heritability of the selected phenotype should be high
+  \item Selection pressure should be optimal.
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-4}{}
+\bcolumns
+\column{0.5\textwidth}
+
+\begin{itemize}
+\tightlist
+\item
+  In principle, the prediction of response is valid for only one
+  generation of selection.
+\item
+  To predict the response in subsequent generations, heritabilities must
+  be determined in each generation. Heritabilities are expected to
+  change from one generation to the next because, if there is a
+  response, it must be accompanied by change in gene frequencies on
+  which heritability depends.
+\item
+  Also, selection of parents tends to reduce phenotypic variance
+  especially in early generations.
+\end{itemize}
+
+\column{0.5\textwidth}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{./images/response_to_selection} 
+
+}
+
+\caption{Genetic gain or genetic advance from selection indicates the progress plant breeders make from one generation to another based on the selection decisions they make.}\label{fig:response-to-selection}
+\end{figure}
+
+\ecolumns
+\end{frame}
+
+\hypertarget{bibliography}{%
+\section{Bibliography}\label{bibliography}}
+
+\begin{frame}{References}
+\protect\hypertarget{references}{}
+\end{frame}
+
+          \begin{frame}[allowframebreaks]{}
+    \bibliographytrue
+    \bibliography{./../bibliographies.bib}
+    \end{frame}
+  
+
+
+\end{document}

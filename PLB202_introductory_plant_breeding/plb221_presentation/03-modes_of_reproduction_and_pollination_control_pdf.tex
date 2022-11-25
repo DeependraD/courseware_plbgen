@@ -29,7 +29,8 @@
 
 \fi
 
-  \usetheme[]{metropolis}
+  \usetheme[sectionpage=progressbar, titleformat=regular,
+numbering=counter, block=fill]{metropolis}
 
 
 
@@ -142,13 +143,23 @@
   \singlespacing
 
   % use cslreferences environment
-
+  % this is revised as of Oct, 2022 (https://stackoverflow.com/questions/59193797/pandocs-environment-cslreferences-undefined-when-knitting-rmarkdown-to-pdf-in-r)
   \newlength{\cslhangindent}
   \setlength{\cslhangindent}{1.5em}
-  \newenvironment{cslreferences}%
+  \newenvironment{CSLReferences}%
     {\setlength{\parindent}{0pt}%
     \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
     {\par}
+
+
+  \newcommand{\bcolumns}{\begin{columns}[T, onlytextwidth]}
+  \newcommand{\ecolumns}{\end{columns}}
+
+  \newcommand{\bdescription}{\begin{description}}
+  \newcommand{\edescription}{\end{description}}
+
+  \newcommand{\bitemize}{\begin{itemize}}
+  \newcommand{\eitemize}{\end{itemize}}
 
   \title[]{Modes of reproduction and pollination control}
 
@@ -159,17 +170,16 @@
 
   \institute[
     ]{
-    Gokuleshwor Agriculture and Animal Science College\\
-Tribhuwan University\\
+    Agriculture and Forestry University\\
 \textit{ddhakal.rookie@gmail.com}\\
 \url{https://rookie.rbind.io}
     }
 
 \date[
-      Academic year 2019-2020
+      
   ]{
-      Academic year 2019-2020
-        }
+    }
+
 
 \begin{document}
 
@@ -187,16 +197,13 @@ Tribhuwan University\\
 \protect\hypertarget{section}{}
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{./images/Maize_inbred} 
+{\centering \includegraphics[width=0.5\linewidth]{./images/Maize_inbred} 
 
 }
 
 \caption{Inbred line of maize}\label{fig:maize}
 \end{figure}
 \end{frame}
-
-\hypertarget{modes-of-reproduction}{%
-\section{Modes of reproduction}\label{modes-of-reproduction}}
 
 \begin{frame}{Sexual reproduction}
 \protect\hypertarget{sexual-reproduction}{}
@@ -236,6 +243,21 @@ Tribhuwan University\\
 
 \begin{frame}{}
 \protect\hypertarget{section-1}{}
+\begin{itemize}
+\tightlist
+\item
+  Female gametophyte contains the egg cell and central cell that become
+  fertilized and give rise to the embryo and endosperm of the seed,
+  respectively.
+\item
+  It's development begins early in ovule development with the formation
+  of a diploid megaspore mother cell that undergoes meiosis. One
+  resulting haploid megaspore then develops into the female gametophyte.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-2}{}
 \begin{figure}
 
 {\centering \includegraphics[width=0.38\linewidth]{./images/fertilization_in_self_pollinated_species} 
@@ -247,7 +269,7 @@ Tribhuwan University\\
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-2}{}
+\protect\hypertarget{section-3}{}
 \begin{figure}
 
 {\centering \includegraphics[width=0.38\linewidth]{./images/sporogenesis} 
@@ -257,6 +279,46 @@ Tribhuwan University\\
 \caption{Embryo sac and pollen formation}\label{fig:sporogenesis}
 \end{figure}
 \end{frame}
+
+\hypertarget{alternation-of-generation-in-flowering-plants}{%
+\section{Alternation of generation in flowering
+plants}\label{alternation-of-generation-in-flowering-plants}}
+
+\begin{frame}{}
+\protect\hypertarget{section-4}{}
+\begin{figure}
+
+{\centering \includegraphics[width=0.6\linewidth]{./images/alternation_of_generations} 
+
+}
+
+\caption{Alternation of generations}\label{fig:alternation-generation}
+\end{figure}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-5}{}
+\begin{columns}[T,onlytextwidth]
+  
+  \column{0.5\linewidth}
+  \footnotesize
+
+\begin{figure}
+\includegraphics[width=0.6\linewidth]{./images/Teosinte_maize_hybrid_cross} \caption{Hybrid}\label{fig:hybrid}
+\end{figure}
+
+  \column{0.5\linewidth}
+  \footnotesize
+  
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{./images/cross_pollinated_mustard} \caption{Open pollinated}\label{fig:openpollinated}
+\end{figure}
+
+\end{columns}
+\end{frame}
+
+\hypertarget{modes-of-reproduction}{%
+\section{Modes of reproduction}\label{modes-of-reproduction}}
 
 \begin{frame}{Autogamy/Self-pollination}
 \protect\hypertarget{autogamyself-pollination}{}
@@ -281,6 +343,18 @@ Tribhuwan University\\
   \item
     Self incompatibility, male sterility and dichogamy
   \end{itemize}
+\item
+  Refer to
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Chapter 2 on `Reproductive barriers: Identification, uses and
+    circumvention,' Plant Breeding Reviews, Volume 11.
+  \item
+    Chapter 2 on `Molecules involved in self-incompatibility in
+    flowering plants'
+  \end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -289,7 +363,7 @@ Tribhuwan University\\
 self-fruitfulness)}\label{self-incompatibility-lack-of-self-fruitfulness}}
 
 \begin{frame}{}
-\protect\hypertarget{section-3}{}
+\protect\hypertarget{section-6}{}
 \begin{itemize}
 \tightlist
 \item
@@ -366,7 +440,7 @@ oppositional factor system)}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-4}{}
+\protect\hypertarget{section-7}{}
 \begin{block}{Sporophytic incompatibility}
 \protect\hypertarget{sporophytic-incompatibility}{}
 \begin{itemize}
@@ -397,7 +471,7 @@ oppositional factor system)}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-5}{}
+\protect\hypertarget{section-8}{}
 \begin{table}
 
 \caption{\label{tab:si-comparison-reaction1}Incompatibility reactions of different mating combinations in a mono- and digenic cross.}
@@ -407,33 +481,33 @@ oppositional factor system)}
 \toprule
 Cross & Male parent & Female parent & Pollen gamete & Gametophytic Reaction & Gametophytic Progenies & Sporophytic Pollen functional type & Sporophytic Reaction & Sporophytic Progenies\\
 \midrule
-\rowcolor{gray!6}  1 & S1S2 & S1S2 & S1 & Incompatible & - & S1 & Incompatible & -\\
+\cellcolor{gray!6}{1} & \cellcolor{gray!6}{S1S2} & \cellcolor{gray!6}{S1S2} & \cellcolor{gray!6}{S1} & \cellcolor{gray!6}{Incompatible} & \cellcolor{gray!6}{-} & \cellcolor{gray!6}{S1} & \cellcolor{gray!6}{Incompatible} & \cellcolor{gray!6}{-}\\
 1 & S1S2 & S1S2 & S2 & Incompatible & - & S1 & Incompatible & -\\
-\rowcolor{gray!6}  2 & S1S2 & S2S3 & S1 & Compatible & S1S2, S1S3 & S1 & Compatible & S1S2, S1S3\\
+\cellcolor{gray!6}{2} & \cellcolor{gray!6}{S1S2} & \cellcolor{gray!6}{S2S3} & \cellcolor{gray!6}{S1} & \cellcolor{gray!6}{Compatible} & \cellcolor{gray!6}{S1S2, S1S3} & \cellcolor{gray!6}{S1} & \cellcolor{gray!6}{Compatible} & \cellcolor{gray!6}{S1S2, S1S3}\\
 2 & S1S2 & S2S3 & S2 & Incompatible & - & S1 & Compatible & S2S2, S2S3\\
-\rowcolor{gray!6}  3 & S1S2Z1Z2 & S1S2Z1Z2 & S1Z1 & Incompatible &  & S1Z1 & Incompatible & \\
+\cellcolor{gray!6}{3} & \cellcolor{gray!6}{S1S2Z1Z2} & \cellcolor{gray!6}{S1S2Z1Z2} & \cellcolor{gray!6}{S1Z1} & \cellcolor{gray!6}{Incompatible} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{S1Z1} & \cellcolor{gray!6}{Incompatible} & \cellcolor{gray!6}{}\\
 \addlinespace
 3 & S1S2Z1Z2 & S1S2Z1Z2 & S1Z2 & Incompatible &  & S1Z1 & Incompatible & \\
-\rowcolor{gray!6}  3 & S1S2Z1Z2 & S1S2Z1Z2 & S2Z1 & Incompatible &  & S1Z1 & Incompatible & \\
+\cellcolor{gray!6}{3} & \cellcolor{gray!6}{S1S2Z1Z2} & \cellcolor{gray!6}{S1S2Z1Z2} & \cellcolor{gray!6}{S2Z1} & \cellcolor{gray!6}{Incompatible} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{S1Z1} & \cellcolor{gray!6}{Incompatible} & \cellcolor{gray!6}{}\\
 3 & S1S2Z1Z2 & S1S2Z1Z2 & S2Z2 & Incompatible &  & S1Z1 & Incompatible & \\
-\rowcolor{gray!6}  4 & S1S2Z1Z3 & S1S2Z1Z2 & S1Z1 & Incompatible &  & S1Z1 & Incompatible & \\
+\cellcolor{gray!6}{4} & \cellcolor{gray!6}{S1S2Z1Z3} & \cellcolor{gray!6}{S1S2Z1Z2} & \cellcolor{gray!6}{S1Z1} & \cellcolor{gray!6}{Incompatible} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{S1Z1} & \cellcolor{gray!6}{Incompatible} & \cellcolor{gray!6}{}\\
 4 & S1S2Z1Z3 & S1S2Z1Z2 & S1Z3 & Compatible &  & S1Z1 & Incompatible & \\
 \addlinespace
-\rowcolor{gray!6}  4 & S1S2Z1Z3 & S1S2Z1Z2 & S2Z1 & Incompatible &  & S1Z1 & Incompatible & \\
+\cellcolor{gray!6}{4} & \cellcolor{gray!6}{S1S2Z1Z3} & \cellcolor{gray!6}{S1S2Z1Z2} & \cellcolor{gray!6}{S2Z1} & \cellcolor{gray!6}{Incompatible} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{S1Z1} & \cellcolor{gray!6}{Incompatible} & \cellcolor{gray!6}{}\\
 4 & S1S2Z1Z3 & S1S2Z1Z2 & S2Z3 & Compatible &  & S1Z1 & Incompatible & \\
-\rowcolor{gray!6}  5 & S3S4Z3Z4 & S1S2Z1Z2 & S3Z3 & Compatible &  & S3Z3 & Compatible & \\
+\cellcolor{gray!6}{5} & \cellcolor{gray!6}{S3S4Z3Z4} & \cellcolor{gray!6}{S1S2Z1Z2} & \cellcolor{gray!6}{S3Z3} & \cellcolor{gray!6}{Compatible} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{S3Z3} & \cellcolor{gray!6}{Compatible} & \cellcolor{gray!6}{}\\
 5 & S3S4Z3Z4 & S1S2Z1Z2 & S3Z4 & Compatible &  & S3Z3 & Compatible & \\
 \bottomrule
-\multicolumn{9}{l}{\textit{Assumptions:}}\\
-\multicolumn{9}{l}{Suppose there are incompatibility conditioning genes S and Z}\\
-\multicolumn{9}{l}{Two genes could have alleles S1, S2, S3, S4… and Z1, Z2, Z3, Z4,…}\\
-\multicolumn{9}{l}{Under SSI system, dominance relation holds: S1>S2>S3 and Z1>Z2>Z3.}\\
+\multicolumn{9}{l}{\rule{0pt}{1em}\textit{Assumptions:}}\\
+\multicolumn{9}{l}{\rule{0pt}{1em}Suppose there are incompatibility conditioning genes S and Z}\\
+\multicolumn{9}{l}{\rule{0pt}{1em}Two genes could have alleles S1, S2, S3, S4… and Z1, Z2, Z3, Z4,…}\\
+\multicolumn{9}{l}{\rule{0pt}{1em}Under SSI system, dominance relation holds: S1>S2>S3 and Z1>Z2>Z3.}\\
 \end{tabular}
 \end{table}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-6}{}
+\protect\hypertarget{section-9}{}
 \begin{table}
 
 \caption{\label{tab:si-comparison-reaction2}Incompatibility reactions (...continued)}
@@ -443,21 +517,21 @@ Cross & Male parent & Female parent & Pollen gamete & Gametophytic Reaction & Ga
 \toprule
 Cross & Male parent & Female parent & Pollen gamete & Gametophytic Reaction & Gametophytic Progenies & Sporophytic Pollen functional type & Sporophytic Reaction & Sporophytic Progenies\\
 \midrule
-\rowcolor{gray!6}  5 & S3S4Z3Z4 & S1S2Z1Z2 & S4Z3 & Compatible &  & S3Z3 & Compatible & \\
+\cellcolor{gray!6}{5} & \cellcolor{gray!6}{S3S4Z3Z4} & \cellcolor{gray!6}{S1S2Z1Z2} & \cellcolor{gray!6}{S4Z3} & \cellcolor{gray!6}{Compatible} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{S3Z3} & \cellcolor{gray!6}{Compatible} & \cellcolor{gray!6}{}\\
 5 & S3S4Z3Z4 & S1S2Z1Z2 & S4Z4 & Compatible &  & S3Z3 & Compatible & \\
-\rowcolor{gray!6}  6 & S1S3Z1Z4 & S1S2Z1Z2 & S1Z1 & Incompatible &  & S1Z1 & Incompatible & \\
+\cellcolor{gray!6}{6} & \cellcolor{gray!6}{S1S3Z1Z4} & \cellcolor{gray!6}{S1S2Z1Z2} & \cellcolor{gray!6}{S1Z1} & \cellcolor{gray!6}{Incompatible} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{S1Z1} & \cellcolor{gray!6}{Incompatible} & \cellcolor{gray!6}{}\\
 6 & S1S3Z1Z4 & S1S2Z1Z2 & S1Z4 & Compatible &  & S1Z1 & Incompatible & \\
-\rowcolor{gray!6}  6 & S1S3Z1Z4 & S1S2Z1Z2 & S3Z1 & Compatible &  & S1Z1 & Incompatible & \\
+\cellcolor{gray!6}{6} & \cellcolor{gray!6}{S1S3Z1Z4} & \cellcolor{gray!6}{S1S2Z1Z2} & \cellcolor{gray!6}{S3Z1} & \cellcolor{gray!6}{Compatible} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{S1Z1} & \cellcolor{gray!6}{Incompatible} & \cellcolor{gray!6}{}\\
 \addlinespace
 6 & S1S3Z1Z4 & S1S2Z1Z2 & S3Z4 & Incompatible &  & S1Z1 & Incompatible & \\
-\rowcolor{gray!6}  7 & S1S3Z2Z3 & S1S2Z1Z2 & S1Z2 & Incompatible &  & S1Z2 & Incompatible & \\
+\cellcolor{gray!6}{7} & \cellcolor{gray!6}{S1S3Z2Z3} & \cellcolor{gray!6}{S1S2Z1Z2} & \cellcolor{gray!6}{S1Z2} & \cellcolor{gray!6}{Incompatible} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{S1Z2} & \cellcolor{gray!6}{Incompatible} & \cellcolor{gray!6}{}\\
 7 & S1S3Z2Z3 & S1S2Z1Z2 & S1Z3 & Compatible &  & S1Z2 & Incompatible & \\
-\rowcolor{gray!6}  7 & S1S3Z2Z3 & S1S2Z1Z2 & S3Z2 & Compatible &  & S1Z2 & Incompatible & \\
+\cellcolor{gray!6}{7} & \cellcolor{gray!6}{S1S3Z2Z3} & \cellcolor{gray!6}{S1S2Z1Z2} & \cellcolor{gray!6}{S3Z2} & \cellcolor{gray!6}{Compatible} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{S1Z2} & \cellcolor{gray!6}{Incompatible} & \cellcolor{gray!6}{}\\
 7 & S1S3Z2Z3 & S1S2Z1Z2 & S3Z3 & Compatible &  & S1Z2 & Incompatible & \\
 \addlinespace
-\rowcolor{gray!6}  8 & S1S3Z2Z3 & S1S2Z1Z3 & S1Z2 & Compatible &  & S1Z2 & Compatible & \\
+\cellcolor{gray!6}{8} & \cellcolor{gray!6}{S1S3Z2Z3} & \cellcolor{gray!6}{S1S2Z1Z3} & \cellcolor{gray!6}{S1Z2} & \cellcolor{gray!6}{Compatible} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{S1Z2} & \cellcolor{gray!6}{Compatible} & \cellcolor{gray!6}{}\\
 8 & S1S3Z2Z3 & S1S2Z1Z3 & S1Z3 & Incompatible &  & S1Z2 & Compatible & \\
-\rowcolor{gray!6}  8 & S1S3Z2Z3 & S1S2Z1Z3 & S3Z2 & Compatible &  & S1Z2 & Compatible & \\
+\cellcolor{gray!6}{8} & \cellcolor{gray!6}{S1S3Z2Z3} & \cellcolor{gray!6}{S1S2Z1Z3} & \cellcolor{gray!6}{S3Z2} & \cellcolor{gray!6}{Compatible} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{S1Z2} & \cellcolor{gray!6}{Compatible} & \cellcolor{gray!6}{}\\
 8 & S1S3Z2Z3 & S1S2Z1Z3 & S3Z3 & Compatible &  & S1Z2 & Compatible & \\
 \bottomrule
 \end{tabular}
@@ -465,7 +539,7 @@ Cross & Male parent & Female parent & Pollen gamete & Gametophytic Reaction & Ga
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-7}{}
+\protect\hypertarget{section-10}{}
 \begin{block}{Important remarks}
 \protect\hypertarget{important-remarks}{}
 \begin{itemize}
@@ -550,7 +624,7 @@ Cross & Male parent & Female parent & Pollen gamete & Gametophytic Reaction & Ga
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-8}{}
+\protect\hypertarget{section-11}{}
 \begin{figure}
 
 {\centering \includegraphics[width=0.5\linewidth]{./images/incompatibility_use_SC} 
@@ -562,7 +636,7 @@ Cross & Male parent & Female parent & Pollen gamete & Gametophytic Reaction & Ga
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-9}{}
+\protect\hypertarget{section-12}{}
 \begin{figure}
 
 {\centering \includegraphics[width=0.5\linewidth]{./images/incompatibility_use_DC} 
@@ -574,7 +648,7 @@ Cross & Male parent & Female parent & Pollen gamete & Gametophytic Reaction & Ga
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-10}{}
+\protect\hypertarget{section-13}{}
 \begin{figure}
 
 {\centering \includegraphics[width=0.5\linewidth]{./images/incompatibility_use_TC} 
@@ -589,7 +663,7 @@ Cross & Male parent & Female parent & Pollen gamete & Gametophytic Reaction & Ga
 \section{Male sterility}\label{male-sterility}}
 
 \begin{frame}{}
-\protect\hypertarget{section-11}{}
+\protect\hypertarget{section-14}{}
 \begin{itemize}
 \tightlist
 \item
@@ -686,7 +760,7 @@ Cross & Male parent & Female parent & Pollen gamete & Gametophytic Reaction & Ga
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-12}{}
+\protect\hypertarget{section-15}{}
 \begin{figure}
 
 {\centering \includegraphics[width=0.5\linewidth]{./images/gms_use} 
@@ -699,6 +773,11 @@ Cross & Male parent & Female parent & Pollen gamete & Gametophytic Reaction & Ga
 
 \begin{frame}{Cytoplasmic male sterility}
 \protect\hypertarget{cytoplasmic-male-sterility}{}
+(Refer to Chapter 2 on Molecular Biology of Cytoplasmic Male Sterility,
+Plant Breeding Reviews, Volume 10.)
+
+\footnotesize
+
 \begin{itemize}
 \tightlist
 \item
@@ -724,7 +803,7 @@ Cross & Male parent & Female parent & Pollen gamete & Gametophytic Reaction & Ga
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-13}{}
+\protect\hypertarget{section-16}{}
 \begin{figure}
 
 {\centering \includegraphics[width=0.5\linewidth]{./images/cms_use} 
@@ -736,7 +815,7 @@ Cross & Male parent & Female parent & Pollen gamete & Gametophytic Reaction & Ga
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-14}{}
+\protect\hypertarget{section-17}{}
 \begin{itemize}
 \tightlist
 \item
@@ -784,7 +863,7 @@ Cross & Male parent & Female parent & Pollen gamete & Gametophytic Reaction & Ga
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-15}{}
+\protect\hypertarget{section-18}{}
 \begin{figure}
 
 {\centering \includegraphics[width=0.3\linewidth]{./images/cgms_systems} 
@@ -819,7 +898,7 @@ Cross & Male parent & Female parent & Pollen gamete & Gametophytic Reaction & Ga
 \section{Asexual reproduction}\label{asexual-reproduction}}
 
 \begin{frame}{}
-\protect\hypertarget{section-16}{}
+\protect\hypertarget{section-19}{}
 \begin{itemize}
 \tightlist
 \item
@@ -836,6 +915,9 @@ Cross & Male parent & Female parent & Pollen gamete & Gametophytic Reaction & Ga
     Reproduction through apomixis
   \end{itemize}
 \end{itemize}
+
+(Refer to Chapter 1 on `Apomixis: Genetics and Breeding,' Plant Breeding
+Reviews, Volume 18.)
 \end{frame}
 
 \begin{frame}{Reproduction through plant parts}
@@ -899,100 +981,34 @@ Cross & Male parent & Female parent & Pollen gamete & Gametophytic Reaction & Ga
 \section{Reproductive options in
 plants}\label{reproductive-options-in-plants}}
 
-\begin{frame}{Hermaphrodity versus unisexuality}
-\protect\hypertarget{hermaphrodity-versus-unisexuality}{}
-\begin{itemize}
-\tightlist
-\item
-  Hermaphrodites have both male and female sexual organs, and hence may
-  be capable of self fertilization. On the other hand, unisexuals,
-  having one kind of sexual organ, are compelled to cross-fertilize.
-  Each mode of reproduction has genetic consequences. Hermaphrodity
-  promotes a reduction in genetic variability, whereas unisexuality,
-  through cross-fertilization, promotes genetic variability.
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Self-pollination versus cross-pollination}
-\protect\hypertarget{self-pollination-versus-cross-pollination}{}
-\begin{itemize}
-\tightlist
-\item
-  Hermaphrodites that are self-fertile may be self pollinated or
-  cross-pollinated. In terms of pollen donation, a species may be
-  autogamous (pollen comes from the same flower - selfing) or allogamous
-  (pollen comes from a different flower). There are finer differences in
-  these types. For example, there may be differences between the time of
-  pollen shed and stigma receptivity.
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Self-fertilization versus cross-fertilization}
-\protect\hypertarget{self-fertilization-versus-cross-fertilization}{}
-\begin{itemize}
-\tightlist
-\item
-  Just because a flower is successfully pollinated does not necessarily
-  mean fertilization would occur. The mechanism of self-incompatibility
-  causes some species to reject pollen from their own flowers, thereby
-  promoting outcrossing.
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Sexuality versus asexuality}
-\protect\hypertarget{sexuality-versus-asexuality}{}
-\begin{itemize}
-\tightlist
-\item
-  Sexually reproducing species are capable of providing seed through
-  sexual means. Asexuality manifests in one of two ways - vegetative
-  reproduction (in which no seed is produced) or agamospermy (in which
-  seed is produced).
-\end{itemize}
-\end{frame}
-
-\hypertarget{alternation-of-generation-in-flowering-plants}{%
-\section{Alternation of generation in flowering
-plants}\label{alternation-of-generation-in-flowering-plants}}
-
 \begin{frame}{}
-\protect\hypertarget{section-17}{}
-\begin{figure}
+\protect\hypertarget{section-20}{}
+\begin{block}{\footnotesize Hermaphrodity versus unisexuality}
+\scriptsize
+Hermaphrodites have both male and female sexual organs, and hence may be capable of self fertilization. On the other hand, unisexuals, having one kind of sexual organ, are compelled to cross-fertilize. Each mode of reproduction has genetic consequences. Hermaphrodity promotes a reduction in genetic variability, whereas unisexuality, through cross-fertilization, promotes genetic variability.
+\end{block}
 
-{\centering \includegraphics[width=0.6\linewidth]{./images/alternation_of_generations} 
+\begin{block}{\footnotesize Self-pollination versus cross-pollination}
+\scriptsize
+Hermaphrodites that are self-fertile may be self pollinated or cross-pollinated. In terms of pollen donation, a species may be autogamous (pollen comes from the same flower - selfing) or allogamous (pollen comes from a different flower). There are finer differences in these types. For example, there may be differences between the time of pollen shed and stigma receptivity.
+\end{block}
 
-}
+\begin{block}{\footnotesize Self-fertilization versus cross-fertilization}
+\scriptsize
+Just because a flower is successfully pollinated does not necessarily mean fertilization would occur. The mechanism of self-incompatibility causes some species to reject pollen from their own flowers, thereby promoting outcrossing.
+\end{block}
 
-\caption{Alternation of generations}\label{fig:alternation-generation}
-\end{figure}
-\end{frame}
-
-\begin{frame}{}
-\protect\hypertarget{section-18}{}
-\begin{columns}[T,onlytextwidth]
-  
-  \column{0.5\linewidth}
-  \footnotesize
-
-\begin{figure}
-\includegraphics[width=0.6\linewidth]{./images/Teosinte_maize_hybrid_cross} \caption{Hybrid}\label{fig:hybrid}
-\end{figure}
-
-  \column{0.5\linewidth}
-  \footnotesize
-  
-\begin{figure}
-\includegraphics[width=0.8\linewidth]{./images/cross_pollinated_mustard} \caption{Open pollinated}\label{fig:openpollinated}
-\end{figure}
-
-\end{columns}
+\begin{block}{\footnotesize Sexuality versus asexuality}
+\scriptsize
+Sexually reproducing species are capable of providing seed through sexual means. Asexuality manifests in one of two ways - vegetative reproduction (in which no seed is produced) or agamospermy (in which seed is produced).
+\end{block}
 \end{frame}
 
 \hypertarget{types-of-cultivar}{%
 \section{Types of cultivar}\label{types-of-cultivar}}
 
 \begin{frame}{}
-\protect\hypertarget{section-19}{}
+\protect\hypertarget{section-21}{}
 \begin{itemize}
 \tightlist
 \item
@@ -1031,7 +1047,7 @@ plants}\label{alternation-of-generation-in-flowering-plants}}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-20}{}
+\protect\hypertarget{section-22}{}
 \begin{table}
 
 \caption{\label{tab:predominantly-self-pollinated}Commonly self pollinated crops}
@@ -1093,7 +1109,7 @@ Wheat & \textit{Triticum aestivum}\\
 
 }
 
-\caption{Open pollinated crops}\label{fig:unnamed-chunk-1}
+\caption{Open pollinated crops}\label{fig:op-onion}
 \end{figure}
 \end{frame}
 
@@ -1170,6 +1186,68 @@ Wheat & \textit{Triticum aestivum}\\
   Strawberries, Blueberries and Chrysanthemums.
 \end{itemize}
 \end{frame}
+
+\hypertarget{xenia-effect}{%
+\section{Xenia effect}\label{xenia-effect}}
+
+\begin{frame}{}
+\protect\hypertarget{section-23}{}
+\bcolumns
+\column{0.6\textwidth}
+\footnotesize
+
+\begin{itemize}
+\tightlist
+\item
+  Immediate effect of pollen on the developing kernel
+\item
+  When yellow corn pollen fertilizes an ovule of white corn, a
+  light-yellow kernel develops; when white corn pollen fertilizes an
+  ovule of yellow corn, a medium-yellow kernel develops.
+\item
+  Phenomena results \(\because\) the yellow color is found only in the
+  vitreous starch of the endosperm (as may be observed by cutting a
+  kernel of yellow corn lengthwise).
+\item
+  Endosperm develops from the fusion of the second sperm with the
+  diploid polar nuclei and has a triploid chromosome number.
+\item
+  The yellow endosperm color is conditioned by a dominant gene (\(Y\)).
+  The recessive alleles (\(yy\)) produce a white endosperm.
+\item
+  Endosperm receives two genes for Y, or y, depending upon the character
+  of the mother plant, to one gene for Y, or y, from the pollen.
+  Possible combinations are given in Table \ref{tab:xenia-effect}.
+\item
+  Endosperm characteristics such as starchy vs.~sugary endosperm,
+  non-shrunken vs.~shrunken endosperm, and nonwaxy vs.~waxy endosperm
+  also exhibit Xenia effects.
+\end{itemize}
+
+\column{0.4\textwidth}
+
+\begin{table}
+
+\caption{\label{tab:xenia-effect}Endosperm color genes and Xenia effect in endosperm.}
+\centering
+\fontsize{5}{7}\selectfont
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{6em}>{\raggedright\arraybackslash}p{2em}>{\raggedright\arraybackslash}p{7em}>{\raggedright\arraybackslash}p{8em}}
+\toprule
+Endosperm color genes in polar nuclei &   & Endosperm color genes in the sperm & Endosperm color genes and xenia effect in endosperm\\
+\midrule
+YY & + & Y & YYY (deep yellow)\\
+YY & + & y & YYy (medium yellow)\\
+yy & + & Y & Yyy (light yellow)\\
+yy & + & y & yyy (white)\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\ecolumns
+\end{frame}
+
+\hypertarget{bibliography}{%
+\section{Bibliography}\label{bibliography}}
 
 
 

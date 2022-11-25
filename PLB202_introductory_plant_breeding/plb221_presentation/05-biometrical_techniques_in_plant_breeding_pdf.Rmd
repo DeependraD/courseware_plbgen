@@ -1,10 +1,8 @@
 ---
 title: Biometrical techniques in plant breeding
 author: Deependra Dhakal
-date: Academic year 2019-2020 
 institute: |
-  | Gokuleshwor Agriculture and Animal Science College
-  | Tribhuwan University
+  | Agriculture and Forestry University
   | \textit{ddhakal.rookie@gmail.com}
   | \url{https://rookie.rbind.io}
 output: 
@@ -13,7 +11,7 @@ output:
       in_header: beamer_header_template.tex
 classoption: "aspectratio=169" # "compressed"
 fontsize: 11pt
-bibliography: [./../../bibliographies.bib]
+bibliography: [../bibliographies.bib]
 ---
 
 ```{r,setup, include=FALSE}
@@ -33,16 +31,24 @@ options(kableExtra.latex.load_packages = FALSE)
 
 ##
 
-```{r maize, fig.cap="Biometrical techniques in plant breeding", fig.align='center', out.height="400px", out.width="auto"}
-# knitr::include_graphics("./images/")
+- Ultimate goal of plant breeding is to generate productive cultivars improved for one or more traits.
+- Breeding process comprises:
+  - Selection of parents possessing desired attributes;
+  - Hybridization
+  - Progeny selection via series of selection stages
+
+```{r categorization-selection-stages, fig.pos="H", fig.cap="Stages of selection", fig.align="center"}
+DiagrammeR::mermaid(
+  "
+  graph TB
+  
+  x11[Early generation selection<br>Small amount of large number of lines<br>Practice positive selection] --> x21[Later generation selection<br>Small number of lines<br>Practice negative selection]
+  x21 --> x31[One or few released varieties after evaluation in MET]
+  
+  "
+)
 ```
 
----
-class: inverse, center, middle
-
-# Assessment of variability
-
----
 
 # Assessment of variability
 
@@ -89,22 +95,63 @@ $${\displaystyle s_{p}^{2}={\frac {\sum _{i=1}^{k}(n_{i}-1)s_{i}^{2}}{\sum _{i=1
 
 are used in different contexts. The former can give an unbiased ${\displaystyle s_{p}^{2}}$ to estimate ${\displaystyle \sigma ^{2}}$ when the two groups share an equal population variance. The latter one can give a more efficient ${\displaystyle s_{p}^{2}}$ to estimate ${\displaystyle \sigma ^{2}}$ biasedly. Note that the quantities ${\displaystyle s_{i}^{2}}$ in the right hand sides of both equations are the unbiased estimates.
 
----
-
 ## Pooled variance
 
 For further details,
 
 https://en.wikipedia.org/wiki/Pooled_variance
 
----
+## Aids to selection 
 
-# aids to selection 
+## Choice of parents
 
-# choice of parents
+- Appropriate parental combinations for crossing require genotypes of different selection origin and crossing series be screened.
+- Evaluation of potential parents require several years [@brown1998identifying].
+- Selection of superior genotypes in early generation is highly ineffective for several crops, especially those clonally propagated.
+- Each breeding cycle is preceded by (for efficient selection):
+  - Cross prediction trials
+  - Progeny tests for family selection
+- Only a few of all potential hybrid combinations are actually made and evaluated in progeny trials.
+- Typically the performance of a new or untested cross combination is predicted by calculating mid-parent values (MPV) based on observed records of potential parents.
+- Improved estimates of parental means for a trait are often obtained with some form of an additive linear model.
+  - Recently, to address the typical incomplete and unbalanced nature of cross appraisal database, mixed model alternatives to analysis are being used.
 
-# crossing techniques
+## Crossing techniques
 
-# genotype-by-environment interactions
+## Genotype-by-environment interactions
+	
+# PART III
+	
+## Regression Analysis of Stability Finlay and Wilkinsons Model
+	
+## Analysis of Stability Parameters
+	
+# PART IV
+	
+## Griffings Model of Diallel Analysis
+	
+## Gardner and Eberharts Model of Diallel Analysis
+	
+## Edwards and Emaras Model of Analysis of Population
+	
+## Kearseys Model of Biparental Progeny Analysis
+	
+## North Carolina Designs of Biparental Mating
+	
+## Factorial Analysis of Generation Means
+	
+## Detection of Epistasis and Variance Components
+	
+# PART V
 
----
+## Line x Tester Analysis Models for Initial Screening
+	
+## Partial Diallel Analysis Circulent Design
+	
+## Fractional Diallel Analysis Triangular Designs
+	
+## Tests of Additivity Epistasis
+	
+## Genetic parameters
+	
+## Statistical Genetical Parameters in Mutation Experiments

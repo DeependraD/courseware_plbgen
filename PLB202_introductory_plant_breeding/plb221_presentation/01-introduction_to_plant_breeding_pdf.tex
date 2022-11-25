@@ -46,7 +46,9 @@
 
 
 \newif\ifbibliography
-
+  \usepackage[]{biblatex}
+      \addbibresource{./../bibliographies.bib}
+  
 
 \hypersetup{
       pdftitle={Introduction to plant breeding},
@@ -142,13 +144,23 @@
   \singlespacing
 
   % use cslreferences environment
-
+  % this is revised as of Oct, 2022 (https://stackoverflow.com/questions/59193797/pandocs-environment-cslreferences-undefined-when-knitting-rmarkdown-to-pdf-in-r)
   \newlength{\cslhangindent}
   \setlength{\cslhangindent}{1.5em}
-  \newenvironment{cslreferences}%
+  \newenvironment{CSLReferences}%
     {\setlength{\parindent}{0pt}%
     \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
     {\par}
+
+
+  \newcommand{\bcolumns}{\begin{columns}[T, onlytextwidth]}
+  \newcommand{\ecolumns}{\end{columns}}
+
+  \newcommand{\bdescription}{\begin{description}}
+  \newcommand{\edescription}{\end{description}}
+
+  \newcommand{\bitemize}{\begin{itemize}}
+  \newcommand{\eitemize}{\end{itemize}}
   % notes will be showed
 
   % \setbeamertemplate{note page}{\insertnote} % a plain style
@@ -192,6 +204,12 @@
   %   \setbeamertemplate{headline}[rightslide]%
   % }
   % \makeatother
+  \setbeamercolor{block body alerted}{bg=alerted text.fg!10}
+  \setbeamercolor{block title alerted}{bg=alerted text.fg!20}
+  \setbeamercolor{block body}{bg=blue!10}
+  \setbeamercolor{block title}{bg=blue!30}
+  \setbeamercolor{block body example}{bg=green!10}
+  \setbeamercolor{block title example}{bg=green!20}
 
   \title[]{Introduction to plant breeding}
 
@@ -202,17 +220,17 @@
 
   \institute[
     ]{
-    Gokuleshwor Agriculture and Animal Science College\\
-Tribhuwan University\\
+    Assistant Professor\\
+Agriculture and Forestry University\\
 \textit{ddhakal.rookie@gmail.com}\\
 \url{https://rookie.rbind.io}
     }
 
 \date[
-      Academic year 2019-2020
+      
   ]{
-      Academic year 2019-2020
-        }
+    }
+
 
 \begin{document}
 
@@ -228,46 +246,47 @@ Tribhuwan University\\
 
 \begin{frame}{}
 \protect\hypertarget{section}{}
-\begin{figure}
-
-{\centering \includegraphics[width=0.45\linewidth]{./images/x_men_mutants} 
-
-}
-
-\caption{Mutant seekers}\label{fig:x-men}
-\end{figure}
+\begin{center}\includegraphics[width=0.8\linewidth]{./images/x_men_mutants} \end{center}
 \end{frame}
 
 \begin{frame}{What experts say\ldots{}}
 \protect\hypertarget{what-experts-say}{}
-``For more than half a century, I have worked with the production of
-more and better wheat for feeding the hungry world, but wheat is merely
-a catalyst, a part of the picture. I am interested in the total
-development of human beings. Only by attacking the whole problem can we
-raise the standard of living for all people, in all communities, so that
-they will be able to live decent lives. This is something we want for
-all people on this planet''.
+\bcolumns
+\column{0.65\textwidth}
 
-Norman E. Borlaug (March 25,1914 - September 12, 2009)
+\begin{quote}
+\small
+"For more than half a century, I have worked with the production of more and better wheat for feeding the hungry world, but wheat is merely a catalyst, a part of the picture. I am interested in the total development of human beings. Only by attacking the whole problem can we raise the standard of living for all people, in all communities, so that they will be able to live decent lives. This is something we want for all people on this planet".
+\end{quote}
+\hfill\raggedright{\footnotesize -- Norman E. Borlaug (March 25,1914 - September 12, 2009)}
+
+\column{0.35\textwidth}
+
+\begin{figure}
+\includegraphics[width=0.95\linewidth]{./images/borlaug_wheat_crossing_block} \caption{Dr. Borlaug working in a wheat crossing block}\label{fig:borlaug}
+\end{figure}
+
+\ecolumns
 \end{frame}
 
 \begin{frame}{}
 \protect\hypertarget{section-1}{}
+\begin{columns}[T,c,onlytextwidth]
+\column{0.4\textwidth}
+
+\begin{quote}
+\vfill
+"The greatest service which can be rendered any country is to add a useful plant to its culture; especially a bread grain"
+\end{quote}
+\hfill\raggedright{\footnotesize -- Thomas Jefferson}
+
+\column{0.6\textwidth}
+
 \begin{figure}
-\includegraphics[width=0.45\linewidth,height=0.75\textheight]{./images/borlaug_wheat_crossing_block} \caption{Dr. Borlaug working in a wheat crossing block}\label{fig:borlaug}
+\includegraphics[width=0.75\linewidth]{./images/Triticum3} \caption{Modern wheat genotype under test in cool temperate region (UK)}\label{fig:modern-triticum-uk}
 \end{figure}
-\end{frame}
 
-\begin{frame}{}
-\protect\hypertarget{section-2}{}
-``The greatest service which can be rendered any country is to add a
-useful plant to its culture; especially a bread grain''
-
-Thomas Jefferson
-
-\begin{figure}
-\includegraphics[width=0.45\linewidth,height=0.75\textheight]{./images/Triticum3} \caption{Modern wheat genotype under test in cool temperate region (UK)}\label{fig:modern-triticum-uk}
-\end{figure}
+\end{columns}
 \end{frame}
 
 \begin{frame}{Background (Overview)}
@@ -291,7 +310,7 @@ Thomas Jefferson
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-3}{}
+\protect\hypertarget{section-2}{}
 \begin{itemize}
 \tightlist
 \item
@@ -325,8 +344,8 @@ Thomas Jefferson
 \section{Concept}\label{concept}}
 
 \begin{frame}{}
-\protect\hypertarget{section-4}{}
-\begin{columns}
+\protect\hypertarget{section-3}{}
+\begin{columns}[T,onlytextwidth]
 \begin{column}{0.5\textwidth}
 "Breeder's eye" viewpoint of Plant Breeding: 
 \begin{itemize}
@@ -348,7 +367,7 @@ Scientific viewpoint of Plant Breeding:
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-5}{}
+\protect\hypertarget{section-4}{}
 \begin{itemize}
 \item
   As human knowledge about plants increased, people were able to select
@@ -378,11 +397,16 @@ Scientific viewpoint of Plant Breeding:
 \section{Definition}\label{definition}}
 
 \begin{frame}{}
-\protect\hypertarget{section-6}{}
+\protect\hypertarget{section-5}{}
+\bcolumns
+\column{0.65\textwidth}
+
+\begin{block}{Plant breeding}
+The art and the science of changing and improving the heredity of plants
+\end{block}
+
 \begin{itemize}
-\item
-  \emph{Plant breeding is the art and the science of changing and
-  improving the heredity of plants}.
+\tightlist
 \item
   Breeding is about manipulating plant attributes, structure and
   composition, to make them more useful to humans.
@@ -393,10 +417,16 @@ Scientific viewpoint of Plant Breeding:
   In other words plant breeding is a `selection' made possible by the
   existence of `variability'.
 \end{itemize}
-\end{frame}
 
-\begin{frame}{How do you define art?}
-\protect\hypertarget{how-do-you-define-art}{}
+\column{0.35\textwidth}
+
+\textbf{How do you define art?}
+
+\includegraphics[width=0.45\linewidth]{images/life-of-an-artist-funny-comics-9}
+
+\includegraphics[width=0.65\linewidth]{images/art-negative-space-design-art-illustration}
+
+\ecolumns
 \end{frame}
 
 \hypertarget{history}{%
@@ -443,25 +473,6 @@ Scientific viewpoint of Plant Breeding:
   knowledge in the production of the first artificial plant hybrids in
   Nicotiana.
 \end{itemize}
-
-\end{frame}
-\note{
-Sedentary agriculture and domestication led to the rapid elimination of undesirable characters such as seed shattering and dormancy. It seems natural that the need to collect fruits, seeds and roots for nutrition brought with it the knowledge to identify plants, aspects of their biology and their potential as food, poison or other uses. The need for pollination for fruit setting in dates was recognized some nine centuries before Christ, as can be deduced from the observation of an Asyrian bas-relief showing the pollination of female date palms with male pollen. Until the first decenium of this century plant breeding was in the hands of 'experts' who in many cases were unable to make progress due to a lack of knowledge of the fundamental plant processes such as the reproductive system. In spite of this, however, some important goals were reached before the rediscovery of Mendel's laws and the consecration of genetics as a science. Some examples are worth mentioning. In France, in the 17th century, several varieties of 'heading lettuce' were developed, some of which are still in cultivation.
-}
-
-\note{ 
-A family of French seed growers, the Vilmorins, established in 1727 the first company devoted to plant breeding and the production of new varieties. A member of the family, Louis de Vilmorin, was the first, some years later, to use the progeny test, evaluating a selection by the study of its descendants.
-}
-
-\note{
-A well-known example of premendelian plant breeding is that of sugar beet. In 1747 Margraaf discovered that the roots of the forage beet contained about 6\% of sucrose. By the beginning of the 19th century, Achard, by means of mass selection, increased this to 11\%. Application of the Vilmorin pedigree method had further increased this to 16\% by 1810.
-}
-
-\note{
-The use of artificial crosses in premendelian breeding can be exemplified by the case of Fragaria x ananassa developed in the botanical garden of Paris by Duchesne, in the 17th century by crossing F. chiloense with F. virginiana. In England at about the same time new varieties of fruits, wheat and peas were being obtained by artificial hybridization.
-}
-\begin{frame}<presentation:0>[noframenumbering] % this will make the empty frame disappear and unnumbered
-% \begin{frame}<0>[noframenumbering] % same due to this
 \end{frame}
 
 \begin{frame}{History (Post-mendel era)}
@@ -478,18 +489,6 @@ The use of artificial crosses in premendelian breeding can be exemplified by the
   involved in the mechanisms of variability and the necessary
   information for regulating and increasing such variability.
 \end{itemize}
-
-\end{frame}
-\note{
-Modern plant breeding is, as has already been stated, applied genetics, but its scientific basis is broader and uses, as conceptual and technical tools, cytology, systematics, physiology, pathology, entomology, chemistry and statistics and has also developed its own technology. There have been many advances in these various areas which have made a substantial contribution to plant breeding. These include the demonstration of the auto- and allopolyploid nature of many crop plants and their origin. This opened the way to the production of artificial polyploid forms and their direct or indirect exploitation. The discovery of the possibility of increasing the frequency of mutations by means of radiation or chemicals was hailed as a means of increasing the variability available to the breeder. There have been many other developments which have all contributed to the progress and success of plant breeding too numerous to exemplify in detail but include such areas as quantitative inheritance and genotype x environment interaction, resistance breeding, and the conservation and characterization of genetic resources.
-}
-
-\note{
-More recent genetical advances than those outlined earlier have allowed breeders to design new methods as is well exemplified by the developments in such areas as RFLP mapping and marker-assisted selection, gene cloning and genetic transformation. The ceilings for yield that some authorities claim have been reached will be surpassed by the combined application of the classical and the new methods available to the breeder. Where yield as such is not the prime criterion of a breeding programme they will allow the production of more efficient cultivars which can maintain production without the requirement for expensive inputs. At the same time breeding can and will make a positive contribution to halting the decline in the agricultural environment.
-}
-
-\begin{frame}<presentation:0>[noframenumbering] % this will make the empty frame disappear and unnumbered
-% \begin{frame}<0>[noframenumbering] % same due to this
 \end{frame}
 
 \begin{frame}{History (Domestication and evolution)}
@@ -504,7 +503,7 @@ More recent genetical advances than those outlined earlier have allowed breeders
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-7}{}
+\protect\hypertarget{section-6}{}
 \begin{figure}
 \includegraphics[width=0.6\textwidth, keepaspectratio,height=0.45\textheight]{./images/rose_prickly_or_common} \caption{rose ancestor (Wild rose)}\label{fig:rose-wild}
 \end{figure}
@@ -515,7 +514,7 @@ More recent genetical advances than those outlined earlier have allowed breeders
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-8}{}
+\protect\hypertarget{section-7}{}
 \begin{figure}
 \includegraphics[width=0.45\linewidth,height=0.4\textheight]{./images/Tomato_galapagos_Solanum-cheesmanii} \caption{Wild tomato (Lycopersicum cheesmanii); Unique and rare, wild, small cherry tomato from the rocky, lava flow areas of Ecuador's famed Galapagos Islands. These cherry shaped, yellowish-orange fruited tomatoes are flavorful and have lemon scented foliage. They enjoy heat and tolerate drought. Similar to cultivated tomatoes in flavor but with more disease and insect tolerance, as well as salt water tolerance. Plants typically vine, are very productive, and easy to grow.}\label{fig:tomato-wild}
 \end{figure}
@@ -526,7 +525,7 @@ More recent genetical advances than those outlined earlier have allowed breeders
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-9}{}
+\protect\hypertarget{section-8}{}
 \begin{figure}
 \includegraphics[width=0.6\textwidth, keepaspectratio,height=0.45\textheight]{./images/brassica_arabidopsis} \caption{Arabidopsis spp.}\label{fig:wild-brassica}
 \end{figure}
@@ -537,7 +536,7 @@ More recent genetical advances than those outlined earlier have allowed breeders
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-10}{}
+\protect\hypertarget{section-9}{}
 \begin{figure}
 \includegraphics[width=0.6\textwidth, keepaspectratio,height=0.45\textheight]{./images/Teosinte} \caption{Wild progenitor of modern day maize -- Teosinte}\label{fig:maize-ancestor-teosinte}
 \end{figure}
@@ -547,32 +546,20 @@ More recent genetical advances than those outlined earlier have allowed breeders
 \end{figure}
 \end{frame}
 
-\begin{frame}{}
-\protect\hypertarget{section-11}{}
-``Charles Darwin's writing in the nineteenth century first formulated
-the idea of evolution, the idea that plants and animals are in constant
-competition, which results in the fittest or the best adapted surviving
-and passing on their genes to the next generation, those less
-well-adapted dying or failing to reproduce and so not passing on their
-genetic code. Life, then, is a constant winnowing and sifting of genetic
-material.'' (Kingsbury 2009)
-\end{frame}
+\begin{frame}{History (Interesting facts)}
+\protect\hypertarget{history-interesting-facts}{}
+\bcolumns
+\column{0.65\textwidth}
+\small
 
-\begin{frame}{}
-\protect\hypertarget{section-12}{}
 \begin{itemize}
+\tightlist
 \item
   Historically, good seed from high-yielding plants were stored in woven
   baskets and bartered for metal tools or cloth.
 \item
   Nowadays test tubes and computers have replaced the baskets, and huge
   research budgets have replaced the barter.
-\end{itemize}
-\end{frame}
-
-\begin{frame}{History (Interesting facts)}
-\protect\hypertarget{history-interesting-facts}{}
-\begin{itemize}
 \item
   Luther Burbank is the last great prescientific plant breeder.
 \item
@@ -583,10 +570,19 @@ material.'' (Kingsbury 2009)
   ideology ensured that Mendelian genetics was discarded.
 \item
   For detailed history refer to Principles of Plant Genetics and
-  Breeding (Acquaah 2009), Chapter 2 (Page 22-39).
+  Breeding \autocite{acquaah2009principles}, Chapter 2 (Page 22-39).
 \item
-  For detailed history of Genetics refer to Griffiths et al. (2015) .
+  For detailed history of Genetics refer to
+  \textcite{griffiths2015introduction} .
 \end{itemize}
+
+\column{0.35\textwidth}
+\begin{quote}
+\scriptsize
+"Charles Darwin's writing in the nineteenth century first formulated the idea of evolution, the idea that plants and animals are in constant competition, which results in the fittest or the best adapted surviving and passing on their genes to the next generation, those less well-adapted dying or failing to reproduce and so not passing on their genetic code. Life, then, is a constant winnowing and sifting of genetic material." 
+\end{quote}
+
+\ecolumns
 \end{frame}
 
 \begin{frame}{History (Timeline)}
@@ -600,16 +596,16 @@ material.'' (Kingsbury 2009)
 \toprule
 Year & Event\\
 \midrule
-\rowcolor{gray!6}  1865 & Gregor Mendel showed that traits are controlled by discrete factors now known as genes.\\
+\cellcolor{gray!6}{1865} & \cellcolor{gray!6}{Gregor Mendel showed that traits are controlled by discrete factors now known as genes.}\\
 1869 & Friedrich Miescher isolated DNA from the nuclei of white blood cells.\\
-\rowcolor{gray!6}  1903 & Walter Sutton and Theodor Boveri hypothesized that chromosomes are the hereditary elements.\\
+\cellcolor{gray!6}{1903} & \cellcolor{gray!6}{Walter Sutton and Theodor Boveri hypothesized that chromosomes are the hereditary elements.}\\
 1905 & William Bateson introduced the term “genetics” for the study of inheritance.\\
-\rowcolor{gray!6}  1908 & G. H. Hardy and Wilhelm Weinberg proposed the Hardy–Weinberg law, the foundation for population genetics\\
+\cellcolor{gray!6}{1908} & \cellcolor{gray!6}{G. H. Hardy and Wilhelm Weinberg proposed the Hardy–Weinberg law, the foundation for population genetics}\\
 \addlinespace
 1910 & Thomas H. Morgan demonstrated that genes are located on chromosomes.\\
-\rowcolor{gray!6}  1913 & Alfred Sturtevant made a genetic linkage map of the Drosophila X chromosome, the first genetic map.\\
+\cellcolor{gray!6}{1913} & \cellcolor{gray!6}{Alfred Sturtevant made a genetic linkage map of the Drosophila X chromosome, the first genetic map.}\\
 1918 & Ronald Fisher proposed that multiple Mendelian factors can explain continuous variation for traits, founding the field of quantitative genetics.\\
-\rowcolor{gray!6}  1931 & Harriet Creighton and Barbara McClintock showed that crossing over is the cause of recombination.\\
+\cellcolor{gray!6}{1931} & \cellcolor{gray!6}{Harriet Creighton and Barbara McClintock showed that crossing over is the cause of recombination.}\\
 1941 & Edward Tatum and George Beadle proposed the one-gene—one-polypeptide hypothesis.\\
 \bottomrule
 \end{tabular}
@@ -617,7 +613,7 @@ Year & Event\\
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-13}{}
+\protect\hypertarget{section-10}{}
 \begin{table}
 
 \caption{\label{tab:history-table2}History of genetics...}
@@ -627,16 +623,16 @@ Year & Event\\
 \toprule
 Year & Event\\
 \midrule
-\rowcolor{gray!6}  1944 & Oswald Avery, Colin MacLeod, and Maclyn McCarty provided compelling evidence that DNA is the genetic material in bacterial cells.\\
+\cellcolor{gray!6}{1944} & \cellcolor{gray!6}{Oswald Avery, Colin MacLeod, and Maclyn McCarty provided compelling evidence that DNA is the genetic material in bacterial cells.}\\
 1946 & Joshua Lederberg and Edward Tatum discovered bacterial conjugation.\\
-\rowcolor{gray!6}  1948 & Barbara McClintock discovered mobile elements (transposons) that move from one place to another in the genome.\\
+\cellcolor{gray!6}{1948} & \cellcolor{gray!6}{Barbara McClintock discovered mobile elements (transposons) that move from one place to another in the genome.}\\
 1950 & Erwin Chargaff showed DNA composition follows some simple rules for the relative amounts of A, C, G, and T.\\
-\rowcolor{gray!6}  1952 & Alfred Hershey and Martha Chase proved that DNA is the molecule that encodes genetic information.\\
+\cellcolor{gray!6}{1952} & \cellcolor{gray!6}{Alfred Hershey and Martha Chase proved that DNA is the molecule that encodes genetic information.}\\
 \addlinespace
 1953 & James Watson and Francis Crick determined that DNA forms a double helix.\\
-\rowcolor{gray!6}  1958 & Matthew Meselson and Franklin Stahl demonstrated the semiconservative nature of DNA replication.\\
+\cellcolor{gray!6}{1958} & \cellcolor{gray!6}{Matthew Meselson and Franklin Stahl demonstrated the semiconservative nature of DNA replication.}\\
 1958 & Jérôme Lejeune discovered that Down syndrome resulted from an extra copy of the 21st chromosome.\\
-\rowcolor{gray!6}  1961 & François Jacob and Jacques Monod proposed that enzyme levels in cells are controlled by feedback mechanisms.\\
+\cellcolor{gray!6}{1961} & \cellcolor{gray!6}{François Jacob and Jacques Monod proposed that enzyme levels in cells are controlled by feedback mechanisms.}\\
 1961-1967 & Marshall Nirenberg, Har Gobind Khorana, Sydney Brenner, and Francis Crick "cracked" the genetic code.\\
 \bottomrule
 \end{tabular}
@@ -644,7 +640,7 @@ Year & Event\\
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-14}{}
+\protect\hypertarget{section-11}{}
 \begin{table}
 
 \caption{\label{tab:history-table3}History of genetics...}
@@ -654,19 +650,19 @@ Year & Event\\
 \toprule
 Year & Event\\
 \midrule
-\rowcolor{gray!6}  1968 & Motoo Kimura proposed the neutral theory of molecular evolution.\\
+\cellcolor{gray!6}{1968} & \cellcolor{gray!6}{Motoo Kimura proposed the neutral theory of molecular evolution.}\\
 1977 & Fred Sanger, Walter Gilbert, and Allan Maxam invented methods for determining the nucleotide sequences of DNA molecules.\\
-\rowcolor{gray!6}  1980 & Christiane Nüsslein-Volhard and Eric F. Wieschaus defined the complex of genes that regulate body plan development in Drosophila.\\
+\cellcolor{gray!6}{1980} & \cellcolor{gray!6}{Christiane Nüsslein-Volhard and Eric F. Wieschaus defined the complex of genes that regulate body plan development in Drosophila.}\\
 1989 & Francis Collins and Lap-Chee Tsui discovered the gene causing cystic fibrosis.\\
-\rowcolor{gray!6}  1993 & Victor Ambrose and colleagues described the first microRNA.\\
+\cellcolor{gray!6}{1993} & \cellcolor{gray!6}{Victor Ambrose and colleagues described the first microRNA.}\\
 \addlinespace
 1995 & First genome sequence of a living organism (Haemophilus influenzae) published.\\
-\rowcolor{gray!6}  1996 & First genome sequence of a eukaryote (Saccharomyces cerevisiae) published.\\
+\cellcolor{gray!6}{1996} & \cellcolor{gray!6}{First genome sequence of a eukaryote (Saccharomyces cerevisiae) published.}\\
 1998 & First genome sequence of an animal (Caenorhabditis elegans) published.\\
-\rowcolor{gray!6}  2000 & First genome sequence of a plant (Arabidopsis thaliana) published.\\
+\cellcolor{gray!6}{2000} & \cellcolor{gray!6}{First genome sequence of a plant (Arabidopsis thaliana) published.}\\
 2001 & The sequence of the human genome first published.\\
 \addlinespace
-\rowcolor{gray!6}  2006 & Andrew Fire and Craig Mello win the Nobel prize for their discovery of gene silencing by double-stranded RNA.\\
+\cellcolor{gray!6}{2006} & \cellcolor{gray!6}{Andrew Fire and Craig Mello win the Nobel prize for their discovery of gene silencing by double-stranded RNA.}\\
 2012 & John Gurdon and Shinya Yamanaka win the Nobel prize for their discovery that just four regulatory genes can convert adult cells into stem cells.\\
 \bottomrule
 \end{tabular}
@@ -674,7 +670,7 @@ Year & Event\\
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-15}{}
+\protect\hypertarget{section-12}{}
 \begin{figure}
 \includegraphics[width=0.4\linewidth,height=0.7\textwidth, keepaspectratio]{./images/plant_breeding_history} \caption{History of plant breeding Rolf H. J. Schlegel, 2018}\label{fig:plb-history-book}
 \end{figure}
@@ -683,7 +679,10 @@ Year & Event\\
 \hypertarget{objectives}{%
 \section{Objectives}\label{objectives}}
 
-\begin{frame}{Objectives}
+\begin{frame}{}
+\protect\hypertarget{section-13}{}
+\small
+
 \begin{itemize}
 \tightlist
 \item
@@ -691,10 +690,9 @@ Year & Event\\
   defined based on factors such as producer needs, consumer preferences
   and needs, and environmental impact.
 \end{itemize}
-\end{frame}
 
-\begin{frame}{Broadly, objectives could be,}
-\protect\hypertarget{broadly-objectives-could-be}{}
+\textbf{Broad objectives}
+
 \begin{itemize}
 \tightlist
 \item
@@ -710,6 +708,8 @@ Year & Event\\
 
 \begin{frame}{Specifically, in crop improvement,}
 \protect\hypertarget{specifically-in-crop-improvement}{}
+\small
+
 \begin{itemize}
 \tightlist
 \item
@@ -717,48 +717,31 @@ Year & Event\\
   morphological characteristics such as:
 
   \begin{itemize}
-  \tightlist
-  \item
-    The number of kernels per ear in a cereal
-  \item
-    The weight of individual seeds within the pod of a pulse,
+  \footnotesize
+  \item The number of kernels per ear in a cereal
+  \item The weight of individual seeds within the pod of a pulse
   \end{itemize}
 \item
   Modifying physiological traits such as:
 
   \begin{itemize}
-  \tightlist
-  \item
-    harvest index,
-  \item
-    utilization of nutrients,
-  \item
-    tolerance to stress.
+  \footnotesize
+  \item harvest index, 
+  \item utilization of nutrients,
+  \item tolerance to stress.
   \end{itemize}
 \item
   Quality and nutritive value are now of increasing importance,
   particularly in association with improved efficiency of production.
-\end{itemize}
-\end{frame}
-
-\begin{frame}{}
-\protect\hypertarget{section-16}{}
-\begin{itemize}
-\tightlist
 \item
   Modern agriculture is highly mechanized and for this reason some
   breeding programmes include objectives to make the crop more amenable
   to mechanical handling.
 
   \begin{itemize}
-  \tightlist
-  \item
-    Development of monogerm beets for mechanical sowing thus eliminating
-    the need for thinning, or the introduction of `jointless' tomatoes
-    for mechanical harvesting.
-  \item
-    Use of some agrochemicals is often coupled with the need for
-    specific crop characteristics e.g.~herbicide resistance.
+  \footnotesize
+  \item Development of monogerm beets for mechanical sowing thus eliminating the need for thinning, or the introduction of 'jointless' tomatoes for mechanical harvesting. 
+  \item Use of some agrochemicals is often coupled with the need for specific crop characteristics e.g. herbicide resistance.
   \end{itemize}
 \end{itemize}
 \end{frame}
@@ -770,10 +753,13 @@ Year & Event\\
 \end{figure}
 \end{frame}
 
-\begin{frame}{Inter-disciplinary linkage of plant breeding (Poehlman
-1987)}
+\begin{frame}{Inter-disciplinary linkage of plant breeding
+\autocite{poehlman1987breeding}}
 \protect\hypertarget{inter-disciplinary-linkage-of-plant-breeding-poehlman1987breeding}{}
+\small
+
 \begin{itemize}
+\tightlist
 \item
   Botany: Plant breeders should be accomplished botanists in order to
   understand the taxonomy, anatomy, morphology, and reproduction of the
@@ -790,12 +776,6 @@ Year & Event\\
   drought, and soil nutrient response. The plant breeder strives to make
   inherent modifications of physiological processes that will enable the
   plant to function more efficiently.
-\end{itemize}
-\end{frame}
-
-\begin{frame}{}
-\protect\hypertarget{section-17}{}
-\begin{itemize}
 \item
   Plant Pathology: Plant disease reduces crop yields. Host resistance is
   an important means of combating many plant diseases. Evaluation of the
@@ -805,6 +785,15 @@ Year & Event\\
   Entomology: Biological control of insect populations by breeding for
   insect resistance is an important way of reducing insect damage in
   crop plants.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-14}{}
+\small
+
+\begin{itemize}
+\tightlist
 \item
   Plant Biochemistry: Inherent improvements in the nutritive value of a
   crop variety are given attention by the plant breeder. Suitability for
@@ -814,12 +803,6 @@ Year & Event\\
   eating qualities of a rice variety, or the fiber qualities of a cotton
   variety. Biochemical genetics is contributing toward a better
   understanding of the structure and function of the gene.
-\end{itemize}
-\end{frame}
-
-\begin{frame}{}
-\protect\hypertarget{section-18}{}
-\begin{itemize}
 \item
   Statistics: The plant breeder compares the performance of many
   genetically different strains. Sound field plot techniques and
@@ -845,7 +828,10 @@ Year & Event\\
 breeding:}\label{steps-activities-in-plant-breeding}}
 
 \begin{frame}{Steps (Activities) in plant breeding:}
+\small
+
 \begin{itemize}
+\tightlist
 \item
   Setting objective/s
 \item
@@ -854,62 +840,36 @@ breeding:}\label{steps-activities-in-plant-breeding}}
   Creation of variation
 
   \begin{itemize}
-  \tightlist
-  \item
-    Genetic variation can be created by domestication, germplasm
-    collection, plant introduction, hybridization, polyploidy,
-    somaclonal variation and genetic engineering
+  \footnotesize
+  \item Genetic variation can be created by domestication, germplasm collection, plant introduction, hybridization, polyploidy, somaclonal variation and genetic engineering
   \end{itemize}
 \item
   Selection
 
   \begin{itemize}
-  \tightlist
-  \item
-    Identification and isolation of plants having desirable combinations
-    of characters and growing their progeny is called selection.
-    Selection is necessarily based on phenotype. Various breeding
-    methods have been designed to increase efficacy of selection.
-    Selection finally yields an improved lines or population.
+  \footnotesize
+  \item Identification and isolation of plants having desirable combinations of characters and growing their progeny is called selection. Selection is necessarily based on phenotype. Various breeding methods have been designed to increase efficacy of selection. Selection finally yields an improved lines or population.
   \end{itemize}
-\end{itemize}
-\end{frame}
-
-\begin{frame}{}
-\protect\hypertarget{section-19}{}
-\begin{itemize}
-\tightlist
 \item
   Evaluation
 
   \begin{itemize}
-  \tightlist
-  \item
-    Newly selected lines/population are tested for yield and other
-    traits. Performance is compared with existing best varieties
-    (checks). Evaluation is a step-wise process, ordinary conducted at
-    several locations for three or more years.
+  \footnotesize
+  \item Newly selected lines/population are tested for yield and other traits. Performance is compared with existing best varieties (checks). Evaluation is a step-wise process, ordinary conducted at several locations for three or more years.
   \end{itemize}
 \item
   Multiplication
 
   \begin{itemize}
-  \tightlist
-  \item
-    This step concerns the large scale production of source/certified
-    seed after release and notification of varieties. Seed production is
-    usually done by seed production organizations, in concert with seed
-    certification agencies.
+  \footnotesize
+  \item This step concerns the large scale production of source/certified seed after release and notification of varieties. Seed production is usually done by seed production organizations, in concert with seed certification agencies.
   \end{itemize}
 \item
   Certification and cultivar release
 
   \begin{itemize}
-  \tightlist
-  \item
-    Certified seed is ultimately sold to the farmers who use it for
-    commercial crop production. This activity alone makes it possible to
-    reap the economic benefits from above activities.
+  \footnotesize
+  \item Certified seed is ultimately sold to the farmers who use it for commercial crop production. This activity alone makes it possible to reap the economic benefits from above activities.
   \end{itemize}
 \end{itemize}
 \end{frame}
@@ -924,11 +884,12 @@ breeding:}\label{steps-activities-in-plant-breeding}}
   Yield increase
 
   \begin{itemize}
+  \tightlist
   \item
-    Has been achieved through either directly targeting the yield
-    \emph{per se} or its components. Theoretically, any characterstic
-    that enables plant to perform better in given biotic/abiotic stress
-    condition can increase yield.
+    Achieved either through directly targeting the yield \emph{per se}
+    or its components. Theoretically, any characterstic that enables
+    plant to perform better in given biotic/abiotic stress condition can
+    increase yield.
   \item
     In US, yield of corn rose from about 2000 kg/ha in the 1940s to
     about 7000 kg/ha in the 1990s.
@@ -950,7 +911,7 @@ breeding:}\label{steps-activities-in-plant-breeding}}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-20}{}
+\protect\hypertarget{section-15}{}
 \begin{itemize}
 \tightlist
 \item
@@ -968,19 +929,6 @@ breeding:}\label{steps-activities-in-plant-breeding}}
     legumes tend to be low in cysteine and methionine (both sulfur
     containing amino acids). Now biofortified series of cereal crops
     that have enhanced amino acids contents are available (QPM maize).
-  \end{itemize}
-\end{itemize}
-\end{frame}
-
-\begin{frame}{}
-\protect\hypertarget{section-21}{}
-\begin{itemize}
-\tightlist
-\item
-  Enhanced value of food crops \ldots{}
-
-  \begin{itemize}
-  \tightlist
   \item
     Zincol, ZincShakti and Mayil in Wheat are enriched for protein and
     Zinc mineral. Similarly, recently notified lentil varieties Khajura
@@ -1001,7 +949,7 @@ breeding:}\label{steps-activities-in-plant-breeding}}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-22}{}
+\protect\hypertarget{section-16}{}
 \begin{itemize}
 \tightlist
 \item
@@ -1031,7 +979,7 @@ breeding:}\label{steps-activities-in-plant-breeding}}
 \section{Constraints}\label{constraints}}
 
 \begin{frame}{}
-\protect\hypertarget{section-23}{}
+\protect\hypertarget{section-17}{}
 \begin{enumerate}
 \tightlist
 \item
@@ -1075,7 +1023,7 @@ breeding:}\label{steps-activities-in-plant-breeding}}
 \section{Opportunities}\label{opportunities}}
 
 \begin{frame}{}
-\protect\hypertarget{section-24}{}
+\protect\hypertarget{section-18}{}
 \begin{itemize}
 \tightlist
 \item
@@ -1094,18 +1042,15 @@ breeding:}\label{steps-activities-in-plant-breeding}}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-25}{}
+\protect\hypertarget{section-19}{}
 \begin{figure}
-\includegraphics[width=0.7\linewidth]{./images/world_production_of_major_crops} \caption{Word production of major crops (1955-2011); Source: Brown and Campos, 2014, Page 21}\label{fig:world-production-major}
+\includegraphics[width=0.5\linewidth]{./images/world_production_of_major_crops} \caption{Word production of major crops (1955-2011); Source: \cite{brown2014plant}, Page 21}\label{fig:world-production-major}
 \end{figure}
-\end{frame}
 
-\begin{frame}{}
-\protect\hypertarget{section-26}{}
+\small
+
 \begin{itemize}
-\item
-  (Brown and Campos 2014), Page 26; Graph of total world crop production
-  and total world crop production per capita (Since 1955 to 2011)
+\tightlist
 \item
   It is plant breeders and their stories who explain the dramatic gap
   between the thin white roots of wild carrot and the plump orange ones
@@ -1115,17 +1060,6 @@ breeding:}\label{steps-activities-in-plant-breeding}}
   and meat or fish a rare luxury, and suffer malnutrition as a result.
   Plant breeding could potentially rescue from the situation is a
   powerful illustration of its importance.
-\end{itemize}
-\end{frame}
-
-\begin{frame}{}
-\protect\hypertarget{section-27}{}
-\begin{itemize}
-\item
-  Then again, well encapsulated in chinese philosophy is an idea that
-  once people have enough to live on and their survival is assured, they
-  turn almost at once to the improvement of their surroundings and the
-  creation of objects of beauty.
 \item
   Modern advances in genetic engineering bring the ``designer plant''
   much closer, a prospect that fills some people with alarm. Or creation
@@ -1143,32 +1077,13 @@ breeding:}\label{steps-activities-in-plant-breeding}}
 
 \begin{frame}{References}
 \protect\hypertarget{references}{}
-\hypertarget{refs}{}
-\begin{cslreferences}
-\leavevmode\hypertarget{ref-acquaah2009principles}{}%
-Acquaah, George. 2009. \emph{Principles of Plant Genetics and Breeding}.
-John Wiley \& Sons.
-
-\leavevmode\hypertarget{ref-brown2014plant}{}%
-Brown, Peter, Jack Caligari, and Hugo A. Campos. 2014. \emph{Plant
-Breeding}. Wiley Blackwell.
-
-\leavevmode\hypertarget{ref-griffiths2015introduction}{}%
-Griffiths, Anthony JF, Susan R Wessler, Richard C Lewontin, William M
-Gelbart, David T Suzuki, Jeffrey H Miller, and others. 2015. \emph{An
-Introduction to Genetic Analysis}. W.H.Freeman.
-
-\leavevmode\hypertarget{ref-kingsbury2009hybrid}{}%
-Kingsbury, Noel. 2009. \emph{Hybrid: The History and Science of Plant
-Breeding}. University of Chicago Press.
-
-\leavevmode\hypertarget{ref-poehlman1987breeding}{}%
-Poehlman, John M. 1987. \emph{Breeding Field Crops}. Springer Science \&
-Business Media.
-\end{cslreferences}
 \end{frame}
 
 
+  \begin{frame}[allowframebreaks]{}
+  \bibliographytrue
+  \printbibliography[heading=none]
+  \end{frame}
 
 
 \end{document}

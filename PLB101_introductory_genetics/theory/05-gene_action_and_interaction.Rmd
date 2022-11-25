@@ -50,6 +50,8 @@ theme_set(theme_bw())
 
 ## Overview
 
+<!-- (Refer to Chapter 12 on 'Gene interaction and selection', Plant Breeding Reviews, Volume 24, Part 1.) -->
+
 - No interaction (9:3:3:1)
 - Duplicate gene action (15:1)
 - Complementary gene action (9:7)
@@ -359,6 +361,8 @@ map2_dfc(.x = (combination_genotypes %>%
 ```
 
 \renewcommand{\arraystretch}{1}
+
+(Refer to Chapter 2 on "Epistasis and plant breeding", Plant Breeding Reviews, Volume 21.)
 
 ## Complementary gene action
 

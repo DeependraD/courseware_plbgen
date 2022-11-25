@@ -33,6 +33,8 @@ options(kableExtra.latex.load_packages = FALSE)
 
 ##
 
+<!-- (Refer to Chapter 2 on 'Plant mutation breeding: Current progress and future assessment', Plant Breeding Reviews, Volume 39) -->
+
 ```{r maize, fig.cap="Quantitative characters", fig.align='center', out.height="400px", out.width="auto"}
 knitr::include_graphics("./images/Pea_lathyrus_odoratus_flower.jpg")
 ```

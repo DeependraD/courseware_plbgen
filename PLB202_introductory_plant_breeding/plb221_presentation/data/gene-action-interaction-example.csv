@@ -1,0 +1,14 @@
+,,,,
+Gene-action-interaction,Genotypes,AA,Aa,aa
+Additive genes effects,BB,4,3,2
+Additive genes effects,Bb,3,2,1
+Additive genes effects,bb,2,1,0
+Dominance gene effects,BB,4,4,2
+Dominance gene effects,Bb,4,4,2
+Dominance gene effects,bb,2,2,0
+Epistatic genes effects,BB,4,4,0
+Epistatic genes effects,Bb,4,4,0
+Epistatic genes effects,bb,0,0,0
+Overdominance gene effect,BB,2,3,1
+Overdominance gene effect,Bb,3,4,2
+Overdominance gene effect,bb,1,2,0

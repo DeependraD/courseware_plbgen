@@ -32,6 +32,8 @@ options(kableExtra.latex.load_packages = FALSE)
 
 # Mendel's experiment
 
+<!-- (Refer to Chapter 2 on 'Genes and selection: Retrospect and prospect', Plant Breeding Reviews, Volume 24, Part 1.) -->
+
 ## Reasons for failure of predecessors
 
 - Scientists studied plant as a whole, i.e. in its totality of appearance of a large number of characters. Therefore plants couldn't be classified in few clearcut classes.

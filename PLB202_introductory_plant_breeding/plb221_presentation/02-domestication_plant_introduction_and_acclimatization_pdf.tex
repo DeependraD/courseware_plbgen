@@ -29,7 +29,8 @@
 
 \fi
 
-  \usetheme[]{metropolis}
+  \usetheme[sectionpage=progressbar, titleformat=regular,
+numbering=counter, block=fill]{metropolis}
 
 
 
@@ -142,51 +143,13 @@
   \singlespacing
 
   % use cslreferences environment
-
+  % this is revised as of Oct, 2022 (https://stackoverflow.com/questions/59193797/pandocs-environment-cslreferences-undefined-when-knitting-rmarkdown-to-pdf-in-r)
   \newlength{\cslhangindent}
   \setlength{\cslhangindent}{1.5em}
-  \newenvironment{cslreferences}%
+  \newenvironment{CSLReferences}%
     {\setlength{\parindent}{0pt}%
     \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
     {\par}
-  \usepackage{etoolbox}
-
-  % % beamer background template
-  % \setbeamercolor{background canvas}{bg=yellow!20}
-  % note that the term "standout" is special
-
-  \defbeamertemplate{background canvas}{calmlush}{%
-    \color{yellow!40}\vrule width\paperwidth height\paperheight% added calmlush color
-  }
-
-  % \defbeamertemplate{background canvas}{standout}{%
-  %   \parbox[c][\paperheight][c]{\paperwidth}{\centering\includegraphics[width=1.2\paperwidth,height=1.2\paperheight,keepaspectratio]{images/Teosinte_dragonfly.jpg}}
-  % }
-
-  \defbeamertemplate{background canvas}{standout}{%
-    \parbox[c][\paperheight][c]{\paperwidth}{\centering\tikz\node[opacity=0.5]{\includegraphics[width=1.2\paperwidth,height=1.2\paperheight,keepaspectratio]{images/rose_prickly_or_common2.jpg}};}
-  }
-
-  \BeforeBeginEnvironment{frame}{%
-    \setbeamertemplate{background canvas}[calmlush]%
-  }
-
-  \makeatletter
-  \define@key{beamerframe}{standout}[true]{%
-    \setbeamertemplate{background canvas}[standout]%
-  }
-  \makeatother
-
-
-
-  % % change background
-  % \defbeamertemplate{background canvas}{standout}{%
-  %   \includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{images/rose_prickly_or_common2.jpg}
-  % }
-  % 
-  % \defbeamertemplate{background canvas}{standout}{%
-  %   \includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{images/pomato_hybrid_graft.jpg}
-  % }
 
   \title[]{Domestication, plant introduction, and acclimatization}
 
@@ -197,17 +160,16 @@
 
   \institute[
     ]{
-    Gokuleshwor Agriculture and Animal Science College\\
-Tribhuwan University\\
+    Agriculture and Forestry University\\
 \textit{ddhakal.rookie@gmail.com}\\
 \url{https://rookie.rbind.io}
     }
 
 \date[
-      Academic year 2019-2020
+      
   ]{
-      Academic year 2019-2020
-        }
+    }
+
 
 \begin{document}
 
@@ -242,66 +204,53 @@ Tribhuwan University\\
   nature, and here it is us who control the evolutionary process.
 \item
   However, many commercially grown plants survive as volunteer weeds, or
-  ``escapes'', in either the same, or different, regions to those in
+  ``escapes,'' in either the same, or different, regions to those in
   which they are most commonly grown commercially.
 \end{itemize}
 \end{frame}
 
-\begin{frame}{}
-\protect\hypertarget{section}{}
-``The gap between the wild and the cultivated is all about the
-difference between nature's requirements and ours.''
+\begin{frame}{Domestication}
+\protect\hypertarget{domestication-1}{}
+\begin{columns}[T,onlytextwidth]
+\column{.6\linewidth}
 
-(Kingsbury 2009)
-\end{frame}
+  \begin{block}{Domestication}
 
-\begin{frame}{}
-\protect\hypertarget{section-1}{}
+"The gap between the wild and the cultivated is all about the difference between nature's requirements and ours." -- @kingsbury2009hybrid
+
+"A plant population has been domesticated when it has been substantially altered from the wild state and certainly when it has been so altered to be unable to survive in the wild" -- N.W. Simmonds
+  \end{block}
+
+Domestication is the process by which genetic changes (shifts) in wild plants are brought about through a selection process imposed by humans.
+
+\column{0.4\textwidth}
+
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\textwidth, keepaspectratio,height=0.9\textheight]{./images/Perennial_teosinte} 
+{\centering \includegraphics[width=0.7\textwidth, keepaspectratio,height=0.92\textheight]{./images/Perennial_teosinte} 
 
 }
 
 \caption{Perennial teosinte}\label{fig:weed-vs-crop}
 \end{figure}
-\end{frame}
 
-\hypertarget{domestication-definition}{%
-\section{Domestication (Definition)}\label{domestication-definition}}
-
-\begin{frame}[standout]{Domestication (Definition)}
-``a plant population has been domesticated when it has been
-substantially altered from the wild state and certainly when it has been
-so altered to be unable to survive in the wild''
-
-N.W. Simmonds
-
-\begin{itemize}
-\tightlist
-\item
-  Domestication is the process by which genetic changes (shifts) in wild
-  plants are brought about through a selection process imposed by
-  humans.
-\end{itemize}
+\end{columns}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-2}{}
+\protect\hypertarget{section}{}
 \begin{itemize}
 \tightlist
 \item
-  Because of the roles of humans, the process results characteristics
-  that are beneficial to humans but some that would be disadvantageous
-  for plants in their natural habitats.
+  Because of the roles of humans (\emph{Domesticators}), the process
+  results characteristics that are beneficial to humans but some that
+  would be disadvantageous for plants in their natural habitats.
 \item
   Results are the plants that are adapted to supervised cultural
   conditions and which posses characteristics that are preferred by
   producers and consumers.
 \item
   E.g. Modern corn stripped is completely of its seed dispersal ability.
-\item
-  \emph{Domesticators}
 \item
   Both wild and domesticated populations are subject to evolution
 \item
@@ -322,47 +271,7 @@ N.W. Simmonds
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Domestication syndrome (Changes in plant species under
-domestication)}
-\protect\hypertarget{domestication-syndrome-changes-in-plant-species-under-domestication}{}
-\begin{table}
-
-\caption{\label{tab:domestication-syndrome}Domestication syndrome in plants}
-\centering
-\fontsize{6}{8}\selectfont
-\begin{tabular}[t]{>{\raggedright\arraybackslash}p{18em}>{\raggedright\arraybackslash}p{38em}}
-\toprule
-General effect & Specific traits altered\\
-\midrule
-\rowcolor{gray!6}  Increased seedling vigor (more plants germinating) & Loss of seed or tuber dormancy\\
- & Large seeds\\
-\rowcolor{gray!6}  Modified reproductive system & Increased selfing\\
- & Reduced complexity of reproductive organs\\
-\rowcolor{gray!6}   & Vegetatively reproducing plants\\
-\addlinespace
- & Altered photoperiod sensitivity\\
-\rowcolor{gray!6}   & Shift in sex form of species\\
- & Promotion of asexual reproduction\\
-\rowcolor{gray!6}  Increased number of seeds harvested & Non-shattering\\
- & Reduced number of branches (more fruits per branch)\\
-\addlinespace
-\rowcolor{gray!6}  Increased appeal to consumers & Attractive fruit/seed colors and patterns\\
- & Enhanced flavor, texture, and taste of seeds/fruits/tubers (food parts)\\
-\rowcolor{gray!6}   & Reduced toxic principles (safer food)\\
- & Larger fruits\\
-\rowcolor{gray!6}   & Reduces spikiness\\
-\addlinespace
- & Increase in economic yield (HI)\\
-\rowcolor{gray!6}  Altered plant architecture and growth habit & Compact growth habit (Determinacy, reduced plant size, dwarfism)\\
- & Reduced branching\\
-\rowcolor{gray!6}   & Decreases in variability within a variety\\
-Change in developmental phenology & Change in life cycle (normally from perennial to annual for seed crops, and from annual to biennial for vegetable crops)\\
-\bottomrule
-\end{tabular}
-\end{table}
-\end{frame}
-
-\begin{frame}[standout]{Evolution}
+\begin{frame}{Evolution}
 \protect\hypertarget{evolution}{}
 \begin{itemize}
 \tightlist
@@ -387,8 +296,50 @@ Change in developmental phenology & Change in life cycle (normally from perennia
 \end{itemize}
 \end{frame}
 
-\begin{frame}{}
-\protect\hypertarget{section-3}{}
+\begin{frame}{Domestication syndrome (Changes in plant species under
+domestication)}
+\protect\hypertarget{domestication-syndrome-changes-in-plant-species-under-domestication}{}
+\begin{table}
+\centering\begingroup\fontsize{6}{8}\selectfont
+
+\begin{tabular}{>{\raggedright\arraybackslash}p{18em}>{\raggedright\arraybackslash}p{42em}}
+\toprule
+General effect & Specific traits altered\\
+\midrule
+\cellcolor{gray!6}{Increased seedling vigor (more plants germinating)} & \cellcolor{gray!6}{Loss of seed or tuber dormancy}\\
+ & Large seeds\\
+\cellcolor{gray!6}{Modified reproductive system} & \cellcolor{gray!6}{Increased selfing}\\
+ & Reduced complexity of reproductive organs\\
+\cellcolor{gray!6}{} & \cellcolor{gray!6}{Vegetatively reproducing plants}\\
+\addlinespace
+ & Altered photoperiod sensitivity\\
+\cellcolor{gray!6}{} & \cellcolor{gray!6}{Shift in sex form of species}\\
+ & Promotion of asexual reproduction\\
+\cellcolor{gray!6}{Increased number of seeds harvested} & \cellcolor{gray!6}{Non-shattering}\\
+ & Reduced number of branches (more fruits per branch)\\
+\addlinespace
+\cellcolor{gray!6}{Increased appeal to consumers} & \cellcolor{gray!6}{Attractive fruit/seed colors and patterns}\\
+ & Enhanced flavor, texture, and taste of seeds/fruits/tubers (food parts)\\
+\cellcolor{gray!6}{} & \cellcolor{gray!6}{Reduced toxic principles (safer food)}\\
+ & Larger fruits\\
+\cellcolor{gray!6}{} & \cellcolor{gray!6}{Reduces spikiness}\\
+\addlinespace
+ & Increase in economic yield (HI)\\
+\cellcolor{gray!6}{Altered plant architecture and growth habit} & \cellcolor{gray!6}{Compact growth habit (Determinacy, reduced plant size, dwarfism)}\\
+ & Reduced branching\\
+\cellcolor{gray!6}{} & \cellcolor{gray!6}{Decreases in variability within a variety}\\
+Change in developmental phenology & Change in life cycle (normally from perennial to annual for seed crops, and from annual to biennial for vegetable crops)\\
+\bottomrule
+\end{tabular}
+\endgroup{}
+\end{table}
+\end{frame}
+
+\begin{frame}{Wild versus domestication}
+\protect\hypertarget{wild-versus-domestication}{}
+\begin{columns}[T,onlytextwidth]
+\column{0.4\textwidth}
+
 \begin{figure}
 
 {\centering \includegraphics[width=0.7\textwidth, keepaspectratio,height=0.8\textheight]{./images/Teosinte_maize_hybrid_cross} 
@@ -397,28 +348,30 @@ Change in developmental phenology & Change in life cycle (normally from perennia
 
 \caption{Teosinte maize hybrid}\label{fig:unnamed-chunk-1}
 \end{figure}
-\end{frame}
 
-\begin{frame}{Wild versus domestication traits}
-\protect\hypertarget{wild-versus-domestication-traits}{}
-\begin{figure}
-\includegraphics[width=0.5\textwidth, keepaspectratio,height=0.35\textheight]{./images/domestic_dog_puppy} \caption{Domesticated dog}\label{fig:domesticated}
-\end{figure}
+\column{0.6\textwidth}
 
 \begin{figure}
-\includegraphics[width=0.5\textwidth, keepaspectratio,height=0.35\textheight]{./images/wild_dog_african} \caption{Wild dog}\label{fig:wild}
+\includegraphics[width=0.4\textwidth, keepaspectratio]{./images/domestic_dog_puppy} \caption{Domesticated dog}\label{fig:domesticated}
 \end{figure}
+
+
+\begin{figure}
+\includegraphics[width=0.4\textwidth, keepaspectratio]{./images/wild_dog_african} \caption{Wild dog}\label{fig:wild}
+\end{figure}
+
+\end{columns}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-4}{}
+\protect\hypertarget{section-1}{}
 \begin{figure}
 \includegraphics[width=0.7\textwidth, keepaspectratio,height=0.8\textheight]{./images/tomato_wild_domestic} \caption{Wild versus domesticated tomatoes}\label{fig:wild-vs-domesticated-tomato}
 \end{figure}
 \end{frame}
 
-\begin{frame}{Wild verus domestication traits (context)}
-\protect\hypertarget{wild-verus-domestication-traits-context}{}
+\begin{frame}{}
+\protect\hypertarget{section-2}{}
 \begin{itemize}
 \item
   Wild cereal plants tend to have many small seeds at maturity and
@@ -438,7 +391,7 @@ Change in developmental phenology & Change in life cycle (normally from perennia
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-5}{}
+\protect\hypertarget{section-3}{}
 \begin{itemize}
 \item
   Similarly potato breeders have selected plants with fewer, but larger
@@ -459,11 +412,16 @@ Change in developmental phenology & Change in life cycle (normally from perennia
 \begin{frame}{Germplasm}
 \protect\hypertarget{germplasm}{}
 \begin{itemize}
+\tightlist
 \item
   Germplasm refers to the genetic material that can be used to
-  perpetuate a species or population
+  perpetuate a species or population.
 \item
-  Germplasm provides the material used to initiate a breeding program
+  Genetic resources such as seeds or tissues that are maintained for the
+  purpose of animal and plant breeding, preservation, and other research
+  uses.
+\item
+  Provides the material used to initiate a breeding program
 \item
   Sometimes only germplasm screening and evaluation is practiced for
   introduction of improved variety in a region
@@ -518,7 +476,7 @@ flow from those species to the crop species.
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-6}{}
+\protect\hypertarget{section-4}{}
 \begin{itemize}
 \tightlist
 \item
@@ -552,23 +510,23 @@ species}\label{domestication-and-origin-of-major-crop-species}}
 \toprule
 Crop category & Crop & Length of time domesticated (years) & Possible region of origin\\
 \midrule
-\rowcolor{gray!6}   & Maize, Zea mays & 7000 & Mexico, Central America\\
+\cellcolor{gray!6}{} & \cellcolor{gray!6}{Maize, Zea mays} & \cellcolor{gray!6}{7000} & \cellcolor{gray!6}{Mexico, Central America}\\
 \cmidrule{2-4}
  & Rice, Oryza sativa & 4500 & Thailand, Southern China\\
 \cmidrule{2-4}
-\rowcolor{gray!6}   & Wheat, Triticum spp. & 8500 & Syria, Jordan, Israel, Iraq\\
+\cellcolor{gray!6}{} & \cellcolor{gray!6}{Wheat, Triticum spp.} & \cellcolor{gray!6}{8500} & \cellcolor{gray!6}{Syria, Jordan, Israel, Iraq}\\
 \cmidrule{2-4}
  & Barley, Hordeum vulgare & 9000 & Syria, Jordan, Israel, Iraq\\
 \cmidrule{2-4}
-\multirow{-5}{*}{\raggedright\arraybackslash Cereals} & Sorghum, Sorghum bicolor & 8000 & Equatorial Africa\\
+\cellcolor{gray!6}{\multirow{-5}{*}{\raggedright\arraybackslash Cereals}} & \cellcolor{gray!6}{Sorghum, Sorghum bicolor} & \cellcolor{gray!6}{8000} & \cellcolor{gray!6}{Equatorial Africa}\\
 \cmidrule{1-4}
  & Soybean, Glycine max & 2000 & North China\\
 \cmidrule{2-4}
-\rowcolor{gray!6}   & Oil palm, Elaeis guineensis & 9000 & Central Africa\\
+\cellcolor{gray!6}{} & \cellcolor{gray!6}{Oil palm, Elaeis guineensis} & \cellcolor{gray!6}{9000} & \cellcolor{gray!6}{Central Africa}\\
 \cmidrule{2-4}
  & Coconut palm, Cocos nucifera & 100 & Southern Asia\\
 \cmidrule{2-4}
-\rowcolor{gray!6}   & Rapeseed, Brassica napus & 500 & Mediterranean Europe\\
+\cellcolor{gray!6}{} & \cellcolor{gray!6}{Rapeseed, Brassica napus} & \cellcolor{gray!6}{500} & \cellcolor{gray!6}{Mediterranean Europe}\\
 \cmidrule{2-4}
 \multirow{-5}{*}{\raggedright\arraybackslash Oilseeds} & Sunflower, Helianthus annus & 3000 & Western United States\\
 \bottomrule
@@ -577,7 +535,7 @@ Crop category & Crop & Length of time domesticated (years) & Possible region of 
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-7}{}
+\protect\hypertarget{section-5}{}
 \begin{table}
 
 \caption{\label{tab:origin-of-crops2}Estimated time of domestication ...}
@@ -587,23 +545,23 @@ Crop category & Crop & Length of time domesticated (years) & Possible region of 
 \toprule
 Crop category & Crop & Length of time domesticated (years) & Possible region of origin\\
 \midrule
-\rowcolor{gray!6}   & Beans, Phaseolus spp & 7000 & Centra America, Mexico\\
+\cellcolor{gray!6}{} & \cellcolor{gray!6}{Beans, Phaseolus spp} & \cellcolor{gray!6}{7000} & \cellcolor{gray!6}{Centra America, Mexico}\\
 \cmidrule{2-4}
  & Lentil, Lens culinaris & 7000 & Syria, Jordan, Israel, Iraq\\
 \cmidrule{2-4}
-\multirow{-3}{*}{\raggedright\arraybackslash Pulses} & Peas, Pisum sativum & 9000 & Syria, Jordan, Israel, Iraq\\
+\cellcolor{gray!6}{\multirow{-3}{*}{\raggedright\arraybackslash Pulses}} & \cellcolor{gray!6}{Peas, Pisum sativum} & \cellcolor{gray!6}{9000} & \cellcolor{gray!6}{Syria, Jordan, Israel, Iraq}\\
 \cmidrule{1-4}
  & Potato, Solanum tuberosum & 7000 & Peru\\
 \cmidrule{2-4}
-\rowcolor{gray!6}   & Cassava, Manihot esculenta & 5000 & Brazil, Mexico\\
+\cellcolor{gray!6}{} & \cellcolor{gray!6}{Cassava, Manihot esculenta} & \cellcolor{gray!6}{5000} & \cellcolor{gray!6}{Brazil, Mexico}\\
 \cmidrule{2-4}
  & Sweet potato, Ipomoea batatas & 6000 & South Central America\\
 \cmidrule{2-4}
-\multirow{-4}{*}{\raggedright\arraybackslash Root crops} & Sugar beet, Beta vulgaris & 300 & Mediterranean Europe\\
+\cellcolor{gray!6}{\multirow{-4}{*}{\raggedright\arraybackslash Root crops}} & \cellcolor{gray!6}{Sugar beet, Beta vulgaris} & \cellcolor{gray!6}{300} & \cellcolor{gray!6}{Mediterranean Europe}\\
 \cmidrule{1-4}
  & Tomato, Lycopersicum esculentum & 3000 & Western South America\\
 \cmidrule{2-4}
-\rowcolor{gray!6}   & Cabbage, Brassica oleracea & 3000 & Mediterranean Europe\\
+\cellcolor{gray!6}{} & \cellcolor{gray!6}{Cabbage, Brassica oleracea} & \cellcolor{gray!6}{3000} & \cellcolor{gray!6}{Mediterranean Europe}\\
 \cmidrule{2-4}
 \multirow{-3}{*}{\raggedright\arraybackslash Vegetables} & Onion, Allium spp. & 4500 & Iran, Afganistan, Pakistan\\
 \bottomrule
@@ -612,7 +570,7 @@ Crop category & Crop & Length of time domesticated (years) & Possible region of 
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-8}{}
+\protect\hypertarget{section-6}{}
 \begin{table}
 
 \caption{\label{tab:origin-of-crops3}Estimated time of domestication ...}
@@ -622,19 +580,19 @@ Crop category & Crop & Length of time domesticated (years) & Possible region of 
 \toprule
 Crop category & Crop & Length of time domesticated (years) & Possible region of origin\\
 \midrule
-\rowcolor{gray!6}   & Orange, Citrus sinensis & 9000 & South-east Asia\\
+\cellcolor{gray!6}{} & \cellcolor{gray!6}{Orange, Citrus sinensis} & \cellcolor{gray!6}{9000} & \cellcolor{gray!6}{South-east Asia}\\
 \cmidrule{2-4}
  & Apple, Malus spp. & 3000 & Asia Minor, Central Asia\\
 \cmidrule{2-4}
-\rowcolor{gray!6}   & Grape, Vitis spp. & 7000 & Eastern Asia\\
+\cellcolor{gray!6}{} & \cellcolor{gray!6}{Grape, Vitis spp.} & \cellcolor{gray!6}{7000} & \cellcolor{gray!6}{Eastern Asia}\\
 \cmidrule{2-4}
 \multirow{-4}{*}{\raggedright\arraybackslash Fruit} & Banana, Musa acuminata, M. balbisiana & 4500 & South-east Asia\\
 \cmidrule{1-4}
-\rowcolor{gray!6}   & Cotton, Gossypium spp. & 4500 & Centra America, Brazil\\
+\cellcolor{gray!6}{} & \cellcolor{gray!6}{Cotton, Gossypium spp.} & \cellcolor{gray!6}{4500} & \cellcolor{gray!6}{Centra America, Brazil}\\
 \cmidrule{2-4}
  & Coffee, Coffea spp. & 500 & West Ethiopia\\
 \cmidrule{2-4}
-\rowcolor{gray!6}   & Rubber, Hevea brasiliensis & 200 & Brazil, Bolivia, Paraguay\\
+\cellcolor{gray!6}{} & \cellcolor{gray!6}{Rubber, Hevea brasiliensis} & \cellcolor{gray!6}{200} & \cellcolor{gray!6}{Brazil, Bolivia, Paraguay}\\
 \cmidrule{2-4}
 \multirow{-4}{*}{\raggedright\arraybackslash Others} & Alfalfa, Medicago sativa & 4000 & Iran, Northern Pakistan\\
 \bottomrule
@@ -656,25 +614,25 @@ Crop category & Crop & Length of time domesticated (years) & Possible region of 
 \caption{\label{tab:cultivated-megacentres-tab}Cultivated plants and their regions of diversity. Based on Zeven and Zhukovsky (1975) and Zeven and de Wet (1982); @hayward2012plant, Page 54, 55.}
 \centering
 \fontsize{6}{8}\selectfont
-\begin{tabular}[t]{>{\raggedleft\arraybackslash}p{4em}>{\raggedleft\arraybackslash}p{14em}>{\raggedleft\arraybackslash}p{28em}}
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{4em}>{\raggedright\arraybackslash}p{14em}>{\raggedright\arraybackslash}p{28em}}
 \toprule
 SN & Region & Crops\\
 \midrule
-\rowcolor{gray!6}  1 & Chinese-Japanese region & Prosomillet, Foxtail millet, Naked oat\\
+\cellcolor{gray!6}{1} & \cellcolor{gray!6}{Chinese-Japanese region} & \cellcolor{gray!6}{Prosomillet, Foxtail millet, Naked oat}\\
  &  & Soybean, Adzuki bean\\
-\rowcolor{gray!6}   &  & Leafy mustard\\
+\cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{Leafy mustard}\\
  &  & Orange/Citrus, Peach, Apricot, Litchi\\
-\rowcolor{gray!6}   &  & Bamboo, Ramie, Tung oil tree, Tea\\
+\cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{Bamboo, Ramie, Tung oil tree, Tea}\\
 \addlinespace
 2 & Indochinese-Indonesian region & Rice\\
-\rowcolor{gray!6}   &  & Rice bean, Winged bean\\
+\cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{Rice bean, Winged bean}\\
  &  & Cucurbits/Ash gourd\\
-\rowcolor{gray!6}   &  & Mango, Banana, Rambutan, Durian, Bread fruit, Citrus/Lime, Grapefruit\\
+\cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{Mango, Banana, Rambutan, Durian, Bread fruit, Citrus/Lime, Grapefruit}\\
  &  & Bamboos, Nutmeg, Clove, Sago-palm, Ginger, Taros and Yams, Betel nut, Coconut\\
 \addlinespace
-\rowcolor{gray!6}  3 & Australian region & Eucalyptus, Acacia, Macadamia nut\\
+\cellcolor{gray!6}{3} & \cellcolor{gray!6}{Australian region} & \cellcolor{gray!6}{Eucalyptus, Acacia, Macadamia nut}\\
 4 & Hindustani region & Rice, Little millet\\
-\rowcolor{gray!6}   &  & Black gram, Green gram, Moth bean, Rice bean, Dolichos bean, Pigeonpea, Cowpea, Chickpea, Horsegram, Jute\\
+\cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{Black gram, Green gram, Moth bean, Rice bean, Dolichos bean, Pigeonpea, Cowpea, Chickpea, Horsegram, Jute}\\
  &  & Eggplant, Okra, Cucumber, Leafy mustard, Rat's tail radish, Taros and Yams\\
 \bottomrule
 \end{tabular}
@@ -682,33 +640,33 @@ SN & Region & Crops\\
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-9}{}
+\protect\hypertarget{section-7}{}
 \begin{table}
 
 \caption{\label{tab:cultivated-megacentres-tab2}Cultivated plants and their regions of diversity ...}
 \centering
 \fontsize{6}{8}\selectfont
-\begin{tabular}[t]{>{\raggedleft\arraybackslash}p{4em}>{\raggedleft\arraybackslash}p{14em}>{\raggedleft\arraybackslash}p{28em}}
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{4em}>{\raggedright\arraybackslash}p{14em}>{\raggedright\arraybackslash}p{28em}}
 \toprule
 SN & Region & Crops\\
 \midrule
-\rowcolor{gray!6}   &  & Citrus, Banana, Mango, Sunhemp, Tree cotton\\
+\cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{Citrus, Banana, Mango, Sunhemp, Tree cotton}\\
  &  & Sesame, Ginger, Turmeric, Cardamom, Arecanut, Sugarcane, Black pepper, Indigo\\
-\rowcolor{gray!6}  5 & Central Asian region & Wheat (Bread/Club/Shot), Rye\\
+\cellcolor{gray!6}{5} & \cellcolor{gray!6}{Central Asian region} & \cellcolor{gray!6}{Wheat (Bread/Club/Shot), Rye}\\
  &  & Allium/Onion, Garlic, Spinach, Peas, Beetroot, Faba bean\\
-\rowcolor{gray!6}   &  & Lentil, Chickpea\\
+\cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{Lentil, Chickpea}\\
 \addlinespace
  &  & Apricot, Plum, Pear, Apple, Walnut, Almond, Pistachio, Melon, Grape, Carrot, Radish\\
-\rowcolor{gray!6}   &  & Hemp/Cannabis, Sesame, Flax, Safflower\\
+\cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{Hemp/Cannabis, Sesame, Flax, Safflower}\\
 6 & Near Eastern region & Wheat (Einkorn, Durum, Poulard, Bread), Barley, Rye/Secale\\
-\rowcolor{gray!6}   &  & Faba bean, Chickpea, French bean, Lentil, Pea\\
+\cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{Faba bean, Chickpea, French bean, Lentil, Pea}\\
  &  & Brassica oleracea, Allium, Melon, Grape, Plum, Pear, Apple, Apricot, Pistachio, Fig, Pomegranate, Almond\\
 \addlinespace
-\rowcolor{gray!6}   &  & Safflower, Sesame, Flax\\
+\cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{Safflower, Sesame, Flax}\\
  &  & Lupins, Medics\\
-\rowcolor{gray!6}  7 & Mediterranean region & Wheat (Durum, Turgidum), Oats\\
+\cellcolor{gray!6}{7} & \cellcolor{gray!6}{Mediterranean region} & \cellcolor{gray!6}{Wheat (Durum, Turgidum), Oats}\\
  &  & Brassica oleracea, Lettuce, Beetroot, Colza\\
-\rowcolor{gray!6}   &  & Faba bean, Radish\\
+\cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{Faba bean, Radish}\\
 \addlinespace
  &  & Olive, Trifolium/Berseem, Lupins, Crocus, Grape, Fennel, Cumin, Celery, Linseed\\
 \bottomrule
@@ -717,33 +675,33 @@ SN & Region & Crops\\
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-10}{}
+\protect\hypertarget{section-8}{}
 \begin{table}
 
 \caption{\label{tab:cultivated-megacentres-tab3}Cultivated plants and their regions of diversity ...}
 \centering
 \fontsize{6}{8}\selectfont
-\begin{tabular}[t]{>{\raggedleft\arraybackslash}p{4em}>{\raggedleft\arraybackslash}p{14em}>{\raggedleft\arraybackslash}p{28em}}
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{4em}>{\raggedright\arraybackslash}p{14em}>{\raggedright\arraybackslash}p{28em}}
 \toprule
 SN & Region & Crops\\
 \midrule
-\rowcolor{gray!6}  8 & African region & Wheat (Durum, Emmer, Poulard, Bread)\\
+\cellcolor{gray!6}{8} & \cellcolor{gray!6}{African region} & \cellcolor{gray!6}{Wheat (Durum, Emmer, Poulard, Bread)}\\
  &  & African rice, Sorghum, Pearl millet, Finger millet, Teff\\
-\rowcolor{gray!6}   &  & Cowpea, Bottle gourd, Okra, Yams, Cucumber\\
+\cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{Cowpea, Bottle gourd, Okra, Yams, Cucumber}\\
  &  & Castor bean, Sesame, Niger, Oil palm, Safflower, Flax\\
-\rowcolor{gray!6}   &  & Cotton, Kenaf, Coffee\\
+\cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{Cotton, Kenaf, Coffee}\\
 \addlinespace
  &  & Kola, Bambara, Groundnut, Date palm, Ensete, Melons\\
-\rowcolor{gray!6}  9 & European-siberian region & Peach, Pear, Plum, Apricot, Apple, Almond, Walnut, Pistachio, Cherry\\
+\cellcolor{gray!6}{9} & \cellcolor{gray!6}{European-siberian region} & \cellcolor{gray!6}{Peach, Pear, Plum, Apricot, Apple, Almond, Walnut, Pistachio, Cherry}\\
  &  & Cannabis, Mustard (black), Chicory, Hops, Lettuce\\
-\rowcolor{gray!6}  10 & South American region & Potato, Sweet potato, Xanthosoma\\
+\cellcolor{gray!6}{10} & \cellcolor{gray!6}{South American region} & \cellcolor{gray!6}{Potato, Sweet potato, Xanthosoma}\\
  &  & Lima bean, Amaranth, Chenopodium, Cucurbita, Tomato, Tobacco, Lupin\\
 \addlinespace
-\rowcolor{gray!6}   &  & Papaya, Pineapple\\
+\cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{Papaya, Pineapple}\\
  &  & Groundnut, Sea island cotton\\
-\rowcolor{gray!6}   &  & Cassava, Cacao, Rubber tree, Passion fruit\\
+\cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{Cassava, Cacao, Rubber tree, Passion fruit}\\
 11 & Central American and Mexican region & Maize, French bean, Potato, Cucurbita, Pepper/Chilli, Amaranth, Chenopodium, Tobacco, Sisal hemp, Upland cotton\\
-\rowcolor{gray!6}  12 & North American region & Jeruselum artichoke, Sunflower, Plum, Raspberry, Strawberry\\
+\cellcolor{gray!6}{12} & \cellcolor{gray!6}{North American region} & \cellcolor{gray!6}{Jeruselum artichoke, Sunflower, Plum, Raspberry, Strawberry}\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -842,23 +800,158 @@ SN & Region & Crops\\
 \section{Other steps in plant
 breeding}\label{other-steps-in-plant-breeding}}
 
-\begin{frame}{Collection}
-\protect\hypertarget{collection}{}
+\begin{frame}{Germplasm collection}
+\protect\hypertarget{germplasm-collection}{}
+\footnotesize
+
+\begin{itemize}
+\tightlist
+\item
+  These resources may take the form of seed collections stored in seed
+  banks, trees growing in nurseries, animal breeding lines maintained in
+  animal breeding programs or gene banks, etc.
+\item
+  Three principles guide the collection, conservation and
+  exchange/utilization of germplasm:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \footnotesize When an accession is gathered a sample is left in the
+    country of origin for national use
+  \item
+    Germplasm is made freely available to all bona fide workers
+  \item
+    All long term collections are duplicated and maintained in another
+    location.
+  \end{itemize}
+\item
+  Range from collections of wild species to elite, domesticated breeding
+  lines that have undergone extensive human selection.
+\item
+  Important for
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \footnotesize Maintenance of biological diversity and food security
+  \item
+    At times of crisis; irish famine (potato line was result of only a
+    handful of introductions) and \emph{Helminthosporium} leaf blight in
+    corn in US 1970s (Parental line of the popular hybrid maize was
+    susceptible to disease.)
+  \end{itemize}
+\item
+  Loss of genetic diversity has accelerated in recent decades, with many
+  crops growing susceptible to diseases, pests and environmental
+  stresses.
+\item
+  Germplasm collections are backed up by their characterizations --
+  using technical guidelines and crop specific descriptors
+  \footnote[frame]{\url{https://www.genebanks.org/resources/publications/key-access-and-utilization-descriptors-for-rice-genetic-resources/}}.
+\end{itemize}
 \end{frame}
 
-\begin{frame}{Conservation}
-\protect\hypertarget{conservation}{}
+\begin{frame}{Germplasm conservation}
+\protect\hypertarget{germplasm-conservation}{}
+\begin{columns}[T, onlytextwidth]
+
+\column{0.5\textwidth}
+\footnotesize
+\begin{itemize}
+\item Before being placed in cold storage, the sample is often multiplied so as to retain sufficient seeds or vegetative materials for storage and to send to other institutions.
+\item Germplasm of crops grown from true seed is stored in 3 main types of banks:
+  \begin{itemize}
+  \footnotesize
+  \item Long term gene banks, aka. base collections, stored at -10 to -20 degree C for several decades or upto century.
+  \item Medium term banks, 0 - 5 degree C for upto 20 years.
+  \item Short term collections, under 5 degree C for a few years.
+  \end{itemize}
+\end{itemize}
+
+\column{0.5\textwidth}
+
+\begin{figure}
+\includegraphics[width=0.6\linewidth]{./images/cryo-tanks-banana} \caption{Cryotanks for conservation of global banana germplasm.}\label{fig:cryo-tank-banana}
+\end{figure}
+
+\end{columns}
 \end{frame}
 
-\begin{frame}{Utilization}
-\protect\hypertarget{utilization}{}
+\begin{frame}{Conservation: a case of rice}
+\protect\hypertarget{conservation-a-case-of-rice}{}
+\footnotesize
+
+\begin{itemize}
+\tightlist
+\item
+  Traditional rice varieties and wild rice species are being lost
+  through genetic erosion and habitat loss. Farmers often adopt new,
+  modern rice varieties, which displace older varieties.
+\item
+  Wild rice species are particularly threatened with extinction as their
+  natural habitats are under threat or destroyed.
+\item
+  The most common, efficient and cheap method of conservation of rice
+  diversity is in seed banks at low temperature (\(2^\circ C\) to
+  \(-20^\circ C\)) and dry (moisture content of 6--7\% fresh weight).
+  Most cultivated rice accessions are conserved in seed banks.
+\item
+  Field genebanks are needed for wild rice and related genera:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \footnotesize that produce recalcitrant seeds or no seeds. This is
+    the case of \emph{O. longistaminata}, \emph{O. neocaledonica},
+    \emph{O. granulata}, \emph{O. meyeriana} and related genera such as
+    \emph{Leersia}, which do not produce enough seeds for storage.
+    \emph{Porteresia coarctata} has recalcitrant seeds.
+  \item
+    that do not flower in genebank regeneration conditions. This is the
+    case of O. schlechteri and related genera such as Potamophila and
+    Zizaniopsis at IRRI.
+  \item
+    that have special needs, where different species require different
+    cultural practices. \emph{O. granulata} and \emph{O. meyeriana} for
+    example, need partial shading and special soils, because they are
+    originally from forest regions, whereas most of the other species
+    need to be kept soaked because they are originally from swampy
+    areas.
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-9}{}
+\begin{itemize}
+\tightlist
+\item
+  More than 780,000 accessions of cultivated and wild rice are stored in
+  genebanks in more than 40 countries. However, many of these accessions
+  are duplicates, so this number does not represent numbers of distinct
+  varieties.
+\item
+  Major rice collections in CGIAR are maintained by the International
+  Rice Research Institute (IRRI) and AfricaRice. CIAT maintains a
+  working collection used for breeding rice for Latin American
+  countries.
+\item
+  Other large collections are conserved at CAAS in China, which holds
+  the largest collection of wild rice and related genera, Russia and the
+  USA.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Germplasm utilization}
+\protect\hypertarget{germplasm-utilization}{}
 \end{frame}
 
 \hypertarget{the-vavilov-concept}{%
 \section{The Vavilov Concept}\label{the-vavilov-concept}}
 
 \begin{frame}{}
-\protect\hypertarget{section-11}{}
+\protect\hypertarget{section-10}{}
 \begin{itemize}
 \item
   Nikolai I. Vavilov (1887-1942), the Russian botanist and plant
@@ -873,24 +966,17 @@ breeding}\label{other-steps-in-plant-breeding}}
   It allows the breeder to identify sources of variation for specific
   characteristics. The extension of this principle to related species
   was formulated by Vavilov in his `law of homologous series of
-  variation'. This law allows the prediction of the appearance of a
+  variation.' This law allows the prediction of the appearance of a
   given type of mutation in a plant species when such a type has been
   found in another species phylogenetically related to the first. As a
   result of his studies Vavilov defined plant breeding as `plant
-  evolution directed by man'. He recognized that in a breeding
+  evolution directed by man.' He recognized that in a breeding
   programme, by growing variable populations in conditions favouring the
   expression of the characters, selection may be facilitated. Also, by
   creating variability in a parallel way to nature the breeder exploits
   genetical methods. Plant breeding can thus also be defined as `applied
-  plant genetics'.
+  plant genetics.'
 \end{itemize}
-
-\hypertarget{refs}{}
-\begin{cslreferences}
-\leavevmode\hypertarget{ref-kingsbury2009hybrid}{}%
-Kingsbury, Noel. 2009. \emph{Hybrid: The History and Science of Plant
-Breeding}. University of Chicago Press.
-\end{cslreferences}
 \end{frame}
 
 

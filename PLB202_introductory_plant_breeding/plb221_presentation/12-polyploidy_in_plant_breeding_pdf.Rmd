@@ -33,6 +33,8 @@ options(kableExtra.latex.load_packages = FALSE)
 
 ##
 
+<!-- (Refer to Chapter 4 on 'Terminology for polyploids based on cytogenetic behavior: consequences in genetics and breeding', Plant Breeding Reviews, Volume 26.) -->
+
 - Ploidy refers to the number of copies of the entire chromosome set in a cell of an individual.
 - The complete chromosome set is characteristic of, or basic to, a species.
 - A set of chromosomes (the genome) is designated by “x”. Furthermore, the basic set is called the monoploid set. 
@@ -228,6 +230,8 @@ knitr::include_graphics("../images/aneuploids_nomenclature.png")
 ---
 
 # Doubled haploids production
+
+(Refer to Chapter 3 on "Doubled haploids in genetics and plant breeding", Plant Breeding Reviews, Volume 25.)
 
 The production of superior lines for hybrid formation requires a long period to reach homozygosity, which is typically reached after seven to nine generations of selfing, corresponding to between 7 and 9 years of work for the breeder. This timeline refers to annual species; the expected time to produce homozygous lines is even greater for perennial species.
 

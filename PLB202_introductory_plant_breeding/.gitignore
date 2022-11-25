@@ -43,3 +43,6 @@ plb221_presentation/**/static
 
 # pdf files because they are too big and can be compiled instantly
 *.pdf
+
+literatures/
+literatures/*

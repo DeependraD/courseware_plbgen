@@ -1,10 +1,8 @@
 ---
 title: Modes of reproduction and pollination control
 author: Deependra Dhakal
-date: Academic year 2019-2020 
 institute: |
-  | Gokuleshwor Agriculture and Animal Science College
-  | Tribhuwan University
+  | Agriculture and Forestry University
   | \textit{ddhakal.rookie@gmail.com}
   | \url{https://rookie.rbind.io}
 output: 
@@ -12,6 +10,7 @@ output:
     keep_tex: yes
     includes:
       in_header: beamer_header_template.tex
+themeoptions: "sectionpage=progressbar, titleformat=regular, numbering=counter, block=fill"
 classoption: "aspectratio=169" # "compressed"
 fontsize: 11pt
 bibliography: [../bibliographies.bib]
@@ -34,7 +33,7 @@ options(kableExtra.latex.load_packages = FALSE)
 
 ##
 
-```{r maize, fig.cap="Inbred line of maize", fig.align='center', out.width="70%"}
+```{r maize, fig.cap="Inbred line of maize", fig.align='center', out.width="50%"}
 knitr::include_graphics("./images/Maize_inbred.jpg")
 ```
 
@@ -111,6 +110,10 @@ knitr::include_graphics("./images/cross_pollinated_mustard.jpg")
   - Proximity of anther
 - Mechanisms that prevent autogamy
   - Self incompatibility, male sterility and dichogamy
+
+- Refer to
+  - Chapter 2 on 'Reproductive barriers: Identification, uses and circumvention', Plant Breeding Reviews, Volume 11.
+  - Chapter 2 on 'Molecules involved in self-incompatibility in flowering plants' 
 
 # Self incompatibility (lack of self-fruitfulness)
 
@@ -281,6 +284,9 @@ knitr::include_graphics("./images/gms_use.png")
 
 ## Cytoplasmic male sterility
 
+(Refer to Chapter 2 on Molecular Biology of Cytoplasmic Male Sterility, Plant Breeding Reviews, Volume 10.)
+
+\footnotesize
 - Sometimes, male sterility is controlled by the cytoplasm (mitochondrial gene) but may be influenced by nuclear genes. 
 - A cytoplasm without sterility genes is described as normal (N) cytoplasm, while a cytoplasm that causes male sterility is called a sterile ( _s_) cytoplasm or said to have cytoplasmic male sterility (CMS).
 - Transmitted through the egg only (maternal factor).
@@ -332,6 +338,8 @@ knitr::include_graphics("./images/cgms_systems.png")
   - Reproduction through plant parts
   - Reproduction through apomixis
 
+(Refer to Chapter 1 on 'Apomixis: Genetics and Breeding', Plant Breeding Reviews, Volume 18.)
+
 ## Reproduction through plant parts
 
 - A *bulb* is a modified shoot consisting of a very much shortened stem enclosed by fleshy leaves (e.g. a tulip or an onion).
@@ -354,21 +362,27 @@ knitr::include_graphics("./images/cgms_systems.png")
 
 # Reproductive options in plants
 
-## Hermaphrodity versus unisexuality
+## 
 
-- Hermaphrodites have both male and female sexual organs, and hence may be capable of self fertilization. On the other hand, unisexuals, having one kind of sexual organ, are compelled to cross-fertilize. Each mode of reproduction has genetic consequences. Hermaphrodity promotes a reduction in genetic variability, whereas unisexuality, through cross-fertilization, promotes genetic variability.
+\begin{block}{\footnotesize Hermaphrodity versus unisexuality}
+\scriptsize
+Hermaphrodites have both male and female sexual organs, and hence may be capable of self fertilization. On the other hand, unisexuals, having one kind of sexual organ, are compelled to cross-fertilize. Each mode of reproduction has genetic consequences. Hermaphrodity promotes a reduction in genetic variability, whereas unisexuality, through cross-fertilization, promotes genetic variability.
+\end{block}
 
-## Self-pollination versus cross-pollination
+\begin{block}{\footnotesize Self-pollination versus cross-pollination}
+\scriptsize
+Hermaphrodites that are self-fertile may be self pollinated or cross-pollinated. In terms of pollen donation, a species may be autogamous (pollen comes from the same flower - selfing) or allogamous (pollen comes from a different flower). There are finer differences in these types. For example, there may be differences between the time of pollen shed and stigma receptivity.
+\end{block}
 
-- Hermaphrodites that are self-fertile may be self pollinated or cross-pollinated. In terms of pollen donation, a species may be autogamous (pollen comes from the same flower - selfing) or allogamous (pollen comes from a different flower). There are finer differences in these types. For example, there may be differences between the time of pollen shed and stigma receptivity.
+\begin{block}{\footnotesize Self-fertilization versus cross-fertilization}
+\scriptsize
+Just because a flower is successfully pollinated does not necessarily mean fertilization would occur. The mechanism of self-incompatibility causes some species to reject pollen from their own flowers, thereby promoting outcrossing.
+\end{block}
 
-## Self-fertilization versus cross-fertilization
-
-- Just because a flower is successfully pollinated does not necessarily mean fertilization would occur. The mechanism of self-incompatibility causes some species to reject pollen from their own flowers, thereby promoting outcrossing.
-
-## Sexuality versus asexuality 
-
-- Sexually reproducing species are capable of providing seed through sexual means. Asexuality manifests in one of two ways - vegetative reproduction (in which no seed is produced) or agamospermy (in which seed is produced).
+\begin{block}{\footnotesize Sexuality versus asexuality}
+\scriptsize
+Sexually reproducing species are capable of providing seed through sexual means. Asexuality manifests in one of two ways - vegetative reproduction (in which no seed is produced) or agamospermy (in which seed is produced).
+\end{block}
 
 # Types of cultivar
 
@@ -401,16 +415,39 @@ self_pollinated %>%
 
 ## Open pollinated cultivars
 
+\bcolumns
+\column{0.6\textwidth}
+\small
 - Heterogenous populations comprised of different plants which are genetically non-identical.
 - Also heterozygous
 - Almost exclusively from cross pollinating species
 - Stable for character of interest
 - e.g.: Onions, rye, herbage grass, non-hybrid sweetcorn, sugar beet and oil palm 
 
-```{r, fig.align='center', fig.cap="Open pollinated crops", out.width="35%"}
+\column{0.4\textwidth}
+
+```{r open-pollinated-onion, fig.align='center', fig.cap="Open pollinated crops", out.width="35%"}
 
 knitr::include_graphics("./images/open_pollinated_onion.jpg")
 ```
+
+\ecolumns
+
+\begin{figure}
+  \begin{columns}[T,onlytextwidth]
+
+  \column{.75\linewidth}
+  \begin{center}
+  \includegraphics[width=0.70\linewidth]{./images/open_pollination_corn.PNG}
+  \end{center}
+  
+  \column{.25\linewidth}
+  \caption{\newline Open pollinated plant of corn and its progeny. (A) Plant from an open-pollinated variety. (B) Ear from open-pollinated plant. Each kernel came from a separate fertilization. The kernels are related from the female side but may be quite unrelated on the male side, the pollen having come from many plants within the field. (C) Plants grown from seed of an open-pollinated variety of corn. The plants vary in height, size of ear, etc., but on the average retain the generla type of the parent variety.}
+  \label{fig:open-pollination-corn}
+  
+  \end{columns}
+\end{figure}
+
 
 ## Hybrid
 
@@ -438,3 +475,39 @@ knitr::include_graphics("./images/open_pollinated_onion.jpg")
 - A cultivar can also be classified as a clone if it is propagated through obligate apomixis (e.g. buffelgrass)
 - Genetic constitution of cloned selection remains 'fixed'
 - e.g.: Potatoes, Bananas, Peaches, Apples, Cassava, Sugarcane, Strawberries, Blueberries and Chrysanthemums. 
+
+# Xenia effect
+
+##
+
+\bcolumns
+\column{0.6\textwidth}
+\footnotesize
+- Immediate effect of pollen on the developing kernel
+- When yellow corn pollen fertilizes an ovule of white corn, a light-yellow kernel develops; when white corn pollen fertilizes an ovule of yellow corn, a medium-yellow kernel develops.
+- Phenomena results $\because$ the yellow color is found only in the vitreous starch of the endosperm (as may be observed by cutting a kernel of yellow corn lengthwise).
+- Endosperm develops from the fusion of the second sperm with the diploid polar nuclei and has a triploid chromosome number.
+- The yellow endosperm color is conditioned by a dominant gene ($Y$). The recessive alleles ($yy$) produce a white endosperm.
+- Endosperm receives two genes for Y, or y, depending upon the character of the mother plant, to one gene for Y, or y, from the pollen. Possible combinations are given in Table \ref{tab:xenia-effect}.
+- Endosperm characteristics such as starchy vs. sugary endosperm, non-shrunken vs. shrunken endosperm, and nonwaxy vs. waxy endosperm also exhibit Xenia effects.
+
+\column{0.4\textwidth}
+
+```{r xenia-effect}
+endosperm_properties <- tribble(
+  ~"Endosperm color genes in polar nuclei", ~"Positive", ~"Endosperm color genes in the sperm", ~"Endosperm color genes and xenia effect in endosperm",
+  "YY", "+", "Y", "YYY (deep yellow)",
+  "YY", "+", "y", "YYy (medium yellow)",
+  "yy", "+", "Y", "Yyy (light yellow)",
+  "yy", "+", "y", "yyy (white)"
+)
+
+endosperm_properties %>% 
+  knitr::kable(booktabs = TRUE, caption = "Endosperm color genes and Xenia effect in endosperm.", col.names = str_replace_all(colnames(.), "Positive", " ")) %>% 
+  kableExtra::kable_styling(font_size = 5) %>% 
+  kableExtra::column_spec(column = 1:4, width = c("6em", "2em", "7em", "8em"))
+```
+
+\ecolumns
+
+# Bibliography

@@ -32,3 +32,71 @@ options(kableExtra.latex.load_packages = FALSE)
 # Introduction
 
 ##
+
+# Breeding for Rice improvement 
+
+##
+
+- Lecture 14, Cornell University lecture series on Genetic Improvement of Crop Plants -- https://www.youtube.com/watch?v=p-jsjIpUFTE
+- Phylogentic relationship between different rice subspecies and groups -- Molecular evaluation of genetic diversity and association studies in Rice (Oryza sativa L.) [@vanniarajan2012molecular]
+- Genetic structure and diversity in Oryza sativa L. [@garris2005genetic]
+
+## Types of crosses
+
+- Single crossess
+  - P1 x P2
+- Backcrosses
+  - F1 or F2 are crossed to one of the original parents
+- Top cross (Three way cross)
+  - F1 x P3
+- Double cross
+  - F1 x F1
+
+\footnote[frame]{\scriptsize Practical reason for employing more than two parents i.e. using three way or double cross is in order to obtain a larger amount of seed. For e.g., if P1 and P3 do not combine readily or yield only few amount of seed, a mediator line P2 can first be crossed with the P1 to fetch adequate amount of seeds, which can then be planted for hybridization with P3.}
+
+## Characteristics of rice breeding
+
+- Systematic and clear selection criteria
+- High-volume crossing (more so if you don't know the parents)
+- Effective screening of materials
+- Early identification of superior lines (progenies start to accumulate homozygosity very soon)
+- Multi location testing and nursery sites
+
+## Inbred breeding methods
+
+- Pedigree (most widely used)
+- Bulk breeding
+- Single seed descent (SSD)
+- Anther culture
+- Backcross breeding
+
+## Selection criteria
+
+```{r}
+tribble(
+  ~Generation, ~`Plant type`, ~`Grain shape`, ~`Maturity`, ~`Height`, ~`Disease resistance`, ~`Yield`, ~`Milling quality`, ~`Cooking quality`,
+  "F1", NA, NA, NA, NA, NA, NA, NA, NA,
+  "F2", "X", "X", "X", NA, NA, NA, NA, NA,
+  "F3", "X", "X", "X", NA, NA, NA, NA, NA,
+  "F4", "X", "X", "X", NA, "X", NA, NA, NA,
+  "F5", "X", "X", "X", "X", "X", "X", "X", "X",
+  "F6", "X", "X", "X", "X", "X", "X", "X", "X",
+  "F7", "X", "X", "X", "X", "X", "X", "X", "X"
+)
+```
+
+## Other breeding methods
+
+- Hybrid breeding
+- Transgenic
+- Mutation breeding
+- Pureline selection
+- Molecular breeding
+- Doubled haploids
+
+## Hybrid rice breeding
+
+- Refer to 
+  - Heterosis and Hybrid Rice Breeding, @virmani1994heterosis 
+  - Two-line hybrid rice breeding manual, @virmani2003two
+
