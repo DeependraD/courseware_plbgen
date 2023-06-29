@@ -1,9 +1,8 @@
 ---
-title: "Manipulation of DNA (location and isolation of DNA, restriction enzymes, RFLP, formation of recombination DNA, vectors, method of cloning, and LOD score"
+title: "Gene Isolation and Manipulation"
 author: |
   | Deependra Dhakal
-  | College of Natural Resource Management (AFU)
-  | Tikapur, Kailali
+  | Agriculture and Forestry University
   | \textit{ddhakal.rookie@gmail.com}
   | \url{https://rookie.rbind.io}
 date: 'Academic year: 2022-2023'
@@ -61,49 +60,64 @@ options(kableExtra.latex.load_packages = FALSE)
   - Fractionation of DNA, 
   - Synthesis of clone, 
   - DNA hybridization, 
-  - DNA amplification through polymerase chain reaction
+  - DNA amplification through polymerase chain reaction,
   - Recombination of DNA (genetic engineering). 
 
 ##
 
-- Complementary base pairing and the universality of it are the very property of DNA which enables DNA hybridization and DNA amplification by polymerase chain reaction. 
-- Concentration of nitrogen bases of guanine and cytocine is another trait through which polymerase chain reaction can be accustomed to need. 
 - Joining together of DNA segments from two different species is known as recombinant DNA technology. The rDNA technology involves:
   1. Generating a series of DNA fragments 
   2. Joining the fragments to a carrier DNA molecule which must be able to replicate 'vector-bacterial plasmid' 
   3. Transforming cells with the recombinant molecule
 
+<!-- - Complementary base pairing and the universality of it are the very property of DNA which enables DNA hybridization and DNA amplification by polymerase chain reaction.  -->
+<!-- - Concentration of nitrogen bases of guanine and cytosine is another trait through which polymerase chain reaction can be accustomed to need. -->
+
+<!-- The GC-content percentages as well as GC-ratio can be measured by several means, but one of the simplest methods is to measure the melting temperature of the DNA double helix using spectrophotometry. The absorbance of DNA at a wavelength of 260 nm increases fairly sharply when the double-stranded DNA molecule separates into two single strands when sufficiently heated. The most commonly used protocol for determining GC-ratios uses flow cytometry for large numbers of samples. -->
+
 # Locating physical position of DNA (In situ hybridization)
 
 ##
 
-- If a cloned gene is available, it can be used to make a labeled probe for hybridization to chromosomes in situ. 
-- If the individual chromosomes of the genomic set are recognizable through their banding patterns, size, arm ratio, or other cytological feature, then the new gene can be assigned to the chromosome to which it hybridizes. 
-- Furthermore, the locus of hybridization reveals a rough chromosomal position. 
+<!-- Refer to page 72 and 73 of Biotechnology, 2nd Edition, 2016. -->
+
+- A probe is a small, fluorescently or radioactively labeled DNA molecule that is used to locate similar or complementary sequences among a long stretch of DNA molecule or bacterial colonies such as genomic or cDNA libraries or in a genome.
 - Commonly used probe labels are radioactivity and fluorescence. 
-- In fFluorescently labeled probes ddNTPs are used in the reaction mixture. Each type of ddNTPs is labeled with a specific color and can be detected directly from the gel when illuminated with a laser or UV light.
+- Previously, detection of nucleic acids (DNA) relied on labeling with radioactive isotopes (32P and 35S) incorporated into the DNA backbone **during replication**. Autoradiography identifies the radioactively labeled "hot" DNA.
+- Now used, fluorescently tagged nucleotides make use of fluorescent tags (Figure \ref{fig:fluorescent-tags}) that absorb light of one wavelength, which excites the atoms, increasing the energy state of the tag. This excited state releases a photon of light at a different (longer) wavelength and returns to ground state which is detected with a photodetector.
+- In fluorescently labeled probes ddNTPs are used in the reaction mixture. Each type of ddNTPs is labeled with a specific color and can be detected directly from the gel when illuminated with a laser or UV light.
+
+<!-- - If a cloned gene is available, it can be used to make a labeled probe for hybridization to chromosomes _in situ_.  -->
+<!-- - If the individual chromosomes of the genomic set are recognizable through their banding patterns, size, arm ratio, or other cytological feature, then the new gene can be assigned to the chromosome to which it hybridizes.  -->
+<!-- - Furthermore, the locus of hybridization reveals a rough chromosomal position. -->
+
+##
+
+```{r fluorescent-tags, fig.align='center', fig.cap="DNA can be synthesized in vitro with a uracil nucleotide linked to biotin or digoxigenin. Streptavidin binds tightly to avidin (left panels), and antibody to digoxigenin binds to digoxigenin (right panels). Streptavidin and antibody to digoxigenin can be conjugated to a fluorophore that emits light of specific wavelengths (top panels) or to reporter enzymes such as horseradish peroxidase or alkaline phosphatase (lower panels). Reporter enzymes act on different substrates, some of which release light and others that form a colored precipitate.", out.width="70%"}
+knitr::include_graphics("../images/fluorescent_labelling.png")
+```
+
 
 ## FISH technique
 
-- A method for detecting the presence of particular genes (e.g., in a biological sample), which utilizes a number of fluorescein-"tagged" DNA probes.
-- A DNA probe is a small, fluorescently or radioactively labeled DNA molecule that is used to locate similar or complementary sequences among a long stretch of DNA molecule or bacterial colonies such as genomic or cDNA libraries or in a genome.
-- When those DNA probes hybridize to each of their respective particular genes (i.e., that they were selected to be complementary to), each DNA probe's "tag" fluoresces at a different wavelength (different "color"), thereby indicating positively the presence in sample of that particular gene.
+- A method for detecting the presence of particular genes (e.g., in a biological sample, in its native form), making use of DNA probe.
+- When those DNA probes hybridize to each of their respective particular genes of biological sample (i.e., that they were selected to be complementary to), each DNA probe's "tag" fluoresces at a different wavelength (different "color"), thereby indicating positively the presence in sample of that particular gene.
 
 ##
 
 - For example, if the color of the band is red it represents the base 'T,' because the dideoxy Thyamidine Triphosphate (ddTTP) is labeled with a red dye. Similarly, yellow is for 'G,' green is for 'A,' and blue represents the base 'C.'
-- In fluorescence in situ hybridization (FISH), the clone is labeled with a fluorescent dye (digoxigenin and / or biotin), and a partially denatured chromosome preparation is bathed in the probe. 
+- In fluorescence _in situ_ hybridization (FISH), the clone\footnote[frame]{A probe may also be called a clone of a gene because it is designed such that it complementarily hybridizes with the gene} is labeled with a fluorescent dye (digoxigenin and / or biotin), and a partially denatured chromosome preparation is bathed in the probe. 
 
 ##
 
 - The probe binds to the chromosome in situ, and the location of the cloned fragment is revealed by a bright fluorescent spot when looked under UV illumination.
-- An extension of FISH is chromosome painting or multicolor in situ hybridization.
+- An extension of FISH is chromosome painting or multicolor _in situ_ hybridization.
 - Sets of cloned DNA known to be from specific chromosomes or specific chromosome regions are labeled with different fluorescent dyes. 
 - These dyes then "paint" specific regions and identify them under the microscope. If a clone of a gene of unknown location is labeled with yet another dye, its position can be established in the painted array.
 
 ##
 
-```{r insitu-hybridization, fig.cap="Steps in in-situ hybridization", out.width="65%"}
+```{r insitu-hybridization, fig.cap="Steps in in-situ hybridization", out.width="70%"}
 knitr::include_graphics("./../images/insitu_hybrid_steps.png")
 ```
 
@@ -111,11 +125,15 @@ knitr::include_graphics("./../images/insitu_hybrid_steps.png")
 
 ##
 
-- Cell structure and organelles present a natural barrier
-- Bacteria are easiest to manipulate. How?
-- Distinction between two DNAs is made based on their sizes.
+- Cell structure and organelles present a natural barrier.
+- Bacteria are easiest to manipulate because they have no cell wall or tissue barriers.
+- Distinction between two DNAs (genomic and mitochondrial) is made based on their sizes.
 - The first step in making recombinant DNA is to isolate donor and vector DNA.
-- With the use of such methods, the bulk of DNA extracted from the donor will be nuclear genomic DNA in eukaryotes or the main genomic DNA in prokaryotes; these types are generally the one required for analysis.
+
+<!-- - Refer to following youtube videos (available in `media/` directory): -->
+<!--   - Protocol 1 - DNA Extraction Part 1 -->
+<!--   - Protocol 1 - DNA Extraction Part 2 -->
+<!--   - Experiment A - gDNA Extraction -->
 
 ##
 
@@ -130,15 +148,28 @@ knitr::include_graphics("./../images/insitu_hybrid_steps.png")
 ## Isolation of nuclear DNA: Steps
 
 1. Tissue should be thin and soft to be useable. If such it should be powdered in liquid nitrogen with mortar and pestle. The powder is then transferred to centrifuge tube. In bacteria, lysozyme digestion degrades the peptidoglycan layer.
-2. Then the extraction buffer is added (CTAB and sodium dodecyl sulfate (SDS, as detergent) buffer is widely used in plants) and mixed well. Then incubate at 60°C for one hour in a water bath. 
-3. Now centrifuge the solution and remove the precipitate, and transfer the supernatant to another centrifuge tube. In animals, separation of intracellular components from the insoluble remains (cellular membranes, bones, cartilage, etc.) is done by either centrifugation or chemical extraction.
+2. Then the extraction buffer is added (CTAB\footnote[frame]{Cetyltrimethyl ammonium bromide is a surfactant useful for isolation of DNA from tissues containing high amounts of polysaccharides.} and sodium dodecyl sulfate (SDS, a detergent) buffer is widely used in plants) and mixed well. Then incubate at $60^\circ C$ for one hour in a water bath. 
+3. Now centrifuge the solution and remove the precipitate, and transfer the supernatant (liquid) to another centrifuge tube. In animals, separation of intracellular components from the insoluble remains (cellular membranes, bones, cartilage, etc.) is done by either centrifugation or chemical extraction.
 
-## Isolation of nuclear DNA: Steps
+<!-- Lysozyme catalyze the hydrolysis of specific glycosidic bonds in mucopolysaccharides that constitute some bacterial cell walls. Humans have have moderate to high levels of lysozyme in secretions (tears and saliva), white blood cells and tissue macrophages. -->
 
-4. Extract this solution with chloroform-isoamyl alcohol. All the organic and lipids will separate to the chloroform layer and DNA will be in the aqueous layer. Take the aqueous layer and again extract it with chloroform and repeat the step, if necessary.
+<!-- It is one of the components of the topical antiseptic cetrimide. The cetrimonium (hexadecyltrimethylammonium) cation is an effective antiseptic agent against bacteria and fungi. It is also one of the main components of some buffers for the extraction of DNA. It has been widely used in synthesis of gold nanoparticles (e.g., spheres, rods, bipyramids), mesoporous silica nanoparticles (e.g., MCM-41), and hair conditioning products. The closely related compounds cetrimonium chloride and cetrimonium stearate are also used as topical antiseptics and may be found in many household products such as shampoos and cosmetics. CTAB, due to its relatively high cost, is typically only used in select cosmetics. -->
+
+<!-- Surfactants are chemical compounds that decrease the surface tension or interfacial tension between two liquids, a liquid and a gas, or a liquid and a solid. Surfactants may function as emulsifiers, wetting agents, detergents, foaming agents, or dispersants. -->
+
+<!-- Supernatant: Denoting the liquid lying above a solid residue after crystallization, precipitation, centrifugation, or other process. -->
+
+## 
+
+4. Extract this solution with chloroform-isoamyl alcohol. All the organic and lipids will separate to the phenol-chloroform layer and DNA will be in the aqueous layer (stays above). Take the aqueous layer and again extract it with phenol-chloroform and repeat the step, if necessary.
+  - This method of separating components using chemical extraction uses the properties of phenol to remove unwanted proteins from the DNA. phenol-chloroform (augmented with isoamyl alcohol) that dissolves 60% to 70% of all living matter, especially proteins.
+  - Enzyme ribonuclease (RNase) will digest RNA into ribonucleotides.
+  - If the mixture is acidic, DNA will precipitate into the organic phase while RNA remains in the aqueous phase because DNA is more readily neutralized than RNA.
 5. Finally, the aqueous layer containing DNA is precipitated with ice-cold isopropanol or ethyl alcohol. The DNA should appear as white or creamy strands or fibers and can be separated or taken out with a glass rod.
 
 - Thus obtained DNA can be dissolved in Tris EDTA buffer for storage.
+
+<!-- Phenol–chloroform extraction is a liquid-liquid extraction technique in molecular biology used to separate nucleic acids from proteins and lipids. Aqueous samples, lysed cells, or homogenised tissue are mixed with equal volumes of a phenol:chloroform mixture. This mixture is then centrifuged. Because the phenol:chloroform mixture is immiscible with water, the centrifuge will cause two distinct phases to form: an upper aqueous phase, and a lower organic phase. The aqueous phase rises to the top because it is less dense than the organic phase containing the phenol:chloroform. This difference in density is why phenol, which only has a slightly higher density than water, must be mixed with chloroform to form a mixture with a much higher density than water -->
 
 # Restriction enzymes (Restrictase, Endonuclease, Restriction endonucleases)
 
@@ -148,7 +179,12 @@ knitr::include_graphics("./../images/insitu_hybrid_steps.png")
 - Function:
   - Destroy foreign DNA: Restrictase in the original bacterium cuts foreign DNA at several sites along the enemy foreign DNA molecule. 
 - Particular restrictase recognizes only one type of DNA sequence.
-- For example: EcoRI is a restrictase isolated from Escherichia coli. - Its palindrome sequence is: 5'GAATTC 3' //3'CTTAAG 5'. 
+- For example: EcoRI is a restrictase isolated from Escherichia coli.
+- Its palindrome sequence is: 5'GAATTC 3' //3'CTTAAG 5'. 
+
+<!-- - Interesting english pallindromic letters -->
+<!--   - RacecaR -->
+<!--   - CiviC -->
 
 ##
 
@@ -161,7 +197,7 @@ knitr::include_graphics("./../images/insitu_hybrid_steps.png")
 
 ##
 
-```{r restriction-enzymes, fig.cap="Mode of action of common restriction enzymes."}
+```{r restriction-enzymes, fig.cap="Mode of action of common restriction enzymes.", out.width="55%"}
 knitr::include_graphics("./../images/restriction_enzymes.png")
 ```
 
@@ -173,7 +209,7 @@ knitr::include_graphics("./../images/restriction_enzymes.png")
 
 ## 
 
-```{r restriction-enzymes-ex, fig.cap=c("Common restriction enzymes")}
+```{r restriction-enzymes-ex, fig.cap=c("Common restriction enzymes"), out.width="54%"}
 knitr::include_graphics("./../images/restriction_enzymes_ex.png")
 ```
 
@@ -193,12 +229,12 @@ knitr::include_graphics("./../images/restriction_enzymes_ex.png")
 1. Digest the vector DNA with a suitable restriction endonuclease and make it linear with or without sticky ends, which is determined by the type of RE used.
 2. Next, isolate the DNA fragment carrying the gene by digesting the genome or the source DNA strand with the sam eRE used for cutting the vector.
 3. Incubate the linearized vector and the target DNA cut with the same restriction enzyme in the presence of DNA ligase. During this process, the sticky ends of the two DNA strands come closer by the base complementation and become hydrogen bonded to each other.
-4. The result is the formation of recombinant DNA molecule of vector and the target DNA or insert DNA.
+4. The result is the formation of recombinant DNA molecule of vector and the target DNA or insert DNA -- the combination is called a **construct**.
 5. Sometimes double digestion of vector and foreign DNA inserts is done by two restriction enzymes to prevent re-annealing to some extent.
 
 ##
 
-```{r rdna-construction, fig.cap="A general strategy for construction of rDNA molecule", out.width="35%"}
+```{r rdna-construction, fig.cap="A general strategy for construction of rDNA molecule", out.width="40%"}
 
 # pdftools::pdf_convert("../../literatures/biotechnology/Introduction to Biotechnology and Genetic Engineering, 2008, p.812.pdf", pages = 604, 
 #                       format = "png", dpi = 300, 
@@ -225,19 +261,20 @@ knitr::include_graphics("./../images/construction_rdna_molecule.png")
   - Must contain few convenient restriction sites (aka polylinker sites). 
   - Way to identify and recover the desired recombinant molecule
 - They are mostly plasmids, viral vectors ($\lambda$ phage; single stranded phages), cosmids and expression vectors. 
+
 ## Plasmids
 
-- In order to construct a useful hybrid DNA molecule using restriction endonucleases, the fragments of desired gene segment from one source are joined to a molecule that is able to replicate when reintroduced into a bacterial cell. This is usually a bacterial plasmid. 
-- Plasmids, with their intimate relationship with the bacterial cells in which they exist, carry genes that confer advantages on their host cell. 
-- The host cell in return provides conditions necessary for limited replication of the plasmid, and its transmission to daughter cells whenever the cell divides, thus allowing the plasmid to spread and exist in the entire bacterial population. 
-
-##
+<!-- - In order to construct a useful hybrid DNA molecule using restriction endonucleases, the fragments of desired gene segment from one source are joined to a molecule that is able to replicate when reintroduced into a bacterial cell. This is usually a bacterial plasmid. -->
 
 - They are smaller circular DNA molecules - distinct from the main bacterial chromosome. They replicate independently. 
 - Plasmids are replicons that are stably inherited in extrachromosomal state.
 - They do get elliminated but at a very low rate, typically 1 per every $10^{7}$ cells.
-- Most but not all plasmids are dispensable. They facilitate survival under certain environmental conditions.
 - When a plasid is capable of integrating into bacterial chromosome it is called **episome** (but it is a broader term).
+- Plasmids carry genes that confer advantages on their host cell at certain conditions. Most but not all plasmids are dispensable.
+- The host cell in return provides conditions necessary for limited replication of the plasmid, and its transmission to daughter cells whenever the cell divides, thus allowing the plasmid to permeate in bacterial population. 
+
+##
+
 - Plasmids have variable sizes, viz. starting with only 3 genes to several hundreds of those. And a single bacterial cell may contain zero or more plasmids (upto 11).
 - Plasmids constantly evolve.
 - Recombination and host integration of plasmids is generally mediated by transposable genetic elements.
@@ -246,7 +283,7 @@ knitr::include_graphics("./../images/construction_rdna_molecule.png")
 ## Plasmid types
 
 - F plasmids: Responsible for bacterial conjugation; carry genes for the development of F pili and for conjugation. Are conjugative plasmids.
-- R plasmids: Carry genes for resistance to antibiotics and antibacterial drugs; aka RTF.
+- R plasmids: Carry genes for resistance to antibiotics and antibacterial drugs; aka Resistance Transfer Factor (RTF).
 - Col plasmids: Code for colicins (proteins that kill sensitive _E. coli_ cells). Are mostly non conjugative.
 
 ## Plasmids used in rDNA
@@ -258,9 +295,11 @@ knitr::include_graphics("./../images/construction_rdna_molecule.png")
 
 (Refer to Chapter 20 of @klug2019concepts for details of **Blue-White screening**)
 
+<!-- Also, a nice figure is drawn on page 86 of Biotechnology, 2nd Edition, 2016. -->
+
 ##
 
-```{r phage-vector, fig.cap="Use of plasmid vector, pUC18", out.width="25%"}
+```{r phage-vector, fig.cap="Use of plasmid vector, pUC18", out.width="28%"}
 
 # pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Griffiths - An Introduction to Genetic Analysis 11th Edition c2015.pdf", pages = 390, format = "png", dpi = 300, filenames = "./../images/plasmid_vector_pUC18.png")
 knitr::include_graphics("./../images/plasmid_vector_pUC18.png")
@@ -400,7 +439,7 @@ knitr::include_graphics("./../images/southern_blotting.png")
 \begin{columns}[T,onlytextwidth]
 \column{.65\linewidth}
 \begin{center}
-\includegraphics[width=0.55\linewidth]{./../images/sequential_process_electrophoresis.png}
+\includegraphics[width=0.62\linewidth]{./../images/sequential_process_electrophoresis.png}
 \end{center}
 \column{.35\linewidth}
 \caption{\newline In this example, a radioactive probe is used to identify specific nucleic acids separated by gel electrophoresis. (a) RNA or DNA restriction fragments are applied to an agarose gel and undergo electrophoresis. The various fragments migrate at differing rates according to their respective sizes. The gel is placed in buffer and covered by a membrane and a stack of paper towels. The fragments are denatured to single strands so that they can stick to the membrane. They are carried to the membrane by the buffer, which is wicked up by the towels. The membrane is then removed and incubated with a radioactively labeled single-stranded probe that is complementary to the targeted sequence. Unbound probe is washed away, and X-ray film is exposed to the membrane. Because the radioactive probe has hybridized only with its complementary restriction fragments, the film will be exposed only in bands corresponding to those fragments. Comparison of these bands with labeled markers reveals the number and size of the fragments in which the targeted sequences are found. This procedure is termed Southern blotting when DNA is transferred to the membrane and Northern blotting when RNA is transferred. (b) An actual Northern blot, run with RNA isolated from the seeds of various plants. A single RNA probeis used to identify the presence of a single locus. The results show that maize is more closely related to rice, sorghum, and millet than it is to soybean or cotton.}
@@ -423,10 +462,30 @@ knitr::include_graphics("./../images/southern_blotting.png")
 - Multiple techniques have been described by the term "eastern blot(ting)" use phosphoprotein blotted from sodium dodecyl sulfate–polyacrylamide gel electrophoresis (SDS-PAGE) gel on to a polyvinylidene fluoride or nitrocellulose membrane.
 - Transferred proteins are analyzed for post-translational modifications using probes that may detect lipids, carbohydrate, phosphorylation or any other protein modification.
 
+##
+
+```{r blotting-compass, fig.align='center', out.width="50%"}
+knitr::include_graphics("../images/blotting_compass.jpg")
+```
+
+
 ## Polymerase chain reaction (PCR)
 
 - In the procedure of PCR, a temperature resistant DNA polymerase, Taq DNA polymerase which is extracted from a bacterium *Thermus aquaticus* is used to catalyze growth from DNA primers. 
 - Repeated cycles of synthesis and denaturation result in an exponential increase in the number of segments replicated.
+
+<!-- - Refer to following youtube videos (available in `media` directory): -->
+<!--   - Experiment A - Microsatellite PCR -->
+<!--   - genotyping maping population using SSR marker -->
+
+##
+
+```{r pcr-automation, fig.align='center', out.width="60%"}
+# But not everything does machine gets correct
+# Do not trust it to do everything fine
+# A pcr machine is as good as we program it to be
+knitr::include_graphics("../images/january_february_dot_dot.jpg")
+```
 
 ## PCR steps (A cycle)
 

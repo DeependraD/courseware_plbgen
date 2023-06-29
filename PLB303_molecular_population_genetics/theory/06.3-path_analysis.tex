@@ -39,13 +39,11 @@
 % Title page
 \setbeamertemplate{title page}
 {\placefig{-0.01}{-0.01}{width=1.01\paperwidth,height=1.01\paperheight}{deepseashrimp.jpg}
-% \begin{textblock}{7.5}(1,2.8)\usebeamerfont{title} % original
-\begin{textblock}{15}(1,2.2)\usebeamerfont{title}
+\begin{textblock}{7.5}(1,2.8)\usebeamerfont{title}
 {\color{white}\raggedright\par\inserttitle}
 \end{textblock}
-\begin{textblock}{10}(1,6)
-\small
-{\color{white}\raggedright{\insertauthor}\mbox{}\\[0.1cm]
+\begin{textblock}{7.5}(1,7)
+{\color{white}\raggedright{\insertauthor}\mbox{}\\[0.2cm]
 \insertdate}
 \end{textblock}}
 
@@ -162,24 +160,39 @@
   \definecolor{skyblued}{rgb}{0.65, 0.6, 0.94}
   \definecolor{oranged}{RGB}{245, 145, 200}
 
+  % \newlength{\cslhangindent}
+  % \setlength{\cslhangindent}{1.5em}
+  % \newenvironment{cslreferences}%
+  %   {\setlength{\parindent}{0pt}%
+  %   \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
+  %   {\par}
+    
   \newlength{\cslhangindent}
   \setlength{\cslhangindent}{1.5em}
-  \newenvironment{cslreferences}%
-    {\setlength{\parindent}{0pt}%
-    \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
-    {\par}
+  \newenvironment{CSLReferences}%
+  {\setlength{\parindent}{0pt}%
+  \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
+  {\par}
+
+  \newcommand{\bcolumns}{\begin{columns}[T, onlytextwidth]}
+  \newcommand{\ecolumns}{\end{columns}}
+
+  \newcommand{\bdescription}{\begin{description}}
+  \newcommand{\edescription}{\end{description}}
+
+  \newcommand{\bitemize}{\begin{itemize}}
+  \newcommand{\eitemize}{\end{itemize}}
+  \AtBeginSubsection{}
 
   \title[]{Path Analysis}
 
 
   \author[
         Deependra Dhakal\\
-College of Natural Resource Management\\
 Agriculture and Forestry University\\
 \textit{ddhakal.rookie@gmail.com}\\
 \url{https://rookie.rbind.io}
     ]{Deependra Dhakal\\
-College of Natural Resource Management\\
 Agriculture and Forestry University\\
 \textit{ddhakal.rookie@gmail.com}\\
 \url{https://rookie.rbind.io}}
@@ -204,11 +217,11 @@ Agriculture and Forestry University\\
    \tableofcontents[hideallsubsections]
   }
 
-\hypertarget{path-analysis}{%
-\section{Path analysis}\label{path-analysis}}
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
 
-\begin{frame}{Introduction}
-\protect\hypertarget{introduction}{}
+\begin{frame}{}
+\protect\hypertarget{section}{}
 \begin{itemize}
 \tightlist
 \item
@@ -234,23 +247,149 @@ Agriculture and Forestry University\\
   \item
     Structural model (Latent - Latent)
   \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-1}{}
+\begin{itemize}
 \item
-  Fit checks for SEMs
+  The terminology of outcomes v.s. predictors breaks down when variables
+  can be both outcomes and predictors at the same time.
+\item
+  It is normal to distinguish instead between:
 
   \begin{itemize}
   \tightlist
   \item
-    Model \(\chi^2\)
+    Exogenous variables: those which are not predicted by any other
   \item
-    RMSEA values
+    Endogenous variables: variables which do have predictors, and may or
+    may not predict other variables
+  \end{itemize}
+\item
+  Path analysis is part of the set of techniques often termed
+  `covariance modelling'. As the name implies the primary focus here is
+  the relationships between variables, and less so the mean-structure of
+  the variables.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-2}{}
+\begin{itemize}
+\tightlist
+\item
+  Path diagrams (common in SEM) are like flowcharts. They show variables
+  interconnected with lines that are used to indicate causal flow.
+\end{itemize}
+
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{../images/structural_equation} \caption{Such diagrams establish a simple isomorphism. All variables in the equation system are placed in the diagram, either in boxes or ovals. Each equation is represented on the diagram as follows: All independent variables (the variables on the right side of an equation) have arrows pointing to the dependent variable. The weighting coefficient is placed within the arrow. The above diagram shows a simple linear equation system and its path diagram representation.}\label{fig:simple-linear-path}
+\end{figure}
+\end{frame}
+
+\begin{frame}{SEM modeling steps}
+\protect\hypertarget{sem-modeling-steps}{}
+\begin{itemize}
+\tightlist
+\item
+  Statisticians have developed procedures for testing whether a set of
+  variances and covariances in a covariance matrix fits a specified
+  structure. The way structural modeling works is as follows:
+
+  \begin{itemize}
+  \tightlist
   \item
-    Baseline model comparison
+    You state the way that you believe the variables are inter-related,
+    often with the use of a path diagram.
+  \item
+    You work out, via some complex internal rules, what the implications
+    of this are for the variances and covariances of the variables.
+  \item
+    You test whether the variances and covariances fit this model of
+    them.
+  \item
+    Results of the statistical testing, and also parameter estimates and
+    standard errors for the numerical coefficients in the linear
+    equations are reported.
+  \item
+    On the basis of this information, you decide whether the model seems
+    like a good fit to your data.
   \end{itemize}
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Example (fabricated) data}
-\protect\hypertarget{example-fabricated-data}{}
+\hypertarget{path-coefficients}{%
+\section{Path coefficients}\label{path-coefficients}}
+
+\begin{frame}{}
+\protect\hypertarget{section-3}{}
+\begin{itemize}
+\tightlist
+\item
+  Path coefficients are standardized (Beta) or unstandardized (B or
+  \(\beta\)) regression coefficients.
+\item
+  \textbf{Unstandardized} estimates of path coefficient retain scaling
+  information of variables involved and can only be interpreted with
+  reference to the scales of the variables.
+\item
+  \textbf{Standardized} estimates remove scaling information, and can be
+  used for informal comparisons of parameters throughout the model; they
+  correspond to effect size estimates.
+\item
+  Path coefficient (\(p_{DV,IV}\)) indicate the direct effect of IV to
+  DV.
+\item
+  If the model contains only one IV and DV, the path coefficient equals
+  to correlation coefficient.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    In models that have more than two variables, the path coefficient
+    equals to partial correlation coefficient.
+  \item
+    The other path coefficients are controlled while each individual
+    path coefficient is calculated.
+  \end{itemize}
+\end{itemize}
+
+\[SD = \large \sqrt{\frac{\sum (x-\bar{x})^2}{N-1}}; \large Z = \frac{(x - \bar{x})}{SD}\]
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-4}{}
+\begin{itemize}
+\tightlist
+\item
+  Both unstandardized and standardized path coefficients are not
+  correlation coefficients. Suppose we have a network with a path
+  connecting from variable A to variable B.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    with the unstandardized path coefficient B of 0.81, if variable A
+    increases by one unit, variable B would be expected to increase by
+    0.81 unit, while holding all other relevant variables constant.
+  \item
+    with the standardized path coefficient \(\beta\) of 0.81, if
+    variable A increases by one standard deviation from its mean,
+    variable B would be expected to increase by 0.81 its own standard
+    deviations from its own mean while holding all other relevant
+    variable constant.
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\hypertarget{path-analysis-model-an-example}{%
+\section{Path analysis model: An
+example}\label{path-analysis-model-an-example}}
+
+\begin{frame}{}
+\protect\hypertarget{section-5}{}
 \begin{table}
 
 \caption{\label{tab:soydata-preview}A (fabricated) data showing variables having proposed roles in yield pathway.}
@@ -291,22 +430,22 @@ plants & pods\_plants & seeds\_pods & seed\_wt & pods\_branch & branch\_plant & 
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section}{}
+\protect\hypertarget{section-6}{}
 \begin{itemize}
 \item
   Straight arrows are ``causal'' or directional
 \item
-  Non-standardized solution -\textgreater{} these are the \(b\) or slope
-  values
+  Non-standardized solution \(\longrightarrow\) these are the \(b\) or
+  slope values
 \item
-  Standardized solution -\textgreater{} these are beta values
+  Standardized solution \(\longrightarrow\) these are beta values
   (standardized z score)
 \item
   Curved arrows are non-directional
 \item
-  Non-standardized -\textgreater{} covariance
+  Non-standardized \(\longrightarrow\) covariance
 \item
-  Standardized -\textgreater{} correlation
+  Standardized \(\longrightarrow\) correlation
 \item
   All endogenous variables (have arrows coming into them) have to have
   error terms.
@@ -322,9 +461,115 @@ plants & pods\_plants & seeds\_pods & seed\_wt & pods\_branch & branch\_plant & 
 \end{itemize}
 \end{frame}
 
+\begin{frame}{Model fit}
+\protect\hypertarget{model-fit}{}
+\begin{itemize}
+\tightlist
+\item
+  Model fits demonstrate which proposed model has the superior fit (how
+  well the proposed theory fits the data).
+\item
+  Absolute fit index -- calculation does not rely on comparison with a
+  baseline model
+\item
+  Absolute fit checks for SEMs:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \(\chi^2\) statistic
+  \item
+    RMSEA values (A cut-off value of RMSEA close to 0.06 (Hu and
+    Bentler, 1999) or 0.07 (Steiger, 2007) seems to be the general
+    consensus)
+  \item
+    Baseline model comparison
+  \end{itemize}
+\item
+  Relative fit indices generally compare \(\chi^2\) value of a proposed
+  model to a baseline model.
+\end{itemize}
+\end{frame}
+
 \begin{frame}{}
-\protect\hypertarget{section-1}{}
+\protect\hypertarget{section-7}{}
 \includegraphics[width=0.85\linewidth]{06.3-path_analysis_files/figure-beamer/soybean-path-model-1}
+\end{frame}
+
+\hypertarget{assumptions-of-path-analysis-models}{%
+\section{Assumptions of path analysis
+models}\label{assumptions-of-path-analysis-models}}
+
+\begin{frame}{Norm}
+\protect\hypertarget{norm}{}
+\begin{itemize}
+\tightlist
+\item
+  In PA and SEM, the number of observations is not based on the sample
+  size, but rather, on the number of variables in the model (k).
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The specific formula for estimating number of observations:
+    \(\frac{k(k+1)}{2}\)
+  \end{itemize}
+\item
+  Degress of freedom (df) = \# observations - \# parameters
+\item
+  Model \textbf{identifiability}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    If, df = 0 \(\longrightarrow\) just identified
+  \item
+    If, df \textgreater{} 0 \(\longrightarrow\) over identified
+  \item
+    If, df \textless{} 0 \(\longrightarrow\) under identified
+  \end{itemize}
+\item
+  Path model is executable if df \(\geq\) 0.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Assumptions}
+\protect\hypertarget{assumptions}{}
+\begin{itemize}
+\item
+  Because path analysis involves the solution of multiple linear
+  regression equations, the dependent variables for all equations must
+  be approximately normally distributed and the relationships among the
+  variables are assumed to be causal, linear and additive. Logistic
+  regression equations, implying multiplicative relationships, cannot be
+  substituted. Other curvilinear relations or interactions are also
+  prohibited.
+\item
+  Residuals are not correlated with the variables that predict the
+  outcome variables toward which they point. This means that \(e\) is
+  not correlated with variables \(X_1\) and \(X_2\). This assumption
+  implies that all relevant variables are included in the model, and any
+  unmeasured variables are not correlated with the specified predictor
+  variables.
+\end{itemize}
+
+\includegraphics[width=0.8\linewidth]{../images/residual_independence}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-8}{}
+\begin{itemize}
+\item
+  Causation flows in one direction; there are no feedback loops.
+\item
+  The variables are measured without error.
+\item
+  Predictor variables may be continuous, ordinal categorical, or
+  dichotomous, but there may be no dummy variables.
+\item
+  There is low multicollinearity among predictor variables in any of the
+  linear regression equations.
+\end{itemize}
 \end{frame}
 
 \hypertarget{bibliography}{%

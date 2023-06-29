@@ -40,13 +40,11 @@
 % Title page
 \setbeamertemplate{title page}
 {\placefig{-0.01}{-0.01}{width=1.01\paperwidth,height=1.01\paperheight}{dragonfly.png}
-% \begin{textblock}{7.5}(1,2.8)\usebeamerfont{title} % original
-\begin{textblock}{15}(1,2.2)\usebeamerfont{title}
+\begin{textblock}{7.5}(1,2.8)\usebeamerfont{title}
 {\color{white}\raggedright\par\inserttitle}
 \end{textblock}
-\begin{textblock}{10}(1,6)
-\small
-{\color{white}\raggedright{\insertauthor}\mbox{}\\[0.1cm]
+\begin{textblock}{7.5}(1,7)
+{\color{white}\raggedright{\insertauthor}\mbox{}\\[0.2cm]
 \insertdate}
 \end{textblock}}
 
@@ -68,7 +66,7 @@
 
 
 \hypersetup{
-      pdftitle={Manipulation of DNA (location and isolation of DNA, restriction enzymes, RFLP, formation of recombination DNA, vectors, method of cloning, and LOD score},
+      pdftitle={Gene Isolation and Manipulation},
             colorlinks=true,
     linkcolor=red,
     citecolor=Blue,
@@ -163,27 +161,40 @@
   \definecolor{skyblued}{rgb}{0.65, 0.6, 0.94}
   \definecolor{oranged}{RGB}{245, 145, 200}
 
+  % \newlength{\cslhangindent}
+  % \setlength{\cslhangindent}{1.5em}
+  % \newenvironment{cslreferences}%
+  %   {\setlength{\parindent}{0pt}%
+  %   \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
+  %   {\par}
+    
   \newlength{\cslhangindent}
   \setlength{\cslhangindent}{1.5em}
-  \newenvironment{cslreferences}%
-    {\setlength{\parindent}{0pt}%
-    \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
-    {\par}
+  \newenvironment{CSLReferences}%
+  {\setlength{\parindent}{0pt}%
+  \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
+  {\par}
 
-  \title[]{Manipulation of DNA (location and isolation of DNA,
-restriction enzymes, RFLP, formation of recombination DNA, vectors,
-method of cloning, and LOD score}
+  \newcommand{\bcolumns}{\begin{columns}[T, onlytextwidth]}
+  \newcommand{\ecolumns}{\end{columns}}
+
+  \newcommand{\bdescription}{\begin{description}}
+  \newcommand{\edescription}{\end{description}}
+
+  \newcommand{\bitemize}{\begin{itemize}}
+  \newcommand{\eitemize}{\end{itemize}}
+  \AtBeginSubsection{}
+
+  \title[]{Gene Isolation and Manipulation}
 
 
   \author[
         Deependra Dhakal\\
-College of Natural Resource Management (AFU)\\
-Tikapur, Kailali\\
+Agriculture and Forestry University\\
 \textit{ddhakal.rookie@gmail.com}\\
 \url{https://rookie.rbind.io}
     ]{Deependra Dhakal\\
-College of Natural Resource Management (AFU)\\
-Tikapur, Kailali\\
+Agriculture and Forestry University\\
 \textit{ddhakal.rookie@gmail.com}\\
 \url{https://rookie.rbind.io}}
 
@@ -231,7 +242,7 @@ Tikapur, Kailali\\
   \item
     DNA hybridization,
   \item
-    DNA amplification through polymerase chain reaction
+    DNA amplification through polymerase chain reaction,
   \item
     Recombination of DNA (genetic engineering).
   \end{itemize}
@@ -242,14 +253,6 @@ Tikapur, Kailali\\
 \protect\hypertarget{section-1}{}
 \begin{itemize}
 \tightlist
-\item
-  Complementary base pairing and the universality of it are the very
-  property of DNA which enables DNA hybridization and DNA amplification
-  by polymerase chain reaction.
-\item
-  Concentration of nitrogen bases of guanine and cytocine is another
-  trait through which polymerase chain reaction can be accustomed to
-  need.
 \item
   Joining together of DNA segments from two different species is known
   as recombinant DNA technology. The rDNA technology involves:
@@ -276,24 +279,42 @@ hybridization)}\label{locating-physical-position-of-dna-in-situ-hybridization}}
 \begin{itemize}
 \tightlist
 \item
-  If a cloned gene is available, it can be used to make a labeled probe
-  for hybridization to chromosomes in situ.
-\item
-  If the individual chromosomes of the genomic set are recognizable
-  through their banding patterns, size, arm ratio, or other cytological
-  feature, then the new gene can be assigned to the chromosome to which
-  it hybridizes.
-\item
-  Furthermore, the locus of hybridization reveals a rough chromosomal
-  position.
+  A probe is a small, fluorescently or radioactively labeled DNA
+  molecule that is used to locate similar or complementary sequences
+  among a long stretch of DNA molecule or bacterial colonies such as
+  genomic or cDNA libraries or in a genome.
 \item
   Commonly used probe labels are radioactivity and fluorescence.
 \item
-  In fFluorescently labeled probes ddNTPs are used in the reaction
+  Previously, detection of nucleic acids (DNA) relied on labeling with
+  radioactive isotopes (32P and 35S) incorporated into the DNA backbone
+  \textbf{during replication}. Autoradiography identifies the
+  radioactively labeled ``hot'' DNA.
+\item
+  Now used, fluorescently tagged nucleotides make use of fluorescent
+  tags (Figure \ref{fig:fluorescent-tags}) that absorb light of one
+  wavelength, which excites the atoms, increasing the energy state of
+  the tag. This excited state releases a photon of light at a different
+  (longer) wavelength and returns to ground state which is detected with
+  a photodetector.
+\item
+  In fluorescently labeled probes ddNTPs are used in the reaction
   mixture. Each type of ddNTPs is labeled with a specific color and can
   be detected directly from the gel when illuminated with a laser or UV
   light.
 \end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-3}{}
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{../images/fluorescent_labelling} 
+
+}
+
+\caption{DNA can be synthesized in vitro with a uracil nucleotide linked to biotin or digoxigenin. Streptavidin binds tightly to avidin (left panels), and antibody to digoxigenin binds to digoxigenin (right panels). Streptavidin and antibody to digoxigenin can be conjugated to a fluorophore that emits light of specific wavelengths (top panels) or to reporter enzymes such as horseradish peroxidase or alkaline phosphatase (lower panels). Reporter enzymes act on different substrates, some of which release light and others that form a colored precipitate.}\label{fig:fluorescent-tags}
+\end{figure}
 \end{frame}
 
 \begin{frame}{FISH technique}
@@ -302,35 +323,13 @@ hybridization)}\label{locating-physical-position-of-dna-in-situ-hybridization}}
 \tightlist
 \item
   A method for detecting the presence of particular genes (e.g., in a
-  biological sample), which utilizes a number of fluorescein-``tagged''
-  DNA probes.
-\item
-  A DNA probe is a small, fluorescently or radioactively labeled DNA
-  molecule that is used to locate similar or complementary sequences
-  among a long stretch of DNA molecule or bacterial colonies such as
-  genomic or cDNA libraries or in a genome.
+  biological sample, in its native form), making use of DNA probe.
 \item
   When those DNA probes hybridize to each of their respective particular
-  genes (i.e., that they were selected to be complementary to), each DNA
-  probe's ``tag'' fluoresces at a different wavelength (different
-  ``color''), thereby indicating positively the presence in sample of
-  that particular gene.
-\end{itemize}
-\end{frame}
-
-\begin{frame}{}
-\protect\hypertarget{section-3}{}
-\begin{itemize}
-\tightlist
-\item
-  For example, if the color of the band is red it represents the base
-  `T,' because the dideoxy Thyamidine Triphosphate (ddTTP) is labeled
-  with a red dye. Similarly, yellow is for `G,' green is for `A,' and
-  blue represents the base `C.'
-\item
-  In fluorescence in situ hybridization (FISH), the clone is labeled
-  with a fluorescent dye (digoxigenin and / or biotin), and a partially
-  denatured chromosome preparation is bathed in the probe.
+  genes of biological sample (i.e., that they were selected to be
+  complementary to), each DNA probe's ``tag'' fluoresces at a different
+  wavelength (different ``color''), thereby indicating positively the
+  presence in sample of that particular gene.
 \end{itemize}
 \end{frame}
 
@@ -339,12 +338,29 @@ hybridization)}\label{locating-physical-position-of-dna-in-situ-hybridization}}
 \begin{itemize}
 \tightlist
 \item
+  For example, if the color of the band is red it represents the base
+  `T,' because the dideoxy Thyamidine Triphosphate (ddTTP) is labeled
+  with a red dye. Similarly, yellow is for `G,' green is for `A,' and
+  blue represents the base `C.'
+\item
+  In fluorescence \emph{in situ} hybridization (FISH), the
+  clone\footnote[frame]{A probe may also be called a clone of a gene because it is designed such that it complementarily hybridizes with the gene}
+  is labeled with a fluorescent dye (digoxigenin and / or biotin), and a
+  partially denatured chromosome preparation is bathed in the probe.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-5}{}
+\begin{itemize}
+\tightlist
+\item
   The probe binds to the chromosome in situ, and the location of the
   cloned fragment is revealed by a bright fluorescent spot when looked
   under UV illumination.
 \item
-  An extension of FISH is chromosome painting or multicolor in situ
-  hybridization.
+  An extension of FISH is chromosome painting or multicolor \emph{in
+  situ} hybridization.
 \item
   Sets of cloned DNA known to be from specific chromosomes or specific
   chromosome regions are labeled with different fluorescent dyes.
@@ -356,9 +372,9 @@ hybridization)}\label{locating-physical-position-of-dna-in-situ-hybridization}}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-5}{}
+\protect\hypertarget{section-6}{}
 \begin{figure}
-\includegraphics[width=0.65\linewidth]{./../images/insitu_hybrid_steps} \caption{Steps in in-situ hybridization}\label{fig:insitu-hybridization}
+\includegraphics[width=0.7\linewidth]{./../images/insitu_hybrid_steps} \caption{Steps in in-situ hybridization}\label{fig:insitu-hybridization}
 \end{figure}
 \end{frame}
 
@@ -366,27 +382,25 @@ hybridization)}\label{locating-physical-position-of-dna-in-situ-hybridization}}
 \section{Isolation of DNA}\label{isolation-of-dna}}
 
 \begin{frame}{}
-\protect\hypertarget{section-6}{}
+\protect\hypertarget{section-7}{}
 \begin{itemize}
 \tightlist
 \item
-  Cell structure and organelles present a natural barrier
+  Cell structure and organelles present a natural barrier.
 \item
-  Bacteria are easiest to manipulate. How?
+  Bacteria are easiest to manipulate because they have no cell wall or
+  tissue barriers.
 \item
-  Distinction between two DNAs is made based on their sizes.
+  Distinction between two DNAs (genomic and mitochondrial) is made based
+  on their sizes.
 \item
   The first step in making recombinant DNA is to isolate donor and
   vector DNA.
-\item
-  With the use of such methods, the bulk of DNA extracted from the donor
-  will be nuclear genomic DNA in eukaryotes or the main genomic DNA in
-  prokaryotes; these types are generally the one required for analysis.
 \end{itemize}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-7}{}
+\protect\hypertarget{section-8}{}
 \begin{itemize}
 \tightlist
 \item
@@ -429,28 +443,51 @@ hybridization)}\label{locating-physical-position-of-dna-in-situ-hybridization}}
   transferred to centrifuge tube. In bacteria, lysozyme digestion
   degrades the peptidoglycan layer.
 \item
-  Then the extraction buffer is added (CTAB and sodium dodecyl sulfate
-  (SDS, as detergent) buffer is widely used in plants) and mixed well.
-  Then incubate at 60°C for one hour in a water bath.
+  Then the extraction buffer is added
+  (CTAB\footnote[frame]{Cetyltrimethyl ammonium bromide is a surfactant useful for isolation of DNA from tissues containing high amounts of polysaccharides.}
+  and sodium dodecyl sulfate (SDS, a detergent) buffer is widely used in
+  plants) and mixed well. Then incubate at \(60^\circ C\) for one hour
+  in a water bath.
 \item
   Now centrifuge the solution and remove the precipitate, and transfer
-  the supernatant to another centrifuge tube. In animals, separation of
-  intracellular components from the insoluble remains (cellular
-  membranes, bones, cartilage, etc.) is done by either centrifugation or
-  chemical extraction.
+  the supernatant (liquid) to another centrifuge tube. In animals,
+  separation of intracellular components from the insoluble remains
+  (cellular membranes, bones, cartilage, etc.) is done by either
+  centrifugation or chemical extraction.
 \end{enumerate}
 \end{frame}
 
-\begin{frame}{Isolation of nuclear DNA: Steps}
-\protect\hypertarget{isolation-of-nuclear-dna-steps-1}{}
+\begin{frame}{}
+\protect\hypertarget{section-9}{}
 \begin{enumerate}
 \setcounter{enumi}{3}
 \tightlist
 \item
   Extract this solution with chloroform-isoamyl alcohol. All the organic
-  and lipids will separate to the chloroform layer and DNA will be in
-  the aqueous layer. Take the aqueous layer and again extract it with
-  chloroform and repeat the step, if necessary.
+  and lipids will separate to the phenol-chloroform layer and DNA will
+  be in the aqueous layer (stays above). Take the aqueous layer and
+  again extract it with phenol-chloroform and repeat the step, if
+  necessary.
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  This method of separating components using chemical extraction uses
+  the properties of phenol to remove unwanted proteins from the DNA.
+  phenol-chloroform (augmented with isoamyl alcohol) that dissolves 60\%
+  to 70\% of all living matter, especially proteins.
+\item
+  Enzyme ribonuclease (RNase) will digest RNA into ribonucleotides.
+\item
+  If the mixture is acidic, DNA will precipitate into the organic phase
+  while RNA remains in the aqueous phase because DNA is more readily
+  neutralized than RNA.
+\end{itemize}
+
+\begin{enumerate}
+\setcounter{enumi}{4}
+\tightlist
 \item
   Finally, the aqueous layer containing DNA is precipitated with
   ice-cold isopropanol or ethyl alcohol. The DNA should appear as white
@@ -470,7 +507,7 @@ hybridization)}\label{locating-physical-position-of-dna-in-situ-hybridization}}
 endonucleases)}\label{restriction-enzymes-restrictase-endonuclease-restriction-endonucleases}}
 
 \begin{frame}{}
-\protect\hypertarget{section-8}{}
+\protect\hypertarget{section-10}{}
 \begin{itemize}
 \tightlist
 \item
@@ -488,13 +525,14 @@ endonucleases)}\label{restriction-enzymes-restrictase-endonuclease-restriction-e
 \item
   Particular restrictase recognizes only one type of DNA sequence.
 \item
-  For example: EcoRI is a restrictase isolated from Escherichia coli. -
+  For example: EcoRI is a restrictase isolated from Escherichia coli.
+\item
   Its palindrome sequence is: 5'GAATTC 3' //3'CTTAAG 5'.
 \end{itemize}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-9}{}
+\protect\hypertarget{section-11}{}
 \begin{itemize}
 \tightlist
 \item
@@ -518,14 +556,14 @@ endonucleases)}\label{restriction-enzymes-restrictase-endonuclease-restriction-e
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-10}{}
+\protect\hypertarget{section-12}{}
 \begin{figure}
-\includegraphics[width=0.45\linewidth]{./../images/restriction_enzymes} \caption{Mode of action of common restriction enzymes.}\label{fig:restriction-enzymes}
+\includegraphics[width=0.55\linewidth]{./../images/restriction_enzymes} \caption{Mode of action of common restriction enzymes.}\label{fig:restriction-enzymes}
 \end{figure}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-11}{}
+\protect\hypertarget{section-13}{}
 \begin{itemize}
 \tightlist
 \item
@@ -543,14 +581,14 @@ endonucleases)}\label{restriction-enzymes-restrictase-endonuclease-restriction-e
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-12}{}
+\protect\hypertarget{section-14}{}
 \begin{figure}
-\includegraphics[width=0.45\linewidth]{./../images/restriction_enzymes_ex} \caption{Common restriction enzymes}\label{fig:restriction-enzymes-ex}
+\includegraphics[width=0.54\linewidth]{./../images/restriction_enzymes_ex} \caption{Common restriction enzymes}\label{fig:restriction-enzymes-ex}
 \end{figure}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-13}{}
+\protect\hypertarget{section-15}{}
 \begin{itemize}
 \item
   Restriction enzymes have been exploited to cut DNA at specific sites,
@@ -598,7 +636,8 @@ DNA}\label{formation-of-recombinant-dna}}
   complementation and become hydrogen bonded to each other.
 \item
   The result is the formation of recombinant DNA molecule of vector and
-  the target DNA or insert DNA.
+  the target DNA or insert DNA -- the combination is called a
+  \textbf{construct}.
 \item
   Sometimes double digestion of vector and foreign DNA inserts is done
   by two restriction enzymes to prevent re-annealing to some extent.
@@ -606,9 +645,9 @@ DNA}\label{formation-of-recombinant-dna}}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-14}{}
+\protect\hypertarget{section-16}{}
 \begin{figure}
-\includegraphics[width=0.35\linewidth]{./../images/construction_rdna_molecule} \caption{A general strategy for construction of rDNA molecule}\label{fig:rdna-construction}
+\includegraphics[width=0.4\linewidth]{./../images/construction_rdna_molecule} \caption{A general strategy for construction of rDNA molecule}\label{fig:rdna-construction}
 \end{figure}
 \end{frame}
 
@@ -616,7 +655,7 @@ DNA}\label{formation-of-recombinant-dna}}
 \section{Vectors}\label{vectors}}
 
 \begin{frame}{}
-\protect\hypertarget{section-15}{}
+\protect\hypertarget{section-17}{}
 \begin{itemize}
 \tightlist
 \item
@@ -644,8 +683,9 @@ DNA}\label{formation-of-recombinant-dna}}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-16}{}
+\protect\hypertarget{section-18}{}
 \begin{itemize}
+\tightlist
 \item
   Suitability as a cloning vector:
 
@@ -665,26 +705,12 @@ DNA}\label{formation-of-recombinant-dna}}
   \end{itemize}
 \item
   They are mostly plasmids, viral vectors (\(\lambda\) phage; single
-  stranded phages), cosmids and expression vectors. \#\# Plasmids
-\item
-  In order to construct a useful hybrid DNA molecule using restriction
-  endonucleases, the fragments of desired gene segment from one source
-  are joined to a molecule that is able to replicate when reintroduced
-  into a bacterial cell. This is usually a bacterial plasmid.
-\item
-  Plasmids, with their intimate relationship with the bacterial cells in
-  which they exist, carry genes that confer advantages on their host
-  cell.
-\item
-  The host cell in return provides conditions necessary for limited
-  replication of the plasmid, and its transmission to daughter cells
-  whenever the cell divides, thus allowing the plasmid to spread and
-  exist in the entire bacterial population.
+  stranded phages), cosmids and expression vectors.
 \end{itemize}
 \end{frame}
 
-\begin{frame}{}
-\protect\hypertarget{section-17}{}
+\begin{frame}{Plasmids}
+\protect\hypertarget{plasmids}{}
 \begin{itemize}
 \tightlist
 \item
@@ -697,11 +723,23 @@ DNA}\label{formation-of-recombinant-dna}}
   They do get elliminated but at a very low rate, typically 1 per every
   \(10^{7}\) cells.
 \item
-  Most but not all plasmids are dispensable. They facilitate survival
-  under certain environmental conditions.
-\item
   When a plasid is capable of integrating into bacterial chromosome it
   is called \textbf{episome} (but it is a broader term).
+\item
+  Plasmids carry genes that confer advantages on their host cell at
+  certain conditions. Most but not all plasmids are dispensable.
+\item
+  The host cell in return provides conditions necessary for limited
+  replication of the plasmid, and its transmission to daughter cells
+  whenever the cell divides, thus allowing the plasmid to permeate in
+  bacterial population.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-19}{}
+\begin{itemize}
+\tightlist
 \item
   Plasmids have variable sizes, viz.~starting with only 3 genes to
   several hundreds of those. And a single bacterial cell may contain
@@ -727,7 +765,7 @@ DNA}\label{formation-of-recombinant-dna}}
   development of F pili and for conjugation. Are conjugative plasmids.
 \item
   R plasmids: Carry genes for resistance to antibiotics and
-  antibacterial drugs; aka RTF.
+  antibacterial drugs; aka Resistance Transfer Factor (RTF).
 \item
   Col plasmids: Code for colicins (proteins that kill sensitive \emph{E.
   coli} cells). Are mostly non conjugative.
@@ -763,9 +801,9 @@ DNA}\label{formation-of-recombinant-dna}}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-18}{}
+\protect\hypertarget{section-20}{}
 \begin{figure}
-\includegraphics[width=0.25\linewidth]{./../images/plasmid_vector_pUC18} \caption{Use of plasmid vector, pUC18}\label{fig:phage-vector}
+\includegraphics[width=0.28\linewidth]{./../images/plasmid_vector_pUC18} \caption{Use of plasmid vector, pUC18}\label{fig:phage-vector}
 \end{figure}
 \end{frame}
 
@@ -868,7 +906,7 @@ artificial chromosomes (YACs)}
 \section{Methods of cloning}\label{methods-of-cloning}}
 
 \begin{frame}{}
-\protect\hypertarget{section-19}{}
+\protect\hypertarget{section-21}{}
 \begin{itemize}
 \tightlist
 \item
@@ -896,7 +934,7 @@ artificial chromosomes (YACs)}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-20}{}
+\protect\hypertarget{section-22}{}
 \begin{itemize}
 \tightlist
 \item
@@ -930,7 +968,7 @@ artificial chromosomes (YACs)}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-21}{}
+\protect\hypertarget{section-23}{}
 \begin{itemize}
 \tightlist
 \item
@@ -981,7 +1019,7 @@ artificial chromosomes (YACs)}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-22}{}
+\protect\hypertarget{section-24}{}
 \begin{itemize}
 \tightlist
 \item
@@ -1002,7 +1040,7 @@ artificial chromosomes (YACs)}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-23}{}
+\protect\hypertarget{section-25}{}
 \begin{itemize}
 \tightlist
 \item
@@ -1023,7 +1061,7 @@ artificial chromosomes (YACs)}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-24}{}
+\protect\hypertarget{section-26}{}
 \begin{itemize}
 \tightlist
 \item
@@ -1043,7 +1081,7 @@ artificial chromosomes (YACs)}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-25}{}
+\protect\hypertarget{section-27}{}
 \begin{itemize}
 \tightlist
 \item
@@ -1062,7 +1100,7 @@ artificial chromosomes (YACs)}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-26}{}
+\protect\hypertarget{section-28}{}
 \begin{figure}
 \includegraphics[width=0.35\linewidth]{./../images/rflp_analysis} \caption{DNA from related organisms shows small differences in sequence that cause changes in restriction sites. In the example shown, cutting a segment of DNA from the first organism yields six fragments of different sizes (labeled a–f on the gel). If the equivalent region of DNA from a related organism were digested with the same enzyme, a similar pattern would be expected. Here, a single-nucleotide difference is present, which eliminates one of the restriction sites. Consequently, digesting this DNA produces only five fragments. Fragments c and d are no longer seen but form a new band labeled cd.}\label{fig:rflp-analysis}
 \end{figure}
@@ -1097,7 +1135,7 @@ artificial chromosomes (YACs)}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-27}{}
+\protect\hypertarget{section-29}{}
 \begin{itemize}
 \tightlist
 \item
@@ -1123,25 +1161,67 @@ artificial chromosomes (YACs)}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-28}{}
+\protect\hypertarget{section-30}{}
 \begin{figure}
 \includegraphics[width=0.35\linewidth]{./../images/southern_blotting} \caption{\textbf{Capillary Action Transfers DNA from Gel to Membrane} \newline Single-stranded DNA from a gel will transfer to the membrane. The filter paper wicks buffer from the tank, through the gel and membrane, and into the paper towels. As the buffer liquid moves, the single-stranded DNA also travels from the gel and sticks to the membrane. The weight on top of the setup keeps the membrane and gel in contact and helps wick the liquid from the tank.}\label{fig:southern-blotting}
 \end{figure}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-29}{}
+\protect\hypertarget{section-31}{}
 \begin{figure}
 \begin{columns}[T,onlytextwidth]
 \column{.65\linewidth}
 \begin{center}
-\includegraphics[width=0.55\linewidth]{./../images/sequential_process_electrophoresis.png}
+\includegraphics[width=0.62\linewidth]{./../images/sequential_process_electrophoresis.png}
 \end{center}
 \column{.35\linewidth}
 \caption{\newline In this example, a radioactive probe is used to identify specific nucleic acids separated by gel electrophoresis. (a) RNA or DNA restriction fragments are applied to an agarose gel and undergo electrophoresis. The various fragments migrate at differing rates according to their respective sizes. The gel is placed in buffer and covered by a membrane and a stack of paper towels. The fragments are denatured to single strands so that they can stick to the membrane. They are carried to the membrane by the buffer, which is wicked up by the towels. The membrane is then removed and incubated with a radioactively labeled single-stranded probe that is complementary to the targeted sequence. Unbound probe is washed away, and X-ray film is exposed to the membrane. Because the radioactive probe has hybridized only with its complementary restriction fragments, the film will be exposed only in bands corresponding to those fragments. Comparison of these bands with labeled markers reveals the number and size of the fragments in which the targeted sequences are found. This procedure is termed Southern blotting when DNA is transferred to the membrane and Northern blotting when RNA is transferred. (b) An actual Northern blot, run with RNA isolated from the seeds of various plants. A single RNA probeis used to identify the presence of a single locus. The results show that maize is more closely related to rice, sorghum, and millet than it is to soybean or cotton.}
 \label{fig:sequential-process-electrophoresis-blotting}
 \end{columns}
 \end{figure}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-32}{}
+\footnotesize
+
+\begin{itemize}
+\item
+  Western blotting (sometimes called the protein immunoblot), is a
+  widely used analytical technique in molecular biology and
+  immunogenetics to detect specific proteins in a sample of tissue
+  homogenate or extract.
+\item
+  Western blot technique uses three elements to achieve its task of
+  separating a specific protein from a complex: separation by size,
+  transfer of protein to a solid support, and marking target protein
+  using a primary (a synthetic or animal-derived antibody that
+  recognizes and binds to a specific target protein, excess of which is
+  washed after transfer to membrane) and secondary (to visualize)
+  antibody. The secondary antibody is visualized through various methods
+  such as staining, immunofluorescence, and radioactivity, allowing
+  indirect detection of the specific target protein.
+\item
+  Eastern blotting (an extension of western blotting) is a biochemical
+  technique used to analyze protein post-translational modifications
+  including the addition of lipids, phosphates, and glycoconjugates. It
+  is most often used to detect carbohydrate epitopes.
+\item
+  Multiple techniques have been described by the term ``eastern
+  blot(ting)'' use phosphoprotein blotted from sodium dodecyl
+  sulfate--polyacrylamide gel electrophoresis (SDS-PAGE) gel on to a
+  polyvinylidene fluoride or nitrocellulose membrane.
+\item
+  Transferred proteins are analyzed for post-translational modifications
+  using probes that may detect lipids, carbohydrate, phosphorylation or
+  any other protein modification.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-33}{}
+\begin{center}\includegraphics[width=0.48\linewidth]{../images/blotting_compass} \end{center}
 \end{frame}
 
 \begin{frame}{Polymerase chain reaction (PCR)}
@@ -1156,6 +1236,11 @@ artificial chromosomes (YACs)}
   Repeated cycles of synthesis and denaturation result in an exponential
   increase in the number of segments replicated.
 \end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-34}{}
+\begin{center}\includegraphics[width=0.6\linewidth]{../images/january_february_dot_dot} \end{center}
 \end{frame}
 
 \begin{frame}{PCR steps (A cycle)}
@@ -1186,7 +1271,7 @@ artificial chromosomes (YACs)}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-30}{}
+\protect\hypertarget{section-35}{}
 \begin{figure}
 \begin{columns}[T,onlytextwidth]
 \column{.6\linewidth}
@@ -1206,11 +1291,12 @@ artificial chromosomes (YACs)}
 \begin{frame}{References}
 \protect\hypertarget{references}{}
 \hypertarget{refs}{}
-\begin{cslreferences}
-\leavevmode\hypertarget{ref-klug2019concepts}{}%
+\begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-klug2019concepts}{}}%
 Klug, William S, Michael R Cummings, Charlotte A Spencer, Michael A
 Palladino, and Darrell Killian. 2019. \emph{Concepts of Genetics}.
-\end{cslreferences}
+
+\end{CSLReferences}
 \end{frame}
 
 

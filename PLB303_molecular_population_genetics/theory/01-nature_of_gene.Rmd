@@ -2,11 +2,10 @@
 title: "The nature of gene"
 author: |
   | Deependra Dhakal
-  | College of Natural Resource Management (AFU) 
-  | Tikapur, Kailali
+  | Agriculture and Forestry University 
   | \textit{ddhakal.rookie@gmail.com}
   | \url{https://rookie.rbind.io}
-date: 'Academic year: 2022-23'
+# date: 'Academic year: 2022-23'
 output: 
   binb::monash:
     toc: true
@@ -14,6 +13,7 @@ output:
     slide_level: 2
     includes:
       in_header: beamer_header_template.tex
+    citation_package: natbib
 colortheme: monashwhite
 outertheme: smoothtree
 innertheme: rounded
@@ -53,6 +53,24 @@ options(kableExtra.latex.load_packages = FALSE)
 
 # Gene
 
+## Different meanings of gene ! 
+
+\bcolumns
+\column{0.6\textwidth}
+
+```{r different-meanings-of-gene, fig.align='center', out.width="48%"}
+knitr::include_graphics("../images/meaning_of_gene.jpg")
+```
+
+\column{0.4\textwidth}
+
+- Population genetics
+- Quantitative genetics
+- Transmission genetics
+- Molecular genetics
+
+\ecolumns
+
 ## Genetic analysis begins with mutants
 
 - Genetic approach to understanding any biological property is through gene discovery
@@ -63,17 +81,30 @@ options(kableExtra.latex.load_packages = FALSE)
 - Alternative forms of the property are called **phenotypes**
 - **Polymorphism**: coexistence of two or more reasonably common phenotypes of a biological property
 
-## Gene discovery to property analysis
+<!-- ## Gene discovery to property analysis -->
 
-- Assemble mutants affecting the biological property of interest.
-- Cross the mutants to wild type to see if their decendands show ratios of wild to mutant that are characteristic of single-gene inheritance.
-- Deduce the functions of the gene at the molecular level.
-- Deduce how the gene interacts with other genes to produce the property in question.
+<!-- - Assemble mutants affecting the biological property of interest. -->
+<!-- - Cross the mutants to wild type to see if their decendands show ratios of wild to mutant that are characteristic of single-gene inheritance. -->
+<!-- - Deduce the functions of the gene at the molecular level. -->
+<!-- - Deduce how the gene interacts with other genes to produce the property in question. -->
 
-## Defining field
+## Approaches to gene identification
+
+\bcolumns
+\column{0.5\textwidth}
 
 - This type of approach to gene discovery is sometimes called **forward genetics**, a strategy to understanding biological function starting with random single-gene mutants and ending with their DNA sequence and biochemical function.
-- **Reverse genetics** starts with genomic analysis at the DNA level to identify a set of genes as candidates for encoding the biological property of interest.
+- **Reverse genetics** starts with genomic analysis at the DNA level to identify a set of genes as candidates for encoding the biological property of interest\footnote[frame]{For a book chapter dedicated to Reverse genetics approaches, refer to \cite{gilchrist2013gene}.}.
+
+\column{0.5\textwidth}
+
+```{r forward-genetics, fig.cap="Flowchart of forward genetics approach in gene identification. For an entire chapter dedicated to the approach, refer to \\cite{ji2013gene}", out.width="80%"}
+# Diagnostics in Plant Breeding, 2015 (Contains two chapters, each on forward and reverse genetics approaches)
+knitr::include_graphics("../images/gene_id_forward_genetics.png")
+```
+
+\ecolumns
+
 
 # Nature of genetic code
 
@@ -86,7 +117,7 @@ options(kableExtra.latex.load_packages = FALSE)
 ## How can DNA molecules store information ?
 
 - In the 1950s, there was something of a race among several groups of geneticists and chemists to answer this question. In 1953, James Watson and Francis Crick working at Cambridge University in England won that race. 
-- They determined that the molecular structure of DNA was in the form of a double helix -- two strands of DNA wound side-by-side in a spiral. Their structure of the double helix is like a twisted ladder \ref{fig:twisted-ladder}.
+- They determined that the molecular structure of DNA was in the form of a double helix -- two strands of DNA wound side-by-side in a spiral. Their structure of the double helix is like a twisted ladder (Figure \ref{fig:twisted-ladder}).
 - The sides of the ladder are made of sugar and phosphate groups. The rungs of the ladder are made of four bases: adenine (A), thymine (T), guanine (G), and cytosine (C). 
 
 ##
@@ -122,30 +153,25 @@ knitr::include_graphics("../images/twisted_ladder_dna.png")
 
 ## Central dogma of biology
 
-- The flow of genetic information in cells from DNA to mRNA to protein is described by the Central Dogma^[States that genes specify the sequence of mRNAs, which in turn specify the sequence of proteins]. 
-- The decoding of one molecule to another is performed by specific proteins and RNAs. 
-- Because the information stored in DNA is so central to cellular function, it makes intuitive sense that the cell would make mRNA copies of this information for protein synthesis, while keeping the DNA itself intact and protected. 
-- The copying of DNA to RNA is relatively straightforward, with one nucleotide being added to the mRNA strand for every nucleotide read in the DNA strand. 
+\bcolumns
+\column{0.6\textwidth}
 
-##
+- The flow of genetic information in cells from DNA to mRNA to protein is described by the Central Dogma. 
+- The decoding of one molecule to another is performed by specific proteins and RNAs.
+- Because the information stored in DNA is so central to cellular function, it makes sense that the cell would make mRNA copies of this information for protein synthesis, while keeping the DNA itself intact and protected. 
 
-- The translation to protein is characterized by a universal routine of three mRNA nucleotides corresponding to one amino acid in the polypeptide sequence. 
-- However, the translation to protein is still systematic and colinear^[in terms of RNA and protein, three "units" of RNA (nucleotides) specify one "unit" of protein (amino acid) in a consecutive fashion], such that nucleotides 1 to 3 correspond to amino acid 1, nucleotides 4 to 6 correspond to amino acid 2, and so on.
+\column{0.4\textwidth}
 
-##
-
-```{r central-dogma, fig.cap="The central dogma of biology", out.width="24%"}
+```{r central-dogma, fig.cap="The central dogma of biology", out.width="60%"}
 
 knitr::include_graphics("./../images/central_dogma_genetics.jpg")
 ```
 
+\ecolumns
 
-## Genetic code: The search
-
-- Evidence first presented on its nature in 1961 by Francis Crick and Sydney Brenner used the chemical mutagen proflavin to insert (+) or delete (-) one, two, or three nucleotides into the gene of a virus.
-  - When one or two nucleotides were inserted/deleted, protein synthesis was completely abolished. When three nucleotides were inserted/deleted, the protein was synthesized and functional.
-  - The insertion/deletion of one or two nucleotides completely changed the triplet reading frame^[Reading frame: Sequence of triplet codons in mRNA that specify a particular protein; a ribosome shift of one or two nucleotides in either direction completely abolishes synthesis of that protein], thereby altering the message for every subsequent amino acid. 
-  - Insertion/deletion of three nucleotides caused an extra amino acid to be inserted during translation, the integrity of the rest of the protein was maintained.
+<!-- - The copying of DNA to RNA is relatively straightforward, with one nucleotide being added to the mRNA strand for every nucleotide read in the DNA strand. -->
+<!-- - The translation to protein is characterized by a universal routine of three mRNA nucleotides corresponding to one amino acid in the polypeptide sequence.  -->
+<!-- - However, the translation to protein is still systematic and colinear. In terms of RNA and protein, three "units" of RNA (nucleotides) specify one "unit" of protein (amino acid) in a consecutive fashion, such that nucleotides 1 to 3 correspond to amino acid 1, nucleotides 4 to 6 correspond to amino acid 2, and so on. -->
 
 ## Terminologies
 
@@ -173,10 +199,23 @@ gene_terms[9:nrow(gene_terms), ] %>%
 
 ```
 
+## Genetic code: The search
+
+When should the academic month of an year start ?
+
+<!-- AUGust -->
+
+##
+
+- Evidence first presented on its nature in 1961 by Francis Crick and Sydney Brenner used the chemical mutagen proflavin to insert (+) or delete (-) one, two, or three nucleotides into the gene of a virus.
+  - When one or two nucleotides were inserted/deleted, protein synthesis was completely abolished. When three nucleotides were inserted/deleted, the protein was synthesized and functional.
+  - The insertion/deletion of one or two nucleotides completely changed the triplet reading frame, thereby altering the message for every subsequent amino acid. 
+  - Insertion/deletion of three nucleotides caused an extra amino acid to be inserted during translation, the integrity of the rest of the protein was maintained.
+
 ## Nature: Code triplet
 
 - Given the different numbers of "letters" in the mRNA and protein "alphabets," scientists theorized that combinations of nucleotides corresponded to single amino acids. 
-- These nucleotide triplets are called codons^[Codons: Three consecutive nucleotides in mRNA that specify the insertion of an amino acid or the release of a polypeptide chain during translation].
+- These nucleotide triplets are called codons\footnote[frame]{Codons: Three consecutive nucleotides in mRNA that specify the insertion of an amino acid or the release of a polypeptide chain during translation}.
 - Nucleotide doublets would not be sufficient to specify every amino acid because there are only 16 possible two-nucleotide combinations.
 
 \begin{align}
@@ -191,9 +230,9 @@ gene_terms[9:nrow(gene_terms), ] %>%
 
 ## Nature: Degeneracy
 
-- Scientists theorized that amino acids were encoded by nucleotide triplets and that the genetic code was degenerate^[(of the genetic code) describes that a given amino acid can be encoded by more than one nucleotide triplet].
+- Scientists theorized that amino acids were encoded by nucleotide triplets and that the genetic code was degenerate\footnote[frame]{(of the genetic code) describes that a given amino acid can be encoded by more than one nucleotide triplet}.
 - Scientists solved the genetic code by translating synthetic mRNAs in vitro and sequencing the proteins they specified
-- In addition to instructing the addition of a specific amino acid to a polypeptide chain, three of the 64 codons terminate protein synthesis and release the polypeptide from the translation machinery. These triplets are called nonsense codons^[one of the three mRNA codons that specifies termination of translation], or stop codons. 
+- In addition to instructing the addition of a specific amino acid to a polypeptide chain, three of the 64 codons terminate protein synthesis and release the polypeptide from the translation machinery. These triplets are called nonsense codons\footnote[frame]{one of the three mRNA codons that specifies termination of translation}, or stop codons. 
 - AUG codon has a special function. 
   - Specifies the amino acid methionine, 
   - Serves as the start codon to initiate translation. The reading frame for translation is set near the 5' end of the mRNA.
@@ -202,7 +241,7 @@ gene_terms[9:nrow(gene_terms), ] %>%
 
 - The genetic code is universal. With a few exceptions, virtually all species use the same genetic code for protein synthesis.
 - Conservation of codons means that a purified mRNA encoding the globin protein in horses could be transferred to a tulip cell, and the tulip would synthesize horse globin. 
-- That there is only one genetic code is powerful evidence that all of life on Earth shares a common origin, especially considering that there are about 10^84 possible combinations of 20 amino acids and 64 triplet codons.
+- That there is only one genetic code is powerful evidence that all of life on Earth shares a common origin, especially considering that there are about $10^{84}$ possible combinations of 20 amino acids and 64 triplet codons.
 
 ##
 
@@ -226,7 +265,10 @@ knitr::include_graphics("./../images/overlap_non_overlap.png")
 ## Property
 
 - With comma/commaless
-- Ambiguous/superfluous
+- Non-ambiguous
+
+<!-- Commaless: the arrangement of triplet codons on m-RNA is one after another without a gap. -->
+<!-- Non-ambiguous: One codon specifies exactly one form of amino acid. -->
 
 ## Translational consequences of a mutation
 
@@ -255,17 +297,17 @@ $$
 \end{aligned}
 $$
 
-- A mutation in the gene encoding this enzyme may alter the amino acid sequence in the vicinity of the enzyme's active sit. In this case, the enzyme cannot bind phenylalanine or convert it into tyrosine. 
-- Phenylalanine builds up and is insted converted into phenylpyruvic acid, this interferes with the development of the nervous system.
+- A mutation in the gene encoding this enzyme may alter the amino acid sequence in the vicinity of the enzyme's active site. In this case, the enzyme cannot bind phenylalanine or convert it into tyrosine. 
+- Phenylalanine builds up and is instead converted into phenylpyruvic acid, this interferes with the development of the nervous system.
 
 ## 
 
-- Mutations at different sites along the gene, mainly in the protein-encoding regions, or the exons. They represent a range of DNA changes, but most are small changes affecting only one nucleotide pair among the thousands that constitute the gene.
-- By changing one or more amino acids, the mutations all inactivate some essential part of the protein encoded by the gene. The effect of the mutation on the function of the gene depends on where within the gene the mutation occurs. 
+- Mutations occur at different sites along the gene. Functional mutations are essentially those occurring in the protein-encoding regions, or the exons. They represent a range of DNA changes, but most are small changes affecting only one nucleotide pair among the thousands that constitute the gene.
+- By changing one or more amino acids, (non-synonymous) mutations inactivate some essential part of the protein encoded by the gene. The effect of the mutation on the function of the gene depends on where within the gene the mutation occurs. 
 
 ## 
 
-- An important functional region of the gene is that encoding an enzyme’s active site. In addition, a minority of mutations are found to be in introns, and these mutations often prevent the normal processing of the primary RNA transcript.
+- An important functional region of the gene is that encoding an enzyme's active site. In addition, a minority of mutations are found to be in introns, and these mutations often prevent the normal processing of the primary RNA transcript.
 - Many of the mutant alleles are of a type generally called null alleles: the proteins encoded by them completely lack PAH function. Other mutant alleles reduce the level of enzyme function; they are sometimes called leaky mutations, because some wild-type function seems to "leak" into the mutant phenotype.
 
 # One gene one polypeptide hypothesis
@@ -370,16 +412,14 @@ chemical pathway
 
 ## 
 
-- Enzyme controls biochemical reaction and the reaction produces biochemical product which is responsible to final phenotype expression. More precisely, enzyme is the product of gene.
-- When a gene is transcribed into RNA and RNA is translated to a kind of polypeptide.
-- So, phenotypic ratio is determined by the enzyme. 
-- The polypeptide changes to proteins and enzymes. 
-- Enzymes catalyze biochemical reactions.
-- A particular enzyme catalyzes a particular biochemical reaction(s).
+- An enzyme is a product of gene/s.
+  - A tertiary or quarternary form of polypeptide derived from amino-acid units.
+- Enzyme controls/catalyzes biochemical reaction and the reaction produces biochemical product which is responsible to final phenotype expression.
+- So, phenotypic ratio is determined by the enzyme.
 
 ## The 9:3:3:1 ratio; No interaction
 
-- In inheritance of skin coloration in corn snakes, the phenotype is produced by two separate pigments. The snake's natural color is a repeating black and orange camouflage pattern, as shown in figure \ref{fig:gene-no-interaction1} (a).
+- In inheritance of skin coloration in corn snakes, the phenotype is produced by two separate pigments. The snake's natural color is a repeating black and orange camouflage pattern, as shown in Figure \ref{fig:gene-no-interaction1} (a).
 - The phenotype is produced by two separate pigments, both of which are under genetic control.
 - One gene determines orange pigment ($o^+$ and $o$) and another gene determines black pigment ($b^+$ and $b$).
 - Two genes are unlinked.
@@ -406,8 +446,25 @@ knitr::include_graphics("./../images/gene_no_interaction2.png")
 
 ## The 9:7 ratio: gene complementation (genes acting on same pathway)
 
+\bcolumns
+\column{0.6\textwidth}
+
 - The $F_2$ ratio from the harbell dihybrid cross shows both blue and white plants in ratio of 9:7. How can such results be explained ? 
 - The 9:7 ratio is a modification of the dihybrid 9:3:3:1 ratio with the 3:3:1 combined to make 7.
+
+\column{0.4\textwidth}
+
+```{r, fig.align='center', out.width="80%"}
+
+# snoop dogg is the special kind of dogg that can have a smoke
+# a dog is unremarkable
+# a smoke is unremarkable
+# when combined, a smoking snoop dogg is an world famous artist that accomplishes feats -- like producing a special phenotype 
+
+knitr::include_graphics("../images/smoking_snoop_dog.jpg")
+```
+
+\ecolumns
 
 ## 
 
@@ -441,24 +498,17 @@ knitr::include_graphics("./../images/gene_same_pathway.png")
 - No matter which is absent, the same pathway fails, producing the same phenotype. The enzymatic pathways allowing for complementation is through regulatory gene products (Shown in \ref{fig:functional-regulatory-gene}).
 - Thus, three of the genotypic classes will produce the same phenotype, and so, overall, only two phenotypes result.
 
-## 
-
-```{r gene-in-same-pathway2, out.width="50%", fig.align='center', fig.cap="Molecular basis of gene complementation."}
-# pdftools::pdf_convert("~/Desktop/BSc_Ag_lectures/literatures/textbooks/Introduction to Genetic Analysis/Griffiths - An Introduction to Genetic Analysis 11th Edition c2015.pdf", pages = 260, filenames = "./../images/gene_same_pathway2.png", dpi = 300)
-
-knitr::include_graphics("./../images/gene_same_pathway2.png")
-```
-
 ## The 9:3:4 ratio: recessive epistasis
 
 - One important type of functional interaction between different genes occurs when an allele of genotype at one locus "masks" or inhibits the expression of a allele or genotype at a different locus, such an interaction is called epistasis.
 - Epistasis means stand upon.
-- Epistasis should not be confused with dominance. Epistasis is the interaction between different genes located in different loci. 
-- Dominance is the intraallelic interaction between different alleles of the same gene.
 - Double mutants show the phenotype of one mutation but not the other.
 - Overriding mutation is epistatic, whereas the overridden one is hypostatic.
 - Also results from the genes in same pathway.
 - In a simple model, if epistatic mutation is carried by a gene that if farther upstream than the one being overridden, the mutant phenotype of the upstream gene takes precedence, no matter what is taking place later in the pathway.
+
+<!-- - Epistasis should not be confused with dominance. Epistasis is the interaction between different genes located in different loci.  -->
+<!-- - Dominance is the intraallelic interaction between different alleles of the same gene. -->
 
 ##
 
@@ -509,8 +559,12 @@ $$
 
 - In foxgloves ( _Digitalis purpurea_), two genes interact in the pathway that determines petal coloration. 
 - The two genes are unlinked.
-- One gene affects the intensity of red pigment in the petal, allele _d_ results in the light red color seen in natural populations of foxgloves, whereas _D_ is a mutant allele that produces dark red color.
-- Other gene determines in which cells the pigment is synthesized, allele _w_ allows synthesis of the pigment throughout the petals as in the wild type, but the mutant allele _W_ confines pigment synthesis to the small throat spots. 
+- One gene affects the intensity of red pigment in the petal,
+  - _d_ results in the light red color seen in natural populations 
+  - _D_ is a mutant allele that produces dark red color.
+- Other gene determines in which cells the pigment is synthesized, 
+  - _w_ allows synthesis of the pigment throughout the petals as in the wild type, 
+  - _W_ is a mutant allele that confines pigment synthesis to the small throat spots. 
 - Selfing of dihybrid shows:
 
 ##
@@ -610,19 +664,30 @@ modifier %>%
 
 - Hence the action of modifiers is seen in the appearance of two grades of mutant phenotypes _within_ the $a$ progeny.
 
-```{r gene-modification-ratios, out.width="35%", fig.align='center', fig.cap="Some modified $F_2$ ratios"}
-# pdftools::pdf_convert("~/Desktop/BSc_Ag_lectures/literatures/textbooks/Introduction to Genetic Analysis/Griffiths - An Introduction to Genetic Analysis 11th Edition c2015.pdf", pages = 265, filenames = "./../images/gene_modification_ratios.png", dpi = 300)
+<!-- ```{r gene-modification-ratios, out.width="35%", fig.align='center', fig.cap="Some modified $F_2$ ratios"} -->
+<!-- # pdftools::pdf_convert("~/Desktop/BSc_Ag_lectures/literatures/textbooks/Introduction to Genetic Analysis/Griffiths - An Introduction to Genetic Analysis 11th Edition c2015.pdf", pages = 265, filenames = "./../images/gene_modification_ratios.png", dpi = 300) -->
 
-knitr::include_graphics("./../images/gene_modification_ratios.png")
-```
+<!-- knitr::include_graphics("./../images/gene_modification_ratios.png") -->
+<!-- ``` -->
 
 # Fine structure of gene
 
 ##
 
+\bcolumns
+\column{0.5\textwidth}
+
 - There are two concepts of gene.
   - Older theory aka bead theory
   - Recent theory aka molecular theory
+
+\column{0.5\textwidth}
+
+```{r old-new, fig.align='center', out.width="70%"}
+knitr::include_graphics("../images/old_vs_new.jpg")
+```
+
+\ecolumns
 
 ## Bead theory
 
@@ -658,9 +723,10 @@ knitr::include_graphics("./../images/gene_modification_ratios.png")
 ##
 
 - In a diploid, the complementation test is performed by intercrossing two individuals that are homozygous for different recessive mutations.
-- Next step is to observe whether the progeny have the wild-type phenotype. If the progeny are wild type, two recessive mutations must be in _different_ genes because the respective wild-type alleles provide wild-type function. In this case, the two mutations are said to have _complemented_.
-- Suppose *a1* and *a2* are mutant alleles of two genes.
-- Heterozygotes can be represented as follows, depending on whether genes are on the same or different chromosomes.
+- Next step is to observe whether the progeny have the wild-type phenotype.
+  - If the progeny are wild type, two recessive mutations must be in _different_ genes because the respective wild-type alleles provide wild-type function. In this case, the two mutations are said to have _complemented_.
+  - Suppose *a1* and *a2* are mutant alleles of two genes.
+  - Heterozygotes can be represented as follows, depending on whether genes are on the same or different chromosomes.
 
 ```{r gene-location, out.width="35%", fig.align='center'}
 # pdftools::pdf_convert("~/Desktop/BSc_Ag_lectures/literatures/textbooks/Introduction to Genetic Analysis/Griffiths - An Introduction to Genetic Analysis 11th Edition c2015.pdf", pages = 253, filenames = "./../images/gene_location_chromosomes.png", dpi = 300)
@@ -745,7 +811,7 @@ Benzer used a clever approach to detect the very rare $rII^+$ recombinants. He m
 
 - From the experiment following conclusions could be drawn:
   - A gene is a distinct chromosomal region responsible for a single cellular function. It consists of a linear array of potentially mutable sites between which recombination can occur.
-  - A gene is subdivisible into several units called nucleotide pairs (recombination is possible within a gene) among these nucleotide pairs.
+  - A gene is subdivisible into several units called nucleotide pairs (recombination is possible within a gene among these nucleotide pairs).
 
 # Bibliography
 

@@ -30,9 +30,25 @@
 \definecolor{skyblued}{rgb}{0.65, 0.6, 0.94}
 \definecolor{oranged}{RGB}{245, 145, 200}
 
+% \newlength{\cslhangindent}
+% \setlength{\cslhangindent}{1.5em}
+% \newenvironment{cslreferences}%
+%   {\setlength{\parindent}{0pt}%
+%   \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
+%   {\par}
+  
 \newlength{\cslhangindent}
 \setlength{\cslhangindent}{1.5em}
-\newenvironment{cslreferences}%
-  {\setlength{\parindent}{0pt}%
-  \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
-  {\par}
+\newenvironment{CSLReferences}%
+{\setlength{\parindent}{0pt}%
+\everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
+{\par}
+
+\newcommand{\bcolumns}{\begin{columns}[T, onlytextwidth]}
+\newcommand{\ecolumns}{\end{columns}}
+
+\newcommand{\bdescription}{\begin{description}}
+\newcommand{\edescription}{\end{description}}
+
+\newcommand{\bitemize}{\begin{itemize}}
+\newcommand{\eitemize}{\end{itemize}}

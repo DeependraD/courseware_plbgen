@@ -85,7 +85,7 @@ $$
 \item The probability that $z$ and $y$ are IBD can be through two ways:
   \begin{itemize}
   \scriptsize
-  \item First way is when $z$ and $y$ are both the same copy (both pink or blue). This happens $\frac{1}{2}$ of the time since 1/4 of the time they are both blue and 1/4 both pink.
+  \item (An extreme case where we assume the common ancestor as having both alleles at a loci different; heterozygous) First way is when $z$ and $y$ are both the same copy (both pink or blue). This happens $\frac{1}{2}$ of the time since 1/4 of the time they are both blue and 1/4 both pink.
   \item Second way is when $z$ and $y$ are different copies (one pink and the other blue) but individual A was inbred. The probability that A's two copies are IBD is the inbreeding coefficient of A -- $F_A$. The probability that $z$ and $y$ are different copies that are IBD is $\frac{1}{2}\times F_A$.Thus,
   \end{itemize}
 \end{itemize}
@@ -122,8 +122,10 @@ $$
 - In Figure \ref{fig:inbreeding-coefficient} (a) there is no inbreeding because there is no common ancestral pathway to the individual, A (i.e., all parents are different).
 - However, in Figure \ref{fig:inbreeding-coefficient} (b) inbreeding exists because B and C have common parents (D and E), that is, they are full sibs.
 - To calculate the amount of inbreeding, the standard pedigree is converted to an arrow diagram, as shown in \ref{fig:inbreeding-coefficient} (c). 
-- Each individual contributes 1/2 of its genotype to its offspring. The *coefficient of relationship* (R) is calculated by summing up all the pathways between two individuals through a common ancestor as: $R_{BC} = \sum{\left(\frac{1}{2}\right)^s}$ , where s is the number of steps (arrows) from B to the common ancestor and back to C. For example, B and C probably inherited $(1/2)(1/2) = 1/4$ of their genes in common through ancestor D. Similarly, B and C probably inherited 1/4 of their genes in common through ancestor E. 
+- Each individual contributes 1/2 of its genotype to its offspring. The *coefficient of relationship* (R\footnote[frame]{Note that coefficient of inbreeding is $\frac{1}{2}\times R $ }) is calculated by summing up all the pathways between two individuals through a common ancestor as: $R_{BC} = \sum{\left(\frac{1}{2}\right)^s}$ , where s is the number of steps (arrows) from B to the common ancestor and back to C. For example, B and C probably inherited $(1/2)(1/2) = 1/4$ of their genes in common through ancestor D. Similarly, B and C probably inherited 1/4 of their genes in common through ancestor E. 
 - The coefficient of relationship between B and C, as a result of common ancestry, is hence $R_{BC} = 1/4 + 1/4 = 1/2 = 50\%$
+
+<!-- In the formula for coefficient of inbreeding, the exponent $m$ in $\left( \frac{1}{2} \right)^m (1 + F_A)$ could be thought of as being the number of individuals excluding the bottommost individual in the pedigree forming a closed loop to a common ancestor. -->
 
 ##
 
@@ -196,6 +198,60 @@ $$Hybrid~vigour = \frac{F_1-Commercial~Hybrid}{Commercial~Hybrid}$$
 - Commercial applications of hybrid breeding started with a cross of two inbred lines (a single cross - AxB) and later shifted to the more economic double cross, ([AxB]x[CxD]) and then back to a single cross. 
 - Other parent combinations in hybrid development have been proposed, including the three-way cross ([AxB]xC) and modified versions of the single cross, in which closely related crosses showed that the single cross was superior in performance to the other two in terms of average yield. 
 - However, it was noted also that the genotype x environment interaction (hybrid x environment) variability was more than twice that for the double crosses, while the mean variability for the three-way cross being intermediate.
+
+##
+
+Let us consider a quantitative trait controlled by 5 genes in following combinations in four inbred lines of maize.
+
+$P1 = AABBccDDee$, $P2 = AAbbCCddEE$, $P3 = aabbCCDDEE$ and $p4 = AABBccddee$
+
+All gene contribute equally to the trait value of phenotype; i.e., $AA == BB == CC == DD == EE = 2$ and $aa == bb == cc == dd == ee = 1$. The phenotypes show complete dominance. i.e., $Aa == AA$. Now to consider crosses between various parents,
+
+Single cross 1 (SC1)
+
+$$
+\begin{aligned}
+&P1 & &\times &P2 \\
+&AABBccDDee & &\times &AAbbCCDDEE \\
+&&\downarrow&& \\
+&&\text{All } AaBbCcDDEe  & \rightarrow \text{Trait value = 10} & \\
+\end{aligned}
+$$
+
+Single cross 2 (SC2)
+
+$$
+\begin{aligned}
+&P3 & &\times &P4 \\
+&aabbCCddEE & &\times &AABBccddee \\
+&&\downarrow&& \\
+&&\text{All } AaBbCcddEe & \rightarrow \text{Trait value = 9} & \\
+\end{aligned}
+$$
+
+##
+
+Double cross (DC)
+
+$$
+\begin{aligned}
+&SC1 & &\times &SC2 \\
+&AaBbCcDDEe & & \times &AaBbCcddEe \\
+&&\downarrow&& \\
+&&\text{Segregating and non-segregating} & \rightarrow \text{Trait value} \leq 10 & \\
+\end{aligned}
+$$
+
+Three way cross (TC)
+
+$$
+\begin{aligned}
+&SC1 & &\times &P3 \\
+&AaBbCcDDEe & & \times &aabbCCddEE \\
+&&\downarrow&& \\
+&&\text{Segregating and non-segregating} & \rightarrow \text{Trait value} \leq 10 & \\
+\end{aligned}
+$$
 
 ##
 
@@ -457,7 +513,7 @@ combination_genotypes %>%
 
 # Heritability [@brown2014plantbreeding]
 
-## Meaning
+##
 
 - To make economically meaningful progress in an organized programme of selective breeding, two conditions must be met;
   - There must be some observable phenotypic variation within the crop. This would normally be expected, even if it were due entirely to the effects of a variable environment.
@@ -662,7 +718,8 @@ h_{ns}^2 &= 2b
 \end{aligned}
 $$
 
-$b$ = slope of parent offspring regression line
+- Where,
+  - $b$ = slope of parent offspring regression line
 
 # Numerical problems
 

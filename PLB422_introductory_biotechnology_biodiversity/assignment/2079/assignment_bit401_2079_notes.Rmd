@@ -1,0 +1,113 @@
+---
+title: "Assignment on Biotechnology and Biodiversity (BIT 401), 2079"
+author: Deependra Dhakal
+date: "March 31 2023"
+output: 
+  bookdown::pdf_document2:
+    keep_tex: yes
+    toc: false
+    number_sections: false
+documentclass: "article"
+header-includes:
+  - \usepackage{multicol}
+  - \usepackage{enumitem}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, include = TRUE, message = FALSE, warning = FALSE)
+options(knitr.kable.NA = '')
+require(tidyverse)
+```
+
+# Task
+
+Construct a database of "Genetic diversity of wild and related species/genera of important cultivated crops with notes on molecular genetic studies".
+
+# Guidelines
+
+- Database need to be submitted in 'xlsx' (Microsoft excel) and "pdf" format. (Both contain same data, but 'pdf' version may be polished to look better. Graphs may be included in the 'pdf' version.)
+
+- Each row displays extended information about the relevant "Lower taxa" or "taxa identifier".
+
+- Database should (at the minimum contain) following attributes (columns) of information^[Attributes in **Boldface** deserve citation of each information with corresponding reference in the "References" column.]:
+  - SN
+  - Crop
+  - Scientific name
+  - Family
+  - Higher taxa 1
+  - Higher taxa notes
+  - Lower taxa 1 (Subspecies/Landrace/Variety/Population/Genotype/Cultivar/...)
+  - Lower taxa 2 (Subspecies/Landrace/Variety/Population/Genotype/Cultivar/...)
+  - Lower taxa notes
+  - Geographical distribution
+  - Nomenclature synonyms
+  - Nomenclature references
+  - **Major characters relevant for use in crop improvement**
+  - Number of chromosomes
+  - Genome constitution
+  - **Ancestry/Evolutionary relationship with cultivated species group**
+  - **Notes on genome (ploidy, domestication process)**
+  - **Major findings and references for genetic studies**
+  - **Notes about specific genes and its functions**
+  - References
+  
+- Crops
+  \begin{multicols}{2}
+  \begin{enumerate}[noitemsep,topsep=0pt]
+  \item Rice
+  \item Wheat
+  \item Maize
+  \item Fingermillet
+  \item Minor millets
+  \item Buckwheat
+  \item Barley
+  \item Soybean
+  \item Blackgram
+  \item Lentil
+  \item Groundnut
+  \item Pea
+  \item Chickpea
+  \item Pigeonpea
+  \item Potato
+  \item Sugarcane
+  \item Jute
+  \item Cotton
+  \item Brassica (with focus on rapeseed, broad leaf mustard and radish)
+  \item Sunflower
+  \item Sesame
+  \item Tea
+  \item Coffee
+  \item Chilly/pepper
+  \item Tomato
+  \item Garlic
+  \item Onion
+  \item Taro
+  \item Mango
+  \item Apple
+  \item Banana
+  \item Grape
+  \item Pear
+  \item Citruses
+  \item Pomegranate
+  \item Chestnut
+  \item Strawberry
+  \item Raspberries and blueberries
+  \item Guava
+  \item Pumpkin
+  \item Carrot
+  \item Cucumber
+  \item Gourds (Bottlegourd, spongegourd, bittergourd, pointedgourd, snakegourd)
+  \item Amaranthus
+  \item Oat
+  \end{enumerate}
+  \end{multicols}
+
+- Maintain the image (self photographed or acquired from the internet, of high quality: >400x400 pixels and <1200x1200) of respective variant in distinct folder for each crop whenever possible. Rename image file to include identification of corresponding taxa under which it's description is recorded.
+
+## Allotment
+
+Each student is required to explore a unique crop, maintain a database information on it. The allotment of crop to student is made in random.
+
+## Assignment due and submission
+
+The assignment is due April 15, 2023 (12:00 PM). It is required to be submitted through email (ddhakal.rookie@gmail.com). Each assignment should accompany an xlsx file, a pdf file and a zip file (contains all the properly named images collected). A template 'xlsx' file called 'database_template.xlsx' to be completed for each crop is provided herewith. While submitting over the email the 'xlsx' file should be named 'student_name-database-cropname.xlsx' (for example: 'john_doe-database-mustard.xlsx'), the 'pdf' file should be named 'student_name-database-cropname_extended.pdf' and the 'zip' file should be named 'student_name-database-cropname-images.zip'.

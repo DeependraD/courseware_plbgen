@@ -39,13 +39,11 @@
 % Title page
 \setbeamertemplate{title page}
 {\placefig{-0.01}{-0.01}{width=1.01\paperwidth,height=1.01\paperheight}{rhinocerousbeetle.jpg}
-% \begin{textblock}{7.5}(1,2.8)\usebeamerfont{title} % original
-\begin{textblock}{15}(1,2.2)\usebeamerfont{title}
+\begin{textblock}{7.5}(1,2.8)\usebeamerfont{title}
 {\color{white}\raggedright\par\inserttitle}
 \end{textblock}
-\begin{textblock}{10}(1,6)
-\small
-{\color{white}\raggedright{\insertauthor}\mbox{}\\[0.1cm]
+\begin{textblock}{7.5}(1,7)
+{\color{white}\raggedright{\insertauthor}\mbox{}\\[0.2cm]
 \insertdate}
 \end{textblock}}
 
@@ -162,24 +160,39 @@
   \definecolor{skyblued}{rgb}{0.65, 0.6, 0.94}
   \definecolor{oranged}{RGB}{245, 145, 200}
 
+  % \newlength{\cslhangindent}
+  % \setlength{\cslhangindent}{1.5em}
+  % \newenvironment{cslreferences}%
+  %   {\setlength{\parindent}{0pt}%
+  %   \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
+  %   {\par}
+    
   \newlength{\cslhangindent}
   \setlength{\cslhangindent}{1.5em}
-  \newenvironment{cslreferences}%
-    {\setlength{\parindent}{0pt}%
-    \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
-    {\par}
+  \newenvironment{CSLReferences}%
+  {\setlength{\parindent}{0pt}%
+  \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
+  {\par}
+
+  \newcommand{\bcolumns}{\begin{columns}[T, onlytextwidth]}
+  \newcommand{\ecolumns}{\end{columns}}
+
+  \newcommand{\bdescription}{\begin{description}}
+  \newcommand{\edescription}{\end{description}}
+
+  \newcommand{\bitemize}{\begin{itemize}}
+  \newcommand{\eitemize}{\end{itemize}}
+  \AtBeginSubsection{}
 
   \title[]{Chromosome and genetic control mechanism in eukaryotes}
 
 
   \author[
         Deependra Dhakal\\
-College of Natural Resource Management\\
 Agriculture and Forestry University\\
 \textit{ddhakal.rookie@gmail.com}\\
 \url{https://rookie.rbind.io}
     ]{Deependra Dhakal\\
-College of Natural Resource Management\\
 Agriculture and Forestry University\\
 \textit{ddhakal.rookie@gmail.com}\\
 \url{https://rookie.rbind.io}}
@@ -209,12 +222,16 @@ Agriculture and Forestry University\\
 
 \begin{frame}{}
 \protect\hypertarget{section}{}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-1}{}
 \begin{itemize}
 \tightlist
 \item
   One notable difference between eukaryotic and prokaryotic DNA is that
   eukaryotic DNA is packaged into nucleosomes, forming
-  \textbf{chromatin} leading to an ultimate assemblage structure called,
+  \textbf{chromatin} leading to an ultimate assemblage structure called
   chromosome whereas bacterial DNA lacks nucleosomes.
 \item
   In eukaryotes, chromatin structure is dynamic and is an essential
@@ -223,33 +240,12 @@ Agriculture and Forestry University\\
   The chromosome complement in a cell nucleus in the members of a
   species is called their \textbf{karyotype} (records all the
   cytologically identifiable chromosome features (size, form, number)).
-\end{itemize}
-\end{frame}
-
-\begin{frame}{}
-\protect\hypertarget{section-1}{}
-\begin{itemize}
-\tightlist
 \item
-  The number of identical chromosome sets in a cell nucleus determines
-  the level of ploidy, \emph{n}.
+  Diploid individuals have two copies of (almost) identical chromosome
+  (called \textbf{homologous}) with respect to morphology, gene content
+  and gene order.
 \item
-  Cell nuclei with only one set of chromosomes are haploid ( \emph{1n};
-  Greek \emph{haplos}, simple) somatic (tissue) cells are predominantly
-  diploid ( \emph{2n}) in ferns and seed plants.
-\item
-  Gametic chromosome number = 1/2 x Somatic chromosome number
-\item
-  Two copies of a chromosome are ordinarily identical in morphology,
-  gene content and gene order; they are called \textbf{homologous
-  chromosomes}.
-\item
-  The \textbf{C value} refers to the total amount of DNA in the haploid
-  genome, given in picograms.
-\item
-  The C value of the bacterium Escherichia coli is 0.004, that of
-  tobacco is 1.6, that of maize is 7.5, and that of some lily species
-  can be over 30.
+  Prokaryote gene expression is regulated by an operon.
 \end{itemize}
 \end{frame}
 
@@ -268,142 +264,22 @@ Agriculture and Forestry University\\
   single is reffered to as sister chromatid.
 \item
   The centromere (primary constriction; Greek kentron, middle point and
-  meros, part) is the narrowest point on the chromosome, where the
-  chromosome bends during chromosome movements in cell division and
+  meros, part) is the narrowest point (waist) on the chromosome, where
+  the chromosome bends during chromosome movements in cell division and
   where the microtubules of the nuclear spindle attach.
 \item
   The part of a chromatid on either side of the centromere is referred
   to as an arm of the chromatid, characterized by \textbf{centromere
   index}. (An uncondensed, unduplicated chromosome has a single
   centromere and two arms.)
-\item
-  Based on the relative position of centromere on chromosomes, they can
-  be: Metacentric, Submetacentric, Acrocentric, Telocentric
 \end{itemize}
 \end{frame}
 
 \begin{frame}{}
 \protect\hypertarget{section-3}{}
-\begin{itemize}
-\tightlist
-\item
-  Centromeric region of chromosome contains satellite DNA.
-\item
-  Telomeric region of chromosome is highly stable and has DNA loops.
-\item
-  The chromosome region lying between secondary constriction and the
-  nearest telomere is known as satellite. Therefore chromosomes having
-  secondary constrictions are called satellite chromosomes.
-\item
-  Nucleolus is always associated with the secondary constrictions of
-  sat-chromosomes, thus these constrictions are sometimes also called
-  NOR.
-\item
-  In some species e.g., maize, amphibia etc, chromosomes during first
-  prophase of meiosis (pachytene), show small bead-like structures
-  called chromomeres.
-\item
-  Homologous chromosomes always show identical pattern of chromomere
-  distribution.
-\end{itemize}
-\end{frame}
-
-\begin{frame}{}
-\protect\hypertarget{section-4}{}
 \begin{figure}
 \includegraphics[width=0.22\linewidth]{../images/chromosome_structure} \caption{Chromosomes occur as compact entities during nuclear division (e.g., in metaphase and anaphase of mitosis). This entity is what was originally named 'chromosome.' (a) A satellite chromosome with the two telomeres, the centromere with the two kinetochores (insertion points of the microtubules on the spindle apparatus), heterochromatic bands (additional regions on the telomeres and in the region of the centromere), and the characteristic (for satellite chromosomes) nucleolar organizing region (NOR) and a heterochromatic satellite. The chromosome is split longitudinally into two chromatids that later become daughter chromosomes. (b) Anaphase chromosomes of barley (Hordeum vulgare) with a diploid chromosome number 2n = 28, two satellite chromosomes per complement. The four NORs and four satellites of the two complements of daughter chromosomes can be seen clearly (x1,880). (c) Chromosome complement of \textit{Anemone blanda} (2n = 16); heterochromatic bands (except at the centromere) picked out with color (x600)}\label{fig:chromosome-structure}
 \end{figure}
-\end{frame}
-
-\begin{frame}{Chromosome numbers}
-\protect\hypertarget{chromosome-numbers}{}
-\begin{table}
-
-\caption{\label{tab:chromosome-number1}Chromosome numbers found different species of organisms (animals)}
-\centering
-\fontsize{6}{8}\selectfont
-\begin{tabular}[t]{>{\raggedright\arraybackslash}p{8em}>{\raggedright\arraybackslash}p{12em}>{\raggedright\arraybackslash}p{8em}>{\raggedright\arraybackslash}p{8em}>{\raggedright\arraybackslash}p{12em}>{\raggedright\arraybackslash}p{8em}}
-\toprule
-Common name & Species & Diploid number & Common name & Species & Diploid number\\
-\midrule
-\cellcolor{gray!6}{Man} & \cellcolor{gray!6}{$\textit{Homo sapiens}$} & \cellcolor{gray!6}{46} & \cellcolor{gray!6}{Alligator} & \cellcolor{gray!6}{$\textit{Alligator mississipiensis}$} & \cellcolor{gray!6}{32}\\
-Chimpanzee & $\textit{Pan troglodytes}$ & 48 & Toad & $\textit{Bufo americanus}$ & 22\\
-\cellcolor{gray!6}{Gorilla} & \cellcolor{gray!6}{$\textit{Gorilla gorilla}$} & \cellcolor{gray!6}{48} & \cellcolor{gray!6}{Frog} & \cellcolor{gray!6}{$\textit{Rana pipiens}$} & \cellcolor{gray!6}{26}\\
-Rhesus monkey & $\textit{Macaca mulatta}$ & 42 & Carp & $\textit{Cyprinus carpio}$ & 104\\
-\cellcolor{gray!6}{Cattle} & \cellcolor{gray!6}{$\textit{Bos taurus}$} & \cellcolor{gray!6}{60} & \cellcolor{gray!6}{Starfish} & \cellcolor{gray!6}{$\textit{Asterias forbesi}$} & \cellcolor{gray!6}{36}\\
-\addlinespace
-Dog & $\textit{Canis familaris}$ & 78 & Silkworm & $\textit{Bombyx mori}$ & 56\\
-\cellcolor{gray!6}{Cattle} & \cellcolor{gray!6}{$\textit{Felis domesticus}$} & \cellcolor{gray!6}{38} & \cellcolor{gray!6}{Red ant} & \cellcolor{gray!6}{$\textit{Formica sanguinea}$} & \cellcolor{gray!6}{48}\\
-Horse & $\textit{Equus calibus}$ & 64 & House fly & $\textit{Musca domestica}$ & 12\\
-\cellcolor{gray!6}{Donkey} & \cellcolor{gray!6}{$\textit{Equus asinus}$} & \cellcolor{gray!6}{62} & \cellcolor{gray!6}{Fruit fly} & \cellcolor{gray!6}{$\textit{Drosophila melanogaster}$} & \cellcolor{gray!6}{8}\\
-House mouse & $\textit{Mus musculus}$ & 40 & Mosquito & $\textit{Culex pipiens}$ & 6\\
-\addlinespace
-\cellcolor{gray!6}{Rat} & \cellcolor{gray!6}{$\textit{Rattus norvegicus}$} & \cellcolor{gray!6}{42} & \cellcolor{gray!6}{Cockroach} & \cellcolor{gray!6}{$\textit{Blatta germanica}$} & \cellcolor{gray!6}{23 $\male$, 24 $\female$}\\
-Golden hampster & $\textit{Mesocrietus auratus}$ & 44 & Grasshopper & $\textit{Melanoplus differentialis}$ & 24\\
-\cellcolor{gray!6}{Guinea pig} & \cellcolor{gray!6}{$\textit{Cavia cobaya}$} & \cellcolor{gray!6}{64} & \cellcolor{gray!6}{Honeybee} & \cellcolor{gray!6}{$\textit{Apis mellifera}$} & \cellcolor{gray!6}{32}\\
-Rabbit & $\textit{Orychtolagus cuniculus}$ & 44 & Flatworm & $\textit{Planaria torva}$ & 16\\
-\cellcolor{gray!6}{Pigeon} & \cellcolor{gray!6}{$\textit{Columbia livia}$} & \cellcolor{gray!6}{80} & \cellcolor{gray!6}{Freshwater hydra} & \cellcolor{gray!6}{$\textit{Hydra vulgaria attenuata}$} & \cellcolor{gray!6}{32}\\
-\addlinespace
-Chicken & $\textit{Gallus domesticus}$ & 78 & Nematode & $\textit{Caenorhabditis elegans}$ & 11 $\male$, 12 $\female$\\
-\bottomrule
-\end{tabular}
-\end{table}
-\end{frame}
-
-\begin{frame}{}
-\protect\hypertarget{section-5}{}
-\begin{columns}[T,onlytextwidth]
-  
-  \column{0.4\textwidth}
-
-\begin{table}
-
-\caption{\label{tab:chromosome-number2}Chromosome numbers found different species of organisms (Other organisms; haploid chromosome number)}
-\centering
-\fontsize{6}{8}\selectfont
-\begin{tabular}[t]{>{\raggedright\arraybackslash}p{4em}>{\raggedright\arraybackslash}p{8em}>{\raggedright\arraybackslash}p{4em}}
-\toprule
-Common name & Species & Haploid number\\
-\midrule
-\cellcolor{gray!6}{Yeast} & \cellcolor{gray!6}{$\textit{Saccharomyces cerevisiae}$} & \cellcolor{gray!6}{17}\\
-Slime mold & $\textit{Dictyostelium discoideum}$ & 7\\
-\cellcolor{gray!6}{Black bread mold} & \cellcolor{gray!6}{$\textit{Aspergillus nidulans}$} & \cellcolor{gray!6}{8}\\
-Pink bread mold & $\textit{Neurospora crassa}$ & 7\\
-\cellcolor{gray!6}{Penicillin mold} & \cellcolor{gray!6}{$\textit{Penicillium species}$} & \cellcolor{gray!6}{4}\\
-\addlinespace
-Green algae & $\textit{Chlamydomonas reinhardtii}$ & 16\\
-\cellcolor{gray!6}{Amoeba} & \cellcolor{gray!6}{$\textit{Amoeba proteus}$} & \cellcolor{gray!6}{250}\\
-\bottomrule
-\end{tabular}
-\end{table}
-
-  \column{0.6\textwidth}
-
-\begin{table}
-
-\caption{\label{tab:chromosome-number3}Chromosome numbers found different species of organisms (Plants)}
-\centering
-\fontsize{5}{7}\selectfont
-\begin{tabular}[t]{>{\raggedright\arraybackslash}p{4em}>{\raggedright\arraybackslash}p{8em}>{\raggedright\arraybackslash}p{4em}>{\raggedright\arraybackslash}p{4em}>{\raggedright\arraybackslash}p{8em}>{\raggedright\arraybackslash}p{4em}}
-\toprule
-Common name & Species & Diploid number & Common name & Species & Diploid number\\
-\midrule
-\cellcolor{gray!6}{Green algae} & \cellcolor{gray!6}{$\textit{Acetabularia mediterranea}$} & \cellcolor{gray!6}{20} & \cellcolor{gray!6}{Tomato} & \cellcolor{gray!6}{$\textit{Lycopersicon esculentum}$} & \cellcolor{gray!6}{24}\\
-Garden onion & $\textit{Allium cepa}$ & 16 & Tobacco & $\textit{Nicotiana tabacum}$ & 48\\
-\cellcolor{gray!6}{Barley} & \cellcolor{gray!6}{$\textit{Hordeum vulgare}$} & \cellcolor{gray!6}{14} & \cellcolor{gray!6}{Evening primerose} & \cellcolor{gray!6}{$\textit{Oenothera biennis}$} & \cellcolor{gray!6}{14}\\
-Rice & $\textit{Oryza sativa}$ & 24 & Kidney bean & $\textit{Phaseolus vulgaris}$ & 22\\
-\cellcolor{gray!6}{Spiderwort} & \cellcolor{gray!6}{$\textit{Tradescantia vairginiana}$} & \cellcolor{gray!6}{24} & \cellcolor{gray!6}{White oak} & \cellcolor{gray!6}{$\textit{Quercus alba}$} & \cellcolor{gray!6}{24}\\
-\addlinespace
-Wheat & $\textit{Triticum aestivum}$ & 42 & Pine & $\textit{Pinus species}$ & 24\\
-\cellcolor{gray!6}{Corn (maize)} & \cellcolor{gray!6}{$\textit{Zea mays}$} & \cellcolor{gray!6}{20} & \cellcolor{gray!6}{Garden pea} & \cellcolor{gray!6}{$\textit{Pisum sativum}$} & \cellcolor{gray!6}{14}\\
-Snapdragon & $\textit{Antirrhinum majus}$ & 16 & Potato & $\textit{Solanum tuberosum}$ & 48\\
-\cellcolor{gray!6}{Squash} & \cellcolor{gray!6}{$\textit{Cucurbita pepo}$} & \cellcolor{gray!6}{40} & \cellcolor{gray!6}{White clover} & \cellcolor{gray!6}{$\textit{Trifolium repens}$} & \cellcolor{gray!6}{32}\\
-Upland cotton & $\textit{Gossypium hirsutum}$ & 52 & Broad bean & $\textit{Vicia faba}$ & 12\\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\end{columns}
 \end{frame}
 
 \begin{frame}{Distribution of chromosomes during eukaryotic cell
@@ -422,35 +298,13 @@ division}
   with a light microscope.
 \item
   Each duplicated chromosome has two sister chromatids, which are joined
-  copies of the original chromosome (Figure
+  (by common centromere) copies of the original chromosome (Figure
   \ref{fig:duplicated-chromosome}).
-\item
-  The two chromatids, each containing an identical DNA molecule, are
-  initially attached all along their lengths by protein complexes called
-  cohesins.
 \end{itemize}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-6}{}
-\begin{itemize}
-\tightlist
-\item
-  Each sister chromatid has a centromere, a region containing specific
-  DNA sequences where the chromatid is attached most closely to its
-  sister chromatid. This attachment is mediated by protein bound to the
-  centromeric DNA sequences and gives the condensed, duplicated
-  chromosome a narrow ``waist''.
-\item
-  Later in the cell division process, the two sister chromatids of each
-  duplicated chromosomes separate and move into two new nuclei, one
-  forming at each end of the cell. Once they separate they are
-  considered individual chromosomes.
-\end{itemize}
-\end{frame}
-
-\begin{frame}{}
-\protect\hypertarget{section-7}{}
+\protect\hypertarget{section-4}{}
 \begin{figure}
 
 {\centering \includegraphics[width=0.8\linewidth]{../images/duplicated_chromosomes_hd} 
@@ -465,7 +319,7 @@ division}
 \section{Chromatin}\label{chromatin}}
 
 \begin{frame}{}
-\protect\hypertarget{section-8}{}
+\protect\hypertarget{section-5}{}
 \small
 
 \begin{itemize}
@@ -473,7 +327,7 @@ division}
 \item
   Most of the nuclear DNA is complexed with histones.
 \item
-  Histones are characteristic to eukaryotes (except dinoflagellates)
+  Histones are characteristic to eukaryotes (except dinoflagellates).
 \item
   The mass ratio of histone to DNA is about 1:1.
 \item
@@ -519,7 +373,7 @@ division}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-9}{}
+\protect\hypertarget{section-6}{}
 \begin{itemize}
 \tightlist
 \item
@@ -531,10 +385,6 @@ division}
   mutant characteristics in the same individual, a condition referred to
   as \textbf{position-effect variegation}.
 \item
-  This term is used because the variability in the phenotype is caused
-  by changing the position of the euchromatic gene, specifically by
-  relocating it to the heterochromatin.
-\item
   Many examples of position-effect variegation have been discovered in
   Drosophila, usually in association with inversion or translocations
   that move a euchromatic gene into the heterochromatin.
@@ -542,7 +392,7 @@ division}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-10}{}
+\protect\hypertarget{section-7}{}
 \begin{figure}
 
 {\centering \includegraphics[width=0.45\linewidth]{../images/structure_of_chromatin} 
@@ -555,14 +405,17 @@ division}
 
 \begin{frame}{Histones and basic chromosome structure}
 \protect\hypertarget{histones-and-basic-chromosome-structure}{}
+\bcolumns
+\column{0.6\textwidth}
+\footnotesize
+
 \begin{itemize}
 \tightlist
 \item
-  Proteins having molecular weight ranging 10000-30000.
+  Highly heterogeneous proteins having molecular weight ranging
+  10000-30000.
 \item
   Completely deviod of tryptophan.
-\item
-  Highly heterogeneous
 \item
   H1 is lysine rich, H2A and H2B are slightly lysine rich annd H3 and H4
   are arginine rich.
@@ -576,51 +429,14 @@ division}
   best explained by the \textbf{folded-fiber model} of chromosome
   structure.
 \end{itemize}
-\end{frame}
 
-\begin{frame}{Folded fiber model}
-\protect\hypertarget{folded-fiber-model}{}
-\begin{itemize}
-\tightlist
-\item
-  Each chromatid contains a single enourmously long chromatin fiber,
-  which folds in various ways to yield the metaphase chromosome
-  structure.
-\item
-  DNA of chromatin fiber replicates during interphase producing two
-  sister chromatin fibers, except for centromeric region which undergoes
-  replication during later stages of cell division.
-\item
-  During cell division, two sister chromatin fibers undergo extensive
-  folding separately in an irregular but identifiable manner to give
-  rise to sister chromatids of a chromosome.
-\item
-  Folding of chromatin fibers drastically reduces their length and at
-  the same time markedly increases their thickness and stainability
-  (that of euchromatin).
-\item
-  This folded structure normally undergoes supercoiling, which further
-  reduces the length and increases chrnomosome thickness.
-\end{itemize}
-\end{frame}
-
-\begin{frame}{}
-\protect\hypertarget{section-11}{}
-\begin{columns}[T,onlytextwidth]
-  
-  \column{0.5\textwidth}
-  
-\begin{figure}
-\includegraphics[width=0.65\linewidth]{../images/histone_types} \caption{Overview of five basic types of histone}\label{fig:histone-types}
-\end{figure}
-
-  \column{0.5\textwidth}
+\column{0.4\textwidth}
 
 \begin{figure}
-\includegraphics[width=0.8\linewidth]{../images/nucleosome_structure} \caption{\textbf{Nucleosomes}. (a) Beaded pattern: three histone octamers (dotted) surrounded by left-handed DNA double helices bonded by DNA linkers; horizontal stripes attack sites of Micrococcus nuclease. (b) Supranucleosomal structures, mediated by H1 (black); on the right nucleofilaments, on the left chromatin fibrils (H1 not is illustrated here)}\label{fig:nucleosome-structure}
+\includegraphics[width=0.9\linewidth]{../images/histone_types} \caption{Overview of five basic types of histone}\label{fig:histone-types}
 \end{figure}
 
-\end{columns}
+\ecolumns
 \end{frame}
 
 \begin{frame}{Packing of DNA into chromatin fiber: Nucleosome solenoid
@@ -632,12 +448,15 @@ model}
 \tightlist
 \item
   The basic unit of chromatin is the nucleosome, a complete unit of
-  which contains \textasciitilde150 bp of DNA wrapped 1.7 times around a
-  core of histone proteins, and H1 histone.
+  which contains \textasciitilde150 bp of DNA wrapped (1.7 times) around
+  the edge of histone octamer, marking the location of the particularly
+  basic N-termini of the histone molecule.
 \item
-  The nucleosome core contains 8 histones, two subunits of each of the
-  four histones: histones 2A, 2B, 3, and 4 (called H2A, H2B, H3, and H4)
-  organized as two dimers of H2A and H2B and a tetramer of H3 and H4.
+  The nucleosome (particle of diameter 10nm and thickness 5nm) core
+  contains 8 histones (\textbf{histone octamer}), two subunits of each
+  of the four histones: histones 2A, 2B, 3, and 4 (called H2A, H2B, H3,
+  and H4) organized as two dimers of H2A and H2B and a tetramer of H3
+  and H4.
 \item
   Linker histone, H1, surrounds the nucleosome core which can compact
   the nucleosomes into higher-order structures that further condense the
@@ -647,15 +466,6 @@ model}
   shapes, automatically form (even without DNA) flat-ellipsoid
   quaternary structures.
 \item
-  In these particles, with diameters of up to 10 nm and thicknesses of 5
-  nm, two molecules of every histone type are involved -- \emph{histone
-  octamers}, made up of core histones.
-\item
-  The edge of the histone octamer is flatly encircled by a 145-bp-long
-  sequence of DNA, marking the location of the particularly basic
-  N-termini of the histone molecule (Shown in Figure
-  \ref{fig:nucleosome-structure}).
-\item
   The approximately 60-bp intermediate \textbf{linker} represents the
   preferred attack site for endonucleases. Thus, cleavage events attack
   uniform nucleohistone complexes of the same particle mass, the
@@ -664,7 +474,7 @@ model}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-12}{}
+\protect\hypertarget{section-8}{}
 \small
 
 \begin{itemize}
@@ -696,50 +506,49 @@ model}
 \section{Genetic control mechanism in
 eukaryotes}\label{genetic-control-mechanism-in-eukaryotes}}
 
-\begin{frame}{When should the academic month of an year start ?}
-\protect\hypertarget{when-should-the-academic-month-of-an-year-start}{}
-\centering \Huge \textbf{AUG}ust
-
-\normalsize
-
-(For an introductory overview of regulation of gene expression in both
-prokaryotes and eukaryotes, refer to lecture slides on Gene Expression,
-of Introductory Genetics in 1st Semester course.)
-\end{frame}
-
 \begin{frame}{}
-\protect\hypertarget{section-13}{}
+\protect\hypertarget{section-9}{}
 \begin{itemize}
 \tightlist
 \item
-  Many features in single-celled and multicellular eukaryotes, are not
-  found in bacteria and their viruses.
-\item
-  Geneticists and molecular biologists have discovered the functions of
-  introns, RNA splicing, distant and multiple cis-acting regulatory
-  elements, chromatin, alternative splicing, and, more recently, miRNAs.
-\item
-  Still, central to the genetic control of development is the control of
-  differential gene expression.
-\item
-  Expressed proteins determines much of the cell's architecture, its
-  enzymatic activities, its interactions with its environment, and many
-  other physiological properties.
-\item
-  At a given time cell expressess only a fraction of the RNAs and
-  proteins encoded in its genome. At different times, however, the
-  profile of expression differs.
-\end{itemize}
-\end{frame}
+  Various cellular elements unique to eukaryotes and their functions
+  have been discovered.
 
-\begin{frame}{Eukaryotic gene regulation takes place at two levels}
-\protect\hypertarget{eukaryotic-gene-regulation-takes-place-at-two-levels}{}
-\begin{itemize}
-\tightlist
+  \begin{itemize}
+  \tightlist
+  \item
+    introns,
+  \item
+    RNA splicing,
+  \item
+    distant and multiple cis-acting regulatory elements,
+  \item
+    chromatin,
+  \item
+    alternative splicing,
+  \item
+    miRNAs.
+  \end{itemize}
 \item
-  Transcriptional gene regulation
-\item
-  Post-transcriptional gene regulation
+  Still, central to the genetic control of development (complex
+  multicellular organization of structures and functions) is the control
+  of differential gene expression.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Transcription
+  \item
+    RNA processing
+  \item
+    Transport to cytoplasm
+  \item
+    mRNA translation
+  \item
+    Degradation of mRNA
+  \item
+    Protein degradation
+  \end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -765,7 +574,7 @@ of Introductory Genetics in 1st Semester course.)
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-14}{}
+\protect\hypertarget{section-10}{}
 \begin{itemize}
 \tightlist
 \item
@@ -796,37 +605,24 @@ of Introductory Genetics in 1st Semester course.)
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-15}{}
+\protect\hypertarget{section-11}{}
 \begin{figure}
-\includegraphics[width=0.65\linewidth]{../images/transcriptional_regulation} \caption{In bacteria, RNA polymerase can usually begin transcription unless a repressor protein blocks it. In eukaryotes, however, the packaging of DNA with nucleosomes prevents transcription unless other regulatory proteins are present. These regulatory proteins expose promoter sequences by altering nucleosome density or position. They may also recruit RNA polymerase II more directly through binding.}\label{fig:transcriptional-regulation}
+\includegraphics[width=0.56\linewidth]{../images/transcriptional_regulation} \caption{In bacteria, RNA polymerase can usually begin transcription unless a repressor protein blocks it. In eukaryotes, however, the packaging of DNA with nucleosomes prevents transcription unless other regulatory proteins are present. These regulatory proteins expose promoter sequences by altering nucleosome density or position. They may also recruit RNA polymerase II more directly through binding.}\label{fig:transcriptional-regulation}
 \end{figure}
 \end{frame}
 
-\begin{frame}{Differences in transcriptional regulation of eukaryotes
-and prokaryotes}
-\protect\hypertarget{differences-in-transcriptional-regulation-of-eukaryotes-and-prokaryotes}{}
+\begin{frame}{Transcriptional regulation of eukaryotes}
+\protect\hypertarget{transcriptional-regulation-of-eukaryotes}{}
 \begin{itemize}
 \tightlist
 \item
   In bacteria, all genes are transcribed into RNA by the same RNA
   polymerase, whereas three RNA polymerases function in eukaryotes.
 \item
-  RNA transcripts are extensively processed during transcription in
-  eukaryotes; the \(5^\prime\) and \(3^\prime\) ends are modified and
-  introns are spliced out.
-\item
   RNA polymerase II is much larger and more complex than its bacterial
   counterpart. One reason it is more complex is that RNA polymerase II
   must synthesize RNA and coordinate the special processing events
   unique to eukaryotes.
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Eukaryotic transcription feature (2): Diversity of gene
-expression pattern}
-\protect\hypertarget{eukaryotic-transcription-feature-2-diversity-of-gene-expression-pattern}{}
-\begin{itemize}
-\tightlist
 \item
   Includes trans acting regulatory \emph{proteins} and cis-acting
   regulatory DNA \emph{sequences}.
@@ -852,13 +648,22 @@ expression pattern}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-16}{}
+\protect\hypertarget{section-12}{}
 \begin{figure}
 \includegraphics[width=0.65\linewidth]{../images/promoter_promoter_proximal_elements} \end{figure}
+
+For a schematic illustration of initiation complex formed by RNA
+polymerase II holoenzyme, refer to lecture slides on Gene regulation
+(1st semester).
+\end{frame}
+
+\begin{frame}{River crossing}
+\protect\hypertarget{river-crossing}{}
+\begin{center}\includegraphics[width=0.38\linewidth]{../images/river_crossing} \end{center}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-17}{}
+\protect\hypertarget{section-13}{}
 \begin{itemize}
 \tightlist
 \item
@@ -887,23 +692,20 @@ expression pattern}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-18}{}
+\protect\hypertarget{section-14}{}
 \begin{figure}
 \includegraphics[width=0.4\linewidth]{../images/transcriptional_activator_proteins_inducer} \caption{\textbf{Transcriptional activator proteins may be activated by an inducer} \newline Gal4 activity is regulated by the Gal80 protein. (Top) in the absence of galactose, the Gal4 protein is inactive, even though it can bind to sites upstream of the GAL1 target gene. Gal4 activity is suppressed by the binding of the Gal80 protein. (Bottom) in the presence of galactose and the Gal3 protein, Gal80 undergoes a conformational change and is released, allowing the Gal4 activation domain to activate target gene transcription.}\label{fig:inducer-proteins}
 \end{figure}
 \end{frame}
 
-\begin{frame}{Eukaryotic transcription feature (1): Dynamic chromatin}
-\protect\hypertarget{eukaryotic-transcription-feature-1-dynamic-chromatin}{}
+\begin{frame}{Eukaryotic transcription feature: Dynamic chromatin}
+\protect\hypertarget{eukaryotic-transcription-feature-dynamic-chromatin}{}
 \begin{itemize}
 \tightlist
 \item
-  A second mechanism for influencing gene transcription in eukaryotes
-  modifies the local chromatin structure around gene regulatory
-  sequences.
-\item
-  The modification of chromatin structure is a distinctive feature of
-  many eukaryotic processes including gene regulation.
+  The modification of local chromatin structure around gene regulatory
+  sequences is a distinctive feature of many eukaryotic processes
+  including gene regulation.
 \item
   There are three major mechanisms to alter chromatin structure:
 
@@ -923,7 +725,7 @@ expression pattern}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-19}{}
+\protect\hypertarget{section-15}{}
 \begin{figure}
 \includegraphics[width=0.3\linewidth]{../images/chromatin_remodeling} \caption{The histone octamer slides in response to chromatin-remodeling activity (such as that of the SWI–SNF complex), in this case exposing the DNA marked in red.}\label{fig:chromatin-remodeling}
 \end{figure}

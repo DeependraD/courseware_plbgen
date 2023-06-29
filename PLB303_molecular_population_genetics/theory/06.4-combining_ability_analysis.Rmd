@@ -2,7 +2,6 @@
 title: "Combining ability analysis"
 author: |
   | Deependra Dhakal
-  | College of Natural Resource Management
   | Agriculture and Forestry University
   | \textit{ddhakal.rookie@gmail.com}
   | \url{https://rookie.rbind.io}
@@ -90,6 +89,8 @@ partial_dial <- function(n, s, display_mat = c("upper", "lower", "reciprocal")) 
 - Selection methods can be stated as either being forward or backward. Forward selection is synonymous to **within-family selection** whereas the concept of backward selection embodies **selection among families**. 
 - Forward selection works best for highly heritable traits -- for those traits regulated by few small genes, as opposed to those involving large number of genes with small cumulative effects. 
 
+<!-- When the interest is to exploit the state of heterosis arising from certain combination of parental individuals, the genetic factors contributing well to superior phenotype should be underpinned. The whole process of determining favorable combination among parental individuals should be met with phenotypic data from many progeny, which is retrospective in purpose -- thus the name backward (family) selection. -->
+
 ##
 
 - Selection gets more complicated as data on several different individuals belonging to some families is available. 
@@ -123,8 +124,6 @@ Broadly, three distinct modes of selection could be practiced:
 3. Combined family and within family selection; family selection index
 
 \footnotesize
-
-When the interest is to exploit the state of heterosis arising from certain combination of parental individuals, the genetic factors contributing well to superior phenotype should be underpinned. The whole process of determining favorable combination among parental individuals should be met with phenotypic data from many progeny, which is retrospective in purpose -- thus the name backward (family) selection.
 
 - Half-sib selection is used to select superier individuals for their GCA.
 - Full-sib selection is used to make distinct parental matings in order to induce hybrid vigor by capturing specific combinining abilities
@@ -163,15 +162,15 @@ $$
 \mathrm{G_x} = \left[\frac{T_x}{n-2}\right]-\left[\frac{\sum T}{n(n-2)}\right]
 $$
 
-- Where $x$ represents a specific line.
+  - Where $x$ represents a specific line.
 
 ##
 
-Using fabricated dataset given in Table \ref{tab:fabricated-diallel} following procedures outlines how GCA for Parent 2 (P2) ($GCA_{P2}$) can be calculated.
+Using fabricated dataset given in Table \ref{tab:fabricated-diallel} following procedures outlines how GCA for Parent 2 (P2) can be calculated.
 
 \begin{equation}
 \begin{split}
-\mathrm{G_b} & = \left[\frac{T_x}{n-2}\right]-\left[\frac{\sum T}{n(n-2)}\right] \\
+\mathrm{GCA_{P2}} & = \left[\frac{T_x}{n-2}\right]-\left[\frac{\sum T}{n(n-2)}\right] \\
  & = \left[\frac{39.7}{8}\right]-\left[\frac{324.7}{10\times 8}\right] \\
  & = 4.96-4.06 \\
  & = 0.9
@@ -239,16 +238,16 @@ mating_mat %>%
 With the partial scheme of diallel cross, same number of parents could be tested in a framework with fewer crosses. The number of crosses in a partial diallel scheme is given by,
 
 $$
-x = \frac{n \times s}{2}
+\large x = \frac{n \times s}{2} \leadsto n = \frac{2x}{s}
 $$
 
-By analogy, we could have said that large number of lines could be tested with lesser crossings under diallel scheme. Rearranging the above relationship, $\large n = \frac{2x}{s}$.
+<!-- By analogy, we could have said that large number of lines could be tested with lesser crossings under diallel scheme.  -->
 
 <!-- Further, there is restriction as to how $s$ should is selected, for example, is $s = n -1$ it gives half diallel cross. $s$ is a whole number greater than or equal to 2, and $k$ is a whole number -- $k = \frac{n + 1 - s}{2}$. -->
 
 <!-- Each parent occurs in $s$ crosses, hence the number of crosses sampled is $ns/2$. For this to be true, For k to be a whole number, we do not want both $n$ and $s$ to be odd or both even. -->
 
-<!-- Now let's return to our previous example, with number of parents ($n$) to be 10. With $n = 10$ we definitely want each parent to occur in at least 2 sets of crosses. But, note that number of parents too is positive (10). Hence, we even values of $s$ is not allowed. Thus value of $s$ could be anywhere in $\{3, 5, 7, 9\}$. We could also verify that even values of $s$ does not satisfy the requirement for $k$ to be a wholenumber. -->
+<!-- Now let's return to our previous example, with number of parents ($n$) to be 10. With $n = 10$ we definitely want each parent to occur in at least 2 sets of crosses. But, note that number of parents too is even (10). Hence, even values of $s$ is not allowed. Thus value of $s$ could be anywhere in $\{3, 5, 7, 9\}$. We could also verify that even values of $s$ does not satisfy the requirement for $k$ to be a wholenumber. -->
 
 <!-- For $s = 2$, $k = \frac{n + 1 - s}{2} = \frac{10 + 1 - 2}{2} = \frac{9}{2} \neq \textrm{whole number}$ -->
 
@@ -311,7 +310,7 @@ partial_diallel_10p <- partial_dial(n = 10, s = 5, display_mat = "lower") %>%
 
 ```{r partial-diallel-10p-table}
 partial_diallel_10p %>% 
-  knitr::kable(booktabs = TRUE, caption = "Partial diallel cross involving 10 parents combined in 7 set of crossess each.", escape = FALSE, longtable = TRUE) %>% 
+  knitr::kable(booktabs = TRUE, caption = "Partial diallel cross involving 10 parents combined in 5 set of crossess each.", escape = FALSE, longtable = TRUE) %>% 
   kableExtra::kable_styling(latex_options = c("striped", "HOLD_position"), font_size = 8)
 ```
 

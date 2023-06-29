@@ -1,0 +1,264 @@
+\documentclass[varwidth]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{shapes,positioning,arrows.meta,decorations.pathmorphing,fit}
+\usepackage{xcolor}
+
+\tikzset{blue grid/.style={very thin,color=blue!40}}
+
+\begin{document}
+
+% % Dominant epistasis (Gene A is epistatic to Gene B (hypostatic) when in homozygous dominant (AA) or heterozygous (Aa) state)
+
+% 1st Phenotype
+
+\begin{tikzpicture}[
+  node distance=1.5cm,
+  pre block/.style={draw,minimum height=0.8cm,minimum width=2cm},
+  pro block/.style={draw,thick,minimum height=1cm,minimum width=2cm,decorate,decoration={random steps,segment length=5pt,amplitude=3pt}},
+  gene2enzyme edge/.style={->,decorate,
+  decoration={snake,amplitude=0.5mm,segment length=1mm,post length=1mm}},
+  tcross/.append style={draw=#1, cross out},
+  % gene block/.style={draw,circle,radius=1cm,inner sep=1pt},
+  cross/.style={path picture={
+  \draw[black]
+  (path picture bounding box.south east) --
+  (path picture bounding box.north west)
+  (path picture bounding box.south west) --
+  (path picture bounding box.north east);}}
+  ]
+\draw[blue grid] (-6,-2) grid (6,4);
+
+% precursor, intermediate and product
+\node[pre block] (precursor) at (-5,0) {Precursor};
+\node[pre block,cross] (intermediate) [right=of precursor] {Intermediate compound};
+\node[pro block,cross] (product) [right=of intermediate] {Product};
+
+% edges joining pre and pro.
+\draw[-stealth,thick] (precursor) -- node[above,tcross=red] (enza) {\textit{enz} a} (intermediate);
+\draw[-stealth,thick] (intermediate) -- node[above] (enzb) {\textit{enz} b} (product);
+
+\node[%gene block,
+  above=2cm of enza] (geneA) {Gene A};
+\node[%gene block,
+  above=2cm of enzb] (geneB) {Gene B};
+
+\node[
+  above=of enza,
+  % draw,
+  rectangle,
+  minimum height=0.5cm,
+  minimum width=1.75cm,inner sep=1pt,text=black,path picture={
+  \node[centered] at (path picture bounding box.center) {
+  \includegraphics[width=2cm]{double\_hellix.pdf}
+  };
+}]
+(geneA) {};
+
+\node[
+  above=of enzb,
+  % draw,
+  rectangle,
+  minimum height=0.5cm,
+  minimum width=1cm,inner sep=1pt,text=black,path picture={
+  \node[centered] at (path picture bounding box.center) {
+  \includegraphics[width=2cm]{double\_hellix.pdf}
+  };
+}] 
+(geneB) {};
+
+
+\draw[gene2enzyme edge] (geneA) -- node[right] {AA or Aa} (enza);
+\draw[gene2enzyme edge] (geneB) -- node[right] {BB or Bb} (enzb);
+
+\end{tikzpicture}
+
+% 2nd Phenotype
+
+\begin{tikzpicture}[
+  node distance=1.5cm,
+  pre block/.style={draw,minimum height=0.8cm,minimum width=2cm},
+  pro block/.style={draw,thick,minimum height=1cm,minimum width=2cm,decorate,decoration={random steps,segment length=5pt,amplitude=3pt}},
+  gene2enzyme edge/.style={->,decorate,
+  decoration={snake,amplitude=0.5mm,segment length=1mm,post length=1mm}},
+  tcross/.append style={draw=#1, cross out},
+  % gene block/.style={draw,circle,radius=1cm,inner sep=1pt},
+  cross/.style={path picture={
+  \draw[black]
+  (path picture bounding box.south east) --
+  (path picture bounding box.north west)
+  (path picture bounding box.south west) --
+  (path picture bounding box.north east);}}
+  ]
+\draw[blue grid] (-6,-2) grid (6,4);
+
+% precursor, intermediate and product
+\node[pre block] (precursor) at (-5,0) {Precursor};
+\node[pre block,cross] (intermediate) [right=of precursor] {Intermediate compound};
+\node[pro block,cross] (product) [right=of intermediate] {Product};
+
+% edges joining pre and pro.
+\draw[-stealth,thick] (precursor) -- node[above,tcross=red] (enza) {\textit{enz} a} (intermediate);
+\draw[-stealth,thick] (intermediate) -- node[above] (enzb) {\textit{enz} b} (product);
+
+\node[%gene block,
+  above=2cm of enza] (geneA) {Gene A};
+\node[%gene block,
+  above=2cm of enzb] (geneB) {Gene B};
+
+\node[
+  above=of enza,
+  % draw,
+  rectangle,
+  minimum height=0.5cm,
+  minimum width=1.75cm,inner sep=1pt,text=black,path picture={
+  \node[centered] at (path picture bounding box.center) {
+  \includegraphics[width=2cm]{double\_hellix.pdf}
+  };
+}]
+(geneA) {};
+
+\node[
+  above=of enzb,
+  % draw,
+  rectangle,
+  minimum height=0.5cm,
+  minimum width=1cm,inner sep=1pt,text=black,path picture={
+  \node[centered] at (path picture bounding box.center) {
+  \includegraphics[width=2cm]{double\_hellix.pdf}
+  };
+}] 
+(geneB) {};
+
+
+\draw[gene2enzyme edge] (geneA) -- node[right] {AA or Aa} (enza);
+\draw[gene2enzyme edge] (geneB) -- node[right] {bb} (enzb);
+
+\end{tikzpicture}
+
+% 3rd Phenotype
+
+\begin{tikzpicture}[
+  node distance=1.5cm,
+  pre block/.style={draw,minimum height=0.8cm,minimum width=2cm},
+  pro block/.style={draw,thick,minimum height=1cm,minimum width=2cm,decorate,decoration={random steps,segment length=5pt,amplitude=3pt}},
+  gene2enzyme edge/.style={->,decorate,
+  decoration={snake,amplitude=0.5mm,segment length=1mm,post length=1mm}},
+  tcross/.append style={draw=#1, cross out},
+  % gene block/.style={draw,circle,radius=1cm,inner sep=1pt},
+  cross/.style={path picture={
+  \draw[black]
+  (path picture bounding box.south east) --
+  (path picture bounding box.north west)
+  (path picture bounding box.south west) --
+  (path picture bounding box.north east);}}
+  ]
+\draw[blue grid] (-6,-2) grid (6,4);
+
+% precursor, intermediate and product
+\node[pre block] (precursor) at (-5,0) {Precursor};
+\node[pre block,fill=blue!50] (intermediate) [right=of precursor] {Intermediate compound};
+\node[pro block,fill=red!50] (product) [right=of intermediate] {Product};
+
+% edges joining pre and pro.
+\draw[-stealth,thick] (precursor) -- node[above] (enza) {\textit{enz} a} (intermediate);
+\draw[-stealth,thick] (intermediate) -- node[above] (enzb) {\textit{enz} b} (product);
+
+\node[%gene block,
+  above=2cm of enza] (geneA) {Gene A};
+\node[%gene block,
+  above=2cm of enzb] (geneB) {Gene B};
+
+\node[
+  above=of enza,
+  % draw,
+  rectangle,
+  minimum height=0.5cm,
+  minimum width=1.75cm,inner sep=1pt,text=black,path picture={
+  \node[centered] at (path picture bounding box.center) {
+  \includegraphics[width=2cm]{double\_hellix.pdf}
+  };
+}]
+(geneA) {};
+
+\node[
+  above=of enzb,
+  % draw,
+  rectangle,
+  minimum height=0.5cm,
+  minimum width=1cm,inner sep=1pt,text=black,path picture={
+  \node[centered] at (path picture bounding box.center) {
+  \includegraphics[width=2cm]{double\_hellix.pdf}
+  };
+}] 
+(geneB) {};
+
+
+\draw[gene2enzyme edge] (geneA) -- node[right] {aa} (enza);
+\draw[gene2enzyme edge] (geneB) -- node[right] {BB or Bb} (enzb);
+
+\end{tikzpicture}
+
+% 4th Phenotype
+
+\begin{tikzpicture}[
+  node distance=1.5cm,
+  pre block/.style={draw,minimum height=0.8cm,minimum width=2cm},
+  pro block/.style={draw,thick,minimum height=1cm,minimum width=2cm,decorate,decoration={random steps,segment length=5pt,amplitude=3pt}},
+  gene2enzyme edge/.style={->,decorate,
+  decoration={snake,amplitude=0.5mm,segment length=1mm,post length=1mm}},
+  tcross/.append style={draw=#1, cross out},
+  % gene block/.style={draw,circle,radius=1cm,inner sep=1pt},
+  cross/.style={path picture={
+  \draw[black]
+  (path picture bounding box.south east) --
+  (path picture bounding box.north west)
+  (path picture bounding box.south west) --
+  (path picture bounding box.north east);}}
+  ]
+\draw[blue grid] (-6,-2) grid (6,4);
+
+% precursor, intermediate and product
+\node[pre block] (precursor) at (-5,0) {Precursor};
+\node[pre block,fill=blue!50] (intermediate) [right=of precursor] {Intermediate compound};
+\node[pro block,fill=green!50] (product) [right=of intermediate] {Product};
+
+% edges joining pre and pro.
+\draw[-stealth,thick] (precursor) -- node[above] (enza) {\textit{enz} a} (intermediate);
+\draw[-stealth,thick] (intermediate) -- node[above] (enzb) {\textit{enz} b} (product);
+
+\node[%gene block,
+  above=2cm of enza] (geneA) {Gene A};
+\node[%gene block,
+  above=2cm of enzb] (geneB) {Gene B};
+
+\node[
+  above=of enza,
+  % draw,
+  rectangle,
+  minimum height=0.5cm,
+  minimum width=1.75cm,inner sep=1pt,text=black,path picture={
+  \node[centered] at (path picture bounding box.center) {
+  \includegraphics[width=2cm]{double\_hellix.pdf}
+  };
+}]
+(geneA) {};
+
+\node[
+  above=of enzb,
+  % draw,
+  rectangle,
+  minimum height=0.5cm,
+  minimum width=1cm,inner sep=1pt,text=black,path picture={
+  \node[centered] at (path picture bounding box.center) {
+  \includegraphics[width=2cm]{double\_hellix.pdf}
+  };
+}] 
+(geneB) {};
+
+
+\draw[gene2enzyme edge] (geneA) -- node[right] {aa} (enza);
+\draw[gene2enzyme edge] (geneB) -- node[right] {bb} (enzb);
+
+\end{tikzpicture}
+
+\end{document}

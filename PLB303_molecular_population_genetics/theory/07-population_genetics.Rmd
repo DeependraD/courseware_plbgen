@@ -27,6 +27,7 @@ classoption: "aspectratio=169" # "compressed"
 bibliography: [./../bibliographies.bib]
 header-includes: 
   - \AtBeginSubsection{}
+  - \usepackage{pst-poker}
 ---
 
 ```{r setup, include=FALSE}
@@ -50,6 +51,8 @@ theme_set(theme_bw())
 # Evolution and evidences
 
 ## Introduction to key terms
+
+<!-- Refer to media file "Phylogenetic trees - back to basics" for a full length discourse on the topic. -->
 
 \footnotesize
 
@@ -174,6 +177,26 @@ knitr::include_graphics("../images/vestigeal_traits_coccyx_arrector_pili.png")
 \end{columns}
 
 # Populations structure, stratification and evolution by natural selection
+
+## Human population genetics -- Useful numbers
+
+<!-- Jonathan Pritchard -->
+<!-- https://ecoevo.social/@jkpritch/109542237247291995 -->
+
+\bcolumns
+\column{0.5\textwidth}
+
+```{r useful-numbers1, fig.align='center', out.width="70%"}
+knitr::include_graphics("../images/useful_numbers_human_pop_gen1.jpg")
+```
+
+\column{0.5\textwidth}
+
+```{r useful-numbers2, fig.align='center', out.width="70%"}
+knitr::include_graphics("../images/useful_numbers_human_pop_gen2.jpg")
+```
+
+\ecolumns
 
 ## Natural population
 

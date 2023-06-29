@@ -39,13 +39,11 @@
 % Title page
 \setbeamertemplate{title page}
 {\placefig{-0.01}{-0.01}{width=1.01\paperwidth,height=1.01\paperheight}{falcon.png}
-% \begin{textblock}{7.5}(1,2.8)\usebeamerfont{title} % original
-\begin{textblock}{15}(1,2.2)\usebeamerfont{title}
+\begin{textblock}{7.5}(1,2.8)\usebeamerfont{title}
 {\color{white}\raggedright\par\inserttitle}
 \end{textblock}
-\begin{textblock}{10}(1,6)
-\small
-{\color{white}\raggedright{\insertauthor}\mbox{}\\[0.1cm]
+\begin{textblock}{7.5}(1,7)
+{\color{white}\raggedright{\insertauthor}\mbox{}\\[0.2cm]
 \insertdate}
 \end{textblock}}
 
@@ -162,12 +160,20 @@
   \definecolor{skyblued}{rgb}{0.65, 0.6, 0.94}
   \definecolor{oranged}{RGB}{245, 145, 200}
 
+  % \newlength{\cslhangindent}
+  % \setlength{\cslhangindent}{1.5em}
+  % \newenvironment{cslreferences}%
+  %   {\setlength{\parindent}{0pt}%
+  %   \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
+  %   {\par}
+    
   \newlength{\cslhangindent}
   \setlength{\cslhangindent}{1.5em}
-  \newenvironment{cslreferences}%
-    {\setlength{\parindent}{0pt}%
-    \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
-    {\par}
+  \newenvironment{CSLReferences}%
+  {\setlength{\parindent}{0pt}%
+  \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
+  {\par}
+  \AtBeginSubsection{}
 
   \title[]{Quantitative genetics}
 
@@ -489,7 +495,7 @@ F_I &= P(x \sim y)\times P(w \sim z) \times P(z \sim y) \\
   2, and 1.5 units to the phenotypic value, respectively:
 \end{itemize}
 
-\begin{center}\includegraphics[width=0.3\linewidth]{../images/overdominance_theory} \end{center}
+\begin{center}\includegraphics[width=0.35\linewidth]{../images/overdominance_theory} \end{center}
 \end{frame}
 
 \begin{frame}{Biometrics of heterosis}
@@ -1067,8 +1073,8 @@ ABCD & \cellcolor[HTML]{802acc}{aAbBcCdD} & \cellcolor[HTML]{802acc}{aAbBcCDD} &
 \section{Heritability (Brown, Caligari, and Campos
 2014)}\label{heritability-brown2014plantbreeding}}
 
-\begin{frame}{Meaning}
-\protect\hypertarget{meaning}{}
+\begin{frame}{}
+\protect\hypertarget{section-16}{}
 \begin{itemize}
 \tightlist
 \item
@@ -1231,7 +1237,7 @@ h_b^2 = \frac{\frac{1}{2}V_A + \frac{1}{4}V_D}{\frac{1}{2}V_A + \frac{1}{4}V_D +
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-16}{}
+\protect\hypertarget{section-17}{}
 In simple terms, to estimate the \(h_b^2\) of \(F_2\) family (or any
 other segregating family), only following estimates are required:
 
@@ -1286,7 +1292,7 @@ esimate of the \(\sigma_E^2\) is therefore:
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-17}{}
+\protect\hypertarget{section-18}{}
 And, therefore,
 
 \[
@@ -1326,7 +1332,7 @@ families (\(\sigma_{\bar{B_1}}^2\) and \(\sigma_{\bar{B_2}}^2\)).
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-18}{}
+\protect\hypertarget{section-19}{}
 The expected variances of \(\sigma_{\bar{B_1}}^2\) and
 \(\sigma_{\bar{B_2}}^2\) are:
 
@@ -1346,7 +1352,7 @@ equations,
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-19}{}
+\protect\hypertarget{section-20}{}
 From the relationship we addressed earlier of \(\sigma_{\bar{F_2}}^2\)
 in terms of variance components, provided that numerical values for
 \(\sigma_{\bar{B_1}}^2\) and \(\sigma_{\bar{B_2}}^2\) can be estimated,
@@ -1438,7 +1444,7 @@ h_{ns}^2 &= \frac{V_A}{V_P}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-20}{}
+\protect\hypertarget{section-21}{}
 \begin{itemize}
 \tightlist
 \item
@@ -1452,14 +1458,24 @@ h_{ns}^2 &= 2b
 \end{aligned}
 \]
 
-\(b\) = slope of parent offspring regression line
+\begin{itemize}
+\tightlist
+\item
+  Where,
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \(b\) = slope of parent offspring regression line
+  \end{itemize}
+\end{itemize}
 \end{frame}
 
 \hypertarget{numerical-problems}{%
 \section{Numerical problems}\label{numerical-problems}}
 
 \begin{frame}{}
-\protect\hypertarget{section-21}{}
+\protect\hypertarget{section-22}{}
 \begin{enumerate}
 \item
   Two pure lines of rice are crossed. In the \(F_1\) the variance in
@@ -1476,7 +1492,7 @@ h_{ns}^2 &= 2b
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-22}{}
+\protect\hypertarget{section-23}{}
 \begin{enumerate}
 \setcounter{enumi}{2}
 \tightlist
@@ -1506,7 +1522,7 @@ Mid parent value (X) & Individual offspring (Y)\\
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-23}{}
+\protect\hypertarget{section-24}{}
 \begin{enumerate}
 \setcounter{enumi}{3}
 \tightlist
@@ -1543,11 +1559,12 @@ term & estimate & std.error & statistic & p.value\\
 \begin{frame}{References}
 \protect\hypertarget{references}{}
 \hypertarget{refs}{}
-\begin{cslreferences}
-\leavevmode\hypertarget{ref-brown2014plantbreeding}{}%
+\begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-brown2014plantbreeding}{}}%
 Brown, Jack, Peter Caligari, and Hugo Campos. 2014. \emph{Plant
 Breeding}. Wiley Blackwell.
-\end{cslreferences}
+
+\end{CSLReferences}
 \end{frame}
 
 

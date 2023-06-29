@@ -39,13 +39,11 @@
 % Title page
 \setbeamertemplate{title page}
 {\placefig{-0.01}{-0.01}{width=1.01\paperwidth,height=1.01\paperheight}{rhinocerousbeetle.jpg}
-% \begin{textblock}{7.5}(1,2.8)\usebeamerfont{title} % original
-\begin{textblock}{15}(1,2.2)\usebeamerfont{title}
+\begin{textblock}{7.5}(1,2.8)\usebeamerfont{title}
 {\color{white}\raggedright\par\inserttitle}
 \end{textblock}
-\begin{textblock}{10}(1,6)
-\small
-{\color{white}\raggedright{\insertauthor}\mbox{}\\[0.1cm]
+\begin{textblock}{7.5}(1,7)
+{\color{white}\raggedright{\insertauthor}\mbox{}\\[0.2cm]
 \insertdate}
 \end{textblock}}
 
@@ -162,24 +160,39 @@
   \definecolor{skyblued}{rgb}{0.65, 0.6, 0.94}
   \definecolor{oranged}{RGB}{245, 145, 200}
 
+  % \newlength{\cslhangindent}
+  % \setlength{\cslhangindent}{1.5em}
+  % \newenvironment{cslreferences}%
+  %   {\setlength{\parindent}{0pt}%
+  %   \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
+  %   {\par}
+    
   \newlength{\cslhangindent}
   \setlength{\cslhangindent}{1.5em}
-  \newenvironment{cslreferences}%
-    {\setlength{\parindent}{0pt}%
-    \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
-    {\par}
+  \newenvironment{CSLReferences}%
+  {\setlength{\parindent}{0pt}%
+  \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
+  {\par}
+
+  \newcommand{\bcolumns}{\begin{columns}[T, onlytextwidth]}
+  \newcommand{\ecolumns}{\end{columns}}
+
+  \newcommand{\bdescription}{\begin{description}}
+  \newcommand{\edescription}{\end{description}}
+
+  \newcommand{\bitemize}{\begin{itemize}}
+  \newcommand{\eitemize}{\end{itemize}}
+  \AtBeginSubsection{}
 
   \title[]{Combining ability analysis}
 
 
   \author[
         Deependra Dhakal\\
-College of Natural Resource Management\\
 Agriculture and Forestry University\\
 \textit{ddhakal.rookie@gmail.com}\\
 \url{https://rookie.rbind.io}
     ]{Deependra Dhakal\\
-College of Natural Resource Management\\
 Agriculture and Forestry University\\
 \textit{ddhakal.rookie@gmail.com}\\
 \url{https://rookie.rbind.io}}
@@ -722,16 +735,16 @@ data}\label{example-fabricated-diallel-cross-data}}
 Parents & P1 & P2 & P3 & P4 & P5 & P6 & P7 & P8 & P9 & P10\\
 \midrule
 \textbf{\cellcolor{gray!6}{P1}} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{}\\
-\textbf{P2} & 2.8 &  &  &  &  &  &  &  &  & \\
-\textbf{\cellcolor{gray!6}{P3}} & \cellcolor{gray!6}{2.1} & \cellcolor{gray!6}{2.0} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{}\\
-\textbf{P4} & 2.3 & 3.8 & 1.12 &  &  &  &  &  &  & \\
-\textbf{\cellcolor{gray!6}{P5}} & \cellcolor{gray!6}{3.4} & \cellcolor{gray!6}{4.4} & \cellcolor{gray!6}{1.80} & \cellcolor{gray!6}{5.0} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{}\\
+\textbf{P2} & 2.64 &  &  &  &  &  &  &  &  & \\
+\textbf{\cellcolor{gray!6}{P3}} & \cellcolor{gray!6}{3.30} & \cellcolor{gray!6}{4.9} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{}\\
+\textbf{P4} & -0.69 & 8.2 & 5.7 &  &  &  &  &  &  & \\
+\textbf{\cellcolor{gray!6}{P5}} & \cellcolor{gray!6}{0.13} & \cellcolor{gray!6}{5.4} & \cellcolor{gray!6}{5.9} & \cellcolor{gray!6}{6.4} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{}\\
 \addlinespace
-\textbf{P6} & 3.6 & 3.2 & 0.55 & 6.3 & 3.8 &  &  &  &  & \\
-\textbf{\cellcolor{gray!6}{P7}} & \cellcolor{gray!6}{2.3} & \cellcolor{gray!6}{2.5} & \cellcolor{gray!6}{2.00} & \cellcolor{gray!6}{4.6} & \cellcolor{gray!6}{3.4} & \cellcolor{gray!6}{3.1} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{}\\
-\textbf{P8} & 2.7 & 2.9 & 0.89 & 2.4 & 2.1 & 4.4 & 4.9 &  &  & \\
-\textbf{\cellcolor{gray!6}{P9}} & \cellcolor{gray!6}{3.1} & \cellcolor{gray!6}{3.5} & \cellcolor{gray!6}{2.11} & \cellcolor{gray!6}{0.9} & \cellcolor{gray!6}{3.6} & \cellcolor{gray!6}{3.8} & \cellcolor{gray!6}{5.3} & \cellcolor{gray!6}{3.9} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{}\\
-\textbf{P10} & 4.9 & 5.8 & 2.16 & 3.4 & 7.1 & 6.8 & 3.8 & 4.0 & 2.9 & \\
+\textbf{P6} & -0.21 & 2.9 & 4.6 & 2.9 & 2.38 &  &  &  &  & \\
+\textbf{\cellcolor{gray!6}{P7}} & \cellcolor{gray!6}{0.33} & \cellcolor{gray!6}{2.4} & \cellcolor{gray!6}{5.3} & \cellcolor{gray!6}{4.2} & \cellcolor{gray!6}{1.72} & \cellcolor{gray!6}{0.57} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{}\\
+\textbf{P8} & 3.70 & 2.1 & 5.0 & 4.2 & 0.13 & 2.99 & 5.3 &  &  & \\
+\textbf{\cellcolor{gray!6}{P9}} & \cellcolor{gray!6}{3.94} & \cellcolor{gray!6}{6.0} & \cellcolor{gray!6}{5.4} & \cellcolor{gray!6}{7.6} & \cellcolor{gray!6}{3.39} & \cellcolor{gray!6}{0.35} & \cellcolor{gray!6}{6.2} & \cellcolor{gray!6}{4.2} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{}\\
+\textbf{P10} & 1.83 & 5.2 & 5.2 & 5.6 & 4.26 & 0.47 & 3.8 & 3.4 & 3.1 & \\
 \bottomrule
 \end{longtable}
 \endgroup{}
@@ -758,19 +771,19 @@ individual parents' sum and grand total is shown in the Table
 \toprule
 Parents & Line total\\
 \midrule
-\textbf{\cellcolor{gray!6}{P1}} & \cellcolor{gray!6}{27}\\
-\textbf{P2} & 31\\
-\textbf{\cellcolor{gray!6}{P3}} & \cellcolor{gray!6}{15}\\
-\textbf{P4} & 30\\
-\textbf{\cellcolor{gray!6}{P5}} & \cellcolor{gray!6}{35}\\
+\textbf{\cellcolor{gray!6}{P1}} & \cellcolor{gray!6}{15}\\
+\textbf{P2} & 40\\
+\textbf{\cellcolor{gray!6}{P3}} & \cellcolor{gray!6}{45}\\
+\textbf{P4} & 44\\
+\textbf{\cellcolor{gray!6}{P5}} & \cellcolor{gray!6}{30}\\
 \addlinespace
-\textbf{P6} & 36\\
-\textbf{\cellcolor{gray!6}{P7}} & \cellcolor{gray!6}{32}\\
-\textbf{P8} & 28\\
-\textbf{\cellcolor{gray!6}{P9}} & \cellcolor{gray!6}{29}\\
-\textbf{P10} & 41\\
+\textbf{P6} & 17\\
+\textbf{\cellcolor{gray!6}{P7}} & \cellcolor{gray!6}{30}\\
+\textbf{P8} & 31\\
+\textbf{\cellcolor{gray!6}{P9}} & \cellcolor{gray!6}{40}\\
+\textbf{P10} & 33\\
 \addlinespace
-\textbf{\cellcolor{gray!6}{Total}} & \cellcolor{gray!6}{303}\\
+\textbf{\cellcolor{gray!6}{Total}} & \cellcolor{gray!6}{325}\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -782,16 +795,17 @@ Parents & Line total\\
 \begin{frame}{References}
 \protect\hypertarget{references}{}
 \hypertarget{refs}{}
-\begin{cslreferences}
-\leavevmode\hypertarget{ref-brown2014plantbreeding}{}%
+\begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-brown2014plantbreeding}{}}%
 Brown, Jack, Peter Caligari, and Hugo Campos. 2014. \emph{Plant
 Breeding}. Wiley Blackwell.
 
-\leavevmode\hypertarget{ref-sprague1942general}{}%
-Sprague, George F, and Loyd A Tatum. 1942. ``General Vs. Specific
-Combining Ability in Single Crosses of Corn 1.'' \emph{Agronomy Journal}
-34 (10): 923--32.
-\end{cslreferences}
+\leavevmode\vadjust pre{\hypertarget{ref-sprague1942general}{}}%
+Sprague, George F, and Loyd A Tatum. 1942. {``General Vs. Specific
+Combining Ability in Single Crosses of Corn 1.''} \emph{Agronomy
+Journal} 34 (10): 923--32.
+
+\end{CSLReferences}
 \end{frame}
 
 

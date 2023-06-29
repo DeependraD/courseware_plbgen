@@ -1,0 +1,209 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{multicol}
+\usepackage{enumitem}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Assignment on Biotechnology and Biodiversity (BIT 401), 2079},
+  pdfauthor={Deependra Dhakal},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Assignment on Biotechnology and Biodiversity (BIT 401), 2079}
+\author{Deependra Dhakal}
+\date{March 31 2023}
+
+\begin{document}
+\maketitle
+
+\hypertarget{task}{%
+\section{Task}\label{task}}
+
+Construct a database of ``Genetic diversity of wild and related species/genera of important cultivated crops with notes on molecular genetic studies''.
+
+\hypertarget{guidelines}{%
+\section{Guidelines}\label{guidelines}}
+
+\begin{itemize}
+\item
+  Database need to be submitted in `xlsx' (Microsoft excel) and ``pdf'' format. (Both contain same data, but `pdf' version may be polished to look better. Graphs may be included in the `pdf' version.)
+\item
+  Each row displays extended information about the relevant ``Lower taxa'' or ``taxa identifier''.
+\item
+  Database should (at the minimum contain) following attributes (columns) of information\footnote{Attributes in \textbf{Boldface} deserve citation of each information with corresponding reference in the ``References'' column.}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    SN
+  \item
+    Crop
+  \item
+    Scientific name
+  \item
+    Family
+  \item
+    Higher taxa 1
+  \item
+    Higher taxa notes
+  \item
+    Lower taxa 1 (Subspecies/Landrace/Variety/Population/Genotype/Cultivar/\ldots)
+  \item
+    Lower taxa 2 (Subspecies/Landrace/Variety/Population/Genotype/Cultivar/\ldots)
+  \item
+    Lower taxa notes
+  \item
+    Geographical distribution
+  \item
+    Nomenclature synonyms
+  \item
+    Nomenclature references
+  \item
+    \textbf{Major characters relevant for use in crop improvement}
+  \item
+    Number of chromosomes
+  \item
+    Genome constitution
+  \item
+    \textbf{Ancestry/Evolutionary relationship with cultivated species group}
+  \item
+    \textbf{Notes on genome (ploidy, domestication process)}
+  \item
+    \textbf{Major findings and references for genetic studies}
+  \item
+    \textbf{Notes about specific genes and its functions}
+  \item
+    References
+  \end{itemize}
+\item
+  Crops
+
+  \begin{multicols}{2}
+  \begin{enumerate}[noitemsep,topsep=0pt]
+  \item Rice
+  \item Wheat
+  \item Maize
+  \item Fingermillet
+  \item Minor millets
+  \item Buckwheat
+  \item Barley
+  \item Soybean
+  \item Blackgram
+  \item Lentil
+  \item Groundnut
+  \item Pea
+  \item Chickpea
+  \item Pigeonpea
+  \item Potato
+  \item Sugarcane
+  \item Jute
+  \item Cotton
+  \item Brassica (with focus on rapeseed, broad leaf mustard and radish)
+  \item Sunflower
+  \item Sesame
+  \item Tea
+  \item Coffee
+  \item Chilly/pepper
+  \item Tomato
+  \item Garlic
+  \item Onion
+  \item Taro
+  \item Mango
+  \item Apple
+  \item Banana
+  \item Grape
+  \item Pear
+  \item Citruses
+  \item Pomegranate
+  \item Chestnut
+  \item Strawberry
+  \item Raspberries and blueberries
+  \item Guava
+  \item Pumpkin
+  \item Carrot
+  \item Cucumber
+  \item Gourds (Bottlegourd, spongegourd, bittergourd, pointedgourd, snakegourd)
+  \item Amaranthus
+  \item Oat
+  \end{enumerate}
+  \end{multicols}
+\item
+  Maintain the image (self photographed or acquired from the internet, of high quality: \textgreater400x400 pixels and \textless1200x1200) of respective variant in distinct folder for each crop whenever possible. Rename image file to include identification of corresponding taxa under which it's description is recorded.
+\end{itemize}
+
+\hypertarget{allotment}{%
+\subsection{Allotment}\label{allotment}}
+
+Each student is required to explore a unique crop, maintain a database information on it. The allotment of crop to student is made in random.
+
+\hypertarget{assignment-due-and-submission}{%
+\subsection{Assignment due and submission}\label{assignment-due-and-submission}}
+
+The assignment is due April 15, 2023 (12:00 PM). It is required to be submitted through email (\href{mailto:ddhakal.rookie@gmail.com}{\nolinkurl{ddhakal.rookie@gmail.com}}). Each assignment should accompany an xlsx file, a pdf file and a zip file (contains all the properly named images collected). A template `xlsx' file called `database\_template.xlsx' to be completed for each crop is provided herewith. While submitting over the email the `xlsx' file should be named `student\_name-database-cropname.xlsx' (for example: `john\_doe-database-mustard.xlsx'), the `pdf' file should be named `student\_name-database-cropname\_extended.pdf' and the `zip' file should be named `student\_name-database-cropname-images.zip'.
+
+\end{document}

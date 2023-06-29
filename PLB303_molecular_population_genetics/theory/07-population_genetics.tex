@@ -39,13 +39,11 @@
 % Title page
 \setbeamertemplate{title page}
 {\placefig{-0.01}{-0.01}{width=1.01\paperwidth,height=1.01\paperheight}{carlzimmerobesity.png}
-% \begin{textblock}{7.5}(1,2.8)\usebeamerfont{title} % original
-\begin{textblock}{15}(1,2.2)\usebeamerfont{title}
+\begin{textblock}{7.5}(1,2.8)\usebeamerfont{title}
 {\color{white}\raggedright\par\inserttitle}
 \end{textblock}
-\begin{textblock}{10}(1,6)
-\small
-{\color{white}\raggedright{\insertauthor}\mbox{}\\[0.1cm]
+\begin{textblock}{7.5}(1,7)
+{\color{white}\raggedright{\insertauthor}\mbox{}\\[0.2cm]
 \insertdate}
 \end{textblock}}
 
@@ -162,12 +160,20 @@
   \definecolor{skyblued}{rgb}{0.65, 0.6, 0.94}
   \definecolor{oranged}{RGB}{245, 145, 200}
 
+  % \newlength{\cslhangindent}
+  % \setlength{\cslhangindent}{1.5em}
+  % \newenvironment{cslreferences}%
+  %   {\setlength{\parindent}{0pt}%
+  %   \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
+  %   {\par}
+    
   \newlength{\cslhangindent}
   \setlength{\cslhangindent}{1.5em}
-  \newenvironment{cslreferences}%
-    {\setlength{\parindent}{0pt}%
-    \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
-    {\par}
+  \newenvironment{CSLReferences}%
+  {\setlength{\parindent}{0pt}%
+  \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
+  {\par}
+  \AtBeginSubsection{}
 
   \title[]{Population genetics}
 
@@ -334,7 +340,7 @@ Vertebrates are the least diverse group; however, most vertebrates still possess
 \column{0.42\textwidth}
 
 \begin{figure}[h]
-\includegraphics[width=0.7\linewidth]{../images/sequence_homology_variation_g6pd} \caption{Nucleotide variation for 5102 bp of the G6PD gene for a worldwide sample of 47 men. Only the 18 variable sites are shown. The functional allele classes (A-, A+, or B) is shown for each sequence. SNP2 is a non-sysnomymous SNP that causes a valine-to-methionine change that underlies differences in enzyme activity associated with the A- allele. SNP3 is a nonsynomymous SNP that causes an aspartic-acid-to-asparagine amino acid change. (Data from M.A. Saunders et al., Genetics 162, 2002, 1849-1861)}\label{fig:sequence-homology-g6pd-locus}
+\includegraphics[width=0.68\linewidth]{../images/sequence_homology_variation_g6pd} \caption{Nucleotide variation for 5102 bp of the G6PD gene for a worldwide sample of 47 men. Only the 18 variable sites are shown. The functional allele classes (A-, A+, or B) is shown for each sequence. SNP2 is a non-sysnomymous SNP that causes a valine-to-methionine change that underlies differences in enzyme activity associated with the A- allele. SNP3 is a nonsynomymous SNP that causes an aspartic-acid-to-asparagine amino acid change. (Data from M.A. Saunders et al., Genetics 162, 2002, 1849-1861)}\label{fig:sequence-homology-g6pd-locus}
 \end{figure}
 
 \end{columns}
@@ -407,7 +413,7 @@ selection}\label{populations-structure-stratification-and-evolution-by-natural-s
 \fontsize{8}{10}\selectfont
 \begin{tabular}[t]{rrr}
 \toprule
-Total Female Births & Survivors After 1Mo & Dead At 1Mo\\
+Total Female Births & Survivors After 1mo & Dead At 1mo\\
 \midrule
 6693 & 6419 & 274\\
 \bottomrule
@@ -1730,18 +1736,19 @@ fitness and frequency \(w_{i}\) and \(p_{i}\) respectively.
 \begin{frame}{References}
 \protect\hypertarget{references}{}
 \hypertarget{refs}{}
-\begin{cslreferences}
-\leavevmode\hypertarget{ref-khadka2020population}{}%
+\begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-khadka2020population}{}}%
 Khadka, Kamal, Davoud Torkamaneh, Mina Kaviani, Francois Belzile, Manish
-N Raizada, and Alireza Navabi. 2020. ``Population Structure of Nepali
-Spring Wheat (Triticum Aestivum L.) Germplasm.'' \emph{BMC Plant
+N Raizada, and Alireza Navabi. 2020. {``Population Structure of Nepali
+Spring Wheat (Triticum Aestivum l.) Germplasm.''} \emph{BMC Plant
 Biology} 20 (1): 1--12.
 
-\leavevmode\hypertarget{ref-varshney2007application}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-varshney2007application}{}}%
 Varshney, Rajeev K, Peter Langridge, and Andreas Graner. 2007.
-``Application of Genomics to Molecular Breeding of Wheat and Barley.''
+{``Application of Genomics to Molecular Breeding of Wheat and Barley.''}
 \emph{Advances in Genetics} 58: 121--55.
-\end{cslreferences}
+
+\end{CSLReferences}
 \end{frame}
 
 

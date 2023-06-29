@@ -2,7 +2,6 @@
 title: "Genotype by environment interaction"
 author: |
   | Deependra Dhakal
-  | College of Natural Resource Management
   | Agriculture and Forestry University
   | \textit{ddhakal.rookie@gmail.com}
   | \url{https://rookie.rbind.io}
@@ -51,6 +50,12 @@ theme_set(theme_bw())
 - Genotype $A$ environment ($G \times E$) interaction is said to occur when two or more genotypes are compared across different environments and their relative performances (responses to the environment) found to differ. That is, one cultivar may have the highest performance in one environment but perform poorly in others. 
 - $G \times E$ is a differential genotypic expression across multiple environments.
 - The effect of this interaction is that the association between phenotype and genotype is reduced.
+
+<!-- - Refer to youtube videos (available in `media/` directory): -->
+<!--   - Heterogeneity -->
+<!--   - Heterogeneity Gene x Environment Interaction I -->
+<!--   - Heterogeneity Gene x Environment Interaction II -->
+<!--   - Nicolas Morales: Stability of traits across environments using image phenotyping and genotyping -->
 
 ## Classification of $G \times E$
 

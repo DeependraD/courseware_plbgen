@@ -40,13 +40,11 @@
 % Title page
 \setbeamertemplate{title page}
 {\placefig{-0.01}{-0.01}{width=1.01\paperwidth,height=1.01\paperheight}{barleyfloret.jpg}
-% \begin{textblock}{7.5}(1,2.8)\usebeamerfont{title} % original
-\begin{textblock}{15}(1,2.2)\usebeamerfont{title}
+\begin{textblock}{7.5}(1,2.8)\usebeamerfont{title}
 {\color{white}\raggedright\par\inserttitle}
 \end{textblock}
-\begin{textblock}{10}(1,6)
-\small
-{\color{white}\raggedright{\insertauthor}\mbox{}\\[0.1cm]
+\begin{textblock}{7.5}(1,7)
+{\color{white}\raggedright{\insertauthor}\mbox{}\\[0.2cm]
 \insertdate}
 \end{textblock}}
 
@@ -65,6 +63,8 @@
 
 
 \newif\ifbibliography
+  \usepackage[round]{natbib}
+  \bibliographystyle{plainnat}
 
 
 \hypersetup{
@@ -163,27 +163,48 @@
   \definecolor{skyblued}{rgb}{0.65, 0.6, 0.94}
   \definecolor{oranged}{RGB}{245, 145, 200}
 
+  % \newlength{\cslhangindent}
+  % \setlength{\cslhangindent}{1.5em}
+  % \newenvironment{cslreferences}%
+  %   {\setlength{\parindent}{0pt}%
+  %   \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
+  %   {\par}
+    
+  \newlength{\cslhangindent}
+  \setlength{\cslhangindent}{1.5em}
+  \newenvironment{CSLReferences}%
+  {\setlength{\parindent}{0pt}%
+  \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
+  {\par}
+
+  \newcommand{\bcolumns}{\begin{columns}[T, onlytextwidth]}
+  \newcommand{\ecolumns}{\end{columns}}
+
+  \newcommand{\bdescription}{\begin{description}}
+  \newcommand{\edescription}{\end{description}}
+
+  \newcommand{\bitemize}{\begin{itemize}}
+  \newcommand{\eitemize}{\end{itemize}}
+  \AtBeginSubsection{}
+
   \title[]{The nature of gene}
 
 
   \author[
         Deependra Dhakal\\
-College of Natural Resource Management (AFU)\\
-Tikapur, Kailali\\
+Agriculture and Forestry University\\
 \textit{ddhakal.rookie@gmail.com}\\
 \url{https://rookie.rbind.io}
     ]{Deependra Dhakal\\
-College of Natural Resource Management (AFU)\\
-Tikapur, Kailali\\
+Agriculture and Forestry University\\
 \textit{ddhakal.rookie@gmail.com}\\
 \url{https://rookie.rbind.io}}
 
 
 \date[
-      Academic year: 2022-23
+      
   ]{
-      Academic year: 2022-23
-        }
+    }
 
 \begin{document}
 
@@ -229,25 +250,11 @@ Tikapur, Kailali\\
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Gene discovery to property analysis}
-\protect\hypertarget{gene-discovery-to-property-analysis}{}
-\begin{itemize}
-\tightlist
-\item
-  Assemble mutants affecting the biological property of interest.
-\item
-  Cross the mutants to wild type to see if their decendands show ratios
-  of wild to mutant that are characteristic of single-gene inheritance.
-\item
-  Deduce the functions of the gene at the molecular level.
-\item
-  Deduce how the gene interacts with other genes to produce the property
-  in question.
-\end{itemize}
-\end{frame}
+\begin{frame}{Approaches to gene identification}
+\protect\hypertarget{approaches-to-gene-identification}{}
+\bcolumns
+\column{0.5\textwidth}
 
-\begin{frame}{Defining field}
-\protect\hypertarget{defining-field}{}
 \begin{itemize}
 \tightlist
 \item
@@ -258,8 +265,17 @@ Tikapur, Kailali\\
 \item
   \textbf{Reverse genetics} starts with genomic analysis at the DNA
   level to identify a set of genes as candidates for encoding the
-  biological property of interest.
+  biological property of
+  interest\footnote[frame]{For a book chapter dedicated to Reverse genetics approaches, refer to \cite{gilchrist2013gene}.}.
 \end{itemize}
+
+\column{0.5\textwidth}
+
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{../images/gene_id_forward_genetics} \caption{Flowchart of forward genetics approach in gene identification. For an entire chapter dedicated to the approach, refer to \cite{ji2013gene}}\label{fig:forward-genetics}
+\end{figure}
+
+\ecolumns
 \end{frame}
 
 \hypertarget{nature-of-genetic-code}{%
@@ -294,8 +310,8 @@ Tikapur, Kailali\\
 \item
   They determined that the molecular structure of DNA was in the form of
   a double helix -- two strands of DNA wound side-by-side in a spiral.
-  Their structure of the double helix is like a twisted ladder
-  \ref{fig:twisted-ladder}.
+  Their structure of the double helix is like a twisted ladder (Figure
+  \ref{fig:twisted-ladder}).
 \item
   The sides of the ladder are made of sugar and phosphate groups. The
   rungs of the ladder are made of four bases: adenine (A), thymine (T),
@@ -389,81 +405,31 @@ protein ?}
 
 \begin{frame}{Central dogma of biology}
 \protect\hypertarget{central-dogma-of-biology}{}
+\bcolumns
+\column{0.6\textwidth}
+
 \begin{itemize}
 \tightlist
 \item
   The flow of genetic information in cells from DNA to mRNA to protein
-  is described by the Central Dogma\footnote<.->{States that genes
-    specify the sequence of mRNAs, which in turn specify the sequence of
-    proteins}.
+  is described by the Central Dogma.
 \item
   The decoding of one molecule to another is performed by specific
   proteins and RNAs.
 \item
   Because the information stored in DNA is so central to cellular
-  function, it makes intuitive sense that the cell would make mRNA
-  copies of this information for protein synthesis, while keeping the
-  DNA itself intact and protected.
-\item
-  The copying of DNA to RNA is relatively straightforward, with one
-  nucleotide being added to the mRNA strand for every nucleotide read in
-  the DNA strand.
+  function, it makes sense that the cell would make mRNA copies of this
+  information for protein synthesis, while keeping the DNA itself intact
+  and protected.
 \end{itemize}
-\end{frame}
 
-\begin{frame}{}
-\protect\hypertarget{section-2}{}
-\begin{itemize}
-\tightlist
-\item
-  The translation to protein is characterized by a universal routine of
-  three mRNA nucleotides corresponding to one amino acid in the
-  polypeptide sequence.
-\item
-  However, the translation to protein is still systematic and
-  colinear\footnote<.->{in terms of RNA and protein, three ``units'' of
-    RNA (nucleotides) specify one ``unit'' of protein (amino acid) in a
-    consecutive fashion}, such that nucleotides 1 to 3 correspond to
-  amino acid 1, nucleotides 4 to 6 correspond to amino acid 2, and so
-  on.
-\end{itemize}
-\end{frame}
+\column{0.4\textwidth}
 
-\begin{frame}{}
-\protect\hypertarget{section-3}{}
 \begin{figure}
-\includegraphics[width=0.24\linewidth]{./../images/central_dogma_genetics} \caption{The central dogma of biology}\label{fig:central-dogma}
+\includegraphics[width=0.6\linewidth]{./../images/central_dogma_genetics} \caption{The central dogma of biology}\label{fig:central-dogma}
 \end{figure}
-\end{frame}
 
-\begin{frame}{Genetic code: The search}
-\protect\hypertarget{genetic-code-the-search}{}
-\begin{itemize}
-\tightlist
-\item
-  Evidence first presented on its nature in 1961 by Francis Crick and
-  Sydney Brenner used the chemical mutagen proflavin to insert (+) or
-  delete (-) one, two, or three nucleotides into the gene of a virus.
-
-  \begin{itemize}
-  \tightlist
-  \item
-    When one or two nucleotides were inserted/deleted, protein synthesis
-    was completely abolished. When three nucleotides were
-    inserted/deleted, the protein was synthesized and functional.
-  \item
-    The insertion/deletion of one or two nucleotides completely changed
-    the triplet reading frame\footnote<.->{Reading frame: Sequence of
-      triplet codons in mRNA that specify a particular protein; a
-      ribosome shift of one or two nucleotides in either direction
-      completely abolishes synthesis of that protein}, thereby altering
-    the message for every subsequent amino acid.
-  \item
-    Insertion/deletion of three nucleotides caused an extra amino acid
-    to be inserted during translation, the integrity of the rest of the
-    protein was maintained.
-  \end{itemize}
-\end{itemize}
+\ecolumns
 \end{frame}
 
 \begin{frame}{Terminologies}
@@ -492,7 +458,7 @@ Term & Meaning\\
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-4}{}
+\protect\hypertarget{section-2}{}
 \begin{table}
 
 \caption{\label{tab:gene-terms2}Some terms applicable in the context of genetic code (...continued)}
@@ -517,6 +483,33 @@ Term & Meaning\\
 \end{table}
 \end{frame}
 
+\begin{frame}{Genetic code: The search}
+\protect\hypertarget{genetic-code-the-search}{}
+\begin{itemize}
+\tightlist
+\item
+  Evidence first presented on its nature in 1961 by Francis Crick and
+  Sydney Brenner used the chemical mutagen proflavin to insert (+) or
+  delete (-) one, two, or three nucleotides into the gene of a virus.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    When one or two nucleotides were inserted/deleted, protein synthesis
+    was completely abolished. When three nucleotides were
+    inserted/deleted, the protein was synthesized and functional.
+  \item
+    The insertion/deletion of one or two nucleotides completely changed
+    the triplet reading frame, thereby altering the message for every
+    subsequent amino acid.
+  \item
+    Insertion/deletion of three nucleotides caused an extra amino acid
+    to be inserted during translation, the integrity of the rest of the
+    protein was maintained.
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
 \begin{frame}{Nature: Code triplet}
 \protect\hypertarget{nature-code-triplet}{}
 \begin{itemize}
@@ -526,9 +519,8 @@ Term & Meaning\\
   ``alphabets,'' scientists theorized that combinations of nucleotides
   corresponded to single amino acids.
 \item
-  These nucleotide triplets are called codons\footnote<.->{Codons: Three
-    consecutive nucleotides in mRNA that specify the insertion of an
-    amino acid or the release of a polypeptide chain during translation}.
+  These nucleotide triplets are called
+  codons\footnote[frame]{Codons: Three consecutive nucleotides in mRNA that specify the insertion of an amino acid or the release of a polypeptide chain during translation}.
 \item
   Nucleotide doublets would not be sufficient to specify every amino
   acid because there are only 16 possible two-nucleotide combinations.
@@ -556,9 +548,8 @@ Term & Meaning\\
 \tightlist
 \item
   Scientists theorized that amino acids were encoded by nucleotide
-  triplets and that the genetic code was degenerate\footnote<.->{(of the
-    genetic code) describes that a given amino acid can be encoded by
-    more than one nucleotide triplet}.
+  triplets and that the genetic code was
+  degenerate\footnote[frame]{(of the genetic code) describes that a given amino acid can be encoded by more than one nucleotide triplet}.
 \item
   Scientists solved the genetic code by translating synthetic mRNAs in
   vitro and sequencing the proteins they specified
@@ -566,8 +557,9 @@ Term & Meaning\\
   In addition to instructing the addition of a specific amino acid to a
   polypeptide chain, three of the 64 codons terminate protein synthesis
   and release the polypeptide from the translation machinery. These
-  triplets are called nonsense codons\footnote<.->{one of the three mRNA
-    codons that specifies termination of translation}, or stop codons.
+  triplets are called nonsense
+  codons\footnote[frame]{one of the three mRNA codons that specifies termination of translation},
+  or stop codons.
 \item
   AUG codon has a special function.
 
@@ -596,13 +588,13 @@ Term & Meaning\\
 \item
   That there is only one genetic code is powerful evidence that all of
   life on Earth shares a common origin, especially considering that
-  there are about 10\^{}84 possible combinations of 20 amino acids and
-  64 triplet codons.
+  there are about \(10^{84}\) possible combinations of 20 amino acids
+  and 64 triplet codons.
 \end{itemize}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-5}{}
+\protect\hypertarget{section-3}{}
 \begin{figure}
 \includegraphics[width=0.45\linewidth]{./../images/nucleotide_codons} \caption{The genetic code is universal for all life forms}\label{fig:universality}
 \end{figure}
@@ -635,7 +627,7 @@ Term & Meaning\\
 \item
   With comma/commaless
 \item
-  Ambiguous/superfluous
+  Non-ambiguous
 \end{itemize}
 \end{frame}
 
@@ -694,33 +686,34 @@ Term & Meaning\\
 \tightlist
 \item
   A mutation in the gene encoding this enzyme may alter the amino acid
-  sequence in the vicinity of the enzyme's active sit. In this case, the
-  enzyme cannot bind phenylalanine or convert it into tyrosine.
+  sequence in the vicinity of the enzyme's active site. In this case,
+  the enzyme cannot bind phenylalanine or convert it into tyrosine.
 \item
-  Phenylalanine builds up and is insted converted into phenylpyruvic
+  Phenylalanine builds up and is instead converted into phenylpyruvic
   acid, this interferes with the development of the nervous system.
 \end{itemize}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-6}{}
+\protect\hypertarget{section-4}{}
 \begin{itemize}
 \tightlist
 \item
-  Mutations at different sites along the gene, mainly in the
-  protein-encoding regions, or the exons. They represent a range of DNA
-  changes, but most are small changes affecting only one nucleotide pair
-  among the thousands that constitute the gene.
+  Mutations occur at different sites along the gene. Functional
+  mutations are essentially those occurring in the protein-encoding
+  regions, or the exons. They represent a range of DNA changes, but most
+  are small changes affecting only one nucleotide pair among the
+  thousands that constitute the gene.
 \item
-  By changing one or more amino acids, the mutations all inactivate some
-  essential part of the protein encoded by the gene. The effect of the
-  mutation on the function of the gene depends on where within the gene
-  the mutation occurs.
+  By changing one or more amino acids, (non-synonymous) mutations
+  inactivate some essential part of the protein encoded by the gene. The
+  effect of the mutation on the function of the gene depends on where
+  within the gene the mutation occurs.
 \end{itemize}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-7}{}
+\protect\hypertarget{section-5}{}
 \begin{itemize}
 \tightlist
 \item
@@ -779,7 +772,7 @@ hypothesis}\label{one-gene-one-polypeptide-hypothesis}}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-8}{}
+\protect\hypertarget{section-6}{}
 \begin{itemize}
 \tightlist
 \item
@@ -816,7 +809,7 @@ hypothesis}\label{one-gene-one-polypeptide-hypothesis}}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-9}{}
+\protect\hypertarget{section-7}{}
 \begin{itemize}
 \tightlist
 \item
@@ -846,7 +839,7 @@ hypothesis}\label{one-gene-one-polypeptide-hypothesis}}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-10}{}
+\protect\hypertarget{section-8}{}
 \begin{itemize}
 \tightlist
 \item
@@ -903,7 +896,7 @@ hypothesis}\label{one-gene-one-polypeptide-hypothesis}}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-11}{}
+\protect\hypertarget{section-9}{}
 \begin{itemize}
 \tightlist
 \item
@@ -927,24 +920,24 @@ hypothesis}\label{one-gene-one-polypeptide-hypothesis}}
 ratios}\label{enzymatic-explanation-of-genetic-ratios}}
 
 \begin{frame}{}
-\protect\hypertarget{section-12}{}
+\protect\hypertarget{section-10}{}
 \begin{itemize}
 \tightlist
 \item
-  Enzyme controls biochemical reaction and the reaction produces
-  biochemical product which is responsible to final phenotype
-  expression. More precisely, enzyme is the product of gene.
+  An enzyme is a product of gene/s.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    A tertiary or quarternary form of polypeptide derived from
+    amino-acid units.
+  \end{itemize}
 \item
-  When a gene is transcribed into RNA and RNA is translated to a kind of
-  polypeptide.
+  Enzyme controls/catalyzes biochemical reaction and the reaction
+  produces biochemical product which is responsible to final phenotype
+  expression.
 \item
   So, phenotypic ratio is determined by the enzyme.
-\item
-  The polypeptide changes to proteins and enzymes.
-\item
-  Enzymes catalyze biochemical reactions.
-\item
-  A particular enzyme catalyzes a particular biochemical reaction(s).
 \end{itemize}
 \end{frame}
 
@@ -955,7 +948,7 @@ ratios}\label{enzymatic-explanation-of-genetic-ratios}}
 \item
   In inheritance of skin coloration in corn snakes, the phenotype is
   produced by two separate pigments. The snake's natural color is a
-  repeating black and orange camouflage pattern, as shown in figure
+  repeating black and orange camouflage pattern, as shown in Figure
   \ref{fig:gene-no-interaction1} (a).
 \item
   The phenotype is produced by two separate pigments, both of which are
@@ -973,7 +966,7 @@ ratios}\label{enzymatic-explanation-of-genetic-ratios}}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-13}{}
+\protect\hypertarget{section-11}{}
 \begin{figure}
 
 {\centering \includegraphics[width=0.42\linewidth]{./../images/gene_no_interaction} 
@@ -985,7 +978,7 @@ ratios}\label{enzymatic-explanation-of-genetic-ratios}}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-14}{}
+\protect\hypertarget{section-12}{}
 \begin{itemize}
 \tightlist
 \item
@@ -1011,7 +1004,7 @@ pathway)}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-15}{}
+\protect\hypertarget{section-13}{}
 \begin{columns}[T,onlytextwidth]
   \footnotesize
   \column{0.5\textwidth}
@@ -1028,7 +1021,7 @@ pathway)}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-16}{}
+\protect\hypertarget{section-14}{}
 \begin{itemize}
 \tightlist
 \item
@@ -1060,18 +1053,6 @@ pathway)}
 \end{itemize}
 \end{frame}
 
-\begin{frame}{}
-\protect\hypertarget{section-17}{}
-\begin{figure}
-
-{\centering \includegraphics[width=0.5\linewidth]{./../images/gene_same_pathway2} 
-
-}
-
-\caption{Molecular basis of gene complementation.}\label{fig:gene-in-same-pathway2}
-\end{figure}
-\end{frame}
-
 \begin{frame}{The 9:3:4 ratio: recessive epistasis}
 \protect\hypertarget{the-934-ratio-recessive-epistasis}{}
 \begin{itemize}
@@ -1083,12 +1064,6 @@ pathway)}
   interaction is called epistasis.
 \item
   Epistasis means stand upon.
-\item
-  Epistasis should not be confused with dominance. Epistasis is the
-  interaction between different genes located in different loci.
-\item
-  Dominance is the intraallelic interaction between different alleles of
-  the same gene.
 \item
   Double mutants show the phenotype of one mutation but not the other.
 \item
@@ -1105,7 +1080,7 @@ pathway)}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-18}{}
+\protect\hypertarget{section-15}{}
 \[
 \begin{aligned}
 & & w/w; m^+/m^+ (\text{white}) & \times w^+/w^+; m/m (\text{magenta}) &\\
@@ -1126,7 +1101,7 @@ pathway)}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-19}{}
+\protect\hypertarget{section-16}{}
 \begin{figure}
 
 {\centering \includegraphics[width=0.3\linewidth]{./../images/recessive_epistasis} 
@@ -1138,7 +1113,7 @@ pathway)}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-20}{}
+\protect\hypertarget{section-17}{}
 \begin{block}{}
 Epistasis is inferred when a mutant allele of one gene masks the expression of a mutant allele of another gene and expresses its own phenotype instead.
 \end{block}
@@ -1178,22 +1153,34 @@ Epistasis is inferred when a mutant allele of one gene masks the expression of a
 \item
   The two genes are unlinked.
 \item
-  One gene affects the intensity of red pigment in the petal, allele
-  \emph{d} results in the light red color seen in natural populations of
-  foxgloves, whereas \emph{D} is a mutant allele that produces dark red
-  color.
+  One gene affects the intensity of red pigment in the petal,
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{d} results in the light red color seen in natural populations
+  \item
+    \emph{D} is a mutant allele that produces dark red color.
+  \end{itemize}
 \item
   Other gene determines in which cells the pigment is synthesized,
-  allele \emph{w} allows synthesis of the pigment throughout the petals
-  as in the wild type, but the mutant allele \emph{W} confines pigment
-  synthesis to the small throat spots.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{w} allows synthesis of the pigment throughout the petals as in
+    the wild type,
+  \item
+    \emph{W} is a mutant allele that confines pigment synthesis to the
+    small throat spots.
+  \end{itemize}
 \item
   Selfing of dihybrid shows:
 \end{itemize}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-21}{}
+\protect\hypertarget{section-18}{}
 \[
 \begin{aligned}
 & \left\{
@@ -1209,7 +1196,7 @@ Epistasis is inferred when a mutant allele of one gene masks the expression of a
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-22}{}
+\protect\hypertarget{section-19}{}
 \begin{figure}
 
 {\centering \includegraphics[width=0.4\linewidth]{./../images/dominant_epistasis} 
@@ -1266,7 +1253,7 @@ Epistasis is inferred when a mutant allele of one gene masks the expression of a
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-23}{}
+\protect\hypertarget{section-20}{}
 \begin{itemize}
 \tightlist
 \item
@@ -1297,7 +1284,7 @@ Epistasis is inferred when a mutant allele of one gene masks the expression of a
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-24}{}
+\protect\hypertarget{section-21}{}
 \begin{figure}
 
 {\centering \includegraphics[width=0.4\linewidth]{./../images/molecular_basis_suppression} 
@@ -1339,7 +1326,7 @@ Epistasis is inferred when a mutant allele of one gene masks the expression of a
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-25}{}
+\protect\hypertarget{section-22}{}
 \begin{table}
 
 \caption{\label{tab:gene-modifieres}Progency characterization}
@@ -1363,22 +1350,13 @@ a.b & extremely defective (low transcription of defective protein)\\
   Hence the action of modifiers is seen in the appearance of two grades
   of mutant phenotypes \emph{within} the \(a\) progeny.
 \end{itemize}
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.35\linewidth]{./../images/gene_modification_ratios} 
-
-}
-
-\caption{Some modified $F_2$ ratios}\label{fig:gene-modification-ratios}
-\end{figure}
 \end{frame}
 
 \hypertarget{fine-structure-of-gene}{%
 \section{Fine structure of gene}\label{fine-structure-of-gene}}
 
 \begin{frame}{}
-\protect\hypertarget{section-26}{}
+\protect\hypertarget{section-23}{}
 \begin{itemize}
 \tightlist
 \item
@@ -1420,7 +1398,7 @@ a.b & extremely defective (low transcription of defective protein)\\
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-27}{}
+\protect\hypertarget{section-24}{}
 \begin{itemize}
 \tightlist
 \item
@@ -1477,7 +1455,7 @@ a.b & extremely defective (low transcription of defective protein)\\
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-28}{}
+\protect\hypertarget{section-25}{}
 \begin{itemize}
 \tightlist
 \item
@@ -1500,7 +1478,7 @@ a.b & extremely defective (low transcription of defective protein)\\
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-29}{}
+\protect\hypertarget{section-26}{}
 \begin{itemize}
 \tightlist
 \item
@@ -1527,7 +1505,7 @@ a.b & extremely defective (low transcription of defective protein)\\
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-30}{}
+\protect\hypertarget{section-27}{}
 \begin{itemize}
 \tightlist
 \item
@@ -1549,7 +1527,7 @@ a.b & extremely defective (low transcription of defective protein)\\
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-31}{}
+\protect\hypertarget{section-28}{}
 \begin{itemize}
 \tightlist
 \item
@@ -1606,7 +1584,7 @@ coli}}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-32}{}
+\protect\hypertarget{section-29}{}
 As distance between two mutant sites increases, such a crossover event
 is more likely. Thus, the frequency of \(rII^+\) recombinants is a
 measure of that distance within the gene. (The reciprocal product is a
@@ -1623,7 +1601,7 @@ visible outcome.
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-33}{}
+\protect\hypertarget{section-30}{}
 \begin{itemize}
 \tightlist
 \item
@@ -1660,7 +1638,7 @@ visible outcome.
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-34}{}
+\protect\hypertarget{section-31}{}
 \begin{itemize}
 \tightlist
 \item
@@ -1697,7 +1675,11 @@ visible outcome.
 \protect\hypertarget{references}{}
 \end{frame}
 
-
+          \begin{frame}[allowframebreaks]{}
+    \bibliographytrue
+    \bibliography{./../bibliographies.bib}
+    \end{frame}
+  
 
 
 \end{document}
