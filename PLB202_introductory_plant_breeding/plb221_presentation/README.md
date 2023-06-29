@@ -1,6 +1,10 @@
-# Building xaringan presentation
+## Course scheduling notes
 
-Presentations hosted in this repo are inspired from University of Sydney theme for xaringan (remark.js). In fact, much of the content is outright copied. An elaborate example and guide are packed here: http://garthtarr.github.io/sydney_xaringan
+- 
+
+## Interactive presentation build instructions
+
+Presentations hosted are inspired from University of Sydney theme for xaringan (remark.js). In fact, much of the content is outright copied. An elaborate example and guide are packed here: http://garthtarr.github.io/sydney_xaringan
 
 To get started you will likely need:
 

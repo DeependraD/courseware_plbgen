@@ -1,0 +1,43 @@
+"# Crop species improved by recurrent selection methods (adapted from Hallauer 1985, except indicated in References)",,,,
+,,,,
+Crop,Species,Method of reproduction,Selection method,Traits under selection
+Alfalfa,Medicago sativa L.,Allogamous,Mass,"Bacterial wilt resistance, pest resistance, flower traits, seed yield"
+,,,Half-sib,Pest resistance
+Annual ryegrass,Lolium multiflorum Lam.,Allogamous,Mass,Seed germination
+Barley,Hordeum vulgare L.,Autogamous,S0:1,Mineral content
+Maize,Zea mays L.,Allogamous,Mass,"Adaptation, ear length, CO2 exchange rate, stalk-crushing strength, corn borer resistance, yield"
+,,,Half-sib,"Lodging resistance, yield"
+,,,Within half-sib,Seed oil percentage
+,,,Full-sib,"Index, yield, allozymes"
+,,,S0:1,"Index, corn earworm resistance, yield, stalk quality, corn borer resistance"
+,,,S1:2,Yield
+Orchardgrass,Dactylis glomerata L.,Allogamous,Mass,"Rust resistance, purple leaf spot resistance"
+Pensacola bahiagrass,Paspalum notatum Parodi,Allogamous,Mass,Forage yield
+Red clover,Trifolium partense L.,Allogamous,Mass,"Stem length, aphid resistance"
+Sorghum,Sorghum bicolor (L.) Moench,Autogamous,Mass,"Seed weight, plant height, days to flower, seed protein percentage"
+Soybean,Glycine max (L.) Merr.,Autogamous,Mass,"Seed oil percentage, seed oleic acid percentage"
+,,,Within half-sib,Seed oil percentage
+,,,S0:1,"Yield, seed protein percentage, iron chlorosis resistance"
+Tall fescue,Festuca arundinacea Schreb.,Allogamous,Mass,Leaf area
+Tobacco,Nicotiana tabacum (L.),Autogamous,Mass,"Plant height, number of leaves, leaf weight, alkaloids, seedling weight, carotenoids"
+Wheat,Triticum aestivum (L.),Autogamous,Mass,"Early heading, seed set"
+,,,S0:1,"Kernel weight, seed protein percentage"
+Wild rice,Zizania palustris (L.),Allogamous,"Mass, half-sib",Seed shattering
+Carrot,Daucus carota L.; Stommel and simon 1989,,,
+Common bean,Phaseolus vulgaris L.; Miranda et al. 1987,,,
+Cotton,"Gossypium barbadense L.; El Agamy and Yousef 1980, Yousef and El Agamy 1980",,,
+Cotton,Gossypium hirsutum L.; Meredith and Bridge 1973,,,
+Grape,Vitis vinifera L.; Wagner et al. 1980,,,
+Oat,"Avena sativa L.; Bregitzer et al. 1987, Baltenberger et al. 1988, Branson and Frey 1989, McFerson and Frey 1991, Schipper and Frey 1991, McFerson and Frey 1992, Pomeranke and Stuthman 1992, Schipper and Frey 1992, De Koeyer et al. 1993, Klein et al. 1993, Reysack et al. 1993, Moser and Frey 1994",,,
+Pea,Pisum sativum L.; Lewis and Gritton 1992,,,
+Peanut,"Arachis hypogaea L.; Guok et al. 1986, Monteverde Penso and Wynne 1998, Halward and Wynne 1992",,,
+Pearl millet,"Pennisetum americanum (L.) Leeke; Banga and Phul 1986, Zaveri et al. 1989, Rattunde and Witcombe 1993, Lynch 1994",,,
+,Pennisetum typhoides (Burm. f.) L. C. Rich.; Khadr 1977,,,
+Perennial ryegrass,Lolium perenne L.,"Veronesi 1990, Charmet et al. 1993, Humphreys 1995",,
+Phaseolus species,Phaseolus spp.; Lyons et al. 1987,,,
+Cucumber,Cucumis sativus L.; Nienhuis and Lower 1988,,,
+Potato,"Solanum tubersosum L.; Sanford and Ladd 1987a, Sanford and Ladd 1987b",,,
+Rapeseed,Brassica napus L.; Pleines et al. 1988,,,
+Smooth bromegrass,"Bromus inermis Leysser; Berg et al. 1986, Berg and Sherwood 1994",,,
+Sugarbeet,"Beta vulgaris L.; Hecker 1985, Theurer 1993",,,
+Sugarcane,"Saccharum officinarum L.; Stevenson and Allison 1987, Schnell and Nagai 1986",,,

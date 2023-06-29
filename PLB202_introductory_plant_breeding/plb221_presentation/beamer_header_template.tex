@@ -5,6 +5,7 @@
 \usepackage{longtable}
 \usepackage{array}
 \usepackage{multirow}
+% \usepackage{multicol}
 \usepackage{wrapfig}
 \usepackage{float}
 \usepackage{colortbl}
@@ -62,3 +63,30 @@
 
 \newcommand{\bitemize}{\begin{itemize}}
 \newcommand{\eitemize}{\end{itemize}}
+
+
+\newlength{\picwidth}
+
+\usepackage{etoolbox}
+
+% \defbeamertemplate{background canvas}{mydefault}{%
+%   \includegraphics[width=\paperwidth,height=\paperheight]{MaizeLandrace2}
+% }
+\defbeamertemplate{background canvas}{mydefault}{}
+
+\defbeamertemplate{background canvas}{standout}{%
+  \centering
+  \begin{tikzpicture}
+  \node[opacity=0.2] {\includegraphics[height=\paperheight]{MaizeLandrace2}};
+  \end{tikzpicture}
+}
+
+\BeforeBeginEnvironment{frame}{%
+  \setbeamertemplate{background canvas}[mydefault]%
+}
+
+\makeatletter
+\define@key{beamerframe}{standout}[true]{%
+  \setbeamertemplate{background canvas}[standout]%
+}
+\makeatother
