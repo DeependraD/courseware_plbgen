@@ -49,8 +49,8 @@ options(kableExtra.latex.load_packages = FALSE)
 
 \column{0.5\textwidth}
 
-```{r maize-floral-botany, fig.cap="Normal maize floral development. (A) Mature tassel, the male inflorescence. (B) Pair of tassel spikelets. (C) Dissected tassel spikelet, exposing two male florets. (D) Mature ear, the female inflorescence. (E) Mature ear spikelets. (F) Dissected ear spikelet, containing a single female floret. Inset is a mature ovule with glumes and other floral organs removed. (Source: \cite{yang2022tissue})", out.width="50%"}
-knitr::include_graphics("./images/maize_florets_with_normal_development.jpg")
+```{r maize-floral-botany, fig.cap="Normal maize floral development. (A) Mature tassel, the male inflorescence. (B) Pair of tassel spikelets. (C) Dissected tassel spikelet, exposing two male florets. (D) Mature ear, the female inflorescence. (E) Mature ear spikelets. (F) Dissected ear spikelet, containing a single female floret. Inset is a mature ovule with glumes and other floral organs removed. (Source: \\cite{yang2022tissue})", out.width="50%"}
+knitr::include_graphics("./images/maize_florets.jpg")
 ```
 
 \ecolumns
@@ -92,9 +92,21 @@ knitr::include_graphics("./images/varietal_cross_pollinated.png")
 
 \ecolumns
 
+## Applications of recurrent selection
+
+```{r}
+recurrent_applications <- read_csv("./data/recurrent_selection_adapted_hallauer.csv", skip = 2)
+
+recurrent_applications %>% 
+  knitr::kable(booktabs = TRUE, caption = "Recurrent selection in soybean. Source: \\cite{lewers2010recurrent}.", longtable = TRUE) %>% 
+  kableExtra::kable_styling(latex_options = "striped", font_size = 6) %>% 
+  kableExtra::column_spec(column = 1:5, width = c("3em", "5em", "4em", "4em", "20em"))
+```
+
+
 ## Mass selection
 
-- It is the simplest, easiest and oldest method of selection where individual plants are selected based on phenotypic performance, and seeds are bulked.
+- It is the simplest, easiest and oldest method of selection where individual plants are selected based on phenotypic performance\footnote[frame]{\scriptsize The terms 'mass selection' and 'phenotypic recurrent selection' are sometimes used interchangeably; although clear distinction exists. The difference between genotypic and phenotypic recurrent selection is that genotypic recurrent selection is based on progeny performance (combining ability). Phenotypic recurrent selection is based on the phenotype of the individual, and does not include progeny testing.}, and seeds are bulked.
 - It is effective in maize improvement at the initial stages but its efficacy is poor for improvement of yield.
 - The selection after pollination does not provide any control over the pollen parent as result of which effective selection is limited only to female parents. 
 - The heritability estimates are reduced by half, since only female parents are used to harvest seed whereas the pollen source is not known after the cross pollination has taken place.
@@ -114,6 +126,15 @@ knitr::include_graphics("./images/varietal_cross_pollinated.png")
 Other factors are interaction variances. $\Delta G_m$ doubles with both sexes. This large denominator makes mass selection inefficient for low heritability traits.
 
 ## Recurrent selection
+
+- A cyclical method of population improvement that was developed for the purpose of increasing a population's frequency of desirable alleles and allele combinations for one or more quantitatively inherited traits.
+- A cycle consists of three steps: evaluation, selection and intermating/recombination.
+
+<!-- - Populations and lines derived from recurrent selection are important direct or indirect sources of improved cultivars for many crops. -->
+
+<!-- - Recurrent selection has been used to increase yield, alter seed or plant quality, increase pest resistance, and improve tolerance to the environment (Hallauer 1985). Recurrent selection also can be used to adapt exotic germplasm (Simmonds 1993) for the purpose of increasing crop genetic diversity and maintaining long-term genetic gain for important agronomic traits. -->
+
+<!-- - If hundreds of hybrids are produced per cross-pollination, and cross-pollination can be accomplished by using wind or insects as vectors, or if manual cross-pollination of selected individual plants is routine, then more complex recurrent selection methods are applicable. Such is the case with maize (Zea mays), so it is not surprising that recurrent selection as a breeding method was developed by individuals working with maize (Hallauer 1992) -->
 
 \small
 - In the simplest form, recurrent selection consists of selecting desired individuals within a population prior to mating followed by the intermating of selected individuals. Consequently, both female and male gametes have undergone selection, and genetic progress should be at least 100% faster than for mass selection.
@@ -177,6 +198,10 @@ $$
 
 ##
 
+<!-- Provide a analogy of milk yield in bulls. A bull may inseminate a large number of potential/fertile cows, thus producing a number of offsprings. Hence, based on the performance of female offsprings of the crosses, true breeding value/genetic usefulness of the bull in milk production can be determined. -->
+
+<!-- Here too, an individual plant can be used to pollinate (as a male parent) a large number of female lines. Thus the performance of the progenies from large number of such crosses can be used to calculate the usefulness (GCA or SCA) of the given pollinator plant. -->
+
 ```{r progeny-testing, out.width="60%", fig.align='center'}
 # remove this and include a high resolution image
 knitr::include_graphics("./images/selection_based_on_progeny_test.png")
@@ -224,75 +249,8 @@ knitr::include_graphics("./images/full_sib_selection.png")
 
 \ecolumns
 
-# Response to selection and genetic gain
-
-## Response to selection (R)
-
-\small
-- Selection entails discriminating among genetic variation to identify and choose a number of individuals to establish the next generation.
-- This results in differential reproduction of genotypes, i.e. those that are selected have chance to increase their gene frequencies.
-- Subsequently, the genotypic and phenotypic values of the targeted traits also improve.
-- By selecting and advancing superior individuals (with high genetic potential) from a mixed population, the breeder aims to change population mean of the trait in a positive way in the next generation.
-- \alert{Response to selection} is the difference between the mean phenotypic value of the offspring of the selected parents and the whole of the parental generation before selection. It is related to _heritability_ as shown in the following \alert{Breeder's equation}:
-
-\bcolumns
-\column{0.5\textwidth}
-
-$$
-R = \Delta G = h^2 S
-$$
-\column{0.5\textwidth}
-
-- Where,
-  \begin{itemize}
-  \footnotesize
-  \item $R$ is the response to selection
-  \item $h^2$ is the heritability of trait ($h^2_{bs}$ or $h^2_{ns}$)
-  \item $S$ is the selection differential
-  \end{itemize}
-
-\ecolumns
-
-## Selection differenatial (S)
-
-- \alert{Selection differential (S)} is the mean phenotypic value of the individuals selected as parents expressed as a deviation from the population mean (i.e., from the mean phenotypic value of all the individuals in the parental generation before selection). 
-
-$$
-S = X_s - X_o = i \sigma
-$$
-
-
-- Genetic advance achieved through selection depends on three factors:
-  \begin{enumerate}
-  \footnotesize
-  \item Total variation (phenotypic) in the population in which selection will be conducted.
-  \item Heritability of the target trait.
-  \item Selection pressure to be imposed by the plant breeder (i.e., the proportion of the population that is selected for the next generation).
-  \end{enumerate}
-- For desirable gain from selection
-  \begin{itemize}
-  \footnotesize
-  \item Phenotypic variance should be large and clearly distinguishable
-  \item Heritability of the selected phenotype should be high
-  \item Selection pressure should be optimal.
-  \end{itemize}
-
-##
-
-\bcolumns
-\column{0.5\textwidth}
-- In principle, the prediction of response is valid for only one generation of selection.
-- To predict the response in subsequent generations, heritabilities must be determined in each generation. Heritabilities are expected to change from one generation to the next because, if there is a response, it must be accompanied by change in gene frequencies on which heritability depends.
-- Also, selection of parents tends to reduce phenotypic variance especially in early generations.
-
-\column{0.5\textwidth}
-
-```{r response-to-selection, fig.cap="Genetic gain or genetic advance from selection indicates the progress plant breeders make from one generation to another based on the selection decisions they make.", out.width="70%", fig.align='center'}
-knitr::include_graphics("./images/response_to_selection.png")
-```
-
-\ecolumns
-
 # Bibliography
 
 ## References
+
+- Recurrent selection in soybean, Plant Breeding Reviews, Volume 15

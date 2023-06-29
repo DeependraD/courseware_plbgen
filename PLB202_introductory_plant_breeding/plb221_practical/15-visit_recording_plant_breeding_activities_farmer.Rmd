@@ -1,0 +1,81 @@
+
+# Visit and recording of plant breeding activities of a given farmer {#practical-15}
+
+## Objectives
+
+-   To identify the crops of major concern for improvement for farming community
+-   To identify the traits of preference of major cereal/legume crop
+-   To learn about the major seed sharing and distribution channel
+-   To learn about the tasks associated with crop improvement on-field before harvest and off-field after harvest
+
+## Theory
+
+Farming community has been practicing crop improvement since time millennial. Only now, with the expansion of industrial technologies and commercial grade seeds, people are starting to realize the opportunities for noteworthy crop improvement in complex characters such as yield and nutritional quality. A documentation of perceptions of farmer household regarding various major crops is the early step to formulating breeding objectives in a locality and region, more widely.
+
+Traditional growers tend to have developed, over a long time based on farming experience, a good sense of crop knowledge, including that which enables them to distinguish between a well performing and a poor performing variety. They might readily identify ideotypic traits of a crop such that future breeding programs may find it an aid in setting their objectives.
+
+Much of the progress and state of adoption of a variety depends on how convenient or efficient its germplasm (seed/graft/plant part) sharing and distribution channel is. In a highly rewarding commercial locale, growers are tempted to purse hybrid seeds of vegetable and cereal crops to reap the short term benefits. However, if the access to commercial seeds is low, or else the maintainence of varietial characters (such as those in open pollinated crops) is not a concern, growing households prefer to use locally developed or their own preserved seeds.
+
+Farmers preferentially select and progress certain crop variety and/or their lots based on their knowledge and opinion. Some may even exercise on-field rouging practice and negative selection (culling). Others may pick the heads/panicles to use for growing in the next season. Yet another practice involves farmers maintaing a separate lot of seed from among the better deemed plots duing the harvest.
+
+## Equipments and materials required
+
+1.  Record book and ballpen
+2.  GPS logger application
+
+## Procedure
+
+1.  Prepare a information template with fields for following information:
+
+**Interview questionaires**
+
+-   Location: Tikapur, Kailali
+-   Household respondent: Mr. Tarak Mehta
+-   Name of street/tol:
+-   Which cereal crop did you grow this (last) spring/summer/rainy season (Magh 15 - Shrawan 30) ? (more than 1 kattha)
+-   Which cereal crop did you grow this (last) autumn/winter (Bhadra 1 - Magh 14) ? (more than 1 kattha)
+-   What area of the cereal are you cropping this season ?
+-   Which variety are you growing ?
+    -   Variety 1: "x" kattha
+    -   Variety 2: "y" kattha
+    -   Local cultivar: "z" kattha
+-   Which variety/cultivar do you like the most among that you are growing ?
+-   Do you sell or consume all of the variety/cultivar that your prefer ?
+-   What characters do you like in the preferred variety that you are growing ?
+    -   Early maturity
+    -   Suitable for upland
+    -   Suitable for lowland
+    -   Nutritious
+    -   Good quality forage/straw
+    -   ...
+-   What characters do you dislike in the preferred variety that you are growing ?
+-   How did you obtain seeds of the cereal variety that you prefer ?
+    -   Bought it from agrovet
+    -   Borrowed it from neighbor/relatives
+    -   Used the preserved seeds of my own
+-   Date of planting/sowing of the preferred variety
+-   Do you preserve seeds of the crop on your own to plant for the next year/season ? Why ?
+    -   No, because the variety looses its character (or disease/insect arise) upon years of recycling
+    -   No, because storing the seed is troublesome
+    -   Yes, because buying is costly
+    -   Yes, because the variety maintains its characters upon years of recycling
+    -   Yes, because I know how to select the best quality seed for the following season
+-   Do you remove off type crop plants in the field during weeding ? If yes, approximately how many per kattha ?
+-   What are the most commonly occuring weed in the field ?
+
+**Field inspection**
+
+-   Location of the field of the preferred variety (coordinates)
+-   Orientation of the field
+-   Stage of the crop (Zadok's system for wheat [@tottman1987], BBCH keys for phenological growth stage recording for legumes [@munger2001phenological])
+-   Any signs of disease or distress ? If yes,
+    -   What is the vertical progression of disease ?
+        -   0, 1, 2, 3, 4, 5 (topmost leaf)
+    -   What is the plant level progression of disease for the given vertical progression ?
+        -   0, 1, 2, 3, 4, 5 (all leaves covered with blotch/blight/pustules)
+    -   What is the field level progression of disease in the area that you surveyed ?
+        -   \< 5%, 10-25%, 25-50%, 50-75%, \> 75%
+
+## Conclusion
+
+## References

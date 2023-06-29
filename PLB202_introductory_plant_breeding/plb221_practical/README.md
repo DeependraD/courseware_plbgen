@@ -11,3 +11,4 @@ Designed for Undergraduate course on introductory plant breeding, this manual co
 
 - [ x ] : Adding supporting literature for every chapter
 - [ x ] : Improve text on each chapters
+

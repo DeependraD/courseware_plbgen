@@ -1,0 +1,109 @@
+# Estimation of heterosis and inbreeding depression {#practical-3}
+
+## Objectives
+
+## Theory
+
+**Hybrid vigor** may be defined as the increase in size, vigor, fertility, and overall productivity of a hybrid plant over the mid-parent value (average performance of the two parents). It is calculated as the difference between the crossbred and inbred means:
+
+$$\text{Hybrid vigour} = \frac{F_1-\frac{(P_1+P_2)}{2}}{\frac{(P_1+P_2)}{2}}$$
+
+The estimate is usually calculated as a percentage. The synonymous term, heterosis, was coined by G.H. Shull. Advantageous hybrid vigor is observed more frequently when breeders cross parents that are genetically diverse; When two inbred lines of outbred species are crossed. The practical definition of heterosis is hybrid vigor that greatly exceeds the better or higher parent in a cross.
+
+**Inbreeding depression** is the reduction in fitness as a direct result of inbreeding. In theory, the heterosis observed on crossing is expected to be equal to the depression upon inbreeding, considering a large number of crosses between lines derived from a single base population. In practice, however, plant breeders are interested in heterosis expressed by specific crosses between selected parents, or between populations that have no known common origin. Reduction in fitness is usually manifested as a reduction in vigor, fertility, and productivity. The effect is more severe in the early generations (5-8). Plants including onions, sunflower, cucurbits, and rye are more tolerant of inbreeding with minimal consequences of inbreeding depression. Plants such as alfalfa and carrot are highly intolerant of inbreeding.
+
+Inbreeding is measured by the coefficient of inbreeding (F), which is the probability of identity of alleles by descent. The range of F is zero (no inbreeding; random mating) to one (prolonged selfing). An unfit (deleterious) recessive allele is fairly quickly reduced in frequency but declines slowly thereafter. On the other hand, an unfit dominant allele is rapidly eliminated from the population, while an intermediate allele is reduced more rapidly than a recessive allele because the former is open to selection in the heterozygote. The consequence of these outcomes is that unfit dominant or intermediate alleles are rare in cross-breeding populations, while unfit recessive alleles persist because they are protected by their recessiveness.
+
+
+## Numerical problems
+
+1. Suppose 2 inbred lines A and B are crossed to produce hybrid. The genotype of A is AAbbccDDEEFF and the genotype of B is aaBBCCddeeFF. A, B, C, D, E and F are the dominant genes. If dominant homozygote contributes 2 ton/ha , recessive homozygote contributes 1 ton/ha and heterozygote contributes 2.5 ton/ha , Find the grain yields of Parent A, Parent B and F1 hybrid on the basis of dominance and over-dominance hypothesis.
+
+2. Suppose 2 inbred lines A and B are crossed to produce F1 hybrid. The F1 is selfed and F2 is produced. The genotype of inbred line A is AAbb and the genotype of inbred line B is aaBB. A adn B are the dominant genes and each contribute 12 cm towards the spike length of the hybrid. In the abscence of dominants, each recessive gene contributes 8 cm towards the spike length of the hybrid. The spike length of the best commercial variety is 22 cm.
+  i. Find the spike lengths of the parents, F1 and F2 progeny
+  ii. Find all kinds of heterosis and inbreeding depression
+  iii. Interpret the results
+
+3. Using pedigree diagrams, calculate the inbreeding coefficient (F) for the offspring of
+(a) parent-offspring matings;
+(b) first-cousin matings;
+(c) aunt-nephew or uncle-niece matings;
+(d) self-fertilization of a hermaphrodite.
+
+$\longrightarrow$
+
+For all individuals, we take $F_{A} = 0$
+
+c. Solution:
+
+\begin{tikzpicture}[sibling distance=6em,
+                    level distance=8em,
+                    pF/.style={fill=white, draw, rectangle, text centered, blur shadow},
+                    pM/.style={fill=white, draw, circle, text centered, blur shadow},
+                    % every node/.style={draw,circle, fill=white, font=\fontsize{10}{10}\selectfont, text centered, blur shadow},
+                    ]
+
+\node[pF] (gpF) {A}; % grandparent female
+\node[pM, right=of gpF] (gpM) {B}; % grandparent male
+\node[pM, below=of gpF] (father) {C};
+\node[pF, below=of gpM,fill=blue!50] (aunt) {D};
+\node[pF, left=of father] (mother) {E};
+\node[pM, below=of father,fill=blue!50] (nephew) {F};
+\draw[thick] node[draw, circle, rotate=0,below right=of nephew] (G){G};
+\draw (G.north east) -- (G.south east) -- (G.south west) -- (G.north west) -- cycle;
+
+\draw[-latex] (gpF) -- (aunt);
+\draw[-latex] (gpM) -- (aunt);
+\draw[-latex] (gpF) -- (father);
+\draw[-latex] (gpM) -- (father);
+\draw[-latex] (mother) -- (nephew);
+\draw[-latex] (father) -- (nephew);
+\draw[-latex] (nephew) -- (G);
+\draw[-latex] (aunt) -- (G);
+
+\end{tikzpicture}
+
+
+
+p = $\left(\frac{1}{2}\right)^4 + \left(\frac{1}{2}\right)^4 = \frac{1}{16} + \frac{1}{16} = \frac{1}{8}$
+
+b. 
+
+4. Two species of palm trees differ by 50 bp in a 5000-bp stretch of DNA that is thought to be neutral. The mutation rate for these species is $2 \times 10^{-8}$ substitutions per site per generation. The generation time for these species is five years. Estimate the time since these species had a common ancestor.
+
+$\longrightarrow$
+
+The two species of plam trees differ by: 50/5000 bp = 0.01. We can estimate the time of their divergence using the formula:
+
+$$t = \frac{d}{2k}$$
+
+Where,
+
+- $d$ is the genetic difference between species/neutral sequence, since the divergence and k is the rate of substitutions.
+  
+Thus:
+
+$$
+\begin{aligned}
+t =& \frac{0.01}{2}\times (2 \times 10^{-8}) \\
+=& 250000 \times 5 = 1.25 \text{ million years}
+\end{aligned}
+$$
+
+3. How many single cross, three way cross and double cross hybrids may be produced with 5, 15 and 50 inbred lines ?
+
+Hint:
+
+- Number of SC hybrids: $N \choose{2}$
+- Number of TWC hybrids: ${N \choose{2}} (N-2)$
+- Number of DC hybrids: $3 {N \choose{4}}$
+
+```{r}
+# require(tidyverse)
+# (sc <- map_dfc(set_names(c(5, 10, 15, 50), c(5, 10, 15, 50)), ~choose(.x, 2)))
+# (twc <- map_dfc(set_names(c(5, 10, 15, 50), c(5, 10, 15, 50)), ~choose(.x, 2)*(.x-2)))
+# (dc <- map_dfc(set_names(c(5, 10, 15, 50), c(5, 10, 15, 50)), ~choose(.x, 4)))
+```
+
+
+## Conclusion

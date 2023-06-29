@@ -47,6 +47,8 @@ numbering=counter, block=fill]{metropolis}
 
 
 \newif\ifbibliography
+  \usepackage[round]{natbib}
+  \bibliographystyle{plainnat}
 
 
 \hypersetup{
@@ -103,6 +105,7 @@ numbering=counter, block=fill]{metropolis}
   \usepackage{longtable}
   \usepackage{array}
   \usepackage{multirow}
+  % \usepackage{multicol}
   \usepackage{wrapfig}
   \usepackage{float}
   \usepackage{colortbl}
@@ -151,6 +154,43 @@ numbering=counter, block=fill]{metropolis}
     \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
     {\par}
 
+
+  \newcommand{\bcolumns}{\begin{columns}[T, onlytextwidth]}
+  \newcommand{\ecolumns}{\end{columns}}
+
+  \newcommand{\bdescription}{\begin{description}}
+  \newcommand{\edescription}{\end{description}}
+
+  \newcommand{\bitemize}{\begin{itemize}}
+  \newcommand{\eitemize}{\end{itemize}}
+
+
+  \newlength{\picwidth}
+
+  \usepackage{etoolbox}
+
+  % \defbeamertemplate{background canvas}{mydefault}{%
+  %   \includegraphics[width=\paperwidth,height=\paperheight]{MaizeLandrace2}
+  % }
+  \defbeamertemplate{background canvas}{mydefault}{}
+
+  \defbeamertemplate{background canvas}{standout}{%
+    \centering
+    \begin{tikzpicture}
+    \node[opacity=0.2] {\includegraphics[height=\paperheight]{MaizeLandrace2}};
+    \end{tikzpicture}
+  }
+
+  \BeforeBeginEnvironment{frame}{%
+    \setbeamertemplate{background canvas}[mydefault]%
+  }
+
+  \makeatletter
+  \define@key{beamerframe}{standout}[true]{%
+    \setbeamertemplate{background canvas}[standout]%
+  }
+  \makeatother
+
   \title[]{Domestication, plant introduction, and acclimatization}
 
 
@@ -183,32 +223,6 @@ numbering=counter, block=fill]{metropolis}
 \hypertarget{domestication}{%
 \section{Domestication}\label{domestication}}
 
-\begin{frame}{What is a weed?}
-\protect\hypertarget{what-is-a-weed}{}
-\begin{itemize}
-\tightlist
-\item
-  ``A plant in the wrong place''
-\item
-  How accurate is the definition ?
-\item
-  We define weeds as plants we do not want that compete for resources
-  with those we do want.
-\item
-  Clearly we have criteria about which plants we want and those that
-  fail those criteria.
-\item
-  In evolutionary terms, it is the cultivated plants that are ``fitter''
-  than the weeds, as they have characteristics which we want, and since
-  in the fi eld and the garden we have largely substituted ourselves for
-  nature, and here it is us who control the evolutionary process.
-\item
-  However, many commercially grown plants survive as volunteer weeds, or
-  ``escapes,'' in either the same, or different, regions to those in
-  which they are most commonly grown commercially.
-\end{itemize}
-\end{frame}
-
 \begin{frame}{Domestication}
 \protect\hypertarget{domestication-1}{}
 \begin{columns}[T,onlytextwidth]
@@ -216,7 +230,7 @@ numbering=counter, block=fill]{metropolis}
 
   \begin{block}{Domestication}
 
-"The gap between the wild and the cultivated is all about the difference between nature's requirements and ours." -- @kingsbury2009hybrid
+"The gap between the wild and the cultivated is all about the difference between nature's requirements and ours." -- \cite{kingsbury2009hybrid}
 
 "A plant population has been domesticated when it has been substantially altered from the wild state and certainly when it has been so altered to be unable to survive in the wild" -- N.W. Simmonds
   \end{block}
@@ -243,14 +257,18 @@ Domestication is the process by which genetic changes (shifts) in wild plants ar
 \tightlist
 \item
   Because of the roles of humans (\emph{Domesticators}), the process
-  results characteristics that are beneficial to humans but some that
+  results in characteristics that are beneficial to humans but some that
   would be disadvantageous for plants in their natural habitats.
-\item
-  Results are the plants that are adapted to supervised cultural
-  conditions and which posses characteristics that are preferred by
-  producers and consumers.
-\item
-  E.g. Modern corn stripped is completely of its seed dispersal ability.
+  Consequently:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    plants that are adapted to supervised cultural conditions
+  \item
+    posses characteristics that are preferred by producers and
+    consumers.
+  \end{itemize}
 \item
   Both wild and domesticated populations are subject to evolution
 \item
@@ -269,6 +287,20 @@ Domestication is the process by which genetic changes (shifts) in wild plants ar
     others.
   \end{itemize}
 \end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-1}{}
+\bcolumns
+\column{0.5\textwidth}
+
+\includegraphics[width=0.68\linewidth]{./images/biodiversity_in_agriculture}
+
+\column{0.5\textwidth}
+
+\includegraphics[width=0.75\linewidth]{./images/guns_germs_steel}
+
+\ecolumns
 \end{frame}
 
 \begin{frame}{Evolution}
@@ -335,6 +367,13 @@ Change in developmental phenology & Change in life cycle (normally from perennia
 \end{table}
 \end{frame}
 
+\begin{frame}{How is it possible ?}
+\protect\hypertarget{how-is-it-possible}{}
+\begin{figure}
+\includegraphics[width=0.62\linewidth]{./images/linkage_among_genes_domestication_syndrome} \caption{Linkages among genes controlling the domestication syndrome in various crops. Source: \cite{gepts2010crop}.}\label{fig:linkage-domestication-syndrome}
+\end{figure}
+\end{frame}
+
 \begin{frame}{Wild versus domestication}
 \protect\hypertarget{wild-versus-domestication}{}
 \begin{columns}[T,onlytextwidth]
@@ -352,26 +391,26 @@ Change in developmental phenology & Change in life cycle (normally from perennia
 \column{0.6\textwidth}
 
 \begin{figure}
-\includegraphics[width=0.4\textwidth, keepaspectratio]{./images/domestic_dog_puppy} \caption{Domesticated dog}\label{fig:domesticated}
+\includegraphics[width=0.45\textwidth, keepaspectratio]{./images/domestic_dog_puppy} \caption{Domesticated dog}\label{fig:domesticated}
 \end{figure}
 
 
 \begin{figure}
-\includegraphics[width=0.4\textwidth, keepaspectratio]{./images/wild_dog_african} \caption{Wild dog}\label{fig:wild}
+\includegraphics[width=0.45\textwidth, keepaspectratio]{./images/wild_dog_african} \caption{Wild dog}\label{fig:wild}
 \end{figure}
 
 \end{columns}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-1}{}
+\protect\hypertarget{section-2}{}
 \begin{figure}
-\includegraphics[width=0.7\textwidth, keepaspectratio,height=0.8\textheight]{./images/tomato_wild_domestic} \caption{Wild versus domesticated tomatoes}\label{fig:wild-vs-domesticated-tomato}
+\includegraphics[width=0.7\textwidth, keepaspectratio,height=0.8\textheight]{./images/tomato_wild_domestic} \caption{Wild versus domesticated tomatoes. Diversity of cocona (\textit{Solanum sessiliflorum}) fruit size and shape has been created by selection for novel fruit types by Yanesha and other indigenous peoples of the upper Amazon.}\label{fig:wild-vs-domesticated-tomato}
 \end{figure}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-2}{}
+\protect\hypertarget{section-3}{}
 \begin{itemize}
 \item
   Wild cereal plants tend to have many small seeds at maturity and
@@ -391,7 +430,7 @@ Change in developmental phenology & Change in life cycle (normally from perennia
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-3}{}
+\protect\hypertarget{section-4}{}
 \begin{itemize}
 \item
   Similarly potato breeders have selected plants with fewer, but larger
@@ -409,27 +448,31 @@ Change in developmental phenology & Change in life cycle (normally from perennia
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Germplasm}
-\protect\hypertarget{germplasm}{}
+\hypertarget{germplasm}{%
+\section{Germplasm}\label{germplasm}}
+
+\begin{frame}{}
+\protect\hypertarget{section-5}{}
+\bcolumns
+\column{0.45\textwidth}
+
 \begin{itemize}
 \tightlist
 \item
-  Germplasm refers to the genetic material that can be used to
-  perpetuate a species or population.
+  Refers to the genetic material that can be used to perpetuate a
+  species or population.
 \item
-  Genetic resources such as seeds or tissues that are maintained for the
-  purpose of animal and plant breeding, preservation, and other research
-  uses.
-\item
-  Provides the material used to initiate a breeding program
+  Provides the material used to initiate a breeding program.
 \item
   Sometimes only germplasm screening and evaluation is practiced for
   introduction of improved variety in a region
-\item
-  Certain institutional sets-ups such as gene banks are charged with the
-  responsibility of assembling, cataloguing, storing and managing large
-  number of germplasm. This allows for quick retrieval.
 \end{itemize}
+
+\column{0.55\textwidth}
+
+\includegraphics[width=0.7\linewidth]{./scripts/mindmap_germplasm}
+
+\ecolumns
 \end{frame}
 
 \begin{frame}{Gene pool}
@@ -438,9 +481,21 @@ J.R. Harlan and J.M.J. de Wet proposed a categorization of gene pools of
 cultivated crops according to the feasibility of gene transfer or gene
 flow from those species to the crop species.
 
+\bcolumns
+
+\column{0.65\textwidth}
+
 \begin{figure}
-\includegraphics[width=0.7\textwidth, keepaspectratio,height=0.6\textheight]{./images/crop_gene_pools} \caption{Crop gene pools; A system proposed by Harlan}\label{fig:gene-pools}
+\includegraphics[width=0.95\textwidth, keepaspectratio,height=0.6\textheight]{./images/crop_gene_pools} \caption{Crop gene pools; A system proposed by Harlan}\label{fig:gene-pools}
 \end{figure}
+
+\column{0.35\textwidth}
+
+\begin{figure}
+\includegraphics[width=0.98\linewidth]{./images/embryo_rescue} \caption{The embryo rescue of grape seeds. Increasing diversity by introgression from wild relatives can be complicated by the existence of crossing barriers or poor hybrid fertility.}\label{fig:embryo-resuce}
+\end{figure}
+
+\ecolumns
 \end{frame}
 
 \begin{frame}{Types of gene pool}
@@ -476,7 +531,7 @@ flow from those species to the crop species.
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-4}{}
+\protect\hypertarget{section-6}{}
 \begin{itemize}
 \tightlist
 \item
@@ -503,10 +558,10 @@ species}\label{domestication-and-origin-of-major-crop-species}}
 \protect\hypertarget{center-of-origin}{}
 \begin{table}
 
-\caption{\label{tab:origin-of-crops}Estimated time of domestication and centre of origin of major crop species; @brown2014plant, Page 23}
+\caption{\label{tab:origin-of-crops}Estimated time of domestication and centre of origin of major crop species; \cite{brown2014plant}, Page 23}
 \centering
-\fontsize{6}{8}\selectfont
-\begin{tabular}[t]{l>{\raggedright\arraybackslash}p{14em}>{\raggedright\arraybackslash}p{8em}>{\raggedright\arraybackslash}p{22em}}
+\fontsize{8}{10}\selectfont
+\begin{tabular}[t]{l>{\raggedright\arraybackslash}p{14em}>{\raggedright\arraybackslash}p{10em}>{\raggedright\arraybackslash}p{18em}}
 \toprule
 Crop category & Crop & Length of time domesticated (years) & Possible region of origin\\
 \midrule
@@ -535,13 +590,13 @@ Crop category & Crop & Length of time domesticated (years) & Possible region of 
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-5}{}
+\protect\hypertarget{section-7}{}
 \begin{table}
 
 \caption{\label{tab:origin-of-crops2}Estimated time of domestication ...}
 \centering
-\fontsize{6}{8}\selectfont
-\begin{tabular}[t]{l>{\raggedright\arraybackslash}p{14em}>{\raggedright\arraybackslash}p{8em}>{\raggedright\arraybackslash}p{22em}}
+\fontsize{8}{10}\selectfont
+\begin{tabular}[t]{l>{\raggedright\arraybackslash}p{14em}>{\raggedright\arraybackslash}p{10em}>{\raggedright\arraybackslash}p{18em}}
 \toprule
 Crop category & Crop & Length of time domesticated (years) & Possible region of origin\\
 \midrule
@@ -570,13 +625,13 @@ Crop category & Crop & Length of time domesticated (years) & Possible region of 
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-6}{}
+\protect\hypertarget{section-8}{}
 \begin{table}
 
 \caption{\label{tab:origin-of-crops3}Estimated time of domestication ...}
 \centering
-\fontsize{6}{8}\selectfont
-\begin{tabular}[t]{l>{\raggedright\arraybackslash}p{14em}>{\raggedright\arraybackslash}p{8em}>{\raggedright\arraybackslash}p{22em}}
+\fontsize{8}{10}\selectfont
+\begin{tabular}[t]{l>{\raggedright\arraybackslash}p{14em}>{\raggedright\arraybackslash}p{10em}>{\raggedright\arraybackslash}p{18em}}
 \toprule
 Crop category & Crop & Length of time domesticated (years) & Possible region of origin\\
 \midrule
@@ -603,18 +658,18 @@ Crop category & Crop & Length of time domesticated (years) & Possible region of 
 \begin{frame}{Megacentres of cutivated plants}
 \protect\hypertarget{megacentres-of-cutivated-plants}{}
 \begin{figure}
-\includegraphics[width=0.7\textwidth, keepaspectratio,height=0.6\textheight]{./images/megacentres_cultivated} \caption{Megacentres of cultivated plants (Zeven and Zhukovsky, 1975); @hayward2012plant, Page 37}\label{fig:cultivated-megacentres-fig}
+\includegraphics[width=0.7\textwidth, keepaspectratio,height=0.6\textheight]{./images/megacentres_cultivated} \caption{Megacentres of cultivated plants (Zeven and Zhukovsky, 1975); \cite{hayward2012plant}, Page 37}\label{fig:cultivated-megacentres-fig}
 \end{figure}
 \end{frame}
 
-\begin{frame}{Megacentres of cultivated plants \ldots{}}
-\protect\hypertarget{megacentres-of-cultivated-plants}{}
+\begin{frame}{}
+\protect\hypertarget{section-9}{}
 \begin{table}
 
-\caption{\label{tab:cultivated-megacentres-tab}Cultivated plants and their regions of diversity. Based on Zeven and Zhukovsky (1975) and Zeven and de Wet (1982); @hayward2012plant, Page 54, 55.}
+\caption{\label{tab:cultivated-megacentres-tab}Cultivated plants and their regions of diversity. Based on Zeven and Zhukovsky (1975) and Zeven and de Wet (1982); \cite{hayward2012plant}, Page 54, 55.}
 \centering
-\fontsize{6}{8}\selectfont
-\begin{tabular}[t]{>{\raggedright\arraybackslash}p{4em}>{\raggedright\arraybackslash}p{14em}>{\raggedright\arraybackslash}p{28em}}
+\fontsize{8}{10}\selectfont
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{2em}>{\raggedright\arraybackslash}p{14em}>{\raggedright\arraybackslash}p{35em}}
 \toprule
 SN & Region & Crops\\
 \midrule
@@ -640,13 +695,13 @@ SN & Region & Crops\\
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-7}{}
+\protect\hypertarget{section-10}{}
 \begin{table}
 
 \caption{\label{tab:cultivated-megacentres-tab2}Cultivated plants and their regions of diversity ...}
 \centering
-\fontsize{6}{8}\selectfont
-\begin{tabular}[t]{>{\raggedright\arraybackslash}p{4em}>{\raggedright\arraybackslash}p{14em}>{\raggedright\arraybackslash}p{28em}}
+\fontsize{8}{10}\selectfont
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{2em}>{\raggedright\arraybackslash}p{12em}>{\raggedright\arraybackslash}p{40em}}
 \toprule
 SN & Region & Crops\\
 \midrule
@@ -675,13 +730,13 @@ SN & Region & Crops\\
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-8}{}
+\protect\hypertarget{section-11}{}
 \begin{table}
 
 \caption{\label{tab:cultivated-megacentres-tab3}Cultivated plants and their regions of diversity ...}
 \centering
-\fontsize{6}{8}\selectfont
-\begin{tabular}[t]{>{\raggedright\arraybackslash}p{4em}>{\raggedright\arraybackslash}p{14em}>{\raggedright\arraybackslash}p{28em}}
+\fontsize{8}{10}\selectfont
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{2em}>{\raggedright\arraybackslash}p{14em}>{\raggedright\arraybackslash}p{35em}}
 \toprule
 SN & Region & Crops\\
 \midrule
@@ -762,6 +817,28 @@ SN & Region & Crops\\
 \item
   For germplasm collection and comparison
 \end{enumerate}
+\end{frame}
+
+\begin{frame}{Plant re-introduction}
+\protect\hypertarget{plant-re-introduction}{}
+\begin{itemize}
+\item
+  Due to various natural and anthropogenic causes, in situ populations
+  may become threatened to the extent that their capacity to produce
+  seed and regenerate is severely affected.
+\item
+  In some cases, such populations may need to be supported by
+  introducing additional diversity to enrich the habitats.
+\item
+  Plant
+  reintroduction\footnote[frame]{Terminology is used more often in context of conservation genetics. Refer to: Supporting in situ conservation of the genetic diversity of crop wild relatives using genomic technologies, Source: \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9303585/} detailed discussion.}
+  is also a common practice that is particularly useful in supporting
+  the conservation of rare, threatened and vulnerable taxa or
+  populations.
+\item
+  The diversity can be sourced from ex situ conservation or naturally
+  occurring populations.
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Acclimatization}
@@ -872,7 +949,7 @@ breeding}\label{other-steps-in-plant-breeding}}
 \column{0.5\textwidth}
 
 \begin{figure}
-\includegraphics[width=0.6\linewidth]{./images/cryo-tanks-banana} \caption{Cryotanks for conservation of global banana germplasm.}\label{fig:cryo-tank-banana}
+\includegraphics[width=0.64\linewidth]{./images/cryo-tanks-banana} \caption{Cryotanks for conservation of global banana germplasm.}\label{fig:cryo-tank-banana}
 \end{figure}
 
 \end{columns}
@@ -923,7 +1000,7 @@ breeding}\label{other-steps-in-plant-breeding}}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-9}{}
+\protect\hypertarget{section-12}{}
 \begin{itemize}
 \tightlist
 \item
@@ -947,39 +1024,50 @@ breeding}\label{other-steps-in-plant-breeding}}
 \protect\hypertarget{germplasm-utilization}{}
 \end{frame}
 
-\hypertarget{the-vavilov-concept}{%
-\section{The Vavilov Concept}\label{the-vavilov-concept}}
+\hypertarget{ideas-of-ni-vavilov}{%
+\section{Ideas of NI Vavilov}\label{ideas-of-ni-vavilov}}
 
 \begin{frame}{}
-\protect\hypertarget{section-10}{}
+\protect\hypertarget{section-13}{}
 \begin{itemize}
 \item
   Nikolai I. Vavilov (1887-1942), the Russian botanist and plant
   breeder, demonstrated the existence of `centres of origin' of
   cultivated plants (more correctly named today as `centres of
-  diversity'), in which can be found the highest level of genetic
-  variability of a species. This variability, which arises in nature by
-  mutation spontaneous hybridization, introgression and changes in
-  chromosome form and number, provides the means by which adaptation to
-  heterogenous environments can occur.
+  diversity'), in which can be found the
+  \alert{highest level of genetic variability} of a species. This
+  variability, which arises in nature by mutation spontaneous
+  hybridization, introgression and changes in chromosome form and
+  number, provides the means by which adaptation to heterogenous
+  environments can occur.
 \item
   It allows the breeder to identify sources of variation for specific
   characteristics. The extension of this principle to related species
-  was formulated by Vavilov in his `law of homologous series of
-  variation.' This law allows the prediction of the appearance of a
-  given type of mutation in a plant species when such a type has been
-  found in another species phylogenetically related to the first. As a
-  result of his studies Vavilov defined plant breeding as `plant
-  evolution directed by man.' He recognized that in a breeding
-  programme, by growing variable populations in conditions favouring the
-  expression of the characters, selection may be facilitated. Also, by
-  creating variability in a parallel way to nature the breeder exploits
-  genetical methods. Plant breeding can thus also be defined as `applied
-  plant genetics.'
+  was formulated by Vavilov in his \textbf{law of homologous series of
+  variation}. This law allows the
+  \alert{prediction of the appearance of a given type of mutation in a plant species when such a type has been found in another species phylogenetically related to the first}.
+  As a result of his studies Vavilov defined plant breeding as
+  \textbf{plant evolution directed by man}.
 \end{itemize}
 \end{frame}
 
+\begin{frame}{}
+\protect\hypertarget{section-14}{}
+\begin{figure}
 
+{\centering \includegraphics[width=0.45\linewidth]{./images/law_of_homologous_series_variation} 
+
+}
+
+\caption{The cover of the famous NI Vavilov's text on Law of Homologous Series in Variation. \cite{vavilov1922law}}\label{fig:law-homologous-series-variation}
+\end{figure}
+\end{frame}
+
+          \begin{frame}[allowframebreaks]{}
+    \bibliographytrue
+    \bibliography{./../bibliographies.bib}
+    \end{frame}
+  
 
 
 \end{document}

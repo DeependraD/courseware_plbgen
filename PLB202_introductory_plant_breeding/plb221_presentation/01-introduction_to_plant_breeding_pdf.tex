@@ -104,6 +104,7 @@
   \usepackage{longtable}
   \usepackage{array}
   \usepackage{multirow}
+  % \usepackage{multicol}
   \usepackage{wrapfig}
   \usepackage{float}
   \usepackage{colortbl}
@@ -161,6 +162,33 @@
 
   \newcommand{\bitemize}{\begin{itemize}}
   \newcommand{\eitemize}{\end{itemize}}
+
+
+  \newlength{\picwidth}
+
+  \usepackage{etoolbox}
+
+  % \defbeamertemplate{background canvas}{mydefault}{%
+  %   \includegraphics[width=\paperwidth,height=\paperheight]{MaizeLandrace2}
+  % }
+  \defbeamertemplate{background canvas}{mydefault}{}
+
+  \defbeamertemplate{background canvas}{standout}{%
+    \centering
+    \begin{tikzpicture}
+    \node[opacity=0.2] {\includegraphics[height=\paperheight]{MaizeLandrace2}};
+    \end{tikzpicture}
+  }
+
+  \BeforeBeginEnvironment{frame}{%
+    \setbeamertemplate{background canvas}[mydefault]%
+  }
+
+  \makeatletter
+  \define@key{beamerframe}{standout}[true]{%
+    \setbeamertemplate{background canvas}[standout]%
+  }
+  \makeatother
   % notes will be showed
 
   % \setbeamertemplate{note page}{\insertnote} % a plain style
@@ -210,6 +238,8 @@
   \setbeamercolor{block title}{bg=blue!30}
   \setbeamercolor{block body example}{bg=green!10}
   \setbeamercolor{block title example}{bg=green!20}
+  \usepackage{tabto}
+  \def\quoteattr#1#2{\setbox0=\hbox{#2}#1\tabto{\dimexpr\linewidth-\wd0}\box0}
 
   \title[]{Introduction to plant breeding}
 
@@ -254,11 +284,7 @@ Agriculture and Forestry University\\
 \bcolumns
 \column{0.65\textwidth}
 
-\begin{quote}
-\small
-"For more than half a century, I have worked with the production of more and better wheat for feeding the hungry world, but wheat is merely a catalyst, a part of the picture. I am interested in the total development of human beings. Only by attacking the whole problem can we raise the standard of living for all people, in all communities, so that they will be able to live decent lives. This is something we want for all people on this planet".
-\end{quote}
-\hfill\raggedright{\footnotesize -- Norman E. Borlaug (March 25,1914 - September 12, 2009)}
+\setbox 0=\hbox{Norman E. Borlaug (March 25,1914 - September 12, 2009)}"For more than half a century, I have worked with the production of more and better wheat for feeding the hungry world, but wheat is merely a catalyst, a part of the picture. I am interested in the total development of human beings. Only by attacking the whole problem can we raise the standard of living for all people, in all communities, so that they will be able to live decent lives. This is something we want for all people on this planet".\tabto{\dimexpr\linewidth-\wd 0}\box 0
 
 \column{0.35\textwidth}
 
@@ -271,6 +297,34 @@ Agriculture and Forestry University\\
 
 \begin{frame}{}
 \protect\hypertarget{section-1}{}
+\bcolumns
+\column{0.5\textwidth}
+\begin{quote}
+\vfill
+\small
+"Few scientists think of agriculture as the chief, or model science. Many indeed, do not consider it a science at all. Yet it was the first science that makes all human life possible; and it may well be that before the century is over, the success or failure of Science as a whole will be judged by the success or failure of agriculture."
+\end{quote}
+
+\hfill
+
+\raggedright
+
+\footnotesize -- Jean and Andre Mayer (1974) \column{0.5\textwidth}
+
+\begin{quote}
+\vfill
+"...a good past is positively dangerous if it makes us content with the present and unprepared for the future."
+\end{quote}
+
+\hfill
+
+\raggedright
+
+\footnotesize -- Charles Eliot \ecolumns
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-2}{}
 \begin{columns}[T,c,onlytextwidth]
 \column{0.4\textwidth}
 
@@ -278,19 +332,18 @@ Agriculture and Forestry University\\
 \vfill
 "The greatest service which can be rendered any country is to add a useful plant to its culture; especially a bread grain"
 \end{quote}
-\hfill\raggedright{\footnotesize -- Thomas Jefferson}
+\hfill\raggedright \footnotesize -- Thomas Jefferson
 
 \column{0.6\textwidth}
 
-\begin{figure}
-\includegraphics[width=0.75\linewidth]{./images/Triticum3} \caption{Modern wheat genotype under test in cool temperate region (UK)}\label{fig:modern-triticum-uk}
-\end{figure}
+
+\begin{center}\includegraphics[width=0.8\linewidth]{./images/giving_peace_a_chance} \end{center}
 
 \end{columns}
 \end{frame}
 
-\begin{frame}{Background (Overview)}
-\protect\hypertarget{background-overview}{}
+\begin{frame}{Background}
+\protect\hypertarget{background}{}
 \begin{itemize}
 \tightlist
 \item
@@ -305,16 +358,20 @@ Agriculture and Forestry University\\
   Plant breeding has a commercial history of 2/3 century at least.
 \item
   By 19th century's end, artificial crossing, bulk and pedigree methods
-  and alternative progeny testing schems were already used
+  and alternative progeny testing schemes were already used
 \end{itemize}
+
+\begin{figure}
+\includegraphics[width=0.55\linewidth]{./images/Triticum3} \caption{Modern wheat genotype under test in cool temperate region (UK)}\label{fig:modern-triticum-uk}
+\end{figure}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-2}{}
+\protect\hypertarget{section-3}{}
 \begin{itemize}
 \tightlist
 \item
-  After rediscovery of Mendel's law and developments in genetics plant
+  After rediscovery of Mendel's law and developments in genetics, plant
   breeding has evolved rapidly
 \item
   In the period deemed green revolution, genetic contribution to yield
@@ -344,7 +401,7 @@ Agriculture and Forestry University\\
 \section{Concept}\label{concept}}
 
 \begin{frame}{}
-\protect\hypertarget{section-3}{}
+\protect\hypertarget{section-4}{}
 \begin{columns}[T,onlytextwidth]
 \begin{column}{0.5\textwidth}
 "Breeder's eye" viewpoint of Plant Breeding: 
@@ -367,8 +424,9 @@ Scientific viewpoint of Plant Breeding:
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-4}{}
+\protect\hypertarget{section-5}{}
 \begin{itemize}
+\tightlist
 \item
   As human knowledge about plants increased, people were able to select
   more intelligently.
@@ -393,11 +451,16 @@ Scientific viewpoint of Plant Breeding:
 \[\Large \Delta{G}=\frac{Ih^2 \sigma}{I}\]
 \end{frame}
 
+\begin{frame}{Breeding is unkind}
+\protect\hypertarget{breeding-is-unkind}{}
+\begin{center}\includegraphics[width=0.75\linewidth]{./images/breeding_is_unkind} \end{center}
+\end{frame}
+
 \hypertarget{definition}{%
 \section{Definition}\label{definition}}
 
 \begin{frame}{}
-\protect\hypertarget{section-5}{}
+\protect\hypertarget{section-6}{}
 \bcolumns
 \column{0.65\textwidth}
 
@@ -422,9 +485,9 @@ The art and the science of changing and improving the heredity of plants
 
 \textbf{How do you define art?}
 
-\includegraphics[width=0.45\linewidth]{images/life-of-an-artist-funny-comics-9}
+\begin{center}\includegraphics[width=0.45\linewidth]{images/life-of-an-artist-funny-comics-9} \end{center}
 
-\includegraphics[width=0.65\linewidth]{images/art-negative-space-design-art-illustration}
+\begin{center}\includegraphics[width=0.65\linewidth]{images/art-negative-space-design-art-illustration} \end{center}
 
 \ecolumns
 \end{frame}
@@ -503,7 +566,7 @@ The art and the science of changing and improving the heredity of plants
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-6}{}
+\protect\hypertarget{section-7}{}
 \begin{figure}
 \includegraphics[width=0.6\textwidth, keepaspectratio,height=0.45\textheight]{./images/rose_prickly_or_common} \caption{rose ancestor (Wild rose)}\label{fig:rose-wild}
 \end{figure}
@@ -514,7 +577,7 @@ The art and the science of changing and improving the heredity of plants
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-7}{}
+\protect\hypertarget{section-8}{}
 \begin{figure}
 \includegraphics[width=0.45\linewidth,height=0.4\textheight]{./images/Tomato_galapagos_Solanum-cheesmanii} \caption{Wild tomato (Lycopersicum cheesmanii); Unique and rare, wild, small cherry tomato from the rocky, lava flow areas of Ecuador's famed Galapagos Islands. These cherry shaped, yellowish-orange fruited tomatoes are flavorful and have lemon scented foliage. They enjoy heat and tolerate drought. Similar to cultivated tomatoes in flavor but with more disease and insect tolerance, as well as salt water tolerance. Plants typically vine, are very productive, and easy to grow.}\label{fig:tomato-wild}
 \end{figure}
@@ -525,7 +588,7 @@ The art and the science of changing and improving the heredity of plants
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-8}{}
+\protect\hypertarget{section-9}{}
 \begin{figure}
 \includegraphics[width=0.6\textwidth, keepaspectratio,height=0.45\textheight]{./images/brassica_arabidopsis} \caption{Arabidopsis spp.}\label{fig:wild-brassica}
 \end{figure}
@@ -536,7 +599,7 @@ The art and the science of changing and improving the heredity of plants
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-9}{}
+\protect\hypertarget{section-10}{}
 \begin{figure}
 \includegraphics[width=0.6\textwidth, keepaspectratio,height=0.45\textheight]{./images/Teosinte} \caption{Wild progenitor of modern day maize -- Teosinte}\label{fig:maize-ancestor-teosinte}
 \end{figure}
@@ -613,7 +676,7 @@ Year & Event\\
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-10}{}
+\protect\hypertarget{section-11}{}
 \begin{table}
 
 \caption{\label{tab:history-table2}History of genetics...}
@@ -640,7 +703,7 @@ Year & Event\\
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-11}{}
+\protect\hypertarget{section-12}{}
 \begin{table}
 
 \caption{\label{tab:history-table3}History of genetics...}
@@ -670,7 +733,7 @@ Year & Event\\
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-12}{}
+\protect\hypertarget{section-13}{}
 \begin{figure}
 \includegraphics[width=0.4\linewidth,height=0.7\textwidth, keepaspectratio]{./images/plant_breeding_history} \caption{History of plant breeding Rolf H. J. Schlegel, 2018}\label{fig:plb-history-book}
 \end{figure}
@@ -680,7 +743,10 @@ Year & Event\\
 \section{Objectives}\label{objectives}}
 
 \begin{frame}{}
-\protect\hypertarget{section-13}{}
+\protect\hypertarget{section-14}{}
+\bcolumns
+\column{0.6\textwidth}
+
 \small
 
 \begin{itemize}
@@ -704,6 +770,12 @@ Year & Event\\
 \item
   Introgress desired modification in crop species
 \end{itemize}
+
+\column{0.4\textwidth}
+
+\begin{center}\includegraphics[width=0.65\linewidth]{./images/popyae_food_power} \end{center}
+
+\ecolumns
 \end{frame}
 
 \begin{frame}{Specifically, in crop improvement,}
@@ -789,7 +861,7 @@ Year & Event\\
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-14}{}
+\protect\hypertarget{section-15}{}
 \small
 
 \begin{itemize}
@@ -850,6 +922,13 @@ breeding:}\label{steps-activities-in-plant-breeding}}
   \footnotesize
   \item Identification and isolation of plants having desirable combinations of characters and growing their progeny is called selection. Selection is necessarily based on phenotype. Various breeding methods have been designed to increase efficacy of selection. Selection finally yields an improved lines or population.
   \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-16}{}
+\begin{itemize}
+\tightlist
 \item
   Evaluation
 
@@ -911,7 +990,7 @@ breeding:}\label{steps-activities-in-plant-breeding}}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-15}{}
+\protect\hypertarget{section-17}{}
 \begin{itemize}
 \tightlist
 \item
@@ -949,7 +1028,7 @@ breeding:}\label{steps-activities-in-plant-breeding}}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-16}{}
+\protect\hypertarget{section-18}{}
 \begin{itemize}
 \tightlist
 \item
@@ -979,7 +1058,7 @@ breeding:}\label{steps-activities-in-plant-breeding}}
 \section{Constraints}\label{constraints}}
 
 \begin{frame}{}
-\protect\hypertarget{section-17}{}
+\protect\hypertarget{section-19}{}
 \begin{enumerate}
 \tightlist
 \item
@@ -1023,7 +1102,7 @@ breeding:}\label{steps-activities-in-plant-breeding}}
 \section{Opportunities}\label{opportunities}}
 
 \begin{frame}{}
-\protect\hypertarget{section-18}{}
+\protect\hypertarget{section-20}{}
 \begin{itemize}
 \tightlist
 \item
@@ -1042,7 +1121,7 @@ breeding:}\label{steps-activities-in-plant-breeding}}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-19}{}
+\protect\hypertarget{section-21}{}
 \begin{figure}
 \includegraphics[width=0.5\linewidth]{./images/world_production_of_major_crops} \caption{Word production of major crops (1955-2011); Source: \cite{brown2014plant}, Page 21}\label{fig:world-production-major}
 \end{figure}

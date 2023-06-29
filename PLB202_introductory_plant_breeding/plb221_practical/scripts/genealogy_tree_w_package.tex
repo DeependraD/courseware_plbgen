@@ -1,0 +1,45 @@
+\documentclass{standalone}
+\usepackage[all]{genealogytree}
+
+
+\begin{document}
+\footnotesize\selectfont
+
+\begin{genealogypicture}[
+  timeflow=down,               % time flows from top to bottom
+  processing=tcolorbox,        % draw nodes with tcolorbox or tcbox* (latter makes box fit the content width)
+  node size from=2cm to 3cm,   % height of nodes
+  level size=1cm,              % width of nodes
+  level distance=1.5cm,          % generation distance
+                               % redefine default setting for female,male,neuter:
+  tcbset={
+    female/.style={colback=red!20,arc=1mm},
+    male/.style={colback=blue!20,sharp corners},
+    neuter/.style={colback=green!20,arc=0.5mm}
+  },
+  %
+  box={colback=black,size=fbox,valign=center},    % node settings
+  %
+  edges={foreground={black,line width=0.25mm},    % edge settings
+         background={white,line width=0.5mm}}
+]
+
+  %%%%%% the graph %%%%%%
+  parent{
+    g[neuter]{Child 1}
+    c[neuter]{Child 2}
+    parent{
+      g[male]{Father}
+      p[male]{Father's\\father}
+      p[female]{Father's\\mother}
+    }
+    parent{
+      g[female]{Mother}
+      c[female]{Aunt}
+      p[male]{Mother's\\ father}
+      p[female]{Mother's\\ mother}
+    }
+  }
+\end{genealogypicture}
+
+\end{document}

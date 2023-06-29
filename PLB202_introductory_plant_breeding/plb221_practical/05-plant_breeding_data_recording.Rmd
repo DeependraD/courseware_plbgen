@@ -1,0 +1,93 @@
+# Plant breeding data recording {#practical-5}
+
+## Objectives
+
+- To have an understanding of basic data types
+- To understand the concept of unaggregated and summary data
+- To understand the basic template for plant breeding trial data recording
+- To make use of a data recording support tool accessible over personal smartphone devices
+- To make use of GIS application for recording basic field meta-information
+
+## Theory
+
+Plant breeding is a numbers game. Early breeders were relied on their experience with respective crops to make discrimination among good and bad genotypes and did satisfactorily fine. The age of information technology, renders much of the subjectivity in the field works unnecessary. Data is a contextual information with some value. Consider the statement: "Wheat variety BL-4341 is 30 (thirty)". Although the statement above contains a value of '30', with the lack of context to which it is referring to, it is meaningless. Wheat variety could be:
+
+  - 30 cm tall
+  - 30 days post-sowing
+  - 30 km tall
+  - 30 years old into being
+
+Plant breeding is complemented by field trials and experiments, wherein a number of lines/varieties/genotypes are tested alongside well established check varieties/cultivars (generally). The information about the trial itself forms what is called the meta-information. The observations or measurements made in the field or in laboratory or elsewhere about crop attributes are a part of experimental data. Experimental data (either measured or observed) are of one among following three types:
+  - Numeric data
+  - Ordered categorical data
+  - Nominal data (Unordered categorical data)
+
+Several aspects of crop growth and development could be described by the abovementioned data types. For example, one may count and record the number of plants in each of the experimental plots that are in the 50% flowering stage. The count is a kind of special numeric data. Likewise, after harvest plants of each plot may separately be threshed and seeds weighed and its moisture recorded. Here both the weight of the grain/seeds (often referred to as plot yield) and the moisture content (usually expressed as percentage of dry weight) are, again, numeric data. In contrast, one may traverse across the experimental field during the period of anthesis/flowering and observe what color the flower petals or flower anthers are -- red, yellow, purple, dark yellow or green. This kind of data is nominal type. It is reasonable for nominal data to have a fixed set of values to choose from, otherwise the field data quickly becomes an open-ended questionaire survey. 
+
+Lately, various tools, based on smartphone technology, are available for data recording and handling in the experimental field. These applications provide a convenient interface and maintain data integrity for ready use of data analytical stages of research. Also, it becomes necessary to have the information about exact position of a plot in a large experimental trial or when comparing/adjusting data of a number of trials combined. Tracking of the precise location of the field plot can also be achieved by use of GPS logger, a system now commonly available in smartphone devices having location capture service.
+
+In order to facilitate the easy entry, accrual and brief comparison of the data units trials make use of template. Each rows in the template correspond to a single experimental unit (plot), although a sampling unit may or may not correspond to the plot. An example template of a maize experimental evaluation trial is provided in the Table \ref{tab:field-book}. 
+
+### Field book template
+
+```{r field-book, cache=FALSE}
+field_book_rectangular <- tibble(
+  rep = rep(1, 5),
+  block = rep(1, 5),
+  plot = seq(1, 5),
+  entry = seq(1, 5),
+  name = c("ZH1798", "ZH191079", "VH18567", "Rampur-composite", "RH-10"),
+  pedigree = NA,
+  emergence_after_week = NA,
+  male = NA,
+  female = NA,
+  end_anthesis = NA,
+  plant = NA,
+  ear = NA,
+  stalk = NA,
+  root = NA,
+  number_plant = NA,
+  number_ear = NA,
+  field_weight = NA,
+  grain_moisture = NA,
+  ear_aspect = NA
+)
+
+field_book_rectangular %>% 
+  rename_with(.cols = everything(), .fn = function(x)str_to_title(str_replace_all(x, "_", " "))) %>% 
+  knitr::kable(booktabs = FALSE, caption = "A template for Maize genotype evaluation trial.") %>% 
+  kableExtra::kable_styling(font_size = 8) %>% 
+  kableExtra::column_spec(column = 1:19, width = c(rep("2.5em", 4), "5em", "3em", "4em", "3em", "3em", "4em", rep("3em", 9))) %>% 
+  kableExtra::add_header_above(c(" " = 7, "Date of 50 percent flowering" = 2, " " = 1, "Height" = 2,  "Lodging" = 2, " " = 5)) %>% 
+  kableExtra::landscape(margin = "1cm")
+```
+
+### Meta-information
+
+- Location:	Tikapur, Kailali
+- Managing agency/individual: Mr. Kalicharan Sharma
+- Collaborating institution:
+- Net plot length (m):
+- Country: Nepal
+- Distance between stations (m):
+- Mega-environment:
+- Distance between rows (m):
+- Date of planting/sowing:
+- Rows harvested:
+- Season:
+- Harvest date:
+- Trial name:	High yielding-2-1			
+
+## Equipments, materials and setup required
+
+1. Record book with template data sheet (for recording in paper)
+2. 'Fieldlog by CIMMYT' application (on personal (android) smartphone)
+3. 'OSMTracker' application
+4. Ballpen
+5. Ruler (~3, long (60m-90m); ~6, short (30m))
+
+## Procedure
+
+## Conclusion
+
+## References

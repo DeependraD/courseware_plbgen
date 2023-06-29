@@ -1,0 +1,66 @@
+Stage,General Description,Feekes Scale,Zadoks Scale,Additional Comments
+Germination,Dry seed, ,0, 
+,Start of imbibition, ,1, 
+,Imbibition complete, ,3,Seed typically at 35 to 40% moisture.
+,Radicle emerged from seed (caryopsis), ,5, 
+,Coleoptile emerged from seed (caryopsis), ,7, 
+,Leaf just at coleoptile tip, ,9, 
+Seedling Growth,First leaf through coleoptile,1,10, 
+,First leaf unfolded, ,11, 
+,2 leaves unfolded, ,12, 
+,3 leaves unfolded, ,13, 
+,4 leaves unfolded, ,14, 
+,5 leaves unfolded, ,15, 
+,6 leaves unfolded, ,16, 
+,7 leaves unfolded, ,17, 
+,8 leaves unfolded, ,18, 
+,9 or more leaves unfolded, ,19, 
+Tillering,Main shoot only, ,20, 
+,Main shoot and 1 tiller,2,21, 
+,Main shoot and 2 tillers, ,22, 
+,Main shoot and 3 tillers, ,23,Many plants will only have 2 or 3 tillers per plant at recommended populations.
+,Main shoot and 4 tillers, ,24, 
+,Main shoot and 5 tillers, ,25, 
+,Main shoot and 6 tillers,3,26,Leaves often twisting spirally.
+,Main shoot and 7 tillers, ,27, 
+,Main shoot and 8 tillers, ,28, 
+,Main shoot and 9 tillers, ,29, 
+Stem Elongation,Pseudostem erection,4-5,30, 
+,1st detectable node,6,31,Jointing stage
+,2nd detectable node,7,32, 
+,3rd detectable node, ,33, 
+,4th detectable node, ,34,Only 4 nodes may develop in modern varieties.
+,5th detectable node, ,35, 
+,6th detectable node, ,36, 
+,Flag leaf visible,8,37, 
+,Flag leaf ligule and collar visible,9,39, 
+Booting,Flag leaf sheath extending, ,41,Early boot stage.
+,Boot swollen,10,45, 
+,Flag leaf sheath opening, ,47, 
+,First visible awns, ,49,In awned varieties only.
+Head (Inflorescence) Emergence,First spikelet of head visible,10.1,50, 
+,1/2 of head visible,10.2,52, 
+,1/2 of head visible,10.3,54, 
+,3/4 of head visible,10.4,56, 
+,Head completely emerged,10.5,58, 
+Pollination (Anthesis),Beginning of flowering,10.51,60,Flowering usually begins in middle of head.
+,,10.52, ,Flowering completed at top of head.
+,,10.53, ,Flowering completed at bottom of head.
+,1/2 of flowering complete, ,64, 
+,Flowering completed, ,68, 
+Milk Development,Kernel (caryopsis) watery ripe,10.54,71, 
+,Early milk, ,73, 
+,Medium Milk,11.1,75,Milky ripe.
+,Late Milk, ,77,Noticeable increase in solids of liquid endosperm when crushing the kernel between fingers
+Dough Development,Early dough, ,83, 
+,Soft dough,11.2,85,Mealy ripe: kernels soft but dry.
+,Hard dough, ,87, 
+Ripening,Kernel hard (hard to split by thumbnail),11.3,91,Physiological maturity. No more dry matter accumulation.
+,Kernel hard (cannot split by thumbnail),11.4,92,Ripe for harvest. Straw dead.
+,Kernel loosening in daytime, ,93, 
+,Overripe, ,94, 
+,Seed dormant, ,95, 
+,Viable seed has 50% germination, ,96, 
+,Seed not dormant, ,97, 
+,Secondary dormancy, ,98, 
+,Secondary dormancy lost, ,99, 

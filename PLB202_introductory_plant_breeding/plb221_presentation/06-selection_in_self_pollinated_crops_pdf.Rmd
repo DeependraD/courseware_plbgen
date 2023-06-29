@@ -28,6 +28,16 @@ knitr::opts_chunk$set(tidy = FALSE, echo = FALSE,
 options(knitr.table.format = "latex")
 options(knitr.kable.NA = "", digits = 2)
 options(kableExtra.latex.load_packages = FALSE)
+
+## Refer to following Chapters and references for ideas on selection
+
+# - Chapter 6 - Selection Theory, Quantitative Genetics in Maize Breeding (2010)
+# - Chapter 11 - SELECTION: I. THE RESPONSE AND ITS PREDICTION, Introduction to Quantitative Genetics (1996)
+
+# Genetic and molecular dissection of quantitative traits in rice
+# Understanding the classics: the unifying concepts of transgressive segregation, inbreeding depression and heterosis and their central relevance for crop breeding
+# From Means to QTL: The Illinois Long-Term Selection Experiment as a Case Study in Quantitative Genetics
+# Statistical genetics of quantitative traits, linkage, maps and QTL (2007)
 ```
 
 # Introduction
@@ -55,11 +65,138 @@ options(kableExtra.latex.load_packages = FALSE)
   \end{columns}
 \end{figure}
 
+# Cultivar/variety
+
+##
+
+- A group of genetically similar plants which may be identified and differentiated (by some means) from other group of genetically similar plants.
+- Essential characteristics (internalized also by the International Union for the Protection of New Varieties of Plants (UPOV)):
+  - Distinguishable from other cultivars
+  - Uniform
+  - Stable over different years of production
+- Factors affecting types of cultivars/varieties developed
+  - Mode of reproduction
+  - Cost of the product used for commercial planting relative to it's performance and value (in vegetables were cost per unit seed is high and the returns per unit seed can easily exceed that provided by conventionally breed seeds, hybrids are preferred )
+  - Economic value of the crop
+  - Distribution system
+  - Environment where crop is produced
+
+<!-- (Source: Lecture 07 - Breeding self pollinated crops; Vernon Gracen, Professor Emeritus, Department of Plant Breeding and Genetics, CALS, Cornell University) -->
+
+<!-- Cultivar is a preferred term for all types of distinguishably uniform genotypes but variety is defined in numerous ways (notified under national system for distribution and use). -->
+
+## Types of cultivars/varieties and determinants of breeding procedure
+
+(For extended discussion with examples, refer to the section "Types of cultivars/varieties",  Lecture 3: Modes of reproduction and pollination control)
+
+1. Self-pollinated crops are usually pure-line cultivars/varieties but can be hybrids
+2. Cross-pollinated crops are usually open pollinated varieties, synthetic varieties or hybrids
+3. Clonal cultivars are used most often with species that have high value, are highly heterozygous and/or easily asexually propagated.
+
+- Determinants of breeding procedure:
+  - Types of cultivars/varieties being developed
+    - Pure line variety
+    - Synthetic variety
+    - Hybrid
+    - Clonal cultivar
+  - Traits under selection
+  - Resources of the program
+  - Personal preferences
+
+# Cultivar/variety breeding outline
+
+##
+
+\bcolumns
+\column{0.7\textwidth}
+
+- Pure-line varieties of self pollinated crops
+  - select or develop (or not necessary in mass selection procedure) genetically diverse segregating populations
+  - inbreed to desired homozygosity
+  - evaluate and select superior lines
+  - increase and distribute superior pure line varieties
+- Synthetic varieties and varietal crosses of cross pollinated crops
+  - select and cross a number of superior genotypes in all combinations to develop a synthetic variety or select and cross open-pollinated varieties that display good combining abilities to develop varietal hybrids
+  - usually involves some type of recurrent selection
+
+\column{0.3\textwidth}
+
+```{r rice-plant, fig.align='center', out.width="35%"}
+knitr::include_graphics("./images/rice_plant.png")
+```
+
+\ecolumns
+
+<!-- In recurrent selection, the idea is to allow recombination of genotypes (due to intermating) followed by selection. This being repeated a number of times. -->
+
+##
+
+- F1 hybrids of both cross and self-pollinated crops
+  - develop inbred lines from segregating populations by selfing or inbreeding to homozygosity
+  - evaluate inbreds for combining ability in hybrid combinations
+  - multiply selected inbred lines for hybrid seed production
+  - produce and distribute F1 hybrid seed
+- Clonal cultivars of both cross and self pollinated crops
+  - develop a genetically diverse population
+  - evaluate and select superior clones
+  - multiply and distribute superior clones
+
 # Breeding self pollinated crops
+
+## General idea
+
+1. A mixed population of self-pollinated plants is composed of plants with different homozygous genotypes
+    - If single plants are selected from this population and seed increased, each plant will produce a 'pure' population, but each population will be different, based on the parental selection
+2. Exploit the homozygous nature of individual plants
+3. Focus on plants **within** populations
+4. Qualitatively inherited characters receive most attention
+
+## Source population for improving self pollinated crops
+
+- Originally landraces or varieties found in isolated echological niches were used successfully to develop improved varieties
+- These land races contained a mixture of several types of lines arising as a result of spontaneous mutations and natural out-crossing
+- They contained some desirable but often many undesirable alleles
+- Extensive selection from landraces reduced the diversity and mined out the desirable alleles
+- New, useful genetic variation was created via hybridization
+
+## Creation and loss of genetic diversity
+
+```{r creation-loss-diversity}
+list("Variety A x Variety B" = paste0("F", 1:8)) %>% 
+  as_tibble() %>% 
+  mutate("Percentage heterozygosity" = (1/2)^(row_number()-1)) %>% 
+  mutate("Percentage homozygosity" = 1 - `Percentage heterozygosity`) %>% 
+  mutate(across(.cols = contains("percentage"), scales::label_percent())) %>% 
+  knitr::kable(booktabs = TRUE, caption = "Creation of variation due to breeding (non-identical) individuals and consequences of inbreeding by selfing.") %>% 
+  kableExtra::kable_styling(font_size = 8) %>% 
+  kableExtra::column_spec(column = 1:3, width = c("10em", "12em", "12em"))
+```
+
+
+$$
+\text{Homozygosity} = 1 - \left(\frac{1}{2}\right)^{m}
+$$
+
+  - Where,
+    - $m$: Number of generations past since F1 generation; i.e $m = 0$ at F1.
+
+
+##
+
+```{r}
+readxl::read_xlsx("./data/increase_in_homozygosity.xlsx", range = "E2:J14") %>% 
+  knitr::kable(col.names = c(" ", "AA", " ", "aa", "Heterozygosity", "Homozygosity")) %>% 
+  kableExtra::kable_styling()
+```
+
+
+<!-- Why do we multiply proportion of each homozygote in previous genotype by 4 to obtain the present generation homozygote-only selfed progeny number? -->
+<!-- This is because, in a fair world, if a heterozygote can multiply to give rise to 4 individuals while we are protecting all of its progenies (perfect population size: 4), we also need to provide homozygote the equal chance to procreate and reproduce. At least nature does so. -->
+
 
 ## Mass selection
 
-- Mass selection (originally described by Danish biologist W. Johansen, 1903) is an example of selection from a biologically variable population in which differences are genetic in origin. 
+- Mass selection (originally described by Danish biologist W. Johansen, 1903 working on beans) is an example of selection from a biologically variable population in which differences are genetic in origin. 
 - Often described as the oldest method of breeding self-pollinated plant species.
 - Provided that there is sufficient genetic variation, this method of selection is applicable to both self- and cross-pollinated species.
 - Common method of seed saving of best appearing plants is comparable to mass selection.
@@ -70,8 +207,7 @@ options(kableExtra.latex.load_packages = FALSE)
 - General procedure in mass selection is to rogue out off-types or plants with undesirable traits (*Negative mass selection*). 
 - The specific strategies for retaining representative individuals for the population vary according to species, traits of interest, or creativity of the breeder. 
 - Rouging out and bulking appears to be the basic strategy of mass selection, some breeders may rather select and advance a large number of plants that are desirable and uniform for the trait(s) of interest (*positive mass selection*).
-- Where applicable, single pods from each plant may be picked and bulked for planting. For cereal species, the heads may be picked and
-bulked.
+- Where applicable, single pods from each plant may be picked and bulked for planting. For cereal species, the heads may be picked and bulked.
 
 ##
 
@@ -131,15 +267,13 @@ knitr::include_graphics("./images/johannsen_bean.png")
 
 ##
 
-- Johannsen demonstrated that a mixed population of self-pollinated species could be sorted out into genetically pure lines.
-- These lines were subsequently non-responsive to selection within each of them . 
-- Selection is a passive process, since it eliminates variation but does not create it.
-- Lines that are genetically different may be successfully isolated from within a population of mixed genetic types.
-- Any variation that occurs within a pure line is not heritable but due to environmental factors only. Consequently, as Johansen's bean study showed, further selection within the line is not effective.
 - Lines are used;
   - as cultivars or as parents in hybrid production (inbred lines).
   - in the development of genetic stock (containing specific genes such as disease resistance, nutritional quality) and synthetic and multiline cultivars.
 - Line cultivars have a very narrow genetic base and tend to be uniform in traits of interest (e.g., height, maturity).
+- Johannsen demonstrated that a mixed population of self-pollinated species could be sorted out into genetically pure lines.
+- These lines were subsequently non-responsive to selection within each of them . 
+- Selection is a passive process, since it eliminates variation but does not create it.
 
 ## Application
 
@@ -195,8 +329,11 @@ knitr::include_graphics("./images/pureline_selection.png")
 knitr::include_graphics("./images/pedigree_selection.png")
 ```
 
+##
 
-# Bulk population
+Refer to Professor Friedrich Longin's video on Pedigree selection: Example of spelt wheat.
+
+# Bulk selection
 
 ##
 
@@ -204,6 +341,28 @@ knitr::include_graphics("./images/pedigree_selection.png")
 # pdftools::pdf_convert("./../../references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 330, format = "png", filenames = "./images/bulk_selection.png", dpi = 300)
 knitr::include_graphics("./images/bulk_selection.png")
 ```
+
+## Advantages of bulk selection
+
+- Less record keeping than pedigree method
+- Inexpensive
+- Easy to handle more crosses
+- Natural selection is primarily for competitive ability
+- Large number of genotypes can be maintained
+- Works well with unadapted germplasm
+- Can be carried on for many years with little effort by the breeder\footnote[frame]{\scriptsize The term "bulk selection" is often times used to refer to a improved form of "mass selection" wherein, we carry out specific crosses to compose the source population.}
+
+<!-- Afterall, like cycles of simplified mass selection procedure, bulk selection method is based upon natural selection (but may also be assisted by low intensity negative selection pressure) in early segregating generations. -->
+
+## Disadvantages of bulk selection
+
+- Environment changes from season to season so adaptive advantages shift
+- Must grow bulk seed lots in area of adaptation
+- Less efficient than pedigree method on highly heritable traits (because can purge undesirable phenotypes in early generations of pedigree method)
+- Not useful in selecting plant types at a competitive disadvantage (dwarf types)
+- Final genotypes may be able to withstand environmental stress, but may not be highest yielding
+- If used with a cross pollinated species, inbreeding depression may be a problem
+
 
 # Single seed descent
 
@@ -273,19 +432,26 @@ knitr::include_graphics("./images/backcross_recessive.png")
 
 ## Genetic issues
 
+\small
 - In theory, the BC3 genotype will be 93.75% identical to the recurrent parent. The mathematical relationship for the recovery of the recurrent parent is presented by W. Allard is:
 
 $$
+\small
 1-\left(\frac{1}{2}\right)^{m+1}
 $$
 
-where $m$ is the number of generations of selfing or backcrosses. Same relation also gives the proportion of homozygous individuals in any generations of recurrent selfing. For example, for $3^{rd}$ BC generation,
+- Where,
+  \begin{itemize}
+  \footnotesize
+  \item $m$ is the number of generations of selfing or backcrosses
+  \end{itemize}
+- Same relation also gives the proportion of homozygous individuals in any generations of recurrent selfing. For example, for $3^{rd}$ BC generation,
 
 $$
 \begin{aligned}
-1-\left(\frac{1}{2}\right)^{m+1} &=& 1-\left(\frac{1}{2}\right)^{3+1} \\
-~ &=& 1-\left(\frac{1}{16}\right) \\
-~ &=& 0.9375
+\small
+1-\left(\frac{1}{2}\right)^{m+1} =& 1-\left(\frac{1}{2}\right)^{3+1} \\
+=& 1-\left(\frac{1}{16}\right) = 0.9375
 \end{aligned}
 $$
 
@@ -329,10 +495,10 @@ Where $n$ is the number of genes.
 3. Why selection should be preceded by progeny testing ?
 - In Self pollinated species, population structure promotes highly homozygous individuals. So without progeny testing, selecting for heterozygous individuals will not reflect true population structure. Selection is best carried out in homozygous individuals.
 
----
+##
 
-4. Why not backcross in $5^{th}$ year (again) ?
-- Because progeny testing should be done here to enable selection as early as possible.
+4. Why not backcross in $5^{th}$ year (again) (in dominant gene transfer) ?
+- Because progeny testing should be done here to enable selection as early as possible. This is because if you progeny test too late while continuing backcrossing, it could be long before you realize that lines (heterozygous or homozygous dominant) that have been developed might not contain suitable combination of genes for quantitative characters such as yield.
 
 5. Why "RR x rr" cross of $8^{th}$ year is called backcross ?
 - Normally heterozygote when crossed with either parent is called backcross. In $8^{th}$ generation, "RR" is crossed to the recurrent parent. Note, however, that "RR" is not fully homozygous for all other loci.

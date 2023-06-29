@@ -59,6 +59,9 @@ $$\text{Hybrid vigour} = \frac{F_1-\frac{(P_1+P_2)}{2}}{\frac{(P_1+P_2)}{2}}$$
 - Plants including onions, sunflower, cucurbits, and rye are more tolerant of inbreeding with minimal consequences of inbreeding depression. 
 - Plants such as alfalfa and carrot are highly intolerant of inbreeding.
 
+For a thorough discussion of topic, refer to:
+  - An Introduction to Population Genetics Theory by Crow and Kimura (1970, reprinted 2009)
+
 ##
 
 - Inbreeding is measured by the coefficient of inbreeding (F), which is the probability of identity of alleles by descent. The range of F is zero (no inbreeding; random mating) to one (prolonged selfing).
@@ -118,6 +121,12 @@ knitr::include_graphics("./images/dominance_theory.png")
 knitr::include_graphics("./images/overdominance_theory.png")
 ```
 
+## Sickle cell anaemia (A recessive blood phenotype)
+
+```{r blood-condition, fig.align='center', out.width="45%"}
+knitr::include_graphics("./images/blood_conditions.jpg")
+```
+
 # Biometrics of heterosis
 
 ### Better parent heterosis (Heterobeltiosis)
@@ -163,3 +172,5 @@ knitr::include_graphics("./images/cms_hybrids_double.png")
 ```
 
 \ecolumns
+
+# Bibliography

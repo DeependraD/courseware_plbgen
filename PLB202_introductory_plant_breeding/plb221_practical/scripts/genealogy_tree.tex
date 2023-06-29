@@ -1,0 +1,46 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\begin{document}
+
+\tikzset{
+every node/.style={rectangle,draw,minimum height=3em,text width=2.5cm},
+female/.style = {fill=red!20, rounded corners},
+male/.style = {fill=blue!20},
+neutral/.style = {fill=green!20}
+}
+
+\begin{tikzpicture}[node distance=8pt and 33pt]
+
+% the nodes
+\node[neutral] (chi1) {Child 1};
+\node[neutral,below= of chi1] (chi2) {Child 2};
+\node[male,above right=of chi1] (father) {Father};
+\node[female,below right=of chi2] (mother) {Mother};
+\node[female,below =of mother] (aunt) {Aunt};
+\node[male,above right=of father] (ffather) {Father's\\ father};
+\node[female,below right=of father] (fmother) {Father's\\ mother};
+\node[male,above right=of mother] (mfather) {Mother's\\ father};
+\node[female,below right=of aunt] (mmother) {Mother's\\ mother};
+
+% some auxiliary coordinates for the edges
+\coordinate[right=15pt of chi1] (auxc1);
+\coordinate[right=15pt of chi2] (auxc2);
+\coordinate[right=15pt of father] (auxf);
+\coordinate[right=15pt of mother] (auxm);
+\coordinate[right=15pt of aunt] (auxa);
+
+% the edges
+\draw (father.west) -| (auxc1) |- (mother.west);
+\draw (chi1) -- (auxc1);
+\draw (chi2) -- (auxc2);
+\draw (ffather.west) -| (auxf) |- (fmother.west);
+\draw (father) -- (auxf);
+\draw (mfather.west) -| (auxm) |- (mmother.west);
+\draw (mother) -- (auxm);
+\draw (aunt) -- (auxa);
+
+\end{tikzpicture}
+
+\end{document}

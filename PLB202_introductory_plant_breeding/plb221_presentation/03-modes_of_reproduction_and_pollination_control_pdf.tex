@@ -103,6 +103,7 @@ numbering=counter, block=fill]{metropolis}
   \usepackage{longtable}
   \usepackage{array}
   \usepackage{multirow}
+  % \usepackage{multicol}
   \usepackage{wrapfig}
   \usepackage{float}
   \usepackage{colortbl}
@@ -160,6 +161,34 @@ numbering=counter, block=fill]{metropolis}
 
   \newcommand{\bitemize}{\begin{itemize}}
   \newcommand{\eitemize}{\end{itemize}}
+
+
+  \newlength{\picwidth}
+
+  \usepackage{etoolbox}
+
+  % \defbeamertemplate{background canvas}{mydefault}{%
+  %   \includegraphics[width=\paperwidth,height=\paperheight]{MaizeLandrace2}
+  % }
+  \defbeamertemplate{background canvas}{mydefault}{}
+
+  \defbeamertemplate{background canvas}{standout}{%
+    \centering
+    \begin{tikzpicture}
+    \node[opacity=0.2] {\includegraphics[height=\paperheight]{MaizeLandrace2}};
+    \end{tikzpicture}
+  }
+
+  \BeforeBeginEnvironment{frame}{%
+    \setbeamertemplate{background canvas}[mydefault]%
+  }
+
+  \makeatletter
+  \define@key{beamerframe}{standout}[true]{%
+    \setbeamertemplate{background canvas}[standout]%
+  }
+  \makeatother
+  \usetikzlibrary{positioning}
 
   \title[]{Modes of reproduction and pollination control}
 
@@ -232,12 +261,6 @@ numbering=counter, block=fill]{metropolis}
 \item
   Hence fertilization involves fusion of haploid male gamete with
   haploid female gamete
-\item
-  Male gametophyte generation is a tiny pollen tube and three haploid
-  nuclei (\emph{microgametophyte})
-\item
-  Female gametophyte is a single multinucleated cell, also called the
-  embryo sac (\emph{megagametophyte}, aka embryo sac).
 \end{itemize}
 \end{frame}
 
@@ -245,6 +268,12 @@ numbering=counter, block=fill]{metropolis}
 \protect\hypertarget{section-1}{}
 \begin{itemize}
 \tightlist
+\item
+  Male gametophyte generation is a tiny pollen tube and three haploid
+  nuclei (\emph{microgametophyte})
+\item
+  Female gametophyte is a single multinucleated cell, also called the
+  embryo sac (\emph{megagametophyte}, aka embryo sac).
 \item
   Female gametophyte contains the egg cell and central cell that become
   fertilized and give rise to the embryo and endosperm of the seed,
@@ -258,34 +287,38 @@ numbering=counter, block=fill]{metropolis}
 
 \begin{frame}{}
 \protect\hypertarget{section-2}{}
+\bcolumns
+\column{0.5\textwidth}
+
 \begin{figure}
 
-{\centering \includegraphics[width=0.38\linewidth]{./images/fertilization_in_self_pollinated_species} 
+{\centering \includegraphics[width=0.85\linewidth]{./images/fertilization_in_self_pollinated_species} 
 
 }
 
-\caption{Fertilization in plants}\label{fig:plant-fertilization}
+\caption{Fertilization in self pollinated plants.}\label{fig:plant-fertilization}
 \end{figure}
+
+\column{0.5\textwidth}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.64\linewidth]{./images/male_gametophyte} 
+
+}
+
+\caption{Haploid male gametophyte (pollen) of Arabidopsis comprising the vegetative cell (producing the growing pollen tube) and two non-motile sperm cells enclosed within the membrane of the vegetative tube cell.}\label{fig:gametophyte-male}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=0.55\linewidth]{./images/female_gametophyte} \caption{pollen tube approaching the Arabidopsis ovule. The tube grows along the funiculus, through the micropyle of the ovule and towards the haploid female gametophyte that comprises the egg cell, central cell and accessory cells (synergid and antipodal cells).}\label{fig:gametophyte-female}
+\end{figure}
+
+\ecolumns
 \end{frame}
 
 \begin{frame}{}
 \protect\hypertarget{section-3}{}
-\begin{figure}
-
-{\centering \includegraphics[width=0.38\linewidth]{./images/sporogenesis} 
-
-}
-
-\caption{Embryo sac and pollen formation}\label{fig:sporogenesis}
-\end{figure}
-\end{frame}
-
-\hypertarget{alternation-of-generation-in-flowering-plants}{%
-\section{Alternation of generation in flowering
-plants}\label{alternation-of-generation-in-flowering-plants}}
-
-\begin{frame}{}
-\protect\hypertarget{section-4}{}
 \begin{figure}
 
 {\centering \includegraphics[width=0.6\linewidth]{./images/alternation_of_generations} 
@@ -294,27 +327,6 @@ plants}\label{alternation-of-generation-in-flowering-plants}}
 
 \caption{Alternation of generations}\label{fig:alternation-generation}
 \end{figure}
-\end{frame}
-
-\begin{frame}{}
-\protect\hypertarget{section-5}{}
-\begin{columns}[T,onlytextwidth]
-  
-  \column{0.5\linewidth}
-  \footnotesize
-
-\begin{figure}
-\includegraphics[width=0.6\linewidth]{./images/Teosinte_maize_hybrid_cross} \caption{Hybrid}\label{fig:hybrid}
-\end{figure}
-
-  \column{0.5\linewidth}
-  \footnotesize
-  
-\begin{figure}
-\includegraphics[width=0.8\linewidth]{./images/cross_pollinated_mustard} \caption{Open pollinated}\label{fig:openpollinated}
-\end{figure}
-
-\end{columns}
 \end{frame}
 
 \hypertarget{modes-of-reproduction}{%
@@ -343,18 +355,6 @@ plants}\label{alternation-of-generation-in-flowering-plants}}
   \item
     Self incompatibility, male sterility and dichogamy
   \end{itemize}
-\item
-  Refer to
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Chapter 2 on `Reproductive barriers: Identification, uses and
-    circumvention,' Plant Breeding Reviews, Volume 11.
-  \item
-    Chapter 2 on `Molecules involved in self-incompatibility in
-    flowering plants'
-  \end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -363,7 +363,7 @@ plants}\label{alternation-of-generation-in-flowering-plants}}
 self-fruitfulness)}\label{self-incompatibility-lack-of-self-fruitfulness}}
 
 \begin{frame}{}
-\protect\hypertarget{section-6}{}
+\protect\hypertarget{section-4}{}
 \begin{itemize}
 \tightlist
 \item
@@ -440,7 +440,7 @@ oppositional factor system)}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-7}{}
+\protect\hypertarget{section-5}{}
 \begin{block}{Sporophytic incompatibility}
 \protect\hypertarget{sporophytic-incompatibility}{}
 \begin{itemize}
@@ -471,7 +471,7 @@ oppositional factor system)}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-8}{}
+\protect\hypertarget{section-6}{}
 \begin{table}
 
 \caption{\label{tab:si-comparison-reaction1}Incompatibility reactions of different mating combinations in a mono- and digenic cross.}
@@ -507,7 +507,7 @@ Cross & Male parent & Female parent & Pollen gamete & Gametophytic Reaction & Ga
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-9}{}
+\protect\hypertarget{section-7}{}
 \begin{table}
 
 \caption{\label{tab:si-comparison-reaction2}Incompatibility reactions (...continued)}
@@ -539,7 +539,7 @@ Cross & Male parent & Female parent & Pollen gamete & Gametophytic Reaction & Ga
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-10}{}
+\protect\hypertarget{section-8}{}
 \begin{block}{Important remarks}
 \protect\hypertarget{important-remarks}{}
 \begin{itemize}
@@ -624,7 +624,7 @@ Cross & Male parent & Female parent & Pollen gamete & Gametophytic Reaction & Ga
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-11}{}
+\protect\hypertarget{section-9}{}
 \begin{figure}
 
 {\centering \includegraphics[width=0.5\linewidth]{./images/incompatibility_use_SC} 
@@ -636,7 +636,7 @@ Cross & Male parent & Female parent & Pollen gamete & Gametophytic Reaction & Ga
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-12}{}
+\protect\hypertarget{section-10}{}
 \begin{figure}
 
 {\centering \includegraphics[width=0.5\linewidth]{./images/incompatibility_use_DC} 
@@ -648,7 +648,7 @@ Cross & Male parent & Female parent & Pollen gamete & Gametophytic Reaction & Ga
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-13}{}
+\protect\hypertarget{section-11}{}
 \begin{figure}
 
 {\centering \includegraphics[width=0.5\linewidth]{./images/incompatibility_use_TC} 
@@ -663,7 +663,7 @@ Cross & Male parent & Female parent & Pollen gamete & Gametophytic Reaction & Ga
 \section{Male sterility}\label{male-sterility}}
 
 \begin{frame}{}
-\protect\hypertarget{section-14}{}
+\protect\hypertarget{section-12}{}
 \begin{itemize}
 \tightlist
 \item
@@ -760,7 +760,7 @@ Cross & Male parent & Female parent & Pollen gamete & Gametophytic Reaction & Ga
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-15}{}
+\protect\hypertarget{section-13}{}
 \begin{figure}
 
 {\centering \includegraphics[width=0.5\linewidth]{./images/gms_use} 
@@ -773,11 +773,6 @@ Cross & Male parent & Female parent & Pollen gamete & Gametophytic Reaction & Ga
 
 \begin{frame}{Cytoplasmic male sterility}
 \protect\hypertarget{cytoplasmic-male-sterility}{}
-(Refer to Chapter 2 on Molecular Biology of Cytoplasmic Male Sterility,
-Plant Breeding Reviews, Volume 10.)
-
-\footnotesize
-
 \begin{itemize}
 \tightlist
 \item
@@ -803,7 +798,7 @@ Plant Breeding Reviews, Volume 10.)
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-16}{}
+\protect\hypertarget{section-14}{}
 \begin{figure}
 
 {\centering \includegraphics[width=0.5\linewidth]{./images/cms_use} 
@@ -815,7 +810,7 @@ Plant Breeding Reviews, Volume 10.)
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-17}{}
+\protect\hypertarget{section-15}{}
 \begin{itemize}
 \tightlist
 \item
@@ -863,7 +858,7 @@ Plant Breeding Reviews, Volume 10.)
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-18}{}
+\protect\hypertarget{section-16}{}
 \begin{figure}
 
 {\centering \includegraphics[width=0.3\linewidth]{./images/cgms_systems} 
@@ -898,7 +893,7 @@ Plant Breeding Reviews, Volume 10.)
 \section{Asexual reproduction}\label{asexual-reproduction}}
 
 \begin{frame}{}
-\protect\hypertarget{section-19}{}
+\protect\hypertarget{section-17}{}
 \begin{itemize}
 \tightlist
 \item
@@ -916,7 +911,7 @@ Plant Breeding Reviews, Volume 10.)
   \end{itemize}
 \end{itemize}
 
-(Refer to Chapter 1 on `Apomixis: Genetics and Breeding,' Plant Breeding
+(Refer to Chapter 1 on `Apomixis: Genetics and Breeding', Plant Breeding
 Reviews, Volume 18.)
 \end{frame}
 
@@ -977,12 +972,39 @@ Reviews, Volume 18.)
 \end{itemize}
 \end{frame}
 
+\begin{frame}{}
+\protect\hypertarget{section-18}{}
+\begin{center}
+\tikzstyle{block}=[rectangle,draw,fill=blue!20,text width=2cm, text centered, rounded corners, minimum height=3em]
+\tikzstyle{rect}=[rectangle, draw=red, fill=orange!50, minimum width=2cm, minimum height=1cm, text centered]
+\tikzstyle{line}=[draw, -latex]
+
+% node distance will position the anchored nodes in the 'vertical' and 'horizontal' distances, respectively
+\begin{tikzpicture}[node distance=0.5cm and 0.5cm]
+
+\node[rect] (init) {Apomixis};
+
+\node[block, below left=of init] (androgenesis) {Androgenesis};
+\node[block, below right=of init] (parthenogenesis) {Parthenogenesis};
+\node[block, right=of parthenogenesis] (diplospory) {Diplospory};
+\node[block, left=of androgenesis] (apospory) {Apospory};
+
+\path[line] (init) -| (androgenesis);
+\path[line] (init) -| (parthenogenesis);
+\path[line] (init) -| (diplospory);
+\path[line] (init) -| (apospory);
+
+\end{tikzpicture}
+
+\end{center}
+\end{frame}
+
 \hypertarget{reproductive-options-in-plants}{%
 \section{Reproductive options in
 plants}\label{reproductive-options-in-plants}}
 
 \begin{frame}{}
-\protect\hypertarget{section-20}{}
+\protect\hypertarget{section-19}{}
 \begin{block}{\footnotesize Hermaphrodity versus unisexuality}
 \scriptsize
 Hermaphrodites have both male and female sexual organs, and hence may be capable of self fertilization. On the other hand, unisexuals, having one kind of sexual organ, are compelled to cross-fertilize. Each mode of reproduction has genetic consequences. Hermaphrodity promotes a reduction in genetic variability, whereas unisexuality, through cross-fertilization, promotes genetic variability.
@@ -1004,11 +1026,21 @@ Sexually reproducing species are capable of providing seed through sexual means.
 \end{block}
 \end{frame}
 
-\hypertarget{types-of-cultivar}{%
-\section{Types of cultivar}\label{types-of-cultivar}}
+\hypertarget{manipulation-of-flowering-and-pollination-case-of-roottuber-crops}{%
+\section{Manipulation of flowering and pollination (case of root/tuber
+crops)}\label{manipulation-of-flowering-and-pollination-case-of-roottuber-crops}}
+
+\begin{frame}{Manipulation of flowering and pollination (case of
+root/tuber crops)}
+\begin{center}\includegraphics[width=0.6\linewidth]{./images/pollination_control_root_tuber} \end{center}
+\end{frame}
+
+\hypertarget{types-of-cultivarsvarieties}{%
+\section{Types of
+cultivars/varieties}\label{types-of-cultivarsvarieties}}
 
 \begin{frame}{}
-\protect\hypertarget{section-21}{}
+\protect\hypertarget{section-20}{}
 \begin{itemize}
 \tightlist
 \item
@@ -1047,7 +1079,7 @@ Sexually reproducing species are capable of providing seed through sexual means.
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-22}{}
+\protect\hypertarget{section-21}{}
 \begin{table}
 
 \caption{\label{tab:predominantly-self-pollinated}Commonly self pollinated crops}
@@ -1087,6 +1119,31 @@ Wheat & \textit{Triticum aestivum}\\
 
 \begin{frame}{Open pollinated cultivars}
 \protect\hypertarget{open-pollinated-cultivars}{}
+\bcolumns
+\column{0.5\textwidth}
+
+\begin{figure}
+\includegraphics[width=0.85\linewidth]{./images/cross_pollinated_mustard} \caption{Open pollinated}\label{fig:openpollinated}
+\end{figure}
+
+\column{0.5\textwidth}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{./images/open_pollinated_onion} 
+
+}
+
+\caption{Open pollinated crops}\label{fig:open-pollinated-onion}
+\end{figure}
+
+\ecolumns
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-22}{}
+\small
+
 \begin{itemize}
 \tightlist
 \item
@@ -1104,12 +1161,18 @@ Wheat & \textit{Triticum aestivum}\\
 \end{itemize}
 
 \begin{figure}
+  \begin{columns}[T,onlytextwidth]
 
-{\centering \includegraphics[width=0.35\linewidth]{./images/open_pollinated_onion} 
-
-}
-
-\caption{Open pollinated crops}\label{fig:op-onion}
+  \column{.75\linewidth}
+  \begin{center}
+  \includegraphics[width=0.70\linewidth]{./images/open_pollination_corn.PNG}
+  \end{center}
+  
+  \column{.25\linewidth}
+  \caption{\newline Open pollinated plant of corn and its progeny. (A) Plant from an open-pollinated variety. (B) Ear from open-pollinated plant. Each kernel came from a separate fertilization. The kernels are related from the female side but may be quite unrelated on the male side, the pollen having come from many plants within the field. (C) Plants grown from seed of an open-pollinated variety of corn. The plants vary in height, size of ear, etc., but on the average retain the generla type of the parent variety.}
+  \label{fig:open-pollination-corn}
+  
+  \end{columns}
 \end{figure}
 \end{frame}
 
@@ -1201,6 +1264,9 @@ Wheat & \textit{Triticum aestivum}\\
 \item
   Immediate effect of pollen on the developing kernel
 \item
+  May be observed when two varieties differing in a single visible
+  endosperm trait are crossed.
+\item
   When yellow corn pollen fertilizes an ovule of white corn, a
   light-yellow kernel develops; when white corn pollen fertilizes an
   ovule of yellow corn, a medium-yellow kernel develops.
@@ -1219,9 +1285,9 @@ Wheat & \textit{Triticum aestivum}\\
   of the mother plant, to one gene for Y, or y, from the pollen.
   Possible combinations are given in Table \ref{tab:xenia-effect}.
 \item
-  Endosperm characteristics such as starchy vs.~sugary endosperm,
-  non-shrunken vs.~shrunken endosperm, and nonwaxy vs.~waxy endosperm
-  also exhibit Xenia effects.
+  Endosperm characteristics such as starchy vs.~sugary (dominant)
+  endosperm, non-shrunken vs.~shrunken endosperm, and nonwaxy vs.~waxy
+  endosperm also exhibit Xenia effects.
 \end{itemize}
 
 \column{0.4\textwidth}

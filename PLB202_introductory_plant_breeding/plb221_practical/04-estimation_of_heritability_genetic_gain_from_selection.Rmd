@@ -1,0 +1,27 @@
+# Estimation of heritability and genetic gain from selection {#practical-4}
+
+## Objectives
+
+## Theory
+
+## Numerical problems
+
+1. For a quantitative character governed by 6 (six) genes in a diploid crop, what is the theoretical minimum size of the population of F2 generation such that even the rarest of phenotypes could be found. Assume each locus is composed of a pair of dominant and recessive alleles in the F1 heterozygote.
+
+2. Two pure lines of rice are crossed. In the $F_1$ the variance in spike length is 1.5. The F1 is selfed. In the $F_2$ the variance in spike length is 4.5. Estimate broad sense heritability of spike length in rice.
+
+3. The phenotypic variance of yield in maize 200 $kg^2$ per acre. The variance within an inbred line is 80. The regression of offspring phenotype on mid parent values is 0.32. Find additive variance, genetic variance, environmental variance, narrow sense heritability and broad sense heritability. 
+
+4. Estimate heritability through parent offspring regression method from the following available data.
+
+```{r question3}
+readxl::read_xlsx("data/04-qualitative_and_quantitative_characters.xlsx", "question3") %>% 
+  knitr::kable(format = "latex", booktabs = TRUE) %>% 
+  kableExtra::kable_styling(latex_options = "striped")
+```
+
+5. Maize plants in a population are on average 180 cm tall. Narrow-sense heritability for plant height in this population is 0.5. A breeder selects plants that are 10 cm taller on average than the population mean to produce the next generation, and the breeder continues applying this level of selection for eight generations. What will the average height of the plants be after eight generations of selection ? Assume that $h^2$ remains 0.5 and $V_e$ does not change over the course of the experiment.
+
+<!-- (Refer to Page 726; An Introduction to Genetic Analysis, 2012) -->
+
+## Conclusion

@@ -52,54 +52,78 @@ DiagrammeR::mermaid(
 
 # Assessment of variability
 
+```{r maize-inbred-exp}
+
+# Source: Page 691; Chapter 19: A Simple Genetic Model for Quantitative Traits; An Introduction to Genetic Analysis, 2012.
+
+maize_inbredexp <- readxl::read_xlsx("./data/maize_inbredline_experiment.xlsx")
+
+maize_inbredexp %>% 
+  knitr::kable(caption = "Simulated data for Days to Polllen shed for 10 inbred lines of maize grown in two experiments.")
+```
+
+\begin{alert}
+Experiment (Table \ref{tab:maize-inbred-exp}) shows simulated data for 10 inbred strains of maize that were grown in three different environments and scored for the number of days between planting and the time that the plants first shed pollen. The overall mean is 70 days. Let's consider line A when grown in environment 1. The mean for all lines in environment 1 is 68, or 2 less than the overall mean, so $e$ for environment 1 is -2. The mean line A over all 3 environments is 64, or 6 less than the overall mean, so g for line A is -6. Putting these two values together, we decompose the phenotype of line A when grown in environment 1 as:
+
+$$
+62 = 70 + (-6) + (-2)
+$$
+
+\end{alert}
+
+<!-- We could do the same calculations for the other nine inbred lines, and then we'd have a complete description of all the phenotypes in each environment in terms of the extent to which their deviation from the overall mean is due to genetic and environmental factors. -->
+
 ## Variance
 
-## Pooled variance
-
-- Pooled variance (also known as combined, composite, or overall variance; square root known as pooled standard deviation) is a method for estimating variance of several different populations when the mean of each population may be different, but one may assume that the variance of each population is the same.
-
-- Under the assumption of equal population variances, the pooled sample variance provides a higher precision estimate of variance than the individual sample variances. 
-
-- This higher precision can lead to increased statistical power when used in statistical tests that compare the populations, such as the t-test.
-
----
-
-The pooled variance is an estimate of the fixed common variance ${\displaystyle \sigma ^{2}}$ underlying various populations that have different means.
-
-## Computation
-
-If the populations are indexed ${\displaystyle i=1,\ldots ,k}$ then the pooled variance ${\displaystyle s_{p}^{2}}$ can be computed by the weighted average.
+- We can use the simple model $x = g + e$ to think further about the variance of quantitative traits.
+- Variance is a way to measure how much individuals deviate from the population mean. Under this mode, the trait variance can be partitioned into genetic and the environmental variances.
 
 $$
-{\displaystyle s_{p}^{2}={\frac {\sum _{i=1}^{k}(n_{i}-1)s_{i}^{2}}{\sum _{i=1}^{k}(n_{i}-1)}}={\frac {(n_{1}-1)s_{1}^{2}+(n_{2}-1)s_{2}^{2}+\cdots +(n_{k}-1)s_{k}^{2}}{n_{1}+n_{2}+\cdots +n_{k}-k}},}
+V_x = V_g + V_e
 $$
 
-where ${\displaystyle n_{i}}$ is the sample size of population ${\displaystyle i}$ and the sample variances are
+(Continue from the textbook.)
 
-$$
-{\displaystyle {\frac {1}{n_{i}-1}}\sum _{j=1}^{n_{i}}\left(y_{j}-{\overline {y_{i}}}\right)^{2}}
-$$
+<!-- ## Pooled variance -->
 
-Use of ${\displaystyle (n_{i}-1)}$ weighting factors instead of ${\displaystyle n_{i}}$ comes from Bessel's correction.
+<!-- - Pooled variance (also known as combined, composite, or overall variance; square root known as pooled standard deviation) is a method for estimating variance of several different populations when the mean of each population may be different, but one may assume that the variance of each population is the same. -->
+<!-- - Under the assumption of equal population variances, the pooled sample variance provides a higher precision estimate of variance than the individual sample variances.  -->
+<!-- - This higher precision can lead to increased statistical power when used in statistical tests that compare the populations, such as the t-test. -->
 
-## Variants
+<!-- <!-- The pooled variance is an estimate of the fixed common variance ${\displaystyle \sigma ^{2}}$ underlying various populations that have different means. --> -->
 
-The unbiased least squares estimate of ${\displaystyle \sigma ^{2},}$
+<!-- ## Computation -->
 
-$$
-{\displaystyle s_{p}^{2}={\frac {\sum _{i=1}^{k}(n_{i}-1)s_{i}^{2}}{\sum _{i=1}^{k}(n_{i}-1)}},}
-$$
-and the biased maximum likelihood estimate
+<!-- If the populations are indexed ${\displaystyle i=1,\ldots ,k}$ then the pooled variance ${\displaystyle s_{p}^{2}}$ can be computed by the weighted average. -->
 
-$${\displaystyle s_{p}^{2}={\frac {\sum _{i=1}^{k}(n_{i}-1)s_{i}^{2}}{\sum _{i=1}^{k}n_{i}}},}$$
+<!-- $$ -->
+<!-- {\displaystyle s_{p}^{2}={\frac {\sum _{i=1}^{k}(n_{i}-1)s_{i}^{2}}{\sum _{i=1}^{k}(n_{i}-1)}}={\frac {(n_{1}-1)s_{1}^{2}+(n_{2}-1)s_{2}^{2}+\cdots +(n_{k}-1)s_{k}^{2}}{n_{1}+n_{2}+\cdots +n_{k}-k}},} -->
+<!-- $$ -->
 
-are used in different contexts. The former can give an unbiased ${\displaystyle s_{p}^{2}}$ to estimate ${\displaystyle \sigma ^{2}}$ when the two groups share an equal population variance. The latter one can give a more efficient ${\displaystyle s_{p}^{2}}$ to estimate ${\displaystyle \sigma ^{2}}$ biasedly. Note that the quantities ${\displaystyle s_{i}^{2}}$ in the right hand sides of both equations are the unbiased estimates.
+<!-- where ${\displaystyle n_{i}}$ is the sample size of population ${\displaystyle i}$ and the sample variances are -->
 
-## Pooled variance
+<!-- $$ -->
+<!-- {\displaystyle {\frac {1}{n_{i}-1}}\sum _{j=1}^{n_{i}}\left(y_{j}-{\overline {y_{i}}}\right)^{2}} -->
+<!-- $$ -->
 
-For further details,
+<!-- Use of ${\displaystyle (n_{i}-1)}$ weighting factors instead of ${\displaystyle n_{i}}$ comes from Bessel's correction. -->
 
-https://en.wikipedia.org/wiki/Pooled_variance
+<!-- ## Variants -->
+
+<!-- The unbiased least squares estimate of ${\displaystyle \sigma ^{2},}$ -->
+
+<!-- $$ -->
+<!-- {\displaystyle s_{p}^{2}={\frac {\sum _{i=1}^{k}(n_{i}-1)s_{i}^{2}}{\sum _{i=1}^{k}(n_{i}-1)}},} -->
+<!-- $$ -->
+<!-- and the biased maximum likelihood estimate -->
+
+<!-- $${\displaystyle s_{p}^{2}={\frac {\sum _{i=1}^{k}(n_{i}-1)s_{i}^{2}}{\sum _{i=1}^{k}n_{i}}},}$$ -->
+
+<!-- are used in different contexts. The former can give an unbiased ${\displaystyle s_{p}^{2}}$ to estimate ${\displaystyle \sigma ^{2}}$ when the two groups share an equal population variance. The latter one can give a more efficient ${\displaystyle s_{p}^{2}}$ to estimate ${\displaystyle \sigma ^{2}}$ biasedly. Note that the quantities ${\displaystyle s_{i}^{2}}$ in the right hand sides of both equations are the unbiased estimates. -->
+
+<!-- For further details, -->
+
+<!-- https://en.wikipedia.org/wiki/Pooled_variance -->
 
 ## Aids to selection 
 

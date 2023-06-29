@@ -1,0 +1,121 @@
+# Study and draw floral parts of self pollinated field crops {#practical-1}
+
+## Objectives
+
+- To be familiar with different parts of flower and their functions of a self pollinated crops
+- To understand how floral morphology of self-pollinating crops promote selfing
+
+## Theory
+
+Flowers are the reproductive organs of a plant which lead to the development of fruit and seed.  a flower can be defined a determinate structure with a generally defined number of organs; it bears both staminate and pistillate parts and organs are set in four series: sepals, petals, stamens and carpels. However, several angiosperm flowers lack these defining features, and differentiation of a perianth or limits of flowers and inflorescences are often unclear. The floral morphology is the study of forms and features of flowers.
+
+The genetic constitution of a crop depends on the mode of pollination of the crop. Floral morphology dictates the mode of pollination in flowers. There is a marked difference between flowers with a biotic (animal) pollination syndrome and those with an abiotic syndrome (wind or water). Animal pollination is accompanied by a series of adaptations to attract specific pollinators and to protect the floral parts from damage. Differentiation of protective sepals and carpels, nectaries, showy petals and stamens is part of the arsenal leading to effective fertilization. Wind pollination is accompanied by a syndrome of characters, such as small, unisexual flowers, loss of petals of reduction of the perianth, long styles and filaments, production of a large amount of pollen, lack of viscin in pollen, and reduction in the number of ovules.
+
+Flower symmetry and shape are directly linked to pollination.  Flag-flowers are sternotribic (pollination by the underside of the visitor through stamens that are exposed and curved up: e.g. Capparaceae, Caesalpinioideae); lip-flowers have a lower lip functioning as a landing platform and are nototribic (pollination by the back of the insect; the stamens are usually concealed by the fused upper petals: e.g. Lamiales). Therefore, it becomes an essential for a plant breeder to know the structural organization and basic nomenclature associated with commonly cultivated crops' flowers.
+
+```{r floral-morphology-poales-rice, fig.cap="Flower and fruit morphology of poales -- Rice, \\textit{Oryza sativa}.", fig.subcap=c("Floret", "Panicle and a floret"), fig.align='center', out.width="33%", fig.nrow = 1, cache=FALSE}
+# pdftools::pdf_convert("/home/deependra/Desktop/BSc_Ag_lectures/literatures/Plant Science Straussberger.pdf", pages = 956, format = "png", filenames = "./images/floral_morphology_wheat.png", dpi = 300)
+knitr::include_graphics("./images/rice_floret.png")
+knitr::include_graphics("./images/rice_panicle.png")
+```
+
+
+```{r floral-morphology-poales-wheat, fig.cap="Flower and fruit morphology of poales -- Wheat, \\textit{Triticum aestivum}", fig.subcap = c("Spikelet; d: lemma, h: glume, v: palea", "Spike", "Seed section; a: point of emergence, c: coleoptile, cr: coleorhiza, f: fruit furrow, l: vascular bundle, r: radicle, s: scutellum, vk: shoot apex, w: root cap, z: cylindrical epithelium"), fig.align='center', out.width="33%", fig.nrow = 1, cache=FALSE}
+# pdftools::pdf_convert("/home/deependra/Desktop/BSc_Ag_lectures/literatures/Plant Science Straussberger.pdf", pages = 956, format = "png", filenames = "./images/floral_morphology_wheat.png", dpi = 300)
+knitr::include_graphics("./images/wheat_spikelet.png")
+knitr::include_graphics("./images/wheat_spike.png")
+knitr::include_graphics("./images/wheat_kernel.png")
+```
+
+
+The type of habitat that a species inhabits in determines the reproductive biology of that adapted crop to a large extent. A range of vegetation types (based on habitat) are identified for order poales, including:
+
+  - Woodland
+  - Grassland
+  - Heathland
+  - Wetland
+  - Desert
+  - Polymorphous
+  
+Flower morphology in turn affects the choice of tools and techniques to be used for hybridization. Prominance of reproductive organs -- Stigma and anther -- which is largely conserved in a species, is among a number of factors determining the mode of reproduction and complexity of undertaking a manual crossing. More on hybridization techniques in Practical \@ref(practical-8) and \@ref(practical-9).
+
+### Study of floral morphology and reproductive behavior of Rice
+
+<!-- Source: http://dhcrop.bsmrau.net/rice/ -->
+
+#### Taxonomic Position (According to Cronquist (1988))
+
+- Kingdom: Plantae
+- Division: Magnoliophyta
+- Class: Liliopsida
+- Subclass: Commelinidae
+- Order: Poales
+- Family: Poaceae
+- Genus: Oryza
+- Species: O. sativa
+
+#### Botanical description
+
+- Habit: Annual herb
+- Root: Fibrous root system, rootlet and root hair present. The first form root is called seminal root, which is parsley branched and persist for a short time after germination. New roots are emerged soon after the destroyed of seminal root. The prop roots are arisen from the node of the above ground.
+- Stem: Hollow, cylindrical composed of node and internode, and called culm. Leaf and buds are arisen from the node. The tillers are arisen from the lower nodes as alternate manner.
+- Spikelet: born on the pedicel which is morphologically a peduncle. The spikelet consists of a minute axis (rachilla) on which a single floret is borne in the axils of 2-ranked bracts. The bracts of the lower pair on the rachilla, being always sterile, are the sterile lemmas ("glumes," "empty glumes," "outer glumes"). The upper bracts or the flowering glumes consist of the lemma (fertile lemma) and palea. The lemma, palea, and the included flower form the floret. The filiform extension of the keel of the lemma is known as awn.
+- Flower: It is known as floret contains bracts lemma and palea. Flower is bisexual and zygomorphic.
+- Perianth: The calyx and corolla together form perianth and is known as lodicule. The lodicules are two wale-like, transparent, fleshy structures located at the base of the flower adnate to the palea.
+- Androecium: Stamens are six, located into two whorls, anther versatile.
+- Gynoecium: Carpel one, placentation basal, stigma feathery.
+- Fruit: Caryopsis, the rice fruit is a caryopsis in which the single seed is fused with the wall of the ripened ovary (pericarp), forming a seed like grain. The grain is the ripened ovary, with the lemma, palea, rachilla, sterile lemmas, and the awn, if present, firmly adhered to it. The lemma and palea and their associated structures such as the sterile lemmas, rachilla, and the awn whenever present constitute the hull or husk.
+- Rice seed: rice grain, commonly called a seed, consists of the true fruit or brown rice (caryopsis) and the hull, which encloses the brown rice. Brown rice consists mainly of the embryo and endosperm. The surface contains several thin layers of differentiated Tissues that enclose the embryo and endosperm. The palea, lemmas, and rachilla constitute the hull of indica rices.
+- Leaf: simple, sessile composed of leaf sheath and leaf blade. Leaf sheath encircled the stem, and the leaf blade is flat. At the junction, a feathery structure is known as ligule and thread like structure is known as auricle. Auricles are ear-like appendages arises in pair from both sides. The terminal leaf is known as flag leaf.
+
+## Equipments and materials required
+
+- Flower
+- Scissor (10)
+- Petri dish (25; for each student)
+- Magnifying glass/hand lens (25; for each student)
+- Notebook
+- Pencil
+
+## Procedure
+
+- A fresh sample of flowers are obtained of crops.
+- Flowers are dissected in lab, their nature and morphology looked closely with the help of magnifying glass, and the observed impression is drawan in notebook.
+
+### Observations
+
+1. Wheat/rice
+
+\begin{wrapfigure}[12]{r}{4cm}
+  \begin{center}
+  \caption{Floral diagram of rice, \textit{Oryza sativa}}\label{rice-floral-diagram}
+  {\includegraphics[width=3.5cm]{images/rice_floral_diagram.png}}
+  \end{center}
+\end{wrapfigure}
+
+- Bracteate type flower
+- Inflorescence: Spike of spikelets or compound spikelets
+- Mode of pollination: Self pollination
+- Flowers of wheat and rice are complete and bisexual.
+
+2. Pea
+
+- Flowers are pedicilate, zygomorphic and hermaphrodite
+- Sepals are gamosepalous, pentamerous
+- Petals have axillary aestivation
+- Androecium: Superior ovary (epigynous)
+- Pollination: Self pollinated
+
+3. Potato: 
+
+- Bisexual, complete, regular flower, yellow colored and self pollinated
+- Biological seed production in potatoes is low due to: failure of plants to flower, dropping of buds and flowers either before or after fertilization, low pollen production, failure to produce viable pollen, male sterility, and self-incompatibility
+
+4. Maize
+
+- In maize, male and female inflorescence are located on different parts, namely tassel and ear, respectively.
+- 95% of the times, pollination is cross and 5% of the time only self-pollination takes place.
+
+## Conclusion
+
+Hence, study of the floral morphology in some of the common crop species has improved understanding of the importance of floral biology in overall reproductive system of a crop. The knowledge can aid in crop improvement activities, mainly by improving the efficiency of hybridization.

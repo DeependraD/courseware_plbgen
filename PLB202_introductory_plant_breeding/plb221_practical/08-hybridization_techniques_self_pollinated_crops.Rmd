@@ -1,0 +1,68 @@
+# Hybridization techniques of self pollinated crops {#practical-8}
+
+## Objectives
+
+- To be aware of factors determining success of hybridization in self-pollinated crops.
+- To learn about the crossing technique in self-pollinated crop. 
+
+## Theory
+
+After domestication and selection, hybridization is the most potential method of crop improvement. A benefit to using hybridization over bare selection is that, it creates new genetic variation. Hybridization involves crossing of the two (near) pure line plants of dissimilar genotypes, which produce F1 hybrids and then the subsequent generations will be segregating generations.
+
+Decision about the objective and a description of target trait for improvement is an absolute necessity before the start of any breeding program. The hybridization process begins and ends with following activities and stages.
+
+1. Choice of parents
+  - Parents are the only source of variability that segregating generations express.
+  - Well established cultivar is generally used as seed (female) parent, such that essential agronomic characters suited for that area are recovered in offsprings.
+  - Male (pollen) parent should complement the female parent.
+  - The parent chosen for hybridization must be homozygous for the character (i.e., pureline)
+  - When the desired attributes are not present in just two parents, more than two may be chosen for crossing (this essentially requires multiple crossings at different stages).
+  - Cross combinations between those parents with high and low combining ability and those with both high combining abilities often provide better opportunity for superior recombinants.
+  - Parents selected based on genetic divergence is lead to a diverse segregating population.
+  
+2. Crossing schedule
+  - Simple cross (Two parents crossed to produce the F1)
+  - Convergent cross (More than two parents crossed to produce the F1 hybrid, which is then used to produce F2 or is used in a back cross; Brings together genes from several parents to a single hybrid)
+    - Three way cross
+    - Double cross
+  - Number of crossess (few or large) is determined mostly the breeding objective, floral biology fo the crop and the quality of parents chosen.
+  
+3. Emasculation
+  - In order to avoid self pollination, female plants need to be emasculated.
+  - Before hybridization, the efficiency of emasculation technique may be tested by bagging the emasculated flowers without pollination. The amount of seed set would indicate the frequency fo self fertilization.
+  - Techniques
+    - Manual/hand
+    - Suction
+    - Hot water (Treatment with water at 40-44 degree C for 10 minutes is effective in rice. Whole spike is immersed in a thermoflask containing the hot water)
+    - Alcohol treatment
+    - Cold water (Keeping rice plant at 0-6 degree C kills the pollen grains)
+    - Use of genetic mechanisms: male sterility and self-incompatibility
+4. Bagging
+  - Immediately after emasculation, flowers/inflorescence are enclosed in suitable bag (paper, butter paper or parchment paper) and tied at the base of the inflorescence with thread, sealed with a pin or wire to prevent random cross pollination.
+  - It is desirable to remove the bag after 2-3 days of pollination to reduce chances of fungal growth owing to high humidity and temperature inside of the bag.  
+5. Tagging
+  - Tags are made up of light weight tin-plate and are written in carbon pencil with following information:
+    - Date of emasculation
+    - Date of pollination
+    - Names of female and male parents
+6. Pollination
+  - Mature, fertile and vaiable pollen from donor (male) parent should be placed on the receptive stigma to bring about fertilization.
+  - The timing of pollination should coincide with the period of pollen viability and stigma receptivity.
+7. Harvesting and storage of F1 seed
+
+## Equipments and materials required
+
+- Ebroidery scissors (steel)
+- Fine point forceps (steel)
+- Glassine crossing bags
+- Paper clips (steel)
+- Permanent marker
+- 75% ethanol
+
+## Procedure
+
+## Conclusion
+
+## References
+
+1. [Video: Wheat Wheat Crossing Protocol](./../../media/Wheat Crossing Protocol [IVTjSTAc76M].mp4)

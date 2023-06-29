@@ -224,7 +224,7 @@ knitr::include_graphics("./images/transgressive_segregation.jpg")
 For given number of alleles in a locus, number of genotype combinations possible is shown on the graph \ref{fig:polymorphic-alleles-locus}.
 \end{block}
 
-```{r polymorphic-alleles-locus, out.width="85%", fig.width=4.5, fig.height=3, fig.align="center", fig.cap="Exponential increase in the number of genotypes with increasing level of polymorphism for a given diploid locus."}
+```{r polymorphic-alleles-locus, out.width="76%", fig.width=4.5, fig.height=3, fig.align="center", fig.cap="Exponential increase in the number of genotypes with increasing level of polymorphism for a given diploid locus."}
 diploid_loci_n_alleles_combn <- function(allele_num){
   n_allelic_diploid_combin <- (outer(seq(1, allele_num, 1), seq(1, allele_num, 1), "paste0"))  
   return(length(n_allelic_diploid_combin %>% 
@@ -232,7 +232,7 @@ diploid_loci_n_alleles_combn <- function(allele_num){
            length(n_allelic_diploid_combin[lower.tri(n_allelic_diploid_combin)]))
 }
 
-tibble(number_of_alleles = c(1:12)) %>% 
+tibble(number_of_alleles = c(1:10)) %>% 
   mutate(diploid_genotypes_number = map_int(number_of_alleles, 
                                             diploid_loci_n_alleles_combn)) %>% 
   ggplot(aes(x = number_of_alleles, y = diploid_genotypes_number)) +
@@ -240,7 +240,8 @@ tibble(number_of_alleles = c(1:12)) %>%
   scale_x_continuous(breaks = scales::breaks_width(1, offset = 0)) +
   theme_bw() +
   labs(x = "Number of alleles to choose from in a diploid genotype", 
-       y = "Number of different genotypes")
+       y = "Number of different genotypes") +
+  geom_label(aes(label = diploid_genotypes_number), hjust = 0.5, vjust = 0.5, fill = "purple", color = "white", alpha = 0.7)
 ```
 
 \hspace{-0.4cm}\column{0.36\textwidth}
@@ -256,85 +257,102 @@ Where, $n$ is the total number of biallelic loci.
 \end{block}
 \end{columns}
 
-## Numerical problem
+<!-- ## Numerical problem -->
 
-The leaves of pineapples can be classified into three types: spiny (S), spiny tip (ST), and piping (nonspiny; P). In crosses between pure strains followed by intercrosses of the F1, the following results appeared:
+<!-- The leaves of pineapples can be classified into three types: spiny (S), spiny tip (ST), and piping (nonspiny; P). In crosses between pure strains followed by intercrosses of the F1, the following results appeared: -->
 
-```{r pinapple-genetics, fig.align='center', out.width="40%"}
-# pdftools::pdf_convert("./../../references_plb/An Introduction to Genetic Analysis-W. H. Freeman (2015).pdf", pages = 270, format = "png", filenames = "./images/pineapple_genetics.png", dpi = 300)
-knitr::include_graphics("./images/pineapple_genetics.png")
-```
+<!-- ```{r pinapple-genetics, fig.align='center', out.width="35%"} -->
+<!-- # pdftools::pdf_convert("./../../references_plb/An Introduction to Genetic Analysis-W. H. Freeman (2015).pdf", pages = 270, format = "png", filenames = "./images/pineapple_genetics.png", dpi = 300) -->
+<!-- knitr::include_graphics("./images/pineapple_genetics.png") -->
+<!-- ``` -->
 
+<!-- a. Assign gene symbols. Explain these results in regard to the genotypes produced and their ratios. -->
+<!-- b. Using the model from part $a$, give the phenotypic ratios that you would expect if you crossed  -->
+<!--   - the F1 progeny from piping x spiny with the spiny parental stock and -->
+<!--   - the F1 progeny of piping x spiny with the F1 progeny of spiny x spiny tip. -->
 
-a. Assign gene symbols. Explain these results in regard to the genotypes produced and their ratios.
-b. Using the model from part a, give the phenotypic ratios that you would expect if you crossed (1) the F1 progeny from piping ? spiny with the spiny parental stock and (2) the F1 progeny of piping ? spiny with the F1 progeny of spiny ? spiny tip.
+<!-- ## Solution 1 -->
 
-## Solution 1
+<!-- \footnotesize -->
 
-\footnotesize
+<!-- First, let's look at the F2 ratios. We have clear 3 : 1 ratios in crosses 1 and 2, indicating single-gene segregations. Cross 3, however, shows a ratio that is almost certainly a 12 : 3 : 1 ratio. -->
 
-First, let's look at the F2 ratios. We have clear 3 : 1 ratios in crosses 1 and 2, indicating single-gene segregations. Cross 3, however, shows a ratio that is almost certainly a 12 : 3 : 1 ratio. How do we know this ratio? Well, there are simply not that many complex ratios in genetics, and trial and error brings us to the 12 : 3 : 1 quite quickly. In the 128 progeny total, the numbers of 96 : 24 : 8 are expected, but the actual numbers fit these expectations remarkably well.
+<!-- <!-- How do we know this ratio ? Well, there are simply not that many complex ratios in genetics, and trial and error brings us to the 12 : 3 : 1 quite quickly. In the 128 progeny total, the numbers of 96 : 24 : 8 are expected, but the actual numbers fit these expectations remarkably well. --> -->
 
-One of the principles of this chapter is that modified Mendelian ratios reveal gene interactions. Cross 3 gives F2 numbers appropriate for a modified dihybrid Mendelian ratio, and so it looks as if we are dealing with a two-gene interaction. It seems the most promising place to start; we can return to crosses 1 and 2 and try to fit them in later.
+<!-- Modified Mendelian ratios reveal gene interactions. Cross 3 gives F2 numbers appropriate for a modified dihybrid Mendelian ratio, and so it looks as if we are dealing with a two-gene interaction. It seems the most promising place to start; we can return to crosses 1 and 2 and try to fit them in later. -->
 
-Any dihybrid ratio is based on the phenotypic proportions 9 : 3 : 3 : 1. Our observed modification groups them as follows:
+<!-- Any dihybrid ratio is based on the phenotypic proportions 9 : 3 : 3 : 1. Our observed modification groups them as follows: -->
 
-$$
-\small
-\begin{aligned}
-9A/\_;B/\_ &~& 9~piping \\
-3A/\_;b/b &~& 3~piping \\
-3a/a;B/\_ &~& 3~spiny~tip \\
-1a/a;b/b &~& 1~spiny
-\end{aligned}
-$$
+<!-- $$ -->
+<!-- \small -->
+<!-- \begin{aligned} -->
+<!-- 9A/\_;B/\_ &~& 9~piping \\ -->
+<!-- 3A/\_;b/b &~& 3~piping \\ -->
+<!-- 3a/a;B/\_ &~& 3~spiny~tip \\ -->
+<!-- 1a/a;b/b &~& 1~spiny -->
+<!-- \end{aligned} -->
+<!-- $$ -->
 
-##
+<!-- ## -->
 
-So, without worrying about the name of the type of gene interaction (we are not asked to supply this anyway), we can already define our three pineapple-leaf phenotypes in relation to the proposed allelic pairs A/a and B/b:
+<!-- - So, without worrying about the name of the type of gene interaction (we are not asked to supply this anyway), we can already define our three pineapple-leaf phenotypes in relation to the proposed allelic pairs A/a and B/b: -->
 
-$$
-\small
-\begin{aligned}
-piping &=& A/\_ (B/b~irrelevant) \\
-spiny tip &=& a/a; B/\_ \\
-spiny &=& a/a; b/b
-\end{aligned}
-$$
+<!-- $$ -->
+<!-- \small -->
+<!-- \begin{aligned} -->
+<!-- piping &=& A/\_ (B/b~irrelevant) \\ -->
+<!-- spiny tip &=& a/a; B/\_ \\ -->
+<!-- spiny &=& a/a; b/b -->
+<!-- \end{aligned} -->
+<!-- $$ -->
 
-What about the parents of cross 3 ? The spiny parent must be a/a ; b/b, and, because the B gene is needed to produce F2 spiny-tip leaves, the piping parent must be A/A ; B/B. (Note that we are told that all parents are pure, or homozygous.) The F1 must therefore be A/a ; B/b. Without further thought, we can write out cross 1 as follows:
+<!-- - What about the parents of cross 3 ? -->
+<!--   \begin{itemize} -->
+<!--   \footnotesize -->
+<!--   \item The spiny parent must be a/a ; b/b, and, because the B gene is needed to produce F2 spiny-tip leaves, the piping parent must be A/A ; B/B. (Note that we are told that all parents are pure, or homozygous.) The F1 must therefore be A/a ; B/b. -->
+<!--   \end{itemize} -->
 
-##
+<!-- ## -->
 
-\footnotesize
+<!-- \footnotesize -->
+<!-- \bcolumns -->
+<!-- \column{0.5\textwidth} -->
 
-```{r cross1-ab, fig.align='center', out.width="34%"}
-# pdftools::pdf_convert("./../../references_plb/An Introduction to Genetic Analysis-W. H. Freeman (2015).pdf", pages = 270, format = "png", filenames = "./images/cross_ab.png", dpi = 300)
-knitr::include_graphics("./images/cross2_ab.png")
-```
+<!-- **Cross 1** -->
 
-```{r cross2-ab, fig.align='center', out.width="34%"}
-# pdftools::pdf_convert("./../../references_plb/An Introduction to Genetic Analysis-W. H. Freeman (2015).pdf", pages = 270, format = "png", filenames = "./images/cross_ab.png", dpi = 300)
-knitr::include_graphics("./images/cross2_ab.png")
-```
+<!-- ```{r cross1-ab, fig.align='center', out.width="66%"} -->
+<!-- # pdftools::pdf_convert("./../../references_plb/An Introduction to Genetic Analysis-W. H. Freeman (2015).pdf", pages = 270, format = "png", filenames = "./images/cross_ab.png", dpi = 300) -->
+<!-- knitr::include_graphics("./images/cross1_ab.png") -->
+<!-- ``` -->
 
-We know that the F2 of cross 2 shows single-gene segregation, and it seems certain now that the A/a allelic pair has a role. But the B allele is needed to produce the spiny-tip phenotype, and so all plants must be homozygous B/B:
+<!-- \column{0.5\textwidth} -->
 
-```{r cross-multiple, fig.align='center', out.width="34%"}
-# pdftools::pdf_convert("./../../references_plb/An Introduction to Genetic Analysis-W. H. Freeman (2015).pdf", pages = 271, format = "png", filenames = "./images/cross_multiple.png", dpi = 300)
-knitr::include_graphics("./images/cross_multiple.png")
-```
+<!-- **Cross 2** -->
 
-Notice that the two single-gene segregations in crosses 1 and 2 do not show that the genes are not interacting. What is shown is that the two-gene interaction is not revealed by these crosses-only by cross 3, in which the F1 is heterozygous for both genes.
+<!-- ```{r cross2-ab, fig.align='center', out.width="66%"} -->
+<!-- # pdftools::pdf_convert("./../../references_plb/An Introduction to Genetic Analysis-W. H. Freeman (2015).pdf", pages = 270, format = "png", filenames = "./images/cross_ab.png", dpi = 300) -->
+<!-- knitr::include_graphics("./images/cross2_ab.png") -->
+<!-- ``` -->
 
-##
+<!-- \ecolumns -->
 
-b. Now it is simply a matter of using Mendel's laws to predict cross outcomes:
+<!-- We know that the F2 of cross 2 shows single-gene segregation, and it seems certain now that the A/a allelic pair has a role. But the B allele is needed to produce the spiny-tip phenotype, and so all plants must be homozygous B/B: -->
 
-```{r trait-genetics, fig.align='center', out.width="40%"}
-# pdftools::pdf_convert("./../../references_plb/An Introduction to Genetic Analysis-W. H. Freeman (2015).pdf", pages = 271, format = "png", filenames = "./images/trait_genetics.png", dpi = 300)
-knitr::include_graphics("./images/trait_genetics.png")
-```
+<!-- ```{r cross-multiple, fig.align='center', out.width="36%"} -->
+<!-- # pdftools::pdf_convert("./../../references_plb/An Introduction to Genetic Analysis-W. H. Freeman (2015).pdf", pages = 271, format = "png", filenames = "./images/cross_multiple.png", dpi = 300) -->
+<!-- knitr::include_graphics("./images/cross_multiple.png") -->
+<!-- ``` -->
+
+<!-- <!-- Notice that the two single-gene segregations in crosses 1 and 2 do not show that the genes are not interacting. What is shown is that the two-gene interaction is not revealed by these crosses-only by cross 3, in which the F1 is heterozygous for both genes. --> -->
+
+<!-- ## -->
+
+<!-- b. Now it is simply a matter of using Mendel's laws to predict cross outcomes: -->
+
+<!-- ```{r trait-genetics, fig.align='center', out.width="40%"} -->
+<!-- # pdftools::pdf_convert("./../../references_plb/An Introduction to Genetic Analysis-W. H. Freeman (2015).pdf", pages = 271, format = "png", filenames = "./images/trait_genetics.png", dpi = 300) -->
+<!-- knitr::include_graphics("./images/trait_genetics.png") -->
+<!-- ``` -->
 
 # Gene action and interaction
 
@@ -353,7 +371,17 @@ read_csv("./data/gene-action-interaction-example.csv", skip = 1) %>%
 
 \column{0.3\textwidth}
 
-\footnotesize Refer to Lecture slides of Introductory Genetics on "Gene Action and Interaction".
+\begin{itemize}
+\footnotesize
+\item Additive: Effects of each allele can be summed
+\item Dominance: One functional allele provides complete locus functions
+\item Epistatic: Functional alleles needed in two different loci
+\item Overdominance: Heterozygous locus perform better than best homozygous
+\end{itemize}
+
+\scriptsize Note: It helps to better understand if we think genotypes and their allele counterparts as not being categorically dominant or recessive (use numeric subscript notation instead)
+
+\scriptsize Refer to Lecture slides of Introductory Genetics on "Gene Action and Interaction".
 
 \end{columns}
 
@@ -394,9 +422,9 @@ tribble(
   "Genotype", "g-1", "$MS_G$", "$\\sigma^2_e + r \\sigma^2_{GE} + re \\sigma^2_{G}$",
   "Genotype x Environment", "(g-1)(e-1)", "$MS_{GE}$", "$\\sigma^2_{e} + r \\sigma^2_{GE}$",
   "Error", "(g-1)(r-1)e", "$MS_{E}$", "$\\sigma^2_{e}$"
-) %>% 
-  knitr::kable(escape = FALSE, booktabs = TRUE, caption = "Analysis of variance (and broad sense heritability estimates in the case of a series of g genotypes evaluated across e environments)") %>% 
-  kableExtra::kable_styling(font_size = 8, latex_options = "striped") %>% 
+) %>%
+  knitr::kable(escape = FALSE, booktabs = TRUE, caption = "Analysis of variance (and broad sense heritability estimates in the case of a series of g genotypes evaluated across e environments)") %>%
+  kableExtra::kable_styling(font_size = 8, latex_options = "striped") %>%
   kableExtra::column_spec(column = 1:4, width = c("12em", "5em", "7em", "12em"))
 
 ```
@@ -421,12 +449,16 @@ Genotypic variance = $\hat{\sigma}^2_{G} = \frac{MS_G - MS_{GE}}{re}$
   \end{itemize}
 - This leads to the concept of heritability ($h^2$), which is the proportion of phenotypic variance that is genetic in origin.
 - The values of $h^2$ can range from 0 to 1. If $h^2$ is close to zero, there will be little scope for advancement and there would be little point in trying to improve this character in a plant breeding program. 
+
+##
+
 - There are three main ways of estimating heritability:
   \begin{itemize}
   \footnotesize
-  \item Carrying out particular genetic crosses and observing the performance of their progeny so that the resulting data can be partitioned into genetic and environmental components.
-  \item Based on the direct measurement of the degree of resemblance between offspring and one, or both, of their parents. This is achieved by regression of the former onto the latter in the absence of selection.
+  \item Direct estimation of variance components
   \item Measuring the response of a population to given levels of selection.
+  \item Carrying out particular genetic crosses and observing the performance of their progeny so that the resulting data can be partitioned into genetic and environmental components (generation analysis).
+  \item Based on the direct measurement of the degree of resemblance between offspring and one, or both, of their parents. This is achieved by regression of the former onto the latter in the absence of selection.
   \end{itemize}
 
 ##
@@ -457,6 +489,14 @@ h_n^2 = \frac{V_A}{V_A+V_D+V_E}
 $$
 
 - In estimation of $h^2_n$ genetic relationships among relatives (lineal (parent-offspring) or collateral (full-or half-sibs)) are used.
+
+## Additive verus Dominant genetic variance
+
+- Additive variance is the variance in a trait that is due to the effects of each individual allele being added together, without any interactions with other alleles or genes.
+- Dominance variance is the variance that is due to interactions between alleles or effects due to two alleles interacting to make the trait greater (or lesser) than the sum of the two alleles acting alone.
+- Dominance variance is not directly inherited from parent to offspring. It is due to the interaction of genes from both parent within the individual, and, of course, only one allele is passed from each parent to the offspring.
+
+<!-- (Source: Lecture 07 - Breeding self pollinated crops; Vernon Gracen, Professor Emeritus, Department of Plant Breeding and Genetics, CALS, Cornell University) -->
 
 ## Calculation
 
@@ -498,19 +538,76 @@ $$
 - Six generation mean analysis method
   - Phenotypic mean values of each (P1, P2, F1, BCP1, BCP2, and F2) generation is required.
 
+## Variance partitioning of filial generation
+
+- In the first filial generation ( $F_1$), after hybridization between two homozygous parents, there is not genetic variance between individuals of a progeny (they will be genetically alike) and all the variation observed between $F_1$ plants will be entirely environmental. 
+- In the generation following ( $F_2$ and forth) there are both genetic and environmental components of phenotypic variance.
+- The genetic variance of the $F_2$ generation is:
+
+$$
+\sigma_{\bar{F_2}}^2 = \frac{1}{2}V_A + \frac{1}{4}V_D + \sigma_E^2
+$$
+
+##
+
+- Thus broad sense heritability of the $F_2$ generation is:
+
+$$
+\label{eqn:hbs-filial}
+h_bs^2 = \frac{\frac{1}{2}V_A + \frac{1}{4}V_D}{\frac{1}{2}V_A + \frac{1}{4}V_D + \sigma_E^2}
+\tag{iii}
+$$
+
+- In simple terms, to estimate the $h_b^2$ of $F_2$ family (or any other segregating family), only following estimates are required:
+
+1. Total phenotypic variance (Obtained from measurement on plants within $F_2$ families)
+2. Environmental variance (Obtained from measurement on $F_1$ families)
+
+<!-- 1. Note that denominator has variation of simple $V_P = V_A + V_D + V_E$. This is because total phenotypic variation of $F_2$ has larger contribution of environmental and additive components than dominance component. -->
+
+## Partitioning environmental variance
+
+The other generation in which the phenotypic variance is also entirely attributable to environmental effects is the $F_1$. On the other hand, if the phenotypic variances of all these three generations were available, the environmental component of the phenotypic variance of the $F_2$ generation could be estimated as follows (in a simplified way):
+
+$$\sigma_E = \frac{\sigma_{\bar{P_1}}^2 + 2\sigma_{\bar{F_1}}^2 + \sigma_{\bar{P_2}}^2}{4}$$
+
+## Partitioning genetic variance
+
+The ratio of additive genetic variance to total phenotypic variance is called the narrow-sense heritability (as seen previously).
+
+$$
+h_ns^2 = \frac{\frac{1}{2}V_A}{\frac{1}{2}V_A + \frac{1}{4}V_D + V_E}
+$$
+
+In order to estimate $h_n^2$, it is therefore necessary to partition the genetic variance into its two components ( $V_A$ and $V_D$). This is done by considering the phenotypic variance of the two backcross families ( $\sigma_{\bar{B_1}}^2$ and $\sigma_{\bar{B_2}}^2$ ).
+
+##
+
+- Following known relation can be used for estimating genetic components of $F_2$ generation:
+
+$$V_D = 4\left(V_{\bar{B_1}} + V_{\bar{B_2}} - V_{\bar{F_2}} - V_E \right)$$
+
+$$V_A = 2V_{\bar{F_2}} - (V_{B_1} + V_{B_2})$$
+
+- Expressions for both $V_D$ and $V_A$ are derived from known relations:
+
+$$V_{\bar{F_2}} = \frac{1}{2}A + \frac{1}{4}D + V_E$$ and
+
+$$V_{B_1} + V_{B_2} = \frac{1}{2}A + \frac{1}{2}D + 2V_E$$
+
 ## 
 
 - Parent offspring regression
   - This method is based on how much does the resemblance parents and offspring exist.
   - If there is perfect resemblance between parents and offspring, then, $b = 1$ and there is perfect heritable genetic effect.
   - On contrary if there is no resemblance between parents and offspring $b = 0$, and there is no heritable effect but variation is only due to environment.
-  - Therefore, narrow sense heritability ( $b = h_{ns}^2 = \frac{VA}{VP}$ )
+  - Therefore, narrow sense heritability ( $b = h_{ns}^2 = \frac{V_{A}}{V_{P}}$ )
   - If only one parent is known (animal experiments or polycrosses):
 
 $$
 \small
 \begin{aligned}
-b &= \frac{1}{2}.\frac{Va}{VP}\\
+b &= \frac{1}{2}.\frac{V_{A}}{V_{P}}\\
 h_{ns}^2 &= 2b
 \end{aligned}
 $$
@@ -529,7 +626,7 @@ readxl::read_xlsx("data/04-qualitative_and_quantitative_characters.xlsx", "h2_es
 
 ##
 
-1. Two pure lines of rice are crossed. In the $F_1$ the variance in spike length is 1.5. The F1 is selfed. In the $F_2$ the variance in spike length is 4.5. Estimate broad sense heritability of spike length in rice
+1. Two pure lines of rice are crossed. In the $F_1$ the variance in spike length is 1.5. The F1 is selfed. In the $F_2$ the variance in spike length is 4.5. Estimate broad sense heritability of spike length in rice.
 
 2. The phenotypic variance of yield in maize 200 $kg^2$ per acre. The variance within an inbred line is 80. The regression of offspring phenotype on mid parent values is 0.32. Find additive variance, genetic variance, environmental variance, narrow sense heritability and broad sense heritability. 
 
@@ -543,6 +640,3 @@ readxl::read_xlsx("data/04-qualitative_and_quantitative_characters.xlsx", "quest
   kableExtra::kable_styling(latex_options = "striped")
 ```
 
-##
-
-4. Suppose 2 inbred lines A and B are crossed to produce hybrid. The genotype of A is AAbbccDDEEFF and the genotype of B is aaBBCCddeeFF. A, B, C, D, E and F are the dominant genes. If dominant homozygote contributes 2 $ton~ha^{-1}$, recessive homozygote contributes 1 $ton~ha^{-1}$ and heterozygote contributes 2.5 $ton~ha^{-1}$, Find the grain yields of Parent A, Parent B and $F_1$ hybrid on the basis of dominance and over-dominance hypothesis.

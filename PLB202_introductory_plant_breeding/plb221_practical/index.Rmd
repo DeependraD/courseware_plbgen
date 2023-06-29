@@ -1,7 +1,7 @@
 --- 
-title: "Introductory plant breeding: A practical manual"
+title: "Introductory Plant Breeding: A Practical Manual"
 author: "Deependra Dhakal"
-date: "November, 2019"
+# date: "November, 2019"
 site: bookdown::bookdown_site
 output:
     bookdown::gitbook:
@@ -9,20 +9,32 @@ output:
     bookdown::pdf_book:
       keep_tex: yes
 documentclass: book
-bibliography: [book.bib, packages.bib]
+classoption: openany
+bibliography: [book.bib, packages.bib, references.bib]
 biblio-style: apalike
 link-citations: yes
 description: "This manual is meant to be distributed as a practical guide to assist course of Introductory plant breeding."
 ---
 
 ```{r include=FALSE}
+set.seed(453)
+
+# invalidate cache when the package version changes
+knitr::opts_chunk$set(tidy = FALSE, echo = FALSE, 
+                  message = FALSE, warning = FALSE,
+                  cache = FALSE)
+options(knitr.table.format = "latex")
+options(knitr.kable.NA = "", digits = 2)
+options(kableExtra.latex.load_packages = FALSE)
+
 # automatically create a bib database for R packages
 knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
 ), 'packages.bib')
 require(tidyverse)
+
 ```
 
-# Introduction
+<!-- # Introduction -->
 
-Introductory plant breeding practical manual is intended for B.Sc.Ag, 4th semester's course in Introductory plant breeding, although a wider readership (field researchers, lecturers, lab researcher and commercial practitioners) may benefit from it. Meanwhile the manually is continually evolving.
+<!-- Introductory plant breeding practical manual is intended for B.Sc.Ag, 4th semester's course in Introductory plant breeding, although a wider readership (field researchers, lecturers, lab researcher and commercial practitioners) may benefit from it. Meanwhile the manually is continually evolving. -->

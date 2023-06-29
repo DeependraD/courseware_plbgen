@@ -14,6 +14,8 @@ themeoptions: "sectionpage=progressbar, titleformat=regular, numbering=counter, 
 classoption: "aspectratio=169" # "compressed"
 fontsize: 11pt
 bibliography: [../bibliographies.bib]
+header-includes:
+  - \usetikzlibrary{positioning}
 ---
 
 ```{r,setup, include=FALSE}
@@ -39,67 +41,60 @@ knitr::include_graphics("./images/Maize_inbred.jpg")
 
 ## Sexual reproduction
 
-- Involves fusion of male and female gametes 
+- Involves fusion of (haploid) male and (haploid) female gamete.
 - Gametes may be derived either from two different parents or from a single parent.
 - Sexual reproduction is reliant on the process of meiosis. Involves
   - Megaspores within the ovule of the pistil
   - Microspores within the stamen
 - Typical meiotic division of a female diploid species will result in formation of four haploid megaspores (*Megasporogenesis*).
 - With analogy: *Microsporogenesis*
-- Hence fertilization involves fusion of haploid male gamete with haploid female gamete
-- Male gametophyte generation is a tiny pollen tube and three haploid nuclei (*microgametophyte*)
-- Female gametophyte is a single multinucleated cell, also called the embryo sac (*megagametophyte*, aka embryo sac).
 
 ##
 
+- Male gametophyte generation is a tiny pollen tube and three haploid nuclei (*microgametophyte*)
+- Female gametophyte is a single multinucleated cell, also called the embryo sac (*megagametophyte*, aka embryo sac).
 - Female gametophyte contains the egg cell and central cell that become fertilized and give rise to the embryo and endosperm of the seed, respectively. 
 - It's development begins early in ovule development with the formation of a diploid megaspore mother cell that undergoes meiosis. One resulting haploid megaspore then develops into the female gametophyte.
 
 ##
 
+\bcolumns
+\column{0.5\textwidth}
 
-```{r plant-fertilization, fig.cap="Fertilization in plants", fig.align='center', out.width="38%"}
+```{r plant-fertilization, fig.cap="Fertilization in self pollinated plants.", fig.align='center', out.width="85%"}
 # pdftools::pdf_convert("./references_plb/Rolf H. J. Schlegel - Encyclopedic Dictionary of Plant Breeding and Related Subjects-The Food Products Press (2003).pdf", pages = 563, format = "png", filenames = "./images/fertilization_in_self_pollinated_species.png", dpi = 300)
 knitr::include_graphics("./images/fertilization_in_self_pollinated_species.png")
 ```
 
-##
+\column{0.5\textwidth}
 
-```{r sporogenesis, fig.cap="Embryo sac and pollen formation", out.width="38%", fig.align='center'}
-# pdftools::pdf_convert("./references_plb/Rolf H. J. Schlegel - Encyclopedic Dictionary of Plant Breeding and Related Subjects-The Food Products Press (2003).pdf", pages = 554, format = "png", filenames = "./images/sporogenesis.png", dpi = 300)
-knitr::include_graphics("./images/sporogenesis.png")
+<!-- Source: Fertilization-Mechanisms-in-Flowering-Plants_2016_Current-Biology -->
+<!-- The text is available in the `literatures/` -->
 
-# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3268550/ has more info on female gametophyte
+```{r gametophyte-male, fig.cap="Haploid male gametophyte (pollen) of Arabidopsis comprising the vegetative cell (producing the growing pollen tube) and two non-motile sperm cells enclosed within the membrane of the vegetative tube cell.", out.width="64%", fig.align='center'}
+knitr::include_graphics("./images/male_gametophyte.png")
 ```
 
-# Alternation of generation in flowering plants
+
+```{r gametophyte-female, fig.cap="pollen tube approaching the Arabidopsis ovule. The tube grows along the funiculus, through the micropyle of the ovule and towards the haploid female gametophyte that comprises the egg cell, central cell and accessory cells (synergid and antipodal cells).", out.width="55%"}
+knitr::include_graphics("./images/female_gametophyte.png")
+```
+
+\ecolumns
 
 ##
+
+<!-- ```{r sporogenesis, fig.cap="Alternation of generation in Maize showing reproductive development and physiology.", out.width="38%", fig.align='center'} -->
+<!-- knitr::include_graphics("./images/alternation_of_generation_maize.png") -->
+
+<!-- # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3268550/ has more info on female gametophyte -->
+<!-- ``` -->
 
 ```{r alternation-generation, fig.cap="Alternation of generations", fig.align='center', out.width="60%"}
 # pdftools::pdf_convert("./references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 110, format = "png", filenames = "./images/alternation_of_generations.png", dpi = 300)
 knitr::include_graphics("./images/alternation_of_generations.png")
 ```
 
-##
-
-\begin{columns}[T,onlytextwidth]
-  
-  \column{0.5\linewidth}
-  \footnotesize
-
-```{r hybrid, fig.cap="Hybrid", fig.show='hold', out.width="60%"}
-knitr::include_graphics("./images/Teosinte_maize_hybrid_cross.jpg")
-```
-
-  \column{0.5\linewidth}
-  \footnotesize
-  
-```{r openpollinated, fig.cap="Open pollinated", fig.show='hold', out.width="80%"}
-knitr::include_graphics("./images/cross_pollinated_mustard.jpg")
-```
-
-\end{columns}
 
 # Modes of reproduction
 
@@ -111,9 +106,9 @@ knitr::include_graphics("./images/cross_pollinated_mustard.jpg")
 - Mechanisms that prevent autogamy
   - Self incompatibility, male sterility and dichogamy
 
-- Refer to
-  - Chapter 2 on 'Reproductive barriers: Identification, uses and circumvention', Plant Breeding Reviews, Volume 11.
-  - Chapter 2 on 'Molecules involved in self-incompatibility in flowering plants' 
+<!-- - Refer to -->
+<!--   - Chapter 2 on 'Reproductive barriers: Identification, uses and circumvention', Plant Breeding Reviews, Volume 11. -->
+<!--   - Chapter 2 on 'Molecules involved in self-incompatibility in flowering plants'  -->
 
 # Self incompatibility (lack of self-fruitfulness)
 
@@ -275,6 +270,11 @@ knitr::include_graphics("./images/incompatibility_use_TC.png")
 - How to identify sterile from non sterile ? 
   - Bright green hypocotyls in broccoli, leaf shape of potato and green stem in tomato
 
+<!-- - This system, where conditional nuclear recessive male sterile rice female plants cross with any normal rice line resulting in the production of fertile hybrid seed, is considered as the 2 line system. -->
+<!-- - This technique (aka 2G technology) is limited by the fact that nuclear male sterility requires strict temperatures both for female line propagation and F1 hybrid seed production. -->
+
+<!-- (Refer to Youtube media on Development of Hybrid Seed Production Technology for Rice and Wheat by Xing Wang Deng.) -->
+
 ##
 
 ```{r gms-use, fig.cap="Genetic male sterility as used in practical breeding", out.width="50%", fig.align='center'}
@@ -284,9 +284,8 @@ knitr::include_graphics("./images/gms_use.png")
 
 ## Cytoplasmic male sterility
 
-(Refer to Chapter 2 on Molecular Biology of Cytoplasmic Male Sterility, Plant Breeding Reviews, Volume 10.)
+<!-- (Refer to Chapter 2 on Molecular Biology of Cytoplasmic Male Sterility, Plant Breeding Reviews, Volume 10.) -->
 
-\footnotesize
 - Sometimes, male sterility is controlled by the cytoplasm (mitochondrial gene) but may be influenced by nuclear genes. 
 - A cytoplasm without sterility genes is described as normal (N) cytoplasm, while a cytoplasm that causes male sterility is called a sterile ( _s_) cytoplasm or said to have cytoplasmic male sterility (CMS).
 - Transmitted through the egg only (maternal factor).
@@ -315,6 +314,13 @@ lines; maintained by selfing) with normal cytoplasm and no restorer genes.
 - CMS is transmitted only through the egg, but fertility can be restored by _Rf_ genes in the nucleus. 
 - Three kinds of progeny are possible following a cross, depending on the genotype of the pollen source. 
 - The resulting progenies assume that the fertility gene will be responsible for fertility restoration.
+
+<!-- - This (also called the 1G technology) is a system wherein the cytoplasmic male sterile rice female plants cross with a genetically defined restorer line, resulting in the production of fertile hybrid F1 seeds. -->
+<!--   - This CMS system requires strict requirement of the CMS-specific nuclear fertility restoring genes, severely limiting the rice germplasm utilization for paternal lines. -->
+
+<!-- - A new 3G technology based hybrids are being tested in Rice and Wheat in China. The technique is based on introgression of at least 3 sets of genes to maintainer line -- Heterogyote combination of wild type sterility (MS, which gives fertile phenotypes) and mutant sterility (ms, this was first screened out in mutatant study) locus, Pollen abortion/ablation locus and Color imparting marker locus. All these genes are tightly linked and transformed into a suitable maintainer from single construct using transgenesis. The maintainer can be selfed to segregate into sterile female line and maintainer line. -->
+
+<!-- (Refer to Youtube media on Development of Hybrid Seed Production Technology for Rice and Wheat by Xing Wang Deng.) -->
 
 ##
 
@@ -360,6 +366,35 @@ knitr::include_graphics("./images/cgms_systems.png")
   - Parthenogenesis (Egg cell without fertilization)
 - In many cases, pollination must occur (pseudogamy) if viable apomictic seeds are to be formed.
 
+##
+
+<!-- Contents from Page 14, Plant Breeding, Biometry and Biotechnology (2020). -->
+
+\begin{center}
+\tikzstyle{block}=[rectangle,draw,fill=blue!20,text width=2cm, text centered, rounded corners, minimum height=3em]
+\tikzstyle{rect}=[rectangle, draw=red, fill=orange!50, minimum width=2cm, minimum height=1cm, text centered]
+\tikzstyle{line}=[draw, -latex]
+
+% node distance will position the anchored nodes in the 'vertical' and 'horizontal' distances, respectively
+\begin{tikzpicture}[node distance=0.5cm and 0.5cm]
+
+\node[rect] (init) {Apomixis};
+
+\node[block, below left=of init] (androgenesis) {Androgenesis};
+\node[block, below right=of init] (parthenogenesis) {Parthenogenesis};
+\node[block, right=of parthenogenesis] (diplospory) {Diplospory};
+\node[block, left=of androgenesis] (apospory) {Apospory};
+
+\path[line] (init) -| (androgenesis);
+\path[line] (init) -| (parthenogenesis);
+\path[line] (init) -| (diplospory);
+\path[line] (init) -| (apospory);
+
+\end{tikzpicture}
+
+\end{center}
+
+
 # Reproductive options in plants
 
 ## 
@@ -384,7 +419,15 @@ Just because a flower is successfully pollinated does not necessarily mean ferti
 Sexually reproducing species are capable of providing seed through sexual means. Asexuality manifests in one of two ways - vegetative reproduction (in which no seed is produced) or agamospermy (in which seed is produced).
 \end{block}
 
-# Types of cultivar
+# Manipulation of flowering and pollination (case of root/tuber crops)
+
+```{r manipulation-flowering-pollination, out.width="60%", fig.align='center'}
+# pdftools::pdf_convert("../literatures/Floral biology and pollination efficiency of Dioscorea.pdf", pages = 15, format = "png", filenames = "pollination_control_root_tuber.png", dpi = 240)
+knitr::include_graphics("./images/pollination_control_root_tuber.png")
+```
+
+
+# Types of cultivars/varieties
 
 ##
 
@@ -416,22 +459,29 @@ self_pollinated %>%
 ## Open pollinated cultivars
 
 \bcolumns
-\column{0.6\textwidth}
+\column{0.5\textwidth}
+
+```{r openpollinated, fig.cap="Open pollinated", fig.show='hold', out.width="85%"}
+knitr::include_graphics("./images/cross_pollinated_mustard.jpg")
+```
+
+\column{0.5\textwidth}
+
+```{r open-pollinated-onion, fig.align='center', fig.cap="Open pollinated crops", out.width="90%"}
+
+knitr::include_graphics("./images/open_pollinated_onion.jpg")
+```
+
+\ecolumns
+
+##
+
 \small
 - Heterogenous populations comprised of different plants which are genetically non-identical.
 - Also heterozygous
 - Almost exclusively from cross pollinating species
 - Stable for character of interest
 - e.g.: Onions, rye, herbage grass, non-hybrid sweetcorn, sugar beet and oil palm 
-
-\column{0.4\textwidth}
-
-```{r open-pollinated-onion, fig.align='center', fig.cap="Open pollinated crops", out.width="35%"}
-
-knitr::include_graphics("./images/open_pollinated_onion.jpg")
-```
-
-\ecolumns
 
 \begin{figure}
   \begin{columns}[T,onlytextwidth]
@@ -484,12 +534,13 @@ knitr::include_graphics("./images/open_pollinated_onion.jpg")
 \column{0.6\textwidth}
 \footnotesize
 - Immediate effect of pollen on the developing kernel
+- May be observed when two varieties differing in a single visible endosperm trait are crossed.
 - When yellow corn pollen fertilizes an ovule of white corn, a light-yellow kernel develops; when white corn pollen fertilizes an ovule of yellow corn, a medium-yellow kernel develops.
 - Phenomena results $\because$ the yellow color is found only in the vitreous starch of the endosperm (as may be observed by cutting a kernel of yellow corn lengthwise).
 - Endosperm develops from the fusion of the second sperm with the diploid polar nuclei and has a triploid chromosome number.
 - The yellow endosperm color is conditioned by a dominant gene ($Y$). The recessive alleles ($yy$) produce a white endosperm.
 - Endosperm receives two genes for Y, or y, depending upon the character of the mother plant, to one gene for Y, or y, from the pollen. Possible combinations are given in Table \ref{tab:xenia-effect}.
-- Endosperm characteristics such as starchy vs. sugary endosperm, non-shrunken vs. shrunken endosperm, and nonwaxy vs. waxy endosperm also exhibit Xenia effects.
+- Endosperm characteristics such as starchy vs. sugary (dominant) endosperm, non-shrunken vs. shrunken endosperm, and nonwaxy vs. waxy endosperm also exhibit Xenia effects.
 
 \column{0.4\textwidth}
 
@@ -509,5 +560,9 @@ endosperm_properties %>%
 ```
 
 \ecolumns
+
+<!-- - Xenia occurs when the trait difference is conditioned by a dominant gene present in the pollen. However, when dominance is incomplete, xenia would occur when either vareity is the pollen parent. -->
+
+<!-- - Whereas xenia may result from simple dominance gene action, the effect is different in some instances. In the cross of flinty x floury endosperm, the F1 is flinty (FFf). However, the reciprocal cross of floury x flinty endosperm produces an F1 with floury endosperm (ffF), indicating the ineffectiveness of the dominant allele (F) to overcome the double recessive (rr) floury genes. Similarly, xenia in aleurone color depends on the combined action of five dominant genes (designated A1, A2, C, R, and Pr). -->
 
 # Bibliography

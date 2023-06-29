@@ -23,6 +23,8 @@ header-includes:
   - \setbeamercolor{block title}{bg=blue!30}
   - \setbeamercolor{block body example}{bg=green!10}
   - \setbeamercolor{block title example}{bg=green!20}
+  - \usepackage{tabto}
+  - \def\quoteattr#1#2{\setbox0=\hbox{#2}#1\tabto{\dimexpr\linewidth-\wd0}\box0}
 ---
 
 ```{r,setup, include=FALSE}
@@ -52,11 +54,7 @@ knitr::include_graphics("./images/x_men_mutants.jpg")
 \bcolumns
 \column{0.65\textwidth}
 
-\begin{quote}
-\small
-"For more than half a century, I have worked with the production of more and better wheat for feeding the hungry world, but wheat is merely a catalyst, a part of the picture. I am interested in the total development of human beings. Only by attacking the whole problem can we raise the standard of living for all people, in all communities, so that they will be able to live decent lives. This is something we want for all people on this planet".
-\end{quote}
-\hfill\raggedright{\footnotesize -- Norman E. Borlaug (March 25,1914 - September 12, 2009)}
+\quoteattr{"For more than half a century, I have worked with the production of more and better wheat for feeding the hungry world, but wheat is merely a catalyst, a part of the picture. I am interested in the total development of human beings. Only by attacking the whole problem can we raise the standard of living for all people, in all communities, so that they will be able to live decent lives. This is something we want for all people on this planet".}{Norman E. Borlaug (March 25,1914 - September 12, 2009)}
 
 \column{0.35\textwidth}
 
@@ -71,17 +69,19 @@ knitr::include_graphics("./images/borlaug_wheat_crossing_block.png")
 ##
 
 \bcolumns
-\column{0.6\textwidth}
+\column{0.5\textwidth}
 \begin{quote}
+\vfill
 \small
 "Few scientists think of agriculture as the chief, or model science. Many indeed, do not consider it a science at all. Yet it was the first science that makes all human life possible; and it may well be that before the century is over, the success or failure of Science as a whole will be judged by the success or failure of agriculture."
 \end{quote}
-\hfill\raggedright{\footnotesize -- Jean and Andre Mayer (1974)}
-\column{0.6\textwidth}
+\hfill\raggedright \footnotesize -- Jean and Andre Mayer (1974)
+\column{0.5\textwidth}
 \begin{quote}
+\vfill
 "...a good past is positively dangerous if it makes us content with the present and unprepared for the future."
 \end{quote}
-\hfill\raggedright{\footnotesize -- Charles Eliot}
+\hfill\raggedright \footnotesize -- Charles Eliot
 \ecolumns
 
 ##
@@ -93,26 +93,32 @@ knitr::include_graphics("./images/borlaug_wheat_crossing_block.png")
 \vfill
 "The greatest service which can be rendered any country is to add a useful plant to its culture; especially a bread grain"
 \end{quote}
-\hfill\raggedright{\footnotesize -- Thomas Jefferson}
+\hfill\raggedright \footnotesize -- Thomas Jefferson
 
 \column{0.6\textwidth}
 
-```{r modern-triticum-uk, fig.cap="Modern wheat genotype under test in cool temperate region (UK)", out.width="75%"}
-knitr::include_graphics("./images/Triticum3.jpg")
+```{r giving-peace-a-chace, fig.align='center', out.width="80%"}
+# https://openclipart.org/detail/341313/give-peace-a-chance
+knitr::include_graphics("./images/giving_peace_a_chance.png")
 ```
 
 \end{columns}
 
-## Background (Overview)
+## Background
 
 - There are over a quarter of a million plant species of which approximately 5000 are cultivated. But, only a 100 can be considered as important crops.
 - Ancestors of most of the modern crops (Used either in food chain or in industrial chain solely) have different appearance and even forms than what is seen today.
 - Plant breeding has a commercial history of 2/3 century at least.
-- By 19th century's end, artificial crossing, bulk and pedigree methods and alternative progeny testing schems were already used
+- By 19th century's end, artificial crossing, bulk and pedigree methods and alternative progeny testing schemes were already used
+
+```{r modern-triticum-uk, fig.cap="Modern wheat genotype under test in cool temperate region (UK)", out.width="55%"}
+knitr::include_graphics("./images/Triticum3.jpg")
+```
+
 
 ##
 
-- After rediscovery of Mendel's law and developments in genetics plant breeding has evolved rapidly
+- After rediscovery of Mendel's law and developments in genetics, plant breeding has evolved rapidly
 - In the period deemed green revolution, genetic contribution to yield gains was of secondary importance (Why?)
 - Rising consciousness of environmental stewardship underlines greater role of plant breeding
 	- Optimum environments
@@ -149,18 +155,27 @@ Scientific viewpoint of Plant Breeding:
 
 ##
 
+<!-- Theophrastos (371-287 BC) (student of Aristotles) taught that higher plants are sexually reproducing. But, the knowledge got lost during late Antiquity, until Camerarius again demonstrated different sexes in plants. -->
+
 - As human knowledge about plants increased, people were able to select more intelligently. 
 - With the discovery of sex in plants, hybridization was added to breeding techniques.
-
 - Although hybridization was practiced before the time of Mendel, its significance in inheritance was not clearly understood. 
-
 - Mendel's experiments provided a basis for understanding the mechanism of heredity and how it may be manipulated in the development of improved varieties. 
-
 - A more precise explanation of the heredity mechanism has become possible in recent years with advances in biochemical genetics.
-
 - Now, plant breeding is more about making precise crossess and accurate prediction
 
 $$\Large \Delta{G}=\frac{Ih^2 \sigma}{I}$$
+
+## Breeding is unkind
+
+```{r breeding-is-cruel, fig.align='center', out.width="75%"}
+
+# breeders do not pet any one variant!
+# because populations evolves and is
+# constantly subject to selection
+knitr::include_graphics("./images/breeding_is_unkind.jpg")
+```
+
 
 # Definition
 
@@ -381,6 +396,9 @@ knitr::include_graphics("./images/plant_breeding_history.png")
 
 ##
 
+\bcolumns
+\column{0.6\textwidth}
+
 \small
 - Before initiating a breeding project, clear breeding objectives are defined based on factors such as producer needs, consumer preferences and needs, and environmental impact.
 
@@ -390,6 +408,15 @@ knitr::include_graphics("./images/plant_breeding_history.png")
 - Maximize resource and energy use efficiency
 - Fasten return on investment
 - Introgress desired modification in crop species
+
+\column{0.4\textwidth}
+
+```{r spinach-power-popyae, fig.align='center', out.width="65%"}
+knitr::include_graphics("./images/popyae_food_power.jpg")
+```
+
+
+\ecolumns
 
 ## Specifically, in crop improvement,
 
@@ -415,27 +442,29 @@ knitr::include_graphics("./images/plant_breeding_history.png")
   \item Use of some agrochemicals is often coupled with the need for specific crop characteristics e.g. herbicide resistance.
   \end{itemize}
 
+<!-- Shedding occurs by separation of cells in anatomically distinct regions of the plant, called abscission zones (AZs). During abscission, the plant hormone ethylene stimulates cells to produce enzymes that degrade the middle lamella between cells in the AZ. Tomatoes plants with the jointless mutation fail to develop AZs on their pedicels and so abscission of flower does not occur normally. JOINTLESS gene is a new MADS-box gene in a distinct phylogenetic clade separate from those functioning in floral organs. A deletion in JOINTLESS accounts for the failure of activation of pedicel AZ development in jointless tomato plants. -->
+
 ## Activities
 
-```{r plb-disciplines, out.height="60%", out.width="0.7\\textwidth,keepaspectratio", fig.cap="Inter-desciplinary linkage of plant breeding"}
+```{r plb-disciplines, out.width="70%", fig.cap="Inter-desciplinary linkage of plant breeding"}
 knitr::include_graphics("./images/interdisciplinary_science.png")
 ```
 
 ## Inter-disciplinary linkage of plant breeding [@poehlman1987breeding]
 
 \small
-- Botany: Plant breeders should be accomplished botanists in order to understand the taxonomy, anatomy, morphology, and reproduction of the plants with which they work.
-- Genetics and Cytogenetics: The plant breeder needs a thorough understanding of the mechanism of heredity in plants since modern plant-breeding methods are based on a knowledge of genetic principles and chromosome behavior. This knowledge is being extended to the molecular level with advances in biochemical genetics.
-- Plant Physiology: Variety adaptation is determined by the response of plants to their environment, which includes the effects of heat, cold, drought, and soil nutrient response. The plant breeder strives to make inherent modifications of physiological processes that will enable the plant to function more efficiently.
-- Plant Pathology: Plant disease reduces crop yields. Host resistance is an important means of combating many plant diseases. Evaluation of the response ofthe plant genotype to infection by the pathogen is an essential part of breeding for host plant resistance.
-- Entomology: Biological control of insect populations by breeding for insect resistance is an important way of reducing insect damage in crop plants.
+- **Botany**: Plant breeders should be accomplished botanists in order to understand the taxonomy, anatomy, morphology, and reproduction of the plants with which they work.
+- **Genetics and Cytogenetics**: The plant breeder needs a thorough understanding of the mechanism of heredity in plants since modern plant-breeding methods are based on a knowledge of **genetic principles** and **chromosome** behavior. This knowledge is being extended to the molecular level with advances in biochemical genetics.
+- **Plant Physiology**: Variety adaptation is determined by the *response* of plants *to their environment*, which includes the effects of heat, cold, drought, and soil nutrient response. The plant breeder strives to make inherent modifications of physiological processes that will enable the plant to function more efficiently.
+- **Plant Pathology**: Plant disease reduces crop yields. **Host resistance** is an important means of combating many plant diseases. Evaluation of the response of the plant genotype to infection by the pathogen is an essential part of breeding for host plant resistance.
+- **Entomology**: Biological control of insect populations by breeding for insect resistance is an important way of reducing insect damage in crop plants.
 
 ##
 
 \small
-- Plant Biochemistry: Inherent improvements in the nutritive value of a crop variety are given attention by the plant breeder. Suitability for industrial utilization often determines the market demand for a particular variety of a crop. This includes such characteristics as the milling and baking qualities of a wheat variety, the cooking and eating qualities of a rice variety, or the fiber qualities of a cotton variety. Biochemical genetics is contributing toward a better understanding of the structure and function of the gene.
-- Statistics: The plant breeder compares the performance of many genetically different strains. Sound field plot techniques and suitable methods for statistical analyses of data are necessary to obtain reliable results and to interpret the results correctly. The application of statistical procedures has provided for a better understanding of the inheritance of quantitative characteristics and for predicting the possible genetic advance that may be obtained with particular systems of mating.
-- Agronomy: In addition to all of these, the breeder of field crops should be a sound agronomist. Plant breeders should know crops and their production. They should understand what the farmer wants and needs in the way of new varieties. Only then will they be able to evaluate critically the breeding materials available to them, plan an efficient breeding program, and direct their breeding efforts toward the agronomically important objectives.
+- **Plant Biochemistry**: Inherent improvements in the nutritive value of a crop variety are given attention by the plant breeder. Suitability for industrial utilization often determines the market demand for a particular variety of a crop. This includes such characteristics as the milling and baking qualities of a wheat variety, the cooking and eating qualities of a rice variety, or the fiber qualities of a cotton variety. Biochemical genetics is contributing toward a better understanding of the structure and function of the gene.
+- **Statistics**: The plant breeder compares the performance of many genetically different strains. Sound field plot techniques and suitable methods for statistical analyses of data are necessary to obtain reliable results and to interpret the results correctly. The application of statistical procedures has provided for a better understanding of the inheritance of quantitative characteristics and for predicting the possible genetic advance that may be obtained with particular systems of mating.
+- **Agronomy**: In addition to all of these, the breeder of field crops should be a sound agronomist. Plant breeders should know crops and their production. They should understand what the farmer wants and needs in the way of new varieties. Only then will they be able to evaluate critically the breeding materials available to them, plan an efficient breeding program, and direct their breeding efforts toward the agronomically important objectives.
 
 # Steps (Activities) in plant breeding:
 
@@ -450,7 +479,8 @@ knitr::include_graphics("./images/interdisciplinary_science.png")
 - Selection
   \begin{itemize}
   \footnotesize
-  \item Identification and isolation of plants having desirable combinations of characters and growing their progeny is called selection. Selection is necessarily based on phenotype. Various breeding methods have been designed to increase efficacy of selection. Selection finally yields an improved lines or population.
+  \item Identification and isolation of plants having desirable combinations of characters and growing their progeny is called selection.
+  \item Selection is traditionally based on phenotype.
   \end{itemize}
 
 ##

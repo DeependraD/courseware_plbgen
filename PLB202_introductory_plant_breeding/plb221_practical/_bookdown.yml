@@ -2,9 +2,22 @@ book_filename: "introductory_plant_breeding_practical"
 delete_merged_file: true
 language:
   ui:
-    chapter_name: "Chapter "
+    chapter_name: "Practical "
 #dput(stringr::str_split_fixed(list.files(pattern = ".Rmd"), c("-"), 2)[,2])
 rmd_files:
-  html: ["index.Rmd", "01-study_and_draw_floral_parts.Rmd", "02-hybridization_of_crops_available.Rmd", "03-plant_breeding_data_recording.Rmd", "04-determining_genetic_purity.Rmd", "05-maintaining_genetic_purity_in_the_field.Rmd", "06-disease_scoring_and_determining_resistance.Rmd", "07-describing_the_traits_for_release.Rmd", "08-study_of_activities_at_national_maize_research_program.Rmd", "09-study_of_activities_at_national_grain_legume_research_program.Rmd", "20-references.Rmd"]
-  latex: ["index.Rmd", "01-study_and_draw_floral_parts.Rmd", "02-hybridization_of_crops_available.Rmd", "03-plant_breeding_data_recording.Rmd", "04-determining_genetic_purity.Rmd", "05-maintaining_genetic_purity_in_the_field.Rmd", "06-disease_scoring_and_determining_resistance.Rmd", "07-describing_the_traits_for_release.Rmd", "08-study_of_activities_at_national_maize_research_program.Rmd", "09-study_of_activities_at_national_grain_legume_research_program.Rmd", "20-references.Rmd"]
-  epub: ["index.Rmd", "01-study_and_draw_floral_parts.Rmd", "02-hybridization_of_crops_available.Rmd", "03-plant_breeding_data_recording.Rmd", "04-determining_genetic_purity.Rmd", "05-maintaining_genetic_purity_in_the_field.Rmd", "06-disease_scoring_and_determining_resistance.Rmd", "07-describing_the_traits_for_release.Rmd", "08-study_of_activities_at_national_maize_research_program.Rmd", "09-study_of_activities_at_national_grain_legume_research_program.Rmd", "20-references.Rmd"]
+  html: 
+  latex: [
+    "index.Rmd",
+    "01-study_and_draw_floral_parts_self_pollinated.Rmd",
+    "02-study_and_draw_floral_parts_cross_pollinated.Rmd", 
+    "03-estimation_of_heterosis_and_inbreeding_depression.Rmd",
+    "04-estimation_of_heritability_genetic_gain_from_selection.Rmd", 
+    "05-plant_breeding_data_recording.Rmd", "06-disease_scoring_and_determining_resistance.Rmd", 
+    "07-determining_physical_genetic_purity.Rmd", "08-hybridization_techniques_self_pollinated_crops.Rmd", 
+    "09-hybridization_techniques_cross_pollinated_crops.Rmd",
+    "10-hybrid_seed_production_cms_self_incompatible_lines.Rmd", 
+    "11-describing_the_traits_for_release.Rmd",
+    "12,13,14-visit_study_research_activities_nmrp,nwrp,nglrp.Rmd", 
+    "15-visit_recording_plant_breeding_activities_farmer.Rmd",
+    "20-references.Rmd"]
+  epub: 
