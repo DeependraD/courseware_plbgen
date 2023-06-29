@@ -12,6 +12,7 @@
 \usepackage[normalem]{ulem}
 \usepackage{makecell}
 \usepackage{xcolor}
+\usepackage{caption}
 
 % % set background image if you will
 % \usebackgroundtemplate%
@@ -53,3 +54,12 @@
 % \setbeamertemplate{navigation symbols}{subsection} % insert subsection indication in navigation
 
 % \AtBeginSubsection{} % supress subsection display
+
+\newcommand{\bcolumns}{\begin{columns}[T, onlytextwidth]}
+\newcommand{\ecolumns}{\end{columns}}
+
+\newcommand{\bdescription}{\begin{description}}
+\newcommand{\edescription}{\end{description}}
+
+\newcommand{\bitemize}{\begin{itemize}}
+\newcommand{\eitemize}{\end{itemize}}

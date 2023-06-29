@@ -3,9 +3,10 @@ title: "DNA modification, gene cloning and rDNA technology"
 author:   
   - Deependra Dhakal 
 institute:   
-  - GAASC, Baitadi
-  - Tribhuwan University 
-date: Academic year 2019-2020 
+  - Agriculture and Forestry University
+  - ddhakal.rookie@gmail.com
+  - https:\\rookie.rbind.io\
+# date: 
 output:   
   beamer_presentation:  
     incremental: false  
@@ -249,6 +250,114 @@ knitr::include_graphics("./../images/fish_hybridization2.png")
 
 \end{columns}
 
+# Gene cloning
+
+###
+
+- DNA technologies involve the cutting and pasting of DNA segments to produce new arrangements.
+<!-- - rDNA technology is the use of *in vitro* molecular techniques that manipulate fragments of DNA to produce new arrangements. -->
+
+```{r rDNA-technology, fig.width=4, out.width="50%", fig.cap="Steps in rDNA technology", fig.pos="H"}
+DiagrammeR::mermaid(
+  "
+  graph TB
+
+  11[Isolation of DNA fragments from different sources] --> 21[Integration of DNA fragments<br>with gene of interest to a suitable vector]
+  21 --> 31[Introduction of rDNA to a host cell]
+  31 --> 41[Cloning of gene by replication of rDNA molecule inside host cell]
+  "
+)
+```
+
+
+###
+
+<!-- - Because proteins are the workhorses of cells and because they are the product of genes, many molecular biologists focus their attention on the structure and fuction of proteins or the genes that encode them. -->
+<!-- - Researchers may focus their efforts on the study of just one or perhaps a few different genes or proteins. At the molecular level, this poses a daunting task. -->
+- The term gene cloning refers to the process of making many copies of a gene.
+- There are two general strategies used to make copies of a gene:
+  - insertion of a gene into a vector that is then propagated in living cells
+  - cloning via polymerase chain reaction
+- Obvious use cases of gene cloning are summarized in Table \ref{tab:gene-cloning-uses}.
+
+```{r gene-cloning-uses}
+tribble(
+  ~"Technique", ~"Description",
+  "DNA sequencing", "Cloned genes provide enough DNA to subject the gene to DNA sequencing. The sequence of the gene can reveal the gene's promoter, regulatory sequences, and coding sequence. DNA sequencing is also important in the identification of alleles that cause cancer and inherited human disease.",
+  "Site-directed mutagenesis", "A cloned gene can be manipulated to change its DNA sequence. Mutations within genes help to identify gene sequences, such as promoters and regulatory elements. The study of a mutant gene can also help to elucidate its normal function and how its expression may affect the roles of other genes. Mutations in the coding sequence may reveal which amino acids are important for a protein's structure and function.", 
+  "Gene probes", "Labeled DNA strands from a cloned gene can be used as probes for identifying RNA. This method of analysis, known as Northern blotting. Probes are also used to localize genes within intact chromosomes.",
+  "Expression of cloned genes", "Cloned genes can be introduced into a different cell type of different species. This expression of cloned genes has many uses: Research, Biotechnology and Clinical trials."
+) %>% 
+  knitr::kable(booktabs = TRUE, caption = "Some applications of gene cloning.") %>% 
+  kableExtra::kable_styling(font_size = 6) %>% 
+  kableExtra::column_spec(column = 1:2, width = c("8em", "42em"))
+```
+
+
+###
+
+- A gene (or a segment of DNA containing the gene) is **removed** from its native site within a chromosome and inserted into a smaller segment of DNA known as a vector.
+- A vector (carrier) is a small DNA molecule that replicates independently of the chromosomal DNA and produces many identical copies of an inserted gene.
+  - A vector is replicated within a living cell (called a host cell)
+- Common gene-cloning vectors are plasmids or viruses.
+- Plasmids are found naturally in many strains of bacteria and occasionally in eukaryotic cells.
+  - generally involved with antibiotic resistance -- R factors
+
+<!-- Plasmids also contain a DNA sequence, known as an origin of replication, that is recognized by the replication enzymes of the host cell, which allows the plasmid to be replicated. The sequence of the origin of replication determines whether or not the vector can replicate in a particular type of host cell. Some plasmids have origin of replication with a broad host range while many have a limited host range. -->
+
+<!-- The origin of replication also determines the copy number of a plasmid. Some plasmids are said to have strong origins because they achieve a high copy number -- perhaps 100-200 copies of the plasmid per cell. -->
+
+<!-- Commercially available plasmids have been genetically engineered for effective use in cloning experiments. They contain unique sites where geneticists insert pieces of DNA. cloning vectors contain resistance genes, which provide host cells with the ability to grow in the presence of a toxic substance. Such a gene is called a selectable marker because the expression of the gene selects for the growth of the host cells. For example, the gene $amp^{R}$ encodes an enzyme known as $\beta$-lactamase. This enzyme degrades ampicillin, an antibiotic that normally kills bacteria. In a cloning experiment in which the $amp^{R}$ gene is found within the plasmid, the growth of cells in the presence of ampicillin identifies bacteria that carry the plasmid. -->
+
+### Gene cloning vectors
+
+\bcolumns
+\column{0.5\textwidth}
+
+```{r cloning-vectors, fig.cap="Vectors commonly used in cloning small segments of DNA.", out.width="76%"}
+knitr::include_graphics("../images/cloning_vectors.PNG")
+```
+
+\column{0.5\textwidth}
+
+```{r ti-plasmid, fig.cap="The structure of Ti-plasmid.", out.width="98%"}
+knitr::include_graphics("../images/Ti_plasmid.png")
+```
+
+\ecolumns
+
+###
+
+\bcolumns
+\column{0.5\textwidth}
+
+```{r steps-gene-cloning, fig.cap="Steps in gene cloning.", out.width="86%"}
+# pdftools::pdf_convert("../../../000readables/plbgen/general_textbooks/2018_Genetics_Analysis and Principles 6th ed.pdf", format = "png", pages = 531, filenames = "../images/steps_in_gene_cloning.png", dpi = 280)
+
+knitr::include_graphics("../images/steps_in_gene_cloning.png")
+```
+
+\column{0.5\textwidth}
+
+\scriptsize
+Following ligation, the rDNA is introduced into host cells treated with agents that render them permeable to DNA molecules. Cells that can take up DNA from the extracellular medium are called competent cells (small proportion of bacterial cell). This step is called transformation.
+
+<!-- How can the experimenter distinguish between bacterial colonies that have a recircularized vector versus those with a recombinant vector carrying a piece of chromosomal DNA ? -->
+
+The chromosomal DNA has been inserted into a region of the vector that contains the lacZ gene, which encodes the enzyme $\beta$-galactosidase. The insertion of chromosomal DNA into the vector disrupts the $lacZ$ gene so it no longer produces a functional enzyme. By comparison, a recircularized vector has a functional $lacZ$ gene. The functionality of $lacZ$ is determined by providing the growth medium with a colorless compound, X-Gal (5-bromo-4-chloro-3-indolyl-$\beta$-D-galactoside), which is converted by $\beta$-galactosidase into a blue dye. Bacteria grown in the presence of X-Gal and IPTG (isopropyl-$\beta$-D-thiogalactopyranoside, an inducer of the $lacZ$ gene) form blue colonies if they have a functional lacZ gene and white colonies if they do not. In this experiment, therefore, bacterial colonies containing recircularized vectors form blue colonies, whereas colonies containing recombinant vectors are white.
+
+\ecolumns
+
+<!-- In the experiment, one of the white colonies contains cells with a recombinant vector that carries a human gene of interest; the segment containing the human gene is shown in red. The goal of gene cloning is to produce an enormous number of copies of a recombinant vector that carry the gene of interest. During transformation, a single bacterial cell usually takes up a single copy of a recombinant vector. However, two subsequent events lead to the amplification of the cloned gene. First, because the vector has an origin of replication, the bacterial host cell replicates the recombinant vector to produce many identical copies per cell. Second, the bacterial cells divide approximately every 20 minutes. After overnight growth, a bacterial colony may be composed of 10 million cells, with each cell containing 50 copies of the recombinant vector. Therefore, this bacterial colony would contain 500 million copies of the cloned gene! -->
+
+###
+
+```{r bac-vector, fig.cap="A simplified drawing of a BAC cloning vector. The vector contains several genes that function in vector replication and segregation. The origin of replication is designated $oriS$, and the $repE$ gene encodes a protein essential for replication at $oriS$. The $parA$, $parB$, and $parC$ genes encode proteins required for the proper segregation of the vector into daughter cells. A chloramphenicol resistance gene, $cm^R$, provides a way to select for cells that have taken up the vector, based on their ability to grow in the presence of the antibiotic chloramphenicol. The vector also contains unique restriction enzyme sites, such as HindIII, BamHI, and SphI, for the insertion of large fragments of DNA. These sites are located within the $lacZ$ gene, which encodes the enzyme $\\beta$-galactosidase. Vectors with DNA inserts can be determined by plating cells on media containing the compound X-Gal.", fig.align='center', out.width="56%"}
+knitr::include_graphics("../images/bac_vector.PNG")
+```
+
+<!-- YAC, BAC, and PAC cloning vectors have been very useful in the construction of contigs that span long segments of chromosomes. They have been used as the first step in creating a rough physical map of a genome. Although this is an important step in physical mapping, the long inserts make these types of vectors difficult to use in gene cloning and sequencing experiments. Therefore, libraries containing recombinant vectors with shorter insert sizes are needed. In many cases, a type of cloning vector called a cosmid is used. A cosmid is a hybrid between a plasmid vector and phage $\lambda$; its DNA can repli cate in a cell like a plasmid or be packaged into a protein coat like a phage. Cosmid vectors typically can accept DNA fragments that are tens of thousands of base pairs in length. -->
+
 # PCR
 
 ### Background
@@ -300,3 +409,28 @@ The standard PCR is typically done in a 50 - or 100 $\mu l$ volume and, in addit
 - Disease epidemiology and forcasting.
 - Crime detection and forensic application.
 - Crop variety characterization by DNA fingerprinting.
+
+# RFLP Fingerprinting
+
+### Steps
+
+- The DNA is cut with a restriction enzyme.
+- The DNA fragments are separated by length or molecular weight by gel electrophoresis.
+- The fragments are visualized by Southern blotting. The separated fragments are transferred from the gel to nylon paper. Then a radioactively labeled DNA probe is added.
+- The probe binds to those DNA fragments with complementary sequences.
+- The blot is covered with radiation-sensitive film to give an autoradiograph. This shows the location of those DNA fragments that reacted with the radioactive probe.
+- The final product of a DNA fingerprint is an autoradiograph that contains at least five essential lanes (Figure \ref{fig:fingerprint-lanes}). The markers are standardized DNA fragments of known size, which have been radioactively labeled.
+
+###
+
+```{r rflp-fingerprinting, fig.cap="Outline of RFLP based DNA fingerprinting", out.width="32%"}
+# pdftools::pdf_convert("./../../literatures/biotechnology/Biotechnology 2nd ed - David P. Clark, Nanette J. Pazdernik (AP, 2016).pdf", pages = 722, dpi = 250, format = "png", filenames = "../images/rflp_fingerprinting.png")
+knitr::include_graphics("../images/rflp_fingerprinting.png")
+```
+
+###
+
+```{r fingerprint-lanes, fig.cap="Actual DNA fingerprint showing that the pattern of DNA fragments of the victim (V) were found on the defendant's clothing (jeans/shirt). The first two and last two lanes are the standard size markers (labeled $\\lambda$ and 1 kb). The lane marked TS is a positive control showing that the fingerprint technique was successful. The lane marked D is the defendant's DNA pattern.", out.width="40%"}
+# pdftools::pdf_convert("./../../literatures/biotechnology/Biotechnology 2nd ed - David P. Clark, Nanette J. Pazdernik (AP, 2016).pdf", pages = 723, dpi = 250, format = "png", filenames = "../images/fingerprint_lanes.png")
+knitr::include_graphics("../images/fingerprint_lanes.png")
+```

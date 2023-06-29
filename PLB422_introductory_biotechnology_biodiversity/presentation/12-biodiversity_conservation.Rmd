@@ -1,13 +1,15 @@
 ---
 title: "Conservation of biodiversity -- current practices national legislation and international conventions and treaties, and biodiversity prospects and intellectual property rights."
-author: 
-  - Deependra Dhakal 
-institute:   
-  - GAASC, Baitadi
-  - Tribhuwan University 
-date: Academic year 2019-2020 
+author: |
+  | Deependra Dhakal
+  | Assistant Professor
+  | Agriculture and Forestry University
+  | \textit{ddhakal.rookie@gmail.com}
+  | \url{https://rookie.rbind.io}
+# date: Academic year 2019-2020 
 output:   
   beamer_presentation:  
+    citation_package: natbib
     incremental: false  
     theme: "Frankfurt"  
     colortheme: "beaver"
@@ -19,7 +21,7 @@ output:
 classoption: "aspectratio=169"
 header-includes: 
 - \AtBeginSubsection{}
-bibliography: [./../bibliographies.bib]
+bibliography: [../bibliography/bibliographies.bib]
 ---
 
 ```{r setup, include=FALSE}
@@ -98,41 +100,212 @@ options(kableExtra.latex.load_packages = FALSE)
   - economic (lack of resources), and 
   - managerial (e.g., lack of planning) threats are faced by biodiversity
 
-# Forms of biodiversity conservation
+# Risk of extinction and recovery program
 
-## On farm conservation
+## Risk of extinction
+
+\bcolumns
+\column{0.6\textwidth}
+
+- During the last 500 million years, Earth experienced five periods of **mass extinction** when at least half the living creatures were wiped out.
+  \begin{itemize}
+  \item Ordovician (445 MYA) -- intense ice age -- 60-70% extinction
+  \item Devonian (375-360 MYA) -- drastic drop in oxygen levels -- 75% extinction
+  \item Permian (252 MYA) -- Asteriod impacts, intensive volcanic activity -- 95% extinction
+  \item Triassic (200 MYA) -- Massive volcanic eruptions, asteriods -- 70-80% extinction
+  \item Cretaceous (66 MYA) -- Asteriod impact -- 75% extinction
+  \end{itemize}
+
+\column{0.4\textwidth}
+
+```{r chicken-dinasaur, fig.align='center', out.width="48%"}
+knitr::include_graphics("../images/we_was_dinasaurs.jpg")
+```
+
+
+```{r mass-extinction, fig.align='center', out.width="98%"}
+knitr::include_graphics("../images/mass_extinction_illustration.jpg")
+```
+
+\ecolumns
+
+##
+
+\bcolumns
+\column{0.6\textwidth}
+
+- **Occasionally, we should expect to lose many species, whereas over most time periods, only a few species should be expected to be lost**.
+- Therefore, the greater the disturbance, the greater the effect (reduction) on biodiversity.
+- Probability of species loss depend mostly on:
+  - Size of the population of species within the community
+  - Species with narrow geographic ranges may be more susceptible to extinction
+  - Small populations exhibit lower genetic variability
+- Fossil records, provides the most direct evidence for tracing temporal changes in biodiversity, including both the origin and extinction of lineages.
+
+\column{0.4\textwidth}
+  
+```{r rarefaction-curve, fig.cap="Rarefaction curves for the extinction of families (solid line) and genera (dashed line) calculated for echinoderms by Raup (1979). The curves indicate what percentage of families or genera are expected to become extinct during an event which kills a given percentage of species. Used in reverse, the curves also allow us to estimate what percentage of species became extinct in a particular event, given an observed percentage of family or genus kill.", out.width="70%"}
+# Estimates of family extinction are obtained from directed analysis of the fossil record, whereas species loss is inferred using a statistical technique called "reverse rarefaction".
+knitr::include_graphics("../images/rarefaction_curve.png")
+```
+
+\ecolumns
+
+<!-- Smaller populations are more likely to go extinct than larger populations, a process referred to as demographic stochasticity (Gambler's Ruin). The idea is that a gambler in a casino who has a limited number of betting units to lose (e.g., quarters for a slot machine or equivalents to the minimum bet at a black jack table) is more likely to go bankrupt simply by chance compared to a gambler with many betting. -->
+
+<!-- Small populations, however, may experience more rapid evolution due to reduced genetic inertia. This may be seen in the founder effect, in which a few individuals begin a new population leading to allopatric speciation. -->
+
+##
+
+\bcolumns
+\column{0.35\textwidth}
+\footnotesize
+
+- It is necessary to evaluate the risk of extinction by determining factors such as the absolute abundance of individuals within species and how this influences the extinction risk.
+<!-- For example, if increased diversity over time has led to smaller population sizes due to the ecological partitioning of resources, we may anticipate a trend toward increased extinction rates. -->
+- Experimental work on laboratory and field communities suggests that decreasing biodiversity also leads to a reduction in ecological time of ecosystem function, such as total productivity and carbon dioxide sequestration.
+
+\column{0.65\textwidth}
+
+```{r predator-prey-history, fig.align="center", fig.cap="The number of large mammal species from North America during the past 44 million years. Note the correlation between the diversity of predators and their potential prey ($r^2 = 0.43; p < 0.001$)", out.width="50%"}
+knitr::include_graphics("../images/diversity_of_predatory_prey_history.png")
+```
+
+
+```{r pandanaris-cowbird, fig.cap="The convex-billed cowbird (\\textit{Pandanaris convexa}) is a species of bird in the family Icteridae, and the only living member of the genus Pandanaris, that originally lived in North America during the Pleistocene. Its extinction was associated with the extinction of large herbivores.", out.width="50%"}
+knitr::include_graphics("../images/cowbird.png")
+```
+
+\ecolumns
+
+##
+
+Southeast Asia possesses an estimated vascular flora of around 60,000 species (20,000-25,000 species in Indo-China and 42,000 species in Malesia). Of 1371 red-listed plant species in Southeast Asia, 292 are critically endangered, 196 endangered, 737 vulnerable, 31 near-threatened, and 110 data-deficient. Five plant extinctions are documented: two mangos ( _Mangifera casturi_ Kosterm and _Mangifera rubropetala_ Kosterm), two dipterocarp trees ( _Dipterocarpus cinereus_ Sloot and _Shorea cuspidata_ Ashton), and one herb - the "woolly stalked Begonia" ( _Begonia eiromischa_ Ridl.). Only the mangos survive in ex situ collections (IUCNRedlist.org, accessed 23 August 2011)
+
+Since AD 1500, at least 132 bird species have gone extinct (EX), and a further four are extinct in the wild (EW). Strikingly, 121 (92%) of these species were confined to islands, mostly in the Pacific, and an additional three were confined to single lake (Birdlife International, 2011).
+
+## Recovery programs
+
+\bcolumns
+\column{0.7\textwidth}
+
+- Endangered species are in the most imminent needs of attention for recovery (species recovery/conservation plan/action).
+- A recovery plan describes the current status, threats and intended methods for increasing rare and endangered species.
+- The Species Survival Commission's Specialist Groups of the International Union for Conservation of Nature (IUCN) has created Species Action Plans since at least the mid-1980s, which are used to outline the conservation strategies of species, normally between set dates.
+- Either a single species or an area, habitat or ecosystem or entire landscape can be targeted by the recovery plan.
+
+\column{0.3\textwidth}
+
+```{r species-conservation-rating, fig.align='center', out.width="40%"}
+knitr::include_graphics("../images/IUCN_classification.png")
+```
+
+\ecolumns
+
+##
+
+\bcolumns
+\column{0.5\textwidth}
+
+```{r vulture-conservation-action-plan, out.width="75%", fig.align='center'}
+knitr::include_graphics("../images/Vulture_conservation_action_plan.jpg")
+```
+
+\column{0.5\textwidth}
+
+```{r tiger-recovery-plan, out.width="60%", fig.align='center'}
+knitr::include_graphics("../images/Tiger_recovery_plan.png")
+```
+
+\ecolumns
+
+##
+
+- Recovery program are conducted at both coarse-filter and fine-filter approach.
+- Coarse filter approach focuses on habitat and most, if not all species, and their ecological functions being supported in reserves and conservation areas.
+  - For example in conserving invertebrates (grasshoppers, ants and snail) species, a major consideration is that of effor to restore stone-cover.
+- Restoration of grazing in areas where plant succession eliminates savannah-like, open habi tats often results in the increase of the species richness of native pollinators and other invertebrates.
+- The Lord Howe Island stick insect ( _Dryococelus australis_) had been thought to be extinct until a small population was found on a tiny Ball’s Pyramid Islet (New 2012); a small fraction of the population has been collected and is now successfully breeding in captivity at Melbourne Zoo.
+
+##
+
+\footnotesize
+
+- Reintroduction and restocking programs (generally effective for birds) may be employed when a wild population is otherwise beyond recovery.
+- These programs are decided based on:
+  - organism's ecology
+  - current threats
+  - suitability of available stock
+  - regional human socio-economic implications
+- Release should only take place when the habitat is capable of sustaining a viable population and original constraining factors no longer operate.
+- Proper recovery programs do not simply act as stop gaps to prevent extinction, but can restore species to a state of health so they are self-sustaining.
+- Best plans are adaptive and dynamic, responding to changing conditions.
+
+# In-situ conservation
+
+## Agrobiodiversity -- On farm conservation
 
 - Seed preservation by farmer household
 - Participatory variety breeding
 - Culture based importance for conservation
 
-## Protected area conservation: History
+## Wild/natural biodiversity -- Protected area conservation
 
 - As long as 2000 years ago ancient societies in Greece, Rome, Asia, and Africa are known to have set aside areas as sacred groves or sites, while european societies had hunting grounds for use of royalty and the wealthy.
 - First protected area of world: Yellowstone National Park (1872).
 - Until recently, the motivations have seldom been the protection of biodiversity *per se*, and have usually been based on culturally valued aspects of biodiversity and the broader landscape, for example, charismatic megafauna, attractive habitats, important watersheds, recreational areas, or endangered species.
-- Multiple functions of protected areas: 
-  - Scientific research, 
-  - Wilderness protection, 
-  - Preservation of species and genetic diversity, 
-  - Maintenance of environmental services, 
-  - Protection of specific natural and cultural features, 
+- 12.9% (114,000 sites) of earth's land surface now occur under protected areas.
 
-##
+\bcolumns
 
-- Multiple functions ...
-  - Tourism and recreation, 
-  - Education, 
-  - Sustainable use of resources from natural ecosystems, and
-  - Maintenance of cultural and traditional attributes
+\column{0.6\textwidth}
+\footnotesize
 
-## Protected area: Components
+- Conserving species in their natural habitat for their own intrinsic value and to maintain their role in ecosystem and evolutionary development.
+- A network of 20 protected areas for conserving viable populations of the large and wide-ranging species in their wilderness. 
+  - focused on umbrella and keystone species: Bengal tigers, Greater one-horned rhinoceros, Asian elephants and Snow leopards
+- Likewise, wild edible plants and wild relatives of cultivated crops are planned for conservation in collaboration with National Parks, religiously and culturally protected sites, heritage sites and community areas (including forest management).
+- Yet, the wealth of local diversity in Nepal contrasts greatly with the paucity of opportunities for hill and mountain farmers using the dominant approach.
+
+<!-- Such wealth is rarely recognised within economic or political evaluations of resources. The recognition of farmers' intellectual property rights to genetic resources at the community level could offer opportunities for linking financial compensation to biodiversity conservation.-->
+
+<!-- Most agrobiodiversity is retained on farms in Nepal only due to a lack of development opportunities. Farming communities in the margins could assist to conserve much important local agrobiodiversity for the short to medium term if they were provided with appropriate incentives. Source: "In situ" agrobiodiversity conservation for regional development in Nepal Author(s): Douglas Bardsley and Ian Thomas.-->
+
+\column{0.4\textwidth}
+
+\begin{itemize}
+\tiny
+\item Which crop I can cultivate ?
+\item Which varieties perform good on my locality ?
+\item Which variety yields better ?
+\item Which variety can escape disease well ?
+\item Which crop or crop mixtures are likely to perform well in which season ?
+\item What seed do I store for the upcoming crop ?
+\item How do I best manage my land to have a good harvest ?
+\item How do I best preserve the seed to ensure good planting ?
+\item How do mix or relay my collection of crops where I grow ?
+\item How do I preserve the integrity of a good variety ?
+\end{itemize}
+
+\ecolumns
+
+## Functions of protected areas
+
+- Scientific research, 
+- Wilderness protection, 
+- Preservation of species and genetic diversity, 
+- Maintenance of environmental services, 
+- Protection of specific natural and cultural features, 
+- Tourism and recreation, 
+- Education, 
+- Sustainable use of resources from natural ecosystems, and
+- Maintenance of cultural and traditional attributes
+
+## Definition
 
 \begin{block}{International Union for Conservation of Nature}
 A clearly defined geographical space, recognized, dedicated and managed through legal or other effective means, to achieve the long-term conservation of nature with associated ecosystem services and cultural values.
 \end{block}
-
-- 12.9% (114,000 sites) of earth's land surface now occur under protected areas.
 
 ##
 
@@ -246,33 +419,26 @@ protected_areas[16:nrow(protected_areas), ] %>%
 knitr::include_graphics("./../images/contribution_review.png")
 ```
 
-# Methods of biodiversity conservation
+# Ex situ conservation
 
 ##
 
-1. *In situ* conservation; 
-2. *Ex situ* conservation
-3. Restoration
+```{r ex-situ-conservation, fig.align='center', out.width="65%"}
+knitr::include_graphics("../images/ex-situ_germplasm_nagrc.png")
+# As of 2015
+```
 
-# Area-specific/local approach
+##
 
-## Farmer as pivot
+- Refer to the media file: "Genebanks: Guardians of Biodiversity".
 
-- Which crop I can cultivate ?
-- Which varieties perform good on my locality ?
-- Which variety yields better ?
-- Which variety can escape disease well ?
-- Which crop or crop mixtures are likely to perform well in which season ?
-- What seed do I store for the upcoming crop ?
-- How do I best manage my land to have a good harvest ?
-- How do I best preserve the seed to ensure good planting ?
-- How do mix or relay my collection of crops where I grow ?
-- How do I preserve the integrity of a good variety ?
+<!-- Available in `../media` directory -->
 
-## Institutional conservation approaches
+# Conservation endevours
+
+## Institutional conservation endevours
 
 - Single species based conservation. For e.g. *Ex situ* conservation for single species (e.g., zoos, expensive reintroduction programs, captive breeding programs).
-- Umbrella species approach
 - Elimination of invasise species linked to conservation failures.
 - Protected areas management, for human exclusion.
 - Fragmentation and loss of ecosystem management through management of spatial distribution of ecosystem or habitats.
@@ -283,9 +449,24 @@ knitr::include_graphics("./../images/contribution_review.png")
 - Small-scale, data-intensive species and community model design and implementation.
 - Development of nonmarket values for species.
 
-# National (Nepal's)/regional approaches
+## Umbrella species approach
 
-## Targeted/sectoral approach
+\bcolumns
+\column{0.5\textwidth}
+
+- Umbrella species are species selected for making conservation-related decisions, typically because protecting these species indirectly protects the many other species that make up the ecological community of its habitat (the umbrella effect). 
+- Umbrella species can be used to help select the locations of potential reserves, find the minimum size of these conservation areas or reserves, and to determine the composition, structure, and processes of ecosystems.
+
+\column{0.5\textwidth}
+
+```{r rhinocerous-siblings, out.width="70%", fig.align='center'}
+knitr::include_graphics("../images/rhinocerous_siblings_cuddling.jpg")
+# https://twitter.com/samanthaiam/status/1634018415668260864
+```
+
+\ecolumns
+
+## National (Nepal's) regional conservation strategies
 
 1. Management of protected areas
   - A: Improvement in management of protected areas and species.
@@ -299,14 +480,19 @@ knitr::include_graphics("./../images/contribution_review.png")
   - D: Enhancing conservation of species and genetic diversity
   - F: Enhancing forest based livelihoods
 
-## Targeted/sectoral approach (...continued)
+##
 
 3. Management of rangeland biodiversity
 4. Management of watershed biodiversity
 5. Management of agrobiodiversity
 6. Management of mountain biodiversity
 
-## Cross-thematic and cross-sectoral strategies
+## Conjoint national and international conservation strategies
+
+\bcolumns
+\column{0.5\textwidth}
+
+\footnotesize
 
 - Addressing the policy and legislative gaps
 - Institutional strengthening
@@ -318,7 +504,9 @@ knitr::include_graphics("./../images/contribution_review.png")
 - Adaptation to and mitigation of the effects of climate change
 - Integrating gender and social inclusion perspectives
 
-## Cross-thematic (...continued)
+\column{0.5\textwidth}
+
+\footnotesize
 
 - Conservation of and Respect to Traditional Knowledge, Innovations and Practices of Indigenous and Local Communities
 - Knowledge generation and management
@@ -327,8 +515,79 @@ knitr::include_graphics("./../images/contribution_review.png")
 - Fund generation and mobilization
 - Monitoring evaluation and reporting
 
-# International convention and treaties
+\ecolumns
 
 # Intellectual property rights
+
+## Background
+
+- IP protection consists of principles that a society observes to ensure that an inventor is protected from the unfair use of his/her invention by others.
+- Protection is provisioned in the form of: 
+  - Copyright
+  - Patent
+  - Trademark
+  - Trade secret
+  - Breeder's right
+  - Confidential information
+- Innovation has a price tag, hence the investor must be compensated
+- Ensures that invention is not kept secret from betterment of society.
+- Law and science meet here.
+
+## Guiding treaties, agreements and institutions
+
+- Agreement on Trade related Aspects of Intellectual Property Rights (TRIPS Agreement) within the World Trade Organization (WTO) in 1995 (effective since).
+- International Treaty on Plant Genetic Resources for Food and Agriculture in (ITPGRFA) 2002.
+- World Intellectual Property Organization ([WIPO](https://www.wipo.int/portal/en/index.html))
+- International Union for the Protection of New Varieties of Plants (Union International pour la Protection des Obtentions Vegetales; UPOV) established in 1961.
+
+## Traditional knowledge
+
+- Association between level of biodiversity in a specific region with cultural distinctiveness of its inhabitants.
+- Specific knowledge of communities living in close relationship to their environment: traditional knowledge.
+- Integrated into 
+  - Rio Process, 
+  - International Treaty on PGRFA
+  - [World Summit on Sustainable Development](https://sustainabledevelopment.un.org/milesstones/wssd); Johannesburg, South Africa 26 August - 4 September 2002.
+- CBD speaks of 'traditional knowledge, innovations and practices of indigenous and local communities embodying traditional lifestyles relevant for the conservation and sustainable use of biological diversity' (Article 8(j)).
+
+## Traditional knowledge
+
+- Foster sharing of economic incentives to making available traditional knowledge, to conserve it through use, and thereby enhance the livelihoods of farming and indigenous communities and reverse the decline of biodiversity, upon which, in return, long-term food security is based. [@biber2006rights]
+- Since the adoption of convention on Biological Diversity (CBD) in 1992, the law of plant genetic resources (PGR) and the legal status of traditional knowledge (TK) has attracted increasing attention.
+- 2001 Doha Agenda of the WTO explicitly endorsed the issue of traditional knowledge as a subject for further work.
+
+## Traditional knowledge
+
+- TK has common features for both indigenous as well as farming communities:
+  - Information is not an individual creation, but the achievement of a specific community.
+  - It cumulates over many generations and evolve accordingly.
+  - Managed by and exchanged through customs or customary laws.
+  - Close interaction exists between TK and the surrounding ecosystem.
+
+## Farmer's right
+
+- Intellectual contribution of farmers to the diversity of crop varieties and animal breeds emphasized in 'Farmers' Rights Charter', a document drafted by Indian Farmers' Unions.
+- Guiding thoughts:
+  - Farmers ought to have the right to 'participate fully in any benefits derived from the improved use of these genetic resources' and, of course, in the ITPGRFA (Preamble para. 7 and Article 9.1).
+  - Farmers' innovations take place collectively and cumulatively, and that therefore farmers' rights, arising from their role as conservators and breeders, are community rights.
+
+## UPOV
+
+\small
+
+- It seeks to protect new varieties of plants both in the interest of agricultural development and of plant breeders. 
+- UPOV sought from the outset to provide incentives to the private sector to engage in commercial plant breeding, by introducing so-called plant breeders' rights, aka. Plant Variety Rights.
+- Agreed guidelines for the conduct of tests and standardization of variety descriptions based upon the morphology of the grain and plant.
+- PBR is an IPR, often described as plant "patent". Breeders can claim royalties on seed sold.
+- Once granted, PBR ecognizes the exclusive rights of individual plant breeders to produce or reproduce protected varieties, to condition them for the purpose of propagation, to offer them for sale, to commercialize them, including exporting and importing them, and to stock them with a view to production or commercialization (Article 14.1 UPOV).
+- Like any patent right, PBR expires after 20 years.
+
+## TRIPS
+
+- General Agreement on Tariffs and Trade (GATT) contains important provisions covering the protection of intellectual property in the agreement on Trade Related Aspects of Intellectual Property Rights (TRIPS). 
+- For most member countries ratification of GATT means membership of UPOV and a PBR system based upon plant morphology. 
+- Plant breeders will still use morphological characters to purify candidate varieties before submitting them for tests and trials, and seed traders will still use morphological characters to verify variety at the point of sale.
+- However, the science of systematics is being revolutionized by molecular technologies.
+- Concept of "Essentially derieved varieties"
 
 # Bibliography

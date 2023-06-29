@@ -1,0 +1,1163 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[ignorenonframetext,aspectratio=169]{beamer}
+\usepackage{pgfpages}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+% Prevent slide breaks in the middle of a paragraph:
+\widowpenalties 1 10000
+\raggedbottom
+\setbeamertemplate{part page}{
+\centering
+\begin{beamercolorbox}[sep=16pt,center]{part title}
+  \usebeamerfont{part title}\insertpart\par
+\end{beamercolorbox}
+}
+\setbeamertemplate{section page}{
+\centering
+\begin{beamercolorbox}[sep=12pt,center]{part title}
+  \usebeamerfont{section title}\insertsection\par
+\end{beamercolorbox}
+}
+\setbeamertemplate{subsection page}{
+\centering
+\begin{beamercolorbox}[sep=8pt,center]{part title}
+  \usebeamerfont{subsection title}\insertsubsection\par
+\end{beamercolorbox}
+}
+\AtBeginPart{
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \frame{\subsectionpage}
+}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+\usetheme[]{Frankfurt}
+\usecolortheme{beaver}
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{hyperref}
+\hypersetup{
+            pdftitle={Diversity classification and nomenclature of cultivated plants, weeds, microbes, and insect-pests},
+            pdfauthor={Deependra Dhakal},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\newif\ifbibliography
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\usepackage{tikz} % required for image opacity change
+\usepackage[absolute,overlay]{textpos} % for text formatting
+
+% % title background image
+% \titlegraphic{\centering \tikz\node[opacity=0.9] {\includegraphics[width=0.4\paperwidth]{./08-biodiversity_concept_aim_scope_maize_cover.jpg}};}
+
+% this font option is amenable for beamer
+\setbeamerfont{caption}{size=\tiny}
+\setbeamerfont{footnote}{size=\tiny}
+
+\setbeamertemplate{footline}[page number] % insert page number in footline
+
+\title{Diversity classification and nomenclature of cultivated plants, weeds,
+microbes, and insect-pests}
+\author{Deependra Dhakal}
+\providecommand{\institute}[1]{}
+\institute{GAASC, Baitadi \and Tribhuwan University}
+\date{Academic year 2019-2020}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}
+\tableofcontents[hideallsubsections]
+\end{frame}
+\hypertarget{background}{%
+\section{Background}\label{background}}
+
+\hypertarget{basics}{%
+\subsection{Basics}\label{basics}}
+
+\begin{frame}{}
+\protect\hypertarget{section}{}
+
+\begin{figure}
+\includegraphics[width=0.46\linewidth]{./../images/properties_of_life} \caption{Some properties of life}\label{fig:properties-life}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Level of organisation}
+\protect\hypertarget{level-of-organisation}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Biosphere
+\item
+  Ecosystems
+\item
+  Communities
+\item
+  Populations
+\item
+  Organisms
+\item
+  Organs and organ systems
+\item
+  Tissues
+\item
+  Cells
+\item
+  Organelles
+\item
+  Molecules
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Systematics}
+\protect\hypertarget{systematics}{}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Systematics} is a field of research which aims to organize the
+  huge diversity of organisms.
+\item
+  Objective is to use phylogenies that reflect natural relationships
+  between organisms.
+\item
+  Based on ``relatedness''
+\item
+  Who tests and verifies: Cytologists, geneticists, morphologist and
+  evolutionary biologist.
+\item
+  Traditionally morpho-anataomy was used to distinguish between
+  organisms.
+\item
+  In many cases, DNA sequences -- so-called DNA barcodes can be used to
+  identify species (see \url{http://barcoding.si.edu}).
+\item
+  \textbf{Monographs} are works concerning whole groups of related
+  species (e.g., monograph of the genus Primula), and \textbf{floras}
+  are systematic works concerning the plant inventory of a geographical
+  area (e.g., flora of Germany).
+\item
+  Monographs and floras contain descriptions of the species involved and
+  also, by means of a key, the tools for identifying a plant.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Relationships}
+\protect\hypertarget{relationships}{}
+
+\begin{figure}
+\includegraphics[width=0.5\linewidth]{./../images/relationship_common_ancestor} \caption{Relationships. The degree of relationship is defined by the relative age of the last common ancestor. Taxon B is more closely related to taxon C than to taxon A.}\label{fig:taxon-relationships}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Characters}
+\protect\hypertarget{characters}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Microscopic and macroscopic
+\item
+  Morphology describes the external structure of plants and is very
+  important in systematics.
+\item
+  Anatomy is the study of internal plant structure. Includes: Histology,
+  Cytology, Karyology, Palynology, Embryology
+\item
+  The structure of plant compounds is dealt with in phytochemistry.
+\item
+  A systematist can also draw on characters from physiology, ecology,
+  chorology (the geographical distribution of taxa), and phytopathology
+  and can also consider information on fossil forms taken from
+  paleobotany.
+\item
+  Experimental systematics, using breeding experiments and crossing
+  success as a criterion for relationships, is not applied now. Instead,
+  the analysis of proteins and nucleic acids has taken on special
+  significance in phylogenetic research.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Taxonomic ranks}
+\protect\hypertarget{taxonomic-ranks}{}
+
+\begin{figure}
+\includegraphics[width=0.25\linewidth]{./../images/taxonomic_rank_yarrow} \caption{Overview of the more important taxonomic ranks, their standardized ending, and the taxonomic units using yarrow (Achillea millefolium L.) as an example}\label{fig:taxonomic-ranks}
+\end{figure}
+
+\end{frame}
+
+\hypertarget{classifying-life}{%
+\section{Classifying life}\label{classifying-life}}
+
+\hypertarget{approaches-and-trend}{%
+\subsection{Approaches and trend}\label{approaches-and-trend}}
+
+\begin{frame}{}
+\protect\hypertarget{section-1}{}
+
+\begin{figure}
+\includegraphics[width=0.55\linewidth]{./../images/classification_ursus} \caption{Linnaean classification of \textit{Ursus americanus}}\label{fig:classifying-life}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Approaches to classification}
+\protect\hypertarget{approaches-to-classification}{}
+
+\begin{itemize}
+\tightlist
+\item
+  The terms ``plants'' and ``animals'' were originally used to describe
+  the main groups of living organisms (Regnum Plantae and Regnum
+  Animale) defined by early systematics and taxonomy.
+\item
+  Nowadays, it is well accepted that these groups reflect organizational
+  levels with nutritional and physiological differences and are not
+  natural groups. The term ``plant kingdom'' does not refer to an
+  evolutionary unit with shared common ancestry and therefore does not
+  refer to a taxon. Plants can be defined as photoautotrophic organisms.
+\item
+  Ultrastructure of cell reveals two cell forms: Prokaryotic and
+  eukaryotic
+\item
+  Modern molecular phylogenetic methods indicate differentiation into
+  three groups: the \textbf{Archaea}, \textbf{Bacteria} and
+  \textbf{Eukarya}.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-2}{}
+
+\begin{figure}
+\includegraphics[width=0.55\linewidth]{./../images/three_domains_life} \caption{Three domains of life.}\label{fig:domains-life}
+\end{figure}
+
+\end{frame}
+
+\hypertarget{domains-of-life}{%
+\subsection{Domains of life}\label{domains-of-life}}
+
+\begin{frame}{Classification}
+\protect\hypertarget{classification}{}
+
+\begin{columns}[T,onlytextwidth]
+  \column{0.33\textwidth}
+  \alert{Bacteria} phylums \\
+  \begin{itemize}
+  \item Primobacteriota: Deeply rooted
+  \item Posibacteriota: Gram positive
+  \item Negibacteriota: Gram negative
+  \item Cyanobacteriota: Cyanoprokaryota, Cyanophyta, BGA
+  \end{itemize}
+  
+  \column{0.33\textwidth}
+  \alert{Archaea} phylums \\  
+  \begin{itemize}
+  \item Crenarchaeota
+  \item Euryarchaeota
+  \end{itemize}
+ 
+  \column{0.33\textwidth}
+  \alert{Eukarya} subkingdoms \\
+  \begin{itemize}
+  \item Acrasiobionta
+  \item Myxobionta
+  \item Heterotrophic heterokontobionta
+  \item Mycobionta
+  \item Glaucobionta
+  \item Rhodobionta
+  \item Autotrophic heterokontobionta
+  \end{itemize}
+  
+\end{columns}
+
+\end{frame}
+
+\begin{frame}{Comparison of domains of life}
+\protect\hypertarget{comparison-of-domains-of-life}{}
+
+\begin{table}[t]
+
+\caption{\label{tab:eu-arch-prokaryotic-cell}Comparison of some lower life forms}
+\centering
+\fontsize{6}{8}\selectfont
+\begin{tabular}{>{\raggedright\arraybackslash}p{15em}>{\raggedright\arraybackslash}p{15em}>{\raggedright\arraybackslash}p{15em}l}
+\toprule
+  & Bacteria & Archaea & Eukarya\\
+\midrule
+\rowcolor{gray!6}  Nuclear envelope & Absent & Absent & Present\\
+Membrane enclosed organelles & Absent & Absent & Present\\
+\rowcolor{gray!6}  Peptidoglycan in cell wall & Present & Absent & Absent\\
+Membrane lipids & Unbranched hydrocarbons & Some branched hydrocarbons & Unbranched hydrocarbons\\
+\rowcolor{gray!6}  RNA polymerase & One kind & Several kinds & Several kinds\\
+\addlinespace
+Initiator amino acid for protein synthesis & Formyl-methionine & Methionine & Methionine\\
+\rowcolor{gray!6}  Introns in genes & Very rare & Present in some genes & Present in many genes\\
+Response to the antibiotics Streptomycin and chlormaphenicol & Growth inhibited & Growth not inhibited & Growth not inhibited\\
+\rowcolor{gray!6}  Histones associated with DNA & Absent & Present in some species & Present\\
+Circular chromosome & Present & Present & Absent\\
+\addlinespace
+\rowcolor{gray!6}  Growth at temperatures greater than 100 degree C & No & Some species & No\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\end{frame}
+
+\hypertarget{bacteria}{%
+\subsection{Bacteria}\label{bacteria}}
+
+\begin{frame}{Introduction}
+\protect\hypertarget{introduction}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Prokaryotic organisms having special chemical cell wall structure
+  (murein sacculus).
+\item
+  Eubacteria constitutes phyla other than Cyanobacteria.
+\item
+  Mostly heterotrophic mode of nutrition.
+\item
+  Average cell width: 1 \(\mu m\), length: 3-10 \(\mu m\)
+\item
+  May form colony or remain solitary
+\item
+  Cell filaments, if present, can be branched or unbranched.
+\item
+  DNA localized in nucleoid (coil-shaped structure)
+\item
+  Gene maps have been plotted for several bacteria types ( \emph{E.
+  coli}, \emph{Salmonella typhimurium}).
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Bacterial life}
+\protect\hypertarget{bacterial-life}{}
+
+\begin{itemize}
+\tightlist
+\item
+  \alert{Nutrition}: The nutrition of bacteria differs according to the
+  energy source, the electron donor, and the carbon source. Energy
+  acquisition occurs either as a result of breakdown of substances in
+  the substrate (chemotrophy) or by using light energy.
+\item
+  \alert{Motility}: Exhibit chemotaxis. Flagella may be present (single
+  to multiple to scattered over entire surface)
+\item
+  \alert{Reproduction and genetic matter exchange}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Binary fission
+  \item
+    Endospore formation
+  \item
+    Transformation
+  \item
+    Transduction
+  \item
+    Conjugation
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-3}{}
+
+\begin{figure}
+\includegraphics[width=0.55\linewidth]{./../images/bacteria} \caption{Bacterial forms. (a) Staphylococcus. (b) Lactobacillus. (c) Bdellovibrio. (d) Spirillum. (e) Caulobacter (x4,000). (f) Sarcina. (g–i) Sphaerotilus. (g) Motile stage (x700). (h) Sphaerotilus (x330). (i) Start of cell division (x800). (j) Streptomyces. (k–m) Chondromyces. (k) Rods (x200). (l) Sporocarps. (m) 'Fruit bodies' (x30)}\label{fig:bacteria}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-4}{}
+
+\begin{figure}
+\includegraphics[width=0.55\linewidth]{./../images/nutritional_modes_bacteria} \caption{\textbf{Major nutritional modes of bacteria.}}\label{fig:bacterial-nutrition-modes}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-5}{}
+
+\begin{figure}
+\includegraphics[width=0.55\linewidth]{./../images/bacterial_conjugation_pilus} \caption{\textbf{Bacterial conjugation.} \newline The E. coli donor cell (left) extends a pilus that attaches to a recipient cell, a key first step in the transfer of DNA. The pilus is a flexible tube of protein subunits (TEM).}\label{fig:bacterial-conjugation}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-6}{}
+
+\begin{figure}
+\includegraphics[width=0.7\linewidth]{./../images/gram_staining} \caption{Gram staining}\label{fig:gram-staining}
+\end{figure}
+
+\end{frame}
+
+\hypertarget{major-groups-of-bacteria}{%
+\subsection{Major groups of bacteria}\label{major-groups-of-bacteria}}
+
+\begin{frame}{Proteobacteria}
+\protect\hypertarget{proteobacteria}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Negibacteriota consists of 15 groups altogether.
+\item
+  Proteobacteria are a group of gram negative bacteria.
+\item
+  They are phototrophic, chemolithotrophic, or chemoorganotrophic.
+\item
+  A genus of \(\alpha\)-subgroup of this group, Bradyrhizobium, lives in
+  symbiosis with soybean (in root nodules) and is capable of fixing
+  atmospheric nitrogen.
+\item
+  Both anaerobic and aerobic
+\item
+  Recognized subgroups:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \(\alpha\) Proteobacteria
+  \item
+    \(\beta\) Proteobacteria
+  \item
+    \(\gamma\) Proteobacteria
+  \item
+    \(\delta\) Proteobacteria
+  \item
+    \(\epsilon\) Proteobacteria
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-7}{}
+
+\begin{figure}
+\includegraphics[width=0.55\linewidth]{./../images/proteobacteria_group} \caption{Common bacteria in proteobacteria group}\label{fig:proteobacteria}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Chlamydias and spirochetes}
+\protect\hypertarget{chlamydias-and-spirochetes}{}
+
+\begin{itemize}
+\tightlist
+\item
+  These parasites can survive only within animal cells, depending on
+  their hosts for resources as basic as ATP.
+\item
+  The gram-negative walls of chlamydias are unusual in that they lack
+  peptidoglycan.
+\item
+  One species, Chlamydia trachomatis, is the most common cause of
+  blindness in the world and also causes nongonococcal urethritis, most
+  common STD in US.
+\item
+  These helical heterotrophs spiral through their environment by means
+  of rotating, internal, flagellum-like filaments.
+\item
+  Many spirochetes are free-living, but others are notorious pathogenic
+  parasites: \emph{Treponema pallidum} causes syphilis, and
+  \emph{Borrelia burgdorferi} causes Lyme disease.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Cyanobacteria}
+\protect\hypertarget{cyanobacteria}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Plantlike prokaryotes with oxygen-generating photosynthesis.
+\item
+  Both solitary and filamentous cyanobacteria are abundant components of
+  freshwater and marine phytoplankton, the collection of photosynthetic
+  organisms that drift near the water's surface.
+\item
+  Some filaments have cells specialized for nitrogen fixation, the
+  process that incorporates atmospheric \(N_2\) into inorganic compounds
+  that can be used in the synthesis of amino acids and other organic
+  molecules.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-8}{}
+
+\begin{columns}[T,onlytextwidth]
+  \column{0.33\textwidth}
+
+\begin{figure}
+\includegraphics[width=0.9\linewidth]{./../images/bacteria_chlamydias} \caption{Chlamydias}\label{fig:chlamydias}
+\end{figure}
+
+  \column{0.33\textwidth}
+
+\begin{figure}
+\includegraphics[width=0.9\linewidth]{./../images/bacteria_spirochetes} \caption{Spirochetes}\label{fig:spirochetes}
+\end{figure}
+  
+  \column{0.33\textwidth}
+
+\begin{figure}
+\includegraphics[width=0.9\linewidth]{./../images/bacteria_cyano} \caption{Cyanobacteria}\label{fig:cyanobacteria}
+\end{figure}
+  
+\end{columns}
+
+\end{frame}
+
+\begin{frame}{Gram positive bacteria}
+\protect\hypertarget{gram-positive-bacteria}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Highly diverse group
+\item
+  Subgroups include:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Actinomycetes; form colonies or fee-living, Cause ``earthy'' order
+    of soil
+  \item
+    Cocci
+  \item
+    Rods not forming spores
+  \item
+    Spore forming rods
+  \item
+    Coryneform
+  \item
+    Mycoplasmas
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-9}{}
+
+\begin{figure}
+\includegraphics[width=0.55\linewidth]{./../images/gram_positive_str_myc} \caption{Gram positive bacteria}\label{fig:gram-positive}
+\end{figure}
+
+\end{frame}
+
+\hypertarget{archaea}{%
+\subsection{Archaea}\label{archaea}}
+
+\begin{frame}{}
+\protect\hypertarget{section-10}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Archaea share certain traits with bacteria and other traits with
+  eukaryotes.
+\item
+  Includes \textbf{extremophiles}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    extreme halophiles: \emph{Halobacterium} spp.
+  \item
+    extreme thermophiles: \emph{Pyrococcus furiosus}
+  \end{itemize}
+\item
+  Includes methanogens (within guts of cattle, termites, in swamps)
+\item
+  Euryarchaeota, Crenarchaeota, Korarchaeota, Nanoarchaeota (smallest
+  known organism)
+\end{itemize}
+
+\end{frame}
+
+\hypertarget{eukarya}{%
+\subsection{Eukarya}\label{eukarya}}
+
+\begin{frame}{Acraciobionta}
+\protect\hypertarget{acraciobionta}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Includes slime molds that lack flagellate cells.
+\item
+  Pseudoplasmodia formed by the aggregation of single cells, without
+  fusion.
+\item
+  Cell walls are made of cellulose.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-11}{}
+
+\begin{figure}
+\includegraphics[width=0.35\linewidth]{./../images/acraciobionta_dictyostelium} \caption{Life cycle of Dictyostelium discoideum (right x100, left x8 enlarged)}\label{fig:acraciobionta-dictyostelium}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Myxobionta}
+\protect\hypertarget{myxobionta}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Fusion plasmodia arise as a result of fusion between myxoflagellates
+  or myxamoeba, or they can develop from single cells without any
+  previous sexual process.
+\item
+  Contains phylum: Myxomycota, Plasmodiophoromycota
+\end{itemize}
+
+\begin{figure}
+\includegraphics[width=0.25\linewidth]{./../images/myxomycota_pasmodium} \caption{Plasmodium and sporocarps of \textit{Badhamia utricularis}}\label{fig:myxomycota}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Heterotrophic heterokontobionta}
+\protect\hypertarget{heterotrophic-heterokontobionta}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Contains phylum: Labyrinthulmycota, Oomycota
+\end{itemize}
+
+\begin{figure}
+\includegraphics[width=0.25\linewidth]{./../images/oomycota_peronosporales} \caption{Oomycota, Peronosporales. (a) \textit{Peronospora bulbocapni} on leaves of \textit{Corydalis cava}; left, for comparison, an unaffected leaf. (b) Yellowing of oak leaves caused by root infections of \textit{Phytophthora quercina}; right, normally colored leaf}\label{fig:oomycota}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-12}{}
+
+\begin{figure}
+\includegraphics[width=0.4\linewidth]{./../images/oomycota_peronosporales_structure} \caption{Oomycota, Peronosporales. (a–d) \textit{Plasmopara viticola}. (a) Sporocystophore emerging from a stoma. (b) Oogonia (with a male gametangium) and zygotes (x100). (c) Formation and liberation of zoospores (x600). (d) Germination of the zoospores through the stomata penetrating the intercellular cavity (x250). (e) \textit{Peronospora parasitica}, young multinuclear oogonium and male gametangium (x600). (f, g) \textit{Albugo candida}. (f) Oogonium penetrated by the fertilization tube of a male gametangium which is donating the male nucleus (x600). (g) Zygote in the oogonium, surrounded by the young zygote wall and the periplasma (x600). (h) \textit{Pythium ultimum}; zygotes germinating with zoospores (x800). b fertilization tube of the male gametangium, g male gametangium, p periplasma, o oogonium, oz central uninucleate part of the oogonium, z zoospore, 1, 2, 3 developmental stages}\label{fig:oomycota-peronosporales2}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Mycobionta (Fungi)}
+\protect\hypertarget{mycobionta-fungi}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Simple structured heterotrophic organisms, lineages derive from basal
+  animal lineages.
+\item
+  Phylum includes: Chytridiomycota, Zygomycota, Glomeromycota,
+  Ascomycota, Basidiomycota
+\item
+  Other categories: Deuteromycetes (Fungi imperfecti)
+\item
+  The Oomycota (water molds) are related to algae within the
+  Heterokontobionta.
+\item
+  Within the Unikontae, the protozoan-related Acrasiobionta (cellular
+  slime molds) and Myxobionta (slime molds), as well as the Mycobionta
+  (chitin fungi) -- related to basic multicellular animals (metazoans)
+  -- represent further lineages.
+\item
+  Independent ectosymbiosis events between various Mycobionta and
+  cyanobacteria or green algae have resulted in the Lichenes (lichens).
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-13}{}
+
+\begin{figure}
+\includegraphics[width=0.4\linewidth]{./../images/chytridiomycota_structure} \caption{Chytridiomycota, Chytridiomycetes. (a) \textit{Rhizophydium halophilum}, zoosporangia with discharge papillae and with protruding opisthokont zoospores, on a pollen grain of Pinus with haustoria inside (x400). (b) \textit{Polychytrium aggregatum}, small multinuclear tubular mycelium with variously developed sporocysts and two opisthokont zoospores (x400). (c–i) \textit{Polyphagus euglenae} (about x450). (c) Zoospore. (d) Thallus sending out rhizoids. (e) Conjugation between the smaller male and the larger female individual. (f) Male nucleus in the future zygote. (g) Zygote with as yet unjoined male and female nuclei. (h, i) Development and emptying of the zoosporocyst. (j–o) \textit{Zygochytrium aurantiacum} (x350). (j) Hyphae with two final-stage, discharged zoosporangia and two fusing gametangia. (k) Zoosporocyst at discharge. (l–o) Zygote formation between fused gametangia. (o) Mature hypnozygote ('zygospore'). g gametangium, s zoosporocyst, z zygote, zygospore, hypnozygote}\label{fig:oomycota-peronosporales}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Glaucobionta}
+\protect\hypertarget{glaucobionta}{}
+
+\begin{figure}
+\includegraphics[width=0.48\linewidth]{./../images/algal_classes} \caption{Characteristics of algal classes}\label{fig:glaucobionta}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Rhodobionta}
+\protect\hypertarget{rhodobionta}{}
+
+\begin{figure}
+\includegraphics[width=0.45\linewidth]{./../images/rhodophyceae_nemalionales} \caption{Rhodophyceae, Nemalionales. \textit{Batrachospermum moniliforme}. (a) Habitus (x3). (b) Piece of gametophyte thallus with a whorl of branches (x20). (c) Diploid Chantransia sporophyte with two haploid gametophytes on it (x100). (d) Branch of the gametophyte with four spermatangia, left the emerging spermatium (x540). (e) Carpogonium. (f) Mature carpogonium. (g) Carpogonium after fertilization by spermatium, fusion of the sex nuclei at the base. (h) Diploid carposporophyte with haploid sheath filaments. (i) Mature carposporophyte with carposporocysts. g carposporophyte, h sheath filaments, k1 and k2 emptied carposporocysts, o sex nuclei, s spermatium, t trichogyne}\label{fig:rhodobionta}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Autotrophic heterokontobionta}
+\protect\hypertarget{autotrophic-heterokontobionta}{}
+
+\begin{figure}
+\includegraphics[width=0.45\linewidth]{./../images/heterokontophyta_phaeophyceae} \caption{Heterokontophyta, Phaeophyceae, Laminariales. (a–e) Chorda filum. (a) Meiozoospores, (A 0 ) rounded off for germination (x1,200). (b–e) Development of the unilocular sporocysts (x1,000): (b) uninucleate; (c) tetranucleate; (d) 16-nucleate; (e) with almost complete zoospores. (f, g) Laminaria (x300). (f) Female gametophyte. (g) Male gametophyte. a spermatogonia (a 1 emptied), e egg cell, s 1 –s 3 juvenile sporophytes, still sitting on the emptied oogonium}\label{fig:heterokontophyta}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Chlorobionta (``Viridiplantae'')}
+\protect\hypertarget{chlorobionta-viridiplantae}{}
+
+\begin{figure}
+\includegraphics[width=0.4\linewidth]{./../images/chlorophyta_ulvophyceae} \caption{Chlorophyta, Ulvophyceae. (a–j) Ulothrix zonata. (a) Young filament with a rhizoid cell (x300). (b) Piece of filament with emerging zoospores, which arise in pairs in each cell (x480). (c) Quadriflagellate mitozoospore (x480). (d) Formation and emptying of the smaller biflagellate gametes from a filament section (Â480). (e) Gametes (x480). (f) Gamete copulation (x480). (g, h) Zygote (x480). (i) Zygote germinating after the resting phase (x480). (j) Meiozoospore formation in the zygote (x480). (k) Ulva lactuca (sea lettuce) on a rock, marginal cell colorless after zoospore discharge (x0.5). (l) Enteromorpha intestinalis, anisogamete copulation and zygote (x1,800). r rhizoid cell, 1–3 stages up to zygote formation}\label{fig:chlorobionta}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-14}{}
+
+\begin{figure}
+\includegraphics[width=0.45\linewidth]{./../images/streptophyta_spirogyra} \caption{Streptophyta, Zygnematophyceae. (a–h) Spirogyra. (a) S. jugalis – cells (x250). (b) S. quinina – anisogamous copulation (x240). (c–h) S. longata, (c) part of the chloroplast facing the cell wall (x750). (d–h) young and old zygotes, (d) the two sex nuclei before copulation (x250), (e) after fusion (x250), (f) division of the zygote nucleus into four haploid nuclei (x250), (g) the three small nuclei degenerate (x250), (h) uninucleate germ (x180). (i–k) Mougeotia. (i, j M. scalaris – chloroplast (face view and side view, x600). (k) M. calospora – isogamous copulation (x450). c chloroplast(s), k cell nucleus, p pyrenoid, s starch, w cell wall, z zygote, zw zygote wall}\label{fig:chlorobionta-spirogyra}
+\end{figure}
+
+\end{frame}
+
+\hypertarget{eukarya-alternative-classification}{%
+\subsection{Eukarya (alternative
+classification)}\label{eukarya-alternative-classification}}
+
+\begin{frame}{Protists}
+\protect\hypertarget{protists}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Protists exhibit more structural and functional diversity than any
+  other group of eukaryotes; mostly unicellular, but also some colonial
+  and multicellular species.
+\item
+  Most nutritionally diverse: Photoautotrophs, heterotrophs and
+  mixotrophs.
+\item
+  Some reproduce exclusively asexually, while other employ sexual
+  process.
+\item
+  Role of \textbf{endosymbiosis}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-15}{}
+
+\begin{figure}
+\includegraphics[width=0.35\linewidth]{./../images/protistan_diversity} \caption{Phylogenetic history of Eukaryota}\label{fig:protistan-diversity}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-16}{}
+
+\begin{figure}
+\includegraphics[width=0.45\linewidth]{./../images/eukaryotic_groups_four} \caption{Major groups in eukaryota}\label{fig:eukaryotes-groups}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-17}{}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Excavates} include protists with modified mitochondria and
+  protists with unique flagella.
+\item
+  Includes: Diplomonads ( \emph{Giardia} spp), parabasalids (
+  \emph{Trichomonas} spp) and Euglenozoans ( \emph{Trypanosoma} spp),
+\item
+  \textbf{Chromalveolata} includes:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Alvelolates: Dinoflagellates, Apicomplexans, Cilliates,
+  \item
+    Stramenopiles: Diatoms, Golden algae, Brown algae, Oomycetes
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-18}{}
+
+\begin{figure}
+\includegraphics[width=0.45\linewidth]{./../images/apicomplexans_paramecium} \caption{Paramecium function and structure}\label{fig:apicomplexans-features}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Stramenopiles}
+\protect\hypertarget{stramenopiles}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Photosynthetic organisms (named after \emph{stramen}, straw and
+  \emph{pilos}, hair referring to their characteristic flagellum)
+\item
+  Important groups:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Diatoms: Glass like wall made of hydrated silica. About 100, 000
+    species. Major component of phytoplankton both in ocean and in
+    lakes.
+  \item
+    Golden algae: Characteristic color results from their yellow and
+    brown carotenoids. Components of freshwater and marine plankton.
+    Some be mixotrophs. Can survive harsh environments as cysts.
+  \item
+    Brown algae: Commonly called seaweeds. Most complex multicellular
+    anatomy of all algae. Thallus body may be apparent. e.g.
+    \emph{Laminaria} spp.
+  \item
+    Oomycetes: Water molds, white rusts and downy mildews. Do not
+    typically photosynthesize. e.g. \emph{Phytophthora} spp.
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-19}{}
+
+\begin{columns}[T,onlytextwidth]
+  \column{0.5\textwidth}
+
+\begin{figure}
+\includegraphics[width=0.55\linewidth]{./../images/diatom_phytoplankton} \caption{Diatom}\label{fig:stramenopiles-diatom}
+\end{figure}
+  \column{0.5\textwidth}
+
+\begin{figure}
+\includegraphics[width=0.55\linewidth]{./../images/dinobryon_golden_algae} \caption{Dinobryon, a colonial golden alga found in fresh water}\label{fig:stramenopiles-golden-algae}
+\end{figure}
+\end{columns}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-20}{}
+
+\begin{figure}
+\includegraphics[width=0.55\linewidth]{./../images/watermold_lifecycle} \caption{Lifecycle of a water mold}\label{fig:lifecycle-oomycete}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Rhizarians}
+\protect\hypertarget{rhizarians}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Organisms previously referred to as amoebas.
+\item
+  Move and feed by the means of pseudopodia.
+\item
+  Includes groups:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Radiolarians: Delicate intricately symmetrical internal skeletons
+    made up of silica. The microtubules are covered by a thin layer of
+    cytoplasm, which engulfs smaller microorganisms that become attached
+    to the pseudopodia.
+  \item
+    Forams: Possess porous shells called tests. Pseudopodia function in
+    swimming, test formation, and feeding. Many forams also derive
+    nourishment from the photosynthesis of symbiotic algae that live
+    within the tests.
+  \item
+    Cercozoans: Mostly heterotrophs. Bacterial predators but some are
+    rare autotrophs. Amoeboid and flagellated with threadlike
+    pseudopodia.
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Archaephlastida}
+\protect\hypertarget{archaephlastida}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Red algae
+\item
+  Green algae:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Chlorophytes
+  \item
+    Charophytes
+  \end{itemize}
+\item
+  Land plants
+\end{itemize}
+
+\end{frame}
+
+\hypertarget{photoautotrophs}{%
+\subsection{Photoautotrophs}\label{photoautotrophs}}
+
+\begin{frame}{}
+\protect\hypertarget{section-21}{}
+
+\begin{columns}[T,onlytextwidth]
+  \column{0.5\textwidth}
+
+\begin{figure}
+\includegraphics[width=0.5\linewidth]{./../images/photoautotrophs2} \caption{(a) On land, plants are the predominant producers of food. In aquatic environments, photoautotrophs include unicellular and (b) multicellular algae, such as this kelp; (c) some non-algal unicellular protists, such as Euglena;}\label{fig:photoautotrophs}
+\end{figure}
+
+  \column{0.5\textwidth}
+
+\begin{figure}
+\includegraphics[width=0.5\linewidth]{./../images/photoautotrophs} \caption{(d) The prokaryotes called cyanobacteria; and (e) other photosynthetic prokaryotes, such as these purple sulfur bacteria, which produce sulfur (the yellow globules within the cells)}\label{fig:photoautotrophs2}
+\end{figure}
+
+\end{columns}
+
+\end{frame}
+
+\hypertarget{phylogeny-of-plants-and-fungi}{%
+\subsection{Phylogeny of plants and
+fungi}\label{phylogeny-of-plants-and-fungi}}
+
+\begin{frame}{}
+\protect\hypertarget{section-22}{}
+
+\begin{figure}
+\includegraphics[width=0.32\linewidth]{./../images/phylogeny_plant_fungi} \caption{The phylogenetically significant primary and secondary endosymbiotic steps and the resulting acquisition of mitochondria and plastids are marked with arrows. The arrows pointing to the lichens show ectosymbioses with Cyanobacteria and Chlorophyta. Modified from Bresinsky and Kadereit (2006)}\label{fig:phylogenetic-plant-fungi}
+\end{figure}
+
+\end{frame}
+
+\hypertarget{plants-embryophytoes}{%
+\subsection{Plants (Embryophytoes)}\label{plants-embryophytoes}}
+
+\begin{frame}{}
+\protect\hypertarget{section-23}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Arose in Ordovician (\textasciitilde{}450 Ma).
+\item
+  Charophytina (From chlorobionta) and land plants
+\item
+  The original ancestral land plant lineages are the paraphyletic mosses
+  (Marchantiophytina - liverworts; Bryophytina - foliose mosses;
+  Anthocerophytina - hornworts).
+\item
+  The paraphyletic pteridophytes (Lycopodiophytina - club mosses,
+  spikemosses, quillworts; Equisetophytina - horsetails; Psilophytina -
+  whisk ferns; Filicophytina - true ferns), together with the
+  monophyletic seed plants (Spermatophytina)
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Classification of spermatophytina: Classes}
+\protect\hypertarget{classification-of-spermatophytina-classes}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Cycadopsida
+\item
+  Ginkgopsida
+\item
+  Coniferopsida
+\item
+  Magnoliopsida (Flowering plants):
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Basal order (Eudicots): Amborellales, Nymphaeales, Austrobaileyales,
+    Ceratophyllales, Chlranthales, Magnoliales, Laurales, Canellales,
+    Piperales
+  \item
+    Monocotyledons: Acorales, Alismatales, Petrosaviales, Dioscoreales,
+    Pandanales, Liliales, Asparagales
+  \item
+    Commelinids: Arecales, Poales, Commelinales, Zingiberales
+  \item
+    Eudicotyledons: Ranunculales, Proteales, Sabiales, Trochodendrales,
+    Buxales, Gunnerales
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Classification of spermatophytina: Classes
+(\ldots{}continued)}
+\protect\hypertarget{classification-of-spermatophytina-classes-continued}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Magnoliopsida (flowering plants):
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Core eudicots: Berberidopsidales, Dilleniales, Caryophyllales,
+    Santalales, Saxifragales, Vitales
+  \item
+    Rosids: Crossomatales, Geraniales, Myrtales
+  \item
+    Fabids: Zygophyllales, Clastrales, Malphighiales, Oxalidales,
+    Fabales, Rosales, Cucurbitales, Fagales
+  \item
+    Malvids: Huerteales, Brassicales, Malvales, Sapindales
+  \item
+    Asterids: Cornales, Ericales
+  \item
+    Lamiids: Garryales, Gentianales, Lamiales, Solanales
+  \item
+    Campanulids: Aquifoliales, Apiales, Dipsaclales, Asterales.
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-24}{}
+
+\begin{figure}
+\includegraphics[width=0.35\linewidth]{./../images/poales_reproductive_morph} \caption{Poales, Poaceae. Grains, spikes, and spikelets. (a, b) Rye, Secale cereale (in b awns only partly shown). (c–e) Wheat, Triticum aestivum with (c) spelt and (d, e) wheat. (f, g) Barley, Hordeum vulgare with (f) two-rowed and (g) six-rowed forms (awns are only partly illustrated). (h) Oats, Avena sativa. (i, j) Rice, Oryza sativa. (k) Wheat grain (caryopsis), median longitudinal section through the lower part, lateral wall of the fruit furrow, below left the embryo with a scutellum, vascular bundle, and cylindrical epithelium, coleoptile, shoot apex, coleorhiza, radicle with root cap, and point of emergence (x14). a point of emergence, c coleoptile, cr coleorhiza, d lemma, f fruit furrow, h glume, l vascular bundle, r radicle, s scutellum, v palea, vk shoot apex, w root cap, z cylindrical epithelium}\label{fig:poales-reproductive}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-25}{}
+
+\begin{figure}
+\includegraphics[width=0.35\linewidth]{./../images/poales_pollination_modes} \caption{Pollination biology in the poales}\label{fig:poales-pollination}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-26}{}
+
+\begin{figure}
+\includegraphics[width=0.65\linewidth]{./../images/fabales_flower_biology} \caption{Fabales, Fabaceae, Faboideae. (a) \textit{Astragalus gummifer}, flowering shoot with spines (x0.5). (b, c) \textit{Pisum sativum}. (b) Entire flower (x1) and (c) dissected (x1.2); calyx, corolla made up of flag, wings and keel, stamens (9+1), and monocarpellate ovary with stigma and ovules (dotted). f flag, fk ovary, fl wing, k calyx, n stigma, s keel, sb stamens}\label{fig:fabales-flower-bio}
+\end{figure}
+
+\end{frame}
+
+\hypertarget{bibliography}{%
+\section{Bibliography}\label{bibliography}}
+
+\end{document}

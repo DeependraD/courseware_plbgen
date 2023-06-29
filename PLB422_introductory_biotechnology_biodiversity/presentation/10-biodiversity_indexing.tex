@@ -1,0 +1,392 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  ignorenonframetext,
+  aspectratio=169]{beamer}
+\usepackage{pgfpages}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+% Prevent slide breaks in the middle of a paragraph
+\widowpenalties 1 10000
+\raggedbottom
+\setbeamertemplate{part page}{
+  \centering
+  \begin{beamercolorbox}[sep=16pt,center]{part title}
+    \usebeamerfont{part title}\insertpart\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{section page}{
+  \centering
+  \begin{beamercolorbox}[sep=12pt,center]{part title}
+    \usebeamerfont{section title}\insertsection\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{subsection page}{
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center]{part title}
+    \usebeamerfont{subsection title}\insertsubsection\par
+  \end{beamercolorbox}
+}
+\AtBeginPart{
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \frame{\subsectionpage}
+}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usetheme[]{Frankfurt}
+\usecolortheme{beaver}
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\newif\ifbibliography
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\usepackage{tikz} % required for image opacity change
+\usepackage[absolute,overlay]{textpos} % for text formatting
+\usepackage{caption}
+
+% this font option is amenable for beamer
+\setbeamerfont{caption}{size=\tiny}
+
+% \setbeamertemplate{footline}{size=\tiny}[page number] % insert page number in footline
+
+\captionsetup{skip=2pt,belowskip=2.5pt}
+
+\newcommand{\bcolumns}{\begin{columns}[T, onlytextwidth]}
+\newcommand{\ecolumns}{\end{columns}}
+
+\newcommand{\bdescription}{\begin{description}}
+\newcommand{\edescription}{\end{description}}
+
+\newcommand{\bitemize}{\begin{itemize}}
+\newcommand{\eitemize}{\end{itemize}}
+\AtBeginSubsection{}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Biodiversity Database and Indexing},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Biodiversity Database and Indexing}
+\author{Deependra Dhakal\\
+Assistant Professor\\
+Agriculture and Forestry University\\
+\textit{ddhakal.rookie@gmail.com}\\
+\url{https://rookie.rbind.io}}
+\date{}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}[allowframebreaks]
+  \tableofcontents[hideallsubsections]
+\end{frame}
+\hypertarget{biodiversity-database}{%
+\section{Biodiversity database}\label{biodiversity-database}}
+
+\begin{frame}{}
+\protect\hypertarget{section}{}
+\begin{itemize}
+\tightlist
+\item
+  Biodiversity databases are information systems storing information on
+  biodiversity patterns, particularly those obtained through
+  biodiversity informatics techniques
+\item
+  Store taxonomic information alone or more commonly also other
+  information like distribution (spatial) data and ecological data,
+  which provide information on the biodiversity of a particular area or
+  group of living organisms
+\item
+  They may store specimen-level information, species-level information,
+  information on nomenclature, or any combination
+\item
+  Most are available online
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-1}{}
+\begin{table}
+
+\caption{\label{tab:list-biodiversity-databases1}A listing of biodiversity database (Source: \url{https://en.wikipedia.org/wiki/List_of_biodiversity_databases}).}
+\centering
+\fontsize{4}{6}\selectfont
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{8em}>{\raggedright\arraybackslash}p{14em}>{\raggedright\arraybackslash}p{2.5em}>{\raggedright\arraybackslash}p{2.5em}>{\raggedright\arraybackslash}p{2.5em}>{\raggedright\arraybackslash}p{2.5em}>{\raggedright\arraybackslash}p{2.5em}>{\raggedright\arraybackslash}p{2.5em}>{\raggedright\arraybackslash}p{2.5em}>{\raggedright\arraybackslash}p{30em}}
+\toprule
+Name & Focus & Plants & Birds & Reptiles & Fish & Artho­pods & Other Euk. & Prok. \& Vir. & Collection\\
+\midrule
+All Catfish Species Inventory  & Catfish &  &  &  & X &  &  &  & information collated by genera, including estimated numbers of species, taxonomic experts\\
+Arctos  & Specimen holdings of several natural history museums, agencies, and accessible private collections & X & X & X & X & X & X &  & Vertebrates, invertebrates, parasites, vascular and non-vascular plants, many with images and extensive usage data.\\
+AntWeb  & Ants &  &  &  &  & X &  &  & Specimen information, collection details, photographs, higher taxonomy\\
+Avibase - the World Bird Database  & Birds, distribution, taxonomy &  & X &  &  &  &  &  & Avibase is an extensive database information system about all birds of the world, containing over 27 million records about 10,000 species and 22,000 subspecies of birds, including distribution information for 20,000 regions, taxonomy, synonyms in several languages and more.\\
+ASEAN Biodiversity Information Sharing Service (BISS)  & Amphibians, birds, butterflies, dragonflies, edible plants, freshwater fishes, mammals, plants, reptiles and Malesian mosses of Southeast Asia & X & X & X & X & X & X &  & IUCN status, habitat, regional presence/absence, description, classification\\
+\addlinespace
+BioLib - Biological Library   & BioLib is an international encyclopedia of plants, fungi and animals. & X & X & X & X & X & X &  & Apart from taxonomic system you can visit the gallery, glossary, vernacular names dictionary, database of links and literature, systems of biotopes, discussion forum and several other functions related to biology.\\
+CITES species database  & All species ever listed in CITES Appendices I, II or III & X & X & X & X & X & X &  & Scientific names, higher taxonomy, distribution, photos and CITES quotas\\
+Fauna Europaea  & Europe's main zoological taxonomic index &  & X & X & X & X &  &  & Quality-checked data, 180,712 accepted taxon names, web portal also provide links to other key biodiversity services.\\
+FishBase  & Fish &  &  &  & X &  &  &  & Higher taxonomy, common names, distribution, IUCN Redlist status\\
+FLOW: Fulgoromorpha Lists On the Web]   & Planthoppers (Insecta: Hemiptera: Fulgoromorpha) - 15.000 species &  &  &  &  & X &  &  & Taxonomy and classification, nomenclature, type depository, bibliography, distribution, photos on actual and fossil planthoppers of the world and various associated biological information (host-plants, parasites, trophobiosis, etc.).\\
+\addlinespace
+Freshwater Ecoregions of the World (FEOW)  & Freshwater ecoregions & X & X & X & X & X & X & X & Maps of species and endemic numbers.\\
+HerpNET  & Amphibians and reptiles &  &  & X &  &  &  &  & Amphibian and reptile distributions.\\
+WBPBDIVDB & A Database of  Plant Biodiversity of West Bengal & X &  &  &  &  &  &  & richness of floral diversity of West Bengal from  Terai, Duars, Darjeeling, the eastern Himalayan region and in the mangrove forests of Sundarbans.\\
+Reptile Database & Reptiles &  &  & X &  &  &  &  & Taxonomic information, names, photos\\
+iNaturalist & All forms of life & X & X & X & X & X & X &  & Geolocated observations, location checklists, taxonomic information, range maps\\
+\addlinespace
+Integrated Botanical Information System (IBIS)  & Plants of Australia & X &  &  &  &  &  &  & Taxonomic information, collection details, photographs\\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-2}{}
+\begin{table}
+\centering\begingroup\fontsize{4}{6}\selectfont
+
+\begin{tabular}{>{\raggedright\arraybackslash}p{8em}>{\raggedright\arraybackslash}p{14em}>{\raggedright\arraybackslash}p{2.5em}>{\raggedright\arraybackslash}p{2.5em}>{\raggedright\arraybackslash}p{2.5em}>{\raggedright\arraybackslash}p{2.5em}>{\raggedright\arraybackslash}p{2.5em}>{\raggedright\arraybackslash}p{2.5em}>{\raggedright\arraybackslash}p{2.5em}>{\raggedright\arraybackslash}p{30em}}
+\toprule
+Name & Focus & Plants & Birds & Reptiles & Fish & Artho­pods & Other Euk. & Prok. \& Vir. & Collection\\
+\midrule
+iSpot & All forms of life large enough to photograph & X & x & X & X & X & X &  & Geolocated individual observations and other information produced by citizen science participants\\
+Integrated Taxonomic Information System (ITIS)  & all taxa of interest to North America, with other taxa included as available & X & x & X & X & X & X &  & Taxonomic information, including higher taxonomy\\
+Natural History Information System & all forms of life, biotopes, rocks & X & x & X & X & X & X & X & Faunistic and floristic records (citizen science and other sources), phenology, ecology, biotopes, taxonomy, paleontology, stratigraphy\\
+NatureServe  & plants, animals, and ecosystems of the United States and Canada & X & x & X & X & X & X &  & Source for information on more than 70,000 plants, animals, and ecosystems of the United States and Canada, including rare and endangered species.\\
+Pl@ntNet & Plants identification, observation, images & X &  &  &  &  &  &  & Plant identification, observations, citizen science project, photographs, distribution\\
+\addlinespace
+WikiSpecies  & All forms of life & X & x & X & X & X & X & X & Higher taxonomy, synonyms, vernacular names, references\\
+A Pan-European Species-directories Infrastructure (PESI)  & European taxa & X & x & X & X & X & X &  & Authoritative taxonomic checklist of European species, including higher taxonomy, synonyms, vernacular names and European distribution\\
+Naturdata  & Portuguese taxa & X & x & X & X & X & X &  & Checklist of Portuguese species including mainland and islands with a page for each species including taxonomy, synonyms, vernacular names, images, videos and Portuguese distribution\\
+Georgia (country) biodiversity website & Georgia Biodiversity Database & X & x & X & X & X & X &  & Checklists covering ca. 11,000 of plants and animals recorded for Georgia (Central and Western Caucasus)\\
+ScaleNet & Scale insects (superfamily Coccoidea) &  &  &  &  & X &  &  & Nomenclature, distribution, hosts, systematics, references\\
+\addlinespace
+BacDive & Metadatabase that provides strain-linked information about bacterial and archaeal biodiversity. &  &  &  &  &  &  & X & Different kind of metadata like taxonomy, morphology, physiology, environment and molecular-biology.\\
+World Register of Marine Species & Marine organisms &  &  &  & X & X & X &  & Higher taxonomy, scientific names, synonyms, distribution, attributes, references\\
+AlgaeBase & Algae and other oxygenic photosynthesisers other than embryophyte land plants & X &  &  &  &  & X & X & Higher taxonomy, scientific names, common names, images, distribution, references\\
+Tropicos & Taxonomy, distribution, and specimen data for Missouri Botanical Garden. & X &  &  &  &  &  &  & Nearly 1.3 million scientific names and over 4.4 million specimen records, accumulated during the past 30 years.\\
+iAMF & Arbuscular Mycorrhizal Fungi Database for Phylogeny, Nomenclature, Taxonomy and Distribution in India & X &  &  &  &  & X &  & Distribution, phylogeny and taxonomy database of arbuscular mycorrhizal fungi was built in two phases: In the first phase of the study (2013-2015) occurrence of about 148 species of AM fungi was reported across 18 states of India namely: Andhra Pradesh, Assam, Bihar, Goa, Haryana, Jammu and Kashmir, Karnataka, Kerala, Madhya Pradesh, Maharashtra, Meghalaya, Orissa, Punjab, Rajasthan, Tamil Nadu, Uttarkhand, Uttar Pradesh and West Bengal (Gupta et al. 2014, under Delhi University innovation project) . In the second phase under UGC project (2015 onwards) the study has been extended to three more states namely Delhi, Tripura and Manipur reporting occurrence of 161 species. rRNA sequence data for these fungi is added as Phylogenetic Map and distribution data is available as Google Map.\\
+\bottomrule
+\end{tabular}
+\endgroup{}
+\end{table}
+\end{frame}
+
+\hypertarget{indices}{%
+\section{Indices}\label{indices}}
+
+\begin{frame}{}
+\protect\hypertarget{section-3}{}
+\begin{itemize}
+\tightlist
+\item
+  Diversity is defined as the measure of the number of different species
+  in a biotic community.
+\item
+  Diversity is high when there are many different species in a community
+  and low when there are few.
+\item
+  Comparing the diversity of two or more different biotic communities
+  can give an idea of the comparative stability and health of those
+  communities.
+\item
+  Diversity \textbf{index} is a quantitative measure that reflects how
+  many different types (such as species) there are in a dataset (a
+  community), and that can simultaneously take into account the
+  phylogenetic relations among the individuals distributed among those
+  types, such as richness, divergence or evenness.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Effective number of species or Hill numbers}
+\protect\hypertarget{effective-number-of-species-or-hill-numbers}{}
+\small
+
+\begin{itemize}
+\tightlist
+\item
+  True diversity, or the \textbf{effective number of types}, refers to
+  the number of equally abundant types needed for the average
+  proportional abundance of the types to equal that observed in the
+  dataset of interest (where all types may not be equally abundant). It
+  is calculated with following equation:
+\end{itemize}
+
+\[
+\small
+{}^{q}\!D={1 \over M_{q-1}}={1 \over {\sqrt[{q-1}]{\sum _{i=1}^{R}p_{i}p_{i}^{q-1}}}}=\left({\sum _{i=1}^{R}p_{i}^{q}}\right)^{1/(1-q)}
+\]
+
+\begin{itemize}
+\tightlist
+\item
+  The denominator \(M_{q-1}\) equals the average proportional abundance
+  of the types in the dataset as calculated with the weighted
+  generalized mean with exponent \(q-1\). In the equation, \(R\) is
+  richness (the total number of types in the dataset), and the
+  proportional abundance of the ith type is \(p_i\). The proportional
+  abundances themselves are used as the nominal weights. The numbers
+  \({\displaystyle ^{q}D}\) are called \textbf{Hill numbers} of order
+  \(q\) or \textbf{effective number of species}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-4}{}
+\bcolumns
+\column{0.6\textwidth}
+\small
+
+The general equation of diversity is often written in the form:
+
+\[
+\small
+{}^{q}\!D=\left({\sum _{i=1}^{R}p_{i}^{q}}\right)^{1/(1-q)}
+\]
+
+and the term inside the parentheses is called the basic sum. Some
+popular diversity indices correspond to the basic sum as calculated with
+different values of \(q\).
+
+\column{0.4\textwidth}
+\tiny
+
+The value of \(q\) is often referred to as the \emph{order of the
+diversity}. It defines the sensitivity of the true diversity to rare
+vs.~abundant species by modifying how the weighted mean of the species'
+proportional abundances is calculated. With some values of the parameter
+q, the value of the generalized mean \(M_{q-1}\) assumes familiar kinds
+of weighted means as special cases. In particular,
+
+\begin{itemize}
+\tiny
+\item $q = 0$ corresponds to the weighted harmonic mean,
+\item $q = 1$ to the weighted geometric mean, and
+\item $q = 2$ to the weighted arithmetic mean.
+\end{itemize}
+
+As \(q\) approaches infinity, the weighted generalized mean with
+exponent \(q-1\) approaches the maximum pi value, which is the
+proportional abundance of the most abundant species in the dataset.
+
+Generally, increasing the value of q increases the effective weight
+given to the most abundant species. This leads to obtaining a larger
+\(M_{q-1}\) value and a smaller true diversity (\(^q D\)) value with
+increasing \(q\).
+
+\ecolumns
+\end{frame}
+
+\begin{frame}{Richness}
+\protect\hypertarget{richness}{}
+\end{frame}
+
+\hypertarget{numerical-problems}{%
+\section{Numerical problems}\label{numerical-problems}}
+
+\begin{frame}[fragile]{Problem}
+\protect\hypertarget{problem}{}
+\begin{enumerate}
+\tightlist
+\item
+  Calculate Shannon Weaner Index, Simpson Index and Evenness from
+  following two areas and interpret your result. Also discuss species
+  richness and evenness from following information.
+\end{enumerate}
+
+\begin{verbatim}
+## # A tibble: 2 x 6
+##   Wasp  Butterfly Grasshopper Bettle Bee   Hoverfly
+##   <chr> <chr>     <chr>       <chr>  <chr> <chr>   
+## 1 112   " 88"     "143"       "112"  "100" "145"   
+## 2 424   " 76"     " 54"       " 60"  " 40" " 46"
+\end{verbatim}
+\end{frame}
+
+\begin{frame}{Solution}
+\protect\hypertarget{solution}{}
+Here,
+
+We have Shannon-Weiner Index,
+
+\[ 
+H = \sum_{i = 1}^S{p_i.\ln p_i}
+\]
+
+Where, \(S\) is the species richness (number of distinct species types),
+\(p_i\) is the proportional abundance, and \(\ln p_i\) the natural log
+of the proportional abundance.
+\end{frame}
+
+\begin{frame}[fragile]{}
+\protect\hypertarget{section-5}{}
+\begin{verbatim}
+## # A tibble: 5 x 3
+##   Index              `Area 1` `Area 2`
+##   <chr>                 <dbl>    <dbl>
+## 1 shannon_weiner        1.78     1.30 
+## 2 simpson              -0.172   -0.400
+## 3 difference_simpson    1.17     1.40 
+## 4 richness              6        6    
+## 5 evenness              0.991    0.723
+\end{verbatim}
+\end{frame}
+
+\end{document}

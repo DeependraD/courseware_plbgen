@@ -39,8 +39,22 @@ options(kableExtra.latex.load_packages = FALSE)
 
 ### History and rationale
 
+\bcolumns
+
+\column{0.5\textwidth}
+
 - Finding desirable genes can be difficult because multiple interacting genes usually control certain beneficial traits. 
 - So far, most successful genetic engineering of plants has relied on inserting one or a few genes that supply simple, yet useful, properties.
+
+\column{0.5\textwidth}
+
+```{r genetic-engineering-meme, fig.align='center', out.width="99%"}
+# pigs might fly someday
+# but pigs can't see upwards towards the sky
+knitr::include_graphics("../images/genetic_engineering_meme.jpg")
+```
+
+\ecolumns
 
 ### Genetically modified organism
 
@@ -270,23 +284,59 @@ knitr::include_graphics("../images/marker_removal.png")
 - Rice have been engineered with two gene pathway to enhance drought tolerance
 
 ### Engineered crops II
+
+\bcolumns
+\column{0.6\textwidth}
+\footnotesize
+
 - Soybean lines have been modified to express
-  - tolerance to either glyphosate, or to (Liberty), 
-  - modified oil (high oleic acid) content.
+  \begin{itemize}
+  \footnotesize
+  \item tolerance to either glyphosate, or to (Liberty), 
+  \item modified oil (high oleic acid) content.
+  \end{itemize}
 - Cotton lines have been modified to express
-  - herbicide tolerance to either glyphosate, bromoxynil or sulfonylurea, 
-  - insect resistance to the pest, pink bollworm (Pectinophora gossypiella) PBW and tobacco budworm (Heliothis virescens) TBW. 
-  - bromoxynil tolerance and PBW resistance. 
+  \begin{itemize}
+  \footnotesize
+  \item herbicide tolerance to either glyphosate, bromoxynil or sulfonylurea, 
+  \item insect resistance to the pest, pink bollworm (\textit{Pectinophora gossypiella}) PBW and tobacco budworm (\textit{Heliothis virescens}) TBW. 
+  \item bromoxynil tolerance and PBW resistance. 
+  \end{itemize}
+
+\column{0.4\textwidth}
+
+```{r golden-rice, fig.align='center', out.width="80%"}
+knitr::include_graphics("../images/golden_rice.jpg")
+```
+
+\ecolumns
 
 ### Engineered crops III
 
+\bcolumns
+\columns{0.6\textwidth}
+\footnotesize
 - Tomato lines have been modified to
-  - delay fruit ripening
-  - express resistance to the pests tomato pinworm, (Kieferia lycopersicella) TPW and tomato fruitworm (Helicoverpa zea) TFW 
-  - express a lower polygalacturonase level which makes for a more meaty tomato for processing. 
+  \begin{itemize}
+  \footnotesize
+  \item delay fruit ripening
+  \item express resistance to the pests tomato pinworm, (\textit{Kieferia lycopersicella}) TPW and tomato fruitworm (\textit{Helicoverpa zea}) TFW 
+  \item express a lower polygalacturonase level which makes for a more meaty tomato for processing. 
+  \end{itemize}
 - Modified potato lines are
-  - resistant to the Colorado Potato Beetle (Leptinotarsa decemlineata) CPB , 
-  - expresses resistance to the potato virus Y (PVY) in addition to being resistant to the CPB.
+  \begin{itemize}
+  \footnotesize
+  \item resistant to the Colorado Potato Beetle (\textit{Leptinotarsa decemlineata}) CPB , 
+  \item expresses resistance to the potato virus Y (PVY) in addition to being resistant to the CPB.
+  \end{itemize}
+
+\columns{0.4\textwidth}
+
+```{r antioxidants-enriched-tomato, fig.align='center', out.width="80%"}
+knitr::include_graphics("../images/purple_tomato_enriched_antioxidants.jpg")
+```
+
+\ecolumns
 
 ### Genetically modified crop approvals and plant acerages
     
@@ -316,6 +366,10 @@ knitr::include_graphics("../images/bt_toxin_mechanism.png")
 # pdftools::pdf_convert("./../../literatures/biotechnology/Biotechnology 2nd ed - David P. Clark, Nanette J. Pazdernik (AP, 2016).pdf", pages = 480, dpi = 250, format = "png", filenames = "../images/aphid_avoidance.png")
 knitr::include_graphics("../images/aphid_avoidance.png")
 ```
+
+### Transgenic Ornamental Crops
+
+- Refer to Page 125, Plant Breeding Reviews, Volume 28.
 
 # Bibliography
 

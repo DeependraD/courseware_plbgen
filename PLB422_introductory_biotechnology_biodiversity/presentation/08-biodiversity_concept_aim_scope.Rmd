@@ -1,11 +1,11 @@
 ---
 title: "Biodiversity: Concept, aim and scope"
-author:   
-  - Deependra Dhakal 
-institute:   
-  - GAASC, Baitadi
-  - Tribhuwan University 
-date: Academic year 2019-2020 
+author: |
+  | Deependra Dhakal
+  | Assistant Professor
+  | Agriculture and Forestry University
+  | \textit{ddhakal.rookie@gmail.com}
+  | \url{https://rookie.rbind.io}
 output:   
   beamer_presentation:  
     incremental: false  
@@ -19,7 +19,7 @@ output:
 classoption: "aspectratio=169"
 header-includes: 
 - \AtBeginSubsection{}
-bibliography: [./../bibliographies.bib]
+bibliography: [../bibliography/bibliographies.bib]
 ---
 
 ```{r setup, include=FALSE}
@@ -35,9 +35,7 @@ options(knitr.kable.NA = "", digits = 2)
 options(kableExtra.latex.load_packages = FALSE)
 ```
 
-# Concept
-
-## Biodiversity
+# Biodiversity
 
 ###
 
@@ -46,11 +44,17 @@ The extinction of species, each one a pilgrim of four billion years of evolution
 \end{quote}
 \begin{flushright} --Gary Snyder (1990) \end{flushright}
 
+###
+
+```{r biodiversity-champions, fig.align='center', out.width="44%"}
+knitr::include_graphics("../images/biodiversity_pioneers.png")
+```
+
+
 ### Meaning
 
 - Refers to all the living things on Earth and the ecological processes associated with them. 
-- Mixture of \alert{Biology} and \alert{Diversity}
-- Walter G. Rosen coined the term 'Biodiversity'.
+- Walter G. Rosen coined the term 'Biodiversity' (\alert{Biology} and \alert{Diversity}).
 - Described in hierarchical terms including ecosystem diversity, species diversity, and genetic diversity. 
 - Can be increased by natural evolutionary processes and genetic change or reduced by threats which lead to population decline and species extinction. 
 - The capacity of an ecosystem to respond to changes and threats determines the rate of biodiversity loss.
@@ -61,27 +65,67 @@ The extinction of species, each one a pilgrim of four billion years of evolution
 
 ###
 
-\begin{columns}[T,onlytextwidth]
-  \column{0.5\textwidth}
+\bcolumns
 
-```{r dragonfly, fig.cap="Arthropod diversity; Dragonfly", out.width="80%"}
-knitr::include_graphics("./../images/twttr/dragonfly_D7is9PFUEAAoQyS.jpg")
+\column{0.5\textwidth}
+
+<!-- When a strongly channeled outflow cools down to 40 degree C or below, the diversity goes up rapidly. Metazoan animals can adapt to live directly in the warm water, and eucaryotic algae such as green algae and diatoms invade. Although cyanobacteria are still abundant, they are heavily grazed, and do not form a thick mat. In different expressions of this community are found crustacea, midges (Diptera), and water mites (Hydrachnellae), dominated by a top predator, the larva of the dragonfly, Erythemis collocatta. The net effect on diversity is to increase the species numbers to 50 to 60, exclusive of the nonphotosynthetic microorganisms. -->
+
+```{r dragonfly, fig.cap="Arthropod diversity; Dragonfly", out.width="92%"}
+knitr::include_graphics("./../images/dragonfly_D7is9PFUEAAoQyS.jpg")
 ```
 
-
-  \column{0.5\textwidth}
+\column{0.5\textwidth}
   
-```{r plantlice, fig.cap="Plants have lice too", out.width="50%"}
-knitr::include_graphics("./../images/twttr/plant_lice_D4Ti2L6XsAI4xsQ.jpg")  
+```{r plantlice, fig.cap="Plants have lice too", out.width="54%"}
+knitr::include_graphics("./../images/plant_lice_D4Ti2L6XsAI4xsQ.jpg")  
 ```
 
-\end{columns}  
+\ecolumns
+
+###
+
+```{r tomato-diversity-use, out.width="90%", fig.align='center'}
+knitr::include_graphics("../images/tomato_diversity.jpg")
+```
+
+###
+
+```{r chestnut-diversity, out.width="44%", fig.align='center'}
+knitr::include_graphics("../images/chestnut_diversity.jpg")
+```
+
+###
+
+\bcolumns
+\column{0.5\textwidth}
+
+```{r walnut-diversity1, out.width="80%", fig.align='center'}
+knitr::include_graphics("../images/walnut_diversity1.jpg")
+```
+
+\column{0.5\textwidth}
+
+```{r walnut-diversity2, out.width="80%", fig.align='center'}
+knitr::include_graphics("../images/walnut_diversity2.jpg")
+```
+
+\ecolumns
+
+###
+
+```{r banana-diversity, out.width="60%", fig.align='center'}
+knitr::include_graphics("../images/banana_diversity_D7N0aiTWsAAFrCs.jpg")
+```
+
 
 ### Definition
 
 \begin{block}{Diversity}
 The existence of a wide variety of species (species diversity), other taxa of plants or other organisms in a natural environment or habitat, or communities within a particular environment (ecological diversity), or of genetic variation within a species (genetic diversity).
 \end{block}
+
+###
 
 \begin{block}{Biodiversity defined under CBD Article 2(1)}
 the variability among living organisms from all sources including, inter alia, terrestrial, marine and other aquatic ecosystems and the ecological complexes of which they are part; this includes diversity within species, between species and of ecosystems
@@ -90,6 +134,8 @@ the variability among living organisms from all sources including, inter alia, t
 \begin{block}{Agrobiodiversity}
 The variety and variability of animals, plants, and microorganisms used directly or indirectly for food and agriculture (crops, livestock, forestry, and fisheries). it comprises the diversity of genetic resources (varieties, breeds, etc.) and species used for food, fuel, fodder, fiber, and pharmaceuticals.
 \end{block}
+
+<!-- Refer to Chapter 6 (Plant biodiversity), Plant Biology and Biotechnology, Volume 1, 2015. -->
 
 ### 
 
@@ -127,8 +173,8 @@ knitr::include_graphics("./../images/oryza_distribution_chromosome.png")
 
 ###
 
-```{r potato-diversity, fig.cap="Potato diversity", out.width="70%"}
-knitr::include_graphics("./../images/twttr/potato_diversity_D7N0aiUXYAIXcLq.jpg")
+```{r fungal-fruiting-body-diversity, fig.align='center', out.width="85%"}
+knitr::include_graphics("../images/fungal_fruiting_body_necklace.jpg")
 ```
 
 
@@ -146,23 +192,56 @@ knitr::include_graphics("./../images/twttr/potato_diversity_D7N0aiUXYAIXcLq.jpg"
   - of plants increases carbon sequestration, but note that this finding only relates to actual uptake of carbon dioxide and not long term storage
   - plants increases soil nutrient remineralization
 
-### Ecosystem services: mixed and negative consequences of biodiversity
+###
 
-```{r biodiversity-thorns, fig.cap="Thorns of biodiversity", out.width="55%"}
+```{r lesser-known-tigers, out.width="58%", fig.align='center'}
+knitr::include_graphics("../images/lesser_known_tigers.jpg")
+```
 
+###
+
+```{r natural-scavengers, out.width="65%", fig.align='center'}
+knitr::include_graphics("../images/bettle_sparrow.jpg")
+```
+
+
+
+### Ecosystem services: positive and negative consequences of biodiversity
+
+\bcolumns
+\column{0.5\textwidth}
+
+```{r pollinator-bees, fig.cap="Bees are excellent ecosystem service providers", out.width="80%"}
+knitr::include_graphics("./../images/bee_D8bkT-lUEAMzS8c.jpg")
+```
+
+\column{0.5\textwidth}
+
+```{r biodiversity-thorns, fig.cap="Thorns of biodiversity", out.width="96%"}
+
+# invasive species
+# wild gene intogression
 knitr::include_graphics("./../images/biodiversity_thorns.jpg")
 ```
 
+\ecolumns
+
 ### Nonmaterial services
 
-- Cultural services represent human value and enjoyment (e.g.: landscape aesthetics, cultural heritage, outdoor recreation and spiritual significance
+\bcolumns
+
+\column{0.4\textwidth}
+- Cultural services represent human value and enjoyment (e.g.: landscape aesthetics, cultural heritage, outdoor recreation and spiritual significance)
 - Betterment of knowledge systems
 - Educational value
 
-```{r pollinator-bees, fig.cap="Bees are excellent ecosystem service providers", out.width="45%"}
-knitr::include_graphics("./../images/twttr/bee_D8bkT-lUEAMzS8c.jpg")
+\column{0.6\textwidth}
+
+```{r aesthetic-birds, out.width="62%", fig.align='center'}
+knitr::include_graphics("../images/swan_and_birds.jpg")
 ```
 
+\ecolumns
 
 ## Status
 
@@ -216,14 +295,6 @@ knitr::include_graphics("./../images/twttr/bee_D8bkT-lUEAMzS8c.jpg")
   - 14 species of herpeto-fauna 
 - The high altitude rangelands are especially important from the perspective of endemism.
 
-###
-
-```{r genetic-variation, fig.cap="Each of the four types of chromosomal rearrangements can be produced by either of two basic mechanisms: chromosome breakage and rejoining or crossing over between repetitive DNA. Chromosome regions are numbered 1 through 10. Homologous chromosomes are the same color.", out.width="65%"}
-# pdftools::pdf_convert("./../../literatures/textbooks/Introduction to Genetic Analysis/Anthony_J.F._Griffiths,_Susan_R._Wessler,_Sean_B.pdf", pages = 633, dpi = 250, format = "png", filenames = "./../images/genetic_variation_chromosome_mutation.png")
-
-knitr::include_graphics("./../images/genetic_variation_chromosome_mutation.png")
-```
-
 ## Types
 
 ### On the basis of organisation
@@ -235,23 +306,42 @@ knitr::include_graphics("./../images/genetic_variation_chromosome_mutation.png")
 - Temporal diversity
 - Latter three are also recognized as ecological diversity.
 
+<!-- Spatially heterogeneous area composed of a mosaic of interacting components (patches, corridors, and area of matrix). -->
+
 ### On the basis of ecological function
 
 - Terrestrial biodiversity
 - Marine biodiversity
 
+- **Guild**: A group of species having similar functional roles in the community (e.g. a guild of herbivores, a guild of nitrogen fixers).
+
 ### 
 
 ```{r landscape-diversity, fig.cap="Wildflowers in cliffs", out.width="70%"}
-knitr::include_graphics("./../images/twttr/wildflower_cliff_D_OOw-NXoAEuyIO.jpg")
+knitr::include_graphics("./../images/wildflower_cliff_D_OOw-NXoAEuyIO.jpg")
 ```
 
-## Agrobiodiversity
+# Agrobiodiversity
 
 ### Classification: feature of life form
 
+\bcolumns
+\column{0.5\textwidth}
+
 - Interspecific diversity
 - Intraspecific diversity
+
+\column{0.5\textwidth}
+
+```{r gene-pools-coffee, fig.cap="Primary (GP-1), Secondary (GP-2) and Tertiary (GP-3) gene pools of \\textit{Coffea arabica} in relation to some studied species of Eucoffea and Mascarocoffea.", out.width="85%"}
+knitr::include_graphics("../images/primary_secondary_tertiary_gene_pools_coffee.png")
+
+# Polyploidy is certainly involved in the origin of C. arabica (2n = 44), since 2n equals 22 in all other species. Since more than 40 traits thus far investigated all show disomic inheritance and only occassional bivalents are formed in meiosis of haploids (dihaploids), autopolyploidization of a diploid species is very unlikely. C. arabica can probably be properly considered a segmental allopolyploid in the sense defined by Stebbins (1950), as several authors have suggested.
+
+# For an extended reading about origins and germplasm of Coffee refer to Volume 2, Plant Breeding Reviews (page: 181).
+```
+
+\ecolumns
 
 ### Classification: functional
 
@@ -309,42 +399,75 @@ knitr::include_graphics("./../images/yanesha_habitat_landscape_diversity.png")
 - Migration
 - Inbreeding
 
-## Domestication
-
-### Unanswered questions
-
-::: incremental
-
-- Why did agricultrue originate where it did ?
-- What are some of the local ecological or palaeo-ecological conditions, including climate change and human population growth, that would have favored or impeded the transition from hunting–gathering to agriculture?
-- Are there specific characteristics in plants and animals that predispose them to domestication?
-- What is the pattern of domestication for crops and animals?
-- What is the timeline of the origins of agriculture? How quickly did agriculture
-become a major alternative to hunting–gathering?
-
-:::
-
-### Unanswered questions
-
-::: incremental
-
-- How did agricultural ecosystems develop ?
-- How did agricultural ecosystems spread from the centers of origin?
-- How can biodiversity be maintained or enhanced in agroecosystems?
-- How does California benefit from agricultural biodiversity?
-- What can crop evolution studies tell us about the potential for future domestications?
-
-:::
-
 # Aim
 
 ### Identification and characterization
 
+<!-- Classifying and naming organisms is probably as old as human language. Linnean binomial nomenclature laid the foundations of taxonomy, i.e. naming species scientifically, and evolved into Codes defining rules for scientific naming of animals, plants, bacteria and viruses. Additional frameworks and databases were established to deal with genetic variability, as observed in cultivars, animal races, genetic sequences and transgenic organisms. Only 1.75 million extant species have hitherto been named scientifically. Classification of biodiversity is hierarchical.-->
+
+\bcolumns
+\column{0.65\textwidth}
+\small
+
+- Biodiversity is characterized by classification and naming of its elements -- genes, species and ecosystems.
+- Both cultural expressions as well as scientific endeavours such as genetic sequencing may be used in the approach.
+- Classification of biodiversity is **hierarchical**.
+- Modern **systematics** tries to reflect the "natural" system, based on the relation and genealogy of species as "products" of evolution, based on Darwin´s theory and its extensions through the "modern synthesis" -- visualized as a "tree of life".
+<!-- The exact relation between its branches is still a matter of research and discussion. -->
+- Major issues with systematics:
+  - Basis of grouping (morphology, form, DNA sequences, etc.)
+  - Definition of "species"
+
+\column{0.35\textwidth}
+
+<!-- Characterization of biodiversity is not only a scientific exercise, but a fundamental trait of humans, deeply rooted within all cultures. It might be motivated by ecological or economic dependence, religious or aesthetic empathy (Wilson 1984), or, to put it more simply, curiosity, fascination or pastime. The very early representations are restricted to wildlife, and therefore clearly represent a hunter´s background. Cultural artefacts were made from animal products, such as bones or ivory. Among the earliest cultural artifacts are astoundingly accurate representations of wildlife in caves. Research combining archaeology and zoological analysis of cave paintings revealed that these were accurate documentations of the extant fauna and must be considered as early documents in the chain of evidence for ecological change in recent times. -->
+
+<!-- For example, hunters and fishermen have their own arcane terminology, and breeders characterize thousands of races, sports or varieties. Plant breeders require exact knowledge of cultivars, including the taxonomy and genomics of their wild relatives. Hunting, fishery and logging needs data on stocks of reliably identified species. Agriculturists must identify pest species, potential invaders and their natural enemies. In summary, all these applied fields need solid, fundamental data from biodiversity research. -->
+
+```{r zaraysk-bison, fig.cap="The bison, sculpted in mammoth ivory and coloured with red ochre, is one of the largest ivory sculptures of the Ice Age. Its distinct naturalism is exceptional. Archaeologists also know that the two left legs of the sculpture were deliberately broken before it was carefully buried.", out.width="90%"}
+knitr::include_graphics("../images/zarysk_bison.jpg")
+# Discovered at Zaraysk, Russia, and dated at roughly 20,000 years, this piece depicts a female bison and was fully sculpted in the round.
+```
+
+\ecolumns
+
 ### Conservation
+
+```{r potato-germplasm-conservation, fig.cap="Potato diversity", out.width="70%"}
+# Diversity panel of potato germplasm maintained at CIP
+knitr::include_graphics("./../images/potato_diversity_D7N0aiUXYAIXcLq.jpg")
+```
 
 ### Sustainable resource allocation
 
+\bcolumns
+\column{0.65\textwidth}
+
+<!-- 1980s and early 1990s produced a plethora of sustainable agriculture development writings. Future Horizons: Recent Literature in Sustainable Agriculture (Hegyes and Francis, 1997) is an excellent review of this broad literature. -->
+- The terms "low-input sustainable" and "alternative agriculture" appeared frequently and are still being used (most in relation to organic production systems).
+- Alternative agriculture system is defined as any food or fiber production that has:
+  \begin{itemize}
+  \footnotesize
+  \item a more thorough incorporation of natural processes;
+  \item reduced use of off-farm inputs, with less harm to the environment and consumers;
+  \item a more productive use of biological and genetic potentials of plant and animals;
+  \item a better match between cropping patterns and the physical capacity of lands; and
+  \item an improved emphasis on conservation of soil, water, energy and biological resources.
+  \end{itemize}
+
+\column{0.35\textwidth}
+
+```{r mixed-enterprises-sustainable, fig.cap="Combination of enterprises in mixed farming systems.", out.width="95%"}
+knitr::include_graphics("../images/mixed_enterprises_sustainable_farming.png")
+```
+
+\ecolumns
+
 ### Awareness and appreciation
+
+```{r plant-more-trees, fig.align='center'}
+knitr::include_graphics("../images/plant_more_trees.jpg")
+```
 
 # Scope
 

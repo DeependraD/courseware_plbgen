@@ -1,7 +1,7 @@
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
-\PassOptionsToPackage{dvipsnames,svgnames*,x11names*}{xcolor}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
 %
 \documentclass[
   ignorenonframetext,
@@ -44,10 +44,10 @@
 \AtBeginSubsection{
   \frame{\subsectionpage}
 }
+\usepackage{amsmath,amssymb}
 \usepackage{lmodern}
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\usepackage{iftex}
+\ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
@@ -76,23 +76,33 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\hypersetup{
-  pdftitle={DNA modification, gene cloning and rDNA technology},
-  pdfauthor={Deependra Dhakal},
-  colorlinks=true,
-  linkcolor=red,
-  filecolor=Maroon,
-  citecolor=blue,
-  urlcolor=red,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
 \newif\ifbibliography
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{setspace}
+\usepackage{wasysym}
+% \usepackage{fontenc}
+\usepackage{booktabs,siunitx}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\usepackage{tikz} % required for image opacity change
+\usepackage[absolute,overlay]{textpos} % for text formatting
+\usepackage[skip=0.333\baselineskip]{caption}
+% \usepackage{newtxtext,newtxmath}% better than txfonts
+
 % define new footline defination
 \setbeamertemplate{footline}
 {
@@ -141,10 +151,35 @@
 
 % \AtBeginSubsection{} % supress subsection display
 
+\newcommand{\bcolumns}{\begin{columns}[T, onlytextwidth]}
+\newcommand{\ecolumns}{\end{columns}}
+
+\newcommand{\bdescription}{\begin{description}}
+\newcommand{\edescription}{\end{description}}
+
+\newcommand{\bitemize}{\begin{itemize}}
+\newcommand{\eitemize}{\end{itemize}}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={DNA modification, gene cloning and rDNA technology},
+  pdfauthor={Deependra Dhakal},
+  colorlinks=true,
+  linkcolor={red},
+  filecolor={Maroon},
+  citecolor={blue},
+  urlcolor={red},
+  pdfcreator={LaTeX via pandoc}}
+
 \title{DNA modification, gene cloning and rDNA technology}
 \author{Deependra Dhakal}
-\date{Academic year 2019-2020}
-\institute{GAASC, Baitadi \and Tribhuwan University}
+\date{}
+\institute{Agriculture and Forestry
+University \and \href{mailto:ddhakal.rookie@gmail.com}{\nolinkurl{ddhakal.rookie@gmail.com}} \and \url{https://rookie.rbind.io/}}
 
 \begin{document}
 \frame{\titlepage}
@@ -569,6 +604,163 @@ pieces of DNA are slowed down more by the agarose.
 \end{columns}
 \end{frame}
 
+\hypertarget{gene-cloning}{%
+\section{Gene cloning}\label{gene-cloning}}
+
+\begin{frame}{}
+\protect\hypertarget{section}{}
+\begin{itemize}
+\tightlist
+\item
+  DNA technologies involve the cutting and pasting of DNA segments to
+  produce new arrangements.
+\end{itemize}
+
+\begin{figure}[H]
+\includegraphics[width=0.5\linewidth]{02-dna_modification_gene_cloning_rdna_technology_files/figure-beamer/rDNA-technology-1} \caption{Steps in rDNA technology}\label{fig:rDNA-technology}
+\end{figure}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-1}{}
+\begin{itemize}
+\tightlist
+\item
+  The term gene cloning refers to the process of making many copies of a
+  gene.
+\item
+  There are two general strategies used to make copies of a gene:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    insertion of a gene into a vector that is then propagated in living
+    cells
+  \item
+    cloning via polymerase chain reaction
+  \end{itemize}
+\item
+  Obvious use cases of gene cloning are summarized in Table
+  \ref{tab:gene-cloning-uses}.
+\end{itemize}
+
+\begin{table}
+
+\caption{\label{tab:gene-cloning-uses}Some applications of gene cloning.}
+\centering
+\fontsize{6}{8}\selectfont
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{8em}>{\raggedright\arraybackslash}p{42em}}
+\toprule
+Technique & Description\\
+\midrule
+DNA sequencing & Cloned genes provide enough DNA to subject the gene to DNA sequencing. The sequence of the gene can reveal the gene's promoter, regulatory sequences, and coding sequence. DNA sequencing is also important in the identification of alleles that cause cancer and inherited human disease.\\
+Site-directed mutagenesis & A cloned gene can be manipulated to change its DNA sequence. Mutations within genes help to identify gene sequences, such as promoters and regulatory elements. The study of a mutant gene can also help to elucidate its normal function and how its expression may affect the roles of other genes. Mutations in the coding sequence may reveal which amino acids are important for a protein's structure and function.\\
+Gene probes & Labeled DNA strands from a cloned gene can be used as probes for identifying RNA. This method of analysis, known as Northern blotting. Probes are also used to localize genes within intact chromosomes.\\
+Expression of cloned genes & Cloned genes can be introduced into a different cell type of different species. This expression of cloned genes has many uses: Research, Biotechnology and Clinical trials.\\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-2}{}
+\begin{itemize}
+\tightlist
+\item
+  A gene (or a segment of DNA containing the gene) is \textbf{removed}
+  from its native site within a chromosome and inserted into a smaller
+  segment of DNA known as a vector.
+\item
+  A vector (carrier) is a small DNA molecule that replicates
+  independently of the chromosomal DNA and produces many identical
+  copies of an inserted gene.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    A vector is replicated within a living cell (called a host cell)
+  \end{itemize}
+\item
+  Common gene-cloning vectors are plasmids or viruses.
+\item
+  Plasmids are found naturally in many strains of bacteria and
+  occasionally in eukaryotic cells.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    generally involved with antibiotic resistance -- R factors
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Gene cloning vectors}
+\protect\hypertarget{gene-cloning-vectors}{}
+\bcolumns
+\column{0.5\textwidth}
+
+\begin{figure}
+\includegraphics[width=0.76\linewidth]{../images/cloning_vectors} \caption{Vectors commonly used in cloning small segments of DNA.}\label{fig:cloning-vectors}
+\end{figure}
+
+\column{0.5\textwidth}
+
+\begin{figure}
+\includegraphics[width=0.98\linewidth]{../images/Ti_plasmid} \caption{The structure of Ti-plasmid.}\label{fig:ti-plasmid}
+\end{figure}
+
+\ecolumns
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-3}{}
+\bcolumns
+\column{0.5\textwidth}
+
+\begin{figure}
+\includegraphics[width=0.86\linewidth]{../images/steps_in_gene_cloning} \caption{Steps in gene cloning.}\label{fig:steps-gene-cloning}
+\end{figure}
+
+\column{0.5\textwidth}
+
+\scriptsize
+
+Following ligation, the rDNA is introduced into host cells treated with
+agents that render them permeable to DNA molecules. Cells that can take
+up DNA from the extracellular medium are called competent cells (small
+proportion of bacterial cell). This step is called transformation.
+
+The chromosomal DNA has been inserted into a region of the vector that
+contains the lacZ gene, which encodes the enzyme
+\(\beta\)-galactosidase. The insertion of chromosomal DNA into the
+vector disrupts the \(lacZ\) gene so it no longer produces a functional
+enzyme. By comparison, a recircularized vector has a functional \(lacZ\)
+gene. The functionality of \(lacZ\) is determined by providing the
+growth medium with a colorless compound, X-Gal
+(5-bromo-4-chloro-3-indolyl-\(\beta\)-D-galactoside), which is converted
+by \(\beta\)-galactosidase into a blue dye. Bacteria grown in the
+presence of X-Gal and IPTG (isopropyl-\(\beta\)-D-thiogalactopyranoside,
+an inducer of the \(lacZ\) gene) form blue colonies if they have a
+functional lacZ gene and white colonies if they do not. In this
+experiment, therefore, bacterial colonies containing recircularized
+vectors form blue colonies, whereas colonies containing recombinant
+vectors are white.
+
+\ecolumns
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-4}{}
+\begin{figure}
+
+{\centering \includegraphics[width=0.56\linewidth]{../images/bac_vector} 
+
+}
+
+\caption{A simplified drawing of a BAC cloning vector. The vector contains several genes that function in vector replication and segregation. The origin of replication is designated $oriS$, and the $repE$ gene encodes a protein essential for replication at $oriS$. The $parA$, $parB$, and $parC$ genes encode proteins required for the proper segregation of the vector into daughter cells. A chloramphenicol resistance gene, $cm^R$, provides a way to select for cells that have taken up the vector, based on their ability to grow in the presence of the antibiotic chloramphenicol. The vector also contains unique restriction enzyme sites, such as HindIII, BamHI, and SphI, for the insertion of large fragments of DNA. These sites are located within the $lacZ$ gene, which encodes the enzyme $\beta$-galactosidase. Vectors with DNA inserts can be determined by plating cells on media containing the compound X-Gal.}\label{fig:bac-vector}
+\end{figure}
+\end{frame}
+
 \hypertarget{pcr}{%
 \section{PCR}\label{pcr}}
 
@@ -618,9 +810,9 @@ pieces of DNA are slowed down more by the agarose.
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section}{}
+\protect\hypertarget{section-5}{}
 \begin{figure}
-\includegraphics[width=0.38\linewidth]{./../images/pcr_steps} \caption{Graphical representation of amplifying a target DNA sequence through the polymerase chain reaction (PCR) [reproduced from Brown (2006), Fig. 9.2] .}\label{fig:pcr-steps}
+\includegraphics[width=0.36\linewidth]{./../images/pcr_steps} \caption{Graphical representation of amplifying a target DNA sequence through the polymerase chain reaction (PCR) [reproduced from Brown (2006), Fig. 9.2] .}\label{fig:pcr-steps}
 \end{figure}
 \end{frame}
 
@@ -694,6 +886,50 @@ The standard PCR is typically done in a 50 - or 100 $\mu l$ volume and, in addit
 \item
   Crop variety characterization by DNA fingerprinting.
 \end{itemize}
+\end{frame}
+
+\hypertarget{rflp-fingerprinting}{%
+\section{RFLP Fingerprinting}\label{rflp-fingerprinting}}
+
+\begin{frame}{Steps}
+\protect\hypertarget{steps}{}
+\begin{itemize}
+\tightlist
+\item
+  The DNA is cut with a restriction enzyme.
+\item
+  The DNA fragments are separated by length or molecular weight by gel
+  electrophoresis.
+\item
+  The fragments are visualized by Southern blotting. The separated
+  fragments are transferred from the gel to nylon paper. Then a
+  radioactively labeled DNA probe is added.
+\item
+  The probe binds to those DNA fragments with complementary sequences.
+\item
+  The blot is covered with radiation-sensitive film to give an
+  autoradiograph. This shows the location of those DNA fragments that
+  reacted with the radioactive probe.
+\item
+  The final product of a DNA fingerprint is an autoradiograph that
+  contains at least five essential lanes (Figure
+  \ref{fig:fingerprint-lanes}). The markers are standardized DNA
+  fragments of known size, which have been radioactively labeled.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-6}{}
+\begin{figure}
+\includegraphics[width=0.32\linewidth]{../images/rflp_fingerprinting} \caption{Outline of RFLP based DNA fingerprinting}\label{fig:rflp-fingerprinting}
+\end{figure}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-7}{}
+\begin{figure}
+\includegraphics[width=0.4\linewidth]{../images/fingerprint_lanes} \caption{Actual DNA fingerprint showing that the pattern of DNA fragments of the victim (V) were found on the defendant's clothing (jeans/shirt). The first two and last two lanes are the standard size markers (labeled $\lambda$ and 1 kb). The lane marked TS is a positive control showing that the fingerprint technique was successful. The lane marked D is the defendant's DNA pattern.}\label{fig:fingerprint-lanes}
+\end{figure}
 \end{frame}
 
 \end{document}

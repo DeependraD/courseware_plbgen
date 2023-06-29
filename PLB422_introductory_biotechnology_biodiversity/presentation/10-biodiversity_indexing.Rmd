@@ -1,25 +1,26 @@
 ---
-title: "Biodiversity indexing"
-author:   
-  - Deependra Dhakal 
-institute:   
-  - GAASC, Baitadi
-  - Tribhuwan University 
-date: Academic year 2019-2020 
+title: "Biodiversity Database and Indexing"
+author: |
+  | Deependra Dhakal 
+  | Assistant Professor
+  | Agriculture and Forestry University
+  | \textit{ddhakal.rookie@gmail.com}
+  | \url{https://rookie.rbind.io}
+# date: Academic year 2019-2020 
 output:   
   beamer_presentation:  
     incremental: false  
     theme: "Frankfurt"  
     colortheme: "beaver"
     toc: true   
-    slide_level: 3
+    slide_level: 2
     keep_tex: true
     includes:
-      in_header: 08-biodiversity_indexing_beamer_header.tex
+      in_header: 10-biodiversity_indexing_beamer_header.tex
 classoption: "aspectratio=169"
 header-includes: 
 - \AtBeginSubsection{}
-bibliography: [./../bibliographies.bib]
+bibliography: [../bibliography/bibliographies.bib]
 ---
 
 ```{r setup, include=FALSE}
@@ -35,15 +36,116 @@ options(knitr.kable.NA = "", digits = 2)
 options(kableExtra.latex.load_packages = FALSE)
 ```
 
+# Biodiversity database
+
+##
+
+- Biodiversity databases are information systems storing information on biodiversity patterns, particularly those obtained through biodiversity informatics techniques
+- Store taxonomic information alone or more commonly also other information like distribution (spatial) data and ecological data, which provide information on the biodiversity of a particular area or group of living organisms
+- They may store specimen-level information, species-level information, information on nomenclature, or any combination
+- Most are available online
+
+<!-- Specimen-focused databases contain data about individual specimens, as represented by vouchered museum specimens, collections of specimen photographs, data on field-based specimen observations and morphological or genetic data. -->
+
+##
+
+```{r list-biodiversity-databases1}
+# knitr::include_graphics("../images/wiki_List_of_biodiversity_databases.png")
+# require(rvest)
+# read_html("https://en.wikipedia.org/wiki/List_of_biodiversity_databases") %>% 
+#   html_table() %>% 
+#   .[[2]] %>% 
+#   write_csv("./../data/biodiversity_database.csv", "")
+
+biodiversity_database <- read_csv("../data/biodiversity_database.csv") %>% 
+  mutate(Name = str_remove_all(Name, "\\d*")) %>% 
+  mutate(Name = str_remove_all(Name, "(\\[\\])"))
+  
+biodiversity_database[1:16,] %>% 
+  knitr::kable(booktabs = TRUE, caption = "A listing of biodiversity database (Source: \\url{https://en.wikipedia.org/wiki/List_of_biodiversity_databases}).") %>% 
+  kableExtra::kable_styling(font_size = 4, position = "center") %>% 
+  kableExtra::column_spec(column = 1:10, width = c("8em", "14em", rep("2.5em", 7), "30em"))
+```
+
+##
+
+```{r list-biodiversity-databases2}
+biodiversity_database[17:31,] %>% 
+  knitr::kable(booktabs = TRUE) %>% 
+  kableExtra::kable_styling(font_size = 4, position = "center") %>% 
+  kableExtra::column_spec(column = 1:10, width = c("8em", "14em", rep("2.5em", 7), "30em"))
+```
+
+
 # Indices
 
 ## 
 
+- Diversity is defined as the measure of the number of different species in a biotic community.
+- Diversity is high when there are many different species in a community and low when there are few.
+- Comparing the diversity of two or more different biotic communities can give an idea of the comparative stability and health of those communities.
+- Diversity **index** is a quantitative measure that reflects how many different types (such as species) there are in a dataset (a community), and that can simultaneously take into account the phylogenetic relations among the individuals distributed among those types, such as richness, divergence or evenness.
+
+## Effective number of species or Hill numbers
+
+\small
+
+<!-- When diversity indices are used in ecology, the types of interest are usually species, but they can also be other categories, such as genera, families, functional types, or haplotypes. The entities of interest are usually individual plants or animals, and the measure of abundance can be, for example, number of individuals, biomass or coverage. The most commonly used diversity indices are simple transformations of the effective number of types (also known as 'true diversity'), but each diversity index can also be interpreted in its own right as a measure corresponding to some real phenomenon. -->
+
+- True diversity, or the **effective number of types**, refers to the number of equally abundant types needed for the average proportional abundance of the types to equal that observed in the dataset of interest (where all types may not be equally abundant). It is calculated with following equation:
+<!-- The true diversity in a dataset is calculated by first taking the weighted generalized mean $M_{q-1}$ of the proportional abundances of the types in the dataset, and then taking the reciprocal of this. The equation is: -->
+
 $$
+\small
+{}^{q}\!D={1 \over M_{q-1}}={1 \over {\sqrt[{q-1}]{\sum _{i=1}^{R}p_{i}p_{i}^{q-1}}}}=\left({\sum _{i=1}^{R}p_{i}^{q}}\right)^{1/(1-q)}
+$$
+
+- The denominator $M_{q-1}$ equals the average proportional abundance of the types in the dataset as calculated with the weighted generalized mean with exponent $q-1$. In the equation, $R$ is richness (the total number of types in the dataset), and the proportional abundance of the ith type is $p_i$. The proportional abundances themselves are used as the nominal weights. The numbers ${\displaystyle ^{q}D}$ are called **Hill numbers** of order $q$ or **effective number of species**.
+
+##
+
+\bcolumns
+\column{0.6\textwidth}
+\small
+The general equation of diversity is often written in the form:
+
+$$
+\small
 {}^{q}\!D=\left({\sum _{i=1}^{R}p_{i}^{q}}\right)^{1/(1-q)}
 $$
 
-and the term inside the parentheses is called the basic sum. Some popular diversity indices correspond to the basic sum as calculated with different values of q.
+and the term inside the parentheses is called the basic sum. Some popular diversity indices correspond to the basic sum as calculated with different values of $q$.
+
+\column{0.4\textwidth}
+\tiny
+
+The value of $q$ is often referred to as the *order of the diversity*. It defines the sensitivity of the true diversity to rare vs. abundant species by modifying how the weighted mean of the species' proportional abundances is calculated. With some values of the parameter q, the value of the generalized mean $M_{q-1}$ assumes familiar kinds of weighted means as special cases. In particular,
+
+\begin{itemize}
+\tiny
+\item $q = 0$ corresponds to the weighted harmonic mean,
+\item $q = 1$ to the weighted geometric mean, and
+\item $q = 2$ to the weighted arithmetic mean.
+\end{itemize}
+
+As $q$ approaches infinity, the weighted generalized mean with exponent $q-1$ approaches the maximum pi value, which is the proportional abundance of the most abundant species in the dataset.
+
+Generally, increasing the value of q increases the effective weight given to the most abundant species. This leads to obtaining a larger $M_{q-1}$ value and a smaller true diversity ($^q D$) value with increasing $q$.
+
+\ecolumns
+
+## $\alpha$-diversity
+
+<!-- For prelude on a history of approaches to measurement and defining of species diversity, refer to Page 476 of Encyclopedia of Biodiversity. -->
+
+- Special indices have been proposed to measure diversity without reference to some hypothetical distribution of relative abundance. A great variety of indices were proposed that assess the number of species and the proportions in abundance of different species.
+- Among others, there was the very popular index that is based on **Shannon-Wiener**'s (aka Shannon's diversity index) formula derived from information theory:
+
+$$ 
+H = \sum_{i = 1}^S{p_i.\ln p_i}
+$$
+
+Where, $S$ is the species richness (number of distinct species types), $p_i$ is the proportional abundance, and $\ln p_i$ the natural log of the proportional abundance.
 
 ## Richness
 
@@ -51,9 +153,20 @@ and the term inside the parentheses is called the basic sum. Some popular divers
 
 ## Problem
 
-1. Calculate Shannon Weaner Index, Simpson Index and Evenness from following two areas and interpret your result. Also discuss species richness and evenness from following information.
+1. Insect population of two areas were sampled for biodiversity indexing. Assuming each individual have equal coverage in the sampling frame, the total insect cover of Area 1 was 31%. Calculate and interpret your result from the given information.
+  - Shannon-Weaner index, 
+  - Simpson index,
+  - Composition,
+  - Cover (technically 'sample cover'),
+  - Evenness,
+  - Richness,
+  - Carrying capacity
+  
+<!-- Think of total cover like leaf area cover of vegetation group of interest (a list of species) in a sampling plot. Generally, a sampler is only interested in a chosen group of species among several that occur inside a frame. Hence the coverage is seldom 100 percent. For insects, a coverage of 100 percent could be thought of as total sustaining/carrying capacity of the sample parcel. In general, we assume each individual (of same or different species) have equal coverage in the sampling frame. -->
 
-```{r}
+<!-- However, for a sample composition of each species (from a list) is the percentage of its proportional abundance (in terms of cover).  -->
+
+```{r indices-information}
 tribble(~"Insect", ~"Area 1", ~"Area 2", 
         "Wasp", 112, 424,
         "Butterfly", 88, 76, 
@@ -64,46 +177,61 @@ tribble(~"Insect", ~"Area 1", ~"Area 2",
   t() %>% 
   magrittr::set_colnames(.[1,]) %>% 
   as_tibble() %>% 
-  slice(-1)
+  slice(-1) %>% 
+  knitr::kable(booktabs = TRUE) %>% 
+  kableExtra::kable_styling(font_size = 7)
 ```
 
 ## Solution
 
-Here, 
+```{r indices-calculation}
+indices <- tribble(~"Insect", ~"Area 1", ~"Area 2",
+        "Wasp", 112, 424,
+        "Butterfly", 88, 76,
+        "Grasshopper", 143, 54,
+        "Bettle", 112, 60,
+        "Bee", 100, 40,
+        "Hoverfly", 145, 46)
 
-We have Shannon-Weiner Index,
+indices %>% 
+  mutate_at(c("Area 1", "Area 2"), list(pi = ~./(sum(.)), lnpi = ~log(./(sum(.))))) %>%
+  summarise(A1_d_shannon_weiner = -sum(`Area 1_lnpi` * `Area 1_pi`),
+            A1_d_simpson = -sum(`Area 1_pi`^2),
+            A1_d_difference_simpson = 1-A1_d_simpson,
+            A1_d_richness = n(), # count of non-zero species types
+            A1_d_evenness = A1_d_shannon_weiner/log(A1_d_richness),
+            A2_d_shannon_weiner = -sum(`Area 2_lnpi` * `Area 2_pi`),
+            A2_d_simpson = -sum(`Area 2_pi`^2),
+            A2_d_difference_simpson = 1-A2_d_simpson,
+            A2_d_richness = n(), 
+            A2_d_evenness = A2_d_shannon_weiner/log(A2_d_richness)
+            ) %>%
+  pivot_longer(cols = A1_d_shannon_weiner:A2_d_evenness,
+               names_to = c("Area", "Index"),
+               names_pattern = "A(\\d)_d_(.*)"
+               ) %>%
+  pivot_wider(names_from = Area, names_prefix = "Area ") %>% 
+  knitr::kable(booktabs = TRUE) %>% 
+  kableExtra::kable_styling(font_size = 8)
+```
 
-$$ 
-H = \sum_{i = 1}^S{p_i.\ln p_i}
-$$
+##
 
-Where, $S$ is the species richness (number of distinct species types), $p_i$ is the proportional abundance, and $\ln p_i$ the natural log of the proportional abundance.
+Composition is simply the fraction of insect population among the total occuring within the sampling frame (area).
 
 ```{r}
-tribble(~"Insect", ~"Area 1", ~"Area 2", 
-        "Wasp", 112, 424,
-        "Butterfly", 88, 76, 
-        "Grasshopper", 143, 54, 
-        "Bettle", 112, 60, 
-        "Bee", 100, 40, 
-        "Hoverfly", 145, 46) %>% 
-  mutate_at(c("Area 1", "Area 2"), list(pi = ~./(sum(.)), lnpi = ~log(./(sum(.))))) %>% 
-  summarise(A1_d_shannon_weiner = -sum(`Area 1_lnpi` * `Area 1_pi`), 
-            A1_d_simpson = -sum(`Area 1_pi`^2), 
-            A1_d_difference_simpson = 1-A1_d_simpson,
-            A1_d_richness = n(),
-            A1_d_evenness = A1_d_shannon_weiner/log(A1_d_richness),
-            A2_d_shannon_weiner = -sum(`Area 2_lnpi` * `Area 2_pi`), 
-            A2_d_simpson = -sum(`Area 2_pi`^2), 
-            A2_d_difference_simpson = 1-A2_d_simpson, 
-            A2_d_richness = n(),
-            A2_d_evenness = A2_d_shannon_weiner/log(A2_d_richness)
-            ) %>% 
-  pivot_longer(cols = A1_d_shannon_weiner:A2_d_evenness, 
-               names_to = c("Area", "Index"), 
-               names_pattern = "A(\\d)_d_(.*)"
-               ) %>% 
-  pivot_wider(names_from = Area, names_prefix = "Area ")
+indices %>% 
+  mutate_at(c("Area 1", "Area 2"), list(composition = ~scales::percent(./(sum(.))))) %>% 
+  janitor::as_tabyl(row_var_name = "Insect") %>% 
+  janitor::adorn_totals(where = "row") %>% 
+  knitr::kable(booktabs=TRUE) %>% 
+  kableExtra::kable_styling(font_size = 8)
+
 ```
 
 
+The carrying capacity of each sampling frame (area) is equal since each species contribute to area equally (informed in the question).
+
+Carrying capacity = $\frac{\text{Cover of Area 1}}{\text{Percentage total cover of Area 1}}\times 100$ = $\frac{700}{31}\times 100 = \sim 2258$ Insects.
+
+Total cover of insect population ($\frac{\text{Cover}}{\text{Carrying capacity}}$) in Area 2 is essentially same as that of Area 1 as cover of each area is equal, i.e., 700 insects.
