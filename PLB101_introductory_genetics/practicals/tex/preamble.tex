@@ -1,5 +1,3 @@
-\usepackage{booktabs}
-
 \usepackage{geometry} % for custom layout of book and landscape geometry support
 \usepackage{amsthm}
 \makeatletter
@@ -49,6 +47,10 @@
 \usepackage{subcaption} % doesn't work with tinytex in windows
 % \newcommand{\subfloat}[2][need a sub-caption]{\subcaptionbox{#1}{#2}}
 
+\usepackage{tikz}
+\usetikzlibrary{shapes.misc,trees,shapes,positioning,arrows.meta,shadows.blur,backgrounds,fit} % required to draw pedigree diagram in the practical title on probability
+
+
 % % use either of these two hacks to turn off section numbering
 % % turn off section numbering in text body
 % \setcounter{secnumdepth}{0}
@@ -74,15 +76,28 @@
 
 % coffee spill
 \input fun-coffee
-\usepackage{everypage}
+
+% % this package is legacy and no longer required
+% \usepackage{everypage}
 \usepackage{pgf}
 
 \pgfmathsetseed{\pdfuniformdeviate 10000000}
 
-\pgfmathdeclarerandomlist{scales}{{1}{1.2}{1.6}{1.8}}
+\pgfmathdeclarerandomlist{scales}{{1.2}{1.4}{1.8}{2.0}}
 \pgfmathdeclarerandomlist{stains}{{\coffeeA}{\coffeeB}{\coffeeC}{\coffeeD}}
 
-\AddEverypageHook{%
+% % This is legacy feature of package everypage, now hook mangement system is natively available in latex
+% \AddEverypageHook{%
+%   \pgfmathrandominteger{\angle}{15}{350}%
+%   \pgfmathparse{rand/2.4}\xdef\xoffset{\pgfmathresult}%
+%   \pgfmathparse{rand/2.4}\xdef\yoffset{\pgfmathresult}%
+%   \pgfmathparse{(0.1 + rnd/3)}\xdef\trans{\pgfmathresult}%
+%   \pgfmathrandomitem{\scale}{scales}%
+%   \pgfmathrandomitem{\stain}{stains}%
+%   \edef\coffeescale{\trans}\stain%
+% }
+
+\AddToHook {shipout/background}{\put (1in,-1in){
   \pgfmathrandominteger{\angle}{15}{350}%
   \pgfmathparse{rand/2.4}\xdef\xoffset{\pgfmathresult}%
   \pgfmathparse{rand/2.4}\xdef\yoffset{\pgfmathresult}%
@@ -90,4 +105,4 @@
   \pgfmathrandomitem{\scale}{scales}%
   \pgfmathrandomitem{\stain}{stains}%
   \edef\coffeescale{\trans}\stain%
-}
+}}

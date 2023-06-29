@@ -2,10 +2,9 @@
 title: Linkage and crossing over
 subtitle: 
 author: Deependra Dhakal
-date: 'Academic year: 2022-2023' 
+# date: 'Academic year: 2022-2023' 
 institute: |
-  | College of Natural Resource Management (AFU)
-  | Tikapur, Kailali
+  | Agriculture and Forestry University
   | \textit{ddhakal.rookie@gmail.com}
   | \url{https://rookie.rbind.io}
 output: 
@@ -15,6 +14,8 @@ output:
 classoption: "aspectratio=169" # "compressed"
 fontsize: 11pt
 bibliography: [./../bibliography/bibliographies.bib]
+header-includes:
+  - \usetikzlibrary{shadows}
 ---
 
 ```{r,setup, include=FALSE}
@@ -55,6 +56,12 @@ options(kableExtra.latex.load_packages = FALSE)
 
 knitr::include_graphics("./../images/meiotic_recombinants.png")
 ```
+
+## Holiday-Junction (H-J) approach in Recombination
+
+- Refer to Youtube videos (available in "media" directory) on
+  - Holiday junction resolution by Oxford University Press
+  - Homologous recombination_holliday junction resolution
 
 ## Linkage
 
@@ -179,6 +186,12 @@ When two genes are close together on the same chromosome pair (that is, they are
 - Alleles are always written in the same order on each homolog
 - Genes known to be on different chromosomes are shown separated by a semicolon. For e.g., $A/a$; $C/c$
 
+## Because conformation matter!
+
+```{r conformation-matter, fig.align='center', out.width="60%"}
+knitr::include_graphics("../images/samuel_l_d_jackson.jpg")
+```
+
 ## Two point crossing over
 
 - As already evident from Morgan's data above, the recombinant frequency was significantly less than $50\%$, specifically $10.7\%$.
@@ -203,33 +216,110 @@ When two genes are close together on the same chromosome pair (that is, they are
 
 $$
 \begin{aligned}
-&\textrm{P} & v^+/v^+.cv/cv.ct/ct &\times v/v.cv^+/cv^+.ct^+/ct^+ \\
+&\textrm{P} & v^+/v^+.cv/cv.ct/ct\hspace{1cm}&\times\hspace{1cm} v/v.cv^+/cv^+.ct^+/ct^+ \\
 & &&\downarrow \\
-& \textrm{Gametes} & v^+.cv.t ~&~ v.cv^+.ct^+ \\
+& \textrm{Gametes} & v^+.cv.t\hspace{1cm}&\phantom{\times}\hspace{1cm}v.cv^+.ct^+ \\[1cm]
 & \mathrm{F_1~trihybrid} & v/v^+. cv&/cv^+.ct/ct^+
 \end{aligned}
 $$
 
 ##
 
-- Trihybrid females are testcrossed with triple recessive males:
+\begin{columns}[T, onlytextwidth]
+\column{0.5\textwidth}
+
+\small
+\begin{itemize}
+\item Trihybrid females are testcrossed with triple recessive males:
+\end{itemize}
 
 $$
+\small
 \begin{aligned}
-& v^+/v^+.cv/cv.ct/ct \female &\times & v/v.cv^+/cv^+.ct^+/ct^+ \male \\
-& \mathrm{F_1~trihybrid~female} && \mathrm{Tester~male} 
+& v^+/v.cv^+/cv.ct^+/ct &\times & v/v.cv/cv.ct/ct \\
+& \mathrm{F_1~trihybrid~} {\large \female} && \mathrm{Tester~} {\large \male}
 \end{aligned}
 $$
 
-- From any trihybrid, only 2 x 2 x 2 = 8 gamete genotypes are possible. 
-- They are the genotypes seen in the testcross progeny.
-- Based on observation of progeny, following genotypes have been noted (Table \ref{tab:progeny-trihybrid}) at given frequencies.
-- The columns alongside show which genotypes are recomninant (R) for the loci taken two at a time.
-- Note: any combination other than orignal parental input genotypes are recombinant types.
+\begin{itemize}
+\footnotesize
+\item From any trihybrid, only 2 x 2 x 2 = 8 gamete genotypes are possible. 
+\item They are the genotypes seen in the testcross progeny.
+\item Based on observation of progeny, following genotypes/phenotypes/gamete-types have been noted (Table \ref{tab:progeny-trihybrid}) at given frequencies.
+\end{itemize}
+
+\column{0.5\textwidth}
+
+\textbf{Gamete types (equal segregation and independent assortment)}
+
+\begin{tikzpicture}[
+level distance = 4em,
+left/.style = {edge from parent/.style={>=latex, <-, thick, draw}},
+right/.style = {edge from parent/.style={>=latex, ->, thick, draw}},
+sloped,
+root/.style = {font=\small, thick, shape=circle,
+    draw, align=center, drop shadow,
+    top color=white, bottom color=blue!20},
+next/.style = {font=\small, text width=4mm, inner sep=1pt, thick, shape=circle,
+    draw, align=center, drop shadow,
+    top color=white, bottom color=blue!20},
+level 1/.style={sibling distance=8em},
+level 2/.style={sibling distance=4em},
+level 3/.style={sibling distance=2em}
+]
+
+\node[root] {}[grow=0,right] %<-
+  child{node[next] {$A$}
+    child{node[next] {$B$}
+      child{node[next] {$C$}}
+      child{node[next] {$c$}}}
+    child{node[next] {$b$}
+      child{node[next] {$C$}}
+      child{node[next] {$c$}}}}
+  child{node[next] {$a$}
+    child{node[next] {$B$}  
+      child{node[next] {$C$}}
+      child{node[next] {$c$}}}
+    child{node[next] {$b$}
+      child{node[next] {$C$}}
+      child{node[next] {$c$}}}}
+;
+\end{tikzpicture}
+
+\end{columns}
 
 ##
 
 ```{r progeny-trihybrid}
+tribble(~"Gametes", ~"Progenies",
+        "$v.cv^+.ct^+$", 580,
+        "$v^+.cv.ct$", 592,
+        "$v.cv.ct^+$", 45,
+        "$v^+.cv^+.ct$", 40,
+        "$v.cv.ct$", 89,
+        "$v^+.cv^+.ct^+$", 94,
+        "$v.cv^+.ct$", 3,
+        "$v^+.cv.ct^+$", 5) %>% 
+  knitr::kable(booktabs = TRUE, escape = FALSE, caption = "Count of progeny phenotypes from the testcross between F1 and recessive tester male.") %>% 
+  kableExtra::kable_styling(position = "center")
+```
+
+##
+
+```{r rehydrate-for-cry, fig.align='center'}
+# fortunately, crying part should be over by now
+# most of the job is done
+# but save some water because we have yet to describe
+# some anomalies in calculating the distance
+knitr::include_graphics("../images/rehydrate.jpg")
+```
+
+##
+
+- The columns alongside show which genotypes are recomninant (R) for the loci taken two at a time.
+- Note: any combination other than orignal parental input genotypes are recombinant types.
+
+```{r progeny-trihybrid-augmented}
 tribble(~"Gametes", ~"Progenies", ~"v and cv", ~"v and ct", ~"cv and ct", 
         "$v.cv^+.ct^+$", 580, NA, NA, NA, 
         "$v^+.cv.ct$", 592, NA, NA, NA, 
@@ -239,7 +329,7 @@ tribble(~"Gametes", ~"Progenies", ~"v and cv", ~"v and ct", ~"cv and ct",
         "$v^+.cv^+.ct^+$", 94, "R", "R", NA,
         "$v.cv^+.ct$", 3, NA, "R", "R",
         "$v^+.cv.ct^+$", 5, NA, "R", "R") %>% 
-  knitr::kable(booktabs = TRUE, escape = FALSE) %>% 
+  knitr::kable(booktabs = TRUE, escape = FALSE, caption = "Count of progeny phenotypes from the testcross between F1 and recessive tester male.") %>% 
   kableExtra::kable_styling(position = "center") %>% 
   kableExtra::add_header_above(c(" " = 2, "Recombinant for loci" = 3))
 ```
@@ -276,16 +366,31 @@ knitr::include_graphics("./../images/trihybrid_linkage.png")
 
 ## Double crossover
 
+\bcolumns
+\column{0.7\textwidth}
+\footnotesize
+
 - Point to note is that the two smaller map distances, 13.2 m.u. and 6.4 m.u., add up to 19.6 m.u., which is greater than 18.5 m.u., the distance calculated for _v_ and _cv_.
 - This is because of how we have treated rarest recombinants with respect to the recombination of _v_ and _cv_.
 - These individuals (recombinants of outer loci) are in fact double recombinants, arising from two crossovers.
 
-```{r double-recombinants, out.width="30%", fig.align='center'}
+```{r double-recombinants, out.width="70%", fig.align='center'}
 # pdftools::pdf_convert("~/Desktop/BSc_Ag_lectures/literatures/textbooks/Introduction to Genetic Analysis/Griffiths - An Introduction to Genetic Analysis 11th Edition c2015.pdf", pages = 166, dpi = 300,
 #                       filenames = "./../images/double_recombinants.png")
 
 knitr::include_graphics("./../images/double_recombinants.png")
 ```
+
+\column{0.3\textwidth}
+
+```{r}
+# obtaining the larger map distance without accounting for crossovers is like
+# getting the shower when you want to wash your hands in the tap
+# you get water, but not the correct way you want it
+knitr::include_graphics("../images/shower_instead_of_tap.jpg")
+```
+
+\ecolumns
 
 ##
 

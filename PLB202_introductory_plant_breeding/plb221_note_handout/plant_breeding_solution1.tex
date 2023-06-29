@@ -4,10 +4,10 @@
 %
 \documentclass[
   answers,addpoints,12pt]{exam}
+\usepackage{amsmath,amssymb}
 \usepackage{lmodern}
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\usepackage{iftex}
+\ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
@@ -33,15 +33,9 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\hypersetup{
-  pdftitle={Numerical solutions to some problems in Plant Breeding},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
 \usepackage[top=1.5cm,bottom=1.5cm,left=1.5cm,right=1.5cm]{geometry}
-\usepackage{longtable,booktabs}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
 \makeatletter
@@ -82,7 +76,6 @@
 
 % solution environment is a minipage and cannot support float so, always use "HOLD_position" 
 \usepackage{float} % this package is essential for solution with code
-
 % eqnarray is better avoided, most suggestion lead to \align provided in amsmath
 % also split is used when there are very long lines of equation
 % for different expression of the same equation use line separator \\ and use \notag or \nonumber
@@ -104,11 +97,20 @@
 \usepackage{xcolor}
 \usepackage{amsmath}
 \usepackage{caption}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Numerical solutions to some problems in Plant Breeding},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
 \title{Numerical solutions to some problems in Plant Breeding}
-\author{Deependra Dhakal\\
-Gokuleshwor Agriculture and Animal Science College, Baitadi, Nepal}
-\date{9/18/2020}
+\author{Deependra Dhakal}
+\date{}
 
 \begin{document}
 \maketitle
@@ -180,14 +182,13 @@ AA & 3 & 0.5\\
 
 Now, if selfing were to be performed in the individual of genotype of AAAa, following outcome of progeny genotypes is possible:
 
-\captionsetup[table]{labelformat=empty,skip=1pt}
-\begin{longtable}{lll}
+\begin{longtable}{l|ll}
 \toprule
-& \multicolumn{2}{c}{Male} \\ 
- \cmidrule(lr){2-3}
- & AA & Aa \\ 
+\multicolumn{1}{l}{} & \multicolumn{2}{c}{Male} \\ 
+\cmidrule(lr){2-3}
+\multicolumn{1}{l}{} & AA & Aa \\ 
 \midrule
-\multicolumn{1}{l}{Female} \\ 
+\multicolumn{3}{l}{Female} \\ 
 \midrule
 AA & AAAA & AAAa \\ 
 Aa & AaAA & AaAa \\ 
@@ -231,14 +232,14 @@ Here (Table \ref{tab:partial-diallel-8p-table}) is for example diallel cross inv
 \toprule
 p & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8\\
 \midrule
-\rowcolor{gray!6}  1 &  &  & 3 x 1 & 4 x 1 & 5 x 1 & 6 x 1 & 7 x 1 & \\
+\cellcolor{gray!6}{1} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{3 x 1} & \cellcolor{gray!6}{4 x 1} & \cellcolor{gray!6}{5 x 1} & \cellcolor{gray!6}{6 x 1} & \cellcolor{gray!6}{7 x 1} & \cellcolor{gray!6}{}\\
 2 &  &  &  & 4 x 2 & 5 x 2 & 6 x 2 & 7 x 2 & 8 x 2\\
-\rowcolor{gray!6}  3 &  &  &  &  & 5 x 3 & 6 x 3 & 7 x 3 & 8 x 3\\
+\cellcolor{gray!6}{3} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{5 x 3} & \cellcolor{gray!6}{6 x 3} & \cellcolor{gray!6}{7 x 3} & \cellcolor{gray!6}{8 x 3}\\
 4 &  &  &  &  &  & 6 x 4 & 7 x 4 & 8 x 4\\
-\rowcolor{gray!6}  5 &  &  &  &  &  &  & 7 x 5 & 8 x 5\\
+\cellcolor{gray!6}{5} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{7 x 5} & \cellcolor{gray!6}{8 x 5}\\
 \addlinespace
 6 &  &  &  &  &  &  &  & 8 x 6\\
-\rowcolor{gray!6}  7 &  &  &  &  &  &  &  & \\
+\cellcolor{gray!6}{7} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{} & \cellcolor{gray!6}{}\\
 8 &  &  &  &  &  &  &  & \\
 \bottomrule
 \end{longtable}
@@ -254,13 +255,13 @@ p & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8\\
 
 Given,
 
-Mean (\(\mu_0\)) = 100
+Mean (\(X_0\)) = 100
 
 Variation (\(\sigma^2\)) = 240
 
 Regression of offspring on mid-parent value (\(b\)) = 0.25
 
-Selection differential (\(\mu_s - \mu_0\)) = 32
+Selection differential (\(X_s - X_0\)) = 32
 
 We know that the performance of a selected population after applying selection differential:
 
@@ -274,7 +275,7 @@ Thus, \(\rightarrow\) \(i\) = 2.0655911. And we know that \(b = h^2_{ns}\), so:
 
 \(\rightarrow\) \(R = \sigma i h^2\) = 8
 
-Hence, the expected mean of next (progeny) generation (\(P\)) = \(\mu_0 + \sigma i h^2\) = 108.
+Hence, the expected mean of next (progeny) generation (\(P\)) = \(X_0 + \sigma i h^2\) = 108.
 
 \esolution
 \equestions

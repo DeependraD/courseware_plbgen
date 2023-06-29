@@ -68,7 +68,7 @@
 % title / author / date
 \title{Gene and alleles and equilibrium of population}
 \author{Deependra Dhakal}
-\date{2019-06-12}
+\date{2022-12-16}
 
 %% -- tint overrides
 %% fonts, using roboto (condensed) as default
@@ -378,6 +378,7 @@ number, or \(\frac{n(n-1)}{2}\). Thus, the total number of genotypes is
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
 \tightlist
 \item
   Derive the hardy weinberg law for a sex-linked locus. Let the initial
@@ -422,17 +423,20 @@ eventually the allele frequencies in male and females will converge to
 \(p\). At that time, the genotype frequencies in females will be at
 Hardy-Weinberg frequencies.
 
-\hypertarget{example-case}{%
-\subsection{Example case}\label{example-case}}
-
-A population is consisted of 200 plants. Out of them, 100 plants are of
-Aa, 50 plants are of AA and 50 plants are of aa genotypes. This is a
-random mating population and in this population the frequencies of these
-three genotypes are at H-W equilibrium state. After \(5^{th}\)
-generations of random mating, plants having genotypes AA, Aa and aa are
-found in 500, 300 and 200 numbers respectively. Are they still in H-W
-equilibrium? Test the result with the help of \(\chi^2\) goodness of fit
-test.
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  A population is consisted of 200 plants. Out of them, 100 plants are
+  of Aa, 50 plants are of AA and 50 plants are of aa genotypes. This is
+  a random mating population and in this population the frequencies of
+  these three genotypes are at H-W equilibrium state. After \(5^{th}\)
+  generations of random mating, plants having genotypes AA, Aa and aa
+  are found in 500, 300 and 200 numbers respectively. Are they still in
+  H-W equilibrium? Test the result with the help of \(\chi^2\) goodness
+  of fit test.
+\end{enumerate}
 
 \(\Large \rightarrow\) Here, the population of 200 plants is stated to
 be in H-W equilibrium; we already have equilibrium frequencies. Hence a
@@ -453,7 +457,7 @@ frequency as the proportion of total count of observed frequency.
 Now we construct contingency table, as shown in Table
 \ref{tab:hw-equilibrium-independence-chi}.
 
-\begin{longtable}{llrrr}
+\begin{longtable}[t]{llrrr}
 \caption{\label{tab:hw-equilibrium-independence-chi}2x3 contingency table of frequency of genotypes at equilibrium generation and at 5th generation of mating}\\
 \toprule
 \multicolumn{2}{c}{  } & \multicolumn{3}{c}{Genotype frequency} \\
@@ -461,7 +465,7 @@ Now we construct contingency table, as shown in Table
   &   & Dominant (AA) & Homozygous dominant (Aa) & Recessive (aa)\\
 \midrule
  & $1^{st}$ & 100 & 50 & 50\\
-\cmidrule{2-5}
+\cmidrule{2-5}\nopagebreak
 \multirow{-2}{*}{\raggedright\arraybackslash Generation} & $5^{th}$ & 100 & 60 & 40\\
 \bottomrule
 \end{longtable}
@@ -473,6 +477,198 @@ fail to reject the null hypothesis that two observations were taken from
 same populations. Thus, we conclude that even after \(5^{th}\)
 generation of mating the population continues to be in HW equilibrium
 state.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  In a population of 1000 Drosophila melanogaster, 600 have red eyes
+  while the rest have sepia eyes. The sepia eye trait is recessive to
+  red eyes. How many individuals would you expect to be homozygous for
+  red eye color ?
+\end{enumerate}
+
+Red eyes = 600 Sepia eyes = 400 Frequency of sepia genotype (homozygous
+recessive): 500/1000 - 4*(q\^{}2) q = 0.63 p = 0.37 Frequency of
+homozygous red eye genotype = 0.37\^{}2 = 0.14 Number of individuals
+with homozygous red eyes: 1000*(0.14) = 140
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  1 in 1700 US Caucasian newborns have cystic fibrosis. The normal
+  allele, C, is dominant over the allele for cystic fibrosis, c.
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  When counting the phenotypes in a population why is cc the most
+  significant ? When complete dominance is the case, both CC and Cc are
+  phenotypically indistinguishable. However, there is only one phenotype
+  for the homozygous recessive cc -- in this case the presence of cystic
+  fibrosis. You can calculate allele (and genotype) frequencies if the
+  number of homozygous recessives is known.
+\item
+  What percent of the above population have cystic fibrosis (cc or
+  q\^{}2) ?
+\end{enumerate}
+
+q\^{}2 = 1/1700 = 0.00059 (0.059\%)
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Calculate the allele frequencies and genotype frequencies (assuming
+  Hardy-Weinberg equilibrium):
+\end{enumerate}
+
+Allele frequencies: q = 0.024 p = 1-0024 = 0.976
+
+Genotype frequencies: q\^{}2 = 0.00059 2pq = 0.04685 p\^{}2 = 0.95258
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  How many of the 1700 people in the population are homozygous normal ?
+\end{enumerate}
+
+p\^{}2 = 0.95258*(1700) = 1619
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  How many of the 1700 people in the population are heterozygous
+  (carriers) ?
+\end{enumerate}
+
+2pq = 0.04685(1700) = 79.6
+
+If a trait is controlled by two alternate alleles in a population of
+wild pigs such that the allele for brown coat is recessive and the
+allele for white coat is dominant, can you count the number of recessive
+alleles in this population by looking at the phenotypes ? Explain why or
+why not.
+
+No.~Some of the white coat individuals may be heterozygous for the trait
+so you cannot estimate the number of dominant/recessive alleles simply
+by looking at the phenotypes in the population. If you assumed that the
+population is in H-W equilibrium (and you state that is your
+assumption), then you can determine the frequencies of alleles and
+genotypes using the H-W equation stating with a count of the homozygous
+recessive individuals (brown phenotype) which will give you q\^{}2.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  (Genetic Drift) For a diploid species, assume one set of 100
+  populations, each with a constant size of 50 individuals, and another
+  set of 100 populations, each with 100 individuals. If in each
+  population the frequencies of neutral alleles A\_1 and A\_2 are 0.4
+  and 0.6 respectively, what fraction of populations in each set are
+  likely to become fixed for A\_1 and A\_2 ?
+\end{enumerate}
+
+The probability that an allele will go to fixation is the current
+frequency of the allele. The probability that A\_1 will be fixed is 0.4
+or 40\% and probability that A\_2 will be fixed is 0.6 or 60\%.
+
+Does the population size matter ? No
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\tightlist
+\item
+  (Non Random Mating) Wayne et al.~1991 found that the Isle Royale,
+  Michigan population of gray wolves is inbred.
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Make a predication about the genotype frequency of heterozygotes Wayne
+  et al.~1991 measured in this population.
+\end{enumerate}
+
+The frequency of heterozygotes will be less than expected if genotypes
+were in Hardy-Weinberg equilibrium. This is property of inbreeding.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Should conservation biologists be concerned about inbreeding
+  depression and the long term survival of this population ? Why or why
+  not ? In your response, be sure to define inbreeding depression.
+  (Freeman and Herron, 2004)
+\end{enumerate}
+
+Conservation biologists should be concerned. Inbreeding leads to the
+loss of genetic variation. If a disease were to enter the population all
+individuals would be affected similarly. Additionally, in an inbred
+population, the probability of being homozygous for deleterious or
+lethal recessiveness increases. Deleterious alleles would lead to
+reduced viability and/or fecundity and lethal recessives result in
+death.
+
+It is estimated that every individual human carries 3-5 recessive lethal
+alleles (i.e.~alleles that cause death in the homozygous state) in their
+genome of ca. 30000 loci.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Use this information and what you know about the effects of inbreeding
+  in briefly (\textasciitilde sentences) explain the observation that
+  inbred individuals (of any species) are on average less likely to
+  survive than individuals that result from random matings.
+\end{enumerate}
+
+Inbred individuals are more likely to express recessive alleles because
+they are more likely to be homozygous at all of their loci. If the
+recessive alleles are lethal or deleterious an inbred individual will be
+more likely to suffer from their effects than a non-inbred individual.
+
+People from Sri Lanka have an average of zero recessive lethal alleles.
+What can you infer about he history of this population form this
+information ? (\textasciitilde{} sentences)
+
+This population must be inbred because inbreeding (or non random mating)
+is the only way to expose recessive alleles to selection. In this way
+the lethal alleles were purged from the population. Drift is also a
+possibility.
+
+\hypertarget{attainment-of-equilibrium-at-two-or-more-loci}{%
+\subsection{Attainment of equilibrium at two or more
+loci}\label{attainment-of-equilibrium-at-two-or-more-loci}}
+
+The establishment of equilibrium in one generation holds true as long as
+we consider each single gene locus separetely without being concerned
+about what is happening at the other gene loci. If however, we consider
+the products of two independently assorting gene-pair differences
+simultaneously, e.g., Aa and Bb, the number of possible genotypes
+increases to 3\^{}2 (i.e., AABB, AABb, AaBB, AaBb, etc.). As expected,
+more terms are not involved in the multinomial expansion, so that if we
+call p, q, r and s the gene frequencies of A, a, B and b, respectively,
+the equilibrium ratios of their genotypes are expressed as (pr + ps + qr
++ qs)\^{}2, or p\textsuperscript{2r}2 AABB, 2p\^{}2rs AABb,
+2p\textsuperscript{2s}2AAbb, 2pqr\^{}2AaBB, \ldots,
+q\textsuperscript{2s}2 aabb.
 
 \bibliography{skeleton.bib,bibliography.bib}
 

@@ -4,10 +4,10 @@
 %
 \documentclass[
   answers,addpoints,12pt]{exam}
+\usepackage{amsmath,amssymb}
 \usepackage{lmodern}
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\usepackage{iftex}
+\ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
@@ -33,15 +33,9 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\hypersetup{
-  pdftitle={Numerical solutions to some problems in Plant Breeding},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
 \usepackage[top=1.5cm,bottom=1.5cm,left=1.5cm,right=1.5cm]{geometry}
-\usepackage{longtable,booktabs}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
 \makeatletter
@@ -100,18 +94,21 @@
 \usepackage{threeparttablex}
 \usepackage[normalem]{ulem}
 \usepackage{makecell}
+\usepackage{xcolor}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Numerical solutions to some problems in Plant Breeding},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
 \title{Numerical solutions to some problems in Plant Breeding}
-\usepackage{etoolbox}
-\makeatletter
-\providecommand{\subtitle}[1]{% add subtitle to \maketitle
-  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
-}
-\makeatother
-\subtitle{Part II}
-\author{Deependra Dhakal\\
-Gokuleshwor Agriculture and Animal Science College, Baitadi, Nepal}
-\date{9/18/2020}
+\author{Deependra Dhakal}
+\date{}
 
 \begin{document}
 \maketitle
@@ -240,7 +237,7 @@ h^2 &= \frac{10}{2.06 \times 11} \notag \\
 
 With the help of following table, answer the following questions.
 
-\begin{table}[H]
+\begin{table}
 \centering
 \begin{tabular}{lrrrr}
 \toprule
@@ -277,7 +274,7 @@ C & 50 & 3 & 40 & 90\\
 \item
 \end{enumerate}
 
-\begin{table}[H]
+\begin{table}
 \centering
 \begin{tabular}{lrrl}
 \toprule
@@ -288,6 +285,37 @@ B & 0.003 & 0.997 & \\
 C & 0.011 & 0.989 & Highest sensitivity\\
 \bottomrule
 \end{tabular}
+\end{table}
+
+\esolution
+
+\question[5] \label{quest:fifth}
+
+Calculate the genotypic and phenotypic diversity of the following crosses:
+
+(Assume phenotypic values of commercial check to be 6 units. Each dominant gene contributes 2 units to the concerned phenotype.)
+
+\bsolution
+
+\begin{table}
+\centering\begingroup\fontsize{8}{10}\selectfont
+
+\begin{tabular}{llrrrrrrrr}
+\toprule
+\multicolumn{2}{c}{Genotype} & \multicolumn{4}{c}{Phenotypic values} & \multicolumn{1}{c}{Genotypic} & \multicolumn{3}{c}{Heterosis} \\
+\cmidrule(l{3pt}r{3pt}){1-2} \cmidrule(l{3pt}r{3pt}){3-6} \cmidrule(l{3pt}r{3pt}){7-7} \cmidrule(l{3pt}r{3pt}){8-10}
+male & female & y & p1 & p2 & f1 & diversity & mp & bp & heterobeltiosis\\
+\midrule
+\cellcolor{gray!6}{AABBCCDD} & \cellcolor{gray!6}{aabbccdd} & \cellcolor{gray!6}{4} & \cellcolor{gray!6}{8} & \cellcolor{gray!6}{0} & \cellcolor{gray!6}{8} & \cellcolor{gray!6}{8} & \cellcolor{gray!6}{4} & \cellcolor{gray!6}{0} & \cellcolor{gray!6}{2}\\
+AABBccdd & abbccDD & 4 & 6 & 2 & 8 & 4 & 4 & 2 & 2\\
+\cellcolor{gray!6}{AABBccdd} & \cellcolor{gray!6}{aabbCCDD} & \cellcolor{gray!6}{4} & \cellcolor{gray!6}{4} & \cellcolor{gray!6}{4} & \cellcolor{gray!6}{8} & \cellcolor{gray!6}{0} & \cellcolor{gray!6}{4} & \cellcolor{gray!6}{4} & \cellcolor{gray!6}{2}\\
+AABBCCDD & aabbccDD & 3 & 8 & 2 & 8 & 6 & 3 & 0 & 2\\
+\cellcolor{gray!6}{AABBCCDD} & \cellcolor{gray!6}{aabbCCDD} & \cellcolor{gray!6}{2} & \cellcolor{gray!6}{8} & \cellcolor{gray!6}{4} & \cellcolor{gray!6}{8} & \cellcolor{gray!6}{4} & \cellcolor{gray!6}{2} & \cellcolor{gray!6}{0} & \cellcolor{gray!6}{2}\\
+\addlinespace
+AABBCCDD & aaBBCCDD & 1 & 8 & 6 & 8 & 2 & 1 & 0 & 2\\
+\bottomrule
+\end{tabular}
+\endgroup{}
 \end{table}
 
 \esolution

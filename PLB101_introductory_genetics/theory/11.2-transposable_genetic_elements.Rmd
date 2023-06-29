@@ -2,10 +2,9 @@
 title: Transposable genetic elements
 subtitle: 
 author: Deependra Dhakal
-date: 'Academic year: 2022-2023' 
+# date:
 institute: |
-  | College of Natural Resource Management (AFU)
-  | Tikapur, Kailali
+  | Agriculture and Forestry University
   | \textit{ddhakal.rookie@gmail.com}
   | \url{https://rookie.rbind.io}
 output: 
@@ -38,6 +37,9 @@ options(kableExtra.latex.load_packages = FALSE)
 - Transposable genetic elements (transposable elements, **transposons**, or "jumping genes") are known to be nearly universal in occurrence. 
 - These mobile genetic units relocate within the genome by the process called **transposition**. 
 - The presence of transposable elements indicates that genetic information is not fixed within the genome of an organism. 
+
+- Refer also to:
+  - "Active transposons in Rice", Rice Biology in the Genomics Era (Volume 62), Biotechnology in Agriculture and Forestry.
 
 ##
 
@@ -80,4 +82,3 @@ knitr::include_graphics("../images/maize_te_phenotypes.png")
 # Bibliography
 
 ## References
-

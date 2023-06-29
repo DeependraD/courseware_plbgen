@@ -3,8 +3,7 @@ title: Probability and statistical testing
 author: Deependra Dhakal
 date: 'Academic year: 2022-2023' 
 institute: |
-  | College of Natural Resource Management (AFU)
-  | Tikapur, Kailali
+  | Agriculture and Forestry University
   | \textit{ddhakal.rookie@gmail.com}
   | \url{https://rookie.rbind.io}
 output: 
@@ -16,6 +15,8 @@ output:
 classoption: "aspectratio=169" # "compressed"
 fontsize: 11pt
 bibliography: [./../bibliography/bibliographies.bib]
+header-includes:
+  - \usepackage{epsdice}
 ---
 
 ```{r setup, include=FALSE}
@@ -51,20 +52,31 @@ knitr::include_graphics("../images/power_of_legs.png")
 
 \end{columns}
 
-## Product rule
+<!-- Statistics is the story of averages and norms. -->
+
+<!-- Stories -->
+
+<!-- Imagine you were invited to arrange the entertainment for a boy's birthday party. Being an intelligent person, you ask "What will be the average age of the people at the party ?" You are told 18. Now you know how to prepare. You find some fantastic video games that will challenge and stimulate 18-year-old boys, some music videos with loud rock music and adventurous visuals, and you think you are all set. You arrive at the party to discover 10 moms who are 30 years old and 10 boys who are 6 years old. The average is 18! Unfortunately, no one at the party is able to enjoy the entertainment you arranged, because you pegged your thinking to the average. (The distribution is, infact, bi-modal (modes being 6 and 30)). -->
+
+<!-- A 6 foot man, about to cross a river, asks a statistician how deep is the river ? The statistician says its 4 feet deep. You -- the 6 feet man -- do you cross the river ? -->
+
+<!-- It is dangerous to think only of averages. -->
+
+
+## Product rule ($\cap$, $\land$)
 
 - The possible outcomes from rolling two dice follow the product rule because the outcome on one die is independent of the other. 
-- As an example, let us calculate the probability, $p$, of rolling a pair of 4's. The probability of a 4 on one die is 1/6 because the die has six sides and only one side carries the number 4. 
+- As an example, let us calculate the probability, $p$, of rolling a pair of 4's ($\large \{\epsdice{4}, \epsdice{4}\}$). The probability of a $\large \epsdice{4}$ on one die is 1/6 because the die has six sides and only one side carries the number 4. 
 - This probability is written as follows
 
 $$
-p (\textrm{one 4}) = \frac{1}{6}
+p ({\large \epsdice{4}}) = \frac{1}{6}
 $$
 
-- Therefore, with the use of the product rule, the probability of a 4 appearing on both dice is 1/6 × 1/6 = 1/36, which is written
+- Therefore, with the use of the product rule, the probability of a 4 appearing on both dice ($\large \{\epsdice{4}, \epsdice{4}\}$) is 1/6 × 1/6 = 1/36, which is written
 
 $$
-p (\textrm{two 4's}) = \frac{1}{6} \times \frac{1}{6} = \frac{1}{36}
+p (\epsdice{4} \text{ and } \epsdice{4}) = \frac{1}{6} \times \frac{1}{6} = \frac{1}{36}
 $$
 
 ##
@@ -73,14 +85,13 @@ $$
 knitr::include_graphics("../images/sum_versus_product.jpg")
 ```
 
-## Sum rule
+## Sum rule ($\cup$, $\lor$)
 
-- Note that, in the product rule, the focus is on outcomes A and B. In the sum rule, the focus is on the outcome $A^\prime$ or $A^{\prime \prime}$
-- We have already calculated that the probability of two 4's is 1/36; clearly, with the use of the same type of calculation, the probability of two 5's will be the same, or 1/36. Now we can calculate the probability of **either two 4's or two 5's**. 
+- We have already calculated that the probability of $\{\epsdice{4}, \epsdice{4}\}$ is 1/36; clearly, with the use of the same type of calculation, the probability of $\{\epsdice{5}, \epsdice{5}\}$ will be the same, or 1/36. Now we can calculate the probability of **either** $\{\epsdice{4}, \epsdice{4}\}$ **or** $\{\epsdice{5}, \epsdice{5}\}$. 
 - Because these outcomes are mutually exclusive, the sum rule can be used to tell us that the answer is 1/36 + 1/36, which is 1/18. This probability can be written as follows:
 
 $$
-p(\textrm{two 4's or two 5's}) = \frac{1}{36} + \frac{1}{36} = \frac{1}{18}
+p(\{\epsdice{4}, \epsdice{4}\} \lor \{\epsdice{5}, \epsdice{5}\}) = \frac{1}{36} + \frac{1}{36} = \frac{1}{18}
 $$
 
 <!-- ## Problem: Probability rules -->
@@ -260,6 +271,13 @@ kable(m, format = "latex", booktabs = TRUE, escape = TRUE,
 - This is less than the standard cut-off value of 5 percent, so we can reject the hypothesis of no linkage. 
 - Hence, we are left with the conclusion that the genes are very likely linked, approximately 39 m.u. apart.
 
+## Interpreting p-values
+
+```{r interpreting-pvalues, fig.align='center', out.width="40%"}
+knitr::include_graphics("../images/interpreting_pvalues.jpg")
+```
+
+
 # Binomial expansion
 
 ## 
@@ -282,6 +300,29 @@ $$
 
 - Where, n = index of binomial, s = index of a in the given term and t = index of b in the term.
 - It is applicable to those events in which the number of mutually exclusive events is two.
+
+## Problem
+
+If 12 people are to be divided into 3 committee of respective sizes, 3, 4 and 5 how many divisions are possible ?
+
+Solution:
+
+```{r}
+solution_pr1 <- choose(12, 3) * choose(12-3, 4) * choose(12-3-4, 5)
+# # alternatively
+# factorial(12)/(factorial(3)*factorial(4)*factorial(5))
+```
+
+A total of `r solution_pr1` divisions possible.
+
+## Problem
+
+Five male and four female plants are to be arranged in a single row for a breeding experiment. To ensure breeding, no two male plants can be next to one another. How many arrangements are possible ?
+
+Solution:
+
+Since there are 5 males and 4 females and there can be no adjacent males, the plants must alternate between male and female starting with a male. The number of ordered arrangements of the 5 male plants in the odd positions is given by $P_5 = 5!$. Similarly, the number of ordered arrangements of the 4 female plants in the even positions is given by $P_4 = 4!$. Therefore, using the Fundamental Principle of Counting, the total number of possible arrangements is $5! \times 4! = 2880$.
+
 
 ## Problem
 

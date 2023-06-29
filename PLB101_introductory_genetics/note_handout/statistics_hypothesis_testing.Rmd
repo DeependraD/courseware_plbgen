@@ -1,0 +1,154 @@
+---
+title: "Statistics and hypothesis testing"
+subtitle: "Numerical Exercises"
+author: |
+  | Deependra Dhakal
+  <!-- | Non Affiliated -->
+# date: "November, 2021"
+output: 
+  bookdown::pdf_document2:
+    keep_tex: yes
+    toc: false
+    includes:
+      in_header: ss_header.tex
+    number_sections: false
+documentclass: exam
+classoption: "answers,addpoints,12pt"
+geometry: "top=1.5cm,bottom=1.5cm,left=1.5cm,right=1.5cm"
+header-includes:
+  - \usepackage{wasysym}
+  - \usepackage{tipa}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, include = TRUE, message = FALSE, warning = FALSE)
+options(knitr.kable.NA = '', kableExtra.latex.load_packages = TRUE)
+require(tidyverse)
+```
+
+# Statistics and hypothesis testing
+
+\bquestions
+
+\question \label{quest:stat1-1}
+
+A set of data involving four feed stuffs used A, B, C and D tried on certain 20 mice is given in Table \ref{tab:mice-weight-gain} below. All the mice are treated alike in all respects except the following treatment and each feeding is given to 5 mice.
+
+```{r mice-weight-gain}
+mice_weight_gain <- tribble(
+  ~"Feed", ~"Weight gain1", ~"Weight gain2", ~"Weight gain3", ~"Weight gain4", ~"Weight gain5",
+  "A", 45, 56, 54, NA, NA,
+  "B", 45, 65, 67, 23, NA,
+  "C", 23, 45, 18, 67, 78,
+  "D", 45, 34, NA, NA, NA
+) 
+
+mice_weight_gain %>%
+  knitr::kable(booktabs = TRUE, col.names = c("Feed", rep(" ", times = 5)), caption = "Feeding treatment and weight gain in mice", align = "l", longtable = TRUE) %>% # longtable = TRUE is absolutely essential
+  kableExtra::kable_styling() %>%
+  kableExtra::add_header_above(header = c(" " = 1, "Weight gain" = 5))
+```
+
+Test the hypothesis that the mean effect of feeds is same or not.
+
+\bsolution (Question \ref{quest:stat1-1}) 
+
+Given information in the Table \ref{tab:mice-weight-gain} from feeding experiment involves missing data for some mice (Only x mice are represented despite involving a total of 20).
+
+Since we are interested in whether or not the weight gain due to different feed ($t = 4$) are different, a widely used technique for comparison of group difference involving more that 2 groups is F-test. The F-test can be employed most easily with analysis of variance (ANOVA) setting. Although, it should be noted, due to unequal group sizes (ie. there are 3 mice in Feed A group, 4 mice in Feed B group, and so on), validity of group difference comparison is limited only to the data available.
+
+
+```{r mice-weight-gain-reshaped, results='asis'}
+mice_weight_gain_long <- mice_weight_gain %>% 
+  pivot_longer(cols = 2:6, names_to = "individual", values_to = "weight_gain") %>% 
+  select(-individual)
+
+group_means_mice_weight <- mice_weight_gain_long %>% 
+  group_by(Feed) %>% 
+  summarise(mean_weight_gain = mean(weight_gain, na.rm = TRUE))
+
+group_means_mice_weight %>%
+  mutate_if(is.numeric, .funs = list(~round(., digits = 2))) %>% 
+  rename("Mean weight gain" = "mean_weight_gain") %>%
+  knitr::kable(booktabs = TRUE, caption = "Mean weight gain of mice in each treatment (feeding) group", align = "l", longtable = TRUE) %>%
+  kableExtra::kable_styling(position = "center", repeat_header_continued = T)
+
+```
+
+
+To detect the difference in treatment means, we formulate the following Null hypothesis, of which if no sufficient evidence is found for acceptance we assert that difference between mean of Feeding groups exist.
+
+$$\mu_{A} = \mu_{B} = \mu_C = \mu_D = \mu_E$$
+
+Total variance due to feeding treatment can be disaggregated into effects due to Feed and the noise (residual). Respective variances components, degrees of freedom, and the F-value for treatment factor are computed and shown in the ANOVA (Table \ref{tab:mice-weight-gain-anova}).
+
+```{r mice-weight-gain-anova}
+anova_mice_weight <- anova(lm(data = mice_weight_gain_long, weight_gain ~ Feed)) %>% 
+  broom::tidy() %>% 
+  janitor::clean_names()
+
+anova_mice_weight %>%
+  mutate_if(is.numeric, .funs = list(~round(., digits = 2))) %>% 
+  rename("Source of variation" = "term", 
+         "DF" = "df",
+         "Sum of squares" = "sumsq",
+         "Mean sum of squares" = "meansq",
+         "F-value" = "statistic",
+         "P-value" = "p_value") %>% 
+  knitr::kable(booktabs = TRUE, caption = "ANOVA of study on mice weight gain due to various feeding treatment", align = "l", longtable = TRUE) %>%
+  kableExtra::kable_styling(position = "center", repeat_header_continued = T, font_size = 10) %>% 
+  kableExtra::column_spec(column = 1:6, width = c("5em", "2em", "8em", "8em", "6em", "4em", "3em"))
+ 
+(agricolae::LSD.test(lm(data = mice_weight_gain_long, weight_gain ~ Feed), "Feed"))$groups %>%
+  as_tibble(rownames = "Feed") %>%
+  mutate_if(is.numeric, .funs = list(~round(., digits = 2))) %>% 
+  rename("Weight gain" = "weight_gain",
+         "Groups" = "groups") %>%
+  knitr::kable(booktabs = TRUE, caption = "Difference of mean between treatment groups using LSD method. Group difference is indicated by lowercase letters in the Group column.", align = "l", longtable = TRUE) %>%
+  kableExtra::kable_styling(position = "center")
+```
+
+F-test showed that variance due to Feeding treatment is basically a noise (i.e. difference among observations in weight gain cannot be attributed to Feed factor). We can further the confirm the idea by pairwise comparison of means using LSD test, which suggests that all feeding groups are same. Hence, it can be concluded, based on Null Hypothesis Significance Testing (NHST), that mean effect of feed is not different.
+
+\esolution
+
+\question \label{quest:stat1-2}
+
+The shopping times of n = 64 randomly selected customers at a local supermarket were recorded. The average and variance of the 64 shopping times were 33 minutes and 256 $\text{minutes}^2$ respectively. Estimate $\mu$, the true average shopping time per customer, with a confidence coefficient of $1-\alpha = 0.90$.
+
+\bsolution (Question \ref{quest:stat1-2}) 
+
+Here,
+
+We need to estimate $\hat\theta \pm z_{\frac{\alpha}{2}} \sigma_{\hat \theta}$.
+
+To get $z_{\frac{\alpha}{2}}$ (the percentage/quantile points of normal distribution), we take half the value of specified alpha. 
+
+```{r}
+a = 0.1
+# qnorm(1-a/2)
+# notice qnorm gives the left hand side area, so we substract from 1 to obtain the area of the other side.
+```
+
+```{r}
+33 + qnorm(1-a/2) * sqrt(256/64)
+33 - qnorm(1-a/2) * sqrt(256/64)
+```
+
+\esolution
+
+\bquestions
+
+\question \label{quest:stat-samplingdist-1}
+
+A balanced die is tossed 3 times. Let $Y_1$, $Y_2$, and $Y_3$ denote the number of spots observed on the upper face for tosses, 1, 2 and 3, respectively. Suppose we are interested in $\bar{Y} = \frac{(Y_1 + Y_2 + Y_3)}{3}$, the average number of spots observed in a sample of size 3. What are the mean, $\mu_{\bar{Y}}$, and standard deviation, $\sigma_{\bar{Y}}$, of $\bar{Y}$ ? How can we find the sampling distribution of $\bar{Y}$ ?
+
+\bsolution (Question \ref{quest:stat-samplingdist-1}) 
+
+We have, $E(Y_1) = E(Y_2) = E(Y_3)$
+
+$E(\bar{Y}) = E\left(\frac{Y_1 + Y_2 + Y_3}{3}\right) = 3 \frac{E(Y_1)}{3} = 3.5$
+
+\esolution
+
+\equestions

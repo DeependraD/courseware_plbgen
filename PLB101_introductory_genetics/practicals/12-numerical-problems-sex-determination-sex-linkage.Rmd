@@ -54,43 +54,43 @@ Case of 1st birth showing parental combinations producing klinefelter offspring.
 # mer_first_birthi <- DiagrammeR::mermaid(
 #   "
 #   graph TB
-# 
+#
 #   x11[X<sup>E</sup>X<sup>e</sup><br>Female] --> x21(Non disjunction of<br> sister chromatids<br> during meiosis I)
 #   x12[X<sup>e</sup>Y<br>Male] --> x21
 #   x21 --> x31[X<sup>E</sup>X<sup>e</sup>Y<br>Normal vision klinefelter]
-# 
+#
 #   "
 # )
-# 
-# htmltools::html_print(mer_first_birthi) %>% 
+#
+# htmltools::html_print(mer_first_birthi) %>%
 #   webshot2::webshot("../images/mer_first_birthi.png", vwidth = 260, vheight = 540, zoom = 2)
 
 knitr::include_graphics("../images/mer_first_birthi.png")
 ```
         \caption{Case I (Non-disjunction)}
     \end{subfigure}%
-    ~ 
+    ~
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
 ```{r first-birthii, out.width="50%"}
 # mer_first_birthii <- DiagrammeR::mermaid(
 #   "
 #   graph TB
-#   
+#
 #   subgraph Female
 #   x11((X<sup>E</sup>)) --> x21((X<sup>E</sup>X<sup>e</sup><br>Fusion of<br> egg gametes))
 #   x12((X<sup>e</sup>)) --> x21
 #   end
-#   
+#
 #   subgraph Male
 #   x13[X<sup>e</sup>Y<br>Male]
 #   end
-#   
+#
 #   x13 --> x31((X<sup>E</sup>X<sup>e</sup>Y))
 #   x21 --> x31
 #   "
 # )
-# 
+#
 # htmltools::html_print(mer_first_birthii) %>%
 #   webshot2::webshot("../images/mer_first_birthii.png", vwidth = 450, vheight = 540, zoom = 2)
 
@@ -112,14 +112,14 @@ knitr::include_graphics("../images/mer_first_birthii.png")
 # second_birth_mer <- DiagrammeR::mermaid(
 #   "
 #   graph TB
-#   
+#
 #   x11[X<sup>E</sup>X<sup>e</sup><br>Female] --> x21((Hybridization))
 #   x12[X<sup>e</sup>Y<br>Male] --> x21
 #   x21 --> x31[X<sup>E</sup>X<sup>e</sup><br>Color blind female]
-#   
+#
 #   "
 # )
-# 
+#
 # htmltools::html_print(second_birth_mer) %>%
 #   webshot2::webshot("../images/second_birth_mer.png", vwidth = 250, vheight = 450, zoom = 2)
 

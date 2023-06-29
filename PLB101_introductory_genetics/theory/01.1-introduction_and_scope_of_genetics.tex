@@ -146,6 +146,15 @@
   \setbeamertemplate{section in toc shaded}[default][50]
   % \usecolortheme{crane}
   \usecolortheme{seahorse}
+
+  \newcommand{\bcolumns}{\begin{columns}[T, onlytextwidth]}
+  \newcommand{\ecolumns}{\end{columns}}
+
+  \newcommand{\bdescription}{\begin{description}}
+  \newcommand{\edescription}{\end{description}}
+
+  \newcommand{\bitemize}{\begin{itemize}}
+  \newcommand{\eitemize}{\end{itemize}}
   % beamer progress bar customization
   \usetikzlibrary{calc}
 
@@ -200,7 +209,7 @@
 
   \title[]{Introduction to genetics}
 
-  \subtitle{An overview}
+  \subtitle{An Overview}
 
   \author[
         Deependra Dhakal
@@ -208,17 +217,15 @@
 
   \institute[
     ]{
-    College of Natural Resource Management, Tikapur, Kailali\\
-Agriculture and Forestry University\\
+    Agriculture and Forestry University\\
 \textit{ddhakal.rookie@gmail.com}\\
 \url{https://rookie.rbind.io}
     }
 
 \date[
-      Academic year 2022-2023
+      
   ]{
-      Academic year 2022-2023
-        }
+    }
 
 \begin{document}
 
@@ -236,8 +243,24 @@ Agriculture and Forestry University\\
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
 
+\begin{frame}{}
+\protect\hypertarget{section}{}
+The Native American Hopi tribe of the Southwestern United States
+understood that if they planted a red kernel of maize in their fields,
+it would grow into a plant that also gave red kernels. The same was true
+for blue, white, or yellow kernels.
+
+So they thought of the kernel as a message to the gods in the Earth
+about the type of maize the Hopi farmers hoped to harvest. Upon
+receiving this message, the gods would faithfully return them a plant
+that produced kernels of the desired color.
+\end{frame}
+
 \begin{frame}{Background}
 \protect\hypertarget{background}{}
+\bcolumns
+\column{0.55\textwidth}
+
 \begin{itemize}[<+->]
 \tightlist
 \item
@@ -249,64 +272,80 @@ Agriculture and Forestry University\\
   Germany.
 \item
   Can traditional agriculture satisfy human needs in distant future ?
-
-  \begin{itemize}[<+->]
-  \tightlist
-  \item
-    Modern variety
-  \item
-    GM crops and their safety
-  \end{itemize}
-\item
-  Medical drugs, genetic engineering
-\item
-  Appreciation
 \end{itemize}
-\end{frame}
 
-\begin{frame}{}
-\protect\hypertarget{section}{}
-\begin{columns}[T,onlytextwidth]
-  
-  \column{0.5\textwidth}
-
-\begin{figure}
-\includegraphics[width=0.7\linewidth]{../images/wild_flowers_abroad} \end{figure}
-\begin{figure}
-\includegraphics[width=0.7\linewidth]{../images/jacaranda_kathmandu} \end{figure}
-
-  \column{0.5\textwidth}
-
-\begin{figure}
-\includegraphics[width=0.96\linewidth]{../images/wheat_trial_plots} \caption{Crop improvement}\label{fig:genetics-applications-2}
-\end{figure}
-
-\end{columns}
-\end{frame}
-
-\begin{frame}{}
-\protect\hypertarget{section-1}{}
-\begin{columns}[T,onlytextwidth]
-  
-  \column{0.5\textwidth}
-
-\begin{figure}
-\includegraphics[width=0.38\linewidth]{../images/green_revolution_borlaug} \caption{Norman Borlaug, a leader in the development of new strains of wheat that led to the Green Revolution. Borlaug was awarded the Nobel Peace Prize in 1970.}\label{fig:green-revolution-borlaug}
-\end{figure}
-
-  \column{0.5\textwidth}
+\column{0.45\textwidth}
 
 \begin{figure}
 \includegraphics[width=0.8\linewidth]{../images/green_revolution_crop} \caption{Modern, high-yielding rice plant (left) and traditional rice plant (right)}\label{fig:green-revolution-crop}
 \end{figure}
 
-\end{columns}
+\ecolumns
+\end{frame}
+
+\begin{frame}{Other importance}
+\protect\hypertarget{other-importance}{}
+\bcolumns
+\column{0.4\textwidth}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Vaccines
+\item
+  Genetic engineering
+\item
+  Detection and diagnosis
+\item
+  Industrial biotechnology
+\item
+  Conservation
+\end{itemize}
+
+\begin{center}\includegraphics[width=0.6\linewidth]{../images/genetic_engineering_meme} \end{center}
+
+\column{0.6\textwidth}
+
+\begin{center}\includegraphics[width=0.65\linewidth]{../images/covid_vaccine_changes_human_DNA} \end{center}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.48\linewidth]{../images/dolly} 
+
+}
+
+\caption{The cloning of a mammal.}\label{fig:dolly}
+\end{figure}
+
+\ecolumns
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-1}{}
+\bcolumns
+
+\column{0.5\textwidth}
+
+\textbf{Aesthetics, conservation and appreciation}
+
+\begin{center}\includegraphics[width=0.65\linewidth]{../images/wheat_trial_plots} \end{center}
+
+\begin{center}\includegraphics[width=0.56\linewidth]{../images/jacaranda_kathmandu} \end{center}
+
+\column{0.5\textwidth}
+
+\begin{center}\includegraphics[width=0.75\linewidth]{../../literatures/reconnect_with_nature} \end{center}
+
+\ecolumns
 \end{frame}
 
 \begin{frame}{Definition}
 \protect\hypertarget{definition}{}
-\begin{block}{Study of heredity}
-\protect\hypertarget{study-of-heredity}{}
+\bcolumns
+\column{0.55\textwidth}
+
+\textbf{Study of heredity}
+
 \begin{itemize}[<+->]
 \tightlist
 \item
@@ -316,21 +355,23 @@ Agriculture and Forestry University\\
 \item
   Why two people are never same ?
 \end{itemize}
-\end{block}
 
-\begin{block}{Etymology}
-\protect\hypertarget{etymology}{}
+\textbf{Etymology}
+
 \begin{itemize}[<+->]
 \tightlist
 \item
   ``gene''
 \item
-  At any level of study genes are central
-\item
   Genes have unique nature to perform their biological roles --
   replication, information bearing/generation of form and mutation
 \end{itemize}
-\end{block}
+
+\column{0.45\textwidth}
+
+\begin{center}\includegraphics[width=0.75\linewidth]{../images/like_begets_like} \end{center}
+
+\ecolumns
 \end{frame}
 
 \begin{frame}{Terminologies}
@@ -365,6 +406,11 @@ Agriculture and Forestry University\\
 \begin{frame}{}
 \protect\hypertarget{section-2}{}
 \begin{center}\includegraphics[width=0.3\linewidth]{../images/viruses} \end{center}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-3}{}
+\begin{center}\includegraphics[width=0.55\linewidth]{../images/understood_it_all} \end{center}
 \end{frame}
 
 \begin{frame}{Branches}
@@ -440,7 +486,7 @@ Agriculture and Forestry University\\
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-3}{}
+\protect\hypertarget{section-4}{}
 \begin{columns}[T,onlytextwidth]
   
   \column{0.33\textwidth}

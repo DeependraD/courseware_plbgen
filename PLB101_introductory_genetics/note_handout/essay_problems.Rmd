@@ -1,0 +1,62 @@
+---
+title: "Essay questions"
+author: |
+  | Deependra Dhakal
+  <!-- | Non Affiliated -->
+# date: "November, 2021"
+output: 
+  bookdown::pdf_document2:
+    keep_tex: yes
+    toc: false
+    includes:
+      in_header: ss_header.tex
+    number_sections: false
+documentclass: exam
+classoption: "answers,addpoints,12pt"
+geometry: "top=1.5cm,bottom=1.5cm,left=1.5cm,right=1.5cm"
+header-includes:
+  - \usepackage{wasysym}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, include = TRUE, message = FALSE, warning = FALSE)
+options(knitr.kable.NA = '', kableExtra.latex.load_packages = TRUE)
+require(tidyverse)
+```
+
+# Permutation
+
+\bquestions
+
+\question[4] \label{quest:fifth}
+
+What are the reasons for obtaining hermaphrodite goat population in Chitwan ?
+
+\bsolution
+
+Hermaphrodity in Goat poulation may be due to one or multiple reasons given below:
+
+1. Recessive mutations that remained hidden in population for long time and may have suddenly expressed due to inbreeding or close breeding with exotic breeds.
+2. Some goat breeds, for example Saneen, are more likely to develop hermaphrodite progeny phenotypes than other breeds.
+3. Due to aged (old) goat stock kidding a newborn. The old age may accumulate mutations which can affect the gene for hermaphroditism.
+4. Due to the nature of hermaphroditism recognized in goat breeds -- pseudohermaphrodite. This is a condition in which only external genitalia development is affected. This could also be caused by environmental factors that affect sex expression loci in goats.
+
+\esolution
+
+\question \label{quest:stat1-2}
+
+Wheat do you mean by the random sampling ? Differentiate between stratified sampling and cluster sampling.
+
+\bsolution (Question \ref{quest:stat1-2}) 
+
+Sampling is the selection of a subset (a statistical sample) of individuals from within a statistical population to estimate characteristics of the whole population.
+
+Most basic form of sampling is the simple random sampling, in which every sample of size n has the same chance of being selected. In addition to simple random sampling, there are other sampling plans that involve randomization and therefore provide a probabilistic basis for inference making.
+
+When the population consists of two or more subpopulations, called strata, a sampling plan that ensures that each subpopulation is represented in the sample is called a stratified random sample.
+
+Another form of random sampling is used when the available units are groups of elements, called clusters. For example, a household is a cluster of individuals living together. A ward, in similar way, might be a convenient sampling unit and might be considered a cluster for a given sampling plan. A cluster sample is hence, a simple random sample of clusters from the available clusters in the population.
+
+\esolution
+
+\equestions

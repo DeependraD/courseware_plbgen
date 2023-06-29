@@ -38,7 +38,7 @@ The chromosomes become visible as long, thin single threads. Chromosomes begin t
 \end{minipage}\hspace{0.5cm}
 \begin{minipage}[t]{0.48\textwidth}
 
-```{r meiosis-leptotene, out.width="50%", fig.align='center'}
+```{r meiosis-leptotene, out.width="70%", fig.align='center'}
 knitr::include_graphics("../images/cell_cycle/meiosis_leptotene.png")
 ```
 
@@ -55,7 +55,7 @@ The threads form pairs as each chromosome progressively aligns, or synapses, alo
 \end{minipage}\hspace{0.5cm}
 \begin{minipage}[t]{0.48\textwidth}
 
-```{r meiosis-zygotene, out.width="58%", fig.align='center'}
+```{r meiosis-zygotene, out.width="70%", fig.align='center'}
 knitr::include_graphics("../images/cell_cycle/meiosis_zygotene.png")
 ```
 
@@ -71,7 +71,7 @@ Chromosomes are thick and fully synapsed. Thus, the number of pairs of homologou
 
 \end{minipage}\hspace{0.5cm}
 \begin{minipage}[t]{0.48\textwidth}
-```{r meiosis-pachytene, out.width="58%", fig.align='center'}
+```{r meiosis-pachytene, out.width="70%", fig.align='center'}
 knitr::include_graphics("../images/cell_cycle/meiosis_pachytene.png")
 ```
 
@@ -92,11 +92,11 @@ Further chromosome contraction produces compact units that are very maneuverable
 \end{minipage}\hspace{0.5cm}
 \begin{minipage}[t]{0.48\textwidth}
 
-```{r meiosis-diplotene, out.width="58%", fig.align='center'}
+```{r meiosis-diplotene, out.width="70%", fig.align='center'}
 knitr::include_graphics("../images/cell_cycle/meiosis_diplotene.png")
 ```
 
-```{r meiosis-diakinesis, out.width="58%", fig.align='center'}
+```{r meiosis-diakinesis, out.width="70%", fig.align='center'}
 knitr::include_graphics("../images/cell_cycle/meiosis_diakinesis.png")
 ```
 
@@ -113,7 +113,7 @@ The nuclear membrane has disappeared, and each pair of homologs takes up a posit
 \end{minipage}\hspace{0.5cm}
 \begin{minipage}[t]{0.48\textwidth}
 
-```{r meiosis-metaphasei, out.width="58%", fig.align='center'}
+```{r meiosis-metaphasei, out.width="70%", fig.align='center'}
 knitr::include_graphics("../images/cell_cycle/meiosis_metaphasei.png")
 ```
 
@@ -131,13 +131,13 @@ The members of each homologous pair move to opposite poles.
 
 Anaphase (Early) I
 
-```{r meiosis-early-anaphasei, out.width="58%", fig.align='center'}
+```{r meiosis-early-anaphasei, out.width="70%", fig.align='center'}
 knitr::include_graphics("../images/cell_cycle/meiosis_early_anaphasei.png")
 ```
 
 Anaphase (Late) I
 
-```{r meiosis-late-anaphasei, out.width="58%", fig.align='center'}
+```{r meiosis-late-anaphasei, out.width="70%", fig.align='center'}
 knitr::include_graphics("../images/cell_cycle/meiosis_late_anaphasei.png")
 ```
 
@@ -155,13 +155,13 @@ The chromosomes elongate and become diffuse, the nuclear membrane re-forms and t
 \begin{minipage}[t]{0.48\textwidth}
 Telophase
 
-```{r meiosis-telophasei, out.width="58%", fig.align='center'}
+```{r meiosis-telophasei, out.width="70%", fig.align='center'}
 knitr::include_graphics("../images/cell_cycle/meiosis_telophasei.png")
 ```
 
 Interphase II
 
-```{r meiosis-interphaseii, out.width="58%", fig.align='center'}
+```{r meiosis-interphaseii, out.width="70%", fig.align='center'}
 knitr::include_graphics("../images/cell_cycle/meiosis_interphaseii.png")
 ```
 
@@ -175,7 +175,7 @@ Prophase II
 
 The haploid number of sister chromatid pairs are now present in contracted state.
 
-```{r meiosis-prophaseii, out.width="58%", fig.align='center'}
+```{r meiosis-prophaseii, out.width="70%", fig.align='center'}
 knitr::include_graphics("../images/cell_cycle/meiosis_prophaseii.png")
 ```
 
@@ -186,7 +186,7 @@ Metaphase II
 
 The pair of sister chromatids arrange themselves on the equatorial plane. Here the chromatids often partly dissociate from each other instead of being closely pressed together as they are in mitosis.
 
-```{r meiosis-metaphaseii, out.width="58%", fig.align='center'}
+```{r meiosis-metaphaseii, out.width="70%", fig.align='center'}
 knitr::include_graphics("../images/cell_cycle/meiosis_metaphaseii.png")
 ```
 
@@ -200,7 +200,7 @@ Anaphase II
 
 Centromeres split and sister chromatids are pulled to opposite poles by the spindle fibers.
 
-```{r meiosis-anaphaseii, out.width="58%", fig.align='center'}
+```{r meiosis-anaphaseii, out.width="70%", fig.align='center'}
 knitr::include_graphics("../images/cell_cycle/meiosis_anaphaseii.png")
 ```
 
@@ -211,7 +211,7 @@ Telophase II
 
 The nuclei re-form around the chromosomes at the poles.
 
-```{r meiosis-telophaseii, out.width="58%", fig.align='center'}
+```{r meiosis-telophaseii, out.width="70%", fig.align='center'}
 knitr::include_graphics("../images/cell_cycle/meiosis_telophaseii.png")
 ```
 
@@ -230,13 +230,13 @@ In the anthers of a flower, the four products of meiosis develop into pollen gra
 
 Tetrad
 
-```{r meiosis-tetrad, out.width="58%", fig.align='center'}
+```{r meiosis-tetrad, out.width="70%", fig.align='center'}
 knitr::include_graphics("../images/cell_cycle/meiosis_tetrad.png")
 ```
 
 Young pollen grain
 
-```{r meiosis-young-pollen, out.width="58%", fig.align='center'}
+```{r meiosis-young-pollen, out.width="70%", fig.align='center'}
 knitr::include_graphics("../images/cell_cycle/meiosis_young_pollen.png")
 ```
 

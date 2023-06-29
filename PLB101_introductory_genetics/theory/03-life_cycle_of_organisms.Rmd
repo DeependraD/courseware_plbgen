@@ -1,10 +1,9 @@
 ---
 title: Life cycle of organisms
 author: Deependra Dhakal
-date: 'Academic year: 2022-2023' 
+# date: 'Academic year: 2022-2023' 
 institute: |
-  | College of Natural Resource Management (AFU)
-  | Tikapur, Kailali
+  | Agriculture and Forestry University
   | \textit{ddhakal.rookie@gmail.com}
   | \url{https://rookie.rbind.io}
 output: 
@@ -35,27 +34,32 @@ options(kableExtra.latex.load_packages = FALSE)
 
 \footnotesize
 
-- Gram negative, facultative anaerobic, rod-shaped, coliform bacterium that is commonly found in the lower intestine of warm-blooded organisms.
+- Prokaryotic, gram negative, facultative anaerobic, rod-shaped, coliform bacterium that is commonly found in the lower intestine of warm-blooded organisms.
 - Most _E. coli_ strains are harmless, but some can cause serious food poisoning. Shiga toxin-producing _E. coli_ (STEC) is a bacterium that can cause severe foodborne disease.
-- Widely studied prokaryotic unicellular model organism. 
 - _E. coli_ is about 2.0 micrometer long and 0.25-1.0 micrometer in diameter with a cell volume of 0.6-0.7 micro cubic meter.
 - German pediatrician named Odor Escheriehia in 1885 discovered _E.coli_ in the faeces of healthy individual and named it Bacterium coli (for occurance in colon).
+- Bacteria is arranged singly or in pairs.
+- It is mostly motile due to peritrichous flagella.
+- Some strains are non-motile. 
+- Some strains may be fimbriated.
+  - The fimbriae are of type 1 (hemagglutinating and mannose-sensitive) and are present in both motile and non-motile strains.
+
+##
+
+```{r bacteria-types, fig.align='center', out.width="75%"}
+knitr::include_graphics("../images/bacteria_types.jpg")
+```
+
+
+##
+
 - Early prokaryotic classification based on their motility and shape
 - Afterwards E.haeckel's bacteria classification placed bacteria in the monera kingdom
 - In 1985 Migula reclassified bacteria in the genus Escheria. This genus belongs to the bacterial group formally called 'coliforms' which are member of the enterics known as Enterubacterialeae family
-- Because of its long history of laboratory culture and ease of manipulation _E.coli_ plays an important role in modern biological egineering and industrial microbiology.
-
-
-## Morphology
-
-- Bacteria is arranged singly or in pairs.
-- It is motile due to peritrichous flagella.
-- Some strains are non-motile. 
-- Some strains may be fimbriated. 
-- The fimbriae are of type 1 (hemagglutinating and mannose-sensitive) and are present in both motile and non-motile strains.
 - Some strains of _E. coli_ isolated from extra-intestinal infections have polysaccharide capsule.
 - They are non-sporing. They have thin cell wall with only 1 or 2 layers of peptidoglycan.
 - Growth occurs over a wide range of temperature from $15-45^{\circ}C$.
+- Because of its long history of laboratory culture and ease of manipulation _E.coli_ plays an important role in modern biological egineering and industrial microbiology.
 
 ## Taxonomy and classification
 
@@ -66,12 +70,6 @@ options(kableExtra.latex.load_packages = FALSE)
 - Family: Enterobacteriaceae
 - Genus: Escherichia
 - Species: _E. coli_
-
-##
-
-```{r bacteria-colony, out.width="48%", fig.align='center', fig.cap="Human pathogenic \\textit{E. coli} being cultured in blood agar."}
-knitr::include_graphics("../images/bacteria_colony.png")
-```
 
 ## Genetics
 
@@ -84,12 +82,23 @@ knitr::include_graphics("../images/bacteria_colony.png")
 
 ## Reproduction
 
+\bcolumns
+\column{0.6\textwidth}
+
 - _E.coli_ reproduces by two meams:
   - Asexually -- Binary fission (produces daughter cells)
   - Transfer of genetic material through a sex pilus (conjugation).
   - Transformation
   - Bacteriophage mediated transduction
 - It takes about forty minutes (ideally, under as little as 20 minutes) to make one complete copy of the _E.coli_ genome. Therefore each generation of _E.coli_ should last just under on hour.
+
+\column{0.4\textwidth}
+
+```{r bacteria-colony, out.width="96%", fig.align='center', fig.cap="Human pathogenic \\textit{E. coli} being cultured in blood agar."}
+knitr::include_graphics("../images/bacteria_colony.png")
+```
+
+\ecolumns
 
 ## Conjugative transfer of plasmid
 
@@ -157,7 +166,7 @@ knitr::include_graphics("../images/escherichia_coli2.png")
 
 \begin{columns}[T,onlytextwidth]
   
-  \column{0.45\textwidth}
+  \column{0.55\textwidth}
   \begin{itemize}
   \item Genome size: 12 Mb
   \item Chromosomes (n): 16
@@ -167,9 +176,9 @@ knitr::include_graphics("../images/escherichia_coli2.png")
   \item Transposons: Small proportion of DNA
   \item Genome sequenced in: 1996
   \end{itemize}
-  \column{0.55\textwidth}
+  \column{0.45\textwidth}
   
-```{r saccharomyces-cerevisiae-microscopy, fig.cap="Budding yeast"}
+```{r saccharomyces-cerevisiae-microscopy, fig.cap="Budding yeast", out.width="85%"}
 # knitr::include_graphics("../images/saccharomyces-cerivisae-close.png")
 knitr::include_graphics("../images/budding-yeast-tol2s.cerevisiae.jpg")
 ```
@@ -180,7 +189,7 @@ knitr::include_graphics("../images/budding-yeast-tol2s.cerevisiae.jpg")
 
 \footnotesize
 
-- Belongs to Ascomycete phylum^[More details can be found at \url{http://tolweb.org/Saccharomycetales/29043}].
+- Belongs to Ascomycete phylum\footnote[frame]{More details can be found at \url{http://tolweb.org/Saccharomycetales/29043}}.
 - Name: Yeast, Baker's yeast, Budding yeast; fungi generally live in sugary media.
 - Although laboratory strains are mostly haploid, cells in nature can be diploid or polyploid.
 - Life cycle consists of both sexual and asexual phases(budding or fission arthrospores, later aka hyphal fragments)
@@ -203,11 +212,16 @@ knitr::include_graphics("../images/budding-yeast-tol2s.cerevisiae.jpg")
 
 ## Reproduction
 
+\bcolumns
+\column{0.5\textwidth}
+
 - In sexual cycle of the yeast, cell may be haploid or diploid
 - Two mating types are determined by alleles MAT$\alpha$ and MATa; when haploid cells of different mating type unite, they form a diploid cell, which can divide mitotically or undergo meiotic division.
 - The products of meiosis are a nonlinear tetrad of four ascospores.
 
-```{r s-cerevisiae, out.width="38%", fig.align='center'}
+\column{0.5\textwidth}
+
+```{r s-cerevisiae, out.width="80%", fig.align='center'}
 # pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Griffiths - An Introduction to Genetic Analysis 11th Edition c2015.pdf",
 #                       pages = 822,
 #                       dpi = 300, format = "png",
@@ -215,6 +229,8 @@ knitr::include_graphics("../images/budding-yeast-tol2s.cerevisiae.jpg")
 
 knitr::include_graphics("../images/saccharomyces_cerevisiae.png")
 ```
+
+\ecolumns
 
 ## Techniques of genetic manipulation
 
@@ -299,20 +315,8 @@ knitr::include_graphics("../images/neurospora_crassa2.png")
 - Member of Brassicaceae family.
 - Has no economic significance but grows prolifically as a weed in many temperate parts of the world.
 - Can be grown artificially in large numbers owing to its small size (< 10 cm height under certain conditions).
-
-## Life cycle
-
 - With the diploid phase dominant in life cycle, plant bears several flowers, each of which produce many seeds, like many annual weeds.
 - Life cycle takes only about 6 weeks for a planted seed to produce a new crop of seeds.
-
-```{r a-thaliana1, out.width="35%", fig.align='center'}
-# pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Griffiths - An Introduction to Genetic Analysis 11th Edition c2015.pdf",
-#                       pages = 826,
-#                       dpi = 300, format = "png",
-#                       filenames = "../images/arabidopsis_thaliana1.png")
-
-knitr::include_graphics("../images/arabidopsis_thaliana1.png")
-```
 
 ##
 
@@ -344,6 +348,9 @@ knitr::include_graphics("../images/arabidopsis_thaliana2.png")
 
 ## Taxonomy and classification
 
+\bcolumns
+\column{0.4\textwidth}
+
 - Domain: Eukaryota
 - Kingdom: Animalia
 - Phylum: Nematoda
@@ -353,15 +360,9 @@ knitr::include_graphics("../images/arabidopsis_thaliana2.png")
 - Genus: _Caenorhabditis_
 - Species: _C. elegans_
 
-## Morpho-anatomy of adult and lifecycle of worm
+\column{0.6\textwidth}
 
-- The wild‐type nematode Caenorhabditis elegans has an elongated and spindle‐shaped body, whereas the dumpy mutant has a shorter body with approximately the same diameter.
-- A temperature‐sensitive morphological mutant which develops into an adult with dumpy phenotype, at $15^{\circ}C$, but with roller phenotype at $25^{\circ}C$, in addition to dumpy phenotype, was isolated.
-- The heterozygous offspring (F1), produced by crossing the mutant hermaphrodite with wild‐type males, were rollers in both hermaphrodites and males.
-
-##
-
-```{r c-elegans1, out.width="80%", fig.align='center'}
+```{r c-elegans1, out.width="95%", fig.align='center'}
 # pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Griffiths - An Introduction to Genetic Analysis 11th Edition c2015.pdf",
 #                       pages = 828,
 #                       dpi = 300, format = "png",
@@ -369,6 +370,14 @@ knitr::include_graphics("../images/arabidopsis_thaliana2.png")
 
 knitr::include_graphics("../images/caenorhabditis_elegans.png")
 ```
+
+\ecolumns
+
+## Morpho-anatomy of adult and lifecycle of worm
+
+- The wild‐type nematode Caenorhabditis elegans has an elongated and spindle‐shaped body, whereas the dumpy mutant has a shorter body with approximately the same diameter.
+- A temperature‐sensitive morphological mutant which develops into an adult with dumpy phenotype, at $15^{\circ}C$, but with roller phenotype at $25^{\circ}C$, in addition to dumpy phenotype, was isolated.
+- The heterozygous offspring (F1), produced by crossing the mutant hermaphrodite with wild‐type males, were rollers in both hermaphrodites and males.
 
 ##
 
@@ -419,7 +428,7 @@ knitr::include_graphics("../images/caenorhabditis_elegans.png")
 
   \column{.4\linewidth}
 
-```{r d-melanogaster2, out.width="70%", fig.align='center'}
+```{r d-melanogaster2, out.width="88%", fig.align='center'}
 # pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Griffiths - An Introduction to Genetic Analysis 11th Edition c2015.pdf",
 #                       pages = 831,
 #                       dpi = 300, format = "png",
@@ -430,7 +439,7 @@ knitr::include_graphics("../images/drosophila_melanogaster2.png")
 
   \column{.6\linewidth}
 
-```{r comparing-human-neurospora-drosophila-genome, out.width="65%", fig.align='center', fig.cap="Comparison of gene density in Human, Neurospora and Drosophila organisms."}
+```{r comparing-human-neurospora-drosophila-genome, out.width="80%", fig.align='center', fig.cap="Comparison of gene density in Human, Neurospora and Drosophila organisms."}
 knitr::include_graphics('../images/comparison_of_human_neurospora_drosophila_genome.png')
 ```
 
@@ -440,12 +449,12 @@ knitr::include_graphics('../images/comparison_of_human_neurospora_drosophila_gen
 
 - Taxonomic order Diptera in the family Drosophilidae. 
 - The species is known generally as the common fruit fly or vinegar fly. 
-- Charles W. Woodworth's proposed the use of this species as a model organism.
+- Charles W. Woodworth proposed the use of this species as a model organism.
 - D. melanogaster continues to be widely used for biological research in genetics, physiology, microbial pathogenesis, and life history evolution. As of 2017, six Nobel prizes had been awarded for research using Drosophila.
 - D. melanogaster is typically used in research owing to its rapid life cycle, relatively simple genetics with only four pairs of chromosomes, and large number of offspring per generation.
 - D. melanogaster is a common pest in homes, restaurants, and other places where food is served.
 
-## Taxonomy and classification^[https://en.wikipedia.org/wiki/Drosophila]
+## Taxonomy and classification
 
 - Domain: Eukaryota
 - Kingdom: Animalia
@@ -454,11 +463,10 @@ knitr::include_graphics('../images/comparison_of_human_neurospora_drosophila_gen
 - Order: Diptera
 - Family: Drosophilidae
 - Subfamily: Drosophilinae
-- Genus: _Drosophila_ (Fallén, 1823)
+- Genus\footnote[frame]{https://en.wikipedia.org/wiki/Drosophila}: _Drosophila_ (Fallén, 1823)
 
 ## Life cycle
 
-- Under optimal growth conditions at 25 degree C, the _D. melanogaster_ lifespan is about 50 days from egg to death.
 - The developmental period for _D. melanogaster_ varies with temperature, as with many ectothermic species. 
 - The shortest development time (egg to adult), 7 days, is achieved at 28 degree C.
 - Development times increase at higher temperatures (11 days at 30 degree C) due to heat stress. 
@@ -508,7 +516,7 @@ knitr::include_graphics('../images/comparison_of_human_neurospora_drosophila_gen
 - Recessive lethal "balancer chromosomes" carrying visible genetic markers can be used to keep stocks of lethal alleles in a heterozygous state without recombination due to multiple inversions in the balancer.
 - The development of this organism—from fertilized egg to mature adult—is well understood.
 - Genetic transformation techniques have been available since 1987.
-- Its complete genome was sequenced and first published in 2000^[https://pubmed.ncbi.nlm.nih.gov/10731132].
+- Its complete genome was sequenced and first published in 2000\footnote[frame]{https://pubmed.ncbi.nlm.nih.gov/10731132}.
 - Sexual mosaics can be readily produced, providing an additional tool for studying the development and behavior of these flies.
 
 ## Drosophila genetics
@@ -519,7 +527,7 @@ knitr::include_graphics('../images/comparison_of_human_neurospora_drosophila_gen
 
 ##
 
-```{r d-melanogaster1, out.width="48%", fig.align='center'}
+```{r d-melanogaster1, out.width="48%", fig.align='center', fig.cap="Life cycle of \\textit{Drosphila melanogaster}."}
 # pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Griffiths - An Introduction to Genetic Analysis 11th Edition c2015.pdf",
 #                       pages = 830,
 #                       dpi = 300, format = "png",
@@ -532,7 +540,26 @@ knitr::include_graphics("../images/drosophila_melanogaster1.png")
 
 ##
 
-```{r m-musculus1, out.width="48%", fig.align='center'}
+\bcolumns
+\column{0.5\textwidth}
+\footnotesize
+
+- _Mus musculus_ is a small mammal of the order Rodentia, characteristically having a pointed snout, large rounded ears, and a long and hairy tail.
+- Mouses dates long back on the genetic research as a model organism mostly due to its short breeding period.
+- Used to study human genetic disorders (downs syndrome, cystic fibrosis, epilepsy, heart diseases, cancers, tumours and many more).
+- More than hundred types of mice are divided into subfamilies of either old World or new world species.
+- Common varieties includes deermouse, housemouse, wood mouse, spingmose and zebramouse.
+- Smallest mouse: African pygmy measure (1.2-3.1 inches).
+- Some mice have tail that are as long as their body.
+
+<!-- - A mouse is a small with pointed nose, furry round body, large ears and a long often hairless tail. -->
+<!-- - Colour of mouse ranges from white,brown to grey -->
+<!-- - Length: 1 to 7 inches -->
+<!-- - Weight: 0.23kg to 0.28kg -->
+
+\column{0.5\textwidth}
+
+```{r m-musculus1, out.width="96%", fig.align='center'}
 # pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Griffiths - An Introduction to Genetic Analysis 11th Edition c2015.pdf",
 #                       pages = 832,
 #                       dpi = 300, format = "png",
@@ -541,23 +568,9 @@ knitr::include_graphics("../images/drosophila_melanogaster1.png")
 knitr::include_graphics("../images/mus_musculus1.png")
 ```
 
-##
+\ecolumns
 
-- _Mus musculus_ is a small mammal of the order Rodentia, characteristically having a pointed snout, large rounded ears, and a long and hairy tail.
-- Mouses dates long back on the genetic research as a model organism
-- Out of the order rodentia mouse is a orgamism with short breeding period.
-- They are widely used to study human genetic disorders (downs syndrome, cystic fibrosis, epilepsy, heart diseases, cancers, tumours and many more).
-
-##
-
-- _Mus musculus_ is a small mammal of the order Rodentia, characteristically having a pointed snout, large rounded ears, and a long and hairy tail.
-- Mouses dates long back on the genetic research as a model organism
-- Out of the order rodentia mouse is a orgamism with short breeding period.
-- They are widely used to study human genetic disorders (downs syndrome, cystic fibrosis, epilepsy, heart diseases, cancers, tumours and many more).
-
-## Classification and taxonomy^[https://en.wikipedia.org/wiki/House_mouse]
-
-\footnotesize
+## Classification and taxonomy
 
 - Domain: Eukaryota
 - Kingdom: Animalia
@@ -567,7 +580,7 @@ knitr::include_graphics("../images/mus_musculus1.png")
 - Family: Muridae
 - Genus: _Mus_
 - Subgenus: _Mus_
-- Species: _M. musculus_
+- Species\footnote[frame]{\url{https://en.wikipedia.org/wiki/House_mouse}}: _M. musculus_
 
 ## Genetics
 
@@ -595,17 +608,6 @@ knitr::include_graphics("../images/mus_musculus1.png")
 knitr::include_graphics("../images/mouse_karyotype.jpg")
 ```
 
-## Morphology
-
-- A mouse is a small with pointed nose, furry round body, large ears and a long often hairless tail.
-- There are hundred types of mice divided into subfamilies of either old World or new world species. 
-- Common varieties includes deermouse, housemouse, wood mouse, spingmose and zebramouse.
-- Colour of mouse ranges from white,brown to grey
-- Length: 1 to 7 inches
-- Weight: 0.23kg to 0.28kg
-- Smallest mouse: African pygmy measure (1.2-3.1 inches).
-- Some mice have tail that are as long as their body.
-
 ## Reproduction
 
 - Mus musculus is characterized by tremendus reproductive potential. 
@@ -617,12 +619,10 @@ knitr::include_graphics("../images/mouse_karyotype.jpg")
 ## Suitability
 
 - A model organism is a species that has been widely studied, usually because it is easy to maintain and breed in a laboratory setting and has particular experimental advantages.
-- Mus musculus represents humans and a broad range of mammals as they are closely related in terms of anatomy, physiology and genetics.
+- Mus musculus represents humans and a broad range of mammals as they are closely related in terms of anatomy, physiology and genetics (genome size).
 - They are widely used as disease models for humans.
-- They can breed large number of off-spring in a short period of time.
-- The similar sized gene/genome of mouse and humans gave preference to mouse in genetic studies.
+- They can breed large number of off-spring in a short period of time. Sexual maturity is reached usually around 10 weeks. Thus several generations can be observed at once.
 - They are easy to look after and care and are cost effective.
-- The time between a mouse being born and giving birth is short, usually around 10 weeks. Thus several generations can be observed at once.
 - Immunodeficient mice can also be used as hosts to grow both normal and diseased normal human tissue. This has been a useful tools in cancer and AIDS research.
 
 ## Studies
@@ -652,11 +652,11 @@ include_graphics("../images/Teosinte4.jpg")
 
   \column{.6\linewidth}
 
-```{r maize-tassel, fig.cap="Male inflorescence of a maize plant"}
+```{r maize-tassel, fig.cap="Male inflorescence of a maize plant", out.width="65%"}
 include_graphics("../images/maize_tassel.jpg")
 ```
 
-```{r maize-plant, fig.cap="Maize crop (ear)"}
+```{r maize-plant, fig.cap="Maize crop (ear)", out.width="55%"}
 include_graphics("../images/Maize_variants.jpg")
 ```
 
@@ -671,25 +671,27 @@ include_graphics("../images/Maize_variants.jpg")
 
 ##
 
-```{r maize-infloresence-type, fig.cap="Types of compound inflorescences"}
-# pdftools::pdf_convert("./../../literatures/Plant Science Straussberger.pdf", 
-#                       pages = 193, format = "png", 
-#                       filenames = "../images/types_of_inflorescence.png", dpi = 300)
-knitr::include_graphics("../images/types_of_inflorescence.png")
-```
-
-##
-
 - In corn two types of gametophytes are represented by small **microspores** in the stamens (found in tassels), and by large **megaspores** in the pistils (found in developing ears).
 - In stamen single diploid microspore mother cell cell (**PMC**) divide meiotically to yield four haploid microspores, each becoming encapsulated as a pollen grain (the **male gametophyte**), the haploid pollen then divides mitotically to form a **tube nucleus** and a **generative nucleus**.
-- In pistils similar event occur in each megaspore mother cell (**MMC**), except that only one of four haploid macrospore nuclei becomes functional occupant of the **embryo sac** (the **female gametophyte**). The nuclei of this cell divides mitotically into two daughter nuclei, which divide twice more, forming a total of eight haploid nuclei, four at each end of the embryo sac.
+- In pistils similar event occur in each megaspore mother cell (**MMC**), except that only one of four haploid macrospore nuclei becomes functional occupant of the **embryo sac** (the **female gametophyte**). The nuclei of this cell divides mitotically into two daughter nuclei, which divide twice more, forming a total of eight haploid nuclei, four at each end of the embryo sac\footnote[frame]{Refer to the media file: Double fertilization in angiosperms.}.
 
-## Alternation of generation in flowering plants
+## Alternation of generation in Maize
 
-```{r alternation-generation, fig.align='center', out.width="60%"}
-# pdftools::pdf_convert("./../../references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 110, format = "png", filenames = "./images/alternation_of_generations.png", dpi = 300)
-knitr::include_graphics("../images/alternation_of_generations.png")
+\bcolumns
+\column{0.7\textwidth}
+
+```{r alternation-generation-maize, fig.align='center', out.width="52%", fig.cap=" The male gametophyte arises from a meiocyte in the tassel. The female gametophyte arises from a meiocyte in the ear shoot."}
+# pdftools::pdf_convert("../../../000readables/plbgen/general_textbooks/2004_Introduction to Genetic Analysis_With solutions.pdf", pages = 103, format = "png", filenames = "./images/alternation_of_generation_maize.png", dpi = 300)
+knitr::include_graphics("../images/alternation_of_generation_maize.png")
 ```
+
+\column{0.35\textwidth}
+
+```{r fertilization, fig.cap="Fertilization in \\textbf{self pollinated} flower", out.width="98%", fig.align='center'}
+knitr::include_graphics("../images/fertilization_in_self_pollinated_species.png")
+```
+
+\ecolumns
 
 ##
 
@@ -698,15 +700,7 @@ knitr::include_graphics("../images/alternation_of_generations.png")
 - In the process of fertilization, the pollen grain makes contact with the stigma (silk) of the pistil and then germinates into a long **pollen tube** carrying the two male sperm nuclei to the embryo sac.
 - One male gamete fertilizes the female gametic nucleus to form the diploid zygote, and the other male gamete combines with the diploid endosperm to form triploid tissue that will nourish the embryo. This constitutes the **double fertilization**.
 
-##
+# Bibliography
 
-```{r sporogenesis, fig.cap="Embryo sac and pollen formation", out.width="40%", fig.align='center'}
-# pdftools::pdf_convert("./../../references_plb/Rolf H. J. Schlegel - Encyclopedic Dictionary of Plant Breeding and Related Subjects-The Food Products Press (2003).pdf", pages = 554, format = "png", filenames = "./images/sporogenesis.png", dpi = 300)
-knitr::include_graphics("../images/sporogenesis.png")
-```
+## References
 
-##
-
-```{r fertilization, fig.cap="Fertilization in \\textbf{self pollinated} flower", out.width="40%", fig.align='center'}
-knitr::include_graphics("../images/fertilization_in_self_pollinated_species.png")
-```

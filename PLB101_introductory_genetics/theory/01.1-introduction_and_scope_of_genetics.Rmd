@@ -1,11 +1,10 @@
 ---
 title: Introduction to genetics
-subtitle: An overview
+subtitle: An Overview
 author: Deependra Dhakal
-date: 'Academic year: 2022-2023' 
+# date: 'Academic year: 2022-2023' 
 institute: |
-  | College of Natural Resource Management (AFU)
-  | Tikapur, Kailali
+  | Agriculture and Forestry University
   | \textit{ddhakal.rookie@gmail.com}
   | \url{https://rookie.rbind.io}
 output: 
@@ -36,7 +35,22 @@ options(kableExtra.latex.load_packages = FALSE)
 
 # Introduction
 
+##
+
+The Native American Hopi tribe of the Southwestern United States understood that if they planted a red kernel of maize in their fields, it would grow into a plant that also gave red kernels. The same was true for blue, white, or yellow kernels.
+
+So they thought of the kernel as a message to the gods in the Earth about the type of maize the Hopi farmers hoped to harvest. Upon receiving this message, the gods would faithfully return them a plant that produced kernels of the desired color.
+
 ## Background
+
+<!-- Nazi eugenics refers to the social policies of eugenics in Nazi Germany, composed of various pseudoscientific ideas about genetics. The racial ideology of Nazism placed the biological improvement of the German people by selective breeding of "Nordic" or "Aryan" traits at its center. These policies were used to justify the involuntary sterilization and mass-murder of those deemed "undesirable". -->
+
+<!-- Those targeted for murder under Nazi eugenics policies were largely people living in private and state-operated institutions, identified as "life unworthy of life" (Lebensunwertes Leben). They included prisoners, degenerates, dissidents, and people with congenital cognitive and physical disabilities (Erbkranken) – people who were considered to be feeble-minded. -->
+
+<!-- The Hadamar Clinic was a mental hospital in the German town of Hadamar used by the Nazi-controlled German government as the site of Action T4. The Kaiser Wilhelm Institute of Anthropology, Human Heredity, and Eugenics was founded in 1927. Hartheim Killing Facility was also part of the euthanasia programme where the Nazis murdered individuals they deemed disabled. At first, patients were transported in gas vans, where passengers were poisoned or asphyxiated using the engine exhaust during transit. Gas chambers were developed later and used pure carbon monoxide gas to murder the patients. -->
+
+\bcolumns
+\column{0.55\textwidth}
 
 ::: incremental
 
@@ -44,47 +58,16 @@ options(kableExtra.latex.load_packages = FALSE)
 - The major drive of the green revolution
 - Issues of government regimes -- politics of masses during Hitler's Germany.
 - Can traditional agriculture satisfy human needs in distant future ?
-  - Modern variety
-  - GM crops and their safety
-- Medical drugs, genetic engineering
-- Appreciation
 
 :::
 
-##
+\column{0.45\textwidth}
 
-\begin{columns}[T,onlytextwidth]
-  
-  \column{0.5\textwidth}
+<!-- ```{r green-revolution-borlaug, fig.cap="Norman Borlaug, a leader in the development of new strains of wheat that led to the Green Revolution. Borlaug was awarded the Nobel Peace Prize in 1970.", out.width="38%"} -->
+<!-- # pdftools::pdf_convert("~/Desktop/BSc_Ag_lectures/literatures/textbooks/General/Pierce Genetics Essentials Concepts Connections 1st txtbk.PDF", pages = 25, dpi = 300, filenames = "../images/green_revolution_borlaug.png", format = "png") -->
 
-```{r genetics-applications-1, fig.cap="", out.width="70%"}
-
-knitr::include_graphics("../images/wild_flowers_abroad.jpg")
-knitr::include_graphics("../images/jacaranda_kathmandu.jpg")
-```
-
-  \column{0.5\textwidth}
-
-```{r genetics-applications-2, fig.cap="Crop improvement", out.width="96%"}
-
-knitr::include_graphics("../images/wheat_trial_plots.jpg")
-```
-
-\end{columns}
-
-##
-
-\begin{columns}[T,onlytextwidth]
-  
-  \column{0.5\textwidth}
-
-```{r green-revolution-borlaug, fig.cap="Norman Borlaug, a leader in the development of new strains of wheat that led to the Green Revolution. Borlaug was awarded the Nobel Peace Prize in 1970.", out.width="38%"}
-# pdftools::pdf_convert("~/Desktop/BSc_Ag_lectures/literatures/textbooks/General/Pierce Genetics Essentials Concepts Connections 1st txtbk.PDF", pages = 25, dpi = 300, filenames = "../images/green_revolution_borlaug.png", format = "png")
-
-knitr::include_graphics("../images/green_revolution_borlaug.png")
-```
-
-  \column{0.5\textwidth}
+<!-- knitr::include_graphics("../images/green_revolution_borlaug.png") -->
+<!-- ``` -->
 
 ```{r green-revolution-crop, fig.cap="Modern, high-yielding rice plant (left) and traditional rice plant (right)", out.width="80%"}
 # pdftools::pdf_convert("~/Desktop/BSc_Ag_lectures/literatures/textbooks/General/Pierce Genetics Essentials Concepts Connections 1st txtbk.PDF", pages = 25, dpi = 300, filenames = "../images/green_revolution_crop.png", format = "png")
@@ -92,13 +75,101 @@ knitr::include_graphics("../images/green_revolution_borlaug.png")
 knitr::include_graphics("../images/green_revolution_crop.png")
 ```
 
-\end{columns}
+\ecolumns
+
+## Other importance
+
+\bcolumns
+\column{0.4\textwidth}
+
+::: incremental
+
+- Vaccines
+- Genetic engineering
+- Detection and diagnosis
+- Industrial biotechnology
+- Conservation
+
+```{r pigs-can-fly, fig.align='center', out.width="68%"}
+# pigs might fly afterall
+# but they still can't look up, can they!
+knitr::include_graphics("../images/genetic_engineering_meme.jpg")
+
+# Scientists and doctors have dreamed of creating a steady supply of human organs for transplantation by growing them in pig. But concerns about rejection by the human immune system and infection by viruses embedded in the pig genome have stymied research.
+
+# Geneticist George Church of Harvard Medical School in Boston, Massachusetts, announced that he and colleagues had used the CRISPR/Cas9 gene-editing technology to inactivate 62 porcine endogenous retroviruses (PERVs) in pig embryos. These viruses are embeded in all pigs' genomes and cannot be treated or neutralized (in grown animals). It is feared that they could cause disease in human transplant recipients.
+# Source: doi:10.1038/nature.2015.18525
+
+```
+
+:::
+
+\column{0.6\textwidth}
+
+```{r covid-vaccine-dna, fig.align='center', out.width="65%"}
+# The study tested whether the vaccine’s mRNA could be converted to DNA, and found that this was the case in certain lab-altered liver cell lines under experimental conditions. It did not assess whether the vaccine alters the human genome, or what the effects of that would be, according to experts and the study authors.
+knitr::include_graphics("../images/covid_vaccine_changes_human_DNA.jpg")
+```
+
+```{r dolly, fig.align='center', out.width="48%", fig.cap="The cloning of a mammal."}
+# The lamb in the front is Dolly, the first mammal to be cloned. She was cloned from the cells of a Finn Dorset (a white-faced sheep). The sheep in the back is Dolly's surrogate mother, a Blackface ewe.
+knitr::include_graphics("../images/dolly.png")
+```
+
+\ecolumns
+
+## Genetically engineered food
+
+\bcolumns
+\column{0.5\textwidth}
+
+```{r antioxidant-enriched-tomato, out.width="70%", fig.align='center'}
+knitr::include_graphics("../images/purple_tomato_enriched_antioxidants.jpg")
+```
+
+\column{0.5\textwidth}
+
+```{r golden-rice, out.width="70%", fig.align='center'}
+knitr::include_graphics("../images/golden_rice.jpg")
+```
+
+\ecolumns
+
+
+##
+
+\bcolumns
+  
+\column{0.5\textwidth}
+
+**Aesthetics, conservation and appreciation**
+
+```{r genetics-applications-2, out.width="65%", fig.align='center'}
+
+knitr::include_graphics("../images/wheat_trial_plots.jpg")
+```
+
+
+```{r genetics-applications-1, out.width="56%", fig.align='center'}
+knitr::include_graphics("../images/jacaranda_kathmandu.jpg")
+```
+
+\column{0.5\textwidth}
+
+```{r reconnect-with-nature, out.width="75%", fig.align='center'}
+knitr::include_graphics("../../literatures/reconnect_with_nature.pdf")
+```
+
+\ecolumns
 
 ## Definition
 
-### Study of heredity
+\bcolumns
+\column{0.55\textwidth}
 
 ::: incremental
+
+**Study of heredity**
 
 - Why cats always have kittens and humans always have babies ?
 - Why do children resemble their parents ?
@@ -106,15 +177,22 @@ knitr::include_graphics("../images/green_revolution_crop.png")
 
 :::
 
-### Etymology
-
 ::: incremental
 
+**Etymology**
+
 - "gene"
-- At any level of study genes are central
 - Genes have unique nature to perform their biological roles -- replication, information bearing/generation of form and mutation
 
 :::
+
+\column{0.45\textwidth}
+
+```{r like-begets-like, fig.align='center', out.width="75%"}
+knitr::include_graphics("../images/like_begets_like.png")
+```
+
+\ecolumns
 
 ## Terminologies
 
@@ -152,6 +230,14 @@ knitr::include_graphics("../images/chicken_selection.jpg")
 knitr::include_graphics("../images/viruses.jpg")
 ```
 
+##
+
+```{r understanding-all, out.width="55%", fig.align='center'}
+knitr::include_graphics("../images/understood_it_all.jpg")
+
+# not everything needs to be understood right off the bat. things will come slowly.
+```
+
 
 ## Branches
 
@@ -167,6 +253,10 @@ knitr::include_graphics("../images/genetics_subdivision.png")
 
 - Blending theory of inheritance
 - Mendelian theory of inheritance
+
+<!-- Red and white paints, when mixed, give pink; and so a child of one tall parent and one short parent could be expected to grow to a middling height. While blending theory seemed to work at times, it was also clear that there were exceptions, such as tall children born to parents of average height. -->
+
+<!-- Blending theory also provided no mechanism by which the "heredity fluids" it imagined, once mixed, could be separated—the red and white paints cannot be reconstituted from the pink. -->
 
 ## Mendel's Experiment
 
@@ -266,7 +356,12 @@ knitr::include_graphics("../images/model_organisms_mus.png")
 
 \end{columns}
 
+<!-- Each species was chosen to allow study of some aspect of embryonic development. The nematode _Caenorhabditis elegans_ was chosen as a model system to study the development and function of the nervous system because its nervous system contains only a few hundred cells and the developmental fate of these and all other cells in the body has been mapped out. Arabidopsis thaliana, a small plant with a short life cycle, has become a model organism for the study of many aspects of plant biology. The zebrafish, _Danio rerio_, is used to study vertebrate development: it is small, it reproduces rapidly, and its egg, embryo, and larvae are all transparent. -->
+
 ## Fundamental concepts of genetics
+
+<!-- Where in the cell are Mendel’s genes? -->
+<!-- The answer came in 1910, when Thomas H. Morgan at Columbia University in New York demonstrated that Mendel's genes are located on chromosomes—he proved the chromosome theory of inheritance. The idea was not new. Walter Sutton, who was raised on a farm in Kansas and later served as a surgeon for the U.S. army during WWI had proposed the chromosome theory of inheritance in 1903. Theodor Boveri, a German biologist, independently proposed it at the same time. It was a compelling hypothesis, but there were no experimental data to support it. This changed in 1910, when Morgan proved the chromosome theory of inheritance using Mendelian genetics and the fruit fly as his experimental organism. -->
 
 ::: incremental
 

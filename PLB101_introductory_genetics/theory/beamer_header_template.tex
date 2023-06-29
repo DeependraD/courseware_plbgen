@@ -19,6 +19,7 @@
 \usepackage[absolute,overlay]{textpos} % for text formatting
 \usepackage[skip=0.333\baselineskip]{caption}
 % \usepackage{newtxtext,newtxmath}% better than txfonts   
+\usepackage{tcolorbox}
 
 \sisetup{per-mode=symbol}
 
@@ -50,3 +51,49 @@
 \setbeamertemplate{section in toc shaded}[default][50]
 % \usecolortheme{crane}
 \usecolortheme{seahorse}
+
+\newcommand{\bcolumns}{\begin{columns}[T, onlytextwidth]}
+\newcommand{\ecolumns}{\end{columns}}
+
+\newcommand{\bdescription}{\begin{description}}
+\newcommand{\edescription}{\end{description}}
+
+\newcommand{\bitemize}{\begin{itemize}}
+\newcommand{\eitemize}{\end{itemize}}
+
+% use cslreferences environment
+% this is revised as of Oct, 2022 (https://stackoverflow.com/questions/59193797/pandocs-environment-cslreferences-undefined-when-knitting-rmarkdown-to-pdf-in-r)
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newenvironment{CSLReferences}%
+  {\setlength{\parindent}{0pt}%
+  \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
+  {\par}
+
+% % set option for tcolorbox
+% \tcbset{colback=red!5!white,colframe=red!75!black}
+% 
+% \setbeamertemplate{title page}{
+% 
+%         \begin{picture}(0,0)
+% 
+%             \put(85.33,-128){%
+%                 \pgfuseimage{mybackground}
+%             }
+% 
+%             \put(0,-110){%
+%                 \begin{minipage}[b][4cm][t]{13cm}
+%                     \raggedright
+%                     \begin{tcolorbox}[leftrule=2mm]
+%                     \usebeamerfont{title}{\inserttitle\par}
+%                     \end{tcolorbox}
+%                     \bigskip
+%                     \usebeamerfont{author}\insertauthor\par
+%                     \bigskip
+%                     \usebeamerfont{institute}\insertinstitute\par
+%                 \end{minipage}
+%             }
+% 
+%             \end{picture}
+% 
+%     }

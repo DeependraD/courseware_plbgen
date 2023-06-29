@@ -2,8 +2,6 @@
 title: Cell division and cell cycle
 author: Deependra Dhakal
 institute: |
-  | Assistant Professor
-  | College of Natural Resource Management
   | Agriculture and Forestry University
   | \textit{ddhakal.rookie@gmail.com}
   | \url{https://rookie.rbind.io}
@@ -15,6 +13,9 @@ output:
 classoption: "aspectratio=169" # "compressed"
 fontsize: 11pt
 bibliography: [./../bibliography/bibliographies.bib]
+header-includes:
+  # - \setbeamertemplate{background}{\includegraphics[height=\paperheight]{metaphase-peanut-butter.jpg}}
+  - \pgfdeclareimage[height=\paperheight]{mybackground}{peanut-butter.png}
 ---
 
 ```{r,setup, include=FALSE}
@@ -30,19 +31,23 @@ options(knitr.kable.NA = "", digits = 2)
 options(kableExtra.latex.load_packages = FALSE)
 ```
 
+
 # Cell cycle
 
 ## Background
 
+\small
+
 - Living beings produce more of their kind (procreate).
 - Rudolf Virchow, a German physician, put it this way in 1855, translating which in his latin axiom "Omnis cellula e cellula," meaning "Every cell from a cell."
 - Cell division enables unicellular organisms to reproduce and produce entire organism.
-- What goes on in eukaryotes cell cycle
 - Cell division involves distribution of identical genetic material, not merely the splitting of components.
 - Cell division copies DNA with high fidelity.
-- Functions:
-  - Passing identical genetic material to cellular offspring.
-  - Breakdown of cell cycle plays a role in cancer development
+
+```{r agent-smith, fig.align='center', out.width="38%"}
+knitr::include_graphics("../images/agent_smith.jpg")
+```
+
 
 ##
 
@@ -57,26 +62,22 @@ knitr::include_graphics("../images/cell_structure_plant.png")
 
 ## Organization of genetic material
 
-\begin{columns}[T,onlytextwidth]
+\bcolumns
 \column{0.6\textwidth}
 
-\begin{itemize}
-\item A cell's complete bulk of genetic information, DNA, is called its genome.
-\item Although a prokaryotic genome is often a single DNA molecule, eukaryotic genomes usually consist of a number of DNA molecules.
-\item Length of DNA = ~ 250, 000 times diameter of the cell that bears it.
-\item When cell can divide to form genetically identical daughter cells, all of this DNA must be copied, or replicated, and then two copies must be separated so that each daughter cells ends up with a complete genome.
-\item DNA is packaged into **chromosomes** ( _chroma_ and _soma_).
-\item The entire complex of DNA and proteins that is the building material of chromosomes is referred to as **chromatin**.
-\item Most eukaryotic species have a characteristic number of chromosomes in each cell nucleus.
-\end{itemize}
+- A cell's complete bulk of genetic information, DNA, is called its **genome**.
+- Although a prokaryotic genome is often a single DNA molecule, eukaryotic genomes usually consist of a number of DNA molecules packaged into **chromosomes** ( _chroma_ and _soma_).
+- Length of DNA = ~ 250, 000 times diameter of the cell that bears it.
+- When cell can divide to form genetically identical daughter cells, all of this DNA must be copied, or replicated, and then two copies must be separated so that each daughter cells ends up with a complete genome.
+- The entire complex of DNA and proteins that is the building material of chromosomes is referred to as **chromatin**.
 
 \column{0.4\textwidth}
 
-```{r powerhouse-of-cell, out.width="80%"}
+```{r powerhouse-of-cell, out.width="80%", fig.align='center'}
 knitr::include_graphics("../images/what_gives_power.jpg")
 ```
 
-\end{columns}
+\ecolumns
 
 # Structure of Chromosome
 
@@ -90,6 +91,13 @@ knitr::include_graphics("../images/what_gives_power.jpg")
 
 knitr::include_graphics("../images/chromosome_structure.png")
 ```
+
+
+<!-- When genomic DNA is spun for a long time in cesium chloride density gradient in an ultracentrifuge, the DNA settles into one prominent visible band. However, satellite bands are often visible, distinct from the main DNA band. Such satellite DNA consists of multiple tandem repeats of short nucleotide sequences, stretching to as much as hundreds of kilobases in length. Probes may be prepared from such simple-sequence DNA and allowed to bind to partially denatured chromosomes. The great bulk of the satellite DNA is found to reside in the heterochromatic regions flanking the centromeres. There can be either one or several basic repeating units, but usually they are less than 10 bases long. For example, in _Drosophila melanogaster_, the sequence AATAACATAG is found in tandem arrays around all centromeres. Similarly, in the guinea pig, the shorter sequence CCCTAA is arrayed flanking the centromeres. -->
+
+<!-- Because the centromeric repeats are a nonrepresentative sample of the genomic DNA, the G+C content can be significantly different from the rest of the DNA. For this reason, the DNA forms a separate satellite band in an ultracentrifuge density gradient. -->
+
+<!-- Nucleoli are organelles within the nucleus that contain ribosomal RNA, an important component of ribosomes. Different organisms are differently endowed with nucleoli, which range in number from one to many per chromosome set. The diploid cells of many species have two nucleoli. The nucleoli reside next to slight constrictions of the chromosomes, called nucleolar organizers (NO) which have highly specific positions in the chromosome set. Nucleolar organizers contain the genes that code for ribosomal RNA. The NO does not stain with normal chromatin stains. The NOs on the Drosophila X and Y chromosomes contain 250 and 150 tandem copies of rRNA genes, respectively. One human NO has about 250 copies. Such redundancy is one way of ensuring a large amount of rRNA per cell. -->
 
 ##
 
@@ -149,7 +157,7 @@ chr_no[[1]][1:10,] %>%
   select(-1) %>% 
   knitr::kable(caption = "Chromosome numbers found different species of organisms (animals)",
                booktabs = TRUE, escape = FALSE) %>%
-  kableExtra::kable_styling(font_size = 5, position = "center", latex_options = "striped") #%>%
+  kableExtra::kable_styling(font_size = 8, position = "center", latex_options = "striped") #%>%
   # kableExtra::column_spec(1:2, width = c("5em", "50em")) %>%
   # kableExtra::collapse_rows(columns = 1, valign = "top")
 ```
@@ -165,7 +173,7 @@ chr_no[[1]][11:nrow(chr_no[[1]]),] %>%
   select(-1) %>% 
   knitr::kable(caption = "Chromosome numbers found different species of organisms (animals) ... continued",
                booktabs = TRUE, escape = FALSE) %>%
-  kableExtra::kable_styling(font_size = 5, position = "center", latex_options = "striped") #%>%
+  kableExtra::kable_styling(font_size = 8, position = "center", latex_options = "striped") #%>%
   # kableExtra::column_spec(1:2, width = c("5em", "50em")) %>%
   # kableExtra::collapse_rows(columns = 1, valign = "top")
 ```
@@ -181,7 +189,7 @@ chr_no[[2]] %>%
   select(-1) %>% 
   knitr::kable(caption = "Chromosome numbers (haploid number) found different species of organisms (micro-organisms) ... continued",
                booktabs = TRUE, escape = FALSE) %>%
-  kableExtra::kable_styling(font_size = 5, position = "center", latex_options = "striped") #%>%
+  kableExtra::kable_styling(font_size = 6, position = "center", latex_options = "striped") #%>%
   # kableExtra::column_spec(1:2, width = c("5em", "50em")) %>%
   # kableExtra::collapse_rows(columns = 1, valign = "top")
 ```
@@ -193,7 +201,7 @@ chr_no[[3]] %>%
   select(-1) %>% 
   knitr::kable(caption = "Chromosome numbers found different species of organisms (plants) ...continued",
                booktabs = TRUE, escape = FALSE) %>%
-  kableExtra::kable_styling(font_size = 4, position = "center",
+  kableExtra::kable_styling(font_size = 6, position = "center",
                             latex_options = "striped") #%>%
   # kableExtra::column_spec(1:2, width = c("5em", "50em")) %>%
   # kableExtra::collapse_rows(columns = 1, valign = "top")
@@ -360,7 +368,7 @@ knitr::include_graphics("../images/key_events_mitosis_meiosis.jpg")
 - During all three subphases, a cell that will eventually divide grows by producing proteins and cytoplasmic organelles such as mitochondria and endoplasmic reticulum. 
 - Chromosomes are duplicated only during the S phase.
 
-## Key events in mitosis
+##
 
 - Mitotic spindle (consists of microtubules fibers and associated proteins) forms in the cytoplasm during prophase.
 - Spindle formation starts at centrosomes, division of which has occured during interphase.
@@ -412,8 +420,6 @@ knitr::include_graphics("../images/key_events_mitosis_meiosis.jpg")
 
 <!-- knitr::include_graphics("../images/eukaryotic_origin_of_replication.png") -->
 <!-- ``` -->
-
-## Key events in meiosis
 
 # Associated events in eukaryotic cell division
 

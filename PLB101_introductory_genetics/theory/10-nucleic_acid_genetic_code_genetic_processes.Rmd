@@ -1,10 +1,9 @@
 ---
 title: Nucleic acids- DNA, RNA; replication, transcription, translation and genetic code
 author: Deependra Dhakal
-date: 'Academic year: 2022-2023' 
+# date: 'Academic year: 2022-2023' 
 institute: |
-  | College of Natural Resource Management (AFU)
-  | Tikapur, Kailali
+  | Agriculture and Forestry University
   | \textit{ddhakal.rookie@gmail.com}
   | \url{https://rookie.rbind.io}
 output: 
@@ -16,7 +15,7 @@ classoption: "aspectratio=169" # "compressed"
 fontsize: 11pt
 bibliography: [./../bibliography/bibliographies.bib]
 header-includes:
-   - \usepackage[font=\tiny]{subfig}
+  - \pgfdeclareimage[height=\paperheight]{mybackground}{sky_view.png}
 ---
 
 ```{r,setup, include=FALSE}
@@ -47,6 +46,13 @@ options(kableExtra.latex.load_packages = FALSE)
 
 ##
 
+```{r angstorm, fig.align='center', out.width="70%"}
+knitr::include_graphics("../images/a_place_in_norway.png")
+```
+
+
+##
+
 ```{r double-helix, out.width="65%", fig.cap="The Watson-Crick model of the DNA double helix (B-form)"}
 # pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Griffiths - An Introduction to Genetic Analysis 11th Edition c2015.pdf",
 #                       pages = 295,
@@ -67,9 +73,13 @@ knitr::include_graphics("../images/double_helix_dna.png")
 knitr::include_graphics("../images/complementary_base_pairing.png")
 ```
 
+<!-- Guiding Principle of Practice -->
+<!-- Bruce Lipton, a professor of genetics, speaker and author of the book The Biology of Belief, once asked: "What is the difference between your doctor and an airplane pilot ?" Before delivering the punch line, he pointed out that a pilot, by law, has to go through a large checklist of items before he can taxi the plane away from the airport terminal. Your doctor likewise is expected to go over a standard list of questions and procedures when you come to see her, but since she had only about 10 minutes allocated to your visit, there isn't time to actually do the full job. What's the real difference between doctor and the pilot ? "The pilot is on the plane with you!" -->
+<!-- You can't fly a plane unless you are ON it! But a doctor can just prescribe and get away. Be a pilot not a doctor. -->
+
 ##
 
-```{r dna-replication-mode, out.width="70%", fig.align='center'}
+```{r genome-organization, out.width="58%", fig.align='center'}
 
 knitr::include_graphics("../images/headphonome.jpg")
 ```
@@ -83,6 +93,13 @@ knitr::include_graphics("../images/headphonome.jpg")
   - The conventional way of expressing the base composition of an organism is by the percentage of $\text{[G] + [C]}$. This value is approximately 50% for most eukaryotes with only minor variations among species. In simpler organisms, there are significant variations (e.g., 27% for _Clostridium_, 50% for _E. coli_, and 76% for _Sarcina_, all of these organisms being bacteria).
   - The chains of the double helix are held together by hydrogen bonds between base pairs in opposite strands. The bond between A and T is a double bond, while the bond between G and C is a triple hydrogen bond.
 
+## Helix is right handed !
+  
+```{r right-handed-helix, fig.align='center', out.width="60%"}
+knitr::include_graphics("../images/right_handed_helix.jpg")
+```
+
+
 ##
 
 \begin{figure}
@@ -90,12 +107,12 @@ knitr::include_graphics("../images/headphonome.jpg")
 
   \column{.36\linewidth}
   \begin{center}
-  \includegraphics[width=0.90\linewidth]{../images/nucleotide_blocks1.png}
+  \includegraphics[width=0.96\linewidth]{../images/nucleotide_blocks1.png}
   \end{center}
   
   \column{.36\linewidth}
   \begin{center}
-  \includegraphics[width=0.80\linewidth]{../images/nucleotide_blocks.png}
+  \includegraphics[width=0.95\linewidth]{../images/nucleotide_blocks.png}
   \end{center}
   
   \column{.28\linewidth}
@@ -119,7 +136,7 @@ knitr::include_graphics("../images/headphonome.jpg")
 - The DNA double helix strands are so arranged in positive-negative relationship that identical duplication or replication of heriditary information is possible.
 - Two strands separate and a base-complementary partner strand is newly formed with each strand. This mode of duplication is called semi-conservative mode.
 
-```{r dna-replication-mode, out.width="52%", fig.align='center'}
+```{r dna-replication-mode, out.width="56%", fig.align='center'}
 # pdftools::pdf_convert("../../literatures/Plant Science Straussberger.pdf",
 #                       pages = 32,
 #                       dpi = 300, format = "png",
@@ -131,33 +148,76 @@ knitr::include_graphics("../images/semi_conservative_replication.png")
 ## Steps in replication
 
 - Unwinding of DNA double helix by **hellicase**
-- Prevention of knotting by relaxation enzyme (**topoisomerase I**)
+- Prevention of knotting by relaxation enzymes (**DNA gyrase**, a member of the family **DNA topoisomerase I**)
 - Two strands of a replication fork (one $3^{\prime}$ and the other $5^{\prime}$) need to be extended by different mechanisms because DNA polymerases can only extend the chain at former orientation. Only $3^\prime$ end is continually extended.
 - Ligases are able to link $3^\prime$ ends with $5^\prime$ ends. Without these lagging strand sequences cannot be bonded and can be isolated as **Okazaki fragments**.
-- DNA polymerase require a **primer** (RNA sequences) in order to start synthesis. These primers supply the $3^\prime$ end on which the DNA polymerase can build further.
+- DNA polymerase III (primary enzyme that carries out chain elongation) require a **primer** (RNA sequences) in order to start synthesis. These primers supply the $3^\prime$ end on which the DNA polymerase can build further.
 - A sequence region replicated by a replicator is called a **replicon**.
+
+<!-- As unwinding proceeds, a coiling tension is created ahead of the replication fork, often producing supercoiling. Such supercoiling can be relaxed by DNA gyrase. -->
+
+<!-- The discovery of polA1 mutation made it clear that DNA polymerase I is not, in fact, the primary enzyme responsible for DNA replication. -->
 
 ##
 
-```{r dna-replication-process, out.width="45%", fig.align='center'}
+\bcolumns
+\column{0.55\textwidth}
+
+```{r dna-replication-process, out.width="76%", fig.align='center', fig.cap="The replication fork"}
 # pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Griffiths - An Introduction to Genetic Analysis 10th Edition.pdf",
 #                       pages = 295,
 #                       dpi = 300, format = "png",
 #                       filenames = "../images/dna_replication_process.png")
 
 knitr::include_graphics("../images/dna_replication_process.png")
+
+# DNA Pol-I (in E. coli) has been shown to consist of a single polypeptide containing 928 amino acids.
+
+# note that although the DNA Pol-III is shown in the lagging strand
+# it is not the primary enzyme carrying out elongation; DNA Pol-I is.
+# DNA Pol-III only repairs the excision gaps.
+
+# DNA Pol-III also has exonuclease activity -- they have the potential to polymerize in one direction and then pause, reverse their direction, and excise nucleotides just added.
+
+# Eukaryotic chromosomes contain multiple replication origins. Yeast genomes contain between 250 and 400 origins, and mammalian genomes have as many as 25,000.
+# Origins in yeast, called autonomously replicating sequences (ARSs), consist of approximately 120 base pairs containing a consensus sequence (meaning a sequence that is the same, or nearly the same, in all yeast ARSs) of 11 base pairs.
+
+# Replication model of eukaryotic chromosome forming sister chromatids follows Holliday structure
+# Refer to Page 257 of Concepts of Genetics, 12th Edition (2019)
 ```
 
+\column{0.45\textwidth}
+
+```{r dna-pol-holoenzyme, fig.cap="The active form of DNA Pol III, referred to as the holoenzyme, is made up of unique polypeptide subunits. Figure shows ten of those whose features have been identified is given.", out.width="90%"}
+knitr::include_graphics("../images/DNA-pol-III-holoenzyme.png")
+```
+
+\ecolumns
+
+## Direction matters !
+
+<!-- It matters which strand is being copied! Because replication proceeds only in a single direction. -->
+
+\bcolumns
+\column{0.6\textwidth}
+
+\includegraphics<1->[width=0.44\linewidth]{../images/back_direction} 
+
+\column{0.4\textwidth}
+
+\includegraphics<2->[width=0.9\linewidth]{../images/front_direction}
+
+\ecolumns
 
 # Structure of RNA
 
 ## Background
 
-- Ribonucleic acid (RNA) is similar in structure to DNA. However, there are significant differences, the key ones being:
+- Ribonucleic acid (RNA) is similar in structure to DNA, key differences being:
   - RNA consists of ribose sugar (in place of deoxyribose) and uracil in place of thymine.
   - Most RNA is predominantly single stranded (except in some viruses). Sometimes, the molecule folds back on itself to form double-stranded regions. Certain animal and plant viruses use RNA as their genetic material.
   - A typical cell contains about ten times more RNA than DNA.
-  - Whereas DNA stores genetic information, RNA most often functions in the expression of the genetic information.
+  - While DNA **stores** genetic information, RNA is the first molecule having function of the **expression** of the genetic information.
   - There are three major classes of RNA known to be involved in gene expression: ribosomal RNA (rRNA), messenger RNA (mRNA), and transfer RNA (tRNA). The site of protein synthesis, the ribosome, contains rRNA.
 
 ## mRNA
@@ -169,7 +229,7 @@ knitr::include_graphics("../images/dna_replication_process.png")
 
 ##
 
-```{r mrna-processed, out.width="65%", fig.cap="Detailed structure of a processed eukaryotic mRNA. The cap structure is followed by $5^\\prime$ UTR, the protein encoding exongs, $3^\\prime$ UTR, and a poly(A) tail."}
+```{r mrna-processed, out.width="70%", fig.cap="Detailed structure of a processed eukaryotic mRNA. The cap structure is followed by $5^\\prime$ UTR, the protein encoding exongs, $3^\\prime$ UTR, and a poly(A) tail."}
 # pdftools::pdf_convert("../../literatures/biotechnology/Biotechnology 2nd ed - David P. Clark, Nanette J. Pazdernik (AP, 2016).pdf",
 #                       pages = 58,
 #                       dpi = 300, format = "png",
@@ -241,10 +301,10 @@ knitr::include_graphics("../images/mrna_processed.png")
   \end{columns}
 \end{figure}
 
-## Central dogma of biology
+##
 
 - The genetic information of the DNA is changed into biological material principally through proteins, according to the central dogma of molecular biology.
-- The dogma states that genetic information flow is generally unidirectional from DNA to proteins, except in special cases (Figure ). 
+- The dogma states that genetic information flow is generally unidirectional from DNA to proteins, except in special cases. 
 - This flow, mediated by transcription (copying of the DNA template by synthesizing the RNA molecule) and translation (synthesis of a polypeptide using the genetic information encoded in an mRNA molecule) and preceded by replication (the process of DNA synthesis), can now be reversed in vitro (in the test tube) by scientists.
 - Thus, once a protein is known, the nucleotide sequence in the prescribing DNA strand can be determined and synthesized (the product is called a complementary DNA or cDNA). Production of cDNA is a technique used in genetic engineering.
 
@@ -259,6 +319,14 @@ knitr::include_graphics("../images/mrna_processed.png")
 knitr::include_graphics("../images/central_dogma_biology.png")
 ```
 
+##
+
+```{r diamonds-dont-shine, fig.align='center'}
+# DNA or a gene, like diamond, don't create the phenotype
+# It merely projects/reflects the information into an RNA and eventually into a protein, the latter gives the shine (phenotype).
+knitr::include_graphics("../images/diamonds_dont_shine.jpg")
+```
+
 # Expression of genetic information
 
 ## Genetic code
@@ -270,11 +338,10 @@ knitr::include_graphics("../images/central_dogma_biology.png")
 
 ##
 
-- There are about twenty commonly occurring amino acids. 
+- There are about twenty commonly occurring amino acids (Figure \ref{fig:amino-acids}). 
 - According to the prescribed sequence (based on the genetic code), amino acids are joined together by **peptide bonds** to form polypeptide chains (Figure \ref{fig:polypeptides-amino}). 
-- The genetic code is a triplet code. 
+- The genetic code is a **triplet code**. Such a trinucleotide sequence is called a codon (Figure \ref{fig:universality}).
 - Three adjacent bases form a code for an amino acid. 
-- Each trinucleotide sequence is called a codon (Figure \ref{fig:universality}). 
 - The genetic code is read from a fixed starting point of the DNA strand.
 - The genetic code is said to be degenerate because nearly all amino acids are specified by at least two codons. 
 
@@ -287,32 +354,41 @@ knitr::include_graphics("./../images/nucleotide_codons.jpg")
 
 ##
 
+```{r amino-acids, fig.align='center', out.width="58%", fig.cap="Amino acids are the basic building blocks of proteins. Each amino acid is specified by a single (may not be unique) codon at the time of translation."}
+knitr::include_graphics("../images/amino_acids.jpg")
+```
+
+
+##
+
 - Some (serine, arginine, leucine) are encoded by six different codons. 
 - Only tryptophan and methionine are encoded by single codons.
 - Further, for a set of codons encoding the same amino acid, the first two letters in the figure is the same, with only the third being different (called the **wobble hypothesis**).
 - Consequently, at least 30 different tRNA species are required to account for the 61 different triplets in the coding dictionary in just 17 (the three remaining triplets include termination codons or signals – UAG, UAA, UGA).
+
+<!-- Refer to https://www.youtube.com/watch?v=bSjIDStlZg8, "Origins of the RNA-Protein World – Lost in Translation?, John Sutherland, Cambridge" to have a deeper understanding of following sections. Media file is also contained within the repository's media directory. -->
 
 ## Transcription: RNA synthesis
 
 - The genetic information of the DNA template is copied by the process of transcription (or RNA synthesis) to produce an RNA sequence (mRNA).
 - The transactions of DNA and RNA take place through the matching of complementary bases and the binding of various proteins to specific sites on the DNA or RNA.
 - The DNA strand that is transcribed is called the **template strand**. 
-- The process starts with a recognition of a special DNA sequence (called a promoter) and binding to it by an enzyme, a process called template binding. 
-- RNA polymerase II carries out the transcription in eukaryotes.
+- The process starts with a recognition of a special DNA sequence (called a promoter) and binding to it by an enzyme, a process called **template binding**. 
+- **RNA polymerase II** carries out the transcription in eukaryotes.
 - Transcription factors control its activity.
 - The RNA chain then grows (chain elongation) in the $3^\prime$ direction (Starting at $5^\prime$).
 
 ##
 
 - Binding and activity of RNA polymerase II are controlled by cis-regulatory regions and by trans-acting regulatory factors (transcription factors).
-- General transcription factors (GTFs) are necessary for RNAP II to transcribe DNA, and Specific TFs affect the efficiency or rate of RNAP II transcription.
+- **General transcription factors** (GTFs) are necessary for RNAP II to transcribe DNA, and **Specific TFs** affect the efficiency or rate of RNAP II transcription.
 - Promotor region is located at a gene's $5^\prime$ end (using the coding strand as a reference) -- upstream from transcription start site or the **ORF**.
 - Promoter is composed of core promoter and proximal promotor elements, that define when and where a gene is transcribed.
 - Nucleotide sequences are numerically designated based on transcription initiation site as reference point ("+" ve and "-" ve, former referring to downstream sequences, and latter to the upstream sequences)
 
 ##
 
-```{r gene-transcription, out.width="65%", fig.cap="(a) The promoter lies 'upstream' (toward the $5^\\prime$ end) of the initiation point and coding sequences. (b) Promoters have regions of similar sequences, as indicated by the yellow shading in seven different promoter sequences in \\textit{E. coli}. Spaces (dots) are inserted in the sequences to optimize the alignment of the common sequences. Numbers refer to the number of bases before (-) or after (+) the RNA synthesis initiation point. The consensus sequence for most E. coli promoters is at the bottom."}
+```{r gene-transcription, out.width="72%", fig.cap="(a) The promoter lies 'upstream' (toward the $5^\\prime$ end) of the initiation point and coding sequences. (b) Promoters have regions of similar sequences, as indicated by the yellow shading in seven different promoter sequences in \\textit{E. coli}. Spaces (dots) are inserted in the sequences to optimize the alignment of the common sequences. Numbers refer to the number of bases before (-) or after (+) the RNA synthesis initiation point. The consensus sequence for most E. coli promoters is at the bottom."}
 # pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Griffiths - An Introduction to Genetic Analysis 11th Edition c2015.pdf",
 #                       pages = 325,
 #                       dpi = 300, format = "png",
@@ -324,7 +400,7 @@ knitr::include_graphics("../images/gene_transcription.png")
 ##
 
 - An RNA polymerase holoenzyme binds to the DNA at **consensus sequence**, then unwinds the DNA double helix and begins the synthesis of an RNA molecule.
-- RNA polymerase holoenzyme is a multisubunit complex is composed of the five subunits of the core enzyme (two subunits of a, one of $\beta$, one of $\beta^\prime$, and one of $\omega$) + a subunit called sigma ($\sigma$) factor.
+- RNA polymerase holoenzyme is a multisubunit complex is composed of the five subunits of the core enzyme (two subunits of $a$, one of $\beta$, one of $\beta^\prime$, and one of $\omega$) + a subunit called sigma ($\sigma$) factor.
 - Although ATG (AUG in the mRNA) sequence is the initiation codon translated as protein, mRNA sequence consists of portion of the genes starting from +1 site, which are well upstream of the AUG sequence.
 - The intervening part is referred to as $5^\prime$ untranslated (UTR) region. Similarly occurs a sequence to the $3^\prime$ region of the transcribed RNA, called $3^\prime$ UTR region.
 - As the RNA polymerase moves along the DNA, it unwinds the DNA ahead of it and rewinds the DNA that has already been transcribed. In this way, it maintains a region of single-stranded DNA, called a **transcription bubble**.
@@ -384,6 +460,9 @@ knitr::include_graphics("../images/gene_transcription_prokaryotes3.png")
 knitr::include_graphics("../images/alternative_splicing.png")
 ```
 
+
+<!-- Refer to https://www.youtube.com/watch?v=2Jgb_DpaQhM, "Proteins" to have a better understanding of the section following. Media file is also contained within the repository's media directory. -->
+
 ## Translation: protein synthesis
 
 - Protein synthesis consists of three steps-initiation, elongation, and termination. 
@@ -413,14 +492,31 @@ knitr::include_graphics("../images/polypeptides_amino_acid.png")
 
 ##
 
-```{r translation-prokaryotes, out.width="35%", fig.cap="(A) Initiation. Initiation of translation begins with the association of the small ribosome subunit with the Shine–Dalgarno sequence (S-D sequence) on the mRNA. Next, initiation factors IF1, IF2, and IF3 (not shown) charge or connect the initiator tRNA with fMet. The charged initiator tRNA ($tRNA^{ifMet}$) associates with the small ribosome subunit and finds the start codon. Finally, the large ribosomal subunit joins the small subunit and situates the initiator tRNA at the P site. (B) Elongation. During elongation, peptide bonds are formed between the amino acids at the A-site and the P-site. The movement of the ribosome along the mRNA and addition of a new tRNA to the A-site are controlled by elongation factors (also not shown). (C) Termination. Termination requires release factors. The various components dissociate. The completed protein folds into its proper three-dimensional shape."}
-# pdftools::pdf_convert("../../literatures/biotechnology/Biotechnology 2nd ed - David P. Clark, Nanette J. Pazdernik (AP, 2016).pdf",
-#                       pages = 62,
-#                       dpi = 300, format = "png",
-#                       filenames = "../images/translation_prokaryotes.png")
+<!-- # pdftools::pdf_convert("../../literatures/biotechnology/Biotechnology 2nd ed - David P. Clark, Nanette J. Pazdernik (AP, 2016).pdf", -->
+<!-- #                       pages = 62, -->
+<!-- #                       dpi = 300, format = "png", -->
+<!-- #                       filenames = "../images/translation_prokaryotes.png") -->
 
-knitr::include_graphics("../images/translation_prokaryotes.png")
-```
+<!-- The Shine–Dalgarno (SD) sequence is a ribosomal binding site in bacterial and archaeal messenger RNA, generally located around 8 bases upstream of the start codon AUG. -->
+
+\begin{figure}
+  \begin{columns}[T,onlytextwidth]
+  \column{.35\linewidth}
+  \begin{center}
+  \includegraphics[width=0.80\linewidth]{../images/translation_prokaryotes_init.png}
+  \end{center}
+  \column{.3\linewidth}
+  \begin{center}
+  \includegraphics[width=0.96\linewidth]{../images/translation_prokaryotes_elongation.png}
+  \end{center}
+  \column{.35\linewidth}
+  \begin{center}
+  \includegraphics[width=0.62\linewidth]{../images/translation_prokaryotes_termination.png}
+  \end{center}
+  \end{columns}
+  \caption{(A) \textbf{Initiation}. Initiation of translation begins with the association of the small ribosome subunit with the Shine–Dalgarno sequence (S-D sequence) on the mRNA. Next, initiation factors IF1, IF2, and IF3 (not shown) charge or connect the initiator tRNA with fMet. The charged initiator tRNA ($tRNA^{ifMet}$) associates with the small ribosome subunit and finds the start codon. Finally, the large ribosomal subunit joins the small subunit and situates the initiator tRNA at the P site. (B) \textbf{Elongation}. During elongation, peptide bonds are formed between the amino acids at the A-site and the P-site. The movement of the ribosome along the mRNA and addition of a new tRNA to the A-site are controlled by elongation factors (also not shown). (C) \textbf{Termination}. Termination requires release factors. The various components dissociate. The completed protein folds into its proper three-dimensional shape.}
+  \label{fig:translation-prokaryotes}
+\end{figure}
 
 # Bibliography
 

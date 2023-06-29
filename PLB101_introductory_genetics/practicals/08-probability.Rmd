@@ -72,3 +72,123 @@ i. All 4 children of them are normal
 ii. 3 normal and 1 albino
 iii. 1 normal and 3 albino
 iv. All 4 are albinos
+
+## Problem 5
+
+How often in families of 3 children where both parents are heterozygous for non-red hair ($Rr$) and have wavy hair ($h_1h_2$) will children be
+
+i. a red haired girl, a non-red curly haired boy and a red straight haired girl ?
+ii. two red wavy haired boy and one non-red straight haired girl ?
+
+## Solution
+
+Given,
+
+- Total number of children ($n$): 3
+- Non-red hair genotype: $Rr$
+- Straight hair genotype: $h_1h_1$
+- Wavy hair genotype: $h_1h_2$
+- Curly hair genotype: $h_2h_2$
+- Dominance relation follows: non-Red ($R$) > Red ($r$)
+
+$$
+\begin{aligned}
+&\female &\times &\male\\
+&Rr,h_1h_2 & & Rrh_1h_2
+\end{aligned}
+$$
+
+Segregation follows,
+
+- At "R" loci: $\frac{1}{4}RR: \frac{2}{4}Rr: \frac{1}{4}rr$ (3 Non-red, 1 Red)
+- At "h" loci: $\frac{1}{4}h_1h_1: \frac{2}{4}h_1h_2: \frac{1}{4}h_2h_2$ (1 Straight, 2 Wavy, 1 Curly)
+
+We have,
+
+- P(1 red wavy haired girl) = $\frac{1}{4}\times \frac{1}{2} \times \frac{1}{2} = \frac{1}{16}$
+- P(1 red straight haired girl) = $\frac{1}{4}\times \frac{1}{4} \times \frac{1}{2} = \frac{1}{32}$
+- P(1 non-red wavy haired girl) = $\frac{1}{2}\times \frac{1}{2} \times \frac{1}{2} = \frac{1}{8}$
+- P(1 non-red straight haired girl) = $\frac{1}{2}\times \frac{1}{4} \times \frac{1}{2} = \frac{1}{16}$
+- P(1 red wavy haired boy) = $\frac{1}{4}\times \frac{1}{2} \times \frac{1}{2} = \frac{1}{16}$
+- P(1 non-red straight haired boy) = $\frac{3}{4}\times \frac{1}{4} \times \frac{1}{2} = \frac{3}{32}$
+
+Probability of occurrence of particular combination from multiple **independent events** (for example, trinomial combination of certain genotype at "R" loci, at "h" loci and certain sex type) could be obtained by multinomial distribution.
+
+$\longrightarrow$ (i)
+
+Combined probability of a red haired girl, a non-red curly haired boy and a red straight haired girl ($P(A)$)
+
+$$
+\begin{aligned}
+&= \frac{n!}{s!t!u!} \times p^s.q^t.r^u \\
+&= \frac{3!}{1!1!1!} \times \left(\frac{1}{16}\right)^1.\left(\frac{3}{32}\right)^1.\left(\frac{1}{32}\right)^1 \\
+&= \frac{18}{16\times 32 \times 32} \\
+&= \frac{18}{163884}
+\end{aligned}
+$$
+
+
+$\longrightarrow$ (ii)
+
+Combined probability of two red wavy haired boy and one non-red straight haired girl ($P(B)$)
+
+$$
+\begin{aligned}
+&= \frac{n!}{s!t!} \times p^s.q^t \\
+&= \frac{3!}{2!1!} \times \left(\frac{1}{16}\right)^2.\left(\frac{3}{32}\right)^1 \\
+&= \frac{9}{16^2\times 32} \\
+&= \frac{9}{8192}
+\end{aligned}
+$$
+
+## Problem 6
+
+A woman with blood group A, whose father was of blood group B marries a man of blood group B whose mother was of blood group A.
+
+1. What are the expected proportions of the blood group of children arising from such a marriage ?
+2. What is the probability that, out of four uncle on their maternal side, children have 2 uncles with "AB" blood group and 1 with "O" blood group and 1 with blood group "A" ?
+
+
+```{r blood-group-diagram, out.width="50%"}
+knitr::include_graphics("./scripts/blood-group_pedigree_diagram_mod.pdf")
+```
+
+Here, we determine the two parents involved in the marriage and procreation as $I^B I^0$ female and $I^A I^0$ male.
+
+Thus the progenies of this crossing may have all of $I^A I^B, I^A I^0, I^B I^0$ and $I^0 I^0$ the blood group types in equal proportion.
+
+
+For the second question,
+
+We note that all maternal uncles of the children (generation: $G_n$) are born to the parents ($G_{n-2}$) of the childrens' mother ($G_{n-1}$). Thus we have following possible cases for formation of progenies in $G_{n-1}$ generation.
+
+Case-I,
+
+$$
+I^A I^A \times I^B I^0 \longrightarrow I^A I^B, I^B I^0
+$$
+Case-II,
+
+$$
+I^A I^0 \times I^B I^0 \longrightarrow I^A I^B, I^A I^0, I^B I^0, I^0 I^0
+$$
+
+Case-III,
+
+$$
+I^A I^B \times I^B I^0 \longrightarrow I^A I^B, I^A I^0, I^B I^B, I^B I^0
+$$
+
+Hence of a total of 10 individuals progenies possible in equal proportions from the above cases of crossings, we see that,
+
+- probability ($I^A I^0$ or $I^A I^A$) = $\frac{3}{10} + 0 = \frac{3}{10}$ 
+- probability ($I^A I^B$) = $\frac{3}{10}$
+- probability ($I^B I^B$ or $I^B I^0$) = $\frac{2}{10} + \frac{1}{10} = \frac{3}{10}$ 
+- probability ($I^0 I^0$) = $\frac{1}{10}$
+
+For the maternal $G_{n-1}$ generation to have 2 people (irrespective of sex) with "AB" blood group, 1 people (irrespective of sex) with "0" blood group and 1 people (irrespective of sex) with "A" blood group, we could expand a polynomial of order 3 having 4 terms and calculate the term containing favorable outcomes. i.e.,
+
+$$
+\frac{n!}{2!\cdot 1! \cdot 1!\cdot 0!} \left(\frac{3}{10}\right)^2 \cdot \left(\frac{1}{10}\right)^1 \cdot \left(\frac{3}{10}\right)^1 \cdot \left(\frac{3}{10}\right)^0
+$$
+

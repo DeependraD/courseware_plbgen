@@ -1,0 +1,68 @@
+\documentclass{standalone}
+\usepackage{amsmath}
+\usepackage[makeroom]{cancel}
+
+% \usepackage{tikz}
+% \usetikzlibrary{trees,shapes,positioning,arrows.meta}
+% \begin{document}
+
+% \begin{tikzpicture}[sibling distance=6em,
+%                     level distance=8em,
+%                     pF/.style={minimum size = 2cm, fill=white, draw, rectangle, text centered},
+%                     pM/.style={minimum size = 3cm, fill=white, draw, circle, text centered},
+%                     % every node/.style={draw,circle, fill=white, font=\fontsize{10}{10}\selectfont, text centered},
+%                     ]
+% 
+% \node[pF] (gpF1) {GP-Female 1}; % grandparent female
+% \node[pM, right=of gpF1] (gpM1) {GP-Male 1}; % grandparent male
+% \node[pF, right=of gpM1] (gpF2) {GP-Female 2};
+% \node[pM, right=of gpF2] (gpM2) {GP-Female 2};
+% \node[pF, below right=of gpF1] (pF1) {P-Female};
+% \node[pM, below left=of gpM2] (pM1) {P-Male};
+% \draw[thick] node[draw, minimum size=3cm, circle, rotate=0,below right=of pF1] (child){Child};
+% \draw (child.north east) -- (child.south east) -- (child.south west) -- (child.north west) -- cycle;
+
+% \end{tikzpicture}
+
+% \end{document}
+
+\usepackage[all]{genealogytree}
+\begin{document}
+\footnotesize\selectfont
+
+\begin{genealogypicture}[
+  timeflow=down,               % time flows from top to bottom
+  processing=tcbox*,           % draw nodes with tcolorbox or tcbox* (latter makes box fit the content width)
+  node size from=2cm to 3cm,   % height of nodes
+  level size=1cm,              % width of nodes
+  level distance=1.5cm,        % generation distance
+                               % redefine default setting for female,male,neuter:
+  tcbset={
+    female/.style={colback=red!20,arc=1mm},
+    male/.style={colback=blue!20,sharp corners},
+    neuter/.style={colback=green!20,arc=0.5mm}
+  },
+  %
+  box={colback=black,size=fbox,valign=center,halign=center},    % node settings
+  %
+  edges={foreground={black,line width=0.25mm},    % edge settings
+         background={white,line width=0.5mm}}
+]
+
+  %%%%%% the graph %%%%%%
+  parent{
+    g[neuter]{Children}
+    parent{
+      g[male]{$I^B I^0, \xcancel{I^B I^B}$}
+      p[male]{$I^B I^B, I^B I^0, I^A I^B$}
+      p[female]{$I^A I^0, \xcancel{I^A I^A}$}
+    }
+    parent{
+      g[female]{$I^A I^0, \xcancel{I^A I^A}$}
+      p[male]{$I^B I^0, \xcancel{I^B I^B}$}
+      p[female]{$I^A I^A, I^A I^0, I^A I^B$}
+    }
+  }
+\end{genealogypicture}
+
+\end{document}

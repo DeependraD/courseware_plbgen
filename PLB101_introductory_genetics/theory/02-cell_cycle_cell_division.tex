@@ -148,6 +148,46 @@
   % \usecolortheme{crane}
   \usecolortheme{seahorse}
 
+  \newcommand{\bcolumns}{\begin{columns}[T, onlytextwidth]}
+  \newcommand{\ecolumns}{\end{columns}}
+
+  \newcommand{\bdescription}{\begin{description}}
+  \newcommand{\edescription}{\end{description}}
+
+  \newcommand{\bitemize}{\begin{itemize}}
+  \newcommand{\eitemize}{\end{itemize}}
+
+  % use cslreferences environment
+  % this is revised as of Oct, 2022 (https://stackoverflow.com/questions/59193797/pandocs-environment-cslreferences-undefined-when-knitting-rmarkdown-to-pdf-in-r)
+  \newlength{\cslhangindent}
+  \setlength{\cslhangindent}{1.5em}
+  \newenvironment{CSLReferences}%
+    {\setlength{\parindent}{0pt}%
+    \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
+    {\par}
+
+
+  \setbeamertemplate{title page}{
+
+          \begin{picture}(0,0)
+
+              \put(-30,-128){%
+                  \pgfuseimage{mybackground}
+              }
+
+              \put(0,-110){%
+                  \begin{minipage}[b][45mm][t]{226mm}
+                      \usebeamerfont{title}{\inserttitle\par}
+                      \bigskip
+                      \usebeamerfont{author}\insertauthor\par
+                  \end{minipage}
+              }
+
+              \end{picture}
+
+      }
+  \pgfdeclareimage[height=\paperheight]{mybackground}{peanut-butter.png}
+
   \title[]{Cell division and cell cycle}
 
 
@@ -157,17 +197,15 @@
 
   \institute[
     ]{
-    College of Natural Resource Management (AFU)\\
-Tikapur, Kailali\\
+    Agriculture and Forestry University\\
 \textit{ddhakal.rookie@gmail.com}\\
 \url{https://rookie.rbind.io}
     }
 
 \date[
-      Academic year: 2022-2023
+      
   ]{
-      Academic year: 2022-2023
-        }
+    }
 
 
 \begin{document}
@@ -184,6 +222,8 @@ Tikapur, Kailali\\
 
 \begin{frame}{Background}
 \protect\hypertarget{background}{}
+\small
+
 \begin{itemize}
 \tightlist
 \item
@@ -196,23 +236,13 @@ Tikapur, Kailali\\
   Cell division enables unicellular organisms to reproduce and produce
   entire organism.
 \item
-  What goes on in eukaryotes cell cycle
-\item
   Cell division involves distribution of identical genetic material, not
   merely the splitting of components.
 \item
   Cell division copies DNA with high fidelity.
-\item
-  Functions:
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Passing identical genetic material to cellular offspring.
-  \item
-    Breakdown of cell cycle plays a role in cancer development
-  \end{itemize}
 \end{itemize}
+
+\begin{center}\includegraphics[width=0.38\linewidth]{../images/agent_smith} \end{center}
 \end{frame}
 
 \begin{frame}{}
@@ -224,14 +254,18 @@ Tikapur, Kailali\\
 
 \begin{frame}{Organization of genetic material}
 \protect\hypertarget{organization-of-genetic-material}{}
+\bcolumns
+\column{0.6\textwidth}
+
 \begin{itemize}
 \tightlist
 \item
   A cell's complete bulk of genetic information, DNA, is called its
-  genome.
+  \textbf{genome}.
 \item
   Although a prokaryotic genome is often a single DNA molecule,
-  eukaryotic genomes usually consist of a number of DNA molecules.
+  eukaryotic genomes usually consist of a number of DNA molecules
+  packaged into \textbf{chromosomes} ( \emph{chroma} and \emph{soma}).
 \item
   Length of DNA = \textasciitilde{} 250, 000 times diameter of the cell
   that bears it.
@@ -240,15 +274,15 @@ Tikapur, Kailali\\
   of this DNA must be copied, or replicated, and then two copies must be
   separated so that each daughter cells ends up with a complete genome.
 \item
-  DNA is packaged into \textbf{chromosomes} ( \emph{chroma} and
-  \emph{soma}).
-\item
   The entire complex of DNA and proteins that is the building material
   of chromosomes is referred to as \textbf{chromatin}.
-\item
-  Most eukaryotic species have a characteristic number of chromosomes in
-  each cell nucleus.
 \end{itemize}
+
+\column{0.4\textwidth}
+
+\begin{center}\includegraphics[width=0.8\linewidth]{../images/what_gives_power} \end{center}
+
+\ecolumns
 \end{frame}
 
 \hypertarget{structure-of-chromosome}{%
@@ -393,7 +427,7 @@ Tikapur, Kailali\\
 
 \caption{\label{tab:chromosome-number11}Chromosome numbers found different species of organisms (animals)}
 \centering
-\fontsize{5}{7}\selectfont
+\fontsize{8}{10}\selectfont
 \begin{tabular}[t]{lll}
 \toprule
 Common name & Species & Diploid Number\\
@@ -423,7 +457,7 @@ House mouse & \textit{Mus musculus} & 40\\
 
 \caption{\label{tab:chromosome-number12}Chromosome numbers found different species of organisms (animals) ... continued}
 \centering
-\fontsize{5}{7}\selectfont
+\fontsize{8}{10}\selectfont
 \begin{tabular}[t]{lll}
 \toprule
 Common name & Species & Diploid Number\\
@@ -469,7 +503,7 @@ Nematode & \textit{Caenorhabditis elegans} & 11 $\male$, 12$\female$\\
 
 \caption{\label{tab:chromosome-number2}Chromosome numbers (haploid number) found different species of organisms (micro-organisms) ... continued}
 \centering
-\fontsize{5}{7}\selectfont
+\fontsize{6}{8}\selectfont
 \begin{tabular}[t]{lll}
 \toprule
 Common name & Species & Diploid Number\\
@@ -493,7 +527,7 @@ Green algae & \textit{Chlamydomonas reinhardtii} & 16\\
 
 \caption{\label{tab:chromosome-number3}Chromosome numbers found different species of organisms (plants) ...continued}
 \centering
-\fontsize{4}{6}\selectfont
+\fontsize{6}{8}\selectfont
 \begin{tabular}[t]{lll}
 \toprule
 Common name & Species & Diploid Number\\
@@ -719,8 +753,8 @@ division}
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Key events in mitosis}
-\protect\hypertarget{key-events-in-mitosis}{}
+\begin{frame}{}
+\protect\hypertarget{section-10}{}
 \begin{itemize}
 \tightlist
 \item
@@ -739,16 +773,12 @@ division}
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Key events in meiosis}
-\protect\hypertarget{key-events-in-meiosis}{}
-\end{frame}
-
 \hypertarget{associated-events-in-eukaryotic-cell-division}{%
 \section{Associated events in eukaryotic cell
 division}\label{associated-events-in-eukaryotic-cell-division}}
 
 \begin{frame}{}
-\protect\hypertarget{section-10}{}
+\protect\hypertarget{section-11}{}
 \begin{figure}
 
 {\centering \includegraphics[width=0.45\linewidth]{../images/nuclear_division_dna} 
@@ -760,7 +790,7 @@ division}\label{associated-events-in-eukaryotic-cell-division}}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-11}{}
+\protect\hypertarget{section-12}{}
 \begin{figure}
 \includegraphics[width=0.65\linewidth]{../images/chiasma_genesis} \caption{\textbf{Chiasma genesis.} (a, b) Homolog pairing. (c) Genesis of corresponding chromatid bridges and (d) cruciform healing of two homologous chromatid sections. (e) Before reduction for the neighboring ('proximal') chromosome to the centromere sections; the 'distal' sections (beyond the chiasma) after reduction. (f, g) Double crossing-over with triple-strand exchange, where the second exchange takes place between a chromatid already involved in the first exchange and a hitherto uninvolved one. Only two (always one maternal and one paternal) of four chromatids are ever involved in a crossing-over event}\label{fig:chiasmata-structure}
 \end{figure}
@@ -777,7 +807,7 @@ division}\label{associated-events-in-eukaryotic-cell-division}}
 \section{Bibliography}\label{bibliography}}
 
 \begin{frame}{}
-\protect\hypertarget{section-12}{}
+\protect\hypertarget{section-13}{}
 \end{frame}
 
 

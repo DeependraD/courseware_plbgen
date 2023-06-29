@@ -118,6 +118,7 @@
   \usepackage[absolute,overlay]{textpos} % for text formatting
   \usepackage[skip=0.333\baselineskip]{caption}
   % \usepackage{newtxtext,newtxmath}% better than txfonts   
+  \usepackage{tcolorbox}
 
   \sisetup{per-mode=symbol}
 
@@ -150,6 +151,53 @@
   % \usecolortheme{crane}
   \usecolortheme{seahorse}
 
+  \newcommand{\bcolumns}{\begin{columns}[T, onlytextwidth]}
+  \newcommand{\ecolumns}{\end{columns}}
+
+  \newcommand{\bdescription}{\begin{description}}
+  \newcommand{\edescription}{\end{description}}
+
+  \newcommand{\bitemize}{\begin{itemize}}
+  \newcommand{\eitemize}{\end{itemize}}
+
+  % use cslreferences environment
+  % this is revised as of Oct, 2022 (https://stackoverflow.com/questions/59193797/pandocs-environment-cslreferences-undefined-when-knitting-rmarkdown-to-pdf-in-r)
+  \newlength{\cslhangindent}
+  \setlength{\cslhangindent}{1.5em}
+  \newenvironment{CSLReferences}%
+    {\setlength{\parindent}{0pt}%
+    \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
+    {\par}
+
+  % % set option for tcolorbox
+  % \tcbset{colback=red!5!white,colframe=red!75!black}
+  % 
+  % \setbeamertemplate{title page}{
+  % 
+  %         \begin{picture}(0,0)
+  % 
+  %             \put(85.33,-128){%
+  %                 \pgfuseimage{mybackground}
+  %             }
+  % 
+  %             \put(0,-110){%
+  %                 \begin{minipage}[b][4cm][t]{13cm}
+  %                     \raggedright
+  %                     \begin{tcolorbox}[leftrule=2mm]
+  %                     \usebeamerfont{title}{\inserttitle\par}
+  %                     \end{tcolorbox}
+  %                     \bigskip
+  %                     \usebeamerfont{author}\insertauthor\par
+  %                     \bigskip
+  %                     \usebeamerfont{institute}\insertinstitute\par
+  %                 \end{minipage}
+  %             }
+  % 
+  %             \end{picture}
+  % 
+  %     }
+  \usepackage{epsdice}
+
   \title[]{Probability and statistical testing}
 
 
@@ -159,8 +207,7 @@
 
   \institute[
     ]{
-    College of Natural Resource Management (AFU)\\
-Tikapur, Kailali\\
+    Agriculture and Forestry University\\
 \textit{ddhakal.rookie@gmail.com}\\
 \url{https://rookie.rbind.io}
     }
@@ -200,8 +247,8 @@ Tikapur, Kailali\\
 \end{columns}
 \end{frame}
 
-\begin{frame}{Product rule}
-\protect\hypertarget{product-rule}{}
+\begin{frame}{Product rule (\(\cap\), \(\land\))}
+\protect\hypertarget{product-rule-cap-land}{}
 \begin{itemize}
 \tightlist
 \item
@@ -209,25 +256,27 @@ Tikapur, Kailali\\
   because the outcome on one die is independent of the other.
 \item
   As an example, let us calculate the probability, \(p\), of rolling a
-  pair of 4's. The probability of a 4 on one die is 1/6 because the die
-  has six sides and only one side carries the number 4.
+  pair of 4's (\(\large \{\epsdice{4}, \epsdice{4}\}\)). The probability
+  of a \(\large \epsdice{4}\) on one die is 1/6 because the die has six
+  sides and only one side carries the number 4.
 \item
   This probability is written as follows
 \end{itemize}
 
 \[
-p (\textrm{one 4}) = \frac{1}{6}
+p ({\large \epsdice{4}}) = \frac{1}{6}
 \]
 
 \begin{itemize}
 \tightlist
 \item
   Therefore, with the use of the product rule, the probability of a 4
-  appearing on both dice is 1/6 × 1/6 = 1/36, which is written
+  appearing on both dice (\(\large \{\epsdice{4}, \epsdice{4}\}\)) is
+  1/6 × 1/6 = 1/36, which is written
 \end{itemize}
 
 \[
-p (\textrm{two 4's}) = \frac{1}{6} \times \frac{1}{6} = \frac{1}{36}
+p (\epsdice{4} \text{ and } \epsdice{4}) = \frac{1}{6} \times \frac{1}{6} = \frac{1}{36}
 \]
 \end{frame}
 
@@ -236,19 +285,18 @@ p (\textrm{two 4's}) = \frac{1}{6} \times \frac{1}{6} = \frac{1}{36}
 \begin{center}\includegraphics[width=0.45\linewidth]{../images/sum_versus_product} \end{center}
 \end{frame}
 
-\begin{frame}{Sum rule}
-\protect\hypertarget{sum-rule}{}
+\begin{frame}{Sum rule (\(\cup\), \(\lor\))}
+\protect\hypertarget{sum-rule-cup-lor}{}
 \begin{itemize}
 \tightlist
 \item
-  Note that, in the product rule, the focus is on outcomes A and B. In
-  the sum rule, the focus is on the outcome \(A^\prime\) or
-  \(A^{\prime \prime}\)
-\item
-  We have already calculated that the probability of two 4's is 1/36;
-  clearly, with the use of the same type of calculation, the probability
-  of two 5's will be the same, or 1/36. Now we can calculate the
-  probability of \textbf{either two 4's or two 5's}.
+  We have already calculated that the probability of
+  \(\{\epsdice{4}, \epsdice{4}\}\) is 1/36; clearly, with the use of the
+  same type of calculation, the probability of
+  \(\{\epsdice{5}, \epsdice{5}\}\) will be the same, or 1/36. Now we can
+  calculate the probability of \textbf{either}
+  \(\{\epsdice{4}, \epsdice{4}\}\) \textbf{or}
+  \(\{\epsdice{5}, \epsdice{5}\}\).
 \item
   Because these outcomes are mutually exclusive, the sum rule can be
   used to tell us that the answer is 1/36 + 1/36, which is 1/18. This
@@ -256,7 +304,7 @@ p (\textrm{two 4's}) = \frac{1}{6} \times \frac{1}{6} = \frac{1}{36}
 \end{itemize}
 
 \[
-p(\textrm{two 4's or two 5's}) = \frac{1}{36} + \frac{1}{36} = \frac{1}{18}
+p(\{\epsdice{4}, \epsdice{4}\} \lor \{\epsdice{5}, \epsdice{5}\}) = \frac{1}{36} + \frac{1}{36} = \frac{1}{18}
 \]
 \end{frame}
 
@@ -533,6 +581,11 @@ $\chi^2$ &  &  &  &  & 9.9\\
 \end{itemize}
 \end{frame}
 
+\begin{frame}{Interpreting p-values}
+\protect\hypertarget{interpreting-p-values}{}
+\begin{center}\includegraphics[width=0.4\linewidth]{../images/interpreting_pvalues} \end{center}
+\end{frame}
+
 \hypertarget{binomial-expansion}{%
 \section{Binomial expansion}\label{binomial-expansion}}
 
@@ -585,6 +638,33 @@ $\chi^2$ &  &  &  &  & 9.9\\
 
 \begin{frame}{Problem}
 \protect\hypertarget{problem}{}
+If 12 people are to be divided into 3 committee of respective sizes, 3,
+4 and 5 how many divisions are possible ?
+
+Solution:
+
+A total of \ensuremath{2.77\times 10^{4}} divisions possible.
+\end{frame}
+
+\begin{frame}{Problem}
+\protect\hypertarget{problem-1}{}
+Five male and four female plants are to be arranged in a single row for
+a breeding experiment. To ensure breeding, no two male plants can be
+next to one another. How many arrangements are possible ?
+
+Solution:
+
+Since there are 5 males and 4 females and there can be no adjacent
+males, the plants must alternate between male and female starting with a
+male. The number of ordered arrangements of the 5 male plants in the odd
+positions is given by \(P_5 = 5!\). Similarly, the number of ordered
+arrangements of the 4 female plants in the even positions is given by
+\(P_4 = 4!\). Therefore, using the Fundamental Principle of Counting,
+the total number of possible arrangements is \(5! \times 4! = 2880\).
+\end{frame}
+
+\begin{frame}{Problem}
+\protect\hypertarget{problem-2}{}
 If 5 coins are tossed together, determine the probability of getting
 
 \begin{enumerate}
@@ -632,7 +712,7 @@ Now,
 \end{frame}
 
 \begin{frame}{Problem}
-\protect\hypertarget{problem-1}{}
+\protect\hypertarget{problem-3}{}
 Two heterozygous brown-eyed (Bb) individuals have five children. What is
 the probability that two of the couple's five children will have blue
 eye ?
@@ -687,7 +767,7 @@ children will contain two with blue eyes and three with brown eyes.
 \end{frame}
 
 \begin{frame}{Problem}
-\protect\hypertarget{problem-2}{}
+\protect\hypertarget{problem-4}{}
 In a family with 5 children, what is the probability that it has 3 boys
 and 2 girls among them.
 \end{frame}

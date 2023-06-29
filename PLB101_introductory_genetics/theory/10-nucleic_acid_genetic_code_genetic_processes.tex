@@ -116,31 +116,88 @@
   \usepackage[absolute,overlay]{textpos} % for text formatting
   \usepackage[skip=0.333\baselineskip]{caption}
   % \usepackage{newtxtext,newtxmath}% better than txfonts   
-  
+  \usepackage{tcolorbox}
+
   \sisetup{per-mode=symbol}
-  
+
   % % Added by CII
   % \usepackage[format=hang,labelfont=bf,margin=0.5cm,justification=centering]{caption}
   % \captionsetup{font=small,width=0.9\linewidth,labelfont=small,textfont={small}}
   % % End of CII addition
-  
+
   \usepackage{subcaption}
-  \newcommand{\subfloat}[2][need a sub-caption]{\subcaptionbox{#1}{#2}}
-  
+  % \newcommand{\subfloat}[2][need a sub-caption]{\subcaptionbox{#1}{#2}}
+
   \captionsetup[sub]{font=footnotesize,labelfont=footnotesize,textfont=footnotesize}
   % \captionsetup[subfigure]{font=small,labelfont=small,textfont=small}
   % \captionsetup[subfloat]{font=scriptsize,labelfont=scriptsize,textfont=scriptsize}
-  
+
   % this font option is amenable for beamer, although these are global settings
   \setbeamerfont{caption}{size=\tiny}
   % \setbeamerfont{subcaption}{size=\tiny} % this does not chage subfloat fonts
   % \setbeamerfont{subfloat}{size=\tiny} % this does not change subfloat fonts
    
-   % use single line spacing ?
+  % use single line spacing ?
   \singlespacing
 
-  \title[]{Nucleic acids- DNA, RNA; replication, transcription, translation and
-genetic code}
+  % use customize theme and colortheme
+  % \usetheme[subsectionpage=progressbar,background=light]{metropolis}
+  % \usetheme[]{Warsaw} % other options are: rose, Berlin
+  % \usetheme[subsectionpage=progressbar,background=light]{metropolis} % it should be integrated to template itself by replacing preset theme
+  \setbeamercolor{title}{fg=blue!85!black,bg=red!20!white}
+  \setbeamertemplate{section in toc shaded}[default][50]
+  % \usecolortheme{crane}
+  \usecolortheme{seahorse}
+
+  \newcommand{\bcolumns}{\begin{columns}[T, onlytextwidth]}
+  \newcommand{\ecolumns}{\end{columns}}
+
+  \newcommand{\bdescription}{\begin{description}}
+  \newcommand{\edescription}{\end{description}}
+
+  \newcommand{\bitemize}{\begin{itemize}}
+  \newcommand{\eitemize}{\end{itemize}}
+
+  % use cslreferences environment
+  % this is revised as of Oct, 2022 (https://stackoverflow.com/questions/59193797/pandocs-environment-cslreferences-undefined-when-knitting-rmarkdown-to-pdf-in-r)
+  \newlength{\cslhangindent}
+  \setlength{\cslhangindent}{1.5em}
+  \newenvironment{CSLReferences}%
+    {\setlength{\parindent}{0pt}%
+    \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
+    {\par}
+
+  % set option for tcolorbox
+  \tcbset{colback=red!5!white,colframe=red!75!black}
+
+  \setbeamertemplate{title page}{
+
+          \begin{picture}(0,0)
+
+              \put(85.33,-128){%
+                  \pgfuseimage{mybackground}
+              }
+
+              \put(0,-110){%
+                  \begin{minipage}[b][4cm][t]{13cm}
+                      \raggedright
+                      \begin{tcolorbox}[leftrule=2mm]
+                      \usebeamerfont{title}{\inserttitle\par}
+                      \end{tcolorbox}
+                      \bigskip
+                      \usebeamerfont{author}\insertauthor\par
+                      \bigskip
+                      \usebeamerfont{institute}\insertinstitute\par
+                  \end{minipage}
+              }
+
+              \end{picture}
+
+      }
+  \pgfdeclareimage[height=\paperheight]{mybackground}{sky_view.png}
+
+  \title[]{Nucleic acids- DNA, RNA; replication, transcription,
+translation and genetic code}
 
 
   \author[
@@ -149,17 +206,16 @@ genetic code}
 
   \institute[
     ]{
-    Gokuleshwor Agriculture and Animal Science College\\
-Tribhuwan University\\
+    Agriculture and Forestry University\\
 \textit{ddhakal.rookie@gmail.com}\\
 \url{https://rookie.rbind.io}
     }
 
 \date[
-      Academic year 2019-2020
+      
   ]{
-      Academic year 2019-2020
-        }
+    }
+
 
 \begin{document}
 
@@ -175,7 +231,6 @@ Tribhuwan University\\
 
 \begin{frame}{}
 \protect\hypertarget{section}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -214,30 +269,34 @@ Tribhuwan University\\
     pairs with C).
   \end{itemize}
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{}
 \protect\hypertarget{section-1}{}
-
-\begin{figure}
-\includegraphics[width=0.65\linewidth]{../images/double_helix_dna} \caption{The Watson-Crick model of the DNA double helix (B-form)}\label{fig:double-helix}
-\end{figure}
-
+\begin{center}\includegraphics[width=0.7\linewidth]{../images/a_place_in_norway} \end{center}
 \end{frame}
 
 \begin{frame}{}
 \protect\hypertarget{section-2}{}
-
 \begin{figure}
-\includegraphics[width=0.65\linewidth]{../images/complementary_base_pairing} \caption{Specific base pairing by the formation of hydrogen bonds between two antiparallel DNA strands. The molecular structure of the bases only allows the pairings AT and GC. An AT pair forms two hydrogen bonds; a GC pair forms three hydrogen bonds}\label{fig:base-pairing}
+\includegraphics[width=0.65\linewidth]{../images/double_helix_dna} \caption{The Watson-Crick model of the DNA double helix (B-form)}\label{fig:double-helix}
 \end{figure}
-
 \end{frame}
 
 \begin{frame}{}
 \protect\hypertarget{section-3}{}
+\begin{figure}
+\includegraphics[width=0.65\linewidth]{../images/complementary_base_pairing} \caption{Specific base pairing by the formation of hydrogen bonds between two antiparallel DNA strands. The molecular structure of the bases only allows the pairings AT and GC. An AT pair forms two hydrogen bonds; a GC pair forms three hydrogen bonds}\label{fig:base-pairing}
+\end{figure}
+\end{frame}
 
+\begin{frame}{}
+\protect\hypertarget{section-4}{}
+\begin{center}\includegraphics[width=0.58\linewidth]{../images/headphonome} \end{center}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-5}{}
 \begin{itemize}
 \tightlist
 \item
@@ -274,23 +333,26 @@ Tribhuwan University\\
     bond.
   \end{itemize}
 \end{itemize}
+\end{frame}
 
+\begin{frame}{Helix is right handed !}
+\protect\hypertarget{helix-is-right-handed}{}
+\begin{center}\includegraphics[width=0.6\linewidth]{../images/right_handed_helix} \end{center}
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-4}{}
-
+\protect\hypertarget{section-6}{}
 \begin{figure}
   \begin{columns}[T,onlytextwidth]
 
   \column{.36\linewidth}
   \begin{center}
-  \includegraphics[width=0.90\linewidth]{../images/nucleotide_blocks1.png}
+  \includegraphics[width=0.96\linewidth]{../images/nucleotide_blocks1.png}
   \end{center}
   
   \column{.36\linewidth}
   \begin{center}
-  \includegraphics[width=0.80\linewidth]{../images/nucleotide_blocks.png}
+  \includegraphics[width=0.95\linewidth]{../images/nucleotide_blocks.png}
   \end{center}
   
   \column{.28\linewidth}
@@ -299,15 +361,13 @@ Tribhuwan University\\
   
   \end{columns}
 \end{figure}
-
 \end{frame}
 
 \hypertarget{replication-of-dna}{%
 \section{Replication of DNA}\label{replication-of-dna}}
 
 \begin{frame}{}
-\protect\hypertarget{section-5}{}
-
+\protect\hypertarget{section-7}{}
 \begin{itemize}
 \tightlist
 \item
@@ -320,19 +380,18 @@ Tribhuwan University\\
   semi-conservative mode.
 \end{itemize}
 
-\begin{center}\includegraphics[width=0.52\linewidth]{../images/semi_conservative_replication} \end{center}
-
+\begin{center}\includegraphics[width=0.56\linewidth]{../images/semi_conservative_replication} \end{center}
 \end{frame}
 
 \begin{frame}{Steps in replication}
 \protect\hypertarget{steps-in-replication}{}
-
 \begin{itemize}
 \tightlist
 \item
   Unwinding of DNA double helix by \textbf{hellicase}
 \item
-  Prevention of knotting by relaxation enzyme (\textbf{topoisomerase I})
+  Prevention of knotting by relaxation enzymes (\textbf{DNA gyrase}, a
+  member of the family \textbf{DNA topoisomerase I})
 \item
   Two strands of a replication fork (one \(3^{\prime}\) and the other
   \(5^{\prime}\)) need to be extended by different mechanisms because
@@ -343,21 +402,51 @@ Tribhuwan University\\
   Without these lagging strand sequences cannot be bonded and can be
   isolated as \textbf{Okazaki fragments}.
 \item
-  DNA polymerase require a \textbf{primer} (RNA sequences) in order to
-  start synthesis. These primers supply the \(3^\prime\) end on which
-  the DNA polymerase can build further.
+  DNA polymerase III (primary enzyme that carries out chain elongation)
+  require a \textbf{primer} (RNA sequences) in order to start synthesis.
+  These primers supply the \(3^\prime\) end on which the DNA polymerase
+  can build further.
 \item
   A sequence region replicated by a replicator is called a
   \textbf{replicon}.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-6}{}
+\protect\hypertarget{section-8}{}
+\bcolumns
+\column{0.55\textwidth}
 
-\begin{center}\includegraphics[width=0.45\linewidth]{../images/dna_replication_process} \end{center}
+\begin{figure}
 
+{\centering \includegraphics[width=0.76\linewidth]{../images/dna_replication_process} 
+
+}
+
+\caption{The replication fork}\label{fig:dna-replication-process}
+\end{figure}
+
+\column{0.45\textwidth}
+
+\begin{figure}
+\includegraphics[width=0.9\linewidth]{../images/DNA-pol-III-holoenzyme} \caption{The active form of DNA Pol III, referred to as the holoenzyme, is made up of unique polypeptide subunits. Figure shows ten of those whose features have been identified is given.}\label{fig:dna-pol-holoenzyme}
+\end{figure}
+
+\ecolumns
+\end{frame}
+
+\begin{frame}{Direction matters !}
+\protect\hypertarget{direction-matters}{}
+\bcolumns
+\column{0.6\textwidth}
+
+\includegraphics<1->[width=0.44\linewidth]{../images/back_direction}
+
+\column{0.4\textwidth}
+
+\includegraphics<2->[width=0.9\linewidth]{../images/front_direction}
+
+\ecolumns
 \end{frame}
 
 \hypertarget{structure-of-rna}{%
@@ -365,12 +454,11 @@ Tribhuwan University\\
 
 \begin{frame}{Background}
 \protect\hypertarget{background}{}
-
 \begin{itemize}
 \tightlist
 \item
-  Ribonucleic acid (RNA) is similar in structure to DNA. However, there
-  are significant differences, the key ones being:
+  Ribonucleic acid (RNA) is similar in structure to DNA, key differences
+  being:
 
   \begin{itemize}
   \tightlist
@@ -385,8 +473,9 @@ Tribhuwan University\\
   \item
     A typical cell contains about ten times more RNA than DNA.
   \item
-    Whereas DNA stores genetic information, RNA most often functions in
-    the expression of the genetic information.
+    While DNA \textbf{stores} genetic information, RNA is the first
+    molecule having function of the \textbf{expression} of the genetic
+    information.
   \item
     There are three major classes of RNA known to be involved in gene
     expression: ribosomal RNA (rRNA), messenger RNA (mRNA), and transfer
@@ -394,12 +483,10 @@ Tribhuwan University\\
     rRNA.
   \end{itemize}
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{mRNA}
 \protect\hypertarget{mrna}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -418,21 +505,17 @@ Tribhuwan University\\
   The mRNA is then transported from the nucleus to the endoplasmic
   reticulum for translation by ribosomes.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-7}{}
-
+\protect\hypertarget{section-9}{}
 \begin{figure}
-\includegraphics[width=0.65\linewidth]{../images/mrna_processed} \caption{Detailed structure of a processed eukaryotic mRNA. The cap structure is followed by $5^\prime$ UTR, the protein encoding exongs, $3^\prime$ UTR, and a poly(A) tail.}\label{fig:mrna-processed}
+\includegraphics[width=0.7\linewidth]{../images/mrna_processed} \caption{Detailed structure of a processed eukaryotic mRNA. The cap structure is followed by $5^\prime$ UTR, the protein encoding exongs, $3^\prime$ UTR, and a poly(A) tail.}\label{fig:mrna-processed}
 \end{figure}
-
 \end{frame}
 
 \begin{frame}{tRNA}
 \protect\hypertarget{trna}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -459,12 +542,10 @@ Tribhuwan University\\
     mRNA.
   \end{itemize}
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-8}{}
-
+\protect\hypertarget{section-10}{}
 \begin{itemize}
 \tightlist
 \item
@@ -480,12 +561,10 @@ Tribhuwan University\\
   mRNA codon that base pairs with the tRNA anticodon is attached to this
   terminal and transported to the appropriate segment of the mRNA.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-9}{}
-
+\protect\hypertarget{section-11}{}
 \begin{itemize}
 \tightlist
 \item
@@ -510,12 +589,10 @@ Tribhuwan University\\
   For example, the 50S subunit contains one 55 rRNA, one 235 rRNA
   molecule, and 32 different ribosomal proteins.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-10}{}
-
+\protect\hypertarget{section-12}{}
 \begin{figure}
   \begin{columns}[T,onlytextwidth]
 
@@ -543,12 +620,10 @@ Tribhuwan University\\
 
   \end{columns}
 \end{figure}
-
 \end{frame}
 
-\begin{frame}{Central dogma of biology}
-\protect\hypertarget{central-dogma-of-biology}{}
-
+\begin{frame}{}
+\protect\hypertarget{section-13}{}
 \begin{itemize}
 \tightlist
 \item
@@ -557,8 +632,7 @@ Tribhuwan University\\
   molecular biology.
 \item
   The dogma states that genetic information flow is generally
-  unidirectional from DNA to proteins, except in special cases (Figure
-  ).
+  unidirectional from DNA to proteins, except in special cases.
 \item
   This flow, mediated by transcription (copying of the DNA template by
   synthesizing the RNA molecule) and translation (synthesis of a
@@ -571,16 +645,18 @@ Tribhuwan University\\
   is called a complementary DNA or cDNA). Production of cDNA is a
   technique used in genetic engineering.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-11}{}
-
+\protect\hypertarget{section-14}{}
 \begin{figure}
 \includegraphics[width=0.45\linewidth]{../images/central_dogma_biology} \caption{The central dogma of molecular genetics, showing information flow involving DNA, RNA and proteins within a cell.}\label{fig:central-dogma-biology}
 \end{figure}
+\end{frame}
 
+\begin{frame}{}
+\protect\hypertarget{section-15}{}
+\begin{center}\includegraphics[width=0.45\linewidth]{../images/diamonds_dont_shine} \end{center}
 \end{frame}
 
 \hypertarget{expression-of-genetic-information}{%
@@ -589,7 +665,6 @@ information}\label{expression-of-genetic-information}}
 
 \begin{frame}{Genetic code}
 \protect\hypertarget{genetic-code}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -609,27 +684,24 @@ information}\label{expression-of-genetic-information}}
   The variety of protein products in a cell undertake catalytic and
   structural activities that eventually result in an adult phenotype.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-12}{}
-
+\protect\hypertarget{section-16}{}
 \begin{itemize}
 \tightlist
 \item
-  There are about twenty commonly occurring amino acids.
+  There are about twenty commonly occurring amino acids (Figure
+  \ref{fig:amino-acids}).
 \item
   According to the prescribed sequence (based on the genetic code),
   amino acids are joined together by \textbf{peptide bonds} to form
   polypeptide chains (Figure \ref{fig:polypeptides-amino}).
 \item
-  The genetic code is a triplet code.
+  The genetic code is a \textbf{triplet code}. Such a trinucleotide
+  sequence is called a codon (Figure \ref{fig:universality}).
 \item
   Three adjacent bases form a code for an amino acid.
-\item
-  Each trinucleotide sequence is called a codon (Figure
-  \ref{fig:universality}).
 \item
   The genetic code is read from a fixed starting point of the DNA
   strand.
@@ -637,21 +709,29 @@ information}\label{expression-of-genetic-information}}
   The genetic code is said to be degenerate because nearly all amino
   acids are specified by at least two codons.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-13}{}
-
+\protect\hypertarget{section-17}{}
 \begin{figure}
 \includegraphics[width=0.45\linewidth]{./../images/nucleotide_codons} \caption{The genetic code is universal for all life forms}\label{fig:universality}
 \end{figure}
-
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-14}{}
+\protect\hypertarget{section-18}{}
+\begin{figure}
 
+{\centering \includegraphics[width=0.58\linewidth]{../images/amino_acids} 
+
+}
+
+\caption{Amino acids are the basic building blocks of proteins. Each amino acid is specified by a single (may not be unique) codon at the time of translation.}\label{fig:amino-acids}
+\end{figure}
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-19}{}
 \begin{itemize}
 \tightlist
 \item
@@ -668,12 +748,10 @@ information}\label{expression-of-genetic-information}}
   17 (the three remaining triplets include termination codons or signals
   -- UAG, UAA, UGA).
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{Transcription: RNA synthesis}
 \protect\hypertarget{transcription-rna-synthesis}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -689,21 +767,20 @@ information}\label{expression-of-genetic-information}}
 \item
   The process starts with a recognition of a special DNA sequence
   (called a promoter) and binding to it by an enzyme, a process called
-  template binding.
+  \textbf{template binding}.
 \item
-  RNA polymerase II carries out the transcription in eukaryotes.
+  \textbf{RNA polymerase II} carries out the transcription in
+  eukaryotes.
 \item
   Transcription factors control its activity.
 \item
   The RNA chain then grows (chain elongation) in the \(3^\prime\)
   direction (Starting at \(5^\prime\)).
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-15}{}
-
+\protect\hypertarget{section-20}{}
 \begin{itemize}
 \tightlist
 \item
@@ -711,9 +788,9 @@ information}\label{expression-of-genetic-information}}
   cis-regulatory regions and by trans-acting regulatory factors
   (transcription factors).
 \item
-  General transcription factors (GTFs) are necessary for RNAP II to
-  transcribe DNA, and Specific TFs affect the efficiency or rate of RNAP
-  II transcription.
+  \textbf{General transcription factors} (GTFs) are necessary for RNAP
+  II to transcribe DNA, and \textbf{Specific TFs} affect the efficiency
+  or rate of RNAP II transcription.
 \item
   Promotor region is located at a gene's \(5^\prime\) end (using the
   coding strand as a reference) -- upstream from transcription start
@@ -727,21 +804,17 @@ information}\label{expression-of-genetic-information}}
   referring to downstream sequences, and latter to the upstream
   sequences)
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-16}{}
-
+\protect\hypertarget{section-21}{}
 \begin{figure}
-\includegraphics[width=0.65\linewidth]{../images/gene_transcription} \caption{(a) The promoter lies 'upstream' (toward the $5^\prime$ end) of the initiation point and coding sequences. (b) Promoters have regions of similar sequences, as indicated by the yellow shading in seven different promoter sequences in \textit{E. coli}. Spaces (dots) are inserted in the sequences to optimize the alignment of the common sequences. Numbers refer to the number of bases before (-) or after (+) the RNA synthesis initiation point. The consensus sequence for most E. coli promoters is at the bottom.}\label{fig:gene-transcription}
+\includegraphics[width=0.72\linewidth]{../images/gene_transcription} \caption{(a) The promoter lies 'upstream' (toward the $5^\prime$ end) of the initiation point and coding sequences. (b) Promoters have regions of similar sequences, as indicated by the yellow shading in seven different promoter sequences in \textit{E. coli}. Spaces (dots) are inserted in the sequences to optimize the alignment of the common sequences. Numbers refer to the number of bases before (-) or after (+) the RNA synthesis initiation point. The consensus sequence for most E. coli promoters is at the bottom.}\label{fig:gene-transcription}
 \end{figure}
-
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-17}{}
-
+\protect\hypertarget{section-22}{}
 \begin{itemize}
 \tightlist
 \item
@@ -750,9 +823,9 @@ information}\label{expression-of-genetic-information}}
   of an RNA molecule.
 \item
   RNA polymerase holoenzyme is a multisubunit complex is composed of the
-  five subunits of the core enzyme (two subunits of a, one of \(\beta\),
-  one of \(\beta^\prime\), and one of \(\omega\)) + a subunit called
-  sigma (\(\sigma\)) factor.
+  five subunits of the core enzyme (two subunits of \(a\), one of
+  \(\beta\), one of \(\beta^\prime\), and one of \(\omega\)) + a subunit
+  called sigma (\(\sigma\)) factor.
 \item
   Although ATG (AUG in the mRNA) sequence is the initiation codon
   translated as protein, mRNA sequence consists of portion of the genes
@@ -767,12 +840,10 @@ information}\label{expression-of-genetic-information}}
   it maintains a region of single-stranded DNA, called a
   \textbf{transcription bubble}.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-18}{}
-
+\protect\hypertarget{section-23}{}
 \begin{columns}[T,onlytextwidth]
 
   \column{.5\linewidth}
@@ -793,12 +864,10 @@ information}\label{expression-of-genetic-information}}
 \end{figure}
 
 \end{columns}
-
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-19}{}
-
+\protect\hypertarget{section-24}{}
 \begin{itemize}
 \tightlist
 \item
@@ -818,21 +887,17 @@ information}\label{expression-of-genetic-information}}
 \item
   The mRNA is transported to the ribosomes.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-20}{}
-
+\protect\hypertarget{section-25}{}
 \begin{figure}
 \includegraphics[width=0.65\linewidth]{../images/alternative_splicing} \caption{The pre-mRNA transcript of the rat $\alpha$-tropomyosin gene is alternatively spliced in different cell types. The light green boxes represent introns; the other colors represent exons. Polyadenylation signals are indicated by an A. Dashed lines in the mature mRNAs indicate regions that have been removed by splicing.}\label{fig:mrna-alternative-splicing}
 \end{figure}
-
 \end{frame}
 
 \begin{frame}{Translation: protein synthesis}
 \protect\hypertarget{translation-protein-synthesis}{}
-
 \begin{itemize}
 \tightlist
 \item
@@ -854,12 +919,10 @@ information}\label{expression-of-genetic-information}}
   The process is repeated until the whole mRNA is translated, adjacent
   amino acids being linked by peptide bonds.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-21}{}
-
+\protect\hypertarget{section-26}{}
 \begin{itemize}
 \tightlist
 \item
@@ -877,25 +940,35 @@ information}\label{expression-of-genetic-information}}
   are not actively transcribing mRNA all of the time. Also, most enzymes
   are proteins, but all proteins are not enzymes.
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-22}{}
-
+\protect\hypertarget{section-27}{}
 \begin{figure}
 \includegraphics[width=0.45\linewidth]{../images/polypeptides_amino_acid} \caption{(a) The basic structure of an amino acid consists of three units - an amino group, a carboxyl group, and a side chain (R) that distinguishes among the different amino acids. (b) A polypeptide chain is formed by linking many amino acids together; adjacent amino acids are linked by a peptide bond.}\label{fig:polypeptides-amino}
 \end{figure}
-
 \end{frame}
 
 \begin{frame}{}
-\protect\hypertarget{section-23}{}
-
+\protect\hypertarget{section-28}{}
 \begin{figure}
-\includegraphics[width=0.35\linewidth]{../images/translation_prokaryotes} \caption{(A) Initiation. Initiation of translation begins with the association of the small ribosome subunit with the Shine–Dalgarno sequence (S-D sequence) on the mRNA. Next, initiation factors IF1, IF2, and IF3 (not shown) charge or connect the initiator tRNA with fMet. The charged initiator tRNA ($tRNA^{ifMet}$) associates with the small ribosome subunit and finds the start codon. Finally, the large ribosomal subunit joins the small subunit and situates the initiator tRNA at the P site. (B) Elongation. During elongation, peptide bonds are formed between the amino acids at the A-site and the P-site. The movement of the ribosome along the mRNA and addition of a new tRNA to the A-site are controlled by elongation factors (also not shown). (C) Termination. Termination requires release factors. The various components dissociate. The completed protein folds into its proper three-dimensional shape.}\label{fig:translation-prokaryotes}
+  \begin{columns}[T,onlytextwidth]
+  \column{.35\linewidth}
+  \begin{center}
+  \includegraphics[width=0.80\linewidth]{../images/translation_prokaryotes_init.png}
+  \end{center}
+  \column{.3\linewidth}
+  \begin{center}
+  \includegraphics[width=0.96\linewidth]{../images/translation_prokaryotes_elongation.png}
+  \end{center}
+  \column{.35\linewidth}
+  \begin{center}
+  \includegraphics[width=0.62\linewidth]{../images/translation_prokaryotes_termination.png}
+  \end{center}
+  \end{columns}
+  \caption{(A) Initiation. Initiation of translation begins with the association of the small ribosome subunit with the Shine–Dalgarno sequence (S-D sequence) on the mRNA. Next, initiation factors IF1, IF2, and IF3 (not shown) charge or connect the initiator tRNA with fMet. The charged initiator tRNA ($tRNA^{ifMet}$) associates with the small ribosome subunit and finds the start codon. Finally, the large ribosomal subunit joins the small subunit and situates the initiator tRNA at the P site. (B) Elongation. During elongation, peptide bonds are formed between the amino acids at the A-site and the P-site. The movement of the ribosome along the mRNA and addition of a new tRNA to the A-site are controlled by elongation factors (also not shown). (C) Termination. Termination requires release factors. The various components dissociate. The completed protein folds into its proper three-dimensional shape.}
+  \label{fig:translation-prokaryotes}
 \end{figure}
-
 \end{frame}
 
 \hypertarget{bibliography}{%
@@ -903,12 +976,10 @@ information}\label{expression-of-genetic-information}}
 
 \begin{frame}{Also see}
 \protect\hypertarget{also-see}{}
-
 \end{frame}
 
 \begin{frame}{References}
 \protect\hypertarget{references}{}
-
 \end{frame}
 
 

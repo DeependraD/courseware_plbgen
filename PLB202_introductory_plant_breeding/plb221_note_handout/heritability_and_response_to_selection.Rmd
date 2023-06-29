@@ -1,10 +1,10 @@
 ---
 title: "Heritability and response to selection"
-subtitle: "Theory and solved numerical problems"
+# subtitle: "Theory and solved numerical problems"
 author: "Deependra Dhakal"
 date: "`r Sys.Date()`"
 output: tint::tintBook
-bibliography: [skeleton.bib, bibliographies.bib]
+bibliography: ['skeleton.bib', '../bibliographies.bib']
 link-citations: yes
 header-includes:
   - \usepackage{booktabs}
@@ -228,10 +228,11 @@ _Example case_
 The data below are the phenotypes of parents and their offspring from a number of crosses in a frost-tolerant winter canola breeding programme. The character is yield (kg/ha).
 
 ```{r offspring-parent, echo=FALSE, warning=FALSE, message=FALSE}
-off_par <- read_csv("../data/offspring_parent_regression.csv")
+off_par <- read_csv("./data/offspring_parent_regression.csv")
 off_par %>%
   knitr::kable(booktabs = TRUE)
 ```
+
 
 Then,
 
@@ -244,12 +245,13 @@ mid_p_mod <- lm(`Offspring value`~`Mid-parent value`, data = off_par)
 map_dfr(list(female_p_mod, male_p_mod, mid_p_mod), ~broom::tidy(summary(.x))) %>% 
   filter(term != "(Intercept)") %>% 
   select(-p.value) %>% 
-  gather(key = var_name, value = value, 2:ncol(.)) %>% 
-  spread_(key = names(.)[1],value = 'value') %>%
-  rename(" "= var_name) %>% 
-  rename_all(function(x)str_remove_all(x, "`")) %>% 
+  pivot_longer(cols = 2:last_col()) %>% 
+  pivot_wider(names_from = term, id_cols = name) %>% 
+  janitor::clean_names() %>% 
+  rename_all(function(x)str_to_sentence(str_replace_all(x, "_", " "))) %>% 
   knitr::kable(booktabs = TRUE)
 ```
+
 
 
 From the regression of offspring onto one parent;

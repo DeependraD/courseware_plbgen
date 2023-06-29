@@ -1,0 +1,5 @@
+Each gene pair affecting the same character,7,"Complete dominance at both gene pairs, but one gene, when dominant, epistatic to the other",12,16,white,"1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 13, 14"
+Each gene pair affecting the same character,7,Example: fruit color in summer squash,3,16,yellow,"11, 12, 15"
+Each gene pair affecting the same character,7,Gene pair A: white dominant to color,1,16,green,16
+Each gene pair affecting the same character,7,Gene pair B: yellow dominant to green,,,,
+Each gene pair affecting the same character,7,Interaction: Dominant white hides the effect of yellow or green,,,,

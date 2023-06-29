@@ -1,16 +1,16 @@
 ---
 title: Sex determination and sex linkage
 author: Deependra Dhakal
-date: 'Academic year: 2022-2023' 
+# date: 'Academic year: 2022-2023' 
 institute: |
-  | College of Natural Resource Management (AFU)
-  | Tikapur, Kailali
+  | Agriculture and Forestry University
   | \textit{ddhakal.rookie@gmail.com}
   | \url{https://rookie.rbind.io}
 output: 
   binb::metropolis:
     includes:
       in_header: beamer_header_template.tex
+    latex_engine: pdflatex
 classoption: "aspectratio=169" # "compressed"
 fontsize: 11pt
 bibliography: [./../bibliography/bibliographies.bib]
@@ -49,13 +49,12 @@ options(kableExtra.latex.load_packages = FALSE)
 
 ## Environmental sex determination
 
-- In some cases, sex of a fetus is determined by environmental factors (e.g. temperature)
-- Some species such as various plants and fish do not have a fixed sex, and instead go through life cycles and change sex based on genetic cues during corresponding life stages of their type. 
-- This could be due to environmental factors,
+- In several plant and animal species, environmental factors determine the expression of certain sex.
   - Seasons
   - Association with \female
   - Egg size
   - Incubation temperature
+- Various plants and fish do not have a fixed sex, and instead go through life cycles and change sex based on genetic cues during corresponding life stages of their type. 
 
 ##
 
@@ -86,10 +85,17 @@ options(kableExtra.latex.load_packages = FALSE)
 ## XX/XO sex chromosome (Chromosomal sex determination)
 
 - In grasshoppers, _Protenor_ and other orthopteran insects, \female s have two X chromosomes, while males have only one X (XX \female, X0 \male).
-  - Thus somatic cell of \female s have one chromosome more than those of \male s.
-  - Females are homogametic sex and \male s are heterogametic sex.
-  - Union of a sperm having an X chromosome with any egg produces a zygote having two X chromomsomes (XX); such zygote develop into \female individuals. But when a sperm without an X chromosome fertilizes an eg, an XO zygote is obtained; such individuals would develop into males.
+  \begin{itemize}
+  \scriptsize
+  \item Thus somatic cell of \female s have one chromosome more than those of \male s.
+  \item Females are homogametic sex and \male s are heterogametic sex.
+  \item Union of a sperm having an X chromosome with any egg produces a zygote having two X chromomsomes (XX); such zygote develop into \female individuals. But when a sperm without an X chromosome fertilizes an eg, an XO zygote is obtained; such individuals would develop into males.
+  \end{itemize}
 - In Fumea, females have only one X chromosome while males have two X chromosomes (X0 \female, XX \male)
+
+```{r grasshopper-sex-determination,fig.align='center', out.width="40%"}
+knitr::include_graphics("../images/sex_determination_grasshopper.png")
+```
 
 ## XX/XY chromosome
 
@@ -104,34 +110,38 @@ options(kableExtra.latex.load_packages = FALSE)
 
 ##
 
-```{r}
+```{r sex-determination-poultry, fig.align='center', out.width="40%"}
+knitr::include_graphics("../images/sex_determination_poultry.png")
+```
+
+```{r drosophila-chromosomal-sex-deterimnation, fig.align='center', out.width="45%"}
 knitr::include_graphics("./../images/drosophila_xy_sex-determination.png")
 ```
 
 ## X or Y-centered sex determination
 
 - In Y-centered sex determination, the SRY gene (residing on the Y chromosome) is the main gene in determining \male characteristics, but multiple genes are required to develop testes. Members of SRY-reliant species can have uncommon XY chromosomal combinations such as XXY and still live.
-- Some species, such as fruit flies, use the presence of two X chromosomes to determine femaleness. Species that use the number of Xs to determine sex are nonviable with an extra X chromosome.
-- Some fish have variants of the XY sex-determination system, as well as the regular system. For example, while having an XY format, _Xiphophorus nezahualcoyotl_ and X. milleri also have a second Y chromosome, known as Y', that creates XY' females and YY' males.
-- The platypus has ten sex chromosomes; males have an XYXYXYXYXY pattern while females have ten X chromosomes.
+- Some species, such as fruit flies, use the presence of two X chromosomes to determine $\female$ness. Species that use the number of Xs to determine sex are nonviable with an extra X chromosome.
+- Some fish have variants of the XY sex-determination system, as well as the regular system. For example, while having an XY format, _Xiphophorus nezahualcoyotl_ and X. milleri also have a second Y chromosome, known as Y', that creates XY' $\female$s and YY' $\male$s.
+- The platypus has ten sex chromosomes; $\male$s have an XYXYXYXYXY pattern while $\female$s have ten X chromosomes.
 
 ## Haplodiploidy
 
-- Mostly in hymenoptera, e.g. honey-bees, ants, termites females are diploid 2n and males are haploid (n)
-- During spermatogenesis, all the n chromosomes of males regularly pass to a single pole at Anaphase I so that the opposite pole receives no chromosome. Thus all the sperms are regularly haploid.
+- Mostly in hymenoptera, e.g. honey-bees, ants, termites $\female$s are diploid 2n and $\male$s are haploid (n)
+- During spermatogenesis, all the n chromosomes of $\male$s regularly pass to a single pole at Anaphase I so that the opposite pole receives no chromosome. Thus all the sperms are regularly haploid.
 - Normal oogenesis produces all haploid eggs.
 - Fertilization of eggs produces diploid zygotes, which develop into diploid larvae.
-  - Such larvae give rise to workers, which are sterile females.
-  - Females fed on royal jelly develop into fertile females called queen.
-- Unfertilized eggs develop parthenogenically to produce haploid larvae and ultimately fully fertile haploid males called drones.
+  - Such larvae give rise to workers, which are sterile $\female$s.
+  - $\female$s fed on royal jelly develop into fertile $female$s called queen.
+- Unfertilized eggs develop parthenogenically to produce haploid larvae and ultimately fully fertile haploid $\male$s called drones.
 
 # Molecular basis of sex determination
 
 ## Geneic balance theory
 
-- Bridges discovered XXY females and X0 males in _Drosophila_ while studying inheritance of vermilion eye gene in the X chromosome.
-- This showed that XX and XY chromosome constitutions are not essential for femaleness and maleness, respectively, and that Y chromosome did not play a role in sex determination.
-- Triploid females mated with normal diploid males result in aneuploid progeny. The progeny from such cross showed five different sex expressions. 
+- Bridges discovered XXY $\female$s and X0 $\male$s in _Drosophila_ while studying inheritance of vermilion eye gene in the X chromosome.
+- This showed that XX and XY chromosome constitutions are not essential for $\female$ness and $\male$ness, respectively, and that Y chromosome did not play a role in sex determination.
+- Triploid $\female$s mated with normal diploid $\male$s result in aneuploid progeny. The progeny from such cross showed five different sex expressions. 
 - By correlating the sex of an individual with its chromosome constitution, Bridges developed the geneic balance theory of sex determination. This theory fully explains sex determination in _Drosophila_.
 
 $$
@@ -201,6 +211,13 @@ tribble(~"Genotype", ~"Sex expression",
 
 \end{columns}
 
+## Sex determination in human
+
+```{r sex-determination-human, fig.align='center', out.width="75%"}
+knitr::include_graphics("../images/sex_determination_human.png")
+```
+
+
 # Sex linkage
 
 ##
@@ -231,11 +248,6 @@ knitr::include_graphics("../images/sex_linked_inheritance_drosophila.png")
 knitr::include_graphics("../images/x_dominant_affected_father.png")
 ```
 
-##
-
-```{r sex-linked-inheritance, out.width="45%", fig.align='center'}
-knitr::include_graphics("../images/sex_linked_inheritance.png")
-```
 
 ## X-linked dominant inheritance
 
@@ -261,15 +273,25 @@ knitr::include_graphics("../images/sex_linked_inheritance.png")
 
 - White eyes in Drosophila melanogaster flies—the first sex-linked gene discovered.
 - Fur color in domestic cats: the gene that causes orange pigment is on the X chromosome; thus a Calico or tortoiseshell cat, with both black (or gray) and orange pigment, is nearly always \female.
-- The first sex-linked gene ever discovered was the "lacticolor" X-linked recessive gene in the moth Abraxas grossulariata by Leonard Doncaster
+- The first sex-linked gene ever discovered was the "lacticolor" X-linked recessive gene in the moth _Abraxas grossulariata_ by Leonard Doncaster
+
+## Sex expression system in strawberry
+
+- Refer to @spigler2008genetic.
+
+<!-- Downloaded into corresponding `literatures/` directory -->
 
 ## Sex-influenced traits
 
-Sex-influenced or sex-conditioned traits are phenotypes affected by whether they appear in a \male or \female body. Even in a homozygous dominant or recessive \female the condition may not be expressed fully. Example: baldness in humans.
+- Sex-influenced or sex-conditioned traits are phenotypes affected by whether they appear in a \male or \female body.
+- Even in a homozygous dominant or recessive \female the condition may not be expressed fully.
+  - Example: baldness in humans.
 
 ## Sex-limited traits
 
-These are characters only expressed in one sex. They may be caused by genes on either autosomal or sex chromosomes. Examples: \female sterility in Drosophila; and many polymorphic characters in insects, especially in relation to mimicry. Closely linked genes on autosomes called "supergenes" are often responsible for the latter.
+- These are characters only expressed in one sex. They may be caused by genes on either autosomal or sex chromosomes. Examples: 
+  - \female sterility in Drosophila; and
+  - many polymorphic characters in insects, especially in relation to mimicry. Closely linked genes on autosomes called "supergenes" are often responsible for the latter.
 
 ## Klinefelter syndrome
 
@@ -281,7 +303,7 @@ These are characters only expressed in one sex. They may be caused by genes on e
 
 ## Turner syndrome
 
-- also known 45, X, is a genetic condition in which a female is partly or completely missing an X chromosome. 
+- Also known 45, X, is a genetic condition in which a female is partly or completely missing an X chromosome. 
 - Signs and symptoms vary among those affected. Often, a short and webbed neck, low-set ears, low hairline at the back of the neck, short stature, and swollen hands and feet are seen at birth.
 - They show impaired reproductive system (infertile) unless assisted with hormone treatment.
 
@@ -297,7 +319,7 @@ A sex-linked recessive allele $c$ produces a red-green color blindness in humans
   c. Of the girls produced by these parents, what proportion can be expected to be color blind ?
   d. Of all the children (sex unspecified) of these parents, what proportion can be expected to have normal color vision ?
 
-(For solution refer to the practical (10) entitled "Numerical Problems on Cytoplasmic Inheritance, Sex Linked Inheritance and Sex Determination")
+<!-- (For solution refer to the practical (10) entitled "Numerical Problems on Cytoplasmic Inheritance, Sex Linked Inheritance and Sex Determination") -->
 
 # Bibliography
 

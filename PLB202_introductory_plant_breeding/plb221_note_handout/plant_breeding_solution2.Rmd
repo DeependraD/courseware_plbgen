@@ -1,10 +1,8 @@
 ---
 title: "Numerical solutions to some problems in Plant Breeding"
-subtitle: "Part II"
 author: |
   | Deependra Dhakal
-  | Gokuleshwor Agriculture and Animal Science College, Baitadi, Nepal
-date: "9/18/2020"
+# date: "9/18/2020"
 output: 
   bookdown::pdf_document2:
     keep_tex: yes

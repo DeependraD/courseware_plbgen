@@ -1,10 +1,9 @@
 ---
 title: Mutation
 author: Deependra Dhakal
-date: 'Academic year: 2022-2023' 
+# date:
 institute: |
-  | College of Natural Resource Management (AFU)
-  | Tikapur, Kailali
+  | Agriculture and Forestry University
   | \textit{ddhakal.rookie@gmail.com}
   | \url{https://rookie.rbind.io}
 output: 
@@ -151,7 +150,7 @@ knitr::include_graphics("../images/point_mutation_type.png")
   
 ##
 
-```{r}
+```{r ploidy}
 ploidy <- tribble(
   ~"Ploidy", ~"Name", ~"Designation", ~"Constitution", ~"Number of chromosomes",
   "Euploids", "Monoploids", "n", "ABC", 3, 
@@ -226,14 +225,14 @@ Ferreira et al. (2009) evaluated the effect of various doses of gamma radiation 
 ##
 
 - Another group is the base analogues (they are closely related to the DNA bases and can be wrongly incorporated during replication); examples are 5-bromouracil and maleic hydrazide. 
-- sodium azide ($NaN_3$), which inhibits the activity of cellular respiration enzymes;
-- antibiotics (streptomycin, mitomycin C, and actinomycin D), which cause chromosomal breaks;
+- Sodium azide ($NaN_3$), which inhibits the activity of cellular respiration enzymes;
+- Antibiotics (streptomycin, mitomycin C, and actinomycin D), which cause chromosomal breaks;
 - Other chemical mutagens commonly used are ethyl methane sulfonate (EMS) and diethylsulfonate (DES). 
 - The half-life (time taken for degradation of half the initial amount of alkylating agent) for EMS in water is about 93 hours at $20.8^\circ C$ but only 10 hours at $37.8^\circ C$.
 
 # Factors affecting the success of mutagenesis
 
-## Clear objective
+## Objective
 
 - A program established to select one specific trait is more focused and easier to conduct with a higher chance of success than a program designed to select more than one trait.
 

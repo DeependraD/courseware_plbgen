@@ -1,10 +1,9 @@
 ---
 title: Mendel's law of segregation and independent assortment
 author: Deependra Dhakal
-date: 'Academic year: 2022-2023' 
+# date: 'Academic year: 2022-2023' 
 institute: |
-  | College of Natural Resource Management (AFU)
-  | Tikapur, Kailali
+  | Agriculture and Forestry University
   | \textit{ddhakal.rookie@gmail.com}
   | \url{https://rookie.rbind.io}
 output: 
@@ -32,9 +31,9 @@ options(kableExtra.latex.load_packages = FALSE)
 
 # Mendel's experiment
 
-<!-- (Refer to Chapter 2 on 'Genes and selection: Retrospect and prospect', Plant Breeding Reviews, Volume 24, Part 1.) -->
-
 ## Reasons for failure of predecessors
+
+<!-- (Refer to Chapter 2 on 'Genes and selection: Retrospect and prospect', Plant Breeding Reviews, Volume 24, Part 1.) -->
 
 - Scientists studied plant as a whole, i.e. in its totality of appearance of a large number of characters. Therefore plants couldn't be classified in few clearcut classes.
 - Scientists were concerned with the description of various forms appearing in progeny. Attempt on highlighting class frequencies of progenies was not made.
@@ -126,12 +125,19 @@ knitr::include_graphics("../images/mendels_exact_observation.png")
 
 ## Terminologies and meanings
 
+```{r hetero-homo-zygous, fig.align='center', out.width="99%"}
+knitr::include_graphics("../images/homozygote_heterozygote.jpg")
+```
+
+##
+
 - A fertilized egg, the first cell that develops into a progeny individual, is called a **zygote**.
 - A plant with a pair of identical alleles of the par differ is called a **heterozygote**.
 - Sometimes a heterozygote for one gene is called a **monohybrid**.
 - An individual can be classified as either **homozygous dominant** (such as $Y/Y$), **heterozygous** ($Y/y$), or **homozygous recessive** ($y/y$).
-- In genetics generally, allelic combinations underlying phenotypes are called genotypes. Hence, $Y/Y$, $Y/y$, and $y/y$ are all genotypes.
-- When crossed with each other, the $Y/Y$ and the $y/y$ lines produce an $F_1$ generation composed of all heterozygous individuals ($Y/y$). Because $Y$ is dominant, all $F_1$ individuals are yellow in phenotype. Selfing the $F_1$ individuals can be thought of as a cross of the type $Y/y$ x $Y/y$, which is sometimes called a monohybrid cross.
+- Allelic combinations underlying phenotypes are called genotypes. Hence, $Y/Y$, $Y/y$, and $y/y$ are all genotypes.
+
+<!-- - When crossed with each other, the $Y/Y$ and the $y/y$ lines produce an $F_1$ generation composed of all heterozygous individuals ($Y/y$). Because $Y$ is dominant, all $F_1$ individuals are yellow in phenotype. Selfing the $F_1$ individuals can be thought of as a cross of the type $Y/y$ x $Y/y$, which is sometimes called a monohybrid cross. -->
 
 ## Monohybrid crossing
 

@@ -1,10 +1,9 @@
 ---
 title: Chromosomal aberration
 author: Deependra Dhakal
-date: 'Academic year: 2022-2023' 
+date:
 institute: |
-  | College of Natural Resource Management (AFU)
-  | Tikapur, Kailali
+  | Agriculture and Forestry University
   | \textit{ddhakal.rookie@gmail.com}
   | \url{https://rookie.rbind.io}
 output: 
@@ -67,7 +66,7 @@ knitr::include_graphics("../images/types_of_chromosome_mutations.png")
 
 ##
 
-```{r}
+```{r ploidy}
 tribble(
   ~"Ploidy", ~"Name", ~"Designation", ~"Constitution", ~"Number of chromosomes",
   "Euploids", "Monoploids", "n", "ABC", 3, 
@@ -125,7 +124,7 @@ knitr::include_graphics("../images/colchicine_treatment_polyploidy.png")
 
   \column{.35\linewidth}
 
-```{r origin-of-raphanobrassica, out.width="85%", fig.cap="In the progeny of a cross of cabbage (Brassica) and radish (Raphanus), the fertile amphidiploid arose from spontaneous doubling in the 2n = 18 sterile hybrid."}
+```{r origin-of-raphanobrassica, out.width="98%", fig.cap="In the progeny of a cross of cabbage (Brassica) and radish (Raphanus), the fertile amphidiploid arose from spontaneous doubling in the 2n = 18 sterile hybrid."}
 # pdftools::pdf_convert("../../literatures/textbooks/Introduction to Genetic Analysis/Griffiths - An Introduction to Genetic Analysis 11th Edition c2015.pdf",
 #                       pages = 649,
 #                       dpi = 300, format = "png",
@@ -222,7 +221,5 @@ knitr::include_graphics("../images/pericentric_inversion.png")
 \end{columns}
 
 # Bibliography
-
-## See also
 
 ## References

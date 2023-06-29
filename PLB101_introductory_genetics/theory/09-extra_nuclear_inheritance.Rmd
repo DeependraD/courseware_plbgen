@@ -2,10 +2,9 @@
 title: Extra nuclear inheritance
 subtitle: 
 author: Deependra Dhakal
-date: 'Academic year: 2022-2023' 
+# date: 'Academic year: 2022-2023' 
 institute: |
-  | College of Natural Resource Management (AFU)
-  | Tikapur, Kailali
+  | Agriculture and Forestry University
   | \textit{ddhakal.rookie@gmail.com}
   | \url{https://rookie.rbind.io}
 output: 
@@ -13,6 +12,7 @@ output:
     citation_package: biblatex
     includes:
       in_header: beamer_header_template.tex
+    latex_engine: pdflatex
 classoption: "aspectratio=169" # "compressed"
 fontsize: 11pt
 bibliography: [./../bibliography/bibliographies.bib]
@@ -71,21 +71,30 @@ options(kableExtra.latex.load_packages = FALSE)
 
 \begin{columns}[T,onlytextwidth]
   \column{0.6\textwidth}
-  \footnotesize
 
-```{r variegation-cytoplasmic-inheritance, fig.cap="The results of the \\textit{Mirabilis jalapa} crosses can be explained by autonomous chloroplast inheritance. The large, dark spheres represent nuclei. The smaller bodies represent chloroplasts, either green or white. Each egg cell is assumed to contain many chloroplasts, and each pollen cell is assumed to contain no chloroplasts. The first two crosses exhibit strict maternal inheritance. If, however, the maternal branch is variegated, three types of zygotes can result, depending on whether the egg cell contains only white, only green, or both green and white chloroplasts. In the last case, the resulting zygote can produce both green and white tissue, and so a variegated plant results.", fig.align='center', out.width="55%"}
-# pdftools::pdf_convert("./../../literatures/textbooks/Introduction to Genetic Analysis/Griffiths - An Introduction to Genetic Analysis 11th Edition c2015.pdf", pages = 140, format = "png", filenames = "../images/variegation_cytoplasmic_inheritance.png", dpi = 300)
-knitr::include_graphics("../images/variegation_cytoplasmic_inheritance.png")
+```{r mirabilis-variegation, fig.cap="{\\tiny Many cases of white leaves are caused by mutations in chloroplast genes that control the production and deposition of the green pigment chlorophyll. Because chlorophyll is necessary for a plant to live, this type of mutation is lethal, and white-leaved plants cannot be obtained for experimental crosses. However, some plants are variegated, bearing both green and white patches, and these plants are viable. The four-o'clock plant shows a commonly observed variegated leaf and branch phenotype that demonstrates the inheritance of a mutant allelle of a chloroplast gene. The mutant allele causes chloroplast to be white; in turn, the color of the chloroplasts determines the color of cells and hence the color of the branches composed of those cells. Variegated branches are mosaics of all-green and all-white cells. Flowers can develop on green, white, or variegated branches, and the chloroplast genes of a flower's cells are those of the branch on which it grows.}", out.width="54%"}
+knitr::include_graphics("../images/mirabilis_variegation.png")
 ```
 
   \column{0.4\textwidth}
   \footnotesize
 
-```{r maize-variegation, fig.cap="Many cases of white leaves are caused by mutations in chloroplast genes that control the production and deposition of the green pigment chlorophyll.", fig.align='center', out.width="50%"}
+```{r maize-variegation, fig.cap="Many cases of white leaves are caused by mutations in chloroplast genes that control the production and deposition of the green pigment chlorophyll.", fig.align='center', out.width="96%"}
 knitr::include_graphics("../images/maize_variegation.jpg")
 ```
 
 \end{columns}
+
+##
+
+```{r variegation-cytoplasmic-inheritance, fig.cap="The results of the \\textit{Mirabilis jalapa} crosses can be explained by autonomous chloroplast inheritance. The large, dark spheres represent nuclei. The smaller bodies represent chloroplasts, either green or white. Each egg cell is assumed to contain many chloroplasts, and each pollen cell is assumed to contain no chloroplasts. The first two crosses exhibit strict maternal inheritance. If, however, the maternal branch is variegated, three types of zygotes can result, depending on whether the egg cell contains only white, only green, or both green and white chloroplasts. In the last case, the resulting zygote can produce both green and white tissue, and so a variegated plant results.", fig.align='center', out.width="46%"}
+# pdftools::pdf_convert("./../../literatures/textbooks/Introduction to Genetic Analysis/Griffiths - An Introduction to Genetic Analysis 11th Edition c2015.pdf", pages = 114, format = "png", filenames = "../images/variegation_cytoplasmic_inheritance.png", dpi = 300)
+knitr::include_graphics("../images/variegation_cytoplasmic_inheritance.png")
+
+# Hence, in a cross, the maternal gamete within the flower (the egg cell) determines the color of the leaves and branches of the progeny plant For example, if an egg cell is from a flower on a green branch, all the progeny will be green, regardless of the origin of the pollen. A white branch will have white chloroplasts, and the resulting progeny plants will be white. (Because of lethality, white descendants would not live beyond the seedling stage.)
+
+# The variegated zygotes (bottom of Figure) demonstrate cytoplasmic segregation. These variegated progeny come from eggs that are cytohets. Interestingly, when such a zygote divides, the white and green chloroplasts often segregate; that is, they sort themselves into separate cells, yielding the distinct green and white sectors that cause the variegation in the branches. Here, then, is a direct demonstration of cytoplasmic segregation.
+```
 
 ## \male sterility
 
@@ -96,7 +105,8 @@ knitr::include_graphics("../images/maize_variegation.jpg")
 ## Genetic \male sterility
 
 - While CMS is controlled by an extranuclear genome, nuclear genes may have the capability to restore fertility.
-- Genetic (nuclear, genic) \male sterility is widespread in plants. The gene for sterility has been found in species including barley, cotton, soybean, tomato, potato, and lima bean. 
+- Genetic (nuclear, genic) \male sterility is widespread in plants.
+  - barley, cotton, soybean, tomato, potato, and lima bean
 - It is believed that nearly all diploid and polyploidy plant species have at least one \male sterility locus.
 - May be manifested as pollen abortion (pistillody) or abnormal anther development.
 - Genetic \male sterility is often conditioned by a single recessive nuclear gene, _ms_, the dominant allele, _Ms_, conditioning normal anther and pollen development. 
@@ -117,37 +127,45 @@ knitr::include_graphics("../images/gms_use.png")
 - Transmitted through the egg only (maternal factor).
 - Has been found in species including corn, sorghum, sugar beet, carrot, and flax. 
 - The condition has been induced in species such as sorghum by transferring nuclear chromosomes into a foreign cytoplasm. 
-- Has real advantages in breeding ornamental species because all the offspring is \male sterile, hence allowing them to remain fruitless.
+- Has real advantages in breeding ornamental species because all the offspring are \male sterile, hence allowing them to remain fruitless.
 
 ##
 
-```{r cms-use, fig.cap="Cytoplasmic \\male sterility as applied in plant breeding (N, normal cytoplasm; s, sterile cytoplasm).", fig.align='center', out.width="40%"}
+\bcolumns
+\column{0.6\textwidth}
+
+- Hybrid seed production using CMS requires three types of genotypes;   
+  - \male fertile lines (called *B* line, maintainer line; here indicated by *A'*) are maintained by selfing; have no cytoplasmic \male sterility genes and are homozygous for a dominant restorer gene (i.e. normal ( _n_) cytoplasm, _RfRf_);
+  - Cytoplasmic sterile \female lines with \male sterile cytoplasm but with no restorer genes (called *A* line) are maintained by crossing with isogeneic cytoplasmic \male fertile (maintainer) line;
+  - R-line.
+
+\column{0.4\textwidth}
+
+```{r cms-use, fig.cap="Cytoplasmic \\male sterility as applied in plant breeding (n, normal cytoplasm; s, sterile cytoplasm).", fig.align='center', out.width="98%"}
 # pdftools::pdf_convert("./../../references_plb/Plant Breeding, 2nd Edition (2014).pdf", pages = 76, format = "png", filenames = "./images/cms_use.png", dpi = 300)
 knitr::include_graphics("../images/cms_use.png")
 ```
 
-##
-
-- Hybrid seed production using CMS requires three types of genotypes;   
-- \male fertile lines (called *B* lines; maintained by selfing) with no cytoplasmic \male sterility genes and which are homozygous for a dominant restorer gene (i.e. normal ( _n_) cytoplasm, _RfRf_);
-  - cytoplasmic sterile \female lines with \male sterile cytoplasm but with no restorer genes (called *A* lines; maintained by crossing with isogeneic cytoplasmic \male fertile line);
-  - '\male-fertile' \female lines (called *A'* lines or *A'* maintainer
-lines; maintained by selfing) with normal cytoplasm and no restorer genes.
+\ecolumns
 
 ##
+
+\bcolumns
+\column{0.55\textwidth}
 
 - Cytoplasmic \male sterility may be modified by the presence of fertility-restoring genes in the nucleus. 
 - CMS is rendered ineffective when the dominant allele for the fertility-restoring gene ( _Rf_) occurs, making the anthers able to produce normal pollen.
 - CMS is transmitted only through the egg, but fertility can be restored by _Rf_ genes in the nucleus. 
-- Three kinds of progeny are possible following a cross, depending on the genotype of the pollen source. 
-- The resulting progenies assume that the fertility gene will be responsible for fertility restoration.
+- Progenies obtained from a cross with such a system assume restored fertility due to nuclear gene/s.
 
-##
+\column{0.45\textwidth}
 
-```{r cgms-systems, fig.cap="The three systems of cytoplasmic genetic \\male sterility. The three factors involved in CMS are the normal cytoplasm (N), the \\male sterile cytoplasm (S), and the fertility restorer (Rf, rf).", fig.align='center', out.width="28%"}
+```{r cgms-systems, fig.cap="The three systems of cytoplasmic genetic \\male sterility. The three factors involved in CMS are the normal cytoplasm (N), the \\male sterile cytoplasm (S), and the fertility restorer (Rf, rf).", fig.align='center', out.width="54%"}
 # pdftools::pdf_convert("./../../references_plb/Principles of Plant Genetics and Breeding.pdf", pages = 119, format = "png", filenames = "./images/cgms_systems.png", dpi = 300)
 knitr::include_graphics("../images/cgms_systems.png")
 ```
+
+\ecolumns
 
 ## Features of organellar genomes
 
@@ -166,12 +184,13 @@ knitr::include_graphics("../images/cgms_systems.png")
   \column{0.35\textwidth}
   
   \begin{itemize}
+  \footnotesize
   \item \textit{Poky} phenotype mutants in \textit{Neurospora} is caused by a mutation of a ribosomal RNA gene in mtDNA.
   \end{itemize}
   
   \column{0.65\textwidth}
   
-```{r human-mitochondial-diseases, fig.cap="Map of human mtDNA shows loci of mutations leading to cytopathies", fig.align='center', out.width="60%"}
+```{r human-mitochondial-diseases, fig.cap="Map of human mtDNA shows loci of mutations leading to cytopathies", fig.align='center', out.width="62%"}
 # pdftools::pdf_convert("./../../literatures/textbooks/Introduction to Genetic Analysis/Griffiths - An Introduction to Genetic Analysis 11th Edition c2015.pdf", pages = 142, format = "png", filenames = "../images/human_mitochondrial_genome_map.png", dpi = 300)
 knitr::include_graphics("../images/human_mitochondrial_genome_map.png")
 ```
@@ -246,5 +265,6 @@ $$
 ## See also
 
 - Refer to Chapter 5 on "The influence of mitochondrial genetics on crop breeding strategies", Plant Breeding Reviews, Volume 25.
+- Volume 2, Advances in Genetics by Ernst Caspari.
 
 ## References

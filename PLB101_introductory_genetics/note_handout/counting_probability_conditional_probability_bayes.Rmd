@@ -1,0 +1,466 @@
+---
+title: "Counting, probability, conditional probability and Bayes"
+subtitle: "Numerical Exercises"
+author: |
+  | Deependra Dhakal
+  <!-- | Non Affiliated -->
+# date: "November, 2021"
+output: 
+  bookdown::pdf_document2:
+    keep_tex: yes
+    toc: false
+    includes:
+      in_header: ss_header.tex
+    number_sections: false
+documentclass: exam
+classoption: "answers,addpoints,12pt"
+geometry: "top=1.5cm,bottom=1.5cm,left=1.5cm,right=1.5cm"
+bibliography: bibliography.bib
+header-includes:
+  - \usepackage{wasysym}
+  - \usepackage{tikz}
+  - \usetikzlibrary{positioning,decorations.pathreplacing,shapes}
+  - \usepackage{amsmath}
+  - \DeclareMathOperator{\p}{p}
+  - \newcommand{\testp}{\text{test}+}
+  - \usepackage{accents}
+  - \usepackage{epsdice}
+  - \usepackage{pst-poker}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, include = TRUE, message = FALSE, warning = FALSE)
+options(knitr.kable.NA = '', kableExtra.latex.load_packages = TRUE)
+require(tidyverse)
+```
+
+Before delving into this random ocean of numerical problem and solutions, note that several ideas were borrowed from following wonderful references: 
+
+1. @khare2015beautiful (Beautiful, Simple, Exact, Crazy, 2015)
+2. @angel2017survey (A survey of mathematics with applications, 2016) -- A higher secondary level mathematics textbook. Contains basic description and problems sets on probability at the final chapters of the book.
+3. @mills2014problems (Problems in Probability, 2013) -- Chapter 2 has notes and advanced problems on probability. Book comes with solution (at the end) of all chapters.
+4. Principles of uncertainty, 2011 -- Finely written ~500 pages book. Has R codes in-text and several case specific problems and discussion.
+5. Probability and statistical inference
+6. Statistics for Engineering and the Sciences, 2016 (with sm)
+7. Applied probability, 2003 -- Introduces genetics and population genetics concepts at the beginning and nicely relates to probabilistic thinking.
+8. Mathematical and Statistical Methods for Genetic Analysis, 2002
+9. Biocalculus Calculus, Probability, and Statistics for the Life Sciences, 2016 (with sm)
+10. Fundamentals of Biostatistics by Bernard Rosner, 2010
+11. Biostatistics for Biomedical Research, 2018 (by Frank Harrell)
+12. Mathematical Models in Biology, 2003 (with sm)
+13. Introduction to Mathematical Statistics, 6th Edition, 2005 (with sm)
+14. Mario Lefebvre - Applied Probability and Statistics-Springer, 2006 (with sm)
+15. Introduction to the Practice of Statistics (6th Edition), 2007 (with sm)
+16. Introduction to Probability, 2nd Edition, 2008 (with sm)
+17. Probability, Statistics, and Random Processes For Electrical Engineering, 3rd Edition, 2008 (with sm)
+18. Probability and Statistical Inference, 8th Edition, 2010 (with sm)
+19. Engineering Mathematics, Problems and Solutions, Volume I, 2012 -- It is a worked out solution book
+20. Introduction to Probability with Statistical Applications-Birkhauser Basel, 2016 (with sm)
+21. Probability and Statistics_9th Edition, 2016 (with sm)
+22. Statistics for Engineering and the Sciences, Sixth Edition, 2017 (with sm)
+23. Introduction to Probability, 2nd Edition, 2019 (Blitzstein J.K., Hwang J.) (with sm)
+24. Mathematics and Statistics for Science_Springer, 2022 (with sm)
+
+# Permutation
+
+\bquestions
+
+\question \label{quest:perm-1}
+
+If you have 15 shirts and 8 pair of pants, how many outfits can you make ?
+
+
+\bsolution (Question \ref{quest:perm-1}) 
+
+Since an outfit must consist of a shirt AND a pant, we can get: $15 \times 8 = 120$ outfits.
+
+\esolution
+
+\question \label{quest:perm-2}
+
+How many three digit numbers have only even digits ?
+
+\bsolution (Question \ref{quest:perm-2}) 
+
+Let us represent three digit numbers with: $\under{x}\under{y}\under{z}$.
+
+Then for $x$, we can have $\{2,4,6,8\}$ to choose from $\Longrightarrow$ 4 digits,
+
+For both $y$ and $z$, we have $\{0, 2, 4, 6, 8\}$ to choose from $\Longrightarrow$ 5 digits.
+
+$\therefore$ Total numbers that could be made (by arrangements of available digits): $4 \times 5 \times 5 = 100$.
+
+\esolution
+
+
+\question \label{quest:perm-3}
+
+
+
+\bsolution (Question \ref{quest:perm-3}) 
+
+
+\esolution
+
+\question \label{quest:perm-4}
+
+
+
+\bsolution (Question \ref{quest:perm-4}) 
+
+
+\esolution
+
+\equestions
+
+
+# Probability, conditional probability and Bayes
+
+## Definition and axioms
+
+A theoretical scenario, probability is the proportion of the occurrence of an event obtained from infinitely many repeated and identical trials or experiments under similar conditions.
+
+If a die is thrown n times and the event A is the single dot facing up ($\epsdice{1}$), then the probability $Pr(A)$ of the event A can be approximated by the ratio of the number of throws $n_A$ with $\epsdice{1}$ and the total number of throws n, i.e.,
+
+$$
+\text{Pr}(A) \approx \frac{n_A}{n}.
+$$
+
+When the number of repeated trials $n$ is increased it is expected that the proportion $\frac{n_A}{n}$ converges to some value $p$ (which would be equal to $\frac{1}{6}$ if the die is fair). The definition of probability, thus, can be given by
+
+$$
+\text{Pr}(A) = \lim\limits_{n \to \infty} \frac{n_A}{n} = p.
+$$
+Clearly, this definition is only appropriate when repeated and identical trials can be conducted under almost similar conditions (e.g., gaming and gambling). In real situations, it is impossible to conduct infinitely many or even many trials in practice.
+
+In a simple sense, probability  $\text{Pr}(A)$ of an event $A$ as an (unknown) value between zero and one, $0 \leq \text{Pr}(A) \leq 1$, where both boundaries are allowed, which could either be approximated by collecting appropriate and real data or by the limit of a proportion of repeated and identical trials.
+
+Before leaping in to calculation of probabilities, it is imperative that standard norms, as listed below, for notation of events are followed. 
+
+- The $complement$ of event $A$ is denoted by $A^\mathsf{c}$ or $A^\complement$ and it indicates that event $A$ does not occur. Thus the complement of having a female baby is having a male baby (It is caution hereby that sex, is described here in restricted sense.)
+- The occurance of two events $A$ and $B$ at the same time is denoted by $A\cap B$ or $A \land B$. This is often referred to as the joint or mutual event. If event A represents a congenital anomaly in a newborn baby and event B represents the gender male of the baby, then $A\land B$ represents the event that the baby is both male and has a congenital anomaly.
+- The event that either A or B (or both) occurs is denoted by $A \cap B$ or $A\lor B$. Thus in the example of newborn babies, $A \lor B$ means that the baby is either male (with or without anomaly) or is female with a congenital anomaly. This is the complement of the event of having a female baby without an anomaly (i.e., $(A \lor B )^\complement = A^\complement \land B^\complement$).
+
+Below go some additional definitions relevant for probabilities.
+
+- The probability of no event must be zero. Not having events is indicated by the empty set $\emptyset$ and the probability is $\text{Pr}(\emptyset) = 0$. For instance, if two events A and B can never occur together (mutually exclusive events), then it follows that $A \cap B = \emptyset$ and $\text{Pr}(A\cap B) = \text{Pr}(\emptyset) = 0$. The mutual event that a newborm baby has an anomaly in its uterus and is also a boy does not exist. This would have probability zero of occurring.
+- The probability that event $A$ occurs is one minus the probability that the event $A$ does not occur; thus $\text{Pr}(A) = 1- \text{Pr}(A^\complement)$. This rule is based on the assumption the either event A or event A^\complement occurs. This means that $\text{Pr}(A \cup A^\complement) = 1$, since we will see either A or $A^\complement$.
+- We call two events $A$ and $B$ _independent_ if and only if the probability of the mutual event is equal to the product of the probabilities of each event A and B separately. Thus the independence of events $A$ and $B$ (denoted by $A \perp B$) is equivalent with $\text{Pr}(A\cap B) = \text{Pr}(A)\cdot \text{Pr}(B)$. Using products of probabilities when independence is given or assumed is applied frequently throuhout the book. Note that any event $A$ with the non-empty $\emptyset$ is independent: $\text{Pr}(A\cap B) = \text{Pr}(\emptyset) = 0 = 0 \cdot \text{Pr}(A) = \text{Pr}(\emptyset) \text{Pr}(A)$. Alternatively, if two events with a positive.
+
+<!-- Continue from Page 107 of Kaptein M. Statistics for Data Scientists. An Introduction 2022. -->
+
+
+## Solved problems
+
+\bquestions
+
+\question \label{quest:sample-space-1}
+
+Three different people are to be selected at random, and each will be given one gift card. There is one card from Home Depot, one from Best Buy, and one from Red Lobster. The first person selected gets to choose one of the cards. The second person selected gets to choose between the two remaining cards. The thirds person selected gets the third card.
+
+a. If each card is equally likely to be selected, determine the number of sample points in the sample space.
+b. Determine the probability that the Best Buy card is selected first.
+c. The cards are selected in the order: Best Buy, Red Lobster, Home Depot.
+
+\bsolution (Question \ref{quest:sample-space-1})
+
+Let the abbreviations Ho, Be and Re represent gift cards respectively from Home Depot, one from Best Buy, and one from Red Lobster. Gift cards could be selected by 3 persons consecutively in: $3\times 2\times 1$ way. Thus, following possible outcomes are possibles
+
+$\{Ho,Be,Re\}$, $\{Ho,Be,Re\}$,
+$\{Re,Be,Ho\}$, $\{Re,Ho,Be\}$,
+$\{Be,Ho,Re\}$, $\{Be,Re,Ho\}$.
+
+Total of 6 sample points are possible.
+
+- Out of 6 total outcomes from sample space, 2 of them have $Be$ selected at first. Hence the probability is $\frac{2}{6} = \frac{1}{3}$.
+- Exactly 1 of the outcomes of the sample space has the cards selected in the order $\{Be, Re, Ho\}$. Hence the probability is $\frac{1}{6}$.
+
+\esolution
+
+\question \label{quest:sample-space-2}
+
+A single die is rolled twice.
+
+a. Determine the number of sample points in the sample space.
+b. Construct a tree diagram and list the sample space.
+c. Probability that a double (a 1, 1 or 2, 2, etc.) is rolled.
+d. Probability that a sum of 8 is rolled.
+e. Probability that a sum of 2 is rolled.
+f. Are you as likely to roll a sum of 2 as you are of rolling a sum of 8 ?
+
+\bsolution (Question \ref{quest:sample-space-2})
+
+\begin{tikzpicture}[
+  grow=right,
+  sloped,
+  level 1/.style={level distance=4cm,sibling distance=30mm},
+  level 2/.style={level distance=3cm,sibling distance=5mm},
+  shape=circle,
+  rolls/.style={draw, inner sep=1pt, text centered},
+]
+  \node[draw, rectangle] {$\{ \epsdice{1}, \epsdice{2}, \epsdice{3}, 
+          \epsdice{4}, \epsdice{5}, \epsdice{6} \}$} child foreach \i in {1,...,6}
+        { node[rolls] {\i} child foreach \i in {1,...,6}
+            { node[rolls] {\i}
+            }
+        };
+\end{tikzpicture}
+
+\esolution
+
+\question \label{quest:odds-1}
+
+One card is selected from a standard deck of cards. Determine
+
+a. the odds in favor of selecting a queen
+b. the odds against selecting a queen
+
+\bsolution (Question \ref{quest:odds-1})
+
+There are 52 cards in a standard deck of cards, 4 of which are queens. Therefore, the probability of selecting a queen is $\frac{4}{52}$, or $\frac{1}{13}$. The probability the card selected is not a queen is $1-\frac{1}{13} = \frac{12}{13}$.
+
+Odds in favor of selecting a queen = $\frac{P(\text{Selecting a queen})}{P(\text{Not selecting a queen})} = \frac{1/13}{12/13} = \frac{1}{12}$ $\implies$ $1:12$.
+
+The odds against selecting a queen are $12:1$.
+
+\esolution
+
+\question \label{quest:iids-1}
+
+(Independent events) Suppose you draw two cards randomly from a deck. Let $A$ denote the event that the first card is a $\diamondsuit$, and B that the second card is a $\diamondsuit$. Are events A and B independent ?
+
+\bsolution (Question \ref{quest:iids-1}) 
+
+Clearly, $P(A) = \frac{13}{52} = \frac{1}{4}$. Also, $P(B)= \frac{1}{4}$. Now we compute $P(A\cap B)$. This is the event that both cards are diamonds, and its probability is:
+
+$$
+P(A \cap B) = \frac{{13\choose 2}}{{52 \choose2}} = \frac{13\times 12}{52\times 51} = \frac{12}{4\times 51} = \frac{1}{17}.
+$$
+
+Here, $n \choose k$ symbol $\implies$ "Choose $k$ items to compose unordered collection of items from $n$ items".
+
+On the other hand,
+
+$$
+P(A).P(B) = \frac{1}{4}.\frac{1}{4} = \frac{1}{16}.
+$$
+
+Therefore, $P(A). P(B) \neq P(A\cap B)$, and the events are not independent.
+
+\esolution
+
+\question \label{quest:prob-1}
+
+If 5 coins are tossed together, determine the probability of getting
+
+1. 3H and 2T
+2. At least 3H
+3. More than 3H
+4. Less than 3H
+5. Not more than 3H
+
+\bsolution (Question \ref{quest:prob-1})
+
+Let $a$ represent probability of turning head ($P(H) = \frac{1}{2}$) and $b$ represent the probability of turning tail ($P(T) = \frac{1}{2}$), then, Binomial expansion can be used to mimic all 5 tosses.
+
+$$
+(a + b)^5 = a^5 + 5a^4b + 10 a^3 b^2 + 10 a^2 b^3 + 5 ab^4 + b^5
+$$
+
+Now,
+
+1. Probability(P) of 3H and 2T is given by $\mathrm{3^{rd}}$ term, which is: $10 a^3 b^2$ equals $\frac{5}{16}$.
+2. Probabilities of having (3H or 4H or 5H)
+3. Probabilities of having (4H or 5H)
+4. Probabilities of having (1H or 2H)
+5. Probabilities of having (1H or 2H or 3H)
+
+\esolution
+
+\question \label{quest:prob-5}
+
+1% of women at age forty who participate in routine screening have breast cancer. 80% of women with breast cancer will get positive mammographies. 9.6% of women without breast cancer will also get positive mammographies. A woman in this age group had a positive mammography in a routine screening. What is the probability that she actually has breast cancer?
+
+<!-- Same question could be phrased differently (in a more understandable way) as follows: -->
+<!-- 100 out of 10,000 women at age forty who participate in routine screening have breast cancer. 80 of every 100 women with breast cancer will get a positive mammography. 950 out of 9,900 women without breast cancer will also get a positive mammography. If 10,000 women in this age group undergo a routine screening, about what fraction of women with positive mammographies will actually have breast cancer? -->
+
+<!-- Explaination: Out of 10,000 women, 100 have breast cancer; 80 of those 100 have positive mammographies. From the same 10,000 women, 9,900 will not have breast cancer and of those 9,900 women, 950 will also get positive mammographies. This makes the total number of women with positive mammographies 950+80 or 1,030. Of those 1,030 women with positive mammographies, 80 will have cancer. Expressed as a proportion, this is 80/1,030 or 0.07767 or 7.8%. -->
+
+\bsolution (Question \ref{quest:prob-5}) 
+
+\begin{tikzpicture}[%
+  % common options for blocks:
+  block/.style = {draw, fill=blue!30, align=center, anchor=west,
+              minimum height=0.65cm, inner sep=0},
+  % common options for the circles:
+  ball/.style = {circle, draw, align=center, anchor=north, inner sep=0}]
+
+% circle illustrating all women
+\node[ball,text width=3cm,fill=purple!20] (all) at (6,0) {All women};
+
+% two circles showing split of p{cancer} and p{~cancer}
+\node[ball,fill=red!70,text width=0.1cm,anchor=base] (pcan) at (3.5,-5.5) {};
+\node[ball,fill=blue!40,text width=2.9cm,anchor=base] (pncan) at (8.5,-6)
+   {Women without cancer\\
+    $\p({\sim}\text{cancer}) = 99\%$};
+
+% arrows showing split from all women to cancer and ~cancer
+\draw[->,thick,draw=red!50] (all.south) to [out=270,in=90] (pcan.north);
+\draw[->,thick,draw=blue!80] (all.south) to [out=270,in=110] (pncan.100);
+
+% transition from all women to actual cancer rates
+\node[anchor=north,text width=10cm,inner sep=.05cm,align=center,fill=white]
+  (why1) at (6,-3.7) {In measuring, we find:};
+
+% note illustration the p{cancer} circle (text won't fit inside)
+\node[inner sep=0,anchor=east,text width=3.3cm] (note1) at (3.2,-5.5) {
+   Women with cancer $\p(\text{cancer}) = 1\%$};
+
+% draw the sieves
+\node[block,anchor=north,text width=4.4cm,fill=green!50] (tray1) at
+   (3.5,-8.8) {\small{$\p(\testp\mid\text{cancer})=0.8$}};
+
+\node[block,anchor=north,text width=4.4cm,fill=green!50] (tray2) at
+   (8.5,-8.8) {$\p(\testp\mid{\sim}\text{cancer})=0.096$};
+
+% text explaining how p{cancer} and p{~cancer} behave as they
+% pass through the sieves
+\node[anchor=west,text width=6cm] (note1) at (-6,-9.1) {
+   Now we pass both groups through the sieve; note that both
+     sieves are \emph{the same}; they just behave differently
+     depending on which group is passing through. \\ 
+     Let $\testp=$ a positve mammography.};
+
+% arrows showing the circles passing through the seives
+\draw[->,thick,draw=red!80] (3.5,-5.9) -- (3.5,-8.6);
+\draw[->,thick,draw=blue!50] (8.5,-8.1) -- (8.5,-8.6);
+
+% numerator
+\node[ball,text width=0.05cm,fill=red!70] (can) at (6,-10.5) {};
+
+% dividing line
+\draw[thick] (5,-11) -- (7,-11);
+
+% demoniator
+\node[ball,text width=0.39cm,fill=blue!40,anchor=base] (ncan) at (6.5,-11.5) {};
+\node[ball,text width=0.05cm,fill=red!70,anchor=base] (can2) at (5.5,-11.5) {};
+
+% plus sign in denominator
+\draw[thick] (5.9,-11.4) -- (5.9,-11.6);
+\draw[thick] (5.8,-11.5) -- (6,-11.5);
+
+% arrows showing the output of the sieves formed the fraction
+\draw[->,thick,draw=red!80] (tray1.south) to [out=280,in=180] (can);
+\draw[->,thick,draw=red!80] (tray1.south) to [out=280,in=180] (can2);
+\node[anchor=north,inner sep=.1cm,align=center,fill=white] (why2) at
+   (3.8,-9.8) {$1\% * 80\%$};
+
+\draw[->,thick,draw=blue!50] (tray2.south) to [out=265,in=0] (ncan);
+\node[anchor=north,inner sep=.1cm,align=center,fill=white] (why2) at
+   (8.4,-9.8) {$99\% * 9.6\%$};
+
+% explanation of final formula
+\node[anchor=north west,text width=6.5cm] (note2) at (-6,-12.5)
+   {Finally, to find the probability that a positive test
+       \emph{actually means cancer}, we look at those who passed
+       through the sieve \emph{with cancer}, and divide by all who
+       received a positive test, cancer or not.}; 
+
+% illustrated fraction turned into math
+\node[anchor=north,text width=10cm] (solution) at (6,-12.5) {
+  \begin{align*}
+    & \p(\text{cancer}\mid\testp) & \\
+    & =\frac{\p(\testp\mid\text{cancer})}{\p(\testp\mid\text{cancer})
+        + \p(\testp\mid{\sim}\text{cancer})} & \\
+    & =\frac{1\% * 80\%}{(1\% * 80\%) + (99\% * 9.6\%)} &= 7.8\%
+   \end{align*}};
+\end{tikzpicture}
+
+\esolution
+
+\question \label{quest:prob-6}
+
+Suppose that a barrel contains many small plastic eggs. Some eggs are painted red and some are painted blue. 40% of the eggs in the bin contain pearls, and 60% contain nothing. 30% of eggs containing pearls are painted blue, and 10% of eggs containing nothing are painted blue. What is the probability that a blue egg contains a pearl?
+
+<!-- For this example the arithmetic is simple enough that you may be able to do it in your head, and I would suggest trying to do so. -->
+
+\bsolution (Question \ref{quest:prob-6}) 
+
+We have,
+
+$\probP(\text{pearl}) = 40\%$
+
+$\probP(\text{blue}|\text{pearl}) = 30\%$
+
+$\probP(\text{blue}|\sim{}\text{pearl}) = 10\%$
+
+$\probP(\text{pearl}|\text{blue}) = ?$
+
+It can be learnt that,
+
+- Since 40% of the eggs contain pearls and 30% of the eggs containing pearls are painted blue, 12% of the eggs altogether contain pearls and are painted blue.
+- Since 60% of the eggs contain nothing and 10% of the eggs containing nothing are painted blue, 6% of the eggs contain nothing and are painted blue.
+- A total of 18% (12 + 6) of the eggs are painted blue.
+
+$\therefore$ $\probP(\text{pearl}|\text{blue}) = \frac{\probP(\text{perl}) \land \probP(\text{blue})}{\probP (\text{blue})} = \frac{12}{18}$
+
+\esolution
+
+\question \label{quest:prob-7}
+
+Suppose we draw a card and it turns out to be red. What are the odds that the card is a $\diamondsuit$ ?
+
+\bsolution (Question \ref{quest:prob-7}) 
+
+Let $A$ denote getting a diamond and B getting a red card. Then $\probP(A\cap B)$ is the probability that a card is red and a diamond, which simply means that it is a diamond, $\probP(A\cap B) = 1/4$. The probability of a card being red is $\probP(B) = 1/2$. Therefore, the probability of a card being a diamond, given that it is red, is:
+
+
+$$
+\probP (A|B) = \frac{\probP(A\cap B)}{\probP(B)} = \frac{1/4}{1/2} = 1/2.
+$$
+
+\esolution
+
+\question \label{quest:prob-8}
+
+Rolling three dice, what is the probability of getting a $\epsdice{3}$ on the first roll if the sum of the three outputs is 6 ?
+
+\bsolution (Question \ref{quest:prob-8}) 
+
+Let $A$ denote the even that the sum of the three outputs is 6, and $B$ the event of getting a 3 on the first roll. We need to find $P(B|A)$. By definition,
+
+$$
+P(B|A) = \frac{P(A \cap B)}{P(A)}
+$$
+
+The outcomes in A are $\{\epsdice{2},\epsdice{2},\epsdice{2}\}$, $\{\epsdice{1},\epsdice{1},\epsdice{4}\}$, $\{\epsdice{4},\epsdice{1},\epsdice{1}\}$, $\{\epsdice{1},\epsdice{4},\epsdice{1}\}$, and the six permutations of $\{1,2,3\}$, totalling ten outcomes. ($\because~ _3P_3 = 3! = 6$.) Then we have $P(A) = \frac{10}{6^3} = \frac{5}{108}$. The outcomes of $(A \cap B)$ are $\{3,2,1\}$ and $\{3,1,2\}$, so $P(A\cap B) = \frac{2}{6^3} = \frac{1}{108}$. Then
+
+$$
+\large
+P(B|A) = \frac{\frac{1}{108}}{\frac{5}{108}} = \frac{1}{5}.
+$$
+
+We could have used Bayes' law to compute the same probability:
+
+$$
+P(B|A) = \frac{P(A|B).P(B)}{P(A)}.
+$$
+
+Then we need to know $P(B)$ and $P(A|B)$. The first is easy: the probability of getting a 3 in one roll of a die is $P(B) = \frac{1}{6}$. The second is the probability of getting the sum of the three outputs equal to 6, given that the first output is $\epsdice{3}$. This is the same as the probability of getting the sum of two outputs in two rolls equal to 3. There are two possibilities: $\{1,2\}$ and $\{2,1\}$. Therefore, $P(A|B) = \frac{2}{36} = \frac{1}{18}$. Bayes' law gives
+
+$$
+P(B|A) = \frac{P(A|B).P(B)}{P(A)} = \frac{\frac{1}{18}.\frac{1}{6}}{\frac{5}{108}} = \frac{1}{5}.
+$$
+
+\esolution
+
+\question \label{quest:prob-9}
+
+\bsolution (Question \ref{quest:prob-9}) 
+
+
+\esolution
+
+
+\equestions
+

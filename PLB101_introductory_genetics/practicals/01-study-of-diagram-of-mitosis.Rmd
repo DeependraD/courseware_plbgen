@@ -134,7 +134,7 @@ knitr::include_graphics("./../images/cell_cycle/mitosis_animal_cell31.png")
 \item By the end of anaphase, the two ends of the cell have equivalent -- and complete -- collections of chromosomes.
 \end{itemize}
 
-```{r mitosis-anaphase, fig.align='center'}
+```{r mitosis-anaphase, fig.align='center', out.width="45%"}
 knitr::include_graphics("./../images/cell_cycle/mitosis_animal_cell32.png")
 ```
 
@@ -151,7 +151,7 @@ knitr::include_graphics("./../images/cell_cycle/mitosis_animal_cell32.png")
 \item Mitosis, the division of one nucleus into two genetically identical nuclei, is now complete.
 \end{itemize}
 
-```{r mitosis-telophase, fig.align='center'}
+```{r mitosis-telophase, fig.align='center', out.width="45%"}
 knitr::include_graphics("./../images/cell_cycle/mitosis_animal_cell33.png")
 ```
 

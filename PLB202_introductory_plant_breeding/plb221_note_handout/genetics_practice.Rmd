@@ -1,0 +1,78 @@
+---
+title: "Practice Set - I"
+author: |
+  | Deependra Dhakal
+# date: "9/18/2020"
+output: 
+  bookdown::pdf_document2:
+    keep_tex: yes
+    toc: false
+documentclass: exam
+classoption: "answers,addpoints,12pt"
+geometry: "top=1.5cm,bottom=1.5cm,left=1.5cm,right=1.5cm"
+header-includes:
+  - \newcommand{\bquestions}{\begin{questions}}
+  - \newcommand{\equestions}{\end{questions}}
+  # - \newcommand{\bsolutionex}{\begin{solution}}
+  # - \newcommand{\esolutionex}{\end{solution}}
+  - \newcommand{\bparts}{\begin{parts}}
+  - \newcommand{\eparts}{\end{parts}}
+  - \newcommand{\stpart}{\part} % this is absolutely necessary to make new part command
+  - \newcommand{\bsubparts}{\begin{subparts}}
+  - \newcommand{\esubparts}{\end{subparts}}
+  - \newcommand{\stsubpart}{\subpart}
+  - \usepackage{float} % this package is essential for solution with code
+  - \usepackage{eqnarray, amsmath}
+  - \usepackage{booktabs}
+  - \usepackage{longtable}
+  - \usepackage{array}
+  - \usepackage{multirow}
+  - \usepackage{wrapfig}
+  - \usepackage{colortbl}
+  - \usepackage{pdflscape}
+  - \usepackage{tabu}
+  - \usepackage{threeparttable}
+  - \usepackage{threeparttablex}
+  - \usepackage[normalem]{ulem}
+  - \usepackage{makecell}
+  - \usepackage{xcolor}
+  - \usepackage{amsmath}
+  - \usepackage{caption}
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, include = TRUE, message = FALSE, warning = FALSE)
+options(knitr.kable.NA = '')
+require(tidyverse)
+```
+
+\textbf{Numerical Problems}
+
+\bquestions
+
+\question \label{quest:first}
+
+How often in a family of 3 children where both parents are heterozygous for non-red hair (Rr) and have wavy hair (h1h2) will the children be:
+
+i. A red wavy-haired girl, a non-red curly-haired boy and a red straight-haired girl
+ii. Two red wavy-haired boy and one non-red straight-haired girl
+
+<!-- \bsolutionex -->
+
+(Solution to Question \ref{quest:first}) 
+$\longrightarrow$
+
+```{r}
+choose(6, 2)
+combn(letters[1:6], 2)
+
+```
+
+
+So, 
+
+
+<!-- \esolutionex -->
+
+\equestions

@@ -21,7 +21,7 @@ tribble(
   "Blue x Purple", "$\\frac{3}{8}B, \\frac{4}{8}P, \\frac{1}{8}S$",
   "Purple x Scarlet", "$\\frac{1}{2}P, \\frac{1}{2}S$"
 ) %>% 
-  knitr::kable(booktabs = TRUE, escape = FALSE) %>% 
+  knitr::kable(booktabs = TRUE, escape = FALSE, longtable = TRUE) %>% 
   kableExtra::kable_styling(position = "center", font_size = 8)
 ```
 

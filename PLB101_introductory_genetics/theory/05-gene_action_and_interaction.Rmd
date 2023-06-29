@@ -38,7 +38,7 @@ theme_set(theme_bw())
 - There are a variety of phenotypic ratios which are the result of a variety of gene interaction. Steps in inferring gene interaction :
   1. Obtain many single-gene mutants and test for dominance
   2. Test the mutants for allelism
-  3. Combine the mutants in pairs (the process is detailed in a Complementation test^[Refer to lecture notes on 'Nature of gene', Course: Genetics of population, $5^{th}$ semester, BScAg]) to form double mutants to see if the genes interact.
+  3. Combine the mutants in pairs (the process is detailed in a Complementation test\footnote[frame]{Refer to lecture notes on 'Nature of gene', Course: Genetics of population, $5^{th}$ semester, BScAg]) to form double mutants to see if the genes interact.}
   
 ##
 
@@ -289,9 +289,9 @@ map2_dfc(.x = (combination_genotypes %>%
   
 <!--   \column{0.48\linewidth} -->
 
-<!-- ```{r comb-types-poultry, fig.cap="Comb types in poultry; (A) single, (B) Rose (C) Pea (D) Walnut.", out.width="80%"} -->
-<!-- knitr::include_graphics("../images/comb-types-poultry.png") -->
-<!-- ``` -->
+```{r comb-types-poultry, fig.cap="Comb types in poultry; (A) single, (B) Rose (C) Pea (D) Walnut.", out.width="80%"}
+knitr::include_graphics("../images/comb-types-poultry.png")
+```
 
 <!-- \end{columns} -->
 

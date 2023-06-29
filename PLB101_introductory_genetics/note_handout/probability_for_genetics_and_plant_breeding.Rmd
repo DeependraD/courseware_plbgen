@@ -1,0 +1,416 @@
+---
+title: "Probability for Genetics and Plant Breeding"
+subtitle: "Numerical Exercises"
+author: |
+  | Deependra Dhakal
+  <!-- | Non Affiliated -->
+# date: "November, 2021"
+output: 
+  bookdown::pdf_document2:
+    keep_tex: yes
+    toc: false
+    includes:
+      in_header: ss_header.tex
+    number_sections: false
+documentclass: exam
+classoption: "answers,addpoints,12pt"
+geometry: "top=1.5cm,bottom=1.5cm,left=1.5cm,right=1.5cm"
+header-includes:
+  - \usepackage{wasysym}
+  - \usepackage{caption}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, include = TRUE, message = FALSE, warning = FALSE)
+options(knitr.kable.NA = '', kableExtra.latex.load_packages = TRUE)
+require(tidyverse)
+```
+
+# Probability
+
+\bquestions
+
+\question \label{quest:genprob1-1}
+
+A blue-eyed and right-handed man had married a dark-eyed right-handed woman. One of their 3 children is blue-eyed and right-handed, while the other two are dark-eyed and left-handed. The man marries again. This time he has right-handed and dark-eyed wife. They have 11 children, all right-handed and dark-eyed. What are probable genotypes of the husband and his wives.
+
+\bsolution (Question \ref{quest:genprob1-1}) 
+
+Based on generalization about the nature of human body, there are fewer left-handed people among us than are the right handed. Right-handedness is a dominant trait (conditioned by $R$ allele), and the left-handedness is recessive trait (conditioned by $r$ allele). The dark eyes, $D$ allele, are dominant over blue eyes ($d$ allele). Thus, the genotype of the man is most likely $R\_dd$. Both wives were right-handed and dark-eyed (dominant traits): $R\_D\_$.
+
+Man has one right-handed, blue-eyed child ($R\_dd$) and two left-handed, dark-eyed children ($rrDd$) from first marriage. The only way to have a left-handed child is if both parents have a left-handed allele, $r$. So, parents in first marriage are heterozygous with respect to handedness ($Rr$). The only way to produce a blue-eyed child is if both parents posses a blue-eyed allele, $d$. Thus, first wife must be heterozygous with respect to eye color ($Dd$). The father's eye color genotype is $dd$. Therefore the genotypes must have been as follows: man -- $Rrdd$, first wife -- $RrDd$
+
+The second marriage produced 11 right-handed and dark-eyed children. If new wife were heterozygous for either character, chances of recessive phenotype occuring existed. However, none of the recessive traits were exhibited in offspring. Taking this fact into account, the second wife must be homozygous dominant for both characters ($RRDD$).
+
+\esolution
+
+\question \label{quest:genprob1-2}
+
+Large eyes and thick lips are dominant traits. A man with small eyes and thin lips have wife with large eyes and thick lips. They have a son with large eyes and thick lips. Son married a woman with large eyes and thin lips. They produced 2 children -- Boys with large eyes and thin lips and girl with small eyes and thick lips. Determine the genotypes of all the parents.
+
+\bsolution (Question \ref{quest:genprob1-2}) 
+
+Let us use following symbology to represent the dominance and recessive forms of alleles:
+
+- Large eyes: $E$
+- Small eyes: $e$
+- Thick lips: $L$
+- Thin lips: $l$
+
+
+$$
+\begin{aligned}
+&\text{Parents:}& &E\_L\_& &\times& &eell& \\
+&& &\female& && &\male& \\
+&\text{Gametes:}& &EL \text{ or } El \text{ or } eL \text{ or } el& && &el& \\
+&\text{Son:}& && &EeLl& && \\
+\end{aligned}
+$$
+
+
+\begin{longtable}[t]{lllll}
+& $Eell$ (Son's wife) &  & $EeLl$ (Son) & \\
+& $\female$ & x & $\male$ & \\
+Gametes: & $El, el$ &  & $EL, eL, El, el$ & \\
+Children: & \female$eeLl$ &  & \male$E\_ll$ & \\
+\end{longtable}
+
+$\therefore$ The parents from this family have following genotypes:
+
+- Man: $eell$
+- Wife: $E\_L\_$
+- Son: $EeLl$
+- Son's wife: $Eell$
+
+\esolution
+
+\question \label{quest:genprob1-3}
+
+<!-- For a thorough description of sickle cell disease inheritance refer to Title 6 (Gene actions) of the practical manual. -->
+
+Sickle cell anemia and talasemia are inherited as incomplete dominance traits. Homozygous individuals die early, while individuals heterozygous on both genes are viable and have a special form of haemoglobin. Malarial plasmodium is not able to feed on this haemoglobin, so heterozygotes do not get sick with malaria. Double heterozygotes develop mild, non-manifested (microdrepanocytary) anaemia. What is the probability of healthy child birth in a family where one parent is heterozygous in respect to sickle cell anemia but normal on talasemia and other is normal with respect to sickle cell anaemia, but heterozygous on talasemia.
+
+\bsolution (Question \ref{quest:genprob1-3}) 
+
+Let us refer to the conditions with symbology,
+
+- S: Sickle cell anaemia
+- A: Absence of sickle cell anaemia (In reality, "A" is dominant over "S")
+- T: Talasemia
+- B: Absence of talasemia
+
+Independently, diploid phenotypes for each genetic loci exhibits following conditions:
+
+- SS: Severe SC anaemia
+- SA: Light, non-clinical form of anaemia
+- AA: No anaemia
+- TT: Severe talasemia
+- TB: Light, non-clinical form of talasemia
+- BB: No talasemia
+
+The parental cross suggested above can be written as: $\female SABB \times AATB$. Taken that the genes assort independently, we can illustrate the gametic fusion in punnet square as follows.
+
+```{r punnet-anaemia-talasemia}
+tribble(
+  ~"M/F", ~"SB", ~"AB",
+  "AT", "SATB, 25%, light form of both diseases", "AATB, 25%, light form of talasemia, no anaemia",
+  "AB", "SABB, 25%, light form of anaemia, no talesima", "AABB, 25%, healthy with respect to both diseases but not resistant to malaria"
+) %>% 
+  knitr::kable(booktabs = TRUE, longtable = TRUE) %>% 
+  kableExtra::kable_styling() %>% 
+  kableExtra::column_spec(column = 1:3, width = c("3em", "12em", "12em"))
+```
+
+$\therefore$ The probability of a healthy child free of extreme cases of either of two conditions is 25%.
+
+\esolution
+
+\question \label{quest:genprob1-4}
+
+In human some forms of short-sightedness dominate over normal vision and brown eyes dominate over the blue. Genes of both pairs of traits are situated in different chromosomes. What children can be expected from parents, which are heterozygous for both genes ?
+
+\bsolution (Question \ref{quest:genprob1-4}) 
+
+Let us, for convenience, take following symbology to represent different conditions:
+
+- S: Short-sightedness
+- s: Normal vision
+- B: Brown eyes
+- b: Blue eyes
+
+```{r}
+# specify colors data frame
+
+gametes_ab <- t(outer(c("S", "s"), c("B", "b"), paste0)) %>% as.character()
+
+genotype_ab <- outer(gametes_ab, gametes_ab, paste0) %>% 
+  magrittr::set_colnames(gametes_ab) %>% 
+  as_tibble()
+
+colors_ab <- tibble(
+  "SB" = rep("red!80", 4),
+  "Sb" = rep("red!80", 4),
+  "sB" = c(rep("red!80", 2), rep("green!10", 2)),
+  "sb" = c(rep("red!80", 2), "green!10", "blue!90")
+)
+
+map2_dfc(genotype_ab, colors_ab, 
+         ~kableExtra::cell_spec(.x, background = .y, format = "latex")) %>% 
+  add_column(.before = 1, "Gamete" = colnames(.)) %>% 
+  knitr::kable(booktabs = TRUE, format = "latex", escape = FALSE, linesep = "", caption = "This phenomena is also known as dominant epistasis, in that one of the two genes shows epistatic action on other when present in dominant state. Gene 'S' is epistatic to gene 'B'. 'S' masks the effect of 'B' with its own phenotype when they both occur together, while B, on its own, shows distinct phenotype.", longtable = TRUE) %>%
+  kableExtra::kable_styling(font_size = 8) %>% 
+  kableExtra::column_spec(1:5, width = c("2em", rep("2.5em", 4)))
+```
+
+From the Punnet square, we observe that 3 of 4 genotypes providing normal vision have brown eyes. The genotype $ssbb$ provides information for blue eyes and normal vision. All other genotypes (12) code for the short-sightedness: 3 with blue eye color and 9 with brown eye color.
+
+\esolution
+
+\question \label{quest:genprob1-5}
+
+How often in families of 3 children where both parents are heterozygous for non-red hair ($Rr$) and have wavy hair ($h_1h_2$) will children be
+
+i. a red haired girl, a non-red curly haired boy and a red straight haired girl ?
+ii. two red wavy haired boy and one non-red straight haired girl ?
+
+\bsolution (Question \ref{quest:genprob1-5}) 
+
+Given,
+
+- Total number of children ($n$): 3
+- Non-red hair genotype: $Rr$
+- Straight hair genotype: $h_1h_1$
+- Wavy hair genotype: $h_1h_2$
+- Curly hair genotype: $h_2h_2$
+- Dominance relation follows: non-Red ($R$) > Red ($r$)
+
+$$
+\begin{aligned}
+&\female &\times &\male\\
+&Rr,h_1h_2 & & Rrh_1h_2
+\end{aligned}
+$$
+
+Segregation follows,
+
+- At "R" loci: $\frac{1}{4}RR: \frac{2}{4}Rr: \frac{1}{4}rr$ (3 Non-red, 1 Red)
+- At "h" loci: $\frac{1}{4}h_1h_1: \frac{2}{4}h_1h_2: \frac{1}{4}h_2h_2$ (1 Straight, 2 Wavy, 1 Curly)
+
+We have,
+
+- P(1 red wavy haired girl) = $\frac{1}{4}\times \frac{1}{2} \times \frac{1}{2} = \frac{1}{16}$
+- P(1 red straight haired girl) = $\frac{1}{4}\times \frac{1}{4} \times \frac{1}{2} = \frac{1}{32}$
+- P(1 non-red wavy haired girl) = $\frac{1}{2}\times \frac{1}{2} \times \frac{1}{2} = \frac{1}{8}$
+- P(1 non-red straight haired girl) = $\frac{1}{2}\times \frac{1}{4} \times \frac{1}{2} = \frac{1}{16}$
+- P(1 red wavy haired boy) = $\frac{1}{4}\times \frac{1}{2} \times \frac{1}{2} = \frac{1}{16}$
+- P(1 non-red straight haired boy) = $\frac{3}{4}\times \frac{1}{4} \times \frac{1}{2} = \frac{3}{32}$
+
+Probability of occurrence of particular combination from multiple **independent events** (for example, trinomial combination of certain genotype at "R" loci, at "h" loci and certain sex type) could be obtained by multinomial distribution.
+
+$\longrightarrow$ (i)
+
+Combined probability of a red haired girl, a non-red curly haired boy and a red straight haired girl ($P(A)$) 
+
+$$
+\begin{aligned}
+&= \frac{n!}{s!t!u!} \times p^s.q^t.r^u \\
+&= \frac{3!}{1!1!1!} \times \left(\frac{1}{16}\right)^1.\left(\frac{3}{32}\right)^1.\left(\frac{1}{32}\right)^1 \\
+&= \frac{18}{16\times 32 \times 32} \\
+&= \frac{18}{163884}
+\end{aligned}
+$$
+
+
+$\longrightarrow$ (ii)
+
+Combined probability of two red wavy haired boy and one non-red straight haired girl ($P(B)$) 
+
+$$
+\begin{aligned}
+&= \frac{n!}{s!t!} \times p^s.q^t \\
+&= \frac{3!}{2!1!} \times \left(\frac{1}{16}\right)^2.\left(\frac{3}{32}\right)^1 \\
+&= \frac{9}{16^2\times 32} \\
+&= \frac{9}{8192}
+\end{aligned}
+$$
+
+\esolution
+
+<!-- \clearpage -->
+
+\question \label{quest:genprob1-6}
+
+Two gene pairs are segregating in a pea plant in which the factor for smooth is dominant over that for wrinkled, and that for yellow is dominant over green. If a heterogyote for both gene pairs is self-fertilized, what is the probability of having 19 offspring of which 8 are smooth yellow, 5 are smooth green, 4 are wrinkled yellow and 2 are wrinkled green ?
+
+\bsolution (Question \ref{quest:genprob1-6}) 
+
+Here,
+
+- Probability of smooth yellow offsprings ($P_a$) = $\frac{9}{16}$
+- Probability of smooth green offsprings ($P_b$) = $\frac{3}{16}$
+- Probability of wrinkled yellow  offsprings ($P_c$) = $\frac{3}{16}$
+- Probability of wrinkled green  offsprings ($P_d$) = $\frac{1}{16}$
+
+Combined probaility for $a = 8, b = 5, c = 4, d = 2$ when $n = 19$ is given by multinomial distribution.
+
+
+$$
+\begin{aligned}
+&= \frac{n!}{a!b!c!d!} \times p^a.q^b.r^c.s^d \\
+&= \frac{19!}{8!5!4!2!} \times \left(\frac{9}{16}\right)^8.\left(\frac{3}{16}\right)^5.\left(\frac{3}{16}\right)^4.\left(\frac{1}{16}\right)^2 \\
+&= 0.00057
+\end{aligned}
+$$
+
+\esolution
+
+\question \label{quest:genprob1-7}
+
+Two heterozygous brown-eyed (Bb) individuals have five children. What is the probability that two of the couple's five children will have blue eye ?
+
+\bsolution (Question \ref{quest:genprob1-7}) 
+
+Applying binomial expansion
+
+1. Calculate individual probabilities (Using punnet square)
+
+$$
+\begin{aligned}
+P_{(\text{blue eyes})} &= p = \frac{1}{4} \\
+P_{(\text{brown eyes})} &= q = \frac{3}{4}
+\end{aligned}
+$$
+
+2. Determine the number of events
+
+$$
+\begin{aligned}
+n &= \text{total number of children} = 5 \\
+x &= \text{total number of blue-eyed children} = 2
+\end{aligned}
+$$
+
+3. Substituting the values in the following binomial equation, $2^{nd}$ term ($\frac{n!}{s! t!} p^2 q^3$) and its coefficient gives the probability of having two children with blue eyes. That is,
+
+$$
+P = \frac{5!}{2! \times 3!} \left(\frac{1}{4}\right)^2 \left(\frac{3}{4}\right)^3 = 0.26
+$$
+
+This yields that 26% of the time, a heterozygote couples' five of the children will contain two with blue eyes and three with brown eyes.
+
+\esolution
+
+\question \label{quest:genprob1-8}
+
+How often in  families of 5 children where one parent is heterozygous for malaria resistance and other is homozygous for malaria resistance will the children be 3 resistant girls and 2 resistant boys ?
+
+\bsolution (Question \ref{quest:genprob1-8}) 
+
+We assume that sickle cell carrier and both sickle cell affected individuals are resistant to malarial parasite _P. falciparum_. The sickle cell trait is a recessive affecting condition; affected individuals are $Hb_S Hb_S$ (malaria resistant). The contrary are normal (non-anaemic) phenotypes -- $Hb_S Hb_A$ or $Hb_A Hb_A$ (Although both are normal with respect to sickle cell anaemia, only homozygous dominant individuals are susceptible to maleria).
+
+From parental mating between heterozygote ($Hb_A Hb_S$) and homozygote recessive ($Hb_S Hb_S$), the progeny outcomes could be represented as follows:
+
+$$
+\begin{aligned}
+&\frac{1}{2} Hb_S Hb_A; & \text{Resistant} \longrightarrow \frac{1}{2} \\
+&\frac{1}{2} Hb_S Hb_S; & \text{Resistant} \longrightarrow \frac{1}{2}
+\end{aligned}
+$$
+Hence, all children are resistant to Malaria.
+
+- The probability of having 3 girls and 2 boys resistant to malaria is ${\large \frac{5!}{3!\times 2!}\times \left(\frac{1}{1}\right)^3 \times \left(\frac{1}{2}\right)^2 } = \frac{10}{32} = 0.3125$.
+
+\esolution
+
+\question \label{quest:genprob1-9}
+
+Albinism in human is controlled by a recessive gene $c$. From a marriage between two partners, if both partners are carriers, $Cc$ for albinism, what is the chance that:
+
+i. All 4 children of them are normal
+ii. 3 normal and 1 albino
+iii. 1 normal and 3 albino
+iv. All 4 are albinos
+
+\bsolution (Question \ref{quest:genprob1-9}) 
+
+From parental mating between heterozygotes (for Albinisim gene), the progeny outcomes could be represented as follows:
+
+$$
+\begin{aligned}
+&\frac{1}{4} CC, \frac{1}{2} Cc; & \text{Normal} \longrightarrow \frac{3}{4} \\
+&\frac{1}{4} cc; & \text{Albino} \longrightarrow \frac{1}{4}
+\end{aligned}
+$$
+
+Let us consider a binomial expansion of the form $(a + b)^4$, where $a$ refers to the event of having "Normal" offspring and $b$ refers to the event of having "Albino" offspring. The expanded expression has a total of 5 terms.
+
+- The probability that all 4 of children are normal is $\left(\frac{3}{4}\right)^4 = 0.32$.
+- The probability that 3 normal and 1 albino child occur is given by the 2nd term of the binomial expansion -- ${\large \frac{4!}{3!\times 1!}}\times \left(\frac{3}{4}\right)^3 \times \left(\frac{1}{4}\right)^1 = 0.42$.
+- The probability that 1 normal and 3 albino child occur is given by the 4th term of the binomial expansion -- ${\large \frac{4!}{1!\times 3!}}\times \left(\frac{3}{4}\right)^1 \times \left(\frac{1}{4}\right)^3 = 0.047$.
+- The probability that all 4 of children are albino is $\left(\frac{1}{4}\right)^4 = 0.004$.
+
+\esolution
+
+\question \label{quest:genprob1-10}
+
+Phenylketonuria (PKU) is a human hereditary disease resulting from the inability of the body to process the chemical phenylalanine, which is contained in the protein that we eat. PKU is manifested in early infancy and, if it remains untreated, generally leads to mental retardation. PKU is caused by a recessive allele with simple Mendelian inheritance.
+
+A couple intends to have children but consult a genetic counselor because the man has a sister with PKU and the woman has a brother with PKU. There are no other known cases in their families. They ask the genetic counselor to determine the probability that their first child will have PKU. What is this probability?
+
+\bsolution (Question \ref{quest:genprob1-10}) 
+
+If we let the allele causing the PKU phenotype be p and the respective normal allele be P, then the sister and brother of the man and woman, respectively, then the sister and brother of the man and woman, respectively, must have been p/p. To produce these affected persons, all four grandparents must have been heterozygous normal. The pedigree can be summarized as follows:
+
+<!-- ```{r pedigree-plot, out.width="50%", fig.cap="Pedigree diagram representing case of probability of PKU in a child."} -->
+
+<!-- library(kinship2) -->
+<!-- pku_pedigree <- tribble(~"id", ~"dad", ~"mom", ~"sex", ~"disease_stat", -->
+<!--                         "id1", NA, NA, "male", 0, -->
+<!--                         "id2", NA, NA, "female", 0, -->
+<!--                         "id3", "id1", "id2", "male", 1, -->
+<!--                         "id4", "id1", "id2", "female", 0, -->
+<!--                         "id5", NA, NA, "female", 0, -->
+<!--                         "id6", NA, NA, "male", 0, -->
+<!--                         "id7", "id6", "id5", "female", 1, -->
+<!--                         "id8", "id6", "id5", "male", 0, -->
+<!--                         "id9", "id8", "id4", "male", NA) -->
+
+<!-- pku_ids <- c("Child's\n maternal grandfather", -->
+<!--              "Child's\n maternal grandmother", -->
+<!--              "Child's\n mother's brother", -->
+<!--              "Child's\n mother", -->
+<!--              "Child's\n paternal grandmother", -->
+<!--              "Child's\n paternal grandfather", -->
+<!--              "Child's\n father's sister", -->
+<!--              "Child's\n father", -->
+<!--              "Child") -->
+
+<!-- pdf("./figures/pedigree-gp-p-off.pdf", width = 6, height = 3.5) -->
+<!-- par(pty = "m", mai = c(0.1,0.6,0.1,0.6)) -->
+<!-- with(pku_pedigree, pedigree(id = id, dadid = dad, momid = mom, sex = sex, affected = disease_stat)) %>% -->
+<!--   plot(id = pku_ids, cex = 0.6) -->
+<!-- dev.off() -->
+
+<!-- # Does not run because a (figure) floating environment cannot be nested inside another. -->
+<!-- # knitr::include_graphics("./figures/pedigree-gp-p-off.pdf") -->
+
+<!-- ``` -->
+
+\begin{center}
+{\captionof{figure}{Pedigree diagram representing case of probability of PKU in a child.}\includegraphics[width=0.85\linewidth]{./figures/pedigree-gp-p-off}}
+\end{center}
+
+When these inferences have been made, the problem is reduced to an application of the product rule. The only way in which the man and woman can have a PKU child is if both of them are heterozygotes (it is obvious that they themselves do not have the disease). Both the grandparental matings are simple Mendelian monohybrid crosses expected to produce progeny in the following proportions:
+
+$$
+\begin{aligned}
+&\frac{1}{4} P/P, \frac{1}{2} P/\_; & \text{Normal} \longrightarrow \frac{3}{4} \\
+&\frac{1}{4} p/p; & \textrm{PKU} \longrightarrow \frac{1}{4}
+\end{aligned}
+$$
+
+We know that the man and the woman are normal, and so the probability of each being a heterozygote is 2/3 because, within the P/_ class, 2/3 are P/p and 1/3 are P/P. The probability of both the man and the woman being heterozygotes is 2/3 x 2/3 = 4/9. If both are heterozygous, then one-quarter of their children would have PKU, and so the probability that their first child will have PKU is 1/4 and the probability of their being heterozygous and of their first child's having PKU is 4/9 x 1/4 = 4/36 = 1/9, which is the answer.
+
+\esolution
+
+\equestions

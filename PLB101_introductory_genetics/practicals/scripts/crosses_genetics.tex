@@ -1,0 +1,53 @@
+\documentclass[tikz,border=5mm]{standalone}
+
+\usepackage{xcolor}
+\usepackage{wasysym}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows,calc}
+
+% % Define male and female symbols
+% \tikzset{
+%   male/.pic={
+%     \draw[line width=1mm] (0,0) circle (0.5cm);
+%     \draw[line width=1mm] (0,0.5) -- (0,-0.5);
+%     \draw[line width=1mm] (0.5,0) -- (-0.5,0);
+%   },
+%   female/.pic={
+%     \draw[line width=1mm] (0,0) circle (0.5cm);
+%     \draw[line width=1mm] (0,0.5) arc (90:-90:0.5cm);
+%     \draw[line width=1mm] (-0.5,0) -- (0.5,0);
+%   },
+% }
+
+\renewcommand\baselinestretch{0.75}
+
+\begin{document}
+\begin{tikzpicture}[
+  node distance=5mm,
+  rect box/.style={rectangle,align=center,minimum width=1cm,inner sep=1pt} % minimum size is same as specifying both 'minimum height=1cm,minimum width=1cm'
+]
+
+% parents block
+\node[draw=black,fill=blue,fill opacity=0.2,rect box,text opacity=1] (p1) at (-3,0) {Parent 1\\ Aa} node[below=0.1mm of p1]{$\female$};
+\node[] (cross) at (0,0) {$\times$};
+\node[draw=black,fill=red,fill opacity=0.2,rect box,text opacity=1] (p2) at (3,0) {Parent 2\\ Aa} node[below=0.1mm of p2] {$\male$};
+
+% gametes p1 block
+\node[below left=0.5cm of p1,align=center] (gametelabp1) {\scriptsize Gamete\\\scriptsize types:}
+node[right=2mm of gametelabp1,draw,circle,minimum size=0.2cm,inner sep=1pt] (gametep1A) {\scriptsize A}
+node[right of=gametep1A] (commap1) {,}
+node[right of=commap1,draw,circle,minimum size=0.2cm,inner sep=1pt] (gametep1a) {\scriptsize a};
+
+% gametes p2 block
+\node[below left=0.5cm of p2,align=center] (gametelabp2) {\scriptsize Gamete\\\scriptsize types:}
+node[right=2mm of gametelabp2,draw,circle,minimum size=0.2cm,inner sep=1pt] (gametep2A) {\scriptsize A}
+node[right of=gametep2A] (commap2) {,}
+node[right of=commap2,draw,circle,minimum size=0.2cm,inner sep=1pt] (gametep2a) {\scriptsize a};
+
+% progenies block
+\node[draw,rectangle,align=center,inner sep=1pt] (progenies) at (0,-3) [minimum width=2cm] {AA, Aa, aa};
+
+\draw[-stealth,below of=cross] (cross) -- (progenies);
+
+\end{tikzpicture}
+\end{document}
